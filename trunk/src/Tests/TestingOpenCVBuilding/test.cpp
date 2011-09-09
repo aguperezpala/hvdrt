@@ -30,9 +30,9 @@
 
 using namespace cv;
 
-int main(int, char**)
+int main3(int, char**)
 {
-    VideoCapture cap(0); // open the default camera
+    VideoCapture cap("/home/agustin/facu/tesis/muestreo_videos_lab/11.07.13.19.52.57.GMT.Escollera.C1.STACK.0.0.1280X800.HORUS.avi"); // open the default camera
     if(!cap.isOpened()){
     	// check if we succeeded
     	std::cout << "There are no cammera\n";
@@ -53,13 +53,13 @@ int main(int, char**)
         cap >> frame; // get a new frame from camera
         cvtColor(frame, edges, CV_BGR2GRAY);
         GaussianBlur(edges, edges, Size(7,7), 1.5, 1.5);
-        Canny(edges, edges, 0, 30, 3);
+        Canny(edges, edges, 0, 350, 3);
         imshow("edges", edges);
 
         duration = static_cast<double>(cv::getTickCount()) - duration;
         duration /= cv::getTickFrequency();
         elapsedTime += duration;
-        //std::cout << "FrameTime: " << duration << "\n";
+        std::cout << "FrameTime: " << duration << "\n";
         ++nFrames;
         if(elapsedTime >= 1.0){
         	elapsedTime = 0;
