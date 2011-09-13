@@ -27,6 +27,9 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1161746223" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1799128717" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -35,6 +38,9 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1402872664" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.557435795" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -71,6 +77,9 @@
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.70129456" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
 								<option id="gnu.both.asm.option.include.paths.1016147260" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -853,6 +862,9 @@
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.903943346" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1955426893" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -861,6 +873,9 @@
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.684708112" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.214205738" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1313854046" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -897,6 +912,9 @@
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.release.1807081193" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.release">
 								<option id="gnu.both.asm.option.include.paths.748961892" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1681913384" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
