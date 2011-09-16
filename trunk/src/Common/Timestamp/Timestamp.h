@@ -19,13 +19,13 @@ class Timestamp {
 public:
 	typedef std::pair<double, std::string>	TimestampEntry;
 
-	static double getNowTimeStamp(void) const
+	static double getNowTimeStamp(void)
 	{
 		struct timeval now;
 		if(gettimeofday(&now, 0) < 0)
 			return 0.0;
 
-		return nowDouble = static_cast<double>(now.tv_sec + (
+		return static_cast<double>(now.tv_sec + (
 									static_cast<double>(now.tv_usec)/1000000.0));
 	}
 
@@ -34,13 +34,15 @@ public:
 	// Creates the timestamp now
 	Timestamp()
 	{
-		gettimeofday(&mTimestamp, 0);
+		struct timeval now;
+		gettimeofday(&now, 0);
+		mTimestamp = static_cast<double>(now.tv_sec + (
+						static_cast<double>(now.tv_usec)/1000000.0));
 	}
 
 	double getFirstTimestamp(void) const
 	{
-		return static_cast<double>(mTimestamp.tv_sec + (
-				static_cast<double>(mTimestamp.tv_usec)/1000000.0));
+		return mTimestamp;
 	}
 
 	// Returns the difference from the first timestamp and now
@@ -56,7 +58,7 @@ public:
 
 		double first = getFirstTimestamp();
 
-		return now - first;
+		return nowDouble - first;
 	}
 
 	// Returns the timetamp entries
@@ -75,7 +77,7 @@ public:
 
 
 private:
-	struct timeval 				mTimestamp;
+	double		 				mTimestamp;
 	std::list<TimestampEntry>	mEntries;
 };
 

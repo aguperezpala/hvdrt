@@ -13,30 +13,47 @@
 #include <opencv2/highgui/highgui.hpp>
 
 #include "DebugUtil.h"
+#include "GlobalDefines.h"
 #include "Frame.h"
-#include "FrameListener.h"
+#include "FrameEmitter.h"
 
 
-class ImageGenerator
+class ImageGenerator : public FrameEmitter
 {
 public:
 	ImageGenerator();
-	virtual ~ImageGenerator(){};
+	virtual ~ImageGenerator();
 
-	/* Sets the device */
-	virtual void setDevice(cv::VideoCapture *d);
+	/* Creates a device from a camera and automatically sets the device to
+	 * this object
+	 * Params:
+	 * 		@device		the device ID (0 as default)
+	 * Returns:
+	 * 		true		on success
+	 * 		false		otherwise
+	 */
+	virtual bool createDevice(int device = 0);
 
-	/* Returns the device */
+	/* Creates a device from a video and automatically sets the device to this
+	 * object
+	 * Params:
+	 * 		@videoPath	the path to the video file
+	 * Returns:
+	 * 		true		on success
+	 * 		false		otherwise
+	 */
+	virtual bool createDevice(const std::string &videoPath);
+
+	/* Sets the device.
+	 * Requires:
+	 * 		No device set before.
+	 * 	After calling this function the device d must not be deleted
+	 */
+	virtual bool setDevice(cv::VideoCapture *d);
+
+	/* Returns the device.
+	 * DO NOT DELETE the device */
 	virtual cv::VideoCapture *getDevice(void) const {return mCapturer;}
-
-	/* Adds a new FrameListener */
-	virtual bool addNewFrameListener(FrameListener *fl);
-
-	/* Removes a FrameListener if exists */
-	virtual void removeFrameListener(FrameListener *fl);
-
-	/* Returns true if we are generating image from files */
-	virtual bool isGenFromFile(void) const;
 
 	/* This is the main function. Start to capture frames an call the FrameListeners
 	 * This will create the threadpool/threads if it is necessary.
@@ -44,7 +61,7 @@ public:
 	 * RETURNS:
 	 * 		errCode
 	 */
-	virtual int startGenerating(void);
+	virtual errCode startGenerating(void);
 
 	/* Stops generating frames */
 	virtual void stopGenerating(void);
@@ -52,6 +69,8 @@ public:
 
 private:
 	cv::VideoCapture		*mCapturer;
+	bool					mStop;
+
 };
 
 #endif /* IMAGEGENERATOR_H_ */

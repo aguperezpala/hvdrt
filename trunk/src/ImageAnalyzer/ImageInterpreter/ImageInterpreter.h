@@ -14,17 +14,19 @@
 #include <opencv2/gpu/gpumat.hpp>
 
 
+#include "ImageProcessor.h"
 
-class ImageInterpreter {
+
+class ImageInterpreter : public ImageProcessor {
 public:
 	ImageInterpreter();
 	virtual ~ImageInterpreter(){};
 
 	// Proccess the data on the CPU
-	virtual int processData(cv::Mat &data) = 0;
+	virtual errCode processData(cv::Mat &data) const = 0;
 
 	// Process the data on the GPU
-	virtual int processData(cv::gpu::GpuMat &data) = 0;
+	virtual errCode processData(cv::gpu::GpuMat &data) const  = 0;
 
 };
 

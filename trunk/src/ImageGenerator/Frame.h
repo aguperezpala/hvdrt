@@ -13,10 +13,9 @@
 #include <opencv2/core/core.hpp>
 #include "Timestamp.h"
 
-typedef struct {
+struct Frame {
 	cv::Mat			data;
 	Timestamp		timestamp;
-
-} Frame;
+};
 
 #endif /* FRAME_H_ */

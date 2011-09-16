@@ -11,13 +11,15 @@
 
 #include "Frame.h"
 
+class FrameEmitter;
+
 class FrameListener {
 public:
 	FrameListener(){};
 	virtual ~FrameListener(){};
 
 	/* Process a frame (blocking function) */
-	virtual void processFrame(Frame frame) = 0;
+	virtual void processFrame(Frame &frame) = 0;
 
 };
 
