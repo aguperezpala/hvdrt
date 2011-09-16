@@ -5,7 +5,9 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="cdt.managedbuild.config.gnu.exe.debug.808303811">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.debug.808303811" moduleId="org.eclipse.cdt.core.settings" name="Debug">
-				<externalSettings/>
+				<externalSettings>
+					<externalSetting/>
+				</externalSettings>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -30,7 +32,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.debugging.other.160317497" superClass="gnu.cpp.compiler.option.debugging.other" value="-DDEBUG" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1027568289" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
@@ -41,6 +47,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -80,11 +89,17 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="scannerConfiguration">
@@ -865,6 +880,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -876,6 +894,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1313854046" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -915,11 +936,17 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1681913384" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="scannerConfiguration">
