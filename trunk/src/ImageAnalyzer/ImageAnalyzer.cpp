@@ -120,7 +120,7 @@ errCode ImageAnalyzer::processImageOnGPU(Frame &frame, bool trackProcess)
 			frame.timestamp.addTimestamp("Processing with " + imgProc->getName());
 		}
 
-		err = imgProc->processData(frame.data);
+		err = imgProc->processData(frameData);
 		if(err != NO_ERROR){
 			debug("Some error occurred during the processing of the data %d\t%s\n",
 					err, imgProc->getName().c_str());

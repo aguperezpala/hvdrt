@@ -152,11 +152,12 @@ errCode ImageGenerator::startGenerating(void)
 		tm2 = Timestamp::getNowTimeStamp();
 
 		// TODO: get the time between the get frame and the now and delay
-		//tm2 = tm2 - tm1;
-		//tm2 *= 1000.0;
+		tm2 = tm2 - tm1;
+		tm2 *= 1000.0;
 
 		// delay to get the next frame
-		//usleep(static_cast<useconds_t>(delay - static_cast<int>(tm2)));
+		//usleep(static_cast<useconds_t>(delay - static_cast<int>(tm2))*1000);
+		cv::waitKey(10);
 	}
 
 	return NO_ERROR;
