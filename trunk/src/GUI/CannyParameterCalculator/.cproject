@@ -115,6 +115,7 @@
 				</buildTargets>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 			<storageModule moduleId="org.eclipse.cdt.core.pathentry">
 				<pathentry base-path="/usr/include/qt4" include="" kind="inc" path="" system="true"/>
 				<pathentry base-path="/usr/include/qt4" include="QtSql" kind="inc" path="" system="true"/>
@@ -140,6 +141,7 @@
 				<pathentry base-path="/usr/include/qt4" include="QtDBus" kind="inc" path="" system="true"/>
 				<pathentry include="/usr/local/include" kind="inc" path="" system="true"/>
 				<pathentry include="/usr/local/include/opencv2" kind="inc" path="" system="true"/>
+				<pathentry include="/usr/include/c++/4.4" kind="inc" path="" system="true"/>
 				<pathentry kind="src" path=""/>
 				<pathentry kind="out" path=""/>
 			</storageModule>
