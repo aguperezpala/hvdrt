@@ -354,20 +354,22 @@ static void usingCameraCalibrator()
 
 static void perspective(void)
 {
-	cv::Mat img = cv::imread("../src/Tests/CameraCalibration/Distortion.png");
+
+	// 254
+	cv::Mat img = cv::imread("../src/Tests/CameraCalibration/cheesboard.jpg");
 	cv::Point2f	c1[4];
 	cv::Point2f	c2[4];
 
-	c1[0].x = 0;	c1[0].y = 0;
-	c1[1].x = 10;	c1[1].y = 0;
-	c1[2].x = 0;	c1[2].y = 10;
-	c1[3].x = 10;	c1[3].y = 10;
+	c1[0].x = 253;	c1[0].y = 288;
+	c1[1].x = 466;	c1[1].y = 152;
+	c1[2].x = 31;	c1[2].y = 158;
+	c1[3].x = 247;	c1[3].y = 67;
 
 
-	c2[2].x = 181;	c2[2].y = 387;
-	c2[3].x = 500;	c2[3].y = 416;
-	c2[0].x = 165;	c2[0].y = 83;
-	c2[1].x = 478;	c2[1].y = 74;
+	c2[2].x = 0;	c2[2].y = 0;
+	c2[3].x = 254;	c2[3].y = 0;
+	c2[0].x = 0;	c2[0].y = 254;
+	c2[1].x = 254;	c2[1].y = 254;
 
 
 	cv::Mat tm = cv::getPerspectiveTransform(c1,c2);
