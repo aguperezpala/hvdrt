@@ -73,6 +73,16 @@ ZoneSelector::ZoneSelector(QWidget *parent)
 	ui.verticalLayout->addWidget(mMouseLabel);
 	mMouseLabel->setLabelX(ui.x_label);
 	mMouseLabel->setLabelY(ui.y_label);
+
+	QString filename = QFileDialog::getOpenFileName(this, "Image", ".", "*");
+
+	if(filename.isEmpty()){
+		return;
+	}
+
+	QImage img;
+	img.load(filename);
+	mMouseLabel->setImage(img);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

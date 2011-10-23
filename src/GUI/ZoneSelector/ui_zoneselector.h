@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'zoneselector.ui'
 **
-** Created: Fri Oct 21 20:11:40 2011
+** Created: Sat Oct 22 18:57:11 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -48,7 +48,7 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setSizeConstraint(QLayout::SetMinimumSize);
+        horizontalLayout->setSizeConstraint(QLayout::SetNoConstraint);
         pushButton = new QPushButton(ZoneSelectorClass);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
