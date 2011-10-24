@@ -366,10 +366,14 @@ static void perspective(void)
 	c1[3].x = 247;	c1[3].y = 67;
 
 
+//	c2[2].x = 0;	c2[2].y = 0;
+//	c2[3].x = img.cols;	c2[3].y = 0;
+//	c2[0].x = 0;	c2[0].y = img.rows;
+//	c2[1].x = img.cols;	c2[1].y = img.rows;
 	c2[2].x = 0;	c2[2].y = 0;
-	c2[3].x = 700;	c2[3].y = 0;
-	c2[0].x = 0;	c2[0].y = 700;
-	c2[1].x = 700;	c2[1].y = 700;
+	c2[3].x = 600;	c2[3].y = 0;
+	c2[0].x = 0;	c2[0].y = 600;
+	c2[1].x = 600;	c2[1].y = 600;
 
 
 	cv::Mat tm = cv::getPerspectiveTransform(c1,c2);
@@ -380,9 +384,18 @@ static void perspective(void)
 	cv::Mat m = img.clone();
 	cv::warpPerspective(img,m,tm, img.size());
 
+	cv::namedWindow("Normalafter", 0);
+	cv::imshow("Normalafter", m);
+
+	cv::Mat edges;
+	cv::cvtColor(m, edges, CV_BGR2GRAY);
+	cv::GaussianBlur(edges, edges, cv::Size(7,7), 1.5, 1.5);
+	cv::Canny(edges, edges, 1, 50, 3);
+
+
 //	m = cc.remap(img);
 	cv::namedWindow("after", 0);
-	cv::imshow("after", m);
+	cv::imshow("after", edges);
 
 
 

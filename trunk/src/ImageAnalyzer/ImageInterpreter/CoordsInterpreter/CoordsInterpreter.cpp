@@ -51,7 +51,7 @@ CoordsInterpreter::~CoordsInterpreter() {
 }
 
 /* Sets the rectangle where it will be analyzed the image. */
-void CoordsInterpreter::setAnalizeZone(const cv::Rect &zone)
+void CoordsInterpreter::setAnalyzeZone(const cv::Rect &zone)
 {
 	mAnalyzeZone = zone;
 }
@@ -123,7 +123,6 @@ errCode CoordsInterpreter::processData(cv::Mat &image) const
 		// go to the next row/line
 		data = image.data + l*image.step + beginColumn*image.elemSize();
 	}
-
 
 
 	return NO_ERROR;

@@ -53,7 +53,8 @@ public:
 	virtual ~CoordsInterpreter();
 
 	/* Sets the rectangle where it will be analyzed the image. */
-	void setAnalizeZone(const cv::Rect &zone);
+	void setAnalyzeZone(const cv::Rect &zone);
+	const cv::Rect &getAnalyzeZone(void) const {return mAnalyzeZone;}
 
 	/* Sets the Data where it will be stored the results.
 	 * REQUIRES:

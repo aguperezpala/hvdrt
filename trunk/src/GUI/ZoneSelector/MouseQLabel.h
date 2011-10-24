@@ -8,6 +8,8 @@
 #include <qlabel.h>
 #include <qwidget.h>
 #include <qpainter.h>
+#include <qevent.h>
+#include <qpoint.h>
 
 
 #include <opencv2/core/core.hpp>
@@ -37,6 +39,11 @@ public:
     /* Sets the image to work with */
     void setImage(const QImage &img);
 
+    /* clears the points */
+    void clearPoints(void);
+
+    /* Returns selected points */
+    const std::vector<QPoint> &getPoints(void) const {return mPoints;}
 
 protected:
     void mousePressEvent(QMouseEvent* event);
@@ -48,18 +55,21 @@ private:
 
     /* Remarks the point */
     void remarkPoint(QImage &img, int x, int y);
+    void remarkListPoints(int num, QImage &img);
 
     /* Remark a rectangle */
     void remarkRectangle(QImage &img, int topLeftX, int topLeftY, int bottomRX, int bottomRY);
 
 
 private:
-    int			mX;
-    int			mY;
-    QLabel		*mLabelX;
-    QLabel		*mLabelY;
-
-    QImage		mImg;
+    int							mX;
+    int							mY;
+    QLabel						*mLabelX;
+    QLabel						*mLabelY;
+    QImage						mImg;
+    QImage						mOrigImg;
+    // the list of points
+    std::vector<QPoint>			mPoints;
 };
 
 #endif // MOUSEQLABEL_H

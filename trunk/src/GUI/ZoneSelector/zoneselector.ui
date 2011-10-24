@@ -20,14 +20,21 @@
       <enum>QLayout::SetNoConstraint</enum>
      </property>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="clear_button">
        <property name="text">
         <string>Clear Points</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="preview_button">
+       <property name="text">
+        <string>Preview Transformation</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="done_button">
        <property name="text">
         <string>Done</string>
        </property>

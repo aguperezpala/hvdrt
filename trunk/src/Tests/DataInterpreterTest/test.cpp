@@ -107,7 +107,7 @@ int main(int, char**)
 
 	cv::Rect r(p1,p2);
 
-	ci.setAnalizeZone(r);
+	ci.setAnalyzeZone(r);
 	CoordsInterpreter::Data d;
 	ci.setData(&d);
 
