@@ -367,9 +367,9 @@ static void perspective(void)
 
 
 	c2[2].x = 0;	c2[2].y = 0;
-	c2[3].x = 254;	c2[3].y = 0;
-	c2[0].x = 0;	c2[0].y = 254;
-	c2[1].x = 254;	c2[1].y = 254;
+	c2[3].x = 700;	c2[3].y = 0;
+	c2[0].x = 0;	c2[0].y = 700;
+	c2[1].x = 700;	c2[1].y = 700;
 
 
 	cv::Mat tm = cv::getPerspectiveTransform(c1,c2);

@@ -30,24 +30,62 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/gpu/gpu.hpp>
 #include <opencv2/gpu/gpumat.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
+#include <vector>
 
 #include "DebugUtil.h"
+#include "GlobalDefines.h"
 #include "ImageInterpreter.h"
 
 
 
-class CoordsInterpreter : public ImageInterpreter{
+class CoordsInterpreter : public ImageInterpreter {
+public:
+	// This data will be used to store the points of the image that
+	// are painted (assuming that we are working with a black/white image
+	// where the white image are the points that we want to analyze
+	typedef std::vector<std::vector<int> >	Data;
+
+
 public:
 	CoordsInterpreter();
 	virtual ~CoordsInterpreter();
 
-	// Proccess the data on the CPU
+	/* Sets the rectangle where it will be analyzed the image. */
+	void setAnalizeZone(const cv::Rect &zone);
+
+	/* Sets the Data where it will be stored the results.
+	 * REQUIRES:
+	 * 		data		!= 0
+	 * 		data.size	== zone.width
+	 */
+	void setData(Data *data);
+
+	/* This class will retrieve all the points painted ("white points from a
+	 * black image), and it will store that points coordinates (from bottom to
+	 * top) in the Data structure. This means that the points painted in the
+	 * bottom of the zone will have the lower values in the Data structure, and
+	 * the points that are painted in the top of the zone will have the high
+	 * values
+	 * In each frame the Data will be cleared, so we have to retrieve the info
+	 * in every frame
+	 */
+
+	// Process the data on the CPU
 	errCode processData(cv::Mat &data) const;
 
 	// Process the data on the GPU
 	errCode processData(cv::gpu::GpuMat &data) const;
 
 private:
+	/* function used to clear the data */
+	void clearData(void) const;
+
+private:
+	// The zone to be analyzed
+	cv::Rect				mAnalyzeZone;
+	Data					*mData;
 
 };
 

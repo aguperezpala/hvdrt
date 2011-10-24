@@ -19,7 +19,7 @@
 
 class ImageInterpreter : public ImageProcessor {
 public:
-	ImageInterpreter();
+	ImageInterpreter(){};
 	virtual ~ImageInterpreter(){};
 
 	// Proccess the data on the CPU
