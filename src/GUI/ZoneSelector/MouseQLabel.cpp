@@ -25,6 +25,15 @@ void MouseQLabel::remarkPoint(QImage &img, int x, int y)
 	}
 }
 
+void MouseQLabel::remarkListPoints(int num, QImage &img)
+{
+	num = (num < mPoints.size()) ? num : mPoints.size();
+
+	for(int i = 0; i < num; ++i){
+		remarkPoint(img, mPoints[i].x(), mPoints[i].y());
+	}
+}
+
 void MouseQLabel::remarkRectangle(QImage &img, int topLeftX, int topLeftY, int bottomRX, int bottomRY)
 {
 	for(int i = topLeftX; i < bottomRX; ++i){
@@ -45,7 +54,6 @@ void MouseQLabel::remarkRectangle(QImage &img, int topLeftX, int topLeftY, int b
 MouseQLabel::MouseQLabel(QWidget *parent) :
 QLabel(parent)
 {
-	grabMouse();
 }
 
 MouseQLabel::~MouseQLabel()
@@ -59,13 +67,17 @@ void MouseQLabel::mousePressEvent(QMouseEvent* event)
 {
 	mX = event->x();
 	mY = event->y();
-	std::cout << "MOUSEMOVE: " << mX << " " << mY << std::endl;
 
 
 	if(mX > mImg.width() || mY > mImg.height()){
 		return;
 	}
 
+	// add the new point
+	QPoint p(mX, mY);
+	mPoints.push_back(p);
+
+	// show the new point
 	remarkPoint(mImg, mX, mY);
 	showImage(mImg);
 }
@@ -74,23 +86,24 @@ void MouseQLabel::mouseMoveEvent(QMouseEvent* event)
 {
 	mLabelX->setText(QString::number(event->x()));
 	mLabelY->setText(QString::number(event->y()));
-	QImage img = mImg;
-
-	int tlx = (mX < event->x()) ? mX : event->x();
-	int tly = (mY < event->y()) ? mY : event->y();
-	int brx = (mX > event->x()) ? mX : event->x();
-	int bry = (mY > event->y()) ? mY : event->y();
-
-	remarkRectangle(img, tlx,tly,brx,bry);
-	showImage(img);
-
 }
+
 
 
 /* Sets the image to work with */
 void MouseQLabel::setImage(const QImage &img)
 {
+	mOrigImg = img;
 	mImg = img;
 	showImage(mImg);
 	adjustSize();
 }
+
+/* clears the points */
+void MouseQLabel::clearPoints(void)
+{
+	mImg = mOrigImg;
+	mPoints.clear();
+	showImage(mImg);
+}
+

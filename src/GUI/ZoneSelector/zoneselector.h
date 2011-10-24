@@ -31,6 +31,11 @@ public:
     void setPointsVector(std::vector<cv::Point2i> *vec);
 
 
+public slots:
+    void onClearClicked(void);
+    void onDoneClicked(void);
+    void onPreviewClicked(void);
+
 private:
     int showMessage(const QString &m);
     bool IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref);

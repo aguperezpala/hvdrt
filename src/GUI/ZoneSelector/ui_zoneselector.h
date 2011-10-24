@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'zoneselector.ui'
 **
-** Created: Sat Oct 22 18:57:11 2011
+** Created: Mon Oct 24 18:18:03 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -28,8 +28,9 @@ class Ui_ZoneSelectorClass
 public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *clear_button;
+    QPushButton *preview_button;
+    QPushButton *done_button;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
     QLabel *x_label;
@@ -49,15 +50,20 @@ public:
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetNoConstraint);
-        pushButton = new QPushButton(ZoneSelectorClass);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        clear_button = new QPushButton(ZoneSelectorClass);
+        clear_button->setObjectName(QString::fromUtf8("clear_button"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(clear_button);
 
-        pushButton_2 = new QPushButton(ZoneSelectorClass);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        preview_button = new QPushButton(ZoneSelectorClass);
+        preview_button->setObjectName(QString::fromUtf8("preview_button"));
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(preview_button);
+
+        done_button = new QPushButton(ZoneSelectorClass);
+        done_button->setObjectName(QString::fromUtf8("done_button"));
+
+        horizontalLayout->addWidget(done_button);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
@@ -112,8 +118,9 @@ public:
     void retranslateUi(QWidget *ZoneSelectorClass)
     {
         ZoneSelectorClass->setWindowTitle(QApplication::translate("ZoneSelectorClass", "ZoneSelector", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("ZoneSelectorClass", "Clear Points", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("ZoneSelectorClass", "Done", 0, QApplication::UnicodeUTF8));
+        clear_button->setText(QApplication::translate("ZoneSelectorClass", "Clear Points", 0, QApplication::UnicodeUTF8));
+        preview_button->setText(QApplication::translate("ZoneSelectorClass", "Preview Transformation", 0, QApplication::UnicodeUTF8));
+        done_button->setText(QApplication::translate("ZoneSelectorClass", "Done", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("ZoneSelectorClass", "X:", 0, QApplication::UnicodeUTF8));
         x_label->setText(QApplication::translate("ZoneSelectorClass", "0", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("ZoneSelectorClass", "Y:", 0, QApplication::UnicodeUTF8));
