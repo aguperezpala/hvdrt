@@ -25,7 +25,23 @@
 
 #include "CoordsInterpreter.h"
 
-CoordsInterpreter::CoordsInterpreter() {
+
+
+/* function used to clear the data */
+void CoordsInterpreter::clearData(void) const
+{
+	ASSERT(mData);
+	for(int i = mData->size()-1; i >= 0; --i){
+		mData->at(i).clear();
+	}
+}
+
+
+
+
+CoordsInterpreter::CoordsInterpreter() :
+mData(0)
+{
 	// TODO Auto-generated constructor stub
 
 }
@@ -34,16 +50,89 @@ CoordsInterpreter::~CoordsInterpreter() {
 	// TODO Auto-generated destructor stub
 }
 
+/* Sets the rectangle where it will be analyzed the image. */
+void CoordsInterpreter::setAnalizeZone(const cv::Rect &zone)
+{
+	mAnalyzeZone = zone;
+}
+
+/* Sets the Data where it will be stored the results.
+ * REQUIRES:
+ * 		data		!= 0
+ * 		data.size	== zone.width
+ */
+void CoordsInterpreter::setData(Data *data)
+{
+	ASSERT(data);
+
+	if(mData){
+		debug("Warning, we are setting two times the Data\n");
+	}
+
+	if(data->size() < mAnalyzeZone.width){
+		data->resize(mAnalyzeZone.width + 1);
+	}
+	mData = data;
+}
+
 
 // Proccess the data on the CPU
-errCode CoordsInterpreter::processData(cv::Mat &data) const
+errCode CoordsInterpreter::processData(cv::Mat &image) const
 {
+	ASSERT(mData);
 
+	if(image.channels() != 1){
+		debug("Warning: we are assuming that there are only 1 channel\n");
+		ASSERT(false);
+	}
+
+	// Clears the old data
+	clearData();
+
+	// set the coords to analyze
+	int l = mAnalyzeZone.tl().y;
+	int nl = l + mAnalyzeZone.height;
+
+	int c = mAnalyzeZone.tl().x;
+	int beginColumn = mAnalyzeZone.tl().x;
+	int nc = c + mAnalyzeZone.width;
+
+	int brY = mAnalyzeZone.br().y;
+
+	debug("TLY:%d\tbry:%d\n", l, mAnalyzeZone.br().y);
+	// Check that we are inside of the image
+	if(((l + nl) > image.rows) || ((c + nc) > image.cols)){
+		debug("Error: Analyze Zone is wrong\n");
+		ASSERT(false);
+	}
+
+	uchar* data = image.data + l*image.step + c*image.elemSize();
+	// for all pixels
+	for (; l < nl; ++l) {
+		for (c = beginColumn; c < nc; ++c){
+			if (*data == 0) {
+				// go to the next column
+				data += image.elemSize();
+				continue;
+			}
+			// we have a point to store
+			(mData->at(c - beginColumn)).push_back(brY - l);
+			data += image.elemSize();
+		}
+
+		// go to the next row/line
+		data = image.data + l*image.step + beginColumn*image.elemSize();
+	}
+
+
+
+	return NO_ERROR;
 }
 
 // Process the data on the GPU
 errCode CoordsInterpreter::processData(cv::gpu::GpuMat &data) const
 {
-
+	// by now we not support this function
+	return FEATURE_NOT_SUPPORTED;
 }
 
