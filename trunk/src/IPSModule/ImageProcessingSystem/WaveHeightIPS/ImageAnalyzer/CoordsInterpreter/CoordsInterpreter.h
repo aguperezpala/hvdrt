@@ -36,11 +36,11 @@
 
 #include "DebugUtil.h"
 #include "GlobalDefines.h"
-#include "ImageInterpreter.h"
+#include "ImageProcessor.h"
 
 
 
-class CoordsInterpreter : public ImageInterpreter {
+class CoordsInterpreter : public ImageProcessor {
 public:
 	// This data will be used to store the points of the image that
 	// are painted (assuming that we are working with a black/white image

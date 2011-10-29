@@ -37,6 +37,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.debugging.other.160317497" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" value="-DDEBUG" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -54,6 +57,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -98,23 +104,16 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.808303811.804895590" name="/" resourcePath="src/Tests/CameraCalibration">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.843261223" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug" unusedChildren="">
-							<tool id="cdt.managedbuild.tool.gnu.archiver.base.388641197" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base.1333149856"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.443259345" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1492938815"/>
-							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.2132565689" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1027568289"/>
-							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.772325204" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug.836908551"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1794595322" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.510243149"/>
-							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.1039982778" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug.70129456"/>
-						</toolChain>
-					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/Tests/DataInterpreterTest|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/SystemCLITest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -901,6 +900,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -917,6 +919,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1313854046" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -961,13 +966,16 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1681913384" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/Tests/DataInterpreterTest|src/Tests/CameraCalibration|src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/SystemCLITest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/Tests/ImageManipulation|src/Tests/CameraCalibration|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
