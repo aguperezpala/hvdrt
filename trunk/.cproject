@@ -5,9 +5,7 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="cdt.managedbuild.config.gnu.exe.debug.808303811">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.debug.808303811" moduleId="org.eclipse.cdt.core.settings" name="Debug">
-				<externalSettings>
-					<externalSetting/>
-				</externalSettings>
+				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -22,24 +20,34 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.808303811." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1158585921" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.194336392" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
-							<builder buildPath="${workspace_loc:/HydrodynamicVariablesDetection/Debug}" id="cdt.managedbuild.target.gnu.builder.exe.debug.1830910897" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
+							<builder buildPath="${workspace_loc:/HydrodynamicVariablesDetection/Debug}" id="cdt.managedbuild.target.gnu.builder.exe.debug.1830910897" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
+								</outputEntries>
+							</builder>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1333149856" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1492938815" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1908712541" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1161746223" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1799128717" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="../HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter"/>
+									<listOptionValue builtIn="false" value="../usr/share/qt4/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/GUIIPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/ImageGeneratorConfigurator}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.debugging.other.160317497" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" value="-DDEBUG" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -49,45 +57,29 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1402872664" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.557435795" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="../HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter"/>
+									<listOptionValue builtIn="false" value="../usr/share/qt4/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/GUIIPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/ImageGeneratorConfigurator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.836908551" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.510243149" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
-								<option id="gnu.cpp.link.option.paths.1946613024" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="/usr/local/lib"/>
-									<listOptionValue builtIn="false" value="/home/agustin/programacion/proces-imagenes/libs/OpenCV-2.1.0/3rdparty/lib"/>
-								</option>
-								<option id="gnu.cpp.link.option.libs.1213440243" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="dl"/>
-									<listOptionValue builtIn="false" value="m"/>
-									<listOptionValue builtIn="false" value="pthread"/>
-									<listOptionValue builtIn="false" value="rt"/>
-									<listOptionValue builtIn="false" value="opencv_core"/>
-									<listOptionValue builtIn="false" value="opencv_imgproc"/>
-									<listOptionValue builtIn="false" value="opencv_highgui"/>
-									<listOptionValue builtIn="false" value="opencv_calib3d"/>
-									<listOptionValue builtIn="false" value="opencv_contrib"/>
-									<listOptionValue builtIn="false" value="opencv_features2d"/>
-									<listOptionValue builtIn="false" value="opencv_flann"/>
-									<listOptionValue builtIn="false" value="opencv_gpu"/>
-									<listOptionValue builtIn="false" value="opencv_ml"/>
-									<listOptionValue builtIn="false" value="opencv_objdetect"/>
-									<listOptionValue builtIn="false" value="opencv_video"/>
-									<listOptionValue builtIn="false" value="opencv_ts"/>
-									<listOptionValue builtIn="false" value="opencv_legacy"/>
-								</option>
+								<option id="gnu.cpp.link.option.paths.1946613024" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths"/>
+								<option id="gnu.cpp.link.option.libs.1213440243" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1996848065" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -96,27 +88,37 @@
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.70129456" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
 								<option id="gnu.both.asm.option.include.paths.1016147260" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="../HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter"/>
+									<listOptionValue builtIn="false" value="../usr/share/qt4/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/GUIIPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/GUI/ImageGeneratorConfigurator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/MainProgram"/>
+						<entry excluding="src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/SystemCLITest|src/Tests/DataInterpreterTest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/IPSModule/GUIIPSFactory"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 			<storageModule moduleId="scannerConfiguration">
 				<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
@@ -282,8 +284,8 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1808361536;cdt.managedbuild.tool.gnu.c.compiler.input.1313854046">
-					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.775211430;cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
 							<openAction enabled="true" filePath=""/>
@@ -365,8 +367,8 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.775211430;cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115">
-					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1808361536;cdt.managedbuild.tool.gnu.c.compiler.input.1313854046">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
 							<openAction enabled="true" filePath=""/>
@@ -532,6 +534,89 @@
 					</profile>
 				</scannerConfigBuildInfo>
 				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.923985994;cdt.managedbuild.config.gnu.exe.release.923985994.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.2064553044;cdt.managedbuild.tool.gnu.cpp.compiler.input.932790157">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="makefileGenerator">
+							<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+				</scannerConfigBuildInfo>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.808303811;cdt.managedbuild.config.gnu.exe.debug.808303811.869906340;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.737166808;cdt.managedbuild.tool.gnu.cpp.compiler.input.2051689349">
 					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
@@ -780,6 +865,89 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.808303811;cdt.managedbuild.config.gnu.exe.debug.808303811.869906340;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1149537731;cdt.managedbuild.tool.gnu.c.compiler.input.1370483729">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="makefileGenerator">
+							<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+				</scannerConfigBuildInfo>
 				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1989108264;cdt.managedbuild.config.gnu.exe.debug.1989108264.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.985883227;cdt.managedbuild.tool.gnu.cpp.compiler.input.1692295587">
 					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
@@ -864,9 +1032,6 @@
 					</profile>
 				</scannerConfigBuildInfo>
 			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
-			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 		</cconfiguration>
 		<cconfiguration id="cdt.managedbuild.config.gnu.exe.release.216013182">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.release.216013182" moduleId="org.eclipse.cdt.core.settings" name="Release">
@@ -903,6 +1068,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/GUIIPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/ImageGeneratorConfigurator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -922,6 +1092,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/GUIIPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/ImageGeneratorConfigurator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1313854046" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -969,6 +1144,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/usr/share/qt4/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/GUIIPSFactory}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/ImageGeneratorConfigurator}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1681913384" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -976,9 +1156,14 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="src/Tests/ImageManipulation|src/Tests/CameraCalibration|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/MainProgram"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/IPSModule/GUIIPSFactory"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 			<storageModule moduleId="scannerConfiguration">
 				<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
@@ -1144,8 +1329,8 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1808361536;cdt.managedbuild.tool.gnu.c.compiler.input.1313854046">
-					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.775211430;cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
 							<openAction enabled="true" filePath=""/>
@@ -1227,8 +1412,8 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
-				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.775211430;cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115">
-					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.216013182;cdt.managedbuild.config.gnu.exe.release.216013182.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1808361536;cdt.managedbuild.tool.gnu.c.compiler.input.1313854046">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
 							<openAction enabled="true" filePath=""/>
@@ -1394,6 +1579,89 @@
 					</profile>
 				</scannerConfigBuildInfo>
 				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.923985994;cdt.managedbuild.config.gnu.exe.release.923985994.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.2064553044;cdt.managedbuild.tool.gnu.cpp.compiler.input.932790157">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="makefileGenerator">
+							<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+				</scannerConfigBuildInfo>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.808303811;cdt.managedbuild.config.gnu.exe.debug.808303811.869906340;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.737166808;cdt.managedbuild.tool.gnu.cpp.compiler.input.2051689349">
 					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 						<buildOutputProvider>
@@ -1642,6 +1910,89 @@
 						</scannerInfoProvider>
 					</profile>
 				</scannerConfigBuildInfo>
+				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.808303811;cdt.managedbuild.config.gnu.exe.debug.808303811.869906340;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1149537731;cdt.managedbuild.tool.gnu.c.compiler.input.1370483729">
+					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="makefileGenerator">
+							<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+					<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+						<buildOutputProvider>
+							<openAction enabled="true" filePath=""/>
+							<parser enabled="true"/>
+						</buildOutputProvider>
+						<scannerInfoProvider id="specsFile">
+							<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
+							<parser enabled="true"/>
+						</scannerInfoProvider>
+					</profile>
+				</scannerConfigBuildInfo>
 				<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1989108264;cdt.managedbuild.config.gnu.exe.debug.1989108264.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.985883227;cdt.managedbuild.tool.gnu.cpp.compiler.input.1692295587">
 					<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 					<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
@@ -1726,9 +2077,6 @@
 					</profile>
 				</scannerConfigBuildInfo>
 			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">

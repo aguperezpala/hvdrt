@@ -1,7 +1,7 @@
 /*
- * ImageProcessingSystem.h
+ * MainProgram.h
  *
- *  Created on: 29/10/2011
+ *  Created on: 04/11/2011
  *      Author: agustin
  *
  *
@@ -23,56 +23,49 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IMAGEPROCESSINGSYSTEM_H_
-#define IMAGEPROCESSINGSYSTEM_H_
+#ifndef MAINPROGRAM_H_
+#define MAINPROGRAM_H_
+
 
 #include <QtGui/QWidget>
-#include <QtGui/qwidget.h>
 
-#include <string>
+#include <list>
+#include <vector>
+#include <algorithm>
+#include <auto_ptr.h>
 
 #include "DebugUtil.h"
-#include "GlobalDefines.h"
+#include "GUIIPSFactory.h"
+#include "guiimageprocessingsystem.h"
 
 
-class ImageProcessingSystem {
+
+class MainProgram {
 public:
-	ImageProcessingSystem(const std::string &name = "",
-			const std::string &info = "") :
-				mName(name),
-				mInfo(info)
-	{
+	MainProgram();
+	virtual ~MainProgram();
 
-	}
-
-	virtual ~ImageProcessingSystem(){};
-
-
-	/* Returns the name of the IPS */
-	const std::string &getName(void) const {return mName;}
-
-	/* Returns the info associated to the IPS */
-	const std::string &getInfo(void) const {return mInfo;}
-
-	/* Initialize the Image Processing System.
-	 * Returns errorCode
+	/* Load all the Image processing systems.
+	 * Params:
+	 * 	@factory		The IPSFactory used to load all the ImageProcessingSystems
+	 * Returns errCode
+	 * TODO: load all the processing system using plugins
 	 */
-	virtual errCode initialize(void) = 0;
+	errCode loadProcessingSystems(const IPSFactory *factory);
 
-	/* Executes the IPS and blocks until it finish.
-	 * Returns:
-	 * 	errCode
+	/* Returns all the processing systems */
+	void getProcessingSystems(std::list<const GUIImageProcessingSystem *> &ips);
+
+	/* Execute one of the processing systems loaded. This is a blocking function
+	 * Returns once the IPS had finish and returns the corresponding error code
+	 * Params:
+	 * 	@ipsName		The IPS name to be executed, it must be loaded before
 	 */
-	virtual errCode execute(void) = 0;
+	errCode execute(const std::string &ipsName);
 
 private:
-	ImageProcessingSystem(const ImageProcessingSystem &);
-
-
-private:
-	std::string 		mName;
-	std::string 		mInfo;
+	std::vector<std::auto_ptr<GUIImageProcessingSystem> >	mIPS;
 
 };
 
-#endif /* IMAGEPROCESSINGSYSTEM_H_ */
+#endif /* MAINPROGRAM_H_ */

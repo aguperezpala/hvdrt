@@ -32,6 +32,7 @@ public:
 	 * executed in the order that they will be put here
 	 */
 	virtual void addNewProcessor(const ImageProcessor *ip);
+	virtual void addNewProcessors(const std::list<const ImageProcessor*> &l);
 	virtual void removeProcessor(const ImageProcessor *ip);
 	virtual void removeAllProcessors(void);
 	virtual const std::list<const ImageProcessor*> &getProcessors(void) const

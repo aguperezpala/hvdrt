@@ -100,6 +100,26 @@ bool ImageGenerator::setDevice(cv::VideoCapture *d)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+errCode ImageGenerator::captureFrame(Frame &result)
+{
+	if(!mCapturer){
+		debug("Error: No capturer created\n");
+		return DEVICE_NOT_SET;
+	}
+
+	if(!mCapturer->isOpened()){
+		return DEVICE_NOT_WORKING;
+	}
+
+	if(!mCapturer->read(result.data)){
+		return CAPTURER_ERROR;
+	}
+
+	// everything ok
+	return NO_ERROR;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 /* This is the main function. Start to capture frames an call the FrameListeners
  * This will create the threadpool/threads if it is necessary.
  * Is a blocking function

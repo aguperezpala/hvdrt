@@ -29,23 +29,86 @@
 WaveHeightIPS::WaveHeightIPS() :
 ImageProcessingSystem(WHIPS_NAME, WHIPS_INFO)
 {
+	// adds the FrameProcessor to the ImageGeneratro
+	mImageGenerator.addNewListener(&mFrameProc);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-WaveHeightIPS::~WaveHeightIPS() {
+WaveHeightIPS::~WaveHeightIPS()
+{
 	// TODO Auto-generated destructor stub
+	mImageGenerator.removeFrameListener(&mFrameProc);
 }
 
 
 
 ////////////////////////////////////////////////////////////////////////////////
-virtual errCode WaveHeightIPS::initialize(void)
+errCode WaveHeightIPS::initialize(void)
 {
+
+
+	return NO_ERROR;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+errCode WaveHeightIPS::execute(void)
+{
+	if(!mFrameProc.getImageAnalyzer()){
+		debug("ERROR: No ImageAnalyzer was set\n");
+		return INCOMPLETE_CONFIGURATION;
+	}
+	if(!mImgProcCalibrator){
+		debug("Warning: There was no set the Calibrator Image Processor\n");
+	} else {
+		const std::list<const ImageProcessor*> &l = mFrameProc.getImageAnalyzer()->getProcessors();
+		std::list<const ImageProcessor*>::const_iterator it =
+				std::find(l.begin(), l.end(), mImgProcCalibrator);
+
+		// we have to set the image processor if it wasn't set before
+		if(it == l.end()){
+			// add the imageProcessor to the list first
+			std::list<const ImageProcessor*> nl = l;
+			nl.pop_front(mImgProcCalibrator);
+			mFrameProc.getImageAnalyzer()->addNewProcessors(nl);
+		}
+	}
+
+
+	return mImageGenerator.startGenerating();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::setImgProcCalibrator(ImageProcessor *calibrator)
+{
+	ASSERT(calibrator);
+
+	if(mImgProcCalibrator){
+		debug("Warning: A previous calibrator was set\n");
+	}
+	mImgProcCalibrator = calibrator;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::setImgAnalyzer(ImageAnalyzer *analyzer)
+{
+	ASSERT(analyzer);
+
+	if(mImgAnalizer){
+		debug("Warning: A previous Analyzer was set\n");
+	}
+
+	mFrameProc.setImageAnalyzer(analyzer);
 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-virtual errCode WaveHeightIPS::execute(QWidget *parent)
+void WaveHeightIPS::setTrackingMode(bool track)
 {
+	mFrameProc.setTrackingMode(track);
+}
 
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::setProcessMode(ProcessType mode)
+{
+	mFrameProc.setProcType(mode);
 }

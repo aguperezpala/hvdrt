@@ -26,10 +26,10 @@
 #ifndef WAVEHEIGHTIPS_H_
 #define WAVEHEIGHTIPS_H_
 
-#include <QtGui/qwidget.h>
 
 #include "DebugUtil.h"
 #include "ImageProcessingSystem.h"
+#include "FrameListener.h"
 
 #include "ImageGenerator.h"
 #include "DeviceCalibrator.h"
@@ -45,6 +45,71 @@
 
 class WaveHeightIPS : public ImageProcessingSystem {
 public:
+	typedef enum {
+		CPU_PROCESS,
+		GPU_PROCESS,
+	} ProcessType;
+
+
+private:
+	/* Auxiliar class used to receive the frames and process it */
+	class FrameProcessor : public FrameListener {
+	public:
+		FrameProcessor() :
+			mProcType(CPU_PROCESS),
+			mTrack(false)
+			{}
+		~FrameProcessor(){};
+
+		/* Set if we want to process the frame in GPU or CPU */
+		void setProcType(ProcessType t){mProcType = t;}
+		ProcessType getProcType(void) const {return mProcType;}
+
+		/* sets if we want to track the process (timestamps) */
+		void setTrackingMode(bool track){mTrack = track;}
+		bool getTrackingMode(void) const {return mTrack;}
+
+		/* sets the image analyzer to be used */
+		void setImageAnalyzer(ImageAnalyzer *ia)
+		{
+			ASSERT(ia);
+			mImgAnalizer = ia;
+		}
+
+		/* Returns the image analyzer */
+		ImageAnalyzer *getImageAnalyzer(void) {return mImgAnalyzer;}
+
+		errCode processFrame(Frame &frame)
+		{
+			errCode result = INTERNAL_ERROR;
+
+			ASSERT(mImgAnalizer);
+			switch(mProcType){
+			case CPU_PROCESS:
+				result = mImgAnalizer->processImageOnCPU(frame, mTrack);
+				break;
+
+			case GPU_PROCESS:
+				result = mImgAnalizer->processImageOnGPU(frame, mTrack);
+				break;
+
+			default:
+				ASSERT(false);
+			}
+
+			return result;
+		}
+
+
+	private:
+		ProcessType			mProcType;
+		ImageAnalyzer		*mImgAnalyzer;
+		bool				mTrack;
+
+
+	};
+
+public:
 	WaveHeightIPS();
 	virtual ~WaveHeightIPS();
 
@@ -59,26 +124,51 @@ public:
 	 * Returns:
 	 * 	errCode
 	 */
-	virtual errCode execute(QWidget *parent);
+	virtual errCode execute(void);
+
+	/* Returns the ImageGenerator instance */
+	ImageGenerator &getImageGenerator(void) {return mImageGenerator;}
+
+	/* Sets the ImageProcessor calibrator.
+	 * Requires:
+	 * 	calibrator		!= 0
+	 * This class do not free any memory
+	 */
+	void setImgProcCalibrator(ImageProcessor *calibrator);
+
+	/* Returns the ImageProc calibrator */
+	ImageProcessor *getCalibrator(void) const {return mImgProcCalibrator;}
+
+		/* Sets the ImageAnalizer to be used
+	 * Requires:
+	 * 	analyzer	!= 0
+	 * This class do not free the memory
+	 */
+	void setImgAnalyzer(ImageAnalyzer *analyzer);
+
+	/* Returns the ImageAnalyzer */
+	ImageAnalyzer *getImageAnalyzer(void) {return mFrameProc.getImageAnalyzer();}
+
+	/* Set the timestamp and info tracking mode.
+	 * @track	if true then it will track, if false it will not track
+	 */
+	void setTrackingMode(bool track);
+	bool getTrackingMode(void) const {return mFrameProc.getTrackingMode();}
+
+	/* Set the process mode (GPU | CPU).
+	 * @mode	The mode to execute
+	 */
+	void setProcessMode(ProcessType mode);
+	ProcessType getProcessMode(void) const {return mFrameProc.getProcType();}
+
 
 private:
-	/* Configures the device */
-	bool configureDevice(void);
-
-	/* Calibrates the camera */
-	bool calibrateCamera(void);
-
-	/* Select the ImageProcessor configuration */
-
-
-private:
-	QWidget					*mParentWidget;
 	// The Image generator
 	ImageGenerator			mImageGenerator;
 	// The result of the device calibrator
 	ImageProcessor			*mImgProcCalibrator;
-	// The Handler of image processors
-	ImageAnalyzer			mImgAnalizer;
+	// The frame processor used
+	FrameProcessor			mFrameProc;
 
 };
 
