@@ -37,6 +37,12 @@ void ImageAnalyzer::addNewProcessor(const ImageProcessor *ip)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void ImageAnalyzer::addNewProcessors(const std::list<const ImageProcessor*> &l)
+{
+	removeAllProcessors();
+	mImageProcessors = l;
+}
+////////////////////////////////////////////////////////////////////////////////
 void ImageAnalyzer::removeProcessor(const ImageProcessor *ip)
 {
 	std::list<const ImageProcessor*>::iterator it = std::find(mImageProcessors.begin(),

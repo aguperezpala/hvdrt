@@ -8,7 +8,7 @@
 #ifndef FRAMELISTENER_H_
 #define FRAMELISTENER_H_
 
-
+#include "GlobalDefines.h"
 #include "Frame.h"
 
 class FrameEmitter;
@@ -19,7 +19,7 @@ public:
 	virtual ~FrameListener(){};
 
 	/* Process a frame (blocking function) */
-	virtual void processFrame(Frame &frame) = 0;
+	virtual errCode processFrame(Frame &frame) = 0;
 
 };
 

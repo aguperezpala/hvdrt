@@ -55,6 +55,12 @@ public:
 	 * DO NOT DELETE the device */
 	virtual cv::VideoCapture *getDevice(void) const {return mCapturer;}
 
+	/* Capture one frame and returns the frame in result.
+	 * Returns:
+	 * 	errCode
+	 */
+	virtual errCode captureFrame(Frame &result);
+
 	/* This is the main function. Start to capture frames an call the FrameListeners
 	 * This will create the threadpool/threads if it is necessary.
 	 * Is a blocking function
