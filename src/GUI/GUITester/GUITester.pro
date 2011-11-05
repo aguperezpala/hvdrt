@@ -28,6 +28,7 @@ INCLUDEPATH += ../../Common/Debug \
     ../../GUI/RealTimeDataDisplayer \
     ../../GUI/VideoCaptureCanny \
     ../../GUI/ZoneSelector \
+    ../../GUI/Utils \
     ../../IPSModule/ImageProcessingSystem \
     ../../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
     ../../IPSModule/ImageProcessingSystem/WaveHeightIPS \
@@ -52,8 +53,10 @@ SOURCES   += ../ImageGeneratorConfigurator/imagegeneratorconfigurator.cpp \
 FORMS     += ../ImageGeneratorConfigurator/imagegeneratorconfigurator.ui
 
 
-HEADERS	  += ../../Common/GlobalDefines.h
-SOURCES   += main.cpp 
+HEADERS	  += ../../Common/GlobalDefines.h \
+		../../GUI/Utils/GUIUtils.h
+SOURCES   += main.cpp \
+	../../GUI/Utils/GUIUtils.cpp 
 
 
 RESOURCES +=
