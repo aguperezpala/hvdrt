@@ -79,6 +79,19 @@ bool ImageGenerator::createDevice(const std::string &videoPath)
 	return true;
 }
 
+/* Destroy the actual device */
+void ImageGenerator::destroyDevice(void)
+{
+	if(!mCapturer){
+		debug("Warning: Destroying a non constructed device\n");
+		return;
+	}
+	// destroy the device
+	mCapturer->release();
+	delete mCapturer;
+	mCapturer = 0;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 /* Sets the device.
  * Requires:

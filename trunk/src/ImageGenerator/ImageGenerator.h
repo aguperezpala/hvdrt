@@ -44,6 +44,9 @@ public:
 	 */
 	virtual bool createDevice(const std::string &videoPath);
 
+	/* Destroy the actual device */
+	void destroyDevice(void);
+
 	/* Sets the device.
 	 * Requires:
 	 * 		No device set before.

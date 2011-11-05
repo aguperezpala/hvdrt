@@ -60,9 +60,17 @@ private:
 
 
 private:
+    /* Function used to show the resolution of the ImageGenerator */
+    void showResolution(void);
+
+    /* set resolution */
+    bool setResolution(double width, double height);
+
+
+private:
     Ui::ImageGeneratorConfiguratorClass ui;
 
-    ImageGenerator		*mImgGen;
+    ImageGenerator							*mImgGen;
     std::auto_ptr<FrameProcessorTester> 	mFrameProcTester;
 };
 

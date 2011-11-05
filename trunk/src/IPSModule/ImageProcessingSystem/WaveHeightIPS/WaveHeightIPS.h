@@ -127,7 +127,7 @@ public:
 	virtual errCode execute(void);
 
 	/* Returns the ImageGenerator instance */
-	ImageGenerator &getImageGenerator(void) {return mImageGenerator;}
+	ImageGenerator *getImageGenerator(void) {return &mImageGenerator;}
 
 	/* Sets the ImageProcessor calibrator.
 	 * Requires:

@@ -5,8 +5,10 @@
 #include "ui_guiwaveheightips.h"
 
 #include "DebugUtil.h"
+#include "GlobalDefines.h"
 #include "WaveHeightIPS.h"
 #include "guiimageprocessingsystem.h"
+#include "imagegeneratorconfigurator.h"
 
 class GUIWaveHeightIPS : public GUIImageProcessingSystem
 {
@@ -33,6 +35,7 @@ private:
 
     // The real IPS
     WaveHeightIPS				mWaveHIPS;
+    ImageGeneratorConfigurator	mImgGenWin;
 
 
 };
