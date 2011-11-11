@@ -30,43 +30,23 @@
 
 using namespace cv;
 
-static void paintOfGreen(Mat &image)
-{
-	int nl = image.rows; // number of lines
-	int nc = image.cols; // number of columns
-	int numChannels = image.channels();
-
-	// is it a continous image?
-	if (image.isContinuous()) {
-		// then no padded pixels
-		nc = nc * nl;
-		nl = 1; // it is now a 1D array
-	}
-	// for all pixels
-	for (int j = 0; j < nl; j++) {
-		// pointer to first column of line j
-		uchar* data = image.ptr<uchar> (j);
-		for (int i = 0; i < nc; i++) {
-			if(*data == 0){
-				data += numChannels;
-				continue;
-			}
-			*data = 255;
-			data += numChannels;
-			// end of pixel processing ----------------
-		} // end of line
-	}
-
-}
-
 int main(int, char**)
 {
-    VideoCapture cap("/home/agustin/facu/tesis/muestreo_videos_lab/test01_reg.avi"); // open the default camera
-    if(!cap.isOpened()){
+    VideoCapture cap("/home/agustin/facu/tesis/VideosMuestra/test01_reg.wmv"); // open the default camera
+    //VideoCapture cap(0);
+	if(!cap.isOpened()){
     	// check if we succeeded
     	std::cout << "There are no cammera\n";
     	return -1;
     }
+
+	std::cout << "SetWidth: " << cap.set(CV_CAP_PROP_FRAME_WIDTH, 1280) << std::endl;
+	std::cout << "SetHeight " << cap.set(CV_CAP_PROP_FRAME_HEIGHT, 720) << std::endl;
+	double h = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+	std::cout << "Height: " << h << std::endl;
+	h = cap.get(CV_CAP_PROP_FRAME_WIDTH);
+	std::cout << "Width: " << h << std::endl;
+
 
 
     Mat edges;

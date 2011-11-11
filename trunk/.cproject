@@ -52,6 +52,14 @@
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/QtGui"/>
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/Qt"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.debugging.other.160317497" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" value="-DDEBUG" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -81,6 +89,14 @@
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/QtGui"/>
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/Qt"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -99,12 +115,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/Common}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter}&quot;"/>
 									<listOptionValue builtIn="false" value="../HydrodynamicVariablesDetection/src/ImageAnalyzer/ImageInterpreter/CoordsInterpreter"/>
-									<listOptionValue builtIn="false" value="../usr/share/qt4/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/DeviceCalibrator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/HydrodynamicVariablesDetection/src/IPSModule/IPSFactory}&quot;"/>
@@ -116,15 +132,21 @@
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/QtGui"/>
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/Qt"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS}&quot;"/>
+									<listOptionValue builtIn="false" value="../usr/share/qt4/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/MainProgram"/>
-						<entry excluding="src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/SystemCLITest|src/Tests/DataInterpreterTest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/IPSModule/GUIIPSFactory"/>
+						<entry excluding="src/Tests/CameraCalibration|src/Tests/DataInterpreterTest|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/SystemCLITest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -1179,9 +1201,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/Tests/ImageManipulation|src/Tests/CameraCalibration|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/MainProgram"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/GUI/IPSModule/GUIIPSFactory"/>
+						<entry excluding="src/Tests/CameraCalibration|src/Tests/DataInterpreterTest|src/Tests/CameraCalibration/CameraCalibration.cpp|src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/SystemCLITest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
