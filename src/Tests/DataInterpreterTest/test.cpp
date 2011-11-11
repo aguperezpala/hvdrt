@@ -32,6 +32,7 @@
 #include <iostream>
 #include <vector>
 
+#include "DebugUtil.h"
 #include "CoordsInterpreter.h"
 
 
@@ -83,7 +84,8 @@ static void drawToImage(CoordsInterpreter::Data *d, Mat &img)
 
 int main(int, char**)
 {
-    VideoCapture cap("/home/agustin/facu/tesis/muestreo_videos_lab/test01_reg.avi"); // open the default camera
+//    VideoCapture cap("/home/agustin/facu/tesis/muestreo_videos_lab/test01_reg.avi"); // open the default camera
+    VideoCapture cap("/home/agustin/facu/tesis/VideosMuestra/test01_reg.wmv"); // open the default camera
     if(!cap.isOpened()){
     	// check if we succeeded
     	std::cout << "There are no cammera\n";
