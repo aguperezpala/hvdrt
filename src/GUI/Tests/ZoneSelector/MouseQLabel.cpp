@@ -1,6 +1,6 @@
 #include <qevent.h>
 #include "MouseQLabel.h"
-
+#include "DebugUtil.h"
 
 #include <iostream>
 
@@ -10,6 +10,8 @@
 void MouseQLabel::showImage(const QImage &img)
 {
 	setPixmap(QPixmap::fromImage(img));
+	setFixedHeight(img.height());
+	setFixedWidth(img.width());
 }
 
 /* Remarks the point */
@@ -18,9 +20,10 @@ void MouseQLabel::remarkPoint(QImage &img, int x, int y)
 	int xR = x + REMARK_POINT_PIXELS/2;
 	int yB = y + REMARK_POINT_PIXELS/2;
 
+
 	for(int i = x - REMARK_POINT_PIXELS/2; i < xR; ++i){
 		for(int j = y - REMARK_POINT_PIXELS/2; j < yB; ++j){
-			img.setPixel(i,j,REMARK_POINT_COLOR);
+			img.setPixel(i,j,mPaintColor);
 		}
 	}
 }
@@ -37,16 +40,16 @@ void MouseQLabel::remarkListPoints(int num, QImage &img)
 void MouseQLabel::remarkRectangle(QImage &img, int topLeftX, int topLeftY, int bottomRX, int bottomRY)
 {
 	for(int i = topLeftX; i < bottomRX; ++i){
-		img.setPixel(i, topLeftY, REMARK_POINT_COLOR);
+		img.setPixel(i, topLeftY, mPaintColor);
 	}
 	for(int i = topLeftX; i < bottomRX; ++i){
-		img.setPixel(i, bottomRY, REMARK_POINT_COLOR);
+		img.setPixel(i, bottomRY, mPaintColor);
 	}
 	for(int i = topLeftY; i < bottomRY; ++i){
-		img.setPixel(topLeftX, i, REMARK_POINT_COLOR);
+		img.setPixel(topLeftX, i, mPaintColor);
 	}
 	for(int i = topLeftY; i < bottomRY; ++i){
-		img.setPixel(bottomRX, i, REMARK_POINT_COLOR);
+		img.setPixel(bottomRX, i, mPaintColor);
 	}
 }
 
@@ -54,6 +57,7 @@ void MouseQLabel::remarkRectangle(QImage &img, int topLeftX, int topLeftY, int b
 MouseQLabel::MouseQLabel(QWidget *parent) :
 QLabel(parent)
 {
+	mPaintColor = qRgb(255,0,0);
 }
 
 MouseQLabel::~MouseQLabel()
@@ -86,6 +90,18 @@ void MouseQLabel::mouseMoveEvent(QMouseEvent* event)
 {
 	mLabelX->setText(QString::number(event->x()));
 	mLabelY->setText(QString::number(event->y()));
+
+	// create the zoomed image
+	int factor = ZOOM_IMAGE_SIZE / 2;
+	QImage zoomed = mImg.copy(event->x() - factor, event->y() - factor,
+			ZOOM_IMAGE_SIZE,
+			ZOOM_IMAGE_SIZE);
+	// paint the middle point to see where we will select the point
+	zoomed.setPixel(factor, factor, mPaintColor);
+	mZoomLabel->setPixmap(QPixmap::fromImage(zoomed.scaled(QSize(ZOOM_FACTOR,
+			ZOOM_FACTOR))));
+//	mZoomLabel->setPixmap(QPixmap::fromImage(zoomed));
+
 }
 
 
@@ -97,6 +113,12 @@ void MouseQLabel::setImage(const QImage &img)
 	mImg = img;
 	showImage(mImg);
 	adjustSize();
+}
+
+void MouseQLabel::setZoomLabel(QLabel *zoom)
+{
+	ASSERT(zoom);
+	mZoomLabel = zoom;
 }
 
 /* clears the points */

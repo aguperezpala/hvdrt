@@ -5,6 +5,7 @@
 #include <qimage.h>
 #include <qgraphicsscene.h>
 #include <qgraphicsitem.h>
+#include <qscrollarea.h>
 
 
 #include <opencv2/core/core.hpp>
@@ -47,6 +48,7 @@ private:
     // Vector of points
     std::vector<cv::Point2i> 	*mPointsVector;
     MouseQLabel					*mMouseLabel;
+    QScrollArea					mScrollArea;
 
 
 };

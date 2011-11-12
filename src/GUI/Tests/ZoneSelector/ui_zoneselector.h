@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'zoneselector.ui'
 **
-** Created: Mon Oct 24 18:18:03 2011
+** Created: Sat Nov 12 17:58:04 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -36,6 +36,7 @@ public:
     QLabel *x_label;
     QLabel *label_2;
     QLabel *y_label;
+    QLabel *zoom_label;
 
     void setupUi(QWidget *ZoneSelectorClass)
     {
@@ -106,6 +107,11 @@ public:
 
         horizontalLayout->addLayout(horizontalLayout_2);
 
+        zoom_label = new QLabel(ZoneSelectorClass);
+        zoom_label->setObjectName(QString::fromUtf8("zoom_label"));
+
+        horizontalLayout->addWidget(zoom_label);
+
 
         verticalLayout->addLayout(horizontalLayout);
 
@@ -125,6 +131,7 @@ public:
         x_label->setText(QApplication::translate("ZoneSelectorClass", "0", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("ZoneSelectorClass", "Y:", 0, QApplication::UnicodeUTF8));
         y_label->setText(QApplication::translate("ZoneSelectorClass", "0", 0, QApplication::UnicodeUTF8));
+        zoom_label->setText(QString());
     } // retranslateUi
 
 };
