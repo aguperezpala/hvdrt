@@ -72,9 +72,12 @@ ZoneSelector::ZoneSelector(QWidget *parent)
 	ui.setupUi(this);
 	mMouseLabel = new MouseQLabel(this);
 	mMouseLabel->setObjectName(QString::fromUtf8("img_label"));
-	ui.verticalLayout->insertWidget(0,mMouseLabel);
+	mScrollArea.setWidget(mMouseLabel);
+	ui.verticalLayout->insertWidget(0,&mScrollArea);
 	mMouseLabel->setLabelX(ui.x_label);
 	mMouseLabel->setLabelY(ui.y_label);
+	mMouseLabel->setZoomLabel(ui.zoom_label);
+
 
 	QString filename = QFileDialog::getOpenFileName(this, "Image", ".", "*");
 
