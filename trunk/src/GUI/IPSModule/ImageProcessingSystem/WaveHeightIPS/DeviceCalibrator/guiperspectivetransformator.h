@@ -39,6 +39,9 @@ public:
      */
     PerspectiveTransformator *getPerspectiveTransformator(void);
 
+    /* Returns the size of the rectangle in mm */
+    float getRectangleSize(void){return mRectSizeY;}
+
 
 public slots:
     void onClearClicked(void);
@@ -59,6 +62,8 @@ private:
     QScrollArea					mScrollArea;
 
     PerspectiveTransformator 	*mTransformator;
+
+    float						mRectSizeY;
 
 
 };

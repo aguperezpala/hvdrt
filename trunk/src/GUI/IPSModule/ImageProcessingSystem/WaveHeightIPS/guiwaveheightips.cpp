@@ -67,6 +67,13 @@ bool GUIWaveHeightIPS::configurePerspectiveTransformation(void)
 	// set the transformator to the WaveHIPS
 	mWaveHIPS.setImgProcCalibrator(mTransformator);
 
+	// get the size of the rectangle in mm and set the relation to the DataProcessor
+	float size = pt.getRectangleSize();
+	float relation = static_cast<float>(f.data.rows)/size;
+	debug("Setting new relation (FrameHeight/RectangleHeight): %f pixels/mm\n",
+			relation);
+	mBridge.getDataProcessor()->setRelation(relation);
+
 	return true;
 }
 

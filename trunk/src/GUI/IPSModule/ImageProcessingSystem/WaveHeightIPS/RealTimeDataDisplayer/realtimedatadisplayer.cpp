@@ -43,12 +43,12 @@ void RealTimeDataDisplayer::createPoint(float x, float y)
 
 
 	// add the text
-	QString t = "(" + QString::number(x) + "," + QString::number(y) + ")";
-
-	QGraphicsTextItem *text = new QGraphicsTextItem(t,point);
-	qreal w = text->document()->size().width()/2.0;
-	qreal h = text->document()->size().height();
-	text->setPos(x - w, y - h);
+//	QString t = "(" + QString::number(x) + "," + QString::number(y) + ")";
+//
+//	QGraphicsTextItem *text = new QGraphicsTextItem(t,point);
+//	qreal w = text->document()->size().width()/2.0;
+//	qreal h = text->document()->size().height();
+//	text->setPos(x - w, y - h);
 
 	// create the line betwen this point and the last
 	int l = mPoints.size()-1;
