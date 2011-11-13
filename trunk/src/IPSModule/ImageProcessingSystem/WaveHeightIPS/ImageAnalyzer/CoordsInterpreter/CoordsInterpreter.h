@@ -90,6 +90,8 @@ public:
 	// Process the data on the GPU
 	errCode processData(cv::gpu::GpuMat &data) const;
 
+
+
 private:
 	/* function used to clear the data */
 	void clearData(void) const;
