@@ -22,8 +22,7 @@ int main(int argc, char *argv[])
     err = whips.execute();
     if(err != NO_ERROR){
     	debug("Error executing whips: %d\n", err);
-    	return -1;
-    }
+	}
 
 
     return a.exec();

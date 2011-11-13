@@ -68,7 +68,8 @@ bool GUIPerspectiveTransformator::IplImage2QImage(const cv::Mat &iplImgMat, QIma
 GUIPerspectiveTransformator::GUIPerspectiveTransformator(QWidget *parent)
     : QDialog(parent),
       mPointsVector(0),
-      mTransformator(0)
+      mTransformator(0),
+      mRectSizeY(-1.0f)
 {
 	ui.setupUi(this);
 	mMouseLabel = new MouseQLabel(this);
@@ -138,6 +139,15 @@ void GUIPerspectiveTransformator::onDoneClicked(void)
 	for(int i = 0; i < points.size(); ++i){
 		mPointsVector->push_back(cv::Point(points[i].x(), points[i].y()));
 	}
+
+	// get the rectangle sizes
+	bool ok = false;
+	float ySize = ui.rectScaleY_edit->text().toFloat(&ok);
+	if(!ok){
+		showMessage("Rectangle Size y should be a numeric value");
+		return;
+	}
+	mRectSizeY = ySize;
 
 	close();
 }
