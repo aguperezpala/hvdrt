@@ -1,7 +1,7 @@
 /*
- * ImageProcessor.h
+ * BorderDetector.cpp
  *
- *  Created on: 16/09/2011
+ *  Created on: 12/11/2011
  *      Author: agustin
  *
  *
@@ -23,37 +23,37 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IMAGEPROCESSOR_H_
-#define IMAGEPROCESSOR_H_
+#include "BorderDetector.h"
+
+BorderDetector::BorderDetector(const std::string &name) :
+ImageProcessor(name),
+mThreshold1(10),
+mThreshold2(80),
+mL2Gradient(false)
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+BorderDetector::~BorderDetector() {
+	// TODO Auto-generated destructor stub
+}
 
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/gpu/gpu.hpp>
-#include <opencv2/gpu/gpumat.hpp>
+// Proccess the data on the CPU
+errCode BorderDetector::processData(cv::Mat &data) const
+{
+	// we will use the canny algorithm
+	cv::cvtColor(data, data, CV_BGR2GRAY);
+	cv::GaussianBlur(data, data, cv::Size(7,7), 1.5, 1.5);
+	cv::Canny(data, data, mThreshold1, mThreshold2, 3, mL2Gradient);
 
-#include "GlobalDefines.h"
+	return NO_ERROR;
+}
 
+// Process the data on the GPU
+errCode BorderDetector::processData(cv::gpu::GpuMat &data) const
+{
+	return FEATURE_NOT_SUPPORTED;
+}
 
-class ImageProcessor {
-public:
-	ImageProcessor(const std::string &name = "Unnamed") :
-		mName(name)
-	{};
-
-	virtual ~ImageProcessor(){};
-
-	// returns the name of the ImageProcessor
-	const std::string &getName(void) const {return mName;}
-
-	// Proccess the data on the CPU
-	virtual errCode processData(cv::Mat &data) const = 0;
-
-	// Process the data on the GPU
-	virtual errCode processData(cv::gpu::GpuMat &data) const = 0;
-
-private:
-	std::string		mName;
-
-};
-
-#endif /* IMAGEPROCESSOR_H_ */

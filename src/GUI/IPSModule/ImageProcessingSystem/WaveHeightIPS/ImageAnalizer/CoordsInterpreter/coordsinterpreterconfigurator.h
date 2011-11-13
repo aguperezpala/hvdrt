@@ -2,9 +2,10 @@
 #define COORDSINTERPRETERCONFIGURATOR_H
 
 #include <QtGui/QWidget>
+#include <qdialog.h>
 #include "ui_coordsinterpreterconfigurator.h"
 
-class CoordsInterpreterConfigurator : public QWidget
+class CoordsInterpreterConfigurator : public QDialog
 {
     Q_OBJECT
 

@@ -1,4 +1,5 @@
 TEMPLATE = app
+DEFINES += DEBUG
 TARGET = HydrodynamicVD
 QT += core \
     gui
@@ -11,30 +12,45 @@ INCLUDEPATH += Common/Debug \
 	Common/Timestamp \
 	Common \
     DeviceCalibrator \
-    GUI/CannyParameterCalculator \
-    GUI/RealTimeDataDisplayer \
-    GUI/VideoCaptureCanny \
-    GUI/ZoneSelector \
+    GUI/ImageGeneratorConfigurator \
+    GUI/IPSModule/ImageProcessingSystem \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/CoordsInterpreter \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/BorderDetector \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer \
     IPSModule/ImageProcessingSystem \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
     IPSModule/ImageProcessingSystem/WaveHeightIPS \
     ImageAnalyzer \
     ImageAnalyzer/ImageInterpreter \
     ImageGenerator \
+    GUI/Utils \
+    GUI/MainProgram \
     Tests/SystemCLITest 
 HEADERS += Common/Debug/DebugUtil.h \
     Common/GlobalDefines.h \
     Common/Timestamp/Timestamp.h \
     DeviceCalibrator/DeviceCalibrator.h \
-    GUI/CannyParameterCalculator/cannyparametercalculator.h \
-    GUI/RealTimeDataDisplayer/realtimedatadisplayer.h \
-    GUI/VideoCaptureCanny/videocapturecanny.h \
-    GUI/ZoneSelector/MouseQLabel.h \
-    GUI/ZoneSelector/zoneselector.h \
+    GUI/Utils/GUIUtils.h \
+    #GUI/MainProgram/MainProgram.h \
+    GUI/ImageGeneratorConfigurator/imagegeneratorconfigurator.h \
+    GUI/IPSModule/ImageProcessingSystem/guiimageprocessingsystem.h \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/guiwaveheightips.h \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/guiperspectivetransformator.h \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/MouseQLabel.h \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/CoordsInterpreter/coordsinterpreterconfigurator.h \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/BorderDetector/cannyparametercalculator.h \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer/realtimedatadisplayer.h \    
     IPSModule/ImageProcessingSystem/ImageProcessingSystem.h \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.h \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.h \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.h \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPS.h \
     ImageAnalyzer/ImageAnalyzer.h \
+    ImageAnalyzer/CallBFunctor.h \
     ImageAnalyzer/ImageInterpreter/ImageInterpreter.h \
     ImageAnalyzer/ImageProcessor.h \
     ImageGenerator/Frame.h \
@@ -43,18 +59,28 @@ HEADERS += Common/Debug/DebugUtil.h \
     ImageGenerator/ImageGenerator.h \
     Tests/SystemCLITest/AuxClasses.h 
 SOURCES += DeviceCalibrator/DeviceCalibrator.cpp \
-    GUI/CannyParameterCalculator/cannyparametercalculator.cpp \
-    GUI/RealTimeDataDisplayer/realtimedatadisplayer.cpp \
-    GUI/VideoCaptureCanny/videocapturecanny.cpp \
-    GUI/ZoneSelector/MouseQLabel.cpp \
-    GUI/ZoneSelector/zoneselector.cpp \
+    GUI/Utils/GUIUtils.cpp \
+    #GUI/MainProgram/MainProgram.cpp \
+    GUI/MainProgram/main.cpp \
+    GUI/ImageGeneratorConfigurator/imagegeneratorconfigurator.cpp \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/guiwaveheightips.cpp \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/guiperspectivetransformator.cpp \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/MouseQLabel.cpp \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/CoordsInterpreter/coordsinterpreterconfigurator.cpp \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/BorderDetector/cannyparametercalculator.cpp \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer/realtimedatadisplayer.cpp \    
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.cpp \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPS.cpp \
     ImageAnalyzer/ImageAnalyzer.cpp \
     ImageGenerator/FrameEmitter.cpp \
     ImageGenerator/ImageGenerator.cpp 
-FORMS += GUI/CannyParameterCalculator/cannyparametercalculator.ui \
-    GUI/RealTimeDataDisplayer/realtimedatadisplayer.ui \
-    GUI/VideoCaptureCanny/videocapturecanny.ui \
-    GUI/ZoneSelector/zoneselector.ui 
+FORMS += GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/guiwaveheightips.ui \
+	GUI/ImageGeneratorConfigurator/imagegeneratorconfigurator.ui \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/guiperspectivetransformator.ui \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/CoordsInterpreter/coordsinterpreterconfigurator.ui \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/BorderDetector/cannyparametercalculator.ui \
+    GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer/realtimedatadisplayer.ui     
+    
 RESOURCES += 

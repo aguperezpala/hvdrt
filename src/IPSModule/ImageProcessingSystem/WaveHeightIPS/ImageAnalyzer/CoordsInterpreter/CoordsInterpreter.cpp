@@ -23,6 +23,8 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
+#include <opencv2/highgui/highgui.hpp>
+
 #include "CoordsInterpreter.h"
 
 
@@ -39,8 +41,10 @@ void CoordsInterpreter::clearData(void) const
 
 
 
-CoordsInterpreter::CoordsInterpreter() :
-mData(0)
+CoordsInterpreter::CoordsInterpreter(const std::string &name) :
+		ImageProcessor(name),
+		mData(0),
+		mFunctor(0)
 {
 	// TODO Auto-generated constructor stub
 
@@ -54,6 +58,15 @@ CoordsInterpreter::~CoordsInterpreter() {
 void CoordsInterpreter::setAnalyzeZone(const cv::Rect &zone)
 {
 	mAnalyzeZone = zone;
+
+	// if we have set the data before, we must resize it
+	if(mData){
+		if(mData->size() < mAnalyzeZone.width){
+			mData->resize(mAnalyzeZone.width + 1);
+		}
+	}
+
+	cv::namedWindow("coordsInterpreterWin");
 }
 
 /* Sets the Data where it will be stored the results.
@@ -99,9 +112,8 @@ errCode CoordsInterpreter::processData(cv::Mat &image) const
 
 	int brY = mAnalyzeZone.br().y;
 
-	debug("TLY:%d\tbry:%d\n", l, mAnalyzeZone.br().y);
 	// Check that we are inside of the image
-	if(((l + nl) > image.rows) || ((c + nc) > image.cols)){
+	if((nl > image.rows) || (c  > image.cols)){
 		debug("Error: Analyze Zone is wrong\n");
 		ASSERT(false);
 	}
@@ -122,6 +134,13 @@ errCode CoordsInterpreter::processData(cv::Mat &image) const
 
 		// go to the next row/line
 		data = image.data + l*image.step + beginColumn*image.elemSize();
+	}
+
+	cv::imshow("coordsInterpreterWin", image);
+
+	// call the callBack functor to advise the data is ready
+	if(mFunctor){
+		(*mFunctor)();
 	}
 
 

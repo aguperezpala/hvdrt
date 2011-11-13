@@ -2,6 +2,7 @@
 #define IMAGEGENERATORCONFIGURATOR_H
 
 #include <QtGui/QWidget>
+#include <qdialog.h>
 #include "ui_imagegeneratorconfigurator.h"
 
 #include <opencv2/highgui/highgui.hpp>
@@ -14,7 +15,7 @@
 #include "ImageGenerator.h"
 #include "FrameListener.h"
 
-class ImageGeneratorConfigurator : public QWidget
+class ImageGeneratorConfigurator : public QDialog
 {
     Q_OBJECT
 
@@ -33,7 +34,9 @@ public:
 public slots:
     void onSourceCameraClicked(void);
     void onSourceFileClicked(void);
-    void onSetResolutionClicked(void);
+    void onSetParamettersClicked(void);
+    void onGetParamettersClicked(void);
+    void onDoneClicked(void);
 
 
 
@@ -65,6 +68,9 @@ private:
 
     /* set resolution */
     bool setResolution(double width, double height);
+
+    /* get properties */
+    void getProperties(void);
 
 
 private:

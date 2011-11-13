@@ -1,7 +1,7 @@
 /*
- * ImageProcessor.h
+ * DataProcessor.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 13/11/2011
  *      Author: agustin
  *
  *
@@ -23,37 +23,41 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IMAGEPROCESSOR_H_
-#define IMAGEPROCESSOR_H_
+#ifndef DATAPROCESSOR_H_
+#define DATAPROCESSOR_H_
 
+#include <string>
+#include <fstream>
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/gpu/gpu.hpp>
-#include <opencv2/gpu/gpumat.hpp>
+#include "DebugUtil.h"
+#include "CallBFunctor.h"
+#include "CoordsInterpreter.h"
+#include "Timestamp.h"
 
-#include "GlobalDefines.h"
-
-
-class ImageProcessor {
+class DataProcessor : public CallBFunctor {
 public:
-	ImageProcessor(const std::string &name = "Unnamed") :
-		mName(name)
-	{};
+	DataProcessor();
+	virtual ~DataProcessor();
 
-	virtual ~ImageProcessor(){};
+	/* Set the file name where we will put the data */
+	void setFileName(const std::string &fname);
 
-	// returns the name of the ImageProcessor
-	const std::string &getName(void) const {return mName;}
+	/* Set the relation between pixels and millimeters.
+	 * Requires:
+	 * 	@rel		Relation pixels/mm
+	 */
+	void setRelation(float rel) {mRelation = rel;}
 
-	// Proccess the data on the CPU
-	virtual errCode processData(cv::Mat &data) const = 0;
+	/* Set the data to analyze */
+	void setData(CoordsInterpreter::Data *data);
 
-	// Process the data on the GPU
-	virtual errCode processData(cv::gpu::GpuMat &data) const = 0;
+	virtual void operator()(void);
+
 
 private:
-	std::string		mName;
-
+	CoordsInterpreter::Data			*mData;
+	std::ofstream					mOutFile;
+	float							mRelation;
 };
 
-#endif /* IMAGEPROCESSOR_H_ */
+#endif /* DATAPROCESSOR_H_ */

@@ -60,6 +60,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.debugging.other.160317497" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" value="-DDEBUG" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -97,13 +100,30 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.836908551" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.510243149" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.paths.1946613024" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
-								<option id="gnu.cpp.link.option.libs.1213440243" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
+								<option id="gnu.cpp.link.option.libs.1213440243" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="opencv_core"/>
+									<listOptionValue builtIn="false" value="opencv_imgproc"/>
+									<listOptionValue builtIn="false" value="opencv_highgui"/>
+									<listOptionValue builtIn="false" value="opencv_calib3d"/>
+									<listOptionValue builtIn="false" value="opencv_contrib"/>
+									<listOptionValue builtIn="false" value="opencv_features2d"/>
+									<listOptionValue builtIn="false" value="opencv_flann"/>
+									<listOptionValue builtIn="false" value="opencv_gpu"/>
+									<listOptionValue builtIn="false" value="opencv_ml"/>
+									<listOptionValue builtIn="false" value="opencv_objdetect"/>
+									<listOptionValue builtIn="false" value="opencv_video"/>
+									<listOptionValue builtIn="false" value="opencv_ts"/>
+									<listOptionValue builtIn="false" value="opencv_legacy"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1996848065" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -140,6 +160,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageGenerator}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/ImageAnalyzer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/Timestamp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -1111,6 +1134,9 @@
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/QtGui"/>
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/Qt"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -1139,6 +1165,9 @@
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/QtGui"/>
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/Qt"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1313854046" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -1166,6 +1195,7 @@
 									<listOptionValue builtIn="false" value="opencv_objdetect"/>
 									<listOptionValue builtIn="false" value="bopencv_ts"/>
 									<listOptionValue builtIn="false" value="opencv_video"/>
+									<listOptionValue builtIn="false" value="opencv_highgui"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.555744347" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -1195,6 +1225,9 @@
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/QtGui"/>
 									<listOptionValue builtIn="false" value="/usr/share/qt4/include/Qt"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/Utils}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1681913384" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>

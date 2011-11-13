@@ -32,6 +32,8 @@ INCLUDEPATH += ../../Common/Debug \
     ../../IPSModule/ImageProcessingSystem \
     ../../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
     ../../IPSModule/ImageProcessingSystem/WaveHeightIPS \
+    ../../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
+    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
     ../../ImageAnalyzer \
     ../../ImageAnalyzer/ImageInterpreter \
     ../../ImageGenerator \
@@ -44,13 +46,20 @@ INCLUDEPATH += ../ImageGeneratorConfigurator \
 HEADERS   += ../../Common/GlobalDefines.h \
 	../ImageGeneratorConfigurator/imagegeneratorconfigurator.h \
 	../../ImageGenerator/ImageGenerator.h \
+	../../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.h \
+	../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/guiperspectivetransformator.h \
+	../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/MouseQLabel.h \
 	../../ImageGenerator/Frame.h \
 	../../ImageGenerator/FrameEmitter.h \
 	../../ImageGenerator/FrameListener.h 
 SOURCES   += ../ImageGeneratorConfigurator/imagegeneratorconfigurator.cpp \
 	../../ImageGenerator/ImageGenerator.cpp \
+	../../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.cpp \
+	../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/guiperspectivetransformator.cpp \
+	../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/MouseQLabel.cpp \
 	../../ImageGenerator/FrameEmitter.cpp 
-FORMS     += ../ImageGeneratorConfigurator/imagegeneratorconfigurator.ui
+FORMS     += ../ImageGeneratorConfigurator/imagegeneratorconfigurator.ui \
+	../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/guiperspectivetransformator.ui
 
 
 HEADERS	  += ../../Common/GlobalDefines.h \

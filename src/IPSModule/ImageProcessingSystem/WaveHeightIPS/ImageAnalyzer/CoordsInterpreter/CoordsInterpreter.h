@@ -37,6 +37,7 @@
 #include "DebugUtil.h"
 #include "GlobalDefines.h"
 #include "ImageProcessor.h"
+#include "CallBFunctor.h"
 
 
 
@@ -49,7 +50,7 @@ public:
 
 
 public:
-	CoordsInterpreter();
+	CoordsInterpreter(const std::string &name = "CoordsInterpreter");
 	virtual ~CoordsInterpreter();
 
 	/* Sets the rectangle where it will be analyzed the image. */
@@ -62,6 +63,16 @@ public:
 	 * 		data.size	== zone.width
 	 */
 	void setData(Data *data);
+
+	/* Set the CallBack functor used to advise when the data is ready
+	 * Requires:
+	 * 	@functor		!= 0
+	 */
+	void setDataReadyCallBackF(CallBFunctor *functor)
+	{
+		ASSERT(functor);
+		mFunctor = functor;
+	}
 
 	/* This class will retrieve all the points painted ("white points from a
 	 * black image), and it will store that points coordinates (from bottom to
@@ -87,6 +98,7 @@ private:
 	// The zone to be analyzed
 	cv::Rect				mAnalyzeZone;
 	Data					*mData;
+	CallBFunctor			*mFunctor;
 
 };
 

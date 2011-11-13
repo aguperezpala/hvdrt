@@ -1,7 +1,7 @@
 /*
- * ImageProcessor.h
+ * CallBFunctor.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 13/11/2011
  *      Author: agustin
  *
  *
@@ -23,37 +23,15 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IMAGEPROCESSOR_H_
-#define IMAGEPROCESSOR_H_
+#ifndef CALLBFUNCTOR_H_
+#define CALLBFUNCTOR_H_
 
-
-#include <opencv2/core/core.hpp>
-#include <opencv2/gpu/gpu.hpp>
-#include <opencv2/gpu/gpumat.hpp>
-
-#include "GlobalDefines.h"
-
-
-class ImageProcessor {
+class CallBFunctor {
 public:
-	ImageProcessor(const std::string &name = "Unnamed") :
-		mName(name)
-	{};
+	CallBFunctor(){};
+	virtual ~CallBFunctor(){};
 
-	virtual ~ImageProcessor(){};
-
-	// returns the name of the ImageProcessor
-	const std::string &getName(void) const {return mName;}
-
-	// Proccess the data on the CPU
-	virtual errCode processData(cv::Mat &data) const = 0;
-
-	// Process the data on the GPU
-	virtual errCode processData(cv::gpu::GpuMat &data) const = 0;
-
-private:
-	std::string		mName;
-
+	virtual void operator()(void) = 0;
 };
 
-#endif /* IMAGEPROCESSOR_H_ */
+#endif /* CALLBFUNCTOR_H_ */
