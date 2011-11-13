@@ -1,7 +1,7 @@
 /*
- * ImageProcessor.h
+ * BorderDetector.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 12/11/2011
  *      Author: agustin
  *
  *
@@ -23,37 +23,39 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IMAGEPROCESSOR_H_
-#define IMAGEPROCESSOR_H_
+#ifndef BORDERDETECTOR_H_
+#define BORDERDETECTOR_H_
 
 
 #include <opencv2/core/core.hpp>
-#include <opencv2/gpu/gpu.hpp>
-#include <opencv2/gpu/gpumat.hpp>
 
-#include "GlobalDefines.h"
+#include "DebugUtil.h"
+#include "ImageProcessor.h"
 
-
-class ImageProcessor {
+class BorderDetector : public ImageProcessor {
 public:
-	ImageProcessor(const std::string &name = "Unnamed") :
-		mName(name)
-	{};
+	BorderDetector(const std::string &name = "BorderDetector");
+	virtual ~BorderDetector();
 
-	virtual ~ImageProcessor(){};
+	/* Sets the canny parametters to be used to detect the borders */
+	void setThreshold1(double t) {mThreshold1 = t;}
+	void setThreshold2(double t) {mThreshold2 = t;}
+	void setL2Gradient(bool g) {mL2Gradient = g;}
 
-	// returns the name of the ImageProcessor
-	const std::string &getName(void) const {return mName;}
 
 	// Proccess the data on the CPU
-	virtual errCode processData(cv::Mat &data) const = 0;
+	virtual errCode processData(cv::Mat &data) const;
 
 	// Process the data on the GPU
-	virtual errCode processData(cv::gpu::GpuMat &data) const = 0;
+	virtual errCode processData(cv::gpu::GpuMat &data) const;
 
 private:
-	std::string		mName;
+	// Canny parametters
+	double				mThreshold1;
+	double				mThreshold2;
+	bool				mL2Gradient;
+
 
 };
 
-#endif /* IMAGEPROCESSOR_H_ */
+#endif /* BORDERDETECTOR_H_ */

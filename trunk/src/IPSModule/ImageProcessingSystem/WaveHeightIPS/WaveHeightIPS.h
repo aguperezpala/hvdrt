@@ -32,7 +32,7 @@
 #include "FrameListener.h"
 
 #include "ImageGenerator.h"
-#include "DeviceCalibrator.h"
+//#include "DeviceCalibrator.h"
 #include "ImageAnalyzer.h"
 
 
@@ -57,7 +57,8 @@ private:
 	public:
 		FrameProcessor() :
 			mProcType(CPU_PROCESS),
-			mTrack(false)
+			mTrack(false),
+			mImgAnalyzer(0)
 			{}
 		~FrameProcessor(){};
 
@@ -73,7 +74,7 @@ private:
 		void setImageAnalyzer(ImageAnalyzer *ia)
 		{
 			ASSERT(ia);
-			mImgAnalizer = ia;
+			mImgAnalyzer = ia;
 		}
 
 		/* Returns the image analyzer */
@@ -82,15 +83,15 @@ private:
 		errCode processFrame(Frame &frame)
 		{
 			errCode result = INTERNAL_ERROR;
-
-			ASSERT(mImgAnalizer);
+			debug("Processing frame\n");
+			ASSERT(mImgAnalyzer);
 			switch(mProcType){
 			case CPU_PROCESS:
-				result = mImgAnalizer->processImageOnCPU(frame, mTrack);
+				result = mImgAnalyzer->processImageOnCPU(frame, mTrack);
 				break;
 
 			case GPU_PROCESS:
-				result = mImgAnalizer->processImageOnGPU(frame, mTrack);
+				result = mImgAnalyzer->processImageOnGPU(frame, mTrack);
 				break;
 
 			default:

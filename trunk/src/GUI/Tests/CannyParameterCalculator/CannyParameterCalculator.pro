@@ -18,9 +18,17 @@ LIBS += -LC:\OpenCV2.2\lib \
 
 
 QT        += core gui 
-
-HEADERS   += cannyparametercalculator.h
+INCLUDEPATH += ../../../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector \
+	../../../ImageAnalyzer \
+	../../../Common \
+	../../../Common/Debug
+HEADERS   += cannyparametercalculator.h \
+	../../../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.h \
+	../../../ImageAnalyzer/ImageProcessor.h \
+	../../../Common/Defines.h \
+	../../../Common/Debug/DebugUtil.h
 SOURCES   += main.cpp \
+	../../../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
     cannyparametercalculator.cpp
 FORMS     += cannyparametercalculator.ui    
 RESOURCES +=

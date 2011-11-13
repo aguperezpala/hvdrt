@@ -50,8 +50,61 @@ bool ImageGeneratorConfigurator::setResolution(double width, double height)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void ImageGeneratorConfigurator::getProperties(void)
+{
+	ASSERT(mImgGen);
+	ASSERT(mImgGen->getDevice());
+
+	cv::VideoCapture *dev = mImgGen->getDevice();
+	double value = 0.0;
+
+	// get resolution
+	value = dev->get(CV_CAP_PROP_FRAME_WIDTH);
+	ui.xres_text->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_FRAME_HEIGHT);
+	ui.yres_text->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_FPS);
+	ui.framerate_text->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_FOURCC);
+	ui.codec_text->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_FORMAT);
+	ui.format_text->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_MODE);
+	ui.mode_text_2->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_BRIGHTNESS);
+	ui.brightness_text_2->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_CONTRAST);
+	ui.contrast_text->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_SATURATION);
+	ui.format_text_5->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_HUE);
+	ui.format_text_6->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_GAIN);
+	ui.format_text_8->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_EXPOSURE);
+	ui.format_text_9->setText(QString::number(value));
+
+	value = dev->get(CV_CAP_PROP_CONVERT_RGB);
+	ui.rgb_text->setText(QString::number(value));
+
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
 ImageGeneratorConfigurator::ImageGeneratorConfigurator(QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent),
+      mImgGen(0)
 {
 	ui.setupUi(this);
 
@@ -59,8 +112,12 @@ ImageGeneratorConfigurator::ImageGeneratorConfigurator(QWidget *parent)
 					SLOT(onSourceCameraClicked(void)));
 	QObject::connect(ui.file_button,SIGNAL(clicked(bool)), this,
 						SLOT(onSourceFileClicked(void)));
-	QObject::connect(ui.resolution_button,SIGNAL(clicked(bool)), this,
-							SLOT(onSetResolutionClicked(void)));
+	QObject::connect(ui.setParams_button,SIGNAL(clicked(bool)), this,
+						SLOT(onSetParamettersClicked(void)));
+	QObject::connect(ui.getParams_button,SIGNAL(clicked(bool)), this,
+						SLOT(onGetParamettersClicked(void)));
+	QObject::connect(ui.done_button,SIGNAL(clicked(bool)), this,
+						SLOT(onDoneClicked(void)));
 
 
 }
@@ -99,6 +156,8 @@ void ImageGeneratorConfigurator::onSourceCameraClicked(void)
 	// if there was no error, then we start
 	showResolution();
 	mImgGen->startGenerating();
+
+	getProperties();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -130,7 +189,7 @@ void ImageGeneratorConfigurator::onSourceFileClicked(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void ImageGeneratorConfigurator::onSetResolutionClicked(void)
+void ImageGeneratorConfigurator::onSetParamettersClicked(void)
 {
 	ASSERT(mImgGen);
 	ASSERT(mImgGen->getDevice());
@@ -154,12 +213,64 @@ void ImageGeneratorConfigurator::onSetResolutionClicked(void)
 		setResolution(xres, yres);
 	}
 
+	cv::VideoCapture *dev = mImgGen->getDevice();
+
+	// all the other params
+	double value = ui.framerate_text->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_FPS, value);
+
+	value = ui.codec_text->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_FOURCC,value);
+
+	value = ui.format_text->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_FORMAT,value);
+
+	value = ui.mode_text_2->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_MODE,value);
+
+	value = ui.brightness_text_2->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_BRIGHTNESS,value);
+
+	value = ui.contrast_text->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_CONTRAST,value);
+
+	value = ui.format_text_5->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_SATURATION,value);
+
+	value = ui.format_text_6->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_HUE,value);
+
+	value = ui.format_text_8->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_GAIN,value);
+
+	value = ui.format_text_9->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_EXPOSURE,value);
+
+	value = ui.rgb_text->text().toDouble(&ok);
+	dev->set(CV_CAP_PROP_CONVERT_RGB,value);
+
+
 }
+
+////////////////////////////////////////////////////////////////////////////////
+void ImageGeneratorConfigurator::onGetParamettersClicked(void)
+{
+	getProperties();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void ImageGeneratorConfigurator::onDoneClicked(void)
+{
+	// save configuration?
+	close();
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 void ImageGeneratorConfigurator::closeEvent(QCloseEvent * event)
 {
 	debug("CLOSING\n");
 	mImgGen->removeFrameListener(mFrameProcTester.get());
+	mImgGen->stopGenerating();
 	QWidget::closeEvent(event);
 }

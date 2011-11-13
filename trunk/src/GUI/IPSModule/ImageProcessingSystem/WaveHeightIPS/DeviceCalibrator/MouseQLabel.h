@@ -26,7 +26,7 @@ class MouseQLabel : public QLabel
     static const int REMARK_POINT_PIXELS	=	4;
 
     static const int ZOOM_IMAGE_SIZE		=	100;
-    static const int ZOOM_FACTOR			=	350;
+    static const int ZOOM_FACTOR			=	250;
 public:
     MouseQLabel(QWidget *parent = 0);
     ~MouseQLabel();

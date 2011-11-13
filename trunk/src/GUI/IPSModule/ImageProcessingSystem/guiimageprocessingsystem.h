@@ -2,6 +2,7 @@
 #define GUIIMAGEPROCESSINGSYSTEM_H
 
 #include <QtGui/QWidget>
+#include <qdialog.h>
 
 #include <auto_ptr.h>
 
@@ -10,7 +11,7 @@
 #include "ImageProcessingSystem.h"
 
 
-class GUIImageProcessingSystem : public QWidget
+class GUIImageProcessingSystem : public QDialog
 {
     Q_OBJECT
 

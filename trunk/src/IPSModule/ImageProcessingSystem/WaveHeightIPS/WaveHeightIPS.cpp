@@ -27,7 +27,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 WaveHeightIPS::WaveHeightIPS() :
-ImageProcessingSystem(WHIPS_NAME, WHIPS_INFO)
+ImageProcessingSystem(WHIPS_NAME, WHIPS_INFO),
+mImgProcCalibrator(0)
 {
 	// adds the FrameProcessor to the ImageGeneratro
 	mImageGenerator.addNewListener(&mFrameProc);
@@ -68,7 +69,7 @@ errCode WaveHeightIPS::execute(void)
 		if(it == l.end()){
 			// add the imageProcessor to the list first
 			std::list<const ImageProcessor*> nl = l;
-			nl.pop_front(mImgProcCalibrator);
+			nl.push_front(mImgProcCalibrator);
 			mFrameProc.getImageAnalyzer()->addNewProcessors(nl);
 		}
 	}
@@ -93,7 +94,7 @@ void WaveHeightIPS::setImgAnalyzer(ImageAnalyzer *analyzer)
 {
 	ASSERT(analyzer);
 
-	if(mImgAnalizer){
+	if(mFrameProc.getImageAnalyzer()){
 		debug("Warning: A previous Analyzer was set\n");
 	}
 

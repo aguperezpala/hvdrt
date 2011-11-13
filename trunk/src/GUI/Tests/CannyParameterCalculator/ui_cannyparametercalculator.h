@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cannyparametercalculator.ui'
 **
-** Created: Fri Sep 16 16:17:40 2011
+** Created: Sun Nov 13 00:16:08 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

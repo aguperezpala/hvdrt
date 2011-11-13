@@ -105,6 +105,17 @@ CannyParameterCalculator::~CannyParameterCalculator()
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
+void CannyParameterCalculator::setImage(const cv::Mat &img)
+{
+	ui.loadImg_button->setEnabled(false);
+	ui.loadImg_button->setVisible(false);
+
+	mOriginalImage = img.clone();
+	mTransformedImage = mOriginalImage.clone();
+	showImage(mTransformedImage);
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 void CannyParameterCalculator::onSlide1Change(int v)
@@ -147,8 +158,12 @@ void CannyParameterCalculator::onButtonCannyPressed(void)
 	mTransformedImage = mOriginalImage.clone();
 
 	cvtColor(mTransformedImage, mTransformedImage, CV_BGR2GRAY);
-	cv::GaussianBlur(mTransformedImage, mTransformedImage, cv::Size(7,7), 1.5, 1.5);
+	cv::GaussianBlur(mTransformedImage, mTransformedImage, cv::Size(7,7), 5.0, 5.0);
 	Canny(mTransformedImage, mTransformedImage, th1, th2, 3, ui.l2Gradient_checkBox->isChecked());
+
+	mThreshold1 = th1;
+	mThreshold2 = th2;
+	mL2Gradient = ui.l2Gradient_checkBox->isChecked();
 
 	showImage(mTransformedImage);
 }

@@ -14,6 +14,8 @@
 
 #include "ui_cannyparametercalculator.h"
 
+//#include "BorderDetector.h"
+
 class CannyParameterCalculator : public QWidget
 {
     Q_OBJECT
@@ -21,6 +23,14 @@ class CannyParameterCalculator : public QWidget
 public:
     CannyParameterCalculator(QWidget *parent = 0);
     ~CannyParameterCalculator();
+
+    /* Return the parametters */
+    double getThreshold1(void) const {return mThreshold1;}
+    double getThreshold2(void) const {return mThreshold2;}
+    double getL2Gradient(void) const {return mL2Gradient;}
+
+    /* Set an image to analyze */
+    void setImage(const cv::Mat &img);
 
 public slots:
 	void onSlide1Change(int v);
@@ -42,6 +52,9 @@ private:
     // the source image
     cv::Mat							mOriginalImage;
     cv::Mat							mTransformedImage;
+    double							mThreshold1;
+    double							mThreshold2;
+    bool							mL2Gradient;
 
 
 };

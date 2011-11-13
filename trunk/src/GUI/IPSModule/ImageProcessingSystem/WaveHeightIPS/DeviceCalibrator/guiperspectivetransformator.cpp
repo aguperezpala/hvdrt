@@ -4,11 +4,11 @@
 #include <iostream>
 #include <cassert>
 
-#include "zoneselector.h"
+#include "guiperspectivetransformator.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////
-int ZoneSelector::showMessage(const QString &m)
+int GUIPerspectiveTransformator::showMessage(const QString &m)
 {
 	QMessageBox msg(this);
 	msg.setText(m);
@@ -18,7 +18,7 @@ int ZoneSelector::showMessage(const QString &m)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-bool ZoneSelector::IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref)
+bool GUIPerspectiveTransformator::IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref)
 {
 	IplImage iplImg = iplImgMat;
 	int h = iplImg.height;
@@ -65,9 +65,10 @@ bool ZoneSelector::IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref)
 
 
 ///////////////////////////////////////////////////////////////////////////////
-ZoneSelector::ZoneSelector(QWidget *parent)
-    : QWidget(parent),
-      mPointsVector(0)
+GUIPerspectiveTransformator::GUIPerspectiveTransformator(QWidget *parent)
+    : QDialog(parent),
+      mPointsVector(0),
+      mTransformator(0)
 {
 	ui.setupUi(this);
 	mMouseLabel = new MouseQLabel(this);
@@ -90,7 +91,7 @@ ZoneSelector::ZoneSelector(QWidget *parent)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-ZoneSelector::~ZoneSelector()
+GUIPerspectiveTransformator::~GUIPerspectiveTransformator()
 {
 	if(mMouseLabel){
 		delete mMouseLabel;
@@ -100,7 +101,7 @@ ZoneSelector::~ZoneSelector()
 
 
 ///////////////////////////////////////////////////////////////////////////////
-void ZoneSelector::setImage(const cv::Mat &img)
+void GUIPerspectiveTransformator::setImage(const cv::Mat &img)
 {
 	if(!mImage.empty()){
 		mImage.release();
@@ -114,20 +115,20 @@ void ZoneSelector::setImage(const cv::Mat &img)
 
 
 ///////////////////////////////////////////////////////////////////////////////
-void ZoneSelector::setPointsVector(std::vector<cv::Point2i> *vec)
+void GUIPerspectiveTransformator::setPointsVector(std::vector<cv::Point2i> *vec)
 {
 	assert(mPointsVector == 0);
 	mPointsVector = vec;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void ZoneSelector::onClearClicked(void)
+void GUIPerspectiveTransformator::onClearClicked(void)
 {
 	mMouseLabel->clearPoints();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void ZoneSelector::onDoneClicked(void)
+void GUIPerspectiveTransformator::onDoneClicked(void)
 {
 	showMessage("We have " + QString::number(mMouseLabel->getPoints().size()) + " points");
 	assert(mPointsVector);
@@ -142,7 +143,7 @@ void ZoneSelector::onDoneClicked(void)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void ZoneSelector::onPreviewClicked(void)
+void GUIPerspectiveTransformator::onPreviewClicked(void)
 {
 	const std::vector<QPoint> &points = mMouseLabel->getPoints();
 
@@ -174,13 +175,55 @@ void ZoneSelector::onPreviewClicked(void)
 	cv::namedWindow("TransformedImg", 0);
 	cv::imshow("TransformedImg", m);
 
-	cv::cvtColor(m,m,CV_BGR2GRAY);
-//	cv::GaussianBlur(m, m, cv::Size(7,7), 1.5, 1.5);
-	cv::Canny(m, m, 1, 20, 3);
-	cv::namedWindow("Transformed Image1");
-	cv::imshow("Transformed Image1", m);
+}
 
 
+PerspectiveTransformator *GUIPerspectiveTransformator::getPerspectiveTransformator(void)
+{
+	const std::vector<QPoint> &points = mMouseLabel->getPoints();
+	for(int i = 0; i < points.size(); ++i){
+		mPointsVector->push_back(cv::Point(points[i].x(), points[i].y()));
+	}
+
+	if(points.size() != 4){
+		showMessage("Error: We have to choose 4 points to create the perspective transformation\n");
+		return 0;
+	}
+
+	// create the mTransformator
+	if(mTransformator){
+		showMessage("Warning: There was already created a transformator before");
+		mTransformator = 0;
+	}
+	// create the new one
+	mTransformator = new PerspectiveTransformator();
+	ASSERT(mTransformator);
+
+	// by now we will create the result image of the size of the actual image
+	std::vector<cv::Point2f> sourcePoints;
+	std::vector<cv::Point2f> destPoints;
+
+	// load the source points
+	for(int i = 0; i < points.size(); ++i){
+		sourcePoints.push_back(cv::Point2f(points[i].x(),points[i].y()));
+	}
+	// add the dest points
+	cv::Point2f	c2[4];
+	c2[0].x = 0;			c2[0].y = 0;
+	c2[1].x = mImage.cols;	c2[1].y = 0;
+	c2[2].x = 0;			c2[2].y = mImage.rows;
+	c2[3].x = mImage.cols;	c2[3].y = mImage.rows;
+	for(int i = 0; i < 4; ++i){
+		destPoints.push_back(c2[i]);
+	}
+
+	if(!mTransformator->setTransformationPoints(sourcePoints, destPoints)){
+		showMessage("Error creating the PerspectiveTransformator\n");
+		delete mTransformator;
+		mTransformator = 0;
+	}
+
+	return mTransformator;
 }
 
 
