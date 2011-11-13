@@ -35,6 +35,8 @@
 #include "Timestamp.h"
 
 class DataProcessor : public CallBFunctor {
+	// Set the max possible variance between one wave height and another. in mm
+	static const float		MAX_HEIGHT_VARIANCE		= 20;
 public:
 	DataProcessor();
 	virtual ~DataProcessor();
@@ -46,18 +48,42 @@ public:
 	 * Requires:
 	 * 	@rel		Relation pixels/mm
 	 */
-	void setRelation(float rel) {mRelation = rel;}
+	void setRelation(float rel) {ASSERT(rel > 0); mRelation = rel;}
 
 	/* Set the data to analyze */
 	void setData(CoordsInterpreter::Data *data);
 
+	/* Returns the last height calculated in mm */
+	float getLastHeightCalculated(void) const {return mLastHeight;}
+
+	/* Returns the last time calculated */
+	double getLastTime(void) const {return mLastTime;}
+
+	/* Overloaded function */
 	virtual void operator()(void);
 
+private:
+
+	/* Function used to get the height of the wave using the middlePoint and
+	 * middlepoint-1 & middlePoint+1 positions. We will get the first value from
+	 * bottom to top and check if is a possible value (using the last value
+	 * and the left and right values)
+	 * Returns:
+	 * 	height			The height of the wave.
+	 */
+	float getWaveHeight(void);
+
+	// auxiliar function used to get the height from the neighbors
+	float getNeighborsHeight(void);
 
 private:
 	CoordsInterpreter::Data			*mData;
 	std::ofstream					mOutFile;
 	float							mRelation;
+	Timestamp						*mTimeStamp;
+	int								mMiddlePoint;
+	float							mLastHeight;
+	double							mLastTime;
 };
 
 #endif /* DATAPROCESSOR_H_ */

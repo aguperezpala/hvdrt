@@ -1,5 +1,6 @@
 #include "guiwaveheightips.h"
 
+
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::createImageAnalyzer(void)
 {
@@ -9,6 +10,7 @@ void GUIWaveHeightIPS::createImageAnalyzer(void)
 
 	mCoordsInterpreter.setData(&mCoordsData);
 	mCoordsInterpreter.setDataReadyCallBackF(&mBridge);
+
 
 	mWaveHIPS.setImgAnalyzer(&mImageAnalyzer);
 }
@@ -134,8 +136,8 @@ bool GUIWaveHeightIPS::configureRealTimeDataDisplayer(void)
 	// TODO: Here we have to show the RealTimeDataConfigurator (to set these values)
 	mDataDisplayer.setMaxYValue(30);
 	mDataDisplayer.setMaxXValue(60);
-	mDataDisplayer.setMeasureScale(100.0);
-	mDataDisplayer.setTimeScale(500.0);
+	mDataDisplayer.setMeasureScale(50.0);
+	mDataDisplayer.setTimeScale(20.0);
 
 	mDataDisplayer.init();
 

@@ -22,6 +22,8 @@
 #include "PerspectiveTransformator.h"
 #include "BorderDetector.h"
 #include "CallBFunctor.h"
+#include "DataProcessor.h"
+#include "ImgPointPainter.h"
 
 class GUIWaveHeightIPS : public GUIImageProcessingSystem
 {
@@ -73,39 +75,31 @@ private:
 				{
 					ASSERT(d);
 					ASSERT(r);
+					d->resize(3);
+					mDataProcessor.setFileName("out.txt");
+					mDataProcessor.setRelation(1.0f);
+					mDataProcessor.setData(d);
 
-					// open the save file
-					mSaveFile.open("out.txt", std::ios::out);
+
 				}
 		virtual ~DataInterpreterBridge()
 		{
-			mSaveFile.close();
 		};
+
+		DataProcessor *getDataProcessor(void) {return &mDataProcessor;}
 
 		void operator()(void)
 		{
-			double deltaTime = mTimeStamp.getDiffTimestamp();
-
-			for(int i = mData->size()-1; i >= 0; --i){
-				std::vector<int> &p =(*mData)[i];
-				for(int j = p.size() - 1; j >= 0; --j){
-					// TODO: fix this, this is an error, we are adding a lot
-					// of points to the same time
-					mDataDisplayer->addNewPoint(deltaTime, p[j]);
-					mSaveFile << deltaTime << "\t" << p[j] << std::endl;
-				}
-
-			}
-
-			// probably we want to save this data to some file
-
+			mDataProcessor();
+			mDataDisplayer->addNewPoint(mDataProcessor.getLastTime(),
+					mDataProcessor.getLastHeightCalculated()/10.0f);
 		}
 
 	private:
-		Timestamp					mTimeStamp;
+
 		CoordsInterpreter::Data 	*mData;
 		RealTimeDataDisplayer		*mDataDisplayer;
-		std::ofstream				mSaveFile;
+		DataProcessor				mDataProcessor;
 
 	};
 
@@ -126,7 +120,6 @@ private:
     // The data interpreter
     RealTimeDataDisplayer		mDataDisplayer;
     DataInterpreterBridge		mBridge;
-
 
 
 

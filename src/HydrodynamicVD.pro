@@ -46,9 +46,11 @@ HEADERS += Common/Debug/DebugUtil.h \
     GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer/realtimedatadisplayer.h \    
     IPSModule/ImageProcessingSystem/ImageProcessingSystem.h \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.h \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.h \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.h \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.h \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPS.h \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/ImgPointPainter.h \
     ImageAnalyzer/ImageAnalyzer.h \
     ImageAnalyzer/CallBFunctor.h \
     ImageAnalyzer/ImageInterpreter/ImageInterpreter.h \
@@ -70,6 +72,7 @@ SOURCES += DeviceCalibrator/DeviceCalibrator.cpp \
     GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/BorderDetector/cannyparametercalculator.cpp \
     GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer/realtimedatadisplayer.cpp \    
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
+    IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.cpp \
     IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPS.cpp \
