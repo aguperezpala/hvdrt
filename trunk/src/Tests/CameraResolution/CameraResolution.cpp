@@ -61,18 +61,22 @@ int main(int argc, char**args)
 	 * Para verificar que realmente se pudo cambiar la resolucion debemos simplemente
 	 * ver el valor obtenido con cap.get() y no el valor de retorno de la funcion set
 	 */
+	cv::Mat f;
+	cap >> f; // get a new frame from camera
 	cap.set(CV_CAP_PROP_FRAME_WIDTH, width);
 	cap.set(CV_CAP_PROP_FRAME_HEIGHT, height);
 
+	cap.set(CV_CAP_PROP_FRAME_WIDTH, width);
+	cap.set(CV_CAP_PROP_FRAME_HEIGHT, height);
 
-	if(cap.set(CV_CAP_PROP_FRAME_WIDTH, width) == false){
-		std::cout << "Error setting the width: " << width << std::endl;
-		return 1;
-	}
-	if(cap.set(CV_CAP_PROP_FRAME_HEIGHT, height) == false){
-		std::cout << "Error setting the height: " << height << std::endl;
-		return 1;
-	}
+//	if(cap.set(CV_CAP_PROP_FRAME_WIDTH, width) == false){
+//		std::cout << "Error setting the width: " << width << std::endl;
+//		return 1;
+//	}
+//	if(cap.set(CV_CAP_PROP_FRAME_HEIGHT, height) == false){
+//		std::cout << "Error setting the height: " << height << std::endl;
+//		return 1;
+//	}
 
 	std::cout << "Width: " << cap.get(CV_CAP_PROP_FRAME_WIDTH) << std::endl;
 	std::cout << "Height: " << cap.get(CV_CAP_PROP_FRAME_HEIGHT) << std::endl;

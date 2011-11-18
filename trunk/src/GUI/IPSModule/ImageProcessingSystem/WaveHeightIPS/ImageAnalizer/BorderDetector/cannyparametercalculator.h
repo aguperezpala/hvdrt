@@ -13,11 +13,14 @@
 #include <iostream>
 #include <string>
 
+#include "GUIUtils.h"
+#include "GUIConfiguratorDialog.h"
+
 #include "ui_cannyparametercalculator.h"
 
 //#include "BorderDetector.h"
 
-class CannyParameterCalculator : public QDialog
+class CannyParameterCalculator : public GUIConfiguratorDialog
 {
     Q_OBJECT
 
@@ -42,8 +45,7 @@ public slots:
 	void onButtonDonePressed(void);
 
 private:
-	/* Load the image into the label */
-	bool IplImage2QImage(const cv::Mat &iplImg, QImage &ref);
+
 	void showImage(const cv::Mat &img);
 
 	/* Error message */

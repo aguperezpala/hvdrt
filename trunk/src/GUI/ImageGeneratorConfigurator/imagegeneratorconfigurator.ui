@@ -2,19 +2,29 @@
 <ui version="4.0">
  <class>ImageGeneratorConfiguratorClass</class>
  <widget class="QWidget" name="ImageGeneratorConfiguratorClass">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>633</width>
-    <height>357</height>
+    <width>792</width>
+    <height>403</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ImageGeneratorConfigurator</string>
   </property>
-  <layout class="QFormLayout" name="formLayout_2">
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QLabel" name="label_image">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">

@@ -26,11 +26,18 @@
 #ifndef GUIUTILS_H_
 #define GUIUTILS_H_
 
+#include <qimage.h>
+
+#include <opencv2/core/core.hpp>
+
 #include <string>
 
 class GUIUtils {
 public:
 	static void showMessageBox(const std::string &text);
+
+	/* Transforms an opencv Mat image to a QT image */
+	static bool IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref);
 };
 
 #endif /* GUIUTILS_H_ */

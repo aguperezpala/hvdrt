@@ -18,8 +18,11 @@
 #include "ui_guiperspectivetransformator.h"
 #include "MouseQLabel.h"
 #include "PerspectiveTransformator.h"
+#include "GUIConfiguratorDialog.h"
+#include "GUIUtils.h"
 
-class GUIPerspectiveTransformator : public QDialog
+
+class GUIPerspectiveTransformator : public GUIConfiguratorDialog
 {
     Q_OBJECT
 
@@ -50,7 +53,6 @@ public slots:
 
 private:
     int showMessage(const QString &m);
-    bool IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref);
 
 private:
     Ui::GUIPerspectiveTransformatorClass 		ui;

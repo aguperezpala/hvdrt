@@ -14,8 +14,9 @@
 #include "DebugUtil.h"
 #include "ImageGenerator.h"
 #include "FrameListener.h"
+#include "GUIConfiguratorDialog.h"
 
-class ImageGeneratorConfigurator : public QDialog
+class ImageGeneratorConfigurator : public GUIConfiguratorDialog
 {
     Q_OBJECT
 
@@ -41,25 +42,7 @@ public slots:
 
 
 private:
-    class FrameProcessorTester : public FrameListener {
-    	public:
-    		FrameProcessorTester()
-    		{
-    			cv::namedWindow("ImgGenTester");
-    		}
-    		~FrameProcessorTester()
-    		{
-    			cv::destroyWindow("ImgGenTester");
-    		}
 
-
-    		errCode processFrame(Frame &frame)
-    		{
-    			cv::imshow("ImgGenTester", frame.data);
-
-    			return NO_ERROR;
-    		}
-    };
 
 
 private:
@@ -72,12 +55,15 @@ private:
     /* get properties */
     void getProperties(void);
 
+    /* Show input from source */
+    void showSourceInput(void);
+
 
 private:
     Ui::ImageGeneratorConfiguratorClass ui;
 
     ImageGenerator							*mImgGen;
-    std::auto_ptr<FrameProcessorTester> 	mFrameProcTester;
+    bool									mShowInfo;
 };
 
 #endif // IMAGEGENERATORCONFIGURATOR_H

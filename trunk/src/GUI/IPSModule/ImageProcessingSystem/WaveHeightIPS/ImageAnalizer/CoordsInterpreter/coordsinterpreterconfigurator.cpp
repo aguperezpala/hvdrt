@@ -1,7 +1,7 @@
 #include "coordsinterpreterconfigurator.h"
 
 CoordsInterpreterConfigurator::CoordsInterpreterConfigurator(QWidget *parent)
-    : QDialog(parent)
+    : GUIConfiguratorDialog(parent, "CoordsInterpreterConfigurator")
 {
 	ui.setupUi(this);
 }

@@ -5,6 +5,7 @@
 
 
 #include <qstring.h>
+#include <qimage.h>
 #include <qfiledialog.h>
 
 #include "GUIUtils.h"
@@ -101,9 +102,43 @@ void ImageGeneratorConfigurator::getProperties(void)
 
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+void ImageGeneratorConfigurator::showSourceInput(void)
+{
+	ASSERT(mImgGen);
+
+	if(!mImgGen->getDevice()->isOpened()){
+		debug("Error when trying to show the message from a non created device\n");
+		GUIUtils::showMessageBox("Error when trying to show the message from "
+				"a non created device");
+		return;
+	}
+
+	mShowInfo = true;
+
+	Frame frame;
+	QImage qImg;
+	while(mShowInfo){
+		// get the frame and show it
+		mImgGen->captureFrame(frame);
+		GUIUtils::IplImage2QImage(frame.data,qImg);
+
+		// resize the image
+		if(frame.data.rows > ui.label_image->minimumHeight() || frame.data.cols > ui.label_image->minimumWidth()){
+			// have to set new proportion
+			qImg = qImg.scaled(ui.label_image->minimumWidth(), ui.label_image->minimumHeight(), Qt::KeepAspectRatio);
+		}
+
+		ui.label_image->setPixmap(QPixmap::fromImage(qImg));
+
+		cv::waitKey(50);
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 ImageGeneratorConfigurator::ImageGeneratorConfigurator(QWidget *parent)
-    : QDialog(parent),
+    : GUIConfiguratorDialog(parent, "ImageGeneratorConfigurator"),
       mImgGen(0)
 {
 	ui.setupUi(this);
@@ -118,8 +153,6 @@ ImageGeneratorConfigurator::ImageGeneratorConfigurator(QWidget *parent)
 						SLOT(onGetParamettersClicked(void)));
 	QObject::connect(ui.done_button,SIGNAL(clicked(bool)), this,
 						SLOT(onDoneClicked(void)));
-
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -133,9 +166,8 @@ void ImageGeneratorConfigurator::setImgGenerator(ImageGenerator *imgGen)
 {
 	ASSERT(imgGen);
 	mImgGen = imgGen;
+
 	// add the tester
-	mFrameProcTester.reset(new FrameProcessorTester());
-	mImgGen->addNewListener(mFrameProcTester.get());
 
 }
 
@@ -155,9 +187,9 @@ void ImageGeneratorConfigurator::onSourceCameraClicked(void)
 
 	// if there was no error, then we start
 	showResolution();
-	mImgGen->startGenerating();
-
 	getProperties();
+
+	showSourceInput();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -184,7 +216,9 @@ void ImageGeneratorConfigurator::onSourceFileClicked(void)
 
 	// if there was no error, then we start
 	showResolution();
-	mImgGen->startGenerating();
+	getProperties();
+	showSourceInput();
+
 
 }
 
@@ -270,7 +304,6 @@ void ImageGeneratorConfigurator::onDoneClicked(void)
 void ImageGeneratorConfigurator::closeEvent(QCloseEvent * event)
 {
 	debug("CLOSING\n");
-	mImgGen->removeFrameListener(mFrameProcTester.get());
 	mImgGen->stopGenerating();
 	QWidget::closeEvent(event);
 }
