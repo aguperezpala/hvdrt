@@ -20,7 +20,11 @@ public:
     GUIConfiguratorDialog(QWidget *parent = 0, const std::string &name = "unnamed") :
     	QDialog(parent),
     	mName(name)
-    {}
+    {
+    	showMaximized();
+    	activateWindow();
+    	raise();
+    }
 
     virtual ~GUIConfiguratorDialog(){};
 

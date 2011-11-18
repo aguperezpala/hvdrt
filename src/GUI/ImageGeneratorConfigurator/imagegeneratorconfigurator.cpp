@@ -115,25 +115,38 @@ void ImageGeneratorConfigurator::showSourceInput(void)
 		return;
 	}
 
-	mShowInfo = true;
-
+	// we only we show one image
 	Frame frame;
-	QImage qImg;
-	while(mShowInfo){
-		// get the frame and show it
-		mImgGen->captureFrame(frame);
-		GUIUtils::IplImage2QImage(frame.data,qImg);
+	mImgGen->captureFrame(frame);
+	GUIUtils::IplImage2QImage(frame.data,mShowImage);
 
-		// resize the image
-		if(frame.data.rows > ui.label_image->minimumHeight() || frame.data.cols > ui.label_image->minimumWidth()){
-			// have to set new proportion
-			qImg = qImg.scaled(ui.label_image->minimumWidth(), ui.label_image->minimumHeight(), Qt::KeepAspectRatio);
-		}
-
-		ui.label_image->setPixmap(QPixmap::fromImage(qImg));
-
-		cv::waitKey(50);
+	if(mShowImage.isNull()){
+		debug("Error: Null image\n");
+		return;
 	}
+
+	ui.label_image->setScaledContents(true);
+
+	ui.label_image->setPixmap(QPixmap::fromImage(mShowImage));
+
+//	mShowInfo = true;
+//
+//	Frame frame;
+//	while(mShowInfo){
+//		// get the frame and show it
+//		mImgGen->captureFrame(frame);
+//		GUIUtils::IplImage2QImage(frame.data,mShowImage);
+//
+//		if(mShowImage.isNull()){
+//			break;
+//		}
+//
+//		ui.label_image->setScaledContents(true);
+//
+//		ui.label_image->setPixmap(QPixmap::fromImage(mShowImage));
+//
+//		cv::waitKey(50);
+//	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -303,7 +316,7 @@ void ImageGeneratorConfigurator::onDoneClicked(void)
 ////////////////////////////////////////////////////////////////////////////////
 void ImageGeneratorConfigurator::closeEvent(QCloseEvent * event)
 {
-	debug("CLOSING\n");
+	mShowInfo = false;
 	mImgGen->stopGenerating();
 	QWidget::closeEvent(event);
 }
