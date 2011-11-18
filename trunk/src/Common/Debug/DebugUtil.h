@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 	#define ASSERT(x)	assert(x);
-	#define debug(format, ...) {fprintf(stderr, "DEBUG[%s, %s, %d]: ", \
+	#define debug(format, ...) {fprintf(stderr, "\033[31m DEBUG[%s, %s, %d]: ", \
 					 __FILE__, __FUNCTION__, __LINE__); \
 					fprintf(stderr, format, ## __VA_ARGS__);}
 

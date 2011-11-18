@@ -64,6 +64,7 @@ private:
 
     ImageGenerator							*mImgGen;
     bool									mShowInfo;
+    QImage									mShowImage;
 };
 
 #endif // IMAGEGENERATORCONFIGURATOR_H

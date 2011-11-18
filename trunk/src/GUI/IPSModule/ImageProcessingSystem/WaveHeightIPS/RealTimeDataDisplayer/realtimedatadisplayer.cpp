@@ -86,6 +86,12 @@ RealTimeDataDisplayer::RealTimeDataDisplayer(QWidget *parent)
 	QGraphicsEllipseItem *point = new QGraphicsEllipseItem(0,0,2,2);
 	mPoints.push_back(point);
 
+
+	// maximized
+	showMaximized();
+	activateWindow();
+	raise();
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////

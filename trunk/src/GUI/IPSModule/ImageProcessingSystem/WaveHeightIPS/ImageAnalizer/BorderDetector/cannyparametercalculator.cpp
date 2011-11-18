@@ -21,11 +21,7 @@ void CannyParameterCalculator::showImage(const cv::Mat &img)
 		QImage qImg;
 		GUIUtils::IplImage2QImage(img, qImg);
 
-		// gets the resolution to show the image
-		if(img.rows > ui.image_label->minimumHeight() || img.cols > ui.image_label->minimumWidth()){
-			// have to set new proportion
-			qImg = qImg.scaled(ui.image_label->minimumWidth(), ui.image_label->minimumHeight(), Qt::KeepAspectRatio);
-		}
+		ui.image_label->setScaledContents(true);
 
 		ui.image_label->setPixmap(QPixmap::fromImage(qImg));
 	}

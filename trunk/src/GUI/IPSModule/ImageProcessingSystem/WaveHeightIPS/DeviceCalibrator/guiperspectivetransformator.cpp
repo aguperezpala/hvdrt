@@ -88,6 +88,12 @@ void GUIPerspectiveTransformator::onDoneClicked(void)
 	showMessage("We have " + QString::number(mMouseLabel->getPoints().size()) + " points");
 	assert(mPointsVector);
 
+	// check that we have 4 points
+	if(mMouseLabel->getPoints().size() != 4){
+		showMessage("Error: We have to choose 4 points to create the perspective transformation\n");
+		return;
+	}
+
 	mPointsVector->clear();
 	const std::vector<QPoint> &points = mMouseLabel->getPoints();
 	for(int i = 0; i < points.size(); ++i){
