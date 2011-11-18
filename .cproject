@@ -63,6 +63,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/GUIConfiguratorDialog}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/tinyxml}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.debugging.other.160317497" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" value="-DDEBUG" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.678620859" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -103,6 +105,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/GUIConfiguratorDialog}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/tinyxml}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1851576925" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -163,13 +167,15 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/GUIConfiguratorDialog}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/tinyxml}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.423201129" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/Tests/CameraCalibration|src/Tests/DataInterpreterTest|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/SystemCLITest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/Tests/ImageManipulation|src/Tests/CameraCalibration|src/Tests/TestingOpenCVBuilding|src/Tests/AutoZoneSelector|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -1137,6 +1143,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/GUIConfiguratorDialog}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/tinyxml}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1506393115" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -1168,6 +1176,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/GUIConfiguratorDialog}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/tinyxml}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1313854046" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -1228,13 +1238,15 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/AutoZoneSelector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/GUI/GUIConfiguratorDialog}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/HydrodynamicVariablesDetection/src/Common/tinyxml}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1681913384" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/Tests/CameraCalibration|src/Tests/DataInterpreterTest|src/Tests/CameraCalibration/CameraCalibration.cpp|src/Tests/CameraResolution|src/Tests/ImageManipulation|src/Tests/TestingOpenCVBuilding|src/Tests/SystemCLITest|src/GUI" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/Tests/ImageManipulation|src/Tests/CameraCalibration|src/Tests/TestingOpenCVBuilding|src/Tests/CameraResolution|src/Tests/AutoZoneSelector|src/Tests/CameraCalibration/CameraCalibration.cpp|src/Tests/SystemCLITest|src/GUI|src/Tests/DataInterpreterTest" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

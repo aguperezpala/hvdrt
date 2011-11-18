@@ -70,6 +70,7 @@ bool ImageGenerator::createDevice(const std::string &videoPath)
 	}
 
 	mCapturer = new cv::VideoCapture(videoPath);
+	mCapturer->open(videoPath);
 	if(!mCapturer->isOpened()){
 		delete mCapturer; mCapturer = 0;
 		debug("Problem opening the file: %s\n", videoPath.c_str());

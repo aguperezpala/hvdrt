@@ -5,7 +5,9 @@
 #include <qdialog.h>
 #include "ui_coordsinterpreterconfigurator.h"
 
-class CoordsInterpreterConfigurator : public QDialog
+#include "GUIConfiguratorDialog.h"
+
+class CoordsInterpreterConfigurator : public GUIConfiguratorDialog
 {
     Q_OBJECT
 

@@ -14,57 +14,12 @@ int CannyParameterCalculator::showMessage(const QString &m)
 	return 0;
 }
 
-///////////////////////////////////////////////////////////////////////////////
-bool CannyParameterCalculator::IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref)
-{
-	IplImage iplImg = iplImgMat;
-	int h = iplImg.height;
-	int w = iplImg.width;
-	int channels = iplImg.nChannels;
-	QImage *qimg = new QImage(w, h, QImage::Format_ARGB32);
-	char *data = iplImg.imageData;
-
-	for (int y = 0; y < h; y++, data += iplImg.widthStep)
-	{
-		for (int x = 0; x < w; x++)
-		{
-			char r, g, b, a = 0;
-			if (channels == 1)
-			{
-				r = data[x * channels];
-				g = data[x * channels];
-				b = data[x * channels];
-			}
-			else if (channels == 3 || channels == 4)
-			{
-				r = data[x * channels + 2];
-				g = data[x * channels + 1];
-				b = data[x * channels];
-			}
-
-			if (channels == 4)
-			{
-				a = data[x * channels + 3];
-				qimg->setPixel(x, y, qRgba(r, g, b, a));
-			}
-			else
-			{
-				qimg->setPixel(x, y, qRgb(r, g, b));
-			}
-		}
-	}
-	ref = *qimg;
-	delete qimg;
-
-
-	return true;
-}
 
 void CannyParameterCalculator::showImage(const cv::Mat &img)
 {
 	if(img.data){
 		QImage qImg;
-		IplImage2QImage(img, qImg);
+		GUIUtils::IplImage2QImage(img, qImg);
 
 		// gets the resolution to show the image
 		if(img.rows > ui.image_label->minimumHeight() || img.cols > ui.image_label->minimumWidth()){
@@ -79,7 +34,7 @@ void CannyParameterCalculator::showImage(const cv::Mat &img)
 
 ///////////////////////////////////////////////////////////////////////////////
 CannyParameterCalculator::CannyParameterCalculator(QWidget *parent)
-    : QDialog(parent)
+    : GUIConfiguratorDialog(parent, "CannyParameterCalculator")
 {
 	ui.setupUi(this);
 
