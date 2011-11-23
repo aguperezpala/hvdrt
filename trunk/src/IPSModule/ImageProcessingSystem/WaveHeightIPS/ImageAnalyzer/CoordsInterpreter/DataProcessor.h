@@ -26,6 +26,8 @@
 #ifndef DATAPROCESSOR_H_
 #define DATAPROCESSOR_H_
 
+#include <opencv2/core/core.hpp>
+
 #include <string>
 #include <fstream>
 
@@ -53,8 +55,11 @@ public:
 	/* Set the data to analyze */
 	void setData(CoordsInterpreter::Data *data);
 
+	/* Set the middle point */
+	void setMiddlePoint(const cv::Point &p) {mPoint = p;}
+
 	/* Returns the last height calculated in mm */
-	float getLastHeightCalculated(void) const {return mLastHeight;}
+	float getLastHeightCalculated(void) const {return mRealLastHeight;}
 
 	/* Returns the last time calculated */
 	double getLastTime(void) const {return mLastTime;}
@@ -83,7 +88,9 @@ private:
 	Timestamp						*mTimeStamp;
 	int								mMiddlePoint;
 	float							mLastHeight;
+	float							mRealLastHeight;
 	double							mLastTime;
+	cv::Point						mPoint;
 };
 
 #endif /* DATAPROCESSOR_H_ */

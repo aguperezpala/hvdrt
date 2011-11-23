@@ -66,7 +66,7 @@ void CoordsInterpreter::setAnalyzeZone(const cv::Rect &zone)
 		}
 	}
 
-	cv::namedWindow("coordsInterpreterWin");
+//	cv::namedWindow("coordsInterpreterWin");
 }
 
 /* Sets the Data where it will be stored the results.
@@ -136,7 +136,7 @@ errCode CoordsInterpreter::processData(cv::Mat &image) const
 		data = image.data + l*image.step + beginColumn*image.elemSize();
 	}
 
-	cv::imshow("coordsInterpreterWin", image);
+//	cv::imshow("coordsInterpreterWin", image);
 
 	// call the callBack functor to advise the data is ready
 	if(mFunctor){

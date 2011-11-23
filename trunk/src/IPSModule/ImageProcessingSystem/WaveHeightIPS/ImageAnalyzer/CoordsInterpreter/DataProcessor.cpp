@@ -195,9 +195,12 @@ void DataProcessor::operator()(void)
 	// now process the data
 	mLastHeight = getWaveHeight();
 
+	// now transform the high using the middle point
+	mRealLastHeight = mLastHeight - (mPoint.y / mRelation);
+
 	// print the data into the file
 	mLastTime = mTimeStamp->getDiffTimestamp();
-	mOutFile << mLastTime << "\t\t" << mLastHeight << std::endl;
+	mOutFile << mLastTime << "\t\t" << mRealLastHeight <<  std::endl;
 
 
 }
