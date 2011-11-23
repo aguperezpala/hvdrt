@@ -75,9 +75,9 @@ RealTimeDataDisplayer::RealTimeDataDisplayer(QWidget *parent)
 	//mScene.addRect(QRectF(-1000,-1000,20,20));
 	//ui.graphicsView->setRenderHint(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 	//mScene.addRect(QRectF(2010,2010,2000,2000));
-
-	QGraphicsTextItem *t = new QGraphicsTextItem("testing");
-	t->setPos(100,100);
+//
+	QGraphicsTextItem *t = new QGraphicsTextItem("(0,0)");
+	t->setPos(-50,50);
 	t->setDefaultTextColor(QColor(100,100,100));
 	mScene.addItem(t);
 

@@ -14,6 +14,7 @@
 #include "Frame.h"
 #include "GUIUtils.h"
 #include "guiimageprocessingsystem.h"
+#include "coordsinterpreterconfigurator.h"
 #include "imagegeneratorconfigurator.h"
 #include "guiperspectivetransformator.h"
 #include "cannyparametercalculator.h"
@@ -51,6 +52,9 @@ private:
 	/* Configure the input */
 	bool configureInput(void);
 
+	/* Configure the middle point */
+	bool configureMiddlePoint(void);
+
 	/* configure the perspective transformation */
 	bool configurePerspectiveTransformation(void);
 
@@ -68,13 +72,10 @@ private:
 private:
 	class DataInterpreterBridge : public CallBFunctor{
 	public:
-		DataInterpreterBridge(RealTimeDataDisplayer *r,
-				CoordsInterpreter::Data *d) :
-					mData(d),
-					mDataDisplayer(r)
+		DataInterpreterBridge(CoordsInterpreter::Data *d) :
+					mData(d)
 				{
 					ASSERT(d);
-					ASSERT(r);
 					d->resize(3);
 					mDataProcessor.setFileName("out.txt");
 					mDataProcessor.setRelation(1.0f);
@@ -85,6 +86,12 @@ private:
 		virtual ~DataInterpreterBridge()
 		{
 		};
+
+		void setRealTimeDataDisplayer(RealTimeDataDisplayer *r)
+		{
+			ASSERT(r);
+			mDataDisplayer = r;
+		}
 
 		DataProcessor *getDataProcessor(void) {return &mDataProcessor;}
 
@@ -118,7 +125,7 @@ private:
     CoordsInterpreter::Data		mCoordsData;
 
     // The data interpreter
-    RealTimeDataDisplayer		mDataDisplayer;
+    std::auto_ptr<RealTimeDataDisplayer>		mDataDisplayer;
     DataInterpreterBridge		mBridge;
 
 

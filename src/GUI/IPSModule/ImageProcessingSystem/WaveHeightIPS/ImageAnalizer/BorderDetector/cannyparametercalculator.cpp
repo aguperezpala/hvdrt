@@ -24,6 +24,7 @@ void CannyParameterCalculator::showImage(const cv::Mat &img)
 		ui.image_label->setScaledContents(true);
 
 		ui.image_label->setPixmap(QPixmap::fromImage(qImg));
+		ui.image_label->setScaledContents(true);
 	}
 }
 

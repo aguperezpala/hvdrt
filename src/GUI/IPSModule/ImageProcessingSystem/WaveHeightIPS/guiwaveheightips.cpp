@@ -26,6 +26,54 @@ bool GUIWaveHeightIPS::configureInput(void)
 	return true;
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+bool GUIWaveHeightIPS::configureMiddlePoint(void)
+{
+
+	if(!mTransformator){
+		debug("Error: No perspective transformator was set\n");
+		GUIUtils::showMessageBox("Error: No Perspective transformator was set\n");
+		return false;
+	}
+
+	CoordsInterpreterConfigurator cic(this);
+
+	Frame f;
+	int err = mWaveHIPS.getImageGenerator()->captureFrame(f);
+	if(err != NO_ERROR){
+		debug("Error capturing a frame from the imageGenerator. It was "
+				"configured?, error: %d\n", err);
+		GUIUtils::showMessageBox("Error capturing a frame from the imageGenerator. "
+				"It was configured?");
+		return false;
+	}
+
+	// Transform perspective
+	mTransformator->processData(f.data);
+
+	// set the image to configure
+	cic.setImage(f.data);
+
+	// show the window
+	cic.show();
+	cic.exec();
+
+	// get the middle point
+	cv::Point p = cic.getPoint();
+
+	// transform the height of the point
+	p.y = f.data.rows - p.y;
+	// put the middle point to the data processor
+	mBridge.getDataProcessor()->setMiddlePoint(p);
+
+	// Set the analyze zone
+	cv::Rect zone(p.x, 0, 3, f.data.rows);
+	mCoordsInterpreter.setAnalyzeZone(zone);
+
+	return true;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 bool GUIWaveHeightIPS::configurePerspectiveTransformation(void)
 {
@@ -81,21 +129,24 @@ bool GUIWaveHeightIPS::configurePerspectiveTransformation(void)
 ////////////////////////////////////////////////////////////////////////////////
 bool GUIWaveHeightIPS::configureAnalyzeZone(void)
 {
+	// BY NOW WE ARE SETTING THIS PARAMS IN CONFIGURE MIDDLE POINT FUNCTION
+
+
 	// by now we will use all the zone of height but 3 pixels of width at the
 	// middle
-	Frame f;
-	int err = mWaveHIPS.getImageGenerator()->captureFrame(f);
-	if(err != NO_ERROR){
-		debug("Error setting the analyze zone\n");
-		return false;
-	}
-//	cv::Point p1(f.data.cols/2,0);
-//	cv::Point p2(3,f.data.rows);
-//	cv::Rect zone(p1,p2);
-
-	cv::Rect zone(f.data.cols/2, 0, 3, f.data.rows);
-
-	mCoordsInterpreter.setAnalyzeZone(zone);
+//	Frame f;
+//	int err = mWaveHIPS.getImageGenerator()->captureFrame(f);
+//	if(err != NO_ERROR){
+//		debug("Error setting the analyze zone\n");
+//		return false;
+//	}
+////	cv::Point p1(f.data.cols/2,0);
+////	cv::Point p2(3,f.data.rows);
+////	cv::Rect zone(p1,p2);
+//
+//	cv::Rect zone(f.data.cols/2, 0, 3, f.data.rows);
+//
+//	mCoordsInterpreter.setAnalyzeZone(zone);
 
 
 
@@ -140,15 +191,19 @@ bool GUIWaveHeightIPS::configureCanny(void)
 ////////////////////////////////////////////////////////////////////////////////
 bool GUIWaveHeightIPS::configureRealTimeDataDisplayer(void)
 {
+	if(!mDataDisplayer.get()){
+		mDataDisplayer.reset(new RealTimeDataDisplayer());
+	}
 	// TODO: Here we have to show the RealTimeDataConfigurator (to set these values)
-	mDataDisplayer.setMaxYValue(30);
-	mDataDisplayer.setMaxXValue(60);
-	mDataDisplayer.setMeasureScale(50.0);
-	mDataDisplayer.setTimeScale(20.0);
+	mBridge.setRealTimeDataDisplayer(mDataDisplayer.get());
+	mDataDisplayer->setMaxYValue(30);
+	mDataDisplayer->setMaxXValue(60);
+	mDataDisplayer->setMeasureScale(50.0);
+	mDataDisplayer->setTimeScale(20.0);
 
-	mDataDisplayer.init();
+	mDataDisplayer->init();
 
-	mDataDisplayer.show();
+	mDataDisplayer->show();
 	//mDataDisplayer.exec();
 
 	return true;
@@ -159,8 +214,9 @@ bool GUIWaveHeightIPS::configureRealTimeDataDisplayer(void)
 GUIWaveHeightIPS::GUIWaveHeightIPS(QWidget *parent)
     : GUIImageProcessingSystem(parent),
       mTransformator(0),
-      mBridge(&mDataDisplayer, &mCoordsData)
+      mBridge(&mCoordsData)
 {
+
 	ui.setupUi(this);
 	mIPS = &mWaveHIPS;
 
@@ -198,6 +254,12 @@ errCode GUIWaveHeightIPS::execute(void)
 	// second: configure the perspective transformation
 	if(!configurePerspectiveTransformation()){
 		debug("Error configuring the Perspective Transformation\n");
+		return INCOMPLETE_CONFIGURATION;
+	}
+
+	// next: configure the middle point
+	if(!configureMiddlePoint()){
+		debug("Error configuring the middle point\n");
 		return INCOMPLETE_CONFIGURATION;
 	}
 

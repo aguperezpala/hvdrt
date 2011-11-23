@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>835</width>
-    <height>849</height>
+    <width>790</width>
+    <height>177</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,6 +19,12 @@
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QLabel" name="image_label">
+     <property name="maximumSize">
+      <size>
+       <width>800</width>
+       <height>600</height>
+      </size>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -28,16 +34,12 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QFormLayout" name="formLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
+       </property>
        <property name="fieldGrowthPolicy">
         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
        </property>
-       <item row="1" column="0">
-        <widget class="QCheckBox" name="l2Gradient_checkBox">
-         <property name="text">
-          <string>L2Gradiente</string>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
@@ -121,7 +123,25 @@
          </item>
         </layout>
        </item>
+       <item row="1" column="0">
+        <widget class="QCheckBox" name="l2Gradient_checkBox">
+         <property name="text">
+          <string>L2Gradiente</string>
+         </property>
+        </widget>
+       </item>
       </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="loadImg_button">
+       <property name="text">
+        <string>Load Image</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="cannyBuild_button">
@@ -131,23 +151,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="showReal_button">
-       <property name="text">
-        <string>Show Real Image</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="loadImg_button">
-       <property name="text">
-        <string>Load Image</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="done_button">
        <property name="text">
         <string>Done</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="showReal_button">
+       <property name="text">
+        <string>Show Real Image</string>
        </property>
       </widget>
      </item>
