@@ -66,4 +66,4 @@ private:
 
 };
 
-#endif GUICONFIGURATORDIALOG_H
+#endif //GUICONFIGURATORDIALOG_H
