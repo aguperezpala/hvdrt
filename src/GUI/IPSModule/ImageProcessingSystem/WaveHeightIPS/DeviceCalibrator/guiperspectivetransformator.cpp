@@ -198,3 +198,94 @@ PerspectiveTransformator *GUIPerspectiveTransformator::getPerspectiveTransformat
 }
 
 
+/* Function used to load the configurations from a xml file
+ * Returns:
+ * 	errCode
+ */
+errCode GUIPerspectiveTransformator::loadConfig(TiXmlElement *elem)
+{
+	ASSERT(elem);
+
+	TiXmlElement *auxElem = elem->FirstChildElement("GUIPerspectiveTransformator");
+	if(!auxElem){
+		debug("Invalid xml, GUIPerspectiveTransformator not found\n");
+		GUIUtils::showMessageBox("Invalid xml, GUIPerspectiveTransformator not found");
+		return INVALID_PARAM;
+	}
+
+	// get the rectangle size
+	auxElem = auxElem->FirstChildElement("RectangleSize");
+	if(!auxElem){
+		debug("Invalid xml, RectangleSize not found\n");
+		GUIUtils::showMessageBox("Invalid xml, RectangleSize not found");
+		return INVALID_PARAM;
+	}
+//	QString xsizeStr = auxElem->Attribute("xSize");
+	QString ysizeStr = auxElem->Attribute("ySize");
+	bool ok;
+//	int xsize = xsizeStr.toInt(&ok);
+	mRectSizeY = ysizeStr.toFloat(&ok);
+	ui.rectScaleY_edit->setText(ysizeStr);
+
+	// get all the points
+	mMouseLabel->clearPoints();
+	ASSERT(mPointsVector);
+	mPointsVector->clear();
+
+	auxElem = elem->FirstChildElement("Points");
+	if(!auxElem){
+		// no points was found
+		return NO_ERROR;
+	}
+
+	// parse the points
+	auxElem = auxElem->FirstChildElement("Point");
+	while(auxElem){
+		QString xStr = auxElem->Attribute("x");
+		QString yStr = auxElem->Attribute("y");
+
+		int x = xStr.toInt(&ok);
+		int y = yStr.toInt(&ok);
+
+		// add the point
+		mMouseLabel->addPoint(x,y);
+
+		auxElem = auxElem->NextSiblingElement("Point");
+	}
+
+
+	return NO_ERROR;
+}
+
+/* Save the data to an xml and return it.
+ * Returns:
+ * 	0			on Error
+ * 	xml			on success */
+std::auto_ptr<TiXmlElement> GUIPerspectiveTransformator::getConfig(void)
+{
+	std::auto_ptr<TiXmlElement> result(new TiXmlElement("GUIPerspectiveTransformator"));
+
+	// rectangle
+	TiXmlElement *rect = new TiXmlElement("RectangleSize");
+	// we are not using the xSize by now, so set to 0
+	rect->SetAttribute("xSize", "0");
+	rect->SetAttribute("ySize", ui.rectScaleY_edit->text().toAscii().data());
+	result->LinkEndChild(rect);
+
+	// Add the points
+	TiXmlElement *pointsXml = new TiXmlElement("Points");
+
+	const std::vector<QPoint> &points = mMouseLabel->getPoints();
+	for(int i = 0; i < points.size(); ++i){
+		TiXmlElement *point = new TiXmlElement("Point");
+		point->SetAttribute("x", QString::number(points[i].x()).toAscii().data());
+		point->SetAttribute("y", QString::number(points[i].y()).toAscii().data());
+
+		pointsXml->LinkEndChild(point);
+	}
+
+	result->LinkEndChild(pointsXml);
+
+	return result;
+}
+

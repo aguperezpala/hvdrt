@@ -50,6 +50,9 @@ public:
     /* Returns selected points */
     const std::vector<QPoint> &getPoints(void) const {return mPoints;}
 
+    /* Add a new point */
+    void addPoint(int x, int y);
+
 protected:
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);

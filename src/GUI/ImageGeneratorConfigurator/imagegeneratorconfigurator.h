@@ -27,6 +27,18 @@ public:
     /* configures an ImageGenerator */
     void setImgGenerator(ImageGenerator *);
 
+    /* Function used to load the configurations from a xml file
+	 * Returns:
+	 * 	errCode
+	 */
+	virtual errCode loadConfig(TiXmlElement *);
+
+	/* Save the data to an xml and return it.
+	 * Returns:
+	 * 	0			on Error
+	 * 	xml			on success */
+	virtual std::auto_ptr<TiXmlElement> getConfig(void);
+
 
 public slots:
     void onSourceCameraClicked(void);
@@ -61,6 +73,13 @@ private:
     ImageGenerator							*mImgGen;
     bool									mShowInfo;
     QImage									mShowImage;
+
+    // Save properties
+    std::string								mSourceStr;
+    std::string								mTypeStr;
+    std::auto_ptr<TiXmlElement>				mSaveXml;
+
+
 };
 
 #endif // IMAGEGENERATORCONFIGURATOR_H
