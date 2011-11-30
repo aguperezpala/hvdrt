@@ -1,0 +1,3 @@
+<ImageGeneratorConfigurator>
+	<sourceInput type="camera|file" source="0|path" />
+</ImageGeneratorConfigurator>

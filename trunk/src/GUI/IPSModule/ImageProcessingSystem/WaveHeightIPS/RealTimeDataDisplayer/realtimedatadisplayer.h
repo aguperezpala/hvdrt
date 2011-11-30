@@ -48,6 +48,7 @@ public:
 
 public slots:
 	void onDoneClicked(void);
+	void onStartClicked(void);
 
 private:
     /* Creates the both axis */

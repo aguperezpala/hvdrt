@@ -74,6 +74,9 @@ RealTimeDataDisplayer::RealTimeDataDisplayer(QWidget *parent)
 
 	QObject::connect(ui.done_button,SIGNAL(clicked(bool)), this,
 						SLOT(onDoneClicked(void)));
+	QObject::connect(ui.start_button,SIGNAL(clicked(bool)), this,
+							SLOT(onStartClicked(void)));
+
 
 	//mScene.addRect(QRectF(-1000,-1000,20,20));
 	//ui.graphicsView->setRenderHint(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
@@ -186,3 +189,12 @@ void RealTimeDataDisplayer::onDoneClicked(void)
 	// everything ok, emit the signal
 	emit doneSignal(NO_ERROR);
 }
+
+///////////////////////////////////////////////////////////////////////////////
+void RealTimeDataDisplayer::onStartClicked(void)
+{
+	// everything ok, emit the signal
+	emit doneSignal(NO_ERROR);
+}
+
+

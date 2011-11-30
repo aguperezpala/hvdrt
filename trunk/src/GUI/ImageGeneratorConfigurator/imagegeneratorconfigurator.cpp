@@ -185,12 +185,83 @@ void ImageGeneratorConfigurator::setImgGenerator(ImageGenerator *imgGen)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+errCode ImageGeneratorConfigurator::loadConfig(TiXmlElement *elem)
+{
+	ASSERT(elem);
+
+	// get the first value
+	TiXmlElement *auxElem = elem->FirstChildElement("ImageGeneratorConfigurator");
+	if(!auxElem){
+		debug("Invalid xml, no ImageGeneratorConfigurator found\n");
+		GUIUtils::showMessageBox("Invalid xml, no ImageGeneratorConfigurator found");
+		return INVALID_PARAM;
+	}
+
+	// get the source input
+	auxElem = auxElem->FirstChildElement("sourceInput");
+	if(!auxElem){
+		debug("Invalid xml, no sourceInput found\n");
+		GUIUtils::showMessageBox("Invalid xml, no sourceInput found");
+		return INVALID_PARAM;
+	}
+
+	std::string type = auxElem->Attribute("type");
+	std::string source = auxElem->Attribute("source");
+
+	if(type == "camera"){
+		// we have to create the device from a camera
+		// TODO: no tenemos en cuenta el source solo camara 0
+		onSourceCameraClicked();
+	} else if(type == "file"){
+		// from tile
+		// close the actual image generator
+		mImgGen->stopGenerating();
+		mImgGen->destroyDevice();
+
+		// create the new one
+		if(!mImgGen->createDevice(source)){
+			GUIUtils::showMessageBox("Error creating the ImageGenerator");
+			return INTERNAL_ERROR;
+		}
+
+		// if there was no error, then we start
+		showResolution();
+		getProperties();
+		showSourceInput();
+	}
+
+	// TODO: alomejor guardar todas las propiedades de la camara aca
+
+	return NO_ERROR;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+std::auto_ptr<TiXmlElement> ImageGeneratorConfigurator::getConfig(void)
+{
+	mSaveXml.reset(new TiXmlElement("ImageGeneratorConfigurator"));
+
+	TiXmlElement *sourceInput = new TiXmlElement("sourceInput");
+	sourceInput->SetAttribute("type", mTypeStr.c_str());
+	sourceInput->SetAttribute("source", mSourceStr.c_str());
+
+	// TODO: add all the camera properties
+	mSaveXml->LinkEndChild(sourceInput);
+
+	return mSaveXml;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
 void ImageGeneratorConfigurator::onSourceCameraClicked(void)
 {
 	ASSERT(mImgGen);
 	// close the actual image generator
 	mImgGen->stopGenerating();
 	mImgGen->destroyDevice();
+
+	mSourceStr = "0";
+	mTypeStr = "camera";
 
 	// create the new one
 	if(!mImgGen->createDevice()){
@@ -220,6 +291,10 @@ void ImageGeneratorConfigurator::onSourceFileClicked(void)
 	// close the actual image generator
 	mImgGen->stopGenerating();
 	mImgGen->destroyDevice();
+
+	// used for save in xml
+	mSourceStr = filename.toAscii().data();
+	mTypeStr = "file";
 
 	// create the new one
 	if(!mImgGen->createDevice(filename.toAscii().data())){

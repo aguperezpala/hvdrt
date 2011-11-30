@@ -8,8 +8,11 @@ LIBS	  += -L/usr/local/lib -lopencv_core -lopencv_imgproc -lopencv_highgui -lope
 	-lopencv_contrib -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_ml \
  	-lopencv_objdetect -lopencv_video -lopencv_ts -lopencv_legacy
 
-CONFIG += tinyxmlpath
-LIBS += -L../Common/tinyxml
+
+LIBS += -L../Common/tinyxml -ltinyxmlpath
+INCLUDEPATH += ../Common/tinyxml
+DEPENDPATH += ../Common/tinyxml
+PRE_TARGETDEPS += ../Common/tinyxml/libtinyxmlpath.a
 
 INCLUDEPATH += ../Common/Debug \
 	../Common/Timestamp \

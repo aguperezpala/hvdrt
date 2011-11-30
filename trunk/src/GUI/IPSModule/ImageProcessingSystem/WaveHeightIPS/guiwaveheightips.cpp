@@ -20,7 +20,7 @@ bool GUIWaveHeightIPS::connectNewWidget(GUIConfiguratorDialog *w, const QString 
 
 	// set the text to the minimun size
 	ui.info->setText(info);
-	ui.info->setMaximumHeight(ui.info->font().pointSize());
+	ui.info->setMaximumHeight(ui.info->font().pointSize()+30);
 
 	// add the widget and show it
 	ui.verticalLayout->addWidget(w);
@@ -30,9 +30,9 @@ bool GUIWaveHeightIPS::connectNewWidget(GUIConfiguratorDialog *w, const QString 
 	int th = ui.info->size().height();
 
 	// the new height of the widget
-	int nh = mWindowHeight - th - 30; // the size of the top menu
+	int nh = mWindowHeight - th - 100; // the size of the top menu
 
-	w->setMaximumSize(QSize(mWindowWidth - 10,nh));
+	w->setMaximumSize(QSize(mWindowWidth - 30,nh));
 
 	// disconnect the signals and connect it to this one
 	QObject::disconnect(w, SIGNAL(doneSignal(int)),
@@ -104,7 +104,7 @@ bool GUIWaveHeightIPS::configureMiddlePoint(void)
 ////////////////////////////////////////////////////////////////////////////////
 bool GUIWaveHeightIPS::configurePerspectiveTransformation(void)
 {
-	std::vector<cv::Point2i> points;
+	static std::vector<cv::Point2i> points;
 
 	// get an image from the image generator
 	int err = mWaveHIPS.getImageGenerator()->captureFrame(mAuxFrame);
@@ -115,6 +115,8 @@ bool GUIWaveHeightIPS::configurePerspectiveTransformation(void)
 				"It was configured?");
 		return false;
 	}
+
+	points.clear();
 
 	// set the image to the perspective transformator
 	mPerspectivTranWin.setImage(mAuxFrame.data);
@@ -161,8 +163,7 @@ bool GUIWaveHeightIPS::configureAnalyzeZone(void)
 bool GUIWaveHeightIPS::configureCanny(void)
 {
 	// get an image and apply the transformation by the transformator
-	Frame f;
-	int err = mWaveHIPS.getImageGenerator()->captureFrame(f);
+	int err = mWaveHIPS.getImageGenerator()->captureFrame(mAuxFrame);
 	if(err != NO_ERROR){
 		debug("Error capturing a frame from the imageGenerator. It was "
 				"configured?, error: %d\n", err);
@@ -171,11 +172,11 @@ bool GUIWaveHeightIPS::configureCanny(void)
 		return false;
 	}
 	if(mTransformator){
-		mTransformator->processData(f.data);
+		mTransformator->processData(mAuxFrame.data);
 	}
 
 	// set and show the image
-	mCannyCalcWin.setImage(f.data);
+	mCannyCalcWin.setImage(mAuxFrame.data);
 
 	connectNewWidget(&mCannyCalcWin, "Select the best parameters used to compute "
 			"the border detection algorithm (Canny).");
@@ -308,6 +309,7 @@ void GUIWaveHeightIPS::widgetDone(int err)
 		if(mTransformator){
 			delete mTransformator;
 		}
+
 		mTransformator = mPerspectivTranWin.getPerspectiveTransformator();
 
 		if(!mTransformator){
@@ -315,6 +317,7 @@ void GUIWaveHeightIPS::widgetDone(int err)
 			GUIUtils::showMessageBox("Error while trying to get the transformator");
 			return;
 		}
+
 
 		// set the transformator to the WaveHIPS
 		mWaveHIPS.setImgProcCalibrator(mTransformator);
@@ -339,7 +342,6 @@ void GUIWaveHeightIPS::widgetDone(int err)
 	case ST_CONFIG_MIDDLE_POINT:
 	{
 		// Done configuring middle point, now extract the data
-
 		// get the middle point
 		cv::Point p = mCoordIntConWin.getPoint();
 
@@ -353,13 +355,14 @@ void GUIWaveHeightIPS::widgetDone(int err)
 		mCoordsInterpreter.setAnalyzeZone(zone);
 
 		// Everything ok, show next window
+		mState = ST_CONFIG_ANALYZE_ZONE;
 		if(!configureAnalyzeZone()){
 			debug("Error configuring the AnalyzeZone\n");
 			// TODO: Erro handling here
 			return;
 		}
 
-		mState = ST_CONFIG_ANALYZE_ZONE;
+
 	}
 		break;
 	case ST_CONFIG_ANALYZE_ZONE:

@@ -67,6 +67,26 @@ MouseQLabel::~MouseQLabel()
 
 
 
+/* Add a new point */
+void MouseQLabel::addPoint(int x, int y)
+{
+	mX = x;
+	mY = y;
+
+
+	if(mX > mImg.width() || mY > mImg.height()){
+		return;
+	}
+
+	// add the new point
+	QPoint p(mX, mY);
+	mPoints.push_back(p);
+
+	// show the new point
+	remarkPoint(mImg, mX, mY);
+	showImage(mImg);
+}
+
 void MouseQLabel::mousePressEvent(QMouseEvent* event)
 {
 	mX = event->x();
