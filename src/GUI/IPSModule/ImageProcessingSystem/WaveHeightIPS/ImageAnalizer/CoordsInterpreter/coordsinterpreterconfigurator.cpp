@@ -43,6 +43,51 @@ void CoordsInterpreterConfigurator::setImage(const cv::Mat &img)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+errCode CoordsInterpreterConfigurator::loadConfig(TiXmlElement *elem)
+{
+	ASSERT(elem);
+
+	TiXmlElement *auxElem = elem->FirstChildElement("CoordsInterpreterConfigurator");
+	if(!auxElem){
+		debug("Invalid xml, CoordsInterpreterConfigurator not found\n");
+		GUIUtils::showMessageBox("Invalid xml, CoordsInterpreterConfigurator not found");
+		return INVALID_PARAM;
+	}
+
+	// we only have to parse the middle point
+	auxElem = auxElem->FirstChildElement("Point");
+	if(!auxElem){
+		debug("Invalid xml, Point not found\n");
+		GUIUtils::showMessageBox("Invalid xml, Point not found");
+		return INVALID_PARAM;
+	}
+	QString xStr = auxElem->Attribute("x");
+	QString yStr = auxElem->Attribute("y");
+	bool ok;
+	int x = xStr.toInt(&ok);
+	int y = yStr.toInt(&ok);
+
+	mMouseLabel->addPoint(x,y);
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+std::auto_ptr<TiXmlElement> CoordsInterpreterConfigurator::getConfig(void)
+{
+	std::auto_ptr<TiXmlElement> result(new TiXmlElement("CoordsInterpreterConfigurator"));
+
+	TiXmlElement *point = new TiXmlElement("Point");
+	QString xStr = QString::number(mPoint.x);
+	QString yStr = QString::number(mPoint.y);
+	point->SetAttribute("x", xStr.toAscii().data());
+	point->SetAttribute("y", yStr.toAscii().data());
+
+	result->LinkEndChild(point);
+
+	return result;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void CoordsInterpreterConfigurator::onClearClicked(void)
 {
 	mMouseLabel->clearPoints();

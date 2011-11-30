@@ -1,0 +1,6 @@
+<CannyParameterCalculator>
+	<L2Gradient checked="true" />
+	<Threshold1 value="" />
+	<Threshold2 value="" />
+	
+</CannyParameterCalculator>

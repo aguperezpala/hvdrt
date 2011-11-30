@@ -73,6 +73,79 @@ void CannyParameterCalculator::setImage(const cv::Mat &img)
 	showImage(mTransformedImage);
 }
 
+///////////////////////////////////////////////////////////////////////////////
+errCode CannyParameterCalculator::loadConfig(TiXmlElement *elem)
+{
+	ASSERT(elem);
+
+	TiXmlElement *auxElem = elem->FirstChildElement("CannyParameterCalculator");
+	if(!auxElem){
+		debug("Invalid xml, CannyParameterCalculator not found\n");
+		GUIUtils::showMessageBox("Invalid xml, CannyParameterCalculator not found");
+		return INVALID_PARAM;
+	}
+
+	// check L2Gradient
+	auxElem = auxElem->FirstChildElement("L2Gradient");
+	if(!auxElem){
+		debug("Invalid xml, L2Gradient not found\n");
+		GUIUtils::showMessageBox("Invalid xml, L2Gradient not found");
+		return INVALID_PARAM;
+	}
+	QString checked = auxElem->Attribute("checked");
+	if(checked == "true"){
+		ui.l2Gradient_checkBox->setChecked(true);
+	} else {
+		ui.l2Gradient_checkBox->setChecked(false);
+	}
+
+	auxElem = auxElem->NextSiblingElement("Threshold1");
+	if(!auxElem){
+		debug("Invalid xml, Threshold1 not found\n");
+		GUIUtils::showMessageBox("Invalid xml, Threshold1 not found");
+		return INVALID_PARAM;
+	}
+	QString t1Str = auxElem->Attribute("Threshold1");
+	ui.threshole1_text->setText(t1Str);
+
+	auxElem = auxElem->NextSiblingElement("Threshold2");
+	if(!auxElem){
+		debug("Invalid xml, Threshold2 not found\n");
+		GUIUtils::showMessageBox("Invalid xml, Threshold2 not found");
+		return INVALID_PARAM;
+	}
+	QString t2Str = auxElem->Attribute("Threshold2");
+	ui.threshole2_text->setText(t2Str);
+
+	return NO_ERROR;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+std::auto_ptr<TiXmlElement> CannyParameterCalculator::getConfig(void)
+{
+	std::auto_ptr<TiXmlElement> result(new TiXmlElement("CannyParameterCalculator"));
+
+	TiXmlElement *gradient = new TiXmlElement("L2Gradient");
+	if(ui.l2Gradient_checkBox->isChecked()){
+		gradient->SetAttribute("checked", "true");
+	} else {
+		gradient->SetAttribute("checked", "false");
+	}
+	result->LinkEndChild(gradient);
+
+	TiXmlElement *th1 = new TiXmlElement("Threshold1");
+	th1->SetAttribute("value", ui.threshole2_text->text().toAscii().data());
+	result->LinkEndChild(th1);
+
+	TiXmlElement *th2 = new TiXmlElement("Threshold2");
+	th1->SetAttribute("value", ui.threshole2_text->text().toAscii().data());
+	result->LinkEndChild(th2);
+
+
+	return result;
+}
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 void CannyParameterCalculator::onSlide1Change(int v)

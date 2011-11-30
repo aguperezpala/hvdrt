@@ -36,6 +36,20 @@ public:
     /* Set an image to analyze */
     void setImage(const cv::Mat &img);
 
+    /* Function used to load the configurations from a xml file
+	 * Returns:
+	 * 	errCode
+	 */
+	virtual errCode loadConfig(TiXmlElement *);
+
+	/* Save the data to an xml and return it.
+	 * Returns:
+	 * 	0			on Error
+	 * 	xml			on success */
+	virtual std::auto_ptr<TiXmlElement> getConfig(void);
+
+
+
 public slots:
 	void onSlide1Change(int v);
 	void onSlide2Change(int v);
