@@ -62,6 +62,6 @@ void CoordsInterpreterConfigurator::onDoneClicked(void)
 	mPoint.x = points[0].x();
 	mPoint.y = points[0].y();
 
-	// everything ok, close the window
-	close();
+	// everything ok, emit the signal
+	emit doneSignal(NO_ERROR);
 }

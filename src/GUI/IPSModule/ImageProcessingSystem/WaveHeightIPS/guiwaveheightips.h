@@ -31,7 +31,7 @@ class GUIWaveHeightIPS : public GUIImageProcessingSystem
     Q_OBJECT
 
 public:
-    GUIWaveHeightIPS(QWidget *parent = 0);
+    GUIWaveHeightIPS(QWidget *parent = 0,  int windowW = 800, int windowH = 600);
     ~GUIWaveHeightIPS();
 
     /* Initialize the Image Processing System.
@@ -44,6 +44,17 @@ public:
 	 * 	errCode
 	 */
 	virtual errCode execute(void);
+
+public slots:
+	/* This slot is called when some config dialog or widget is done */
+	void widgetDone(int);
+
+
+
+protected:
+	/* Function used to set the a new widget to show. */
+	bool connectNewWidget(GUIConfiguratorDialog *w, const QString &info);
+
 
 private:
 	/* Creates the main ImageAnalyzer used by the WaveIPS */
@@ -73,7 +84,8 @@ private:
 	class DataInterpreterBridge : public CallBFunctor{
 	public:
 		DataInterpreterBridge(CoordsInterpreter::Data *d) :
-					mData(d)
+					mData(d),
+					mDataDisplayer(0)
 				{
 					ASSERT(d);
 					d->resize(3);
@@ -98,8 +110,10 @@ private:
 		void operator()(void)
 		{
 			mDataProcessor();
-			mDataDisplayer->addNewPoint(mDataProcessor.getLastTime(),
-					mDataProcessor.getLastHeightCalculated()/10.0f);
+			if(mDataDisplayer){
+				mDataDisplayer->addNewPoint(mDataProcessor.getLastTime(),
+						mDataProcessor.getLastHeightCalculated()/10.0f);
+			}
 		}
 
 	private:
@@ -112,7 +126,22 @@ private:
 
 
 private:
+	enum {
+		ST_BEGIN = 0,
+		ST_CONFIG_INPUT,
+		ST_CONFIG_PERSPECTIVE,
+		ST_CONFIG_MIDDLE_POINT,
+		ST_CONFIG_ANALYZE_ZONE,
+		ST_CONFIG_CANNY,
+		ST_CONFIG_DATA_DISPLAYER,
+		ST_DONE
+	};
+
+private:
     Ui::GUIWaveHeightIPSClass ui;
+
+    // the actual state
+    int							mState;
 
     // The real IPS
     WaveHeightIPS				mWaveHIPS;
@@ -124,10 +153,20 @@ private:
     CoordsInterpreter			mCoordsInterpreter;
     CoordsInterpreter::Data		mCoordsData;
 
-    // The data interpreter
-    std::auto_ptr<RealTimeDataDisplayer>		mDataDisplayer;
     DataInterpreterBridge		mBridge;
 
+    // Auxiliar frame used
+    Frame						mAuxFrame;
+
+    // All the windows used
+    ImageGeneratorConfigurator		mImgGenConfWin;
+    CoordsInterpreterConfigurator	mCoordIntConWin;
+    GUIPerspectiveTransformator		mPerspectivTranWin;
+    CannyParameterCalculator		mCannyCalcWin;
+    RealTimeDataDisplayer			mDataDisplayerWin;
+
+    // The widget that is actually showing
+    GUIConfiguratorDialog			*mActualWin;
 
 
 };

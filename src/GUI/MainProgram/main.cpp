@@ -11,8 +11,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    GUIWaveHeightIPS whips;
+    QRect screen = a.desktop()->screenGeometry();
 
+    GUIWaveHeightIPS whips(0, screen.width(), screen.height());
+
+    whips.show();
     int err = whips.initialize();
     if(err != NO_ERROR){
     	debug("Error initializing whips: %d\n", err);

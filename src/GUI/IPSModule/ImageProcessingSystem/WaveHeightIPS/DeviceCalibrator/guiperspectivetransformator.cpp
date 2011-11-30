@@ -109,7 +109,8 @@ void GUIPerspectiveTransformator::onDoneClicked(void)
 	}
 	mRectSizeY = ySize;
 
-	close();
+	// everything ok, emit done signal
+	emit doneSignal(NO_ERROR);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

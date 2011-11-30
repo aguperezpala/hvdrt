@@ -11,12 +11,20 @@
 #include "ImageProcessingSystem.h"
 
 
-class GUIImageProcessingSystem : public QDialog
+class GUIImageProcessingSystem : public QWidget
 {
     Q_OBJECT
 
 public:
-    GUIImageProcessingSystem(QWidget *parent = 0){}
+    GUIImageProcessingSystem(QWidget *parent = 0, int windowW = 800,
+    		int windowH = 600) :
+		QWidget(parent),
+		mWindowWidth(windowW),
+		mWindowHeight(windowH)
+    {
+
+    }
+
     virtual ~GUIImageProcessingSystem(){};
 
     /* Returns the name of the IPS */
@@ -45,8 +53,13 @@ public:
 	virtual errCode execute(void) = 0;
 
 
+
+
+
 protected:
     ImageProcessingSystem				*mIPS;
+    int									mWindowWidth;
+    int									mWindowHeight;
 
 
 };

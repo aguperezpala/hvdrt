@@ -12,18 +12,18 @@
 
 class TiXmlElement;
 
-class GUIConfiguratorDialog : public QDialog
+class GUIConfiguratorDialog : public QWidget
 {
     Q_OBJECT
 
 public:
     GUIConfiguratorDialog(QWidget *parent = 0, const std::string &name = "unnamed") :
-    	QDialog(parent),
+    	QWidget(parent),
     	mName(name)
     {
-    	showMaximized();
-    	activateWindow();
-    	raise();
+//    	showMaximized();
+//    	activateWindow();
+//    	raise();
     }
 
     virtual ~GUIConfiguratorDialog(){};
@@ -50,6 +50,14 @@ public:
     	debug("unimplemented\n");
     	return std::auto_ptr<TiXmlElement> (0);
 	}
+
+    /* We have to implement the signal used to advise when the actual Dialog
+     * is finish
+     */
+signals:
+    	// Advise when the configurator dialog is finish sending the errCode
+    	// associated
+    	void doneSignal(int);
 
 
 
