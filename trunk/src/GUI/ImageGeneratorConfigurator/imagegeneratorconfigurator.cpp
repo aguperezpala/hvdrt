@@ -309,14 +309,10 @@ void ImageGeneratorConfigurator::onGetParamettersClicked(void)
 void ImageGeneratorConfigurator::onDoneClicked(void)
 {
 	// save configuration?
-	close();
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-void ImageGeneratorConfigurator::closeEvent(QCloseEvent * event)
-{
+//	close();
+	// now we have to emmit the signal
 	mShowInfo = false;
 	mImgGen->stopGenerating();
-	QWidget::closeEvent(event);
+
+	emit doneSignal(NO_ERROR);
 }

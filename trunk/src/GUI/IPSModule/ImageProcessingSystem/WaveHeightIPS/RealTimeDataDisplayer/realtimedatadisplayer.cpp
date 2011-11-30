@@ -63,7 +63,7 @@ void RealTimeDataDisplayer::createPoint(float x, float y)
 
 ///////////////////////////////////////////////////////////////////////////////
 RealTimeDataDisplayer::RealTimeDataDisplayer(QWidget *parent)
-    : QDialog(parent),
+    : GUIConfiguratorDialog(parent, "RealTimeDataDisplayer"),
       mXMaxValue(-1),
       mYMaxValue(-1),
       mMeasureScale(-1),
@@ -71,6 +71,9 @@ RealTimeDataDisplayer::RealTimeDataDisplayer(QWidget *parent)
 {
 	ui.setupUi(this);
 	ui.graphicsView->setScene(&mScene);
+
+	QObject::connect(ui.done_button,SIGNAL(clicked(bool)), this,
+						SLOT(onDoneClicked(void)));
 
 	//mScene.addRect(QRectF(-1000,-1000,20,20));
 	//ui.graphicsView->setRenderHint(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
@@ -87,10 +90,10 @@ RealTimeDataDisplayer::RealTimeDataDisplayer(QWidget *parent)
 	mPoints.push_back(point);
 
 
-	// maximized
-	showMaximized();
-	activateWindow();
-	raise();
+//	// maximized
+//	showMaximized();
+//	activateWindow();
+//	raise();
 
 }
 
@@ -175,4 +178,11 @@ void RealTimeDataDisplayer::addNewPoint(float time, float height)
 	float x = time * mTimeScale;
 	float y = height * mMeasureScale;
 	createPoint(x,y);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void RealTimeDataDisplayer::onDoneClicked(void)
+{
+	// everything ok, emit the signal
+	emit doneSignal(NO_ERROR);
 }

@@ -8,10 +8,11 @@
 
 #include <vector>
 
+#include "GUIConfiguratorDialog.h"
 #include "ui_realtimedatadisplayer.h"
 
 
-class RealTimeDataDisplayer : public QDialog
+class RealTimeDataDisplayer : public GUIConfiguratorDialog
 {
     Q_OBJECT
 
@@ -44,6 +45,9 @@ public:
      * 	@height		the height in cm
      */
     void addNewPoint(float time, float height);
+
+public slots:
+	void onDoneClicked(void);
 
 private:
     /* Creates the both axis */

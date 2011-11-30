@@ -28,10 +28,6 @@ public:
     void setImgGenerator(ImageGenerator *);
 
 
-    /* When the windows close */
-    virtual void closeEvent(QCloseEvent * event);
-
-
 public slots:
     void onSourceCameraClicked(void);
     void onSourceFileClicked(void);
