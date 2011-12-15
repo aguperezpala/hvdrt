@@ -1,0 +1,10 @@
+<GUIPerspectiveTransformator>
+	<Rectangle sizeX="1" sizeY="2" />
+	<Points>
+		<Point x="2" y="3" />
+		<Point x="2" y="3" />
+		<Point x="2" y="3" />
+		<Point x="2" y="3" />
+	</Points>
+
+</GUIPerspectiveTransformator>

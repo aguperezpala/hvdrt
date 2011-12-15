@@ -78,9 +78,11 @@ static void getResolutions(int fd)
 		break;
 	case V4L2_FRMSIZE_TYPE_STEPWISE:
 		std::cout << "Analyzing type : V4L2_FRMSIZE_TYPE_STEPWISE\n";
+		printFrameSizeEnum(&argp);
 		break;
 	case V4L2_FRMSIZE_TYPE_CONTINUOUS:
 		std::cout << "Analyzing type : V4L2_FRMSIZE_TYPE_CONTINUOUS\n";
+		printFrameSizeEnum(&argp);
 		break;
 	default:
 		std::cout << "Invalid type\n";
@@ -115,6 +117,7 @@ int main(int argc, char **args)
 
 	printf ("Current input: %s\n", input.name);
 
+	getResolutions(fd);
 
 	return 0;
 }

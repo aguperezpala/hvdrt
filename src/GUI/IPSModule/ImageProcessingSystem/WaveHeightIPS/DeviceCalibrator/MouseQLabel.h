@@ -44,6 +44,9 @@ public:
     /* Set the Label where it will be put the zoomed image */
     void setZoomLabel(QLabel *zoom);
 
+    /* Add new point */
+    void addPoint(int x, int y);
+
     /* clears the points */
     void clearPoints(void);
 

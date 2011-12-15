@@ -97,13 +97,8 @@ void MouseQLabel::mousePressEvent(QMouseEvent* event)
 		return;
 	}
 
-	// add the new point
-	QPoint p(mX, mY);
-	mPoints.push_back(p);
+	addPoint(mX, mY);
 
-	// show the new point
-	remarkPoint(mImg, mX, mY);
-	showImage(mImg);
 }
 
 void MouseQLabel::mouseMoveEvent(QMouseEvent* event)
@@ -139,6 +134,21 @@ void MouseQLabel::setZoomLabel(QLabel *zoom)
 {
 	ASSERT(zoom);
 	mZoomLabel = zoom;
+}
+
+/* Add new point */
+void MouseQLabel::addPoint(int x, int y)
+{
+	mX = x;
+	mY = y;
+
+	// add the new point
+	QPoint p(mX, mY);
+	mPoints.push_back(p);
+
+	// show the new point
+	remarkPoint(mImg, mX, mY);
+	showImage(mImg);
 }
 
 /* clears the points */

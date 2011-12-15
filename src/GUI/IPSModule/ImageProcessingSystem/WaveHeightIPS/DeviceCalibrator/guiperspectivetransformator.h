@@ -20,6 +20,9 @@
 #include "PerspectiveTransformator.h"
 #include "GUIConfiguratorDialog.h"
 #include "GUIUtils.h"
+#include "tinyxml.h"
+
+class TiXmlElement;
 
 
 class GUIPerspectiveTransformator : public GUIConfiguratorDialog
