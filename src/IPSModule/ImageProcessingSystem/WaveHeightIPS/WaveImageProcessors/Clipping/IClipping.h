@@ -1,7 +1,7 @@
 /*
- * GlobalDefines.h
+ * IClipping.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 03/01/2012
  *      Author: agustin
  *
  *
@@ -23,37 +23,16 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef GLOBALDEFINES_H_
-#define GLOBALDEFINES_H_
+#ifndef ICLIPPING_H_
+#define ICLIPPING_H_
 
+#include "ImageProcessor.h"
 
-typedef enum {
-	NO_ERROR = 0,
-	INTERNAL_ERROR,
-	INVALID_PARAM,
+class IClipping : public ImageProcessor{
+public:
+	IClipping(const std::string &name = "Unnamed") : ImageProcessor(name){}
+	virtual ~IClipping() = 0;
 
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Generator
-	////////////////////////////////////////////////////////////////////////////
-	DEVICE_NOT_SET	= 100,
-	DEVICE_NOT_WORKING,			// not opened/working
-	CAPTURER_ERROR,
+};
 
-
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Analyzer
-	////////////////////////////////////////////////////////////////////////////
-	FEATURE_NOT_SUPPORTED = 200,
-
-
-	////////////////////////////////////////////////////////////////////////////
-	//							IPS
-	////////////////////////////////////////////////////////////////////////////
-	INCOMPLETE_CONFIGURATION = 300,
-	ALREADY_INITIALIZED,
-
-
-
-} errCode;
-
-#endif /* GLOBALDEFINES_H_ */
+#endif /* ICLIPPING_H_ */

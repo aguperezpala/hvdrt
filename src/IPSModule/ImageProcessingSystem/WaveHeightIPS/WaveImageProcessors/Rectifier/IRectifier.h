@@ -1,7 +1,7 @@
 /*
- * GlobalDefines.h
+ * IRectifier.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 03/01/2012
  *      Author: agustin
  *
  *
@@ -23,37 +23,16 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef GLOBALDEFINES_H_
-#define GLOBALDEFINES_H_
+#ifndef IRECTIFIER_H_
+#define IRECTIFIER_H_
 
+#include "ImageProcessor.h"
 
-typedef enum {
-	NO_ERROR = 0,
-	INTERNAL_ERROR,
-	INVALID_PARAM,
+class IRectifier : public ImageProcessor {
 
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Generator
-	////////////////////////////////////////////////////////////////////////////
-	DEVICE_NOT_SET	= 100,
-	DEVICE_NOT_WORKING,			// not opened/working
-	CAPTURER_ERROR,
+public:
+	IRectifier(const std::string &name = "Unnamed") : ImageProcessor(name){}
+	virtual ~IRectifier() = 0;
+};
 
-
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Analyzer
-	////////////////////////////////////////////////////////////////////////////
-	FEATURE_NOT_SUPPORTED = 200,
-
-
-	////////////////////////////////////////////////////////////////////////////
-	//							IPS
-	////////////////////////////////////////////////////////////////////////////
-	INCOMPLETE_CONFIGURATION = 300,
-	ALREADY_INITIALIZED,
-
-
-
-} errCode;
-
-#endif /* GLOBALDEFINES_H_ */
+#endif /* IRECTIFIER_H_ */

@@ -23,22 +23,121 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
+#include "IAnalyzer.h"
+#include "WaveHeightIPFactory.h"
+
 #include "WaveHeightIPS.h"
 
 ////////////////////////////////////////////////////////////////////////////////
-WaveHeightIPS::WaveHeightIPS() :
-ImageProcessingSystem(WHIPS_NAME, WHIPS_INFO),
-mImgProcCalibrator(0)
+void WaveHeightIPS::createImgProcessors(void) throw (WaveHeightException)
 {
-	// adds the FrameProcessor to the ImageGeneratro
-	mImageGenerator.addNewListener(&mFrameProc);
+	// check if we already was initialized
+	if(!mImageProcessors.empty()){
+		throw WaveHeightException(ALREADY_INITIALIZED, "The WaveHeightIPS was "
+				"already initialized");
+		// clear and FREE all the memory here if we will continue
+	}
+
+	// clear the Image analizyer
+	if(mImgAnalyzer.get()){
+		mImgAnalyzer->removeAllProcessors();
+	} else {
+		mImgAnalyzer.reset(new ImageAnalyzer());
+	}
+
+
+	// we create the factory and construct all the IP
+	WaveHeightIPFactory factory;
+
+//	IP_RECTIFIER,		// The IP used to rectify the image
+//			IP_CLIPPING,		// The IP used to clip the image
+//			IP_BORDER_DETECTOR,	// Canny
+//			IP_WH_ANALYZER,		// The wave height (pixel) analyzer
+
+	// create the Rectifier
+	ImageProcessor *rectifier = factory.getImageProcessor(WaveHeightIPFactory::IP_RECTIFIER);
+	if(!rectifier){
+		throw WaveHeightException(INTERNAL_ERROR, "Couldn't create the Rectifier IP");
+	}
+	mImgAnalyzer->addNewProcessor(rectifier);
+	mImageProcessors[rectifier->getName()] = rectifier;
+
+	// create the Clipping
+	ImageProcessor *clipping = factory.getImageProcessor(WaveHeightIPFactory::IP_CLIPPING);
+	if(!clipping){
+		throw WaveHeightException(INTERNAL_ERROR, "Couldn't create the Clipping IP");
+	}
+	mImgAnalyzer->addNewProcessor(clipping);
+	mImageProcessors[clipping->getName()] = clipping;
+
+	// create the Border Detector
+	ImageProcessor *bd = factory.getImageProcessor(WaveHeightIPFactory::IP_BORDER_DETECTOR);
+	if(!bd){
+		throw WaveHeightException(INTERNAL_ERROR, "Couldn't create the BorderDetector IP");
+	}
+	mImgAnalyzer->addNewProcessor(bd);
+	mImageProcessors[bd->getName()] = bd;
+
+	// create the Analyzer
+	ImageProcessor *analyzer = factory.getImageProcessor(WaveHeightIPFactory::IP_WH_ANALYZER);
+	if(!analyzer){
+		throw WaveHeightException(INTERNAL_ERROR, "Couldn't create the Analyzer IP");
+	}
+	mImgAnalyzer->addNewProcessor(analyzer);
+	// set the analyzer
+	mIPAnalyzer = analyzer;
+	mImageProcessors[analyzer->getName()] = analyzer;
+
+	// everything was ok. returns
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::getAnalyzedData(void)
+{
+	ASSERT(mIPAnalyzer);
+	// returns the data analyzed
+	if(mIPAnalyzer->getParameter(IAnalyzer::GET_TIME, mAnalyzedData.time) != NO_ERROR ||
+			mIPAnalyzer->getParameter(IAnalyzer::GET_HEIGHT, mAnalyzedData.height) != NO_ERROR)
+	{
+		debug("Error: Invalid IPAnalyzer\n");
+		ASSERT(false);
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::saveDataToFile(void)
+{
+	if(mOutFile.is_open()){
+		mOutFile << mAnalyzedData.time << "\t" << mAnalyzedData.height << std::endl;
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+WaveHeightIPS::WaveHeightIPS() :
+	ImageProcessingSystem(WHIPS_NAME, WHIPS_INFO),
+	mIPAnalyzer(0),
+	mOutFilename("out.txt"),
+	mCallback(0),
+	mImgAnalyzer(0),
+	mProcType(CPU_PROCESS),
+	mTrack(false)
+{
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 WaveHeightIPS::~WaveHeightIPS()
 {
-	// TODO Auto-generated destructor stub
-	mImageGenerator.removeFrameListener(&mFrameProc);
+	ImageProcessorMap::iterator it = mImageProcessors.begin(),
+			endIt = mImageProcessors.end();
+	for(; it != endIt; ++it){
+		delete it->second;
+	}
+
+	mOutFile.close();
+
 }
 
 
@@ -46,7 +145,12 @@ WaveHeightIPS::~WaveHeightIPS()
 ////////////////////////////////////////////////////////////////////////////////
 errCode WaveHeightIPS::initialize(void)
 {
-
+	try {
+		createImgProcessors();
+	} catch(WaveHeightException &e) {
+		debug("Some error ocurr: %s\n", e.info.c_str());
+		return e.code;
+	}
 
 	return NO_ERROR;
 }
@@ -54,62 +158,105 @@ errCode WaveHeightIPS::initialize(void)
 ////////////////////////////////////////////////////////////////////////////////
 errCode WaveHeightIPS::execute(void)
 {
-	if(!mFrameProc.getImageAnalyzer()){
-		debug("ERROR: No ImageAnalyzer was set\n");
+	// check if we have initialized
+	if(mImageProcessors.empty() || !mImgAnalyzer.get()){
+		debug("Error: The IPS was not initialized\n");
 		return INCOMPLETE_CONFIGURATION;
 	}
-	if(!mImgProcCalibrator){
-		debug("Warning: There was no set the Calibrator Image Processor\n");
-	} else {
-		const std::list<const ImageProcessor*> &l = mFrameProc.getImageAnalyzer()->getProcessors();
-		std::list<const ImageProcessor*>::const_iterator it =
-				std::find(l.begin(), l.end(), mImgProcCalibrator);
 
-		// we have to set the image processor if it wasn't set before
-		if(it == l.end()){
-			// add the imageProcessor to the list first
-			std::list<const ImageProcessor*> nl = l;
-			nl.push_front(mImgProcCalibrator);
-			mFrameProc.getImageAnalyzer()->addNewProcessors(nl);
+	// open with default filename
+	if(!mOutFile.is_open()){
+		mOutFile.open(mOutFilename.c_str(), std::ios::out);
+
+		if(!mOutFile.is_open()){
+			debug("Error while opening %s file\n", mOutFilename.c_str());
+			return INTERNAL_ERROR;
 		}
 	}
 
+	errCode result = NO_ERROR;
+	Frame frame;
+	while((result = mImageGenerator.captureFrame(frame))== NO_ERROR){
+		switch(mProcType){
+		case CPU_PROCESS:
+			result = mImgAnalyzer->processImageOnCPU(frame, mTrack);
+			break;
 
-	return mImageGenerator.startGenerating();
+		case GPU_PROCESS:
+			result = mImgAnalyzer->processImageOnGPU(frame, mTrack);
+			break;
+
+		default:
+			ASSERT(false);
+		}
+
+		// get the analyzed data
+		getAnalyzedData();
+
+		// save the data to the file
+		saveDataToFile();
+
+		// we have finish processing the frame, advice by the callback
+		if(mCallback){
+			(*mCallback)();
+		}
+	}
+
+	// close the file
+	mOutFile.close();
+
+	return result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void WaveHeightIPS::setImgProcCalibrator(ImageProcessor *calibrator)
+ImageProcessor *WaveHeightIPS::getImageProcessor(const std::string &name)
 {
-	ASSERT(calibrator);
-
-	if(mImgProcCalibrator){
-		debug("Warning: A previous calibrator was set\n");
+	ImageProcessorMap::iterator it = mImageProcessors.find(name);
+	if(it == mImageProcessors.end()){
+		debug("Warning: No ImageProcessor with name %s was found\n", name.c_str());
+		return 0;
 	}
-	mImgProcCalibrator = calibrator;
+
+	return it->second;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void WaveHeightIPS::setImgAnalyzer(ImageAnalyzer *analyzer)
+void WaveHeightIPS::setCallBackFunctor(CallBFunctor *cb)
 {
-	ASSERT(analyzer);
-
-	if(mFrameProc.getImageAnalyzer()){
-		debug("Warning: A previous Analyzer was set\n");
+	if(!cb){
+		debug("Warning, callback null\n");
+	}
+	if(mCallback){
+		debug("Warning: callback already set\n");
 	}
 
-	mFrameProc.setImageAnalyzer(analyzer);
+	// overwrite the lastone
+	mCallback = cb;
+}
 
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::setOutFilename(const std::string &fname)
+{
+	mOutFilename = fname;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::noSaveToFile(void)
+{
+	mOutFilename = "";
+	// close the actual file
+	mOutFile.close();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 void WaveHeightIPS::setTrackingMode(bool track)
 {
-	mFrameProc.setTrackingMode(track);
+	mTrack = track;;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 void WaveHeightIPS::setProcessMode(ProcessType mode)
 {
-	mFrameProc.setProcType(mode);
+	mProcType = mode;
 }

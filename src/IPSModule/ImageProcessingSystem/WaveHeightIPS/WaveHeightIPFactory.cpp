@@ -1,7 +1,7 @@
 /*
- * GlobalDefines.h
+ * WaveHeightIPFactory.cpp
  *
- *  Created on: 16/09/2011
+ *  Created on: 03/01/2012
  *      Author: agustin
  *
  *
@@ -23,37 +23,12 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef GLOBALDEFINES_H_
-#define GLOBALDEFINES_H_
+#include "WaveHeightIPFactory.h"
 
 
-typedef enum {
-	NO_ERROR = 0,
-	INTERNAL_ERROR,
-	INVALID_PARAM,
+ImageProcessor *WaveHeightIPFactory::getImageProcessor(int ip)
+{
 
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Generator
-	////////////////////////////////////////////////////////////////////////////
-	DEVICE_NOT_SET	= 100,
-	DEVICE_NOT_WORKING,			// not opened/working
-	CAPTURER_ERROR,
-
-
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Analyzer
-	////////////////////////////////////////////////////////////////////////////
-	FEATURE_NOT_SUPPORTED = 200,
-
-
-	////////////////////////////////////////////////////////////////////////////
-	//							IPS
-	////////////////////////////////////////////////////////////////////////////
-	INCOMPLETE_CONFIGURATION = 300,
-	ALREADY_INITIALIZED,
-
-
-
-} errCode;
-
-#endif /* GLOBALDEFINES_H_ */
+	// TODO: complete this function
+	return 0;
+}

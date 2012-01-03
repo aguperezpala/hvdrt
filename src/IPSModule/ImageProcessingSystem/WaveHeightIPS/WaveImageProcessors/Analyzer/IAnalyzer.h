@@ -1,7 +1,7 @@
 /*
- * GlobalDefines.h
+ * IAnalyzer.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 03/01/2012
  *      Author: agustin
  *
  *
@@ -23,37 +23,22 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef GLOBALDEFINES_H_
-#define GLOBALDEFINES_H_
+#ifndef IANALYZER_H_
+#define IANALYZER_H_
 
 
-typedef enum {
-	NO_ERROR = 0,
-	INTERNAL_ERROR,
-	INVALID_PARAM,
+#include "ImageProcessor.h"
 
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Generator
-	////////////////////////////////////////////////////////////////////////////
-	DEVICE_NOT_SET	= 100,
-	DEVICE_NOT_WORKING,			// not opened/working
-	CAPTURER_ERROR,
+class IAnalyzer : public ImageProcessor {
+public:
+	enum {
+		GET_TIME,
+		GET_HEIGHT,
+		GET_PIXEL_POS,	// unused
+	};
+public:
+	IAnalyzer(const std::string &name = "Unnamed") : ImageProcessor(name) {};
+	virtual ~IAnalyzer() = 0;
+};
 
-
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Analyzer
-	////////////////////////////////////////////////////////////////////////////
-	FEATURE_NOT_SUPPORTED = 200,
-
-
-	////////////////////////////////////////////////////////////////////////////
-	//							IPS
-	////////////////////////////////////////////////////////////////////////////
-	INCOMPLETE_CONFIGURATION = 300,
-	ALREADY_INITIALIZED,
-
-
-
-} errCode;
-
-#endif /* GLOBALDEFINES_H_ */
+#endif /* IANALYZER_H_ */
