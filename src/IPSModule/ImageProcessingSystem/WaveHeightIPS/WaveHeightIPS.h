@@ -94,7 +94,7 @@ public:
 	void setCallBackFunctor(CallBFunctor *);
 
 	/* Returns the last analyzed data */
-	inline const AnalyzedData getDataAnalyzed(void) const {return mAnalyzedData;}
+	inline const AnalyzedData &getDataAnalyzed(void) const {return mAnalyzedData;}
 
 	/* Set the filename where we will save the data if we want to do it. If this
 	 * function is never called then the results will be save in "out.txt"

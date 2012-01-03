@@ -32,7 +32,7 @@ class IRectifier : public ImageProcessor {
 
 public:
 	IRectifier(const std::string &name = "Unnamed") : ImageProcessor(name){}
-	virtual ~IRectifier() = 0;
+	virtual ~IRectifier() {};
 };
 
 #endif /* IRECTIFIER_H_ */

@@ -1,5 +1,5 @@
 /*
- * IAnalyzer.h
+ * CannyBorderDetector.h
  *
  *  Created on: 03/01/2012
  *      Author: agustin
@@ -23,22 +23,42 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IANALYZER_H_
-#define IANALYZER_H_
+#ifndef CANNYBORDERDETECTOR_H_
+#define CANNYBORDERDETECTOR_H_
 
 
-#include "ImageProcessor.h"
 
-class IAnalyzer : public ImageProcessor {
+#include "BorderDetector.h"
+
+class CannyBorderDetector : public BorderDetector {
 public:
 	enum {
-		GET_TIME,
-		GET_HEIGHT,
-		GET_PIXEL_POS,	// unused
+		THRESHOLD_1,
+		THRESHOLD_2,
+		L2_GRADIENT,
 	};
+
 public:
-	IAnalyzer(const std::string &name = "Unnamed") : ImageProcessor(name) {};
-	virtual ~IAnalyzer() {};
+	CannyBorderDetector();
+	virtual ~CannyBorderDetector();
+
+	// Set a parameter to the ImageProcessor, used to configure the IP.
+	errCode setParameter(int param, double value);
+
+	// Gets a parameter value returned by param
+	errCode getParameter(int param, double &value) const;
+
+	// Proccess the data on the CPU
+	errCode processData(cv::Mat &data) const;
+
+	// Process the data on the GPU
+	errCode processData(cv::gpu::GpuMat &data) const;
+
+private:
+	double			mThreshold1;
+	double			mThreshold2;
+	bool			mL2Gradient;
+
 };
 
-#endif /* IANALYZER_H_ */
+#endif /* CANNYBORDERDETECTOR_H_ */
