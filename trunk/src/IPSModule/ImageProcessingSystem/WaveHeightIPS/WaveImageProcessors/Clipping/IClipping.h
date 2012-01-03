@@ -31,7 +31,7 @@
 class IClipping : public ImageProcessor{
 public:
 	IClipping(const std::string &name = "Unnamed") : ImageProcessor(name){}
-	virtual ~IClipping() = 0;
+	virtual ~IClipping() {};
 
 };
 

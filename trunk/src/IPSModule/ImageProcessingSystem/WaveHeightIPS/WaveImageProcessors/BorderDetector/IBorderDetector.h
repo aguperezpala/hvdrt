@@ -31,7 +31,7 @@
 class IBorderDetector : public ImageProcessor {
 public:
 	IBorderDetector(const std::string &name = "Unnamed") : ImageProcessor(name) {};
-	virtual ~IBorderDetector() = 0;
+	virtual ~IBorderDetector() {};
 };
 
 #endif /* IBORDERDETECTOR_H_ */

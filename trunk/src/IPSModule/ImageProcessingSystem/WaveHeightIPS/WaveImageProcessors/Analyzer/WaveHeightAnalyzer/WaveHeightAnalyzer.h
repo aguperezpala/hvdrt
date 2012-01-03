@@ -1,5 +1,5 @@
 /*
- * IAnalyzer.h
+ * WaveHeightAnalyzer.h
  *
  *  Created on: 03/01/2012
  *      Author: agustin
@@ -23,22 +23,48 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IANALYZER_H_
-#define IANALYZER_H_
+#ifndef WAVEHEIGHTANALYZER_H_
+#define WAVEHEIGHTANALYZER_H_
 
+#include <opencv2/core/core.hpp>
 
-#include "ImageProcessor.h"
+#include "IAnalyzer.h"
 
-class IAnalyzer : public ImageProcessor {
+class WaveHeightAnalyzer : public IAnalyzer {
 public:
 	enum {
-		GET_TIME,
-		GET_HEIGHT,
-		GET_PIXEL_POS,	// unused
+		// Analyze zone
+		TLX_ZONE,
+		TLY_ZONE,
+		BRX_ZONE,
+		BRY_ZONE,
+		SIZE_RELATION,	// the relation between pixels and millimeters (pixels/mm)
 	};
+
 public:
-	IAnalyzer(const std::string &name = "Unnamed") : ImageProcessor(name) {};
-	virtual ~IAnalyzer() {};
+	WaveHeightAnalyzer();
+	virtual ~WaveHeightAnalyzer();
+
+	// Set a parameter to the ImageProcessor, used to configure the IP.
+	errCode setParameter(int param, double value);
+
+	// Gets a parameter value returned by param
+	errCode getParameter(int param, double &value) const;
+
+	// Proccess the data on the CPU
+	errCode processData(cv::Mat &data) const;
+
+	// Process the data on the GPU
+	errCode processData(cv::gpu::GpuMat &data) const;
+
+private:
+	// TODO: completar con las funciones copadas aca.
+
+private:
+	double			mSizeRelation;
+	cv::Point2f		mTLZone;
+	cv::Point2f		mBRZone;
+
 };
 
-#endif /* IANALYZER_H_ */
+#endif /* WAVEHEIGHTANALYZER_H_ */

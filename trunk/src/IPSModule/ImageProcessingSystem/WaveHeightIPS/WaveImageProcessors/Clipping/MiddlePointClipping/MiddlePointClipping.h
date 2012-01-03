@@ -1,5 +1,5 @@
 /*
- * IAnalyzer.h
+ * MiddlePointClipping.h
  *
  *  Created on: 03/01/2012
  *      Author: agustin
@@ -23,22 +23,40 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef IANALYZER_H_
-#define IANALYZER_H_
+#ifndef MIDDLEPOINTCLIPPING_H_
+#define MIDDLEPOINTCLIPPING_H_
 
+#include <opencv2/core/core.hpp>
 
-#include "ImageProcessor.h"
+#include "IClipping.h"
 
-class IAnalyzer : public ImageProcessor {
+class MiddlePointClipping : public IClipping {
 public:
 	enum {
-		GET_TIME,
-		GET_HEIGHT,
-		GET_PIXEL_POS,	// unused
+		MIDDLE_POINT_X,		// where is the middle point in x
+		NUM_COLUMNS,		// how many columns we want to analyze
 	};
 public:
-	IAnalyzer(const std::string &name = "Unnamed") : ImageProcessor(name) {};
-	virtual ~IAnalyzer() {};
+	MiddlePointClipping();
+	virtual ~MiddlePointClipping();
+
+	// Set a parameter to the ImageProcessor, used to configure the IP.
+	errCode setParameter(int param, double value);
+
+	// Gets a parameter value returned by param
+	errCode getParameter(int param, double &value) const;
+
+	// Proccess the data on the CPU
+	errCode processData(cv::Mat &data) const;
+
+	// Process the data on the GPU
+	errCode processData(cv::gpu::GpuMat &data) const;
+
+private:
+	// The matrix where we will work
+	mutable cv::Mat		mAnalyzeMatrix;
+	int					mMiddlePoint;
+	int					mNumColumns;
 };
 
-#endif /* IANALYZER_H_ */
+#endif /* MIDDLEPOINTCLIPPING_H_ */

@@ -130,9 +130,11 @@ errCode ImageGenerator::captureFrame(Frame &result)
 	// buffer with the new image. by the moment we will wait only for 10
 	cv::waitKey(10);
 
-	if(!mCapturer->read(result.data)){
+	if(!mCapturer->read(mFrameData)){
 		return CAPTURER_ERROR;
 	}
+	// avoid the reference counting to be 0
+	result.data = mFrameData;
 
 	// everything ok
 	return NO_ERROR;
@@ -167,7 +169,6 @@ errCode ImageGenerator::startGenerating(void)
 	// TODO: here we have to see how we can optimize the frames grab velocity
 	// using two buffers (cv::Mat) and swaping it, or a static Frames queue.
 
-	cv::Mat	frameData;
 
 	// start to capture
 	mStop = false;
@@ -176,14 +177,14 @@ errCode ImageGenerator::startGenerating(void)
 		// get the actual time
 		tm1 = Timestamp::getNowTimeStamp();
 
-		if(!mCapturer->read(frameData)){
+		if(!mCapturer->read(mFrameData)){
 			// TODO: probably this means that there are no more frames
 			return CAPTURER_ERROR;
 		}
 
 		// set the data to own frame structure
 		Frame frame;
-		frame.data = frameData;
+		frame.data = mFrameData;
 
 		// emmit the event to all the frame listeners
 		emmitFrame(frame);
