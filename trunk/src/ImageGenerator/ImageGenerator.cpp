@@ -125,6 +125,11 @@ errCode ImageGenerator::captureFrame(Frame &result)
 		return DEVICE_NOT_WORKING;
 	}
 
+	// TODO: here we have to check the last time that this function was call and
+	// see the device fps and wait for a while to let the device update the
+	// buffer with the new image. by the moment we will wait only for 10
+	cv::waitKey(10);
+
 	if(!mCapturer->read(result.data)){
 		return CAPTURER_ERROR;
 	}

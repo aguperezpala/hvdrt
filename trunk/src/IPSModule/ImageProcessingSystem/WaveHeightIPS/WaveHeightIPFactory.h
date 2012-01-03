@@ -1,7 +1,7 @@
 /*
- * GlobalDefines.h
+ * WaveHeightIPFactory.h
  *
- *  Created on: 16/09/2011
+ *  Created on: 03/01/2012
  *      Author: agustin
  *
  *
@@ -23,37 +23,26 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef GLOBALDEFINES_H_
-#define GLOBALDEFINES_H_
+#ifndef WAVEHEIGHTIPFACTORY_H_
+#define WAVEHEIGHTIPFACTORY_H_
+
+#include "ImageProcessor.h"
 
 
-typedef enum {
-	NO_ERROR = 0,
-	INTERNAL_ERROR,
-	INVALID_PARAM,
+class WaveHeightIPFactory {
+public:
+	enum {
+		IP_RECTIFIER,		// The IP used to rectify the image
+		IP_CLIPPING,		// The IP used to clip the image
+		IP_BORDER_DETECTOR,	// Canny
+		IP_WH_ANALYZER,		// The wave height (pixel) analyzer
+		// IP_EXTRA
+	};
 
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Generator
-	////////////////////////////////////////////////////////////////////////////
-	DEVICE_NOT_SET	= 100,
-	DEVICE_NOT_WORKING,			// not opened/working
-	CAPTURER_ERROR,
+public:
+	// Creates a ImageProcessor by param.
+	// In case that the processor to be created is not supported, 0 is returned
+	ImageProcessor *getImageProcessor(int);
+};
 
-
-	////////////////////////////////////////////////////////////////////////////
-	//							Image Analyzer
-	////////////////////////////////////////////////////////////////////////////
-	FEATURE_NOT_SUPPORTED = 200,
-
-
-	////////////////////////////////////////////////////////////////////////////
-	//							IPS
-	////////////////////////////////////////////////////////////////////////////
-	INCOMPLETE_CONFIGURATION = 300,
-	ALREADY_INITIALIZED,
-
-
-
-} errCode;
-
-#endif /* GLOBALDEFINES_H_ */
+#endif /* WAVEHEIGHTIPFACTORY_H_ */

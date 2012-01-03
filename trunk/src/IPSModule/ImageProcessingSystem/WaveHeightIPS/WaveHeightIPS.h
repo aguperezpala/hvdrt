@@ -26,10 +26,16 @@
 #ifndef WAVEHEIGHTIPS_H_
 #define WAVEHEIGHTIPS_H_
 
+#include <string>
+#include <map>
+#include <auto_ptr.h>
+#include <fstream>
 
 #include "DebugUtil.h"
 #include "ImageProcessingSystem.h"
 #include "FrameListener.h"
+#include "WaveHeightException.h"
+#include "CallBFunctor.h"
 
 #include "ImageGenerator.h"
 //#include "DeviceCalibrator.h"
@@ -50,64 +56,10 @@ public:
 		GPU_PROCESS,
 	} ProcessType;
 
-
-private:
-	/* Auxiliar class used to receive the frames and process it */
-	class FrameProcessor : public FrameListener {
-	public:
-		FrameProcessor() :
-			mProcType(CPU_PROCESS),
-			mTrack(false),
-			mImgAnalyzer(0)
-			{}
-		~FrameProcessor(){};
-
-		/* Set if we want to process the frame in GPU or CPU */
-		void setProcType(ProcessType t){mProcType = t;}
-		ProcessType getProcType(void) const {return mProcType;}
-
-		/* sets if we want to track the process (timestamps) */
-		void setTrackingMode(bool track){mTrack = track;}
-		bool getTrackingMode(void) const {return mTrack;}
-
-		/* sets the image analyzer to be used */
-		void setImageAnalyzer(ImageAnalyzer *ia)
-		{
-			ASSERT(ia);
-			mImgAnalyzer = ia;
-		}
-
-		/* Returns the image analyzer */
-		ImageAnalyzer *getImageAnalyzer(void) {return mImgAnalyzer;}
-
-		errCode processFrame(Frame &frame)
-		{
-			errCode result = INTERNAL_ERROR;
-			debug("Processing frame\n");
-			ASSERT(mImgAnalyzer);
-			switch(mProcType){
-			case CPU_PROCESS:
-				result = mImgAnalyzer->processImageOnCPU(frame, mTrack);
-				break;
-
-			case GPU_PROCESS:
-				result = mImgAnalyzer->processImageOnGPU(frame, mTrack);
-				break;
-
-			default:
-				ASSERT(false);
-			}
-
-			return result;
-		}
-
-
-	private:
-		ProcessType			mProcType;
-		ImageAnalyzer		*mImgAnalyzer;
-		bool				mTrack;
-
-
+	struct AnalyzedData {
+		double time;
+		double height;
+		// int pixel position?
 	};
 
 public:
@@ -130,46 +82,77 @@ public:
 	/* Returns the ImageGenerator instance */
 	ImageGenerator *getImageGenerator(void) {return &mImageGenerator;}
 
-	/* Sets the ImageProcessor calibrator.
-	 * Requires:
-	 * 	calibrator		!= 0
-	 * This class do not free any memory
+	/* Returns an ImageProcessor by name. In case that the ImageProcessor doesn't
+	 * exists, 0 is returned.
+	 * This function will be used to configure the different IP's of the IPS.
 	 */
-	void setImgProcCalibrator(ImageProcessor *calibrator);
+	ImageProcessor *getImageProcessor(const std::string &name);
 
-	/* Returns the ImageProc calibrator */
-	ImageProcessor *getCalibrator(void) const {return mImgProcCalibrator;}
-
-		/* Sets the ImageAnalizer to be used
-	 * Requires:
-	 * 	analyzer	!= 0
-	 * This class do not free the memory
+	/* Set the CallBack functor used to advice that we have new data ready
+	 * (analyzed) that could be retrieved by calling getDataAnalyzed()
 	 */
-	void setImgAnalyzer(ImageAnalyzer *analyzer);
+	void setCallBackFunctor(CallBFunctor *);
 
-	/* Returns the ImageAnalyzer */
-	ImageAnalyzer *getImageAnalyzer(void) {return mFrameProc.getImageAnalyzer();}
+	/* Returns the last analyzed data */
+	inline const AnalyzedData getDataAnalyzed(void) const {return mAnalyzedData;}
+
+	/* Set the filename where we will save the data if we want to do it. If this
+	 * function is never called then the results will be save in "out.txt"
+	 * except when the "noSaveToFile()" function is called */
+	void setOutFilename(const std::string &fname);
+
+	/* Function used to avoid save data to out file */
+	void noSaveToFile(void);
 
 	/* Set the timestamp and info tracking mode.
 	 * @track	if true then it will track, if false it will not track
 	 */
 	void setTrackingMode(bool track);
-	bool getTrackingMode(void) const {return mFrameProc.getTrackingMode();}
+	bool getTrackingMode(void) const {return mTrack;}
 
 	/* Set the process mode (GPU | CPU).
 	 * @mode	The mode to execute
 	 */
 	void setProcessMode(ProcessType mode);
-	ProcessType getProcessMode(void) const {return mFrameProc.getProcType();}
+	ProcessType getProcessMode(void) const {return mProcType;}
+
+private:
+	/* Creates the ImageProcessors. On error, throws an exception */
+	void createImgProcessors(void) throw (WaveHeightException);
+
+	/* Get analyzed data */
+	void getAnalyzedData(void);
+
+	/* Save data to file */
+	void saveDataToFile(void);
 
 
 private:
+
+	typedef std::auto_ptr<ImageAnalyzer>			ImageAnalyzerPtr;
+	typedef std::map<std::string, ImageProcessor*> ImageProcessorMap;
+
+	// The image processors
+	ImageProcessorMap		mImageProcessors;
+	// The IPAnalyzer
+	ImageProcessor			*mIPAnalyzer;
 	// The Image generator
 	ImageGenerator			mImageGenerator;
-	// The result of the device calibrator
-	ImageProcessor			*mImgProcCalibrator;
-	// The frame processor used
-	FrameProcessor			mFrameProc;
+
+	std::string				mOutFilename;
+	CallBFunctor 			*mCallback;
+
+	// Image analizyer
+	ImageAnalyzerPtr		mImgAnalyzer;
+
+	ProcessType				mProcType;
+	bool					mTrack;
+
+	std::ofstream			mOutFile;
+	AnalyzedData			mAnalyzedData;
+
+
+
 
 };
 

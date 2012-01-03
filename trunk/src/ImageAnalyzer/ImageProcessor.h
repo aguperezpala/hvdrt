@@ -45,6 +45,12 @@ public:
 	// returns the name of the ImageProcessor
 	const std::string &getName(void) const {return mName;}
 
+	// Set a parameter to the ImageProcessor, used to configure the IP.
+	virtual errCode setParameter(int param, double value) {return FEATURE_NOT_SUPPORTED;}
+
+	// Gets a parameter value returned by param
+	virtual errCode getParameter(int param, double &value) const {return FEATURE_NOT_SUPPORTED;}
+
 	// Proccess the data on the CPU
 	virtual errCode processData(cv::Mat &data) const = 0;
 
