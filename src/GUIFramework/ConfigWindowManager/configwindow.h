@@ -34,7 +34,7 @@ public:
 	 * Returns:
 	 * 	errCode
 	 */
-	virtual errCode loadConfig(TiXmlElement *)
+	virtual errCode loadConfig(const TiXmlElement *)
 	{
 		debug("Unimplemented\n");
 		return FEATURE_NOT_SUPPORTED;
@@ -44,7 +44,7 @@ public:
 	 * Returns:
 	 * 	0			on Error
 	 * 	xml			on success */
-	virtual std::auto_ptr<TiXmlElement> getConfig(void)
+	virtual std::auto_ptr<TiXmlElement> getConfig(void) const
 	{
 		debug("unimplemented\n");
 		return std::auto_ptr<TiXmlElement>(0);
