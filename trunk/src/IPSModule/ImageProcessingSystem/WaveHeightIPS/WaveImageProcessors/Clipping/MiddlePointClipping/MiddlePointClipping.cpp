@@ -81,10 +81,6 @@ errCode MiddlePointClipping::getParameter(int param, double &value) const
 // Proccess the data on the CPU
 errCode MiddlePointClipping::processData(cv::Mat &data) const
 {
-	if(mAnalyzeMatrix.empty()){
-		debug("Warning: Incomplete configuration, skipping\n");
-		return NO_ERROR;
-	}
 
 	// else we copy the data to the new matrix
 	ASSERT(mMiddlePoint > 0 && mMiddlePoint < data.cols);

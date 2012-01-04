@@ -30,11 +30,13 @@
 #include "ImageProcessor.h"
 
 class IAnalyzer : public ImageProcessor {
+
 public:
 	enum {
-		GET_TIME,
-		GET_HEIGHT,
-		GET_PIXEL_POS,	// unused
+			// Returns last values
+			GET_TIME,
+			GET_HEIGHT,
+			GET_PIXEL_POS,	// unused
 	};
 public:
 	IAnalyzer(const std::string &name = "Unnamed") : ImageProcessor(name) {};
