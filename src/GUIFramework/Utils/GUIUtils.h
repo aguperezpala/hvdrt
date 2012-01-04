@@ -1,7 +1,7 @@
 /*
- * WaveHeightIPFactory.cpp
+ * GUIUtils.h
  *
- *  Created on: 03/01/2012
+ *  Created on: 05/11/2011
  *      Author: agustin
  *
  *
@@ -23,37 +23,21 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#include "WaveHeightIPFactory.h"
+#ifndef GUIUTILS_H_
+#define GUIUTILS_H_
 
-#include "DebugUtil.h"
-#include "WaveHeightAnalyzer.h"
-#include "CannyBorderDetector.h"
-#include "MiddlePointClipping.h"
-#include "PerspectiveRectifier.h"
+#include <qimage.h>
 
+#include <opencv2/core/core.hpp>
 
+#include <string>
 
-ImageProcessor *WaveHeightIPFactory::getImageProcessor(int ip)
-{
-	ImageProcessor *result = 0;
-	switch(ip){
-	case IP_RECTIFIER:
-		result = new PerspectiveRectifier;
-		break;
-	case IP_CLIPPING:
-		result = new MiddlePointClipping;
-		break;
-	case IP_BORDER_DETECTOR:
-		result = new CannyBorderDetector;
-		break;
-	case IP_WH_ANALYZER:
-		result = new WaveHeightAnalyzer;
-		break;
+class GUIUtils {
+public:
+	static void showMessageBox(const QString &text);
 
-	default:
-		debug("Error: Invalid ImageProcessor: %d\n", ip);
-		return 0;
-	}
+	/* Transforms an opencv Mat image to a QT image */
+	static bool IplImage2QImage(const cv::Mat &iplImgMat, QImage &ref);
+};
 
-	return result;
-}
+#endif /* GUIUTILS_H_ */

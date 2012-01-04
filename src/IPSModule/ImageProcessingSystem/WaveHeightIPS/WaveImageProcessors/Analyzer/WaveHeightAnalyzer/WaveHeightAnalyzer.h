@@ -28,17 +28,25 @@
 
 #include <opencv2/core/core.hpp>
 
+#include <vector>
+
+#include "Timestamp.h"
 #include "IAnalyzer.h"
 
 class WaveHeightAnalyzer : public IAnalyzer {
+
+	// Set the max possible variance between one wave height and another. in mm
+	static const float		MAX_HEIGHT_VARIANCE		= 20;
+
 public:
 	enum {
 		// Analyze zone
-		TLX_ZONE,
+		TLX_ZONE = IAnalyzer::GET_PIXEL_POS+1,
 		TLY_ZONE,
 		BRX_ZONE,
 		BRY_ZONE,
 		SIZE_RELATION,	// the relation between pixels and millimeters (pixels/mm)
+		POS_WAVE_REPOSE,// the position where the wave is in repose
 	};
 
 public:
@@ -58,12 +66,35 @@ public:
 	errCode processData(cv::gpu::GpuMat &data) const;
 
 private:
-	// TODO: completar con las funciones copadas aca.
+	// Clears the DataVec
+	void clearDataVec(void) const;
+
+	// Process the data
+	void postProcessData(void) const;
+
+	// Auxiliar function used to process the data
+	float getNeighborsHeight(void) const;
+	float getWaveHeight(void) const;
 
 private:
-	double			mSizeRelation;
-	cv::Point2f		mTLZone;
-	cv::Point2f		mBRZone;
+
+	typedef std::vector<std::vector<int> >	DataVec;
+
+
+	double							mSizeRelation;
+	cv::Point2f						mTLZone;
+	cv::Point2f						mBRZone;
+	mutable DataVec					mData;
+
+	// Data processor
+	mutable Timestamp				*mTimeStamp;
+	int								mMiddlePoint;
+	mutable float					mLastHeight;
+	mutable float					mRealLastHeight;
+	mutable double					mLastTime;
+	cv::Point						mPoint;
+
+	bool							mConfigOk;
 
 };
 

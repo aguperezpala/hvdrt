@@ -42,10 +42,9 @@
 #include "ImageAnalyzer.h"
 
 
-#define WHIPS_NAME		"Wave Height Calculator Image Processing System"
-#define WHIPS_INFO		"System used to calculate the height of a wave using" \
-		" a real time camera capturing system. TODO: cambiar esta info :)"
-
+#define WHIPS_NAME		"Calculador de altura de ola"
+#define WHIPS_INFO		"Sistema usado para calcular la altura de la ola usando" \
+	" un sistema de captura en tiempo real o por medio de un archivo de video"
 
 
 
