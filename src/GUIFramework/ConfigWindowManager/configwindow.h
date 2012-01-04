@@ -53,7 +53,7 @@ public:
 	/* Function used to retrieve the info about the ConfigWindow. This is
 	 * an optional function.
 	 */
-	virtual QString getInfo(void) const {return "";}
+	virtual QString getInfo(void) const {return QString("");}
 
 	/* Function called when the user click on "Next Button" and the ConfigWindow
 	 * will be hide and show the next one. This function shall return NO_ERROR

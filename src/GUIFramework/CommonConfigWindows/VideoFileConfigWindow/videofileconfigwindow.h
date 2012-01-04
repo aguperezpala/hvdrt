@@ -14,10 +14,11 @@ class VideoFileConfigWindow : public ConfigWindow
 
 public:
     VideoFileConfigWindow(QWidget *parent = 0);
-    ~VideoFileConfigWindow();
+    virtual ~VideoFileConfigWindow();
 
-    /* Set the ImageGenerator to be used */
-	void setImageGenerator(ImageGenerator *);
+    /* Set the ImageGenerator to be used.
+     * This function checks if the ImageGenerator is using a video file */
+    errCode setImageGenerator(ImageGenerator *);
 
 	/* Function used to load the configurations from a xml file
 	 * Returns:
@@ -44,7 +45,12 @@ public:
 	errCode finish(QString &error);
 
 public slots:
+	void onSlideChange(int);
 
+
+private:
+	/* Read the video file properties */
+	void readVideoProperties(void);
 
 private:
     Ui::VideoFileConfigWindowClass ui;

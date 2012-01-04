@@ -1,5 +1,7 @@
 #include "cameraconfigwindow.h"
 
+
+
 CameraConfigWindow::CameraConfigWindow(QWidget *parent)
     : ConfigWindow(parent, "CameraConfigWindow"),
       mImgGenerator(0)
@@ -13,7 +15,7 @@ CameraConfigWindow::~CameraConfigWindow()
 }
 
 /* Set the ImageGenerator to be used */
-void CameraConfigWindow::setImageGenerator(ImageGenerator *ig)
+errCode CameraConfigWindow::setImageGenerator(ImageGenerator *ig)
 {
 	ASSERT(ig);
 
@@ -23,9 +25,10 @@ void CameraConfigWindow::setImageGenerator(ImageGenerator *ig)
 	// now check if the ImageGenerator is of type VIDEOFILE
 	if(mImgGenerator->getDeviceType() != ImageGenerator::CAMERA_DEV){
 		// we have to remove the actual
-		mImgGenerator->destroyDevice();
+		return INVALID_PARAM;
 	}
 
+	return NO_ERROR;
 }
 
 /* Function used to load the configurations from a xml file
