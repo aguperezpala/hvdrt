@@ -80,6 +80,24 @@ bool ImageGenerator::createDevice(const std::string &videoPath)
 	return true;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+/* Check what type of device is */
+ImageGenerator::DeviceType ImageGenerator::getDeviceType(void) const
+{
+	if(!mCapturer){
+		return NONE;
+	}
+
+	// check if we can count frames, if not, there is a webcam
+	if(mCapturer->get(CV_CAP_PROP_FRAME_COUNT) == 0.0){
+		return CAMERA_DEV;
+	} else {
+		return VIDEO_DEV;
+	}
+
+	return NONE;
+}
+
 /* Destroy the actual device */
 void ImageGenerator::destroyDevice(void)
 {

@@ -4,9 +4,14 @@
 #include <QtGui/QWidget>
 
 #include <list>
+#include <auto_ptr.h>
 
 #include "ui_configwindowmanager.h"
 #include "configwindow.h"
+#include "tinyxml.h"
+
+
+class TiXmlElement;
 
 class ConfigWindowManager : public QWidget
 {
@@ -35,6 +40,18 @@ public:
     /* Restart and show the first window */
     void restart(void);
 
+    /* Loads the configuration for every ConfigWindow that the manager is handling
+     * Requires:
+     * 	@xml	Where it will be extracted the "ConfigWindows" section
+     * Returns errCode
+     */
+    errCode loadConfig(const TiXmlElement *);
+
+    /* Returns the <ConfigWindowSections> filled with all the xml associated to
+     * every ConfigWindo. Ready to put in XmlSession
+     */
+    errCode getConfig(std::auto_ptr<TiXmlElement> &xml);
+
 public slots:
 	// Slots
 	void nextButtonClicked(void);
@@ -61,6 +78,10 @@ private:
 
 	/* Check if we can safely close the window */
 	bool canCloseConfigWindow(ConfigWindow *);
+
+	/* Returns ConfigWindow by name or 0 if not exist */
+	ConfigWindow *getConfigWindowByName(const std::string &name);
+
 
 
 

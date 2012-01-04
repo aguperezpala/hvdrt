@@ -131,6 +131,19 @@ bool ConfigWindowManager::canCloseConfigWindow(ConfigWindow *w)
 	return true;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+ConfigWindow *ConfigWindowManager::getConfigWindowByName(const std::string &name)
+{
+	CFListIterator it = mConfigWindows.begin(), endIt = mConfigWindows.end();
+	for(; it != endIt; ++it){
+		if((*it)->getName() == name){
+			return *it;
+		}
+	}
+
+	return 0;
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -226,6 +239,75 @@ void ConfigWindowManager::restart(void)
 	mConfigWinIt = mConfigWindows.begin();
 	showButtons();
 	showNewWindow(*mConfigWinIt);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+errCode ConfigWindowManager::loadConfig(const TiXmlElement *elem)
+{
+	ASSERT(elem);
+	const TiXmlElement *pElem = elem->FirstChildElement("ConfigWindowSections");
+	if(!pElem){
+		debug("Invalid xml: no ConfigWindowSections found\n");
+		return INVALID_PARAM;
+	}
+
+	// now iterate over all the sections
+	pElem = pElem->FirstChildElement("ConfigWindow");
+	errCode err = NO_ERROR;
+	while(pElem){
+		ConfigWindow *cw = getConfigWindowByName(pElem->Attribute("name"));
+		if(!cw){
+			debug("ConfigWindow %s not found to load the configuration\n",
+					pElem->Attribute("name"));
+			pElem = pElem->NextSiblingElement("ConfigWindow");
+			continue;
+		}
+
+		// load the configuration
+		err = cw->loadConfig(pElem);
+		if(err != NO_ERROR){
+			debug("Some error ocurr when loading the config in %s: %d\n",
+					pElem->Attribute("name"), err);
+			return err;
+		}
+
+		pElem = pElem->NextSiblingElement("ConfigWindow");
+	}
+
+	return NO_ERROR;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+errCode ConfigWindowManager::getConfig(std::auto_ptr<TiXmlElement> &xml)
+{
+	if(xml.get()){
+		return INVALID_PARAM;
+	}
+
+	// now we iterate over all the config windows and we will create the
+	// ConfigWindowSections
+	std::auto_ptr<TiXmlElement> result(new TiXmlElement("ConfigWindowSections"));
+
+	CFListIterator it = mConfigWindows.begin(), endIt = mConfigWindows.end();
+	for(; it != endIt; ++it){
+		TiXmlElement *cw = new TiXmlElement("ConfigWindow");
+		cw->SetAttribute("name", (*it)->getName().c_str());
+		result->LinkEndChild(cw);
+
+		// now get the xml contents of the configWindow
+		TiXmlElement *content = (*it)->getConfig().release();
+		if(!content){
+			debug("Warning: %s have no configuration content\n", (*it)->getName().c_str());
+			continue;
+		}
+
+		// else we put it in the xml
+		cw->LinkEndChild(content);
+	}
+
+	xml = result;
+	return NO_ERROR;
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////

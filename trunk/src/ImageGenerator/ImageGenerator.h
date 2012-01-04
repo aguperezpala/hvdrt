@@ -21,6 +21,13 @@
 class ImageGenerator : public FrameEmitter
 {
 public:
+
+	typedef enum {
+		NONE,
+		CAMERA_DEV,
+		VIDEO_DEV,
+	} DeviceType;
+public:
 	ImageGenerator();
 	virtual ~ImageGenerator();
 
@@ -43,6 +50,9 @@ public:
 	 * 		false		otherwise
 	 */
 	virtual bool createDevice(const std::string &videoPath);
+
+	/* Check what type of device is */
+	virtual DeviceType getDeviceType(void) const;
 
 	/* Destroy the actual device */
 	void destroyDevice(void);
