@@ -17,8 +17,10 @@ public:
     CameraConfigWindow(QWidget *parent = 0);
     virtual ~CameraConfigWindow();
 
-    /* Set the ImageGenerator to be used */
-    void setImageGenerator(ImageGenerator *);
+    /* Set the ImageGenerator to be used
+     * This function checks if the ImageGenerator is using a camera
+     */
+    errCode setImageGenerator(ImageGenerator *);
 
     /* Function used to load the configurations from a xml file
 	 * Returns:
@@ -43,6 +45,7 @@ public:
 	 * by param
 	 */
 	errCode finish(QString &error);
+
 
 
 private:

@@ -1,9 +1,43 @@
 #include "videofileconfigwindow.h"
 
+#include "GUIUtils.h"
+
+
+
+/* Read the video file properties */
+void VideoFileConfigWindow::readVideoProperties(void)
+{
+	ASSERT(mImgGenerator);
+	cv::VideoCapture *vc = mImgGenerator->getDevice();
+	ASSERT(vc);
+
+	double value = vc->get(CV_CAP_PROP_FRAME_COUNT);
+	ui.totalFramesLabel->setText(QString::number(value));
+	ui.frameSlider->setMaximum(value-1);
+
+	value = vc->get(CV_CAP_PROP_FPS);
+	ui.fpsLabel->setText(QString::number(value));
+
+	value = vc->get(CV_CAP_PROP_POS_FRAMES);
+	ui.currentFrameLabel->setText(QString::number(value));
+	ui.frameSlider->setValue(value);
+
+}
+
+
+
+
+
 VideoFileConfigWindow::VideoFileConfigWindow(QWidget *parent)
-    : ConfigWindow(parent, "VideoFileConfigWindow")
+    : ConfigWindow(parent, "VideoFileConfigWindow"),
+      mDisplayer(this)
 {
 	ui.setupUi(this);
+	// insert the displayer
+	ui.verticalLayout->insertWidget(0,&mDisplayer);
+
+	QObject::connect(ui.frameSlider,SIGNAL(valueChanged(int)), this,
+						SLOT(onSlideChange(int)));
 
 }
 
@@ -14,7 +48,7 @@ VideoFileConfigWindow::~VideoFileConfigWindow()
 
 
 /* Set the ImageGenerator to be used */
-void VideoFileConfigWindow::setImageGenerator(ImageGenerator *ig)
+errCode VideoFileConfigWindow::setImageGenerator(ImageGenerator *ig)
 {
 	ASSERT(ig);
 
@@ -23,10 +57,24 @@ void VideoFileConfigWindow::setImageGenerator(ImageGenerator *ig)
 
 	// now check if the ImageGenerator is of type VIDEOFILE
 	if(mImgGenerator->getDeviceType() != ImageGenerator::VIDEO_DEV){
-		// we have to remove the actual
-		mImgGenerator->destroyDevice();
+		return INVALID_PARAM;
 	}
 
+	Frame f;
+	if(mImgGenerator->captureFrame(f) != NO_ERROR){
+		GUIUtils::showMessageBox("Error getting an image from the video file\n");
+		return INTERNAL_ERROR;
+	}
+
+	// get the image
+	mDisplayer.setImage(f.data);
+
+
+	readVideoProperties();
+
+
+
+	return NO_ERROR;
 }
 
 /* Function used to load the configurations from a xml file
@@ -53,6 +101,7 @@ std::auto_ptr<TiXmlElement> VideoFileConfigWindow::getConfig(void) const
 QString VideoFileConfigWindow::getInfo(void) const
 {
 	// TODO: implementar esto!
+	return "";
 }
 
 /* Function called when the user click on "Next Button" and the ConfigWindow
@@ -64,3 +113,31 @@ errCode VideoFileConfigWindow::finish(QString &error)
 {
 	// TODO: implementar esto!
 }
+
+
+
+void VideoFileConfigWindow::onSlideChange(int value)
+{
+	ASSERT(mImgGenerator);
+
+	cv::VideoCapture *cv = mImgGenerator->getDevice();
+	ASSERT(cv);
+
+	// update the video to the current frame
+	cv->set(CV_CAP_PROP_POS_FRAMES, value);
+
+	// get the new frame and show it
+	Frame f;
+	mImgGenerator->captureFrame(f);
+	mDisplayer.setImage(f.data);
+
+	// update the current frame
+	ui.currentFrameLabel->setText(QString::number(cv->get(CV_CAP_PROP_POS_FRAMES)));
+
+}
+
+
+
+
+
+

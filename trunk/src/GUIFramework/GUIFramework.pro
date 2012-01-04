@@ -99,34 +99,10 @@ SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
 ##############################################################################
 
 
-
-INCLUDEPATH += ../Common/Debug \
-    ../Common/Timestamp \
-    ../Common \
-    ../Common/tinyxml \
-    ../DeviceCalibrator \
-    ../GUI/ImageGeneratorConfigurator \
-    ../GUI/IPSModule/ImageProcessingSystem \
-    ../GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS \
-    ../GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
-    ../GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/CoordsInterpreter \
-    ../GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalizer/BorderDetector \
-    ../GUI/IPSModule/ImageProcessingSystem/WaveHeightIPS/RealTimeDataDisplayer \
-    ../IPSModule/ImageProcessingSystem \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS \
-    ../ImageAnalyzer \
-    ../ImageAnalyzer/ImageInterpreter \
-    ../ImageGenerator \
-    ../GUI/MainProgram \
-    ../GUI/GUIConfiguratorDialog \
-    ../Tests/SystemCLITest
 INCLUDEPATH += Utils \
     ConfigWindowManager/UnitTest \
     CommonConfigWindows/CameraConfigWindow \
-    CommonConfigWindows/VideoFileconfigWindow \
+    CommonConfigWindows/VideoFileConfigWindow \
     GuiHelpers/FrameLabelDisplayer \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
