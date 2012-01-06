@@ -55,6 +55,12 @@ public:
 	 */
 	virtual QString getInfo(void) const {return QString("");}
 
+	/* Function called when the window get visible */
+	virtual void windowVisible(void) {};
+
+	/* Function called when the window get invisible */
+	virtual void windowInvisible(void) {};
+
 	/* Function called when the user click on "Next Button" and the ConfigWindow
 	 * will be hide and show the next one. This function shall return NO_ERROR
 	 * if the ConfigWindow can be closed, or the error and the string error
