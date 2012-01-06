@@ -23,15 +23,13 @@ INCLUDEPATH += ../Common/tinyxml
 DEPENDPATH += ../Common/tinyxml
 PRE_TARGETDEPS += ../Common/tinyxml/libtinyxmlpath.a
 
-
-##############################################################################
+# #############################################################################
 # The Hydrodynamic Variable Detection core "source code"
-##############################################################################
-
+# #############################################################################
 INCLUDEPATH += ../Common/Debug \
-	../Common/Timestamp \
-	../Common \
-	../Common/tinyxml \
+    ../Common/Timestamp \
+    ../Common \
+    ../Common/tinyxml \
     ../DeviceCalibrator \
     ../IPSModule/ImageProcessingSystem \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
@@ -45,16 +43,15 @@ INCLUDEPATH += ../Common/Debug \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping/MiddlePointClipping \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier/PerspectiveRectifier \    
+    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier/PerspectiveRectifier \
     ../ImageAnalyzer \
     ../ImageAnalyzer/ImageInterpreter \
-    ../ImageGenerator 
-    
+    ../ImageGenerator
 HEADERS += ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
-	../Common/tinyxml/tinyxml.h \    
+    ../Common/tinyxml/tinyxml.h \
     ../Common/Timestamp/Timestamp.h \
-    ../DeviceCalibrator/DeviceCalibrator.h \    
+    ../DeviceCalibrator/DeviceCalibrator.h \
     ../IPSModule/ImageProcessingSystem/ImageProcessingSystem.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.h \
@@ -69,7 +66,7 @@ HEADERS += ../Common/Debug/DebugUtil.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping/IClipping.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping/MiddlePointClipping/MiddlePointClipping.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier/IRectifier.h \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier/PerspectiveRectifier/PerspectiveRectifier.h \    
+    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier/PerspectiveRectifier/PerspectiveRectifier.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPS.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImgPointPainter.h \
     ../ImageAnalyzer/ImageAnalyzer.h \
@@ -79,9 +76,8 @@ HEADERS += ../Common/Debug/DebugUtil.h \
     ../ImageGenerator/Frame.h \
     ../ImageGenerator/FrameEmitter.h \
     ../ImageGenerator/FrameListener.h \
-    ../ImageGenerator/ImageGenerator.h 
-     
-SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \    
+    ../ImageGenerator/ImageGenerator.h
+SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
@@ -94,16 +90,19 @@ SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPS.cpp \
     ../ImageAnalyzer/ImageAnalyzer.cpp \
     ../ImageGenerator/FrameEmitter.cpp \
-    ../ImageGenerator/ImageGenerator.cpp 
-    
-##############################################################################
+    ../ImageGenerator/ImageGenerator.cpp
 
-
+# #############################################################################
 INCLUDEPATH += Utils \
     ConfigWindowManager/UnitTest \
     CommonConfigWindows/CameraConfigWindow \
     CommonConfigWindows/VideoFileConfigWindow \
     GuiHelpers/FrameLabelDisplayer \
+    IPSModule \
+    IPSModule/IPSs/GUIWaveHeightIPS \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows \
+    GuiHelpers/ZoomedLabel \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \
@@ -116,23 +115,33 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
     ../Common/tinyxml/tinyxml.h \
+    IPSModule/guiimageprocessingsystem.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += guiframework.h
-SOURCES += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.cpp \
+HEADERS += GuiHelpers/ZoomedLabel/zoomedlabel.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
+    guiframework.h
+SOURCES += GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.cpp \
+    GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.cpp \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.cpp \
     ConfigWindowManager/UnitTest/configwindowtest3.cpp \
     ConfigWindowManager/UnitTest/configwindowtest2.cpp \
     ConfigWindowManager/UnitTest/configwindowtest1.cpp \
     Utils/GUIUtils.cpp \
     ConfigWindowManager/configwindowmanager.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.cpp \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.cpp \
     main.cpp \
     guiframework.cpp
-FORMS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.ui \
+FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \
+    GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.ui \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.ui \
     ConfigWindowManager/UnitTest/configwindowtest3.ui \
     ConfigWindowManager/UnitTest/configwindowtest2.ui \
     ConfigWindowManager/UnitTest/configwindowtest1.ui \
+    IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.ui \
     ConfigWindowManager/configwindowmanager.ui \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.ui \
     guiframework.ui

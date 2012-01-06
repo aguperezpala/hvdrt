@@ -9,13 +9,17 @@
 #include "ConfigWindowManager/UnitTest/configwindowtest1.h"
 #include "ConfigWindowManager/UnitTest/configwindowtest2.h"
 #include "ConfigWindowManager/UnitTest/configwindowtest3.h"
+
 #include "videofileconfigwindow.h"
+#include "guiperspectiverectifier.h"
+
 #include "ImageGenerator.h"
 #include "GUIUtils.h"
 
+
 static void testVideoFileConfigWindow(QApplication &a)
 {
-	ConfigWindowManager cwm;
+	ConfigWindowManager cwm(0,800,600);
 	VideoFileConfigWindow vfcw;
 	ImageGenerator ig;
 
@@ -43,16 +47,46 @@ static void testVideoFileConfigWindow(QApplication &a)
 	a.exec();
 }
 
+static void testGuiPerspectiveRectifier(QApplication &a)
+{
+	ConfigWindowManager cwm(0,800,600);
+	ImageGenerator ig;
+
+	QString filename = QFileDialog::getOpenFileName(0, "Video", ".", "*");
+
+	if(filename.isEmpty()){
+		return;
+	}
+
+	// create the new one
+	if(!ig.createDevice(filename.toAscii().data())){
+		GUIUtils::showMessageBox("Error creating the ImageGenerator");
+		return;
+	}
+
+	GUIPerspectiveRectifier gpr(&ig);
+	gpr.updateImg();
+
+
+	cwm.addNewWindow(&gpr);
+	cwm.startShow();
+
+	cwm.show();
+
+
+	a.exec();
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 //    GUIFramework w;
 //    w.show();
-
-    ConfigWindowManager cwm;
-    ConfigWindowTest1 t1;
-    ConfigWindowTest2 t2;
-    ConfigWindowTest3 t3;
+//
+//    ConfigWindowManager cwm;
+//    ConfigWindowTest1 t1;
+//    ConfigWindowTest2 t2;
+//    ConfigWindowTest3 t3;
 //
 //    cwm.addNewWindow(&t1);
 //    cwm.addNewWindow(&t2);
@@ -62,6 +96,7 @@ int main(int argc, char *argv[])
 //    cwm.show();
 
 
-    testVideoFileConfigWindow(a);
+//    testVideoFileConfigWindow(a);
+    testGuiPerspectiveRectifier(a);
     return 0;
 }
