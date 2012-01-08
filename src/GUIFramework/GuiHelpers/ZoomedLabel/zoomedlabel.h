@@ -15,8 +15,8 @@ class ZoomedLabel : public QLabel
 
 	static const int REMARK_POINT_PIXELS	=	4;
 
-	static const int ZOOM_IMAGE_SIZE		=	100;
-	static const int ZOOM_FACTOR			=	250;
+	static const int ZOOM_IMAGE_SIZE		=	20;
+	static const int ZOOM_FACTOR			=	100;
 
 public:
     ZoomedLabel(QWidget *parent = 0);

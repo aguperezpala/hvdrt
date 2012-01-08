@@ -58,6 +58,13 @@ public:
 	void setWaveHeightAnalyzerIP(ImageProcessor *ip);
 
 
+public slots:
+
+	void onPreviewClicked(void);
+	void onClearClicked(void);
+
+
+
 	/* We have to implement the signal used to advise when the actual ConfigWindow
 	 * is finish automatically.
 	 */
@@ -88,6 +95,8 @@ private:
     // size of the dest img
     int					mImgSizeX;
     int					mImgSizeY;
+
+    Frame 				mFrame;
 };
 
 #endif // GUIPERSPECTIVERECTIFIER_H

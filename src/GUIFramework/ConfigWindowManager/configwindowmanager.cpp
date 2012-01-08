@@ -160,6 +160,8 @@ ConfigWindowManager::ConfigWindowManager(QWidget *parent, int windowW,int window
 	QObject::connect(ui.backButton,SIGNAL(clicked(bool)), this,
 					SLOT(backButtonClicked(void)));
 	showButtons();
+//	setMinimumHeight(windowH);
+//	setMinimumWidth(windowW);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
