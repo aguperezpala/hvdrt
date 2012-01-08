@@ -125,11 +125,7 @@ void ZoomedLabel::mouseMoveEvent(QMouseEvent* event)
 	ASSERT(mZoomLabel);
 	mZoomLabel->setPixmap(QPixmap::fromImage(zoomed.scaled(QSize(ZOOM_FACTOR,
 			ZOOM_FACTOR))));
-	mZoomLabel->setMaximumHeight(ZOOM_IMAGE_SIZE);
-	mZoomLabel->setMaximumWidth(ZOOM_IMAGE_SIZE);
-
 //	mZoomLabel->setPixmap(QPixmap::fromImage(zoomed));
-
 }
 
 
@@ -147,6 +143,8 @@ void ZoomedLabel::setZoomLabel(QLabel *zoom)
 {
 	ASSERT(zoom);
 	mZoomLabel = zoom;
+
+	mZoomLabel->setMaximumHeight(ZOOM_FACTOR);
 }
 
 

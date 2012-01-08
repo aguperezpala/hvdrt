@@ -10,6 +10,8 @@
 #include "ConfigWindowManager/UnitTest/configwindowtest2.h"
 #include "ConfigWindowManager/UnitTest/configwindowtest3.h"
 
+#include "PerspectiveRectifier.h"
+
 #include "videofileconfigwindow.h"
 #include "guiperspectiverectifier.h"
 
@@ -49,8 +51,12 @@ static void testVideoFileConfigWindow(QApplication &a)
 
 static void testGuiPerspectiveRectifier(QApplication &a)
 {
-	ConfigWindowManager cwm(0,800,600);
+	ConfigWindowManager cwm(0,a.desktop()->width(),a.desktop()->height());
+	cwm.showMaximized();
+	cwm.activateWindow();
+	cwm.raise();
 	ImageGenerator ig;
+	PerspectiveRectifier pr;
 
 	QString filename = QFileDialog::getOpenFileName(0, "Video", ".", "*");
 
@@ -65,6 +71,7 @@ static void testGuiPerspectiveRectifier(QApplication &a)
 	}
 
 	GUIPerspectiveRectifier gpr(&ig);
+	gpr.setPerspectiveRectifierIP(&pr);
 	gpr.updateImg();
 
 

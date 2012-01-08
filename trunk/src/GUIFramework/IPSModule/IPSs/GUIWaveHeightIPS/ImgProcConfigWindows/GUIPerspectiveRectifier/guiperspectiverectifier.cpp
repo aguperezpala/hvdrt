@@ -31,7 +31,7 @@ void GUIPerspectiveRectifier::sortPoints(const std::vector<QPoint> &input,
 	// fourth are the br and tr.
 	QPoint *tl, *bl, *tr, *br;
 
-	if(aux[0].y() > aux[1].y()) {
+	if(aux[0].y() < aux[1].y()) {
 		tl = &(aux[0]);
 		bl = &(aux[1]);
 	} else {
@@ -39,7 +39,7 @@ void GUIPerspectiveRectifier::sortPoints(const std::vector<QPoint> &input,
 		bl = &(aux[0]);
 	}
 
-	if(aux[2].y() > aux[3].y()){
+	if(aux[2].y() < aux[3].y()){
 		tr = &(aux[2]);
 		br = &(aux[3]);
 	} else {
@@ -171,6 +171,11 @@ GUIPerspectiveRectifier::GUIPerspectiveRectifier(ImageGenerator *ig, QWidget *pa
 	mZoomedLabel.setZoomLabel(ui.zoomLabel);
 	ui.scrollArea->setWidget(&mZoomedLabel);
 
+	QObject::connect(ui.clearPointsButton,SIGNAL(clicked(bool)), this,
+					SLOT(onClearClicked(void)));
+	QObject::connect(ui.previewButton,SIGNAL(clicked(bool)), this,
+					SLOT(onPreviewClicked(void)));
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -242,18 +247,17 @@ errCode GUIPerspectiveRectifier::finish(QString &error)
 ////////////////////////////////////////////////////////////////////////////////
 void GUIPerspectiveRectifier::updateImg(void)
 {
-	Frame f;
-	if(mImgGenerator->captureFrame(f) != NO_ERROR){
+	if(mImgGenerator->captureFrame(mFrame) != NO_ERROR){
 		GUIUtils::showMessageBox("Error obteniendo imagen del ImageGenerator\n");
 		return;
 	}
 
-	mImgSizeX = f.data.cols;
-	mImgSizeY = f.data.rows;
+	mImgSizeX = mFrame.data.cols;
+	mImgSizeY = mFrame.data.rows;
 
 	// we have the image, show it
 	QImage qimg;
-	GUIUtils::IplImage2QImage(f.data, qimg);
+	GUIUtils::IplImage2QImage(mFrame.data, qimg);
 	mZoomedLabel.setImage(qimg);
 
 }
@@ -283,6 +287,56 @@ void GUIPerspectiveRectifier::setWaveHeightAnalyzerIP(ImageProcessor *ip)
 
 	mWaveHAnalyzerIP = ip;
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIPerspectiveRectifier::onPreviewClicked(void)
+{
+
+	// check that we have the Image processor associated
+	if(!mImgProc){
+		GUIUtils::showMessageBox("Error: No hay un ImageProcessor seteado para "
+				"una preview");
+		return;
+	}
+
+	// else, create the preview and show it
+	const std::vector<QPoint> &points = mZoomedLabel.getPoints();
+	if(points.size() != 4){
+		GUIUtils::showMessageBox("Hemos seleccionado " + QString::number(points.size()) +
+				" y tenemos que seleccionar solo 4 puntos (los que forman "
+				"el rectangulo)");
+		return;
+	}
+
+	// set the points to the ImageProcessor
+	errCode result = setPointsToIP();
+	if(result != NO_ERROR){
+		GUIUtils::showMessageBox("Se produjo un error seteando los puntos al Rectificador");
+		return;
+	}
+
+
+	// we are ready to show the preview
+	cv::Mat aux = mFrame.data.clone();
+	cv::namedWindow("Perspective Preview");
+
+	// apply the perspective transform
+	if(mImgProc->processData(aux) != NO_ERROR){
+		GUIUtils::showMessageBox("No se pudo aplicar la transformacion! :(");
+		return;
+	}
+
+	cv::imshow("Perspective Preview", aux);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIPerspectiveRectifier::onClearClicked(void)
+{
+	mZoomedLabel.clearPoints();
+}
+
 
 
 
