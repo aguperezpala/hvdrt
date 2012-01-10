@@ -118,11 +118,13 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += GuiHelpers/ZoomedLabel/zoomedlabel.h \
+HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.h \
+    GuiHelpers/ZoomedLabel/zoomedlabel.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
+SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.cpp \
+    GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.cpp \
     GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.cpp \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.cpp \
@@ -135,7 +137,8 @@ SOURCES += GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.cpp \
     main.cpp \
     guiframework.cpp
-FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \
+FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.ui \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \
     GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.ui \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.ui \
     ConfigWindowManager/UnitTest/configwindowtest3.ui \
