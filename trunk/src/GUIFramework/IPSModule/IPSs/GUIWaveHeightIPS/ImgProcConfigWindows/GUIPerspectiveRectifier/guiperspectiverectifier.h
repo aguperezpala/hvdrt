@@ -38,6 +38,9 @@ public:
 	 */
 	QString getInfo(void) const;
 
+	/* Function called when the window get visible */
+	void windowVisible(void);
+
 	/* Function called when the user click on "Next Button" and the ConfigWindow
 	 * will be hide and show the next one. This function shall return NO_ERROR
 	 * if the ConfigWindow can be closed, or the error and the string error
@@ -77,13 +80,18 @@ signals:
 private:
 
 	// sort the points in the next order: TopLeft, TopRight, BottomLeft, BottomRight
-	void sortPoints(const std::vector<QPoint> &input, std::vector<QPoint> &output);
+	void sortPoints(const std::vector<QPoint> &input, std::vector<QPoint> &output) const;
 
 	// set the points to the ImageProcessor and returns the errorCode associated
 	errCode setPointsToIP(void);
 
 	// Set the rectangle size to the WaveHeightAnalyzer
 	errCode setRectangleSizeToIP(void);
+
+	// Auxiliar function used to get a double value from an xml
+	double getValue(const TiXmlElement *elem, const char *attr, bool *ok = 0);
+	void setValue(TiXmlElement *elem, const char *child, const char *attr,
+			double value) const;
 
 
 private:

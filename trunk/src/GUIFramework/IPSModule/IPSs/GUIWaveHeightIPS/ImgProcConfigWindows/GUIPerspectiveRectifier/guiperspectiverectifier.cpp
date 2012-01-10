@@ -18,7 +18,7 @@ static bool sortFunction(const QPoint &p1, const QPoint &p2)
 
 ////////////////////////////////////////////////////////////////////////////////
 void GUIPerspectiveRectifier::sortPoints(const std::vector<QPoint> &input,
-		std::vector<QPoint> &output)
+		std::vector<QPoint> &output) const
 {
 	ASSERT(input.size() == 4);
 	output.clear();
@@ -151,7 +151,36 @@ errCode GUIPerspectiveRectifier::setRectangleSizeToIP(void)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+double GUIPerspectiveRectifier::getValue(const TiXmlElement *elem, const char *attr, bool *ok)
+{
+	if(!elem || !attr){
+		return -1.0;
+	}
 
+	double result = 0.0;
+	const char *value = elem->Attribute(attr);
+	if(value){
+		QString val = value;
+		result = val.toDouble(ok);
+	}
+	return result;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIPerspectiveRectifier::setValue(TiXmlElement *elem, const char *child,
+		const char *attr, double value) const
+{
+	ASSERT(elem);
+	ASSERT(child);
+	ASSERT(attr);
+
+	TiXmlElement *childElem = new TiXmlElement(child);
+	QString num = QString::number(value);
+	childElem->SetAttribute(attr, num.toAscii().data());
+	elem->LinkEndChild(childElem);
+
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -185,20 +214,92 @@ GUIPerspectiveRectifier::~GUIPerspectiveRectifier()
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-errCode GUIPerspectiveRectifier::loadConfig(const TiXmlElement *)
+errCode GUIPerspectiveRectifier::loadConfig(const TiXmlElement *elem)
 {
-	// TODO:
+	const TiXmlElement *auxElem = elem->FirstChildElement("GUIPerspectiveRectifier");
+	if(!auxElem){
+		debug("Invalid xml, GUIPerspectiveTransformator not found\n");
+		GUIUtils::showMessageBox("XML invalido, no se encontro GUIPerspectiveRectifier");
+		return INVALID_PARAM;
+	}
 
-	return NO_ERROR;
+	// get all the points of the rectangle
+	bool ok;
+	double value;
+	int px, py;
+
+	// clear all the points
+	mZoomedLabel.clearPoints();
+
+	// update the image if we have not img
+	if(!mFrame.data.empty()){
+		updateImg();
+	}
+
+	px = getValue(auxElem->FirstChildElement("TLX_POINT_SRC"), "value", &ok);
+	py = getValue(auxElem->FirstChildElement("TLY_POINT_SRC"), "value", &ok);
+	mZoomedLabel.addPoint(px,py);
+
+	px = getValue(auxElem->FirstChildElement("TRX_POINT_SRC"), "value", &ok);
+	py = getValue(auxElem->FirstChildElement("TRY_POINT_SRC"), "value", &ok);
+	mZoomedLabel.addPoint(px,py);
+
+	px = getValue(auxElem->FirstChildElement("BLX_POINT_SRC"), "value", &ok);
+	py = getValue(auxElem->FirstChildElement("BLY_POINT_SRC"), "value", &ok);
+	mZoomedLabel.addPoint(px,py);
+
+	px = getValue(auxElem->FirstChildElement("BRX_POINT_SRC"), "value", &ok);
+	py = getValue(auxElem->FirstChildElement("BRY_POINT_SRC"), "value", &ok);
+	mZoomedLabel.addPoint(px,py);
+
+	errCode err = setPointsToIP();
+	if(err != NO_ERROR){
+		return err;
+	}
+
+	// get the rectangle size
+	value = getValue(auxElem->FirstChildElement("RectangleSize"), "ySize", &ok);
+	ui.rectHeightLineEdit->setText(QString::number(value));
+	err = setRectangleSizeToIP();
+
+	return err;
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
 std::auto_ptr<TiXmlElement> GUIPerspectiveRectifier::getConfig(void) const
 {
-	// TODO:
+	// save the points
+	const std::vector<QPoint> &points = mZoomedLabel.getPoints();
+	if(points.size() != 4){
+		GUIUtils::showMessageBox("Cuidado: se esta guardando en el xml menos puntos"
+				" de los necesarios para la configuracion.");
+		return std::auto_ptr<TiXmlElement> (0);
+	}
 
-	return std::auto_ptr<TiXmlElement>(0);
+	std::auto_ptr<TiXmlElement> result(new TiXmlElement("GUIPerspectiveRectifier"));
+
+	// add the points
+	std::vector<QPoint> sortedPoints;
+	sortPoints(points, sortedPoints);
+	// push the points in the correct oreder TopLeft, TopRight, BottomLeft, BottomRight
+	setValue(result.get(), "RectangleSize", "TLX_POINT_SRC", sortedPoints[0].x());
+	setValue(result.get(), "RectangleSize", "TLY_POINT_SRC", sortedPoints[0].y());
+
+	setValue(result.get(), "RectangleSize", "TRX_POINT_SRC", sortedPoints[1].x());
+	setValue(result.get(), "RectangleSize", "TRY_POINT_SRC", sortedPoints[1].y());
+
+	setValue(result.get(), "RectangleSize", "BLX_POINT_SRC", sortedPoints[2].x());
+	setValue(result.get(), "RectangleSize", "BLY_POINT_SRC", sortedPoints[2].y());
+
+	setValue(result.get(), "RectangleSize", "BRX_POINT_SRC", sortedPoints[3].x());
+	setValue(result.get(), "RectangleSize", "BRY_POINT_SRC", sortedPoints[3].y());
+
+	// rectangle
+	setValue(result.get(), "RectangleSize", "ySize",
+			ui.rectHeightLineEdit->text().toDouble(0));
+
+	return result;
 }
 
 
@@ -209,6 +310,16 @@ QString GUIPerspectiveRectifier::getInfo(void) const
 	// TODO:
 	return "NO INFO";
 }
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIPerspectiveRectifier::windowVisible(void)
+{
+	// update the image if and olny if we have no img
+	if(mFrame.data.empty()){
+		updateImg();
+	}
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 errCode GUIPerspectiveRectifier::finish(QString &error)
