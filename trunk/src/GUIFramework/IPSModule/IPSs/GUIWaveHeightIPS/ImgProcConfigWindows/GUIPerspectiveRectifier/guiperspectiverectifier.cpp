@@ -198,6 +198,7 @@ GUIPerspectiveRectifier::GUIPerspectiveRectifier(ImageGenerator *ig, QWidget *pa
 	mZoomedLabel.setLabelX(ui.xPosLabel);
 	mZoomedLabel.setLabelY(ui.yPosLabel);
 	mZoomedLabel.setZoomLabel(ui.zoomLabel);
+	mZoomedLabel.setMaxNumberPoints(4);
 	ui.scrollArea->setWidget(&mZoomedLabel);
 
 	QObject::connect(ui.clearPointsButton,SIGNAL(clicked(bool)), this,
