@@ -296,8 +296,9 @@ std::auto_ptr<TiXmlElement> GUIPerspectiveRectifier::getConfig(void) const
 	setValue(result.get(), "RectangleSize", "BRY_POINT_SRC", sortedPoints[3].y());
 
 	// rectangle
+	bool ok;
 	setValue(result.get(), "RectangleSize", "ySize",
-			ui.rectHeightLineEdit->text().toDouble(0));
+			ui.rectHeightLineEdit->text().toDouble(&ok));
 
 	return result;
 }

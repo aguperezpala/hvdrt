@@ -36,7 +36,11 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="configWindowLayout"/>
+      <layout class="QVBoxLayout" name="configWindowLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMaximumSize</enum>
+       </property>
+      </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="buttonsLayout">
@@ -45,6 +49,12 @@
        </property>
        <item>
         <widget class="QPushButton" name="backButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Volver</string>
          </property>
@@ -52,6 +62,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="nextButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Siguiente</string>
          </property>
