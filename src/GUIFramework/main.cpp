@@ -14,6 +14,9 @@
 
 #include "videofileconfigwindow.h"
 #include "guiperspectiverectifier.h"
+#include "guicannyborderdetector.h"
+#include "CannyBorderDetector.h"
+#include "WaveHeightAnalyzer.h"
 
 #include "ImageGenerator.h"
 #include "GUIUtils.h"
@@ -84,6 +87,46 @@ static void testGuiPerspectiveRectifier(QApplication &a)
 	a.exec();
 }
 
+static void testGuiBorderDetector(QApplication &a)
+{
+	ConfigWindowManager cwm(0,a.desktop()->width(),a.desktop()->height());
+	cwm.showMaximized();
+	cwm.activateWindow();
+	cwm.raise();
+
+	ImageGenerator ig;
+
+	QString filename = QFileDialog::getOpenFileName(0, "Video", ".", "*");
+	if(filename.isEmpty()){
+		return;
+	}
+
+	// create the new one
+	if(!ig.createDevice(filename.toAscii().data())){
+		GUIUtils::showMessageBox("Error creating the ImageGenerator");
+		return;
+	}
+	GUICannyBorderDetector gcbd(&ig);
+	CannyBorderDetector cbd;
+	WaveHeightAnalyzer wha;
+
+	gcbd.setCannyImgProcessor(&cbd);
+	PerspectiveRectifier pr;
+
+	GUIPerspectiveRectifier gpr(&ig);
+	gpr.setPerspectiveRectifierIP(&pr);
+	gpr.setWaveHeightAnalyzerIP(&wha);
+
+	gcbd.setPerspectiveRectifierIP(&pr);
+
+	cwm.addNewWindow(&gpr);
+	cwm.addNewWindow(&gcbd);
+	cwm.startShow();
+	cwm.show();
+
+	a.exec();
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -104,6 +147,9 @@ int main(int argc, char *argv[])
 
 
 //    testVideoFileConfigWindow(a);
-    testGuiPerspectiveRectifier(a);
+//    testGuiPerspectiveRectifier(a);
+    testGuiBorderDetector(a);
+
+
     return 0;
 }

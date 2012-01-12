@@ -50,6 +50,11 @@ public:
 	/* Sets the CannyBorderDetector ImageProcessor to apply to the image */
 	void setCannyImgProcessor(ImageProcessor *ip);
 
+	/* Sets the ImageRectifier processor, used to convert the actual captured
+	 * image and rectify it
+	 */
+	void setPerspectiveRectifierIP(ImageProcessor *ip);
+
 public slots:
 	void onSlide1Change(int v);
 	void onSlide2Change(int v);
@@ -60,6 +65,7 @@ public slots:
 private:
 	// Sets the values to the CannyBorderDetector ImageProcessor
 	void setCannyImgProcData(void);
+	void showImage(const cv::Mat &img);
 
 private:
     Ui::GUICannyBorderDetectorClass ui;
@@ -67,6 +73,7 @@ private:
     Frame							mFrame;
     QImage							mCannyImg;
     ImageProcessor					*mCannyImgProc;
+    ImageProcessor					*mPerspectiveRectImgProc;
 
 };
 

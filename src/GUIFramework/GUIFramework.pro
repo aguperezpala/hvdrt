@@ -103,6 +103,7 @@ INCLUDEPATH += Utils \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows \
     GuiHelpers/ZoomedLabel \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \

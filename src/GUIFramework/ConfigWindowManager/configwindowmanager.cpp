@@ -17,6 +17,7 @@ void ConfigWindowManager::disconnectSignals(ConfigWindow *w)
 
 	// hide the widget
 	w->hide();
+	w->windowInvisible();
 	ui.configWindowLayout->removeWidget(w);
 
 }
@@ -44,10 +45,12 @@ bool ConfigWindowManager::showNewWindow(ConfigWindow *w)
 	int th = ui.infoLabel->size().height();
 
 	// the new height of the widget
-	int nh = mWindowHeight - th - 100; // the size of the top menu
+	int nh = mWindowHeight - th - 200; // the size of the top menu
 
 	w->setMaximumSize(QSize(mWindowWidth - 30,nh));
 
+	// advise the window that we are showing it
+	w->windowVisible();
 
 	return true;
 }
