@@ -2,6 +2,8 @@
 
 #include <QtGui>
 #include <QApplication>
+#include <cmath>
+
 
 #include "DebugUtil.h"
 
@@ -15,6 +17,7 @@
 #include "videofileconfigwindow.h"
 #include "guiperspectiverectifier.h"
 #include "guicannyborderdetector.h"
+#include "guirealtimedatadisplayer.h"
 #include "CannyBorderDetector.h"
 #include "WaveHeightAnalyzer.h"
 
@@ -211,6 +214,44 @@ static void testGuiMiddlePointClipping(QApplication &a)
 }
 
 
+static void testGuiRealTimeDataDisplayer(QApplication &a)
+{
+	ConfigWindowManager cwm(0,a.desktop()->width(),a.desktop()->height());
+	cwm.showMaximized();
+	cwm.activateWindow();
+	cwm.raise();
+
+	ImageGenerator ig;
+	GUIRealTimeDataDisplayer grtdd(&ig);
+
+	cwm.addNewWindow(&grtdd);
+
+	// add a lot of points
+	double accumTime = 0, steptime = 0.04,
+			waveSlope = 1.0, maxWaveHeight = 50, accumWave = 0, waveAux = 0;
+
+	for(int i = 0 ; i < 999; i++){
+		accumTime += steptime;
+		accumWave += waveSlope;
+		waveAux += std::abs(waveSlope);
+		if(waveAux > maxWaveHeight){
+			waveSlope *= -1.0f;
+			waveAux = 0;
+		}
+		grtdd.addPoint(accumTime, accumWave);
+
+//		debug("Point added: %f\t%f\n", accumTime, accumWave);
+
+	}
+
+
+	cwm.startShow();
+	cwm.show();
+
+	a.exec();
+}
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -233,7 +274,8 @@ int main(int argc, char *argv[])
 //    testVideoFileConfigWindow(a);
 //    testGuiPerspectiveRectifier(a);
 //    testGuiBorderDetector(a);
-    testGuiMiddlePointClipping(a);
+//    testGuiMiddlePointClipping(a);
+    testGuiRealTimeDataDisplayer(a);
 
 
     return 0;
