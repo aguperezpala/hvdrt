@@ -3,6 +3,7 @@
 
 #include "DebugUtil.h"
 #include "GUIUtils.h"
+#include "XmlHelper.h"
 #include "configwindowmanager.h"
 
 
@@ -19,6 +20,15 @@ void ConfigWindowManager::disconnectSignals(ConfigWindow *w)
 	w->hide();
 	w->windowInvisible();
 	ui.configWindowLayout->removeWidget(w);
+
+	// autosave the config
+	std::auto_ptr<TiXmlElement> config = w->getConfig();
+	if(config.get()){
+		addTempXml(config.release(), w->getName());
+		updateAutoSaveFile();
+	} else {
+		debug("Error getting the config of %s\n", w->getName().c_str());
+	}
 
 }
 
@@ -147,6 +157,39 @@ ConfigWindow *ConfigWindowManager::getConfigWindowByName(const std::string &name
 	return 0;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+void ConfigWindowManager::addTempXml(TiXmlElement *elem, const std::string &cwn)
+{
+	ASSERT(elem);
+
+	// check if already exists the actual element
+	TiXmlElement *root = mAutosaveDoc.RootElement();
+	if(!root || (root = root->FirstChildElement("ConfigWindowSections")) == 0){
+		return;
+	}
+
+	TiXmlElement *toReplace = XmlHelper::findByAttr(root, "name", cwn.c_str());
+
+	TiXmlElement *newElem = new TiXmlElement("ConfigWindow");
+	newElem->SetAttribute("name", cwn.c_str());
+	newElem->LinkEndChild(elem);
+
+	if(toReplace){
+		root->ReplaceChild(toReplace, *newElem);
+	} else {
+		// we add the element to the xml
+		root->LinkEndChild(newElem);
+	}
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void ConfigWindowManager::updateAutoSaveFile(void)
+{
+	if(!mAutosaveDoc.SaveFile(CWM_AUTOSAVE_FILENAME)){
+		debug("Error trying to save the CWM_AUTOSAVE_FILENAME\n");
+	}
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -165,6 +208,12 @@ ConfigWindowManager::ConfigWindowManager(QWidget *parent, int windowW,int window
 	showButtons();
 //	setMinimumHeight(windowH);
 //	setMinimumWidth(windowW);
+
+	// create the root xml tag
+	TiXmlElement *root = new TiXmlElement("Autosave");
+	TiXmlElement *sections = new TiXmlElement("ConfigWindowSections");
+	root->LinkEndChild(sections);
+	mAutosaveDoc.LinkEndChild(root);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

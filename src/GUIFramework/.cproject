@@ -171,6 +171,9 @@
 				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Rectifier/PerspectiveRectifier" kind="inc" path="" system="true"/>
 				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Analyzer/WaveHeightAnalyzer" kind="inc" path="" system="true"/>
 				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/BorderDetector/CannyBorderDetector" kind="inc" path="" system="true"/>
+				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping" kind="inc" path="" system="true"/>
+				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping/MiddlePointClipping" kind="inc" path="" system="true"/>
+				<pathentry base-path="HydrodynamicVariablesDetection" include="src/Common/XmlHelper" kind="inc" path="" system="true"/>
 				<pathentry kind="src" path=""/>
 				<pathentry kind="out" path=""/>
 			</storageModule>

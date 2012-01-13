@@ -71,16 +71,16 @@ errCode GUIMiddlePointClipping::saveWaveHeightAnalyzerData(void)
 	}
 	double imgSizeY = mFrame.data.rows;
 
-	err = mMiddlePointCIP->setParameter(WaveHeightAnalyzer::TLX_ZONE, 0);
+	err = mWaveHeightAIP->setParameter(WaveHeightAnalyzer::TLX_ZONE, 0);
 	ASSERT(err == NO_ERROR);
 
-	err = mMiddlePointCIP->setParameter(WaveHeightAnalyzer::TLY_ZONE, 0);
+	err = mWaveHeightAIP->setParameter(WaveHeightAnalyzer::TLY_ZONE, 0);
 	ASSERT(err == NO_ERROR);
 
-	err = mMiddlePointCIP->setParameter(WaveHeightAnalyzer::BRX_ZONE, imgSizeX);
+	err = mWaveHeightAIP->setParameter(WaveHeightAnalyzer::BRX_ZONE, imgSizeX);
 	ASSERT(err == NO_ERROR);
 
-	err = mMiddlePointCIP->setParameter(WaveHeightAnalyzer::BRY_ZONE, imgSizeY);
+	err = mWaveHeightAIP->setParameter(WaveHeightAnalyzer::BRY_ZONE, imgSizeY);
 	ASSERT(err == NO_ERROR);
 
 	return NO_ERROR;
@@ -129,17 +129,28 @@ errCode GUIMiddlePointClipping::loadConfig(const TiXmlElement *elem)
 		GUIUtils::showMessageBox("XML Invalido, GUIMiddlePointClipping no fue encontrado");
 		return INVALID_PARAM;
 	}
+
+	refreshFrame();
+	// if no image was set then we set one
+	if(mZoomedLabel.getImage().isNull()){
+		// set the img
+		QImage img;
+		GUIUtils::IplImage2QImage(mFrame.data, img);
+		mZoomedLabel.setImage(img);
+	}
+
+
 	mZoomedLabel.clearPoints();
 
 	// parse the middle point
-	auxElem = auxElem->FirstChildElement("MiddlePoint");
-	if(!auxElem){
+	const TiXmlElement *element = auxElem->FirstChildElement("MiddlePoint");
+	if(!element){
 		debug("Invalid xml, Point not found\n");
 		GUIUtils::showMessageBox("XML Invalido, MiddlePoint no encontrado");
 		return INVALID_PARAM;
 	}
-	QString xStr = auxElem->Attribute("x");
-	QString yStr = auxElem->Attribute("y");
+	QString xStr = element->Attribute("x");
+	QString yStr = element->Attribute("y");
 	bool ok;
 	int x = xStr.toInt(&ok);
 	int y = yStr.toInt(&ok);
@@ -147,13 +158,13 @@ errCode GUIMiddlePointClipping::loadConfig(const TiXmlElement *elem)
 	mZoomedLabel.addPoint(x,y);
 
 	// parse the num of columns
-	auxElem = elem->FirstChildElement("NumColumns");
-	if(!auxElem){
-		debug("Invalid xml, Point not found\n");
+	element = auxElem->FirstChildElement("NumColumns");
+	if(!element){
+		debug("Invalid xml, NumColumns not found\n");
 		GUIUtils::showMessageBox("XML Invalido, NumColumns no encontrado");
 		return INVALID_PARAM;
 	}
-	QString cols = auxElem->Attribute("value");
+	QString cols = element->Attribute("value");
 	ui.numColsLineEdit->setText(cols);
 
 	// set the values to the
@@ -211,6 +222,11 @@ void GUIMiddlePointClipping::windowVisible(void)
 
 	refreshFrame();
 
+	// check if we have some image set
+	if(!mZoomedLabel.getImage().isNull()){
+		// we already have some image, return
+		return;
+	}
 	// set the img
 	QImage img;
 	GUIUtils::IplImage2QImage(mFrame.data, img);

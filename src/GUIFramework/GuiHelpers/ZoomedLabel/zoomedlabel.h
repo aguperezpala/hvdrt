@@ -31,9 +31,13 @@ public:
 
    /* Sets the image to work with */
    void setImage(const QImage &img);
+   const QImage &getImage(void) const {return mImg;}
 
    /* Set the Label where it will be put the zoomed image */
    void setZoomLabel(QLabel *zoom);
+
+   /* Set the max number of points to analyze */
+   void setMaxNumberPoints(unsigned int n) {mMaxNumPoints = n;}
 
    /* Add new point */
    void addPoint(int x, int y);
@@ -71,6 +75,7 @@ private:
     // the list of points
     std::vector<QPoint>			mPoints;
     QRgb						mPaintColor;
+    unsigned int				mMaxNumPoints;
 
 };
 

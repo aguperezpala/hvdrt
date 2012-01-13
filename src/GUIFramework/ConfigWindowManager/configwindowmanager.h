@@ -11,6 +11,8 @@
 #include "tinyxml.h"
 
 
+#define CWM_AUTOSAVE_FILENAME		"autosave.xml"
+
 class TiXmlElement;
 
 class ConfigWindowManager : public QWidget
@@ -82,6 +84,16 @@ private:
 	/* Returns ConfigWindow by name or 0 if not exist */
 	ConfigWindow *getConfigWindowByName(const std::string &name);
 
+	/* Function used to associate an xml from a configWindow to some xml. In
+	 * case that the xml already exists it is replaced with the new one. Otherwise
+	 * the xml is added to the xml.
+	 * This function is used to save the temporal xml in the autosave.xml file
+	 */
+	void addTempXml(TiXmlElement *, const std::string &cwn);
+
+	// Function used to update the xml of the autosave file
+	void updateAutoSaveFile(void);
+
 
 
 
@@ -96,6 +108,8 @@ private:
 
     int								mWindowWidth;
     int								mWindowHeight;
+
+    TiXmlDocument					mAutosaveDoc;
 
 
 };
