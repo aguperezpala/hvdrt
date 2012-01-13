@@ -3,12 +3,14 @@
 #include "zoomedlabel.h"
 
 #include "DebugUtil.h"
+#include "GUIUtils.h"
 
 ZoomedLabel::ZoomedLabel(QWidget *parent)
     : QLabel(parent),
       mLabelX(0),
       mLabelY(0),
-      mZoomLabel(0)
+      mZoomLabel(0),
+      mMaxNumPoints(999)
 {
 	mPaintColor = qRgb(255,0,0);
 	grabMouse();
@@ -75,6 +77,10 @@ void ZoomedLabel::remarkRectangle(QImage &img, int topLeftX, int topLeftY, int b
 /* Add a new point */
 void ZoomedLabel::addPoint(int x, int y)
 {
+	if(mPoints.size() >= mMaxNumPoints){
+		GUIUtils::showMessageBox("No podemos agregar mas que " + QString::number(mMaxNumPoints));
+		return;
+	}
 	mX = x;
 	mY = y;
 

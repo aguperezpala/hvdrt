@@ -27,6 +27,9 @@
 
 #include <fstream>
 
+#include "DebugUtil.h"
+
+
 bool XmlHelper::readFileContent(const std::string &fName, std::string &contents)
 {
         char *buffer;
@@ -87,3 +90,38 @@ TiXmlDocument *XmlHelper::loadFromFile(const std::string &fname)
 	// everything ok
 	return doc;
 }
+
+/* Finds an element by attribute (it finds in the same "path length").
+ * If no element is found 0 is returned
+ */
+TiXmlElement *XmlHelper::findByAttr(TiXmlElement *root, const char *attrName,
+		const char *nameToFind)
+{
+	ASSERT(root);
+	ASSERT(attrName);
+	ASSERT(nameToFind);
+
+	TiXmlElement *aux = root->FirstChildElement();
+	while(aux){
+		if(!aux->Attribute(attrName)){
+			aux = aux->NextSiblingElement();
+			continue;
+		}
+		std::string value = aux->Attribute(attrName);
+		if(value == nameToFind){
+			return aux;
+		}
+
+		aux = aux->NextSiblingElement();
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+

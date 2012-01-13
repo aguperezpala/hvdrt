@@ -18,9 +18,41 @@
 #include "CannyBorderDetector.h"
 #include "WaveHeightAnalyzer.h"
 
+#include "guimiddlepointclipping.h"
+#include "MiddlePointClipping.h"
+
 #include "ImageGenerator.h"
 #include "GUIUtils.h"
+#include "XmlHelper.h"
 
+
+// load/save config tester
+static bool testLoadSaveConfig(ConfigWindow &cw)
+{
+	std::auto_ptr<TiXmlElement> l = cw.getConfig();
+
+	if(!l.get()){
+		debug("ConfigWindow %s returns an empty config\n", cw.getName().c_str());
+		return false;
+	}
+
+	errCode err = cw.loadConfig(l.get());
+	if(err != NO_ERROR){
+		debug("ConfigWindow %s error when loading config: %d\n",
+				cw.getName().c_str(), err);
+		return false;
+	}
+
+	// check loading some invalid xml
+	std::auto_ptr<TiXmlElement> emp(0);
+	err = cw.loadConfig(emp.get());
+	if(err == NO_ERROR){
+		debug("ConfigWindow %s accepts an invalid xml!!!\n", cw.getName().c_str());
+		return false;
+	}
+
+	return true;
+}
 
 static void testVideoFileConfigWindow(QApplication &a)
 {
@@ -127,6 +159,58 @@ static void testGuiBorderDetector(QApplication &a)
 	a.exec();
 }
 
+static void testGuiMiddlePointClipping(QApplication &a)
+{
+	ConfigWindowManager cwm(0,a.desktop()->width(),a.desktop()->height());
+	cwm.showMaximized();
+	cwm.activateWindow();
+	cwm.raise();
+
+	ImageGenerator ig;
+
+	QString filename = QFileDialog::getOpenFileName(0, "Video", ".", "*");
+	if(filename.isEmpty()){
+		return;
+	}
+
+	// create the new one
+	if(!ig.createDevice(filename.toAscii().data())){
+		GUIUtils::showMessageBox("Error creating the ImageGenerator");
+		return;
+	}
+
+	CannyBorderDetector cbd;
+	WaveHeightAnalyzer wha;
+	MiddlePointClipping mpc;
+	GUIMiddlePointClipping gmpc(&ig);
+	PerspectiveRectifier pr;
+
+	gmpc.setMiddlePointClippingIP(&mpc);
+	gmpc.setPerspectiveRectifierIP(&pr);
+	gmpc.setWaveHeightAnalyzerIP(&wha);
+
+	GUIPerspectiveRectifier gpr(&ig);
+	gpr.setPerspectiveRectifierIP(&pr);
+	gpr.setWaveHeightAnalyzerIP(&wha);
+
+	cwm.addNewWindow(&gpr);
+	cwm.addNewWindow(&gmpc);
+	cwm.addNewWindow(&gmpc);
+
+	// load the autosave config
+	std::auto_ptr<TiXmlDocument> conf(XmlHelper::loadFromFile("autosave.xml"));
+	ASSERT(conf.get());
+	if(cwm.loadConfig(conf->RootElement()) != NO_ERROR){
+		GUIUtils::showMessageBox("Error cargando el autosave.xml");
+	}
+
+	cwm.startShow();
+	cwm.show();
+
+	a.exec();
+}
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -148,7 +232,8 @@ int main(int argc, char *argv[])
 
 //    testVideoFileConfigWindow(a);
 //    testGuiPerspectiveRectifier(a);
-    testGuiBorderDetector(a);
+//    testGuiBorderDetector(a);
+    testGuiMiddlePointClipping(a);
 
 
     return 0;

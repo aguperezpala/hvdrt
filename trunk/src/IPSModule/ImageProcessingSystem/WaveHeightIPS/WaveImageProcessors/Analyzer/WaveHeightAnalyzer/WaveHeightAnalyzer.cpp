@@ -196,6 +196,9 @@ errCode WaveHeightAnalyzer::setParameter(int param, double value)
 	case SIZE_RELATION:
 		mSizeRelation = value;
 		break;
+	case POS_WAVE_REPOSE:
+		mMiddlePoint = value;
+		break;
 
 	default:
 		return INVALID_PARAM;
@@ -230,6 +233,9 @@ errCode WaveHeightAnalyzer::getParameter(int param, double &value) const
 		break;
 	case SIZE_RELATION:
 		value = mSizeRelation;
+		break;
+	case POS_WAVE_REPOSE:
+		value = mMiddlePoint;
 		break;
 
 	case GET_TIME:

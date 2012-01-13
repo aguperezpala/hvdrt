@@ -233,7 +233,7 @@ errCode GUIPerspectiveRectifier::loadConfig(const TiXmlElement *elem)
 	mZoomedLabel.clearPoints();
 
 	// update the image if we have not img
-	if(!mFrame.data.empty()){
+	if(mZoomedLabel.getImage().isNull()){
 		updateImg();
 	}
 
@@ -253,10 +253,14 @@ errCode GUIPerspectiveRectifier::loadConfig(const TiXmlElement *elem)
 	py = getValue(auxElem->FirstChildElement("BRY_POINT_SRC"), "value", &ok);
 	mZoomedLabel.addPoint(px,py);
 
+	debug("mZoomedLabel points: %d\n", mZoomedLabel.getPoints().size());
+
 	errCode err = setPointsToIP();
 	if(err != NO_ERROR){
 		return err;
 	}
+
+	debug("Setting rectangleSize\n");
 
 	// get the rectangle size
 	value = getValue(auxElem->FirstChildElement("RectangleSize"), "ySize", &ok);
@@ -284,17 +288,17 @@ std::auto_ptr<TiXmlElement> GUIPerspectiveRectifier::getConfig(void) const
 	std::vector<QPoint> sortedPoints;
 	sortPoints(points, sortedPoints);
 	// push the points in the correct oreder TopLeft, TopRight, BottomLeft, BottomRight
-	setValue(result.get(), "RectangleSize", "TLX_POINT_SRC", sortedPoints[0].x());
-	setValue(result.get(), "RectangleSize", "TLY_POINT_SRC", sortedPoints[0].y());
+	setValue(result.get(), "TLX_POINT_SRC", "value", sortedPoints[0].x());
+	setValue(result.get(), "TLY_POINT_SRC", "value", sortedPoints[0].y());
 
-	setValue(result.get(), "RectangleSize", "TRX_POINT_SRC", sortedPoints[1].x());
-	setValue(result.get(), "RectangleSize", "TRY_POINT_SRC", sortedPoints[1].y());
+	setValue(result.get(), "TRX_POINT_SRC", "value", sortedPoints[1].x());
+	setValue(result.get(), "TRY_POINT_SRC", "value", sortedPoints[1].y());
 
-	setValue(result.get(), "RectangleSize", "BLX_POINT_SRC", sortedPoints[2].x());
-	setValue(result.get(), "RectangleSize", "BLY_POINT_SRC", sortedPoints[2].y());
+	setValue(result.get(), "BLX_POINT_SRC", "value", sortedPoints[2].x());
+	setValue(result.get(), "BLY_POINT_SRC", "value", sortedPoints[2].y());
 
-	setValue(result.get(), "RectangleSize", "BRX_POINT_SRC", sortedPoints[3].x());
-	setValue(result.get(), "RectangleSize", "BRY_POINT_SRC", sortedPoints[3].y());
+	setValue(result.get(), "BRX_POINT_SRC", "value", sortedPoints[3].x());
+	setValue(result.get(), "BRY_POINT_SRC", "value", sortedPoints[3].y());
 
 	// rectangle
 	bool ok;
@@ -367,6 +371,8 @@ void GUIPerspectiveRectifier::updateImg(void)
 
 	mImgSizeX = mFrame.data.cols;
 	mImgSizeY = mFrame.data.rows;
+
+
 
 	// we have the image, show it
 	QImage qimg;

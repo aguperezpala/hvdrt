@@ -30,6 +30,7 @@ INCLUDEPATH += ../Common/Debug \
     ../Common/Timestamp \
     ../Common \
     ../Common/tinyxml \
+    ../Common/XmlHelper \
     ../DeviceCalibrator \
     ../IPSModule/ImageProcessingSystem \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
@@ -50,6 +51,7 @@ INCLUDEPATH += ../Common/Debug \
 HEADERS += ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
     ../Common/tinyxml/tinyxml.h \
+    ../Common/XmlHelper/XmlHelper.h \
     ../Common/Timestamp/Timestamp.h \
     ../DeviceCalibrator/DeviceCalibrator.h \
     ../IPSModule/ImageProcessingSystem/ImageProcessingSystem.h \
@@ -78,6 +80,7 @@ HEADERS += ../Common/Debug/DebugUtil.h \
     ../ImageGenerator/FrameListener.h \
     ../ImageGenerator/ImageGenerator.h
 SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
+	../Common/XmlHelper/XmlHelper.cpp \    
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
@@ -104,6 +107,7 @@ INCLUDEPATH += Utils \
     GuiHelpers/ZoomedLabel \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \
@@ -119,12 +123,14 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.h \
+HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.h \
     GuiHelpers/ZoomedLabel/zoomedlabel.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.cpp \
+SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.cpp \
     GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.cpp \
     GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.cpp \
@@ -138,7 +144,8 @@ SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDe
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.cpp \
     main.cpp \
     guiframework.cpp
-FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.ui \
+FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.ui \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \
     GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.ui \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.ui \

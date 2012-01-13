@@ -26,6 +26,8 @@
 #ifndef XMLHELPER_H_
 #define XMLHELPER_H_
 
+#include <string>
+
 #include "tinyxml.h"
 
 
@@ -34,9 +36,15 @@ class TiXmlDocument;
 
 class XmlHelper {
 public:
-
 	// Loads an xml document from a file. Returns 0 on error
 	static TiXmlDocument *loadFromFile(const std::string &fname);
+
+	/* Finds an element by attribute (it finds in the same "path length").
+	 * If no element is found 0 is returned
+	 */
+	static TiXmlElement *findByAttr(TiXmlElement *root, const char *attrName,
+			const char *nameToFind);
+
 
 private:
 	// reads a file content
