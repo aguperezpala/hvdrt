@@ -48,7 +48,8 @@ INCLUDEPATH += ../Common/Debug \
     ../ImageAnalyzer \
     ../ImageAnalyzer/ImageInterpreter \
     ../ImageGenerator
-HEADERS += ../Common/Debug/DebugUtil.h \
+HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
+    ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
     ../Common/tinyxml/tinyxml.h \
     ../Common/XmlHelper/XmlHelper.h \
@@ -79,8 +80,9 @@ HEADERS += ../Common/Debug/DebugUtil.h \
     ../ImageGenerator/FrameEmitter.h \
     ../ImageGenerator/FrameListener.h \
     ../ImageGenerator/ImageGenerator.h
-SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
-	../Common/XmlHelper/XmlHelper.cpp \    
+SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
+    ../DeviceCalibrator/DeviceCalibrator.cpp \
+    ../Common/XmlHelper/XmlHelper.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
@@ -108,6 +110,7 @@ INCLUDEPATH += Utils \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \
@@ -123,13 +126,15 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.h \
+HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.h \
     GuiHelpers/ZoomedLabel/zoomedlabel.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.cpp \
+SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.cpp \
     GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.cpp \
@@ -144,7 +149,8 @@ SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointCl
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.cpp \
     main.cpp \
     guiframework.cpp
-FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.ui \
+FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.ui \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \
     GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.ui \

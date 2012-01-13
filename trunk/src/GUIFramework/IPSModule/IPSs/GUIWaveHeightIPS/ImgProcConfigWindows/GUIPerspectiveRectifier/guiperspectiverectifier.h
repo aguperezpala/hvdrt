@@ -18,7 +18,7 @@ class GUIPerspectiveRectifier : public ImgProcConfigWindows
 
 public:
     GUIPerspectiveRectifier(ImageGenerator *ig, QWidget *parent = 0);
-    ~GUIPerspectiveRectifier();
+    virtual ~GUIPerspectiveRectifier();
 
 
     /* Function used to load the configurations from a xml file

@@ -18,7 +18,7 @@ class GUIMiddlePointClipping : public ImgProcConfigWindows
 
 public:
     GUIMiddlePointClipping(ImageGenerator *ig, QWidget *parent = 0);
-    ~GUIMiddlePointClipping();
+    virtual ~GUIMiddlePointClipping();
 
     /* Function used to load the configurations from a xml file
    	 * Returns:
