@@ -2,6 +2,7 @@
 #define CONFIGWINDOWMANAGER_H
 
 #include <QtGui/QWidget>
+#include <QtGui/QDialog>
 
 #include <list>
 #include <auto_ptr.h>
@@ -15,7 +16,7 @@
 
 class TiXmlElement;
 
-class ConfigWindowManager : public QWidget
+class ConfigWindowManager : public QDialog
 {
     Q_OBJECT
 
@@ -53,6 +54,12 @@ public:
      * every ConfigWindo. Ready to put in XmlSession
      */
     errCode getConfig(std::auto_ptr<TiXmlElement> &xml);
+
+    /* The close event will emitt the "ClosingSignal()" used by the parent class */
+    void closeEvent(QCloseEvent *);
+
+signals:
+	void closeWindowSignal(void);
 
 public slots:
 	// Slots

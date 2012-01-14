@@ -1,7 +1,7 @@
 /*
- * CannyBorderDetector.h
+ * DataDisplayerBridge.h
  *
- *  Created on: 03/01/2012
+ *  Created on: 13/01/2012
  *      Author: agustin
  *
  *
@@ -23,42 +23,37 @@
  * the use of this software, even if advised of the possibility of such damage.
  */
 
-#ifndef CANNYBORDERDETECTOR_H_
-#define CANNYBORDERDETECTOR_H_
+#ifndef DATADISPLAYERBRIDGE_H_
+#define DATADISPLAYERBRIDGE_H_
 
+#include "CallBFunctor.h"
 
+#include "guirealtimedatadisplayer.h"
 
-#include "IBorderDetector.h"
-
-class CannyBorderDetector : public IBorderDetector {
+class DataDisplayerBridge : public CallBFunctor {
 public:
-	enum {
-		THRESHOLD_1,
-		THRESHOLD_2,
-		L2_GRADIENT,
-	};
 
-public:
-	CannyBorderDetector();
-	virtual ~CannyBorderDetector();
+	DataDisplayerBridge(GUIRealTimeDataDisplayer *grtdd) :
+	mRealTimeDD(grtdd)
+	{
+		ASSERT(grtdd);
+	}
 
-	// Set a parameter to the ImageProcessor, used to configure the IP.
-	errCode setParameter(int param, double value);
+	virtual ~DataDisplayerBridge()
+	{
 
-	// Gets a parameter value returned by param
-	errCode getParameter(int param, double &value) const;
+	}
 
-	// Proccess the data on the CPU
-	errCode processData(cv::Mat &data) const;
-
-	// Process the data on the GPU
-	errCode processData(cv::gpu::GpuMat &data) const;
+	// Overloaded operator to receive the event of the ImageProcessor
+	// when we have data ready
+	void operator()(const AnalyzedData &d)
+	{
+		// get the values needed and add the points to the realtime data displayer
+		mRealTimeDD->addPoint(d.time, d.height);
+	}
 
 private:
-	double			mThreshold1;
-	double			mThreshold2;
-	bool			mL2Gradient;
-
+	GUIRealTimeDataDisplayer 	*mRealTimeDD;
 };
 
-#endif /* CANNYBORDERDETECTOR_H_ */
+#endif /* DATADISPLAYERBRIDGE_H_ */

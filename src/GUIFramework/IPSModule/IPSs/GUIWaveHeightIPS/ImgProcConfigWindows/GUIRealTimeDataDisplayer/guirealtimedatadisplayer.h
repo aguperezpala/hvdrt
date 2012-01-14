@@ -7,14 +7,27 @@
 
 #include "imgprocconfigwindows.h"
 #include "ImageProcessor.h"
-#include "RealTimeProcessorBridge.h"
 
 // reserve 5 min * 60 seconds * 25 fps
 #define RTDD_RESERVE_NUM_ITEMS		5*60*25
 
+
 class GUIRealTimeDataDisplayer : public ImgProcConfigWindows
 {
     Q_OBJECT
+
+public:
+
+    class CallbackFunctor {
+    public:
+    	virtual void operator()(int) = 0;
+    };
+
+    // Events used to advise throw the callback functor
+    enum {
+    	EVENT_START_CAPTURING,
+    	EVENT_STOP_CAPTURING,
+    };
 
 public:
     GUIRealTimeDataDisplayer(ImageGenerator *ig, QWidget *parent = 0);
@@ -56,10 +69,17 @@ public:
   	/* Clear all the points on the windows */
   	void clearPoints(void);
 
+  	/* Sets the callbacks functors to advise when we want to start/stop capturing
+  	 * The events passed are:
+  	 * 	EVENT_START_CAPTURING,
+     *	EVENT_STOP_CAPTURING,
+  	 */
+  	void setEventCallbackFunctor(CallbackFunctor *);
 
 public slots:
 	void onChangeScaleClicked(void);
 	void onStartCapturingClicked(void);
+	void onShowLinesToggled(bool);
 
 
 private:
@@ -69,7 +89,11 @@ private:
 	// create a line between 2 points
 	inline void createNewLine(float x1, float y1, float x2, float y2)
 	{
-		mLines.push_back(mScene.addLine(x1, y1, x2, y2));
+		QGraphicsLineItem *l = mScene.addLine(x1, y1, x2, y2);
+		if(!mShowLines){
+			l->hide();
+		}
+		mLines.push_back(l);
 	}
 
 	// create a point using the new scale
@@ -81,6 +105,9 @@ private:
 
 	// read the Axis values
 	bool readAxisScales(float &xScale, float &yScale);
+
+	// update the axis size given a new point
+	void updateAxis(float x, float y);
 
 
 
@@ -97,9 +124,13 @@ private:
 	float							mOldXAxisScale;
 	float							mOldYAxisScale;
 
-	RealTimeProcessorBridge			mProcBridge;
 	PointsVector					mPoints;
 	LinesVector						mLines;
+	bool							mShowLines;
+	CallbackFunctor					*mCallbackFunct;
+
+	QGraphicsLineItem 				*mXAxisLine;
+	QGraphicsLineItem 				*mYAxisLine;
 
 };
 

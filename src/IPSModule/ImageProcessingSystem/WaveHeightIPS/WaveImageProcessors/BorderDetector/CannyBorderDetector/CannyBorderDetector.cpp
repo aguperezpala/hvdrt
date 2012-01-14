@@ -26,7 +26,7 @@
 #include "CannyBorderDetector.h"
 
 CannyBorderDetector::CannyBorderDetector() :
-BorderDetector("CannyBorderDetector"),
+IBorderDetector("CannyBorderDetector"),
 mThreshold1(10),
 mThreshold2(80),
 mL2Gradient(false)

@@ -10,14 +10,14 @@
 #include "GlobalDefines.h"
 
 
-class GUIImageProcessingSystem : public QWidget
+class GUIImageProcessingSystem : public QDialog
 {
     Q_OBJECT
 
 public:
     GUIImageProcessingSystem(QWidget *parent = 0, int windowW = 800,
     		int windowH = 600) :
-		QWidget(parent),
+		QDialog(parent),
 		mWindowWidth(windowW),
 		mWindowHeight(windowH)
     {

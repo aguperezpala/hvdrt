@@ -175,6 +175,7 @@
 				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Clipping/MiddlePointClipping" kind="inc" path="" system="true"/>
 				<pathentry base-path="HydrodynamicVariablesDetection" include="src/Common/XmlHelper" kind="inc" path="" system="true"/>
 				<pathentry base-path="GUIFramework" include="IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer" kind="inc" path="" system="true"/>
+				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS" kind="inc" path="" system="true"/>
 				<pathentry kind="src" path=""/>
 				<pathentry kind="out" path=""/>
 			</storageModule>

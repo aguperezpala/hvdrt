@@ -55,12 +55,6 @@ public:
 		GPU_PROCESS,
 	} ProcessType;
 
-	struct AnalyzedData {
-		double time;
-		double height;
-		// int pixel position?
-	};
-
 public:
 	WaveHeightIPS();
 	virtual ~WaveHeightIPS();
@@ -77,6 +71,9 @@ public:
 	 * 	errCode
 	 */
 	virtual errCode execute(void);
+
+	/* Stops the ImageProcessingSystem execution */
+	virtual void stop(void);
 
 	/* Returns the ImageGenerator instance */
 	ImageGenerator *getImageGenerator(void) {return &mImageGenerator;}
@@ -149,6 +146,8 @@ private:
 
 	std::ofstream			mOutFile;
 	AnalyzedData			mAnalyzedData;
+
+	bool					mRunning;
 
 
 
