@@ -195,7 +195,7 @@ void ConfigWindowManager::updateAutoSaveFile(void)
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ConfigWindowManager::ConfigWindowManager(QWidget *parent, int windowW,int windowH)
-    : QWidget(parent),
+    : QDialog(parent),
       mConfigWinIt(mConfigWindows.end()),
       mWindowHeight(windowH),
       mWindowWidth(windowW)
@@ -362,6 +362,13 @@ errCode ConfigWindowManager::getConfig(std::auto_ptr<TiXmlElement> &xml)
 	xml = result;
 	return NO_ERROR;
 
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void ConfigWindowManager::closeEvent(QCloseEvent *e)
+{
+	emit closeWindowSignal();
+	QWidget::closeEvent(e);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

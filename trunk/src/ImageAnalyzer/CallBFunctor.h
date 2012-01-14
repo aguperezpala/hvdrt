@@ -26,12 +26,19 @@
 #ifndef CALLBFUNCTOR_H_
 #define CALLBFUNCTOR_H_
 
+typedef struct {
+	double time;
+	double height;
+	// int pixel position?
+} AnalyzedData;
+
 class CallBFunctor {
 public:
 	CallBFunctor(){};
 	virtual ~CallBFunctor(){};
 
-	virtual void operator()(void) = 0;
+	// function called with the analyzed data
+	virtual void operator()(const AnalyzedData&) = 0;
 };
 
 #endif /* CALLBFUNCTOR_H_ */

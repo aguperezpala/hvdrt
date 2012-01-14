@@ -15,13 +15,13 @@ void GUIRealTimeDataDisplayer::createAxis(void)
 	float yLen = 500;
 
 	// create the X axis
-	QGraphicsLineItem *xAxis = new QGraphicsLineItem(0,0.0,xLen,0.0);
-	mScene.addItem(xAxis);
+	mXAxisLine = new QGraphicsLineItem(0,0.0,xLen,0.0);
+	mScene.addItem(mXAxisLine);
 
 
 	// creates the Y axis
-	QGraphicsLineItem *yAxis = new QGraphicsLineItem(0.0,0,0.0,-yLen);
-	mScene.addItem(yAxis);
+	mYAxisLine = new QGraphicsLineItem(0.0,0,0.0,-yLen);
+	mScene.addItem(mYAxisLine);
 
 
 	QGraphicsTextItem *t = new QGraphicsTextItem("(0,0)");
@@ -67,10 +67,11 @@ void GUIRealTimeDataDisplayer::redrawAll(float oldXScale, float oldYScale)
 
 	for(int i = mPoints.size()-1; i >= 0; --i){
 		pi = mPoints[i];
-		realX = pi->x() * oldXScale;
-		realY = pi->y() * oldYScale;
+		realX = pi->x() * oldXScale * mXAxisScale;
+		realY = pi->y() * oldYScale * mYAxisScale;
 
-		pi->setPos(realX * mXAxisScale, realY * mYAxisScale);
+		pi->setPos(realX, realY);
+		updateAxis(realX, realY);
 	}
 
 	// change the lines
@@ -101,6 +102,25 @@ bool GUIRealTimeDataDisplayer::readAxisScales(float &xScale, float &yScale)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void GUIRealTimeDataDisplayer::updateAxis(float x, float y)
+{
+	ASSERT(mXAxisLine);
+	ASSERT(mYAxisLine);
+
+	QLineF l1 = mXAxisLine->line();
+	if(x > l1.x2()){
+		l1.setP2(QPoint(x, l1.y2()));
+		mXAxisLine->setLine(l1);
+	}
+	QLineF l2 = mYAxisLine->line();
+	if(y < l2.y2()){
+		l2.setP2(QPoint(l2.x2(), y));
+		mYAxisLine->setLine(l2);
+	}
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -109,7 +129,11 @@ GUIRealTimeDataDisplayer::GUIRealTimeDataDisplayer(ImageGenerator *ig,QWidget *p
       mXAxisScale(-1),
       mYAxisScale(-1),
       mOldXAxisScale(-1),
-      mOldYAxisScale(-1)
+      mOldYAxisScale(-1),
+      mShowLines(true),
+      mCallbackFunct(0),
+      mXAxisLine(0),
+      mYAxisLine(0)
 {
 	ui.setupUi(this);
 
@@ -122,6 +146,9 @@ GUIRealTimeDataDisplayer::GUIRealTimeDataDisplayer(ImageGenerator *ig,QWidget *p
 							SLOT(onChangeScaleClicked(void)));
 	QObject::connect(ui.startCapturingButton,SIGNAL(clicked(bool)), this,
 							SLOT(onStartCapturingClicked(void)));
+	QObject::connect(ui.showLinesCheckBox,SIGNAL(toggled(bool)), this,
+							SLOT(onShowLinesToggled(bool)));
+
 
 	// create the (0,0) point
 	QGraphicsEllipseItem *point = new QGraphicsEllipseItem(0,0,2,2);
@@ -198,7 +225,12 @@ void GUIRealTimeDataDisplayer::addPoint(double timeSecs, double mmHeight)
 		}
 	}
 
-	createNewPoint(timeSecs * mXAxisScale, mmHeight * mYAxisScale);
+	float x = timeSecs * mXAxisScale;
+	float y = mmHeight * mYAxisScale;
+	createNewPoint(x, y);
+
+	// check if we have to update the axis given a point
+	updateAxis(x,y);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -210,11 +242,17 @@ void GUIRealTimeDataDisplayer::clearPoints(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void GUIRealTimeDataDisplayer::setEventCallbackFunctor(CallbackFunctor *cf)
+{
+	mCallbackFunct = cf;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 void GUIRealTimeDataDisplayer::onChangeScaleClicked(void)
 {
-	readAxisScales(mXAxisScale, mYAxisScale);
-	debug("Changing scale: OLD: %f\t%f\t NEW: %f\t%f\n",
-			mOldXAxisScale, mOldYAxisScale, mXAxisScale, mYAxisScale);
+	if(!readAxisScales(mXAxisScale, mYAxisScale)){
+		return;
+	}
 	redrawAll(mOldXAxisScale, mOldYAxisScale);
 
 	// replace the new values
@@ -228,6 +266,49 @@ void GUIRealTimeDataDisplayer::onStartCapturingClicked(void)
 	// read the axis scales
 	readAxisScales(mXAxisScale, mYAxisScale);
 
-	// advise the Bridge to start capturing
-	// TODO:
+
+	// check which event have to emmit
+	if(!ui.changeScaleButton->isEnabled()){
+		// then we are capturing so we have to emmit the "stop event"
+		if(mCallbackFunct){
+			(*mCallbackFunct)(EVENT_STOP_CAPTURING);
+		}
+		ui.changeScaleButton->setEnabled(true);
+		ui.showLinesCheckBox->setEnabled(true);
+
+		ui.startCapturingButton->setText("Empezar capturar");
+	} else {
+		ui.changeScaleButton->setEnabled(false);
+		ui.showLinesCheckBox->setEnabled(false);
+
+		ui.startCapturingButton->setText("Parar capturar");
+		if(mCallbackFunct){
+			(*mCallbackFunct)(EVENT_START_CAPTURING);
+		}
+	}
 }
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIRealTimeDataDisplayer::onShowLinesToggled(bool t)
+{
+	if(t){
+		// we have to hide all the lines
+		for(int i = mLines.size()-1; i >= 0; --i){
+			mLines[i]->hide();
+		}
+		mShowLines = false;
+	} else {
+		for(int i = mLines.size()-1; i >= 0; --i){
+			mLines[i]->show();
+		}
+		mShowLines = true;
+	}
+}
+
+
+
+
+
+
+
+

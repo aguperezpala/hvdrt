@@ -10,11 +10,24 @@
 #include "DebugUtil.h"
 #include "GlobalDefines.h"
 #include "WaveHeightIPS.h"
+#include "WaveHeightException.h"
 #include "Timestamp.h"
 #include "Frame.h"
 #include "GUIUtils.h"
 
+// All the windows used and the window manager
+#include "configwindowmanager.h"
+
 #include "guiimageprocessingsystem.h"
+#include "guicannyborderdetector.h"
+#include "guimiddlepointclipping.h"
+#include "guiperspectiverectifier.h"
+#include "guirealtimedatadisplayer.h"
+#include "cameraconfigwindow.h"
+#include "videofileconfigwindow.h"
+
+#include "DataDisplayerBridge.h"
+
 
 
 class GUIWaveHeightIPS : public GUIImageProcessingSystem
@@ -44,7 +57,77 @@ public:
 	virtual errCode execute(void);
 
 private:
+	/* We will define a class that will handle the events of the
+	 * RealTimeDataDisplayer (event StartCapturing and StopCapturing) that
+	 * will start/stops the IPS
+	 */
+	class RealTimeDDEventReceiver : public GUIRealTimeDataDisplayer::CallbackFunctor{
+	public:
+		RealTimeDDEventReceiver(WaveHeightIPS *ips);
+		virtual ~RealTimeDDEventReceiver(void);
+
+		void operator()(int);
+
+	private:
+		WaveHeightIPS		*mIPS;
+	};
+
+
+private:
+	// Configure the WaveHeightIPS
+	void configureIPS(void) throw (WaveHeightException);
+
+	// Configure the windows
+	void configureCannyWin(void) throw (WaveHeightException);
+	void configureMiddlePointWin(void) throw (WaveHeightException);
+	void configurePerspectiveWin(void) throw (WaveHeightException);
+	void configureRealTimeDDWin(void) throw (WaveHeightException);
+	void configureVideoFileConfWin(void) throw (WaveHeightException);
+	void configureCameraConfigWin(void) throw (WaveHeightException);
+
+	// Configure the window manager
+	void configureWindowManager(void) throw (WaveHeightException);
+
+	// Add the session xml info to a XmlElement. If the info already exists
+	// is repleaced
+	void addXmlSessionInfo(TiXmlElement *root);
+
+	// Fills the GUI session section from an xml element. Returns errCode
+	errCode fillGuiFromXml(const TiXmlElement *elem);
+
+
+	// Interface handling
+
+	// Enable/Disable the options of the session
+	void enableOptions(bool enable);
+
+	// Check the fields of the session. Returns true if there are ok, false otherwise
+	bool checkFields(void);
+
+
+private slots:
+	void onWinMngrClose(void);
+	void onLoadSessionClicked(void);
+	void onNewSessionClicked(void);
+	void onStartClicked(void);
+
+
+private:
 	Ui::GUIWaveHeightIPSClass ui;
+
+	WaveHeightIPS						mWaveHeightIPS;
+	ConfigWindowManager					mConfigWinMngr;
+
+	// Config windows used
+	GUICannyBorderDetector				mCannyWin;
+	GUIMiddlePointClipping				mMiddlePointWin;
+	GUIPerspectiveRectifier				mPerspectiveWin;
+	GUIRealTimeDataDisplayer			mRealTimeDDWin;
+	VideoFileConfigWindow				mVideoFileWin;
+	CameraConfigWindow					mCameraConfWin;
+
+	RealTimeDDEventReceiver				mEventReceiver;
+	DataDisplayerBridge					mDataDisplayerBridge;
 };
 
 #endif // GUIWAVEHEIGHTIPS_H

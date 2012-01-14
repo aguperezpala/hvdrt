@@ -33,9 +33,9 @@ INCLUDEPATH += ../Common/Debug \
     ../Common/XmlHelper \
     ../DeviceCalibrator \
     ../IPSModule/ImageProcessingSystem \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Analyzer \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Analyzer/WaveHeightAnalyzer \
@@ -48,18 +48,17 @@ INCLUDEPATH += ../Common/Debug \
     ../ImageAnalyzer \
     ../ImageAnalyzer/ImageInterpreter \
     ../ImageGenerator
-HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
-    ../Common/Debug/DebugUtil.h \
+HEADERS += ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
     ../Common/tinyxml/tinyxml.h \
     ../Common/XmlHelper/XmlHelper.h \
     ../Common/Timestamp/Timestamp.h \
     ../DeviceCalibrator/DeviceCalibrator.h \
     ../IPSModule/ImageProcessingSystem/ImageProcessingSystem.h \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.h \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.h \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.h \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.h \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.h \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.h \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.h \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightException.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPFactory.h \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Analyzer/IAnalyzer.h \
@@ -80,13 +79,12 @@ HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataD
     ../ImageGenerator/FrameEmitter.h \
     ../ImageGenerator/FrameListener.h \
     ../ImageGenerator/ImageGenerator.h
-SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
-    ../DeviceCalibrator/DeviceCalibrator.cpp \
+SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
     ../Common/XmlHelper/XmlHelper.cpp \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
-    ../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.cpp \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
+    #../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveHeightIPFactory.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/Analyzer/WaveHeightAnalyzer/WaveHeightAnalyzer.cpp \
     ../IPSModule/ImageProcessingSystem/WaveHeightIPS/WaveImageProcessors/BorderDetector/CannyBorderDetector/CannyBorderDetector.cpp \
@@ -111,6 +109,7 @@ INCLUDEPATH += Utils \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer \
+    IPSModule/IPSs/GUIWaveHeightIPS \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \
@@ -126,7 +125,8 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
+HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/DataDisplayerBridge.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.h \
     GuiHelpers/ZoomedLabel/zoomedlabel.h \

@@ -122,7 +122,8 @@ WaveHeightIPS::WaveHeightIPS() :
 	mCallback(0),
 	mImgAnalyzer(0),
 	mProcType(CPU_PROCESS),
-	mTrack(false)
+	mTrack(false),
+	mRunning(false)
 {
 
 }
@@ -174,9 +175,11 @@ errCode WaveHeightIPS::execute(void)
 		}
 	}
 
+	mRunning = true;
+
 	errCode result = NO_ERROR;
 	Frame frame;
-	while((result = mImageGenerator.captureFrame(frame))== NO_ERROR){
+	while(mRunning && (result = mImageGenerator.captureFrame(frame))== NO_ERROR){
 		switch(mProcType){
 		case CPU_PROCESS:
 			result = mImgAnalyzer->processImageOnCPU(frame, mTrack);
@@ -198,14 +201,21 @@ errCode WaveHeightIPS::execute(void)
 
 		// we have finish processing the frame, advice by the callback
 		if(mCallback){
-			(*mCallback)();
+			(*mCallback)(mAnalyzedData);
 		}
 	}
 
 	// close the file
 	mOutFile.close();
 
+	mRunning = false;
 	return result;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::stop(void)
+{
+	mRunning = false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
