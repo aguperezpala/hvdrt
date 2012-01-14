@@ -185,6 +185,7 @@ void GUIWaveHeightIPS::addXmlSessionInfo(TiXmlElement *root)
 	TiXmlElement *toReplace = root->FirstChildElement("SessionInfo");
 	if(toReplace){
 		root->ReplaceChild(toReplace, *si);
+		delete si;
 	} else {
 		root->LinkEndChild(si);
 	}

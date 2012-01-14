@@ -176,6 +176,7 @@ void ConfigWindowManager::addTempXml(TiXmlElement *elem, const std::string &cwn)
 
 	if(toReplace){
 		root->ReplaceChild(toReplace, *newElem);
+		delete newElem;
 	} else {
 		// we add the element to the xml
 		root->LinkEndChild(newElem);
