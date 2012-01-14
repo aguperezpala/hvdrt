@@ -1,6 +1,7 @@
 TEMPLATE = app
 TARGET = GUIFramework
 DEFINES += DEBUG
+QMAKE_CXX += -g
 QT += core \
     gui
 LIBS += -L/usr/local/lib \

@@ -252,6 +252,18 @@ static void testGuiRealTimeDataDisplayer(QApplication &a)
 }
 
 
+//static void xmltest(void)
+//{
+//	TiXmlElement *elem = new TiXmlElement("test");
+//	TiXmlElement *elem1 = new TiXmlElement("test1");
+//
+//	elem->LinkEndChild(elem1);
+//	TiXmlElement *elem2 = new TiXmlElement("test1");
+//	elem->ReplaceChild(elem1, *elem2);
+//	delete elem2;
+//	delete elem;
+//}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -277,6 +289,6 @@ int main(int argc, char *argv[])
 //    testGuiMiddlePointClipping(a);
     testGuiRealTimeDataDisplayer(a);
 
-
+//	xmltest();
     return 0;
 }
