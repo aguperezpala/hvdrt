@@ -231,6 +231,8 @@ void GUIRealTimeDataDisplayer::addPoint(double timeSecs, double mmHeight)
 
 	// check if we have to update the axis given a point
 	updateAxis(x,y);
+
+	update();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

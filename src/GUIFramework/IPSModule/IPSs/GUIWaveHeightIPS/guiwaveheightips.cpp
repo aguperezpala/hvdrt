@@ -1,14 +1,20 @@
+#include <qfiledialog.h>
+
 #include <strstream>
+
 #include "guiwaveheightips.h"
+#include "XmlHelper.h"
 
 
 
 
 ////////////////////////////////////////////////////////////////////////////////
 GUIWaveHeightIPS::RealTimeDDEventReceiver::RealTimeDDEventReceiver(WaveHeightIPS *ips) :
-mIPS(ips)
+mIPS(ips),
+mError(NO_ERROR)
 {
 	ASSERT(ips);
+	setPriority(QThread::TimeCriticalPriority);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -26,12 +32,12 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 	{
 		ASSERT(mIPS);
 		// execute the ips, in a new thread? TODO: ver esto de los threads
-		errCode err = mIPS->execute();
-		if(err != NO_ERROR){
-			debug("Some error occurr during the executiong of the IPS: %d\n", err);
-			GUIUtils::showMessageBox("Ocurrio un error al ejecutar el IPS: " +
-					QString::number(err));
+		mError = NO_ERROR;
+		if(isRunning()){
+			mIPS->stop();
+			terminate();
 		}
+		start();
 	}
 		break;
 	case GUIRealTimeDataDisplayer::EVENT_STOP_CAPTURING:
@@ -45,6 +51,17 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 	default:
 		debug("Error trying to process an unknown event: %d\n", event);
 		ASSERT(false);
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIWaveHeightIPS::RealTimeDDEventReceiver::run()
+{
+	mError = mIPS->execute();
+	if(mError != NO_ERROR){
+		debug("Some error occurr during the executiong of the IPS: %d\n", mError);
+		GUIUtils::showMessageBox("Ocurrio un error al ejecutar el IPS: " +
+				QString::number(mError));
 	}
 }
 
@@ -180,6 +197,11 @@ void GUIWaveHeightIPS::addXmlSessionInfo(TiXmlElement *root)
 	input->SetAttribute("value", strInput.toAscii().data());
 	si->LinkEndChild(input);
 
+	// Input Path
+	TiXmlElement *inputPath = new TiXmlElement("InputPath");
+	inputPath->SetAttribute("value", mInputPath.toAscii().data());
+	si->LinkEndChild(inputPath);
+
 
 	// check if already exists
 	TiXmlElement *toReplace = root->FirstChildElement("SessionInfo");
@@ -206,12 +228,13 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	}
 
 	// extract the fields
-	const TiXmlElement *name = elem->FirstChildElement("Name");
-	const TiXmlElement *desc = elem->FirstChildElement("Description");
-	const TiXmlElement *date = elem->FirstChildElement("Date");
-	const TiXmlElement *input = elem->FirstChildElement("InputType");
+	const TiXmlElement *name = root->FirstChildElement("Name");
+	const TiXmlElement *desc = root->FirstChildElement("Description");
+	const TiXmlElement *date = root->FirstChildElement("Date");
+	const TiXmlElement *input = root->FirstChildElement("InputType");
+	const TiXmlElement *inputPath = root->FirstChildElement("InputPath");
 
-	if(!name || !desc || !date || !input){
+	if(!name || !desc || !date || !input || !inputPath){
 		GUIUtils::showMessageBox("XML Invalido");
 		return INVALID_PARAM;
 	}
@@ -222,20 +245,21 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	ui.dateTimeEdit->setDateTime(QDateTime::fromString(date->Attribute("value")));
 	bool ok;
 	ui.comboBox->setCurrentIndex(QString(date->Attribute("value")).toInt(&ok));
+	ui.inputLabel->setText(inputPath->Attribute("value"));
+	mInputPath = inputPath->Attribute("value");
 
 
 	return NO_ERROR;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void GUIWaveHeightIPS::configureWindowManager(void) throw (WaveHeightException)
+void GUIWaveHeightIPS::configureWindowManager(bool fromFile) throw (WaveHeightException)
 {
 	// add all the windows that we will use
 	mConfigWinMngr.removeAllWindows();
-	mConfigWinMngr.restart();
 
 	// we will add the windows in the order we want to show
-	if(/*TODO: check here if we are using video or other*/ true){
+	if(fromFile){
 		// we are using video file so set the next order
 		mConfigWinMngr.addNewWindow(&mVideoFileWin);
 		mConfigWinMngr.addNewWindow(&mPerspectiveWin);
@@ -277,28 +301,191 @@ bool GUIWaveHeightIPS::checkFields(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void GUIWaveHeightIPS::clearFields(void)
+{
+	ui.fileLabel->setText("--");
+	ui.sesionLineEdit->setText("");
+	ui.descriptionTextEdit->setPlainText("");
+	ui.inputLabel->setText("none");
+}
+
+////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onWinMngrClose(void)
 {
-	// TODO:
+	debug("ConfigWinMngr closed event detected, showing GUIWaveHeightIPS again\n");
+	// show this window
+	show();
+
+	mConfigWinMngr.hide();
+
+	// here we have to save all the info in the session file
+	TiXmlElement *root = new TiXmlElement("ConfigInfo");
+	std::auto_ptr<TiXmlElement> xml(0);
+	if(mConfigWinMngr.getConfig(xml) != NO_ERROR){
+		GUIUtils::showMessageBox("Error al intentar guardar las configuraciones");
+		return;
+	}
+
+	// check if we have to replace the configurations
+
+
+
+	ASSERT(mDocument);
+	TiXmlElement *session = mDocument->RootElement();
+	ASSERT(session);
+
+	TiXmlElement *toReplace = session->FirstChildElement("ConfigInfo");
+	if(toReplace){
+		// we have to replace
+		root->LinkEndChild(xml.get());
+		session->ReplaceChild(toReplace, *root);
+		delete root;
+	} else {
+		session->LinkEndChild(root);
+	}
+
+	// save the file
+	mDocument->SaveFile();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onLoadSessionClicked(void)
 {
-	// open the
+	QString filename = QFileDialog::getOpenFileName(0, "Cargar session", ".", "*.xml");
+	if(filename.isEmpty()){
+		return;
+	}
+	clearFields();
+
+	// Try to parse it
+	std::auto_ptr<TiXmlDocument> doc(XmlHelper::loadFromFile(filename.toAscii().data()));
+	if(!doc.get()){
+		GUIUtils::showMessageBox("Error cargando el archivo " + filename);
+		return;
+	}
+
+	errCode err = fillGuiFromXml(doc->RootElement());
+	if(err != NO_ERROR){
+		GUIUtils::showMessageBox("Error parseando el archivo xml " + filename);
+		return;
+	}
+
+	// if we are here, everything is ok
+	ui.fileLabel->setText(filename);
+
+	// disable all the options
+	enableOptions(false);
+
+	ui.startButton->setEnabled(true);
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onNewSessionClicked(void)
 {
-	// TODO
+	clearFields();
+
+	QString filename = QFileDialog::getSaveFileName(0, "Nueva session", ".", "*.xml");
+	if(filename.isEmpty()){
+		return;
+	}
+
+	ui.fileLabel->setText(filename);
+
+	// enable options
+	enableOptions(true);
+	mInputPath = "none";
+	ui.inputLabel->setText(mInputPath);
+	ui.startButton->setEnabled(true);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onStartClicked(void)
 {
-	// TODO
+	// Here we have to:
+	// 1) Check the input path, if we are selecting from file then we open the
+	// qfiledialog.
+	// 2) Get the xml associated an save it to the file.
+	// 3) Show and start the mConfigWinManager
+
+	if(mInputPath == "none"){
+		if(ui.comboBox->currentIndex() == 0){
+			// video file
+			QString filename = QFileDialog::getOpenFileName(0,
+					"Cargar archivo de video", ".", "*");
+			if(filename.isEmpty()){
+				return;
+			}
+			mInputPath = filename;
+		} else {
+			// from webcam
+			mInputPath = "Camera0";
+		}
+	}
+
+	ui.inputLabel->setText(mInputPath);
+
+	// create the device by the mInputPath
+	ImageGenerator *ig = mWaveHeightIPS.getImageGenerator();
+	ig->destroyDevice();
+
+	if(mInputPath == "Camera0"){
+		if(!ig->createDevice(0)){
+			GUIUtils::showMessageBox("Error al crear el ImageGenerator en"
+					" el dispositivo 0");
+			mInputPath = "none";
+			return;
+		}
+	} else {
+		// load the new ImageGenerator
+		if(!ig->createDevice(mInputPath.toAscii().data())){
+			GUIUtils::showMessageBox("Error al crear el ImageGenerator desde"
+					" archivo " + mInputPath );
+			mInputPath = "none";
+			return;
+		}
+	}
+
+	// Save the xml
+	if(mDocument){
+		delete mDocument; mDocument = 0;
+	}
+	mDocument = new TiXmlDocument();
+	TiXmlElement *root = new TiXmlElement("Session");
+	mDocument->LinkEndChild(root);
+	addXmlSessionInfo(root);
+	if(!mDocument->SaveFile(ui.fileLabel->text().toAscii().data())){
+		GUIUtils::showMessageBox("Error al guardar la session en el archivo " +
+				ui.fileLabel->text());
+	}
+
+	// hide this window
+	hide();
+
+	// Configure the window manager depending which (if currentIndex == 0 -> From
+	// file, otherwise is from camera
+	configureWindowManager(ui.comboBox->currentIndex() == 0);
+
+	// check if we have info to load
+	if(mDocument){
+		TiXmlElement *session = mDocument->RootElement();
+		ASSERT(session);
+		TiXmlElement *configInfo = session->FirstChildElement("ConfigInfo");
+		if(configInfo){
+			errCode err = mConfigWinMngr.loadConfig(configInfo);
+			if(err != NO_ERROR){
+				GUIUtils::showMessageBox("Error al cargar las configuraciones"
+						" de las ventanas \"ConfigWindows\": " + QString::number(err));
+			}
+		}
+	}
+
+
+	// show the window config manager.
+	mConfigWinMngr.restart();
+	mConfigWinMngr.show();
+	mConfigWinMngr.exec();
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -308,21 +495,27 @@ void GUIWaveHeightIPS::onStartClicked(void)
 GUIWaveHeightIPS::GUIWaveHeightIPS(QWidget *parent, int windowW, int windowH)
     : GUIImageProcessingSystem(parent, windowW, windowH),
       mConfigWinMngr(0, windowW, windowH),
-      mCannyWin(mWaveHeightIPS.getImageGenerator(), &mConfigWinMngr),
-      mMiddlePointWin(mWaveHeightIPS.getImageGenerator(), &mConfigWinMngr),
-      mPerspectiveWin(mWaveHeightIPS.getImageGenerator(), &mConfigWinMngr),
-      mRealTimeDDWin(mWaveHeightIPS.getImageGenerator(), &mConfigWinMngr),
-      mVideoFileWin(&mConfigWinMngr),
-      mCameraConfWin(&mConfigWinMngr),
+      mCannyWin(mWaveHeightIPS.getImageGenerator(), 0),
+      mMiddlePointWin(mWaveHeightIPS.getImageGenerator(), 0),
+      mPerspectiveWin(mWaveHeightIPS.getImageGenerator(), 0),
+      mRealTimeDDWin(mWaveHeightIPS.getImageGenerator(), 0),
+      mVideoFileWin(0),
+      mCameraConfWin(0),
       mEventReceiver(&mWaveHeightIPS),
-      mDataDisplayerBridge(&mRealTimeDDWin)
+      mDataDisplayerBridge(&mRealTimeDDWin),
+      mDocument(0)
 {
 
 	ui.setupUi(this);
 
 	QObject::connect(&mConfigWinMngr, SIGNAL(closeWindowSignal(void)), this,
 			SLOT(onWinMngrClose(void)));
-
+	QObject::connect(ui.loadSessionButton,SIGNAL(clicked(bool)), this,
+						SLOT(onLoadSessionClicked(void)));
+	QObject::connect(ui.newSessionButton,SIGNAL(clicked(bool)), this,
+						SLOT(onNewSessionClicked(void)));
+	QObject::connect(ui.startButton,SIGNAL(clicked(bool)), this,
+						SLOT(onStartClicked(void)));
 	showMaximized();
 	activateWindow();
 	raise();
@@ -381,14 +574,7 @@ errCode GUIWaveHeightIPS::execute(void)
 	show();
 	exec();
 
-	// Configure the window manager depending which
-	configureWindowManager();
 
-
-	// show the window config manager.
-	mConfigWinMngr.startShow();
-	mConfigWinMngr.show();
-	mConfigWinMngr.exec();
 
 	return NO_ERROR;
 }

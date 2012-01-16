@@ -83,7 +83,8 @@ errCode VideoFileConfigWindow::setImageGenerator(ImageGenerator *ig)
  */
 errCode VideoFileConfigWindow::loadConfig(const TiXmlElement *)
 {
-	// TODO: implementar esto!
+	// do nothing, return no error
+	return NO_ERROR;
 }
 
 /* Save the data to an xml and return it.
@@ -92,7 +93,8 @@ errCode VideoFileConfigWindow::loadConfig(const TiXmlElement *)
  * 	xml			on success */
 std::auto_ptr<TiXmlElement> VideoFileConfigWindow::getConfig(void) const
 {
-	// TODO: implementar esto!
+	// return 0
+	return std::auto_ptr<TiXmlElement> (0);
 }
 
 /* Function used to retrieve the info about the ConfigWindow. This is
@@ -111,7 +113,7 @@ QString VideoFileConfigWindow::getInfo(void) const
  */
 errCode VideoFileConfigWindow::finish(QString &error)
 {
-	// TODO: implementar esto!
+	return NO_ERROR;
 }
 
 
