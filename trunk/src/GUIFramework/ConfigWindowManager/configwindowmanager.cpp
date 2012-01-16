@@ -339,25 +339,31 @@ errCode ConfigWindowManager::getConfig(std::auto_ptr<TiXmlElement> &xml)
 		return INVALID_PARAM;
 	}
 
+	// returns the autosave document
+	TiXmlElement *root = mAutosaveDoc.RootElement();
+	ASSERT(root);
+	root = root->FirstChildElement("ConfigWindowSections");
+	ASSERT(root);
+	xml.reset(root->Clone()->ToElement());
+	return NO_ERROR;
+
 	// now we iterate over all the config windows and we will create the
 	// ConfigWindowSections
 	std::auto_ptr<TiXmlElement> result(new TiXmlElement("ConfigWindowSections"));
 
 	CFListIterator it = mConfigWindows.begin(), endIt = mConfigWindows.end();
 	for(; it != endIt; ++it){
-		TiXmlElement *cw = new TiXmlElement("ConfigWindow");
-		cw->SetAttribute("name", (*it)->getName().c_str());
-		result->LinkEndChild(cw);
-
 		// now get the xml contents of the configWindow
 		TiXmlElement *content = (*it)->getConfig().release();
 		if(!content){
 			debug("Warning: %s have no configuration content\n", (*it)->getName().c_str());
 			continue;
 		}
-
+		TiXmlElement *cw = new TiXmlElement("ConfigWindow");
+		cw->SetAttribute("name", (*it)->getName().c_str());
 		// else we put it in the xml
 		cw->LinkEndChild(content);
+		result->LinkEndChild(cw);
 	}
 
 	xml = result;

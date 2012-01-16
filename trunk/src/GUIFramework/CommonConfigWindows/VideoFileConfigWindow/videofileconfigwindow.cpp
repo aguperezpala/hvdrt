@@ -14,13 +14,17 @@ void VideoFileConfigWindow::readVideoProperties(void)
 	double value = vc->get(CV_CAP_PROP_FRAME_COUNT);
 	ui.totalFramesLabel->setText(QString::number(value));
 	ui.frameSlider->setMaximum(value-1);
+	debug("VideoProperties[Total Frames]: %lf\n", value);
 
 	value = vc->get(CV_CAP_PROP_FPS);
 	ui.fpsLabel->setText(QString::number(value));
+	debug("VideoProperties[FPS]: %lf\n", value);
 
 	value = vc->get(CV_CAP_PROP_POS_FRAMES);
 	ui.currentFrameLabel->setText(QString::number(value));
 	ui.frameSlider->setValue(value);
+	debug("VideoProperties[CurrentFrame]: %lf\n", value);
+
 
 }
 
@@ -97,6 +101,12 @@ std::auto_ptr<TiXmlElement> VideoFileConfigWindow::getConfig(void) const
 	return std::auto_ptr<TiXmlElement> (0);
 }
 
+/* Function called when the window get visible */
+void VideoFileConfigWindow::windowVisible(void)
+{
+	onSlideChange(1);
+}
+
 /* Function used to retrieve the info about the ConfigWindow. This is
  * an optional function.
  */
@@ -125,6 +135,7 @@ void VideoFileConfigWindow::onSlideChange(int value)
 	cv::VideoCapture *cv = mImgGenerator->getDevice();
 	ASSERT(cv);
 
+	debug("Changing to frame: %d\n", value);
 	// update the video to the current frame
 	cv->set(CV_CAP_PROP_POS_FRAMES, value);
 

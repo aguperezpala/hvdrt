@@ -105,7 +105,7 @@ errCode GUICannyBorderDetector::loadConfig(const TiXmlElement *elem)
 		GUIUtils::showMessageBox("XML Invalido, Threshold1 no encontrado");
 		return INVALID_PARAM;
 	}
-	QString t1Str = auxElem->Attribute("Threshold1");
+	QString t1Str = auxElem->Attribute("value");
 	ui.threshole1_text->setText(t1Str);
 
 	auxElem = auxElem->NextSiblingElement("Threshold2");
@@ -114,8 +114,12 @@ errCode GUICannyBorderDetector::loadConfig(const TiXmlElement *elem)
 		GUIUtils::showMessageBox("XML Invalido, Threshold2 no encontrado");
 		return INVALID_PARAM;
 	}
-	QString t2Str = auxElem->Attribute("Threshold2");
+	QString t2Str = auxElem->Attribute("value");
 	ui.threshole2_text->setText(t2Str);
+
+	bool ok;
+	ui.threshole1_slider->setSliderPosition(t1Str.toInt(&ok));
+	ui.threshole2_slider->setSliderPosition(t2Str.toInt(&ok));
 
 	// sets the configuration to the img proc
 	setCannyImgProcData();
@@ -137,11 +141,11 @@ std::auto_ptr<TiXmlElement> GUICannyBorderDetector::getConfig(void) const
 	result->LinkEndChild(gradient);
 
 	TiXmlElement *th1 = new TiXmlElement("Threshold1");
-	th1->SetAttribute("value", ui.threshole2_text->text().toAscii().data());
+	th1->SetAttribute("value", ui.threshole1_text->text().toAscii().data());
 	result->LinkEndChild(th1);
 
 	TiXmlElement *th2 = new TiXmlElement("Threshold2");
-	th1->SetAttribute("value", ui.threshole2_text->text().toAscii().data());
+	th2->SetAttribute("value", ui.threshole2_text->text().toAscii().data());
 	result->LinkEndChild(th2);
 
 
