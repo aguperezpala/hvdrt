@@ -37,6 +37,9 @@ public:
 	 */
 	QString getInfo(void) const;
 
+	/* Function called when the window get visible */
+	void windowVisible(void);
+
 	/* Function called when the user click on "Next Button" and the ConfigWindow
 	 * will be hide and show the next one. This function shall return NO_ERROR
 	 * if the ConfigWindow can be closed, or the error and the string error

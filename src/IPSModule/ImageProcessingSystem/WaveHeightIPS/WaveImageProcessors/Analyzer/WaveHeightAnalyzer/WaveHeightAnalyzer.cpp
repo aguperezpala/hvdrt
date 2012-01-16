@@ -308,7 +308,6 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 	}
 	ASSERT(mData.size() >= nc);
 
-	debug("\n");
 
 	uchar* data = image.data + l*image.step + c*image.elemSize();
 	// for all pixels
@@ -328,12 +327,8 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 		data = image.data + l*image.step + beginColumn*image.elemSize();
 	}
 
-	debug("\n");
-
 	// TODO: post process the data
 	postProcessData();
-	debug("\n");
-
 
 	return NO_ERROR;
 }

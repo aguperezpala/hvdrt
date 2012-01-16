@@ -160,7 +160,10 @@ void GUIWaveHeightIPS::configureRealTimeDDWin(void) throw (WaveHeightException)
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::configureVideoFileConfWin(void) throw (WaveHeightException)
 {
-	mVideoFileWin.setImageGenerator(mWaveHeightIPS.getImageGenerator());
+	errCode err = mVideoFileWin.setImageGenerator(mWaveHeightIPS.getImageGenerator());
+	if(err != NO_ERROR){
+		throw WaveHeightException(err, "Error al configurar el VideoFileConfigWin");
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -310,11 +313,9 @@ void GUIWaveHeightIPS::clearFields(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void GUIWaveHeightIPS::onWinMngrClose(void)
+void GUIWaveHeightIPS::onWinMngrClose(int)
 {
 	debug("ConfigWinMngr closed event detected, showing GUIWaveHeightIPS again\n");
-	// show this window
-	show();
 
 	mConfigWinMngr.hide();
 
@@ -327,25 +328,32 @@ void GUIWaveHeightIPS::onWinMngrClose(void)
 	}
 
 	// check if we have to replace the configurations
-
-
-
 	ASSERT(mDocument);
 	TiXmlElement *session = mDocument->RootElement();
 	ASSERT(session);
 
 	TiXmlElement *toReplace = session->FirstChildElement("ConfigInfo");
+	ASSERT(xml.get());
+	root->LinkEndChild(xml.release());
 	if(toReplace){
 		// we have to replace
-		root->LinkEndChild(xml.get());
 		session->ReplaceChild(toReplace, *root);
 		delete root;
 	} else {
 		session->LinkEndChild(root);
 	}
 
+
 	// save the file
-	mDocument->SaveFile();
+	if(!mDocument->SaveFile(ui.fileLabel->text().toAscii().data())){
+		GUIUtils::showMessageBox("Error al intentar guardar la session en " +
+				ui.fileLabel->text());
+	}
+
+	// show this window
+	show();
+	exec();
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -357,14 +365,17 @@ void GUIWaveHeightIPS::onLoadSessionClicked(void)
 	}
 	clearFields();
 
+	if(mDocument){
+		delete mDocument; mDocument = 0;
+	}
 	// Try to parse it
-	std::auto_ptr<TiXmlDocument> doc(XmlHelper::loadFromFile(filename.toAscii().data()));
-	if(!doc.get()){
+	mDocument = XmlHelper::loadFromFile(filename.toAscii().data());
+	if(!mDocument){
 		GUIUtils::showMessageBox("Error cargando el archivo " + filename);
 		return;
 	}
 
-	errCode err = fillGuiFromXml(doc->RootElement());
+	errCode err = fillGuiFromXml(mDocument->RootElement());
 	if(err != NO_ERROR){
 		GUIUtils::showMessageBox("Error parseando el archivo xml " + filename);
 		return;
@@ -436,6 +447,13 @@ void GUIWaveHeightIPS::onStartClicked(void)
 			mInputPath = "none";
 			return;
 		}
+		// configure the camera
+		try{
+			configureCameraConfigWin();
+		}catch(WaveHeightException &e){
+			QString info = e.info.c_str();
+			GUIUtils::showMessageBox(info + " | error code:" + QString::number(e.code));
+		}
 	} else {
 		// load the new ImageGenerator
 		if(!ig->createDevice(mInputPath.toAscii().data())){
@@ -444,15 +462,24 @@ void GUIWaveHeightIPS::onStartClicked(void)
 			mInputPath = "none";
 			return;
 		}
+		try{
+			configureVideoFileConfWin();
+		}catch(WaveHeightException &e){
+			QString info = e.info.c_str();
+			GUIUtils::showMessageBox(info + " | error code:" + QString::number(e.code));
+		}
 	}
 
 	// Save the xml
-	if(mDocument){
-		delete mDocument; mDocument = 0;
+	TiXmlElement *root = 0;
+	if(!mDocument){
+		mDocument = new TiXmlDocument();
+		root = new TiXmlElement("Session");
+		mDocument->LinkEndChild(root);
+	} else {
+		root = mDocument->RootElement();
 	}
-	mDocument = new TiXmlDocument();
-	TiXmlElement *root = new TiXmlElement("Session");
-	mDocument->LinkEndChild(root);
+
 	addXmlSessionInfo(root);
 	if(!mDocument->SaveFile(ui.fileLabel->text().toAscii().data())){
 		GUIUtils::showMessageBox("Error al guardar la session en el archivo " +
@@ -467,18 +494,17 @@ void GUIWaveHeightIPS::onStartClicked(void)
 	configureWindowManager(ui.comboBox->currentIndex() == 0);
 
 	// check if we have info to load
-	if(mDocument){
-		TiXmlElement *session = mDocument->RootElement();
-		ASSERT(session);
-		TiXmlElement *configInfo = session->FirstChildElement("ConfigInfo");
-		if(configInfo){
-			errCode err = mConfigWinMngr.loadConfig(configInfo);
-			if(err != NO_ERROR){
-				GUIUtils::showMessageBox("Error al cargar las configuraciones"
-						" de las ventanas \"ConfigWindows\": " + QString::number(err));
-			}
+	TiXmlElement *session = mDocument->RootElement();
+	ASSERT(session);
+	TiXmlElement *configInfo = session->FirstChildElement("ConfigInfo");
+	if(configInfo){
+		errCode err = mConfigWinMngr.loadConfig(configInfo);
+		if(err != NO_ERROR){
+			GUIUtils::showMessageBox("Error al cargar las configuraciones"
+					" de las ventanas \"ConfigWindows\": " + QString::number(err));
 		}
 	}
+
 
 
 	// show the window config manager.
@@ -508,8 +534,8 @@ GUIWaveHeightIPS::GUIWaveHeightIPS(QWidget *parent, int windowW, int windowH)
 
 	ui.setupUi(this);
 
-	QObject::connect(&mConfigWinMngr, SIGNAL(closeWindowSignal(void)), this,
-			SLOT(onWinMngrClose(void)));
+	QObject::connect(&mConfigWinMngr, SIGNAL(finished(int)), this,
+			SLOT(onWinMngrClose(int)));
 	QObject::connect(ui.loadSessionButton,SIGNAL(clicked(bool)), this,
 						SLOT(onLoadSessionClicked(void)));
 	QObject::connect(ui.newSessionButton,SIGNAL(clicked(bool)), this,
@@ -553,9 +579,6 @@ errCode GUIWaveHeightIPS::initialize(void)
 		configureMiddlePointWin();
 		configurePerspectiveWin();
 		configureRealTimeDDWin();
-		configureVideoFileConfWin();
-		configureCameraConfigWin();
-
 	} catch (WaveHeightException &e){
 		// some error ocurr :(
 		GUIUtils::showMessageBox(e.info.c_str());
@@ -575,7 +598,7 @@ errCode GUIWaveHeightIPS::execute(void)
 	exec();
 
 
-
+	debug("Going back!\n");
 	return NO_ERROR;
 }
 
