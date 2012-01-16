@@ -37,6 +37,19 @@ void WaveHeightAnalyzer::clearDataVec(void) const
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void WaveHeightAnalyzer::reserveDataSize(void)
+{
+	// resize the mData vector
+	ASSERT(mBRZone.x > mTLZone.x);
+	mData.resize(mBRZone.x - mTLZone.x + 1);
+	for(int i = mData.size()-1; i >= 0; --i){
+		// we will work with at least 10 points per column
+		mData.at(i).reserve(10);
+	}
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
 void WaveHeightAnalyzer::postProcessData(void) const
 {
 	if(!mTimeStamp){
@@ -116,6 +129,7 @@ float WaveHeightAnalyzer::getNeighborsHeight(void) const
 float WaveHeightAnalyzer::getWaveHeight(void) const
 {
 	ASSERT(mMiddlePoint > 0);
+	ASSERT(mMiddlePoint < mData.size());
 
 	//TODO: Aca no estamos trabajando con mas de un valor, lo que deberiamos
 	// hacer es tener en cuenta el valor anterior y hacia donde estaba yendo la ola
@@ -166,7 +180,8 @@ mBRZone(-1,-1),
 mTimeStamp(0),
 mMiddlePoint(-1),
 mLastHeight(-1.0f),
-mConfigOk(false)
+mConfigOk(false),
+mPoint(-1,-1)
 {
 
 }
@@ -197,7 +212,7 @@ errCode WaveHeightAnalyzer::setParameter(int param, double value)
 		mSizeRelation = value;
 		break;
 	case POS_WAVE_REPOSE:
-		mMiddlePoint = value;
+		mPoint.y = value;
 		break;
 
 	default:
@@ -205,7 +220,11 @@ errCode WaveHeightAnalyzer::setParameter(int param, double value)
 	}
 
 	if((mTLZone.x != -1) && (mTLZone.y != -1) && (mBRZone.x != -1) &&
-			(mBRZone.y != -1) && (mSizeRelation != -1)){
+			(mBRZone.y != -1) && (mSizeRelation != -1) && (mPoint.y != -1)){
+		reserveDataSize();
+
+		// configure the middle point
+		mMiddlePoint = (mBRZone.x - mTLZone.y) / 2;
 
 		mConfigOk = true;
 	} else {
@@ -287,6 +306,9 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 		debug("Error: Analyze Zone is wrong\n");
 		ASSERT(false);
 	}
+	ASSERT(mData.size() >= nc);
+
+	debug("\n");
 
 	uchar* data = image.data + l*image.step + c*image.elemSize();
 	// for all pixels
@@ -306,8 +328,12 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 		data = image.data + l*image.step + beginColumn*image.elemSize();
 	}
 
+	debug("\n");
+
 	// TODO: post process the data
 	postProcessData();
+	debug("\n");
+
 
 	return NO_ERROR;
 }

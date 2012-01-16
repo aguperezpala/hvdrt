@@ -69,6 +69,9 @@ private:
 	// Clears the DataVec
 	void clearDataVec(void) const;
 
+	// Reserve the Data vector size
+	void reserveDataSize(void);
+
 	// Process the data
 	void postProcessData(void) const;
 

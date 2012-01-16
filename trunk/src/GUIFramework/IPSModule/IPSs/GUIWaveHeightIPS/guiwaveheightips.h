@@ -3,6 +3,7 @@
 
 #include <QtGui/QWidget>
 #include "ui_guiwaveheightips.h"
+#include <qthread.h>
 
 #include <fstream>
 #include <auto_ptr.h>
@@ -61,15 +62,18 @@ private:
 	 * RealTimeDataDisplayer (event StartCapturing and StopCapturing) that
 	 * will start/stops the IPS
 	 */
-	class RealTimeDDEventReceiver : public GUIRealTimeDataDisplayer::CallbackFunctor{
+	class RealTimeDDEventReceiver : public GUIRealTimeDataDisplayer::CallbackFunctor,
+	 public QThread {
 	public:
 		RealTimeDDEventReceiver(WaveHeightIPS *ips);
 		virtual ~RealTimeDDEventReceiver(void);
 
 		void operator()(int);
+		void run();
 
 	private:
 		WaveHeightIPS		*mIPS;
+		errCode				mError;
 	};
 
 
@@ -86,7 +90,7 @@ private:
 	void configureCameraConfigWin(void) throw (WaveHeightException);
 
 	// Configure the window manager
-	void configureWindowManager(void) throw (WaveHeightException);
+	void configureWindowManager(bool fromFile) throw (WaveHeightException);
 
 	// Add the session xml info to a XmlElement. If the info already exists
 	// is repleaced
@@ -103,6 +107,9 @@ private:
 
 	// Check the fields of the session. Returns true if there are ok, false otherwise
 	bool checkFields(void);
+
+	// clear all the fields
+	void clearFields(void);
 
 
 private slots:
@@ -128,6 +135,9 @@ private:
 
 	RealTimeDDEventReceiver				mEventReceiver;
 	DataDisplayerBridge					mDataDisplayerBridge;
+
+	QString								mInputPath;
+	TiXmlDocument						*mDocument;
 };
 
 #endif // GUIWAVEHEIGHTIPS_H

@@ -27,6 +27,7 @@
 #include "ImageGenerator.h"
 #include "GUIUtils.h"
 #include "XmlHelper.h"
+#include "guiwaveheightips.h"
 
 
 // load/save config tester
@@ -175,7 +176,6 @@ static void testGuiMiddlePointClipping(QApplication &a)
 	if(filename.isEmpty()){
 		return;
 	}
-
 	// create the new one
 	if(!ig.createDevice(filename.toAscii().data())){
 		GUIUtils::showMessageBox("Error creating the ImageGenerator");
@@ -264,6 +264,16 @@ static void testGuiRealTimeDataDisplayer(QApplication &a)
 //	delete elem;
 //}
 
+
+static void WaveHeightTest(QApplication &a)
+{
+	GUIWaveHeightIPS gwh(0, a.desktop()->width(),a.desktop()->height());
+
+	ASSERT(gwh.initialize() == NO_ERROR);
+	ASSERT(gwh.execute() == NO_ERROR);
+
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -287,7 +297,8 @@ int main(int argc, char *argv[])
 //    testGuiPerspectiveRectifier(a);
 //    testGuiBorderDetector(a);
 //    testGuiMiddlePointClipping(a);
-    testGuiRealTimeDataDisplayer(a);
+//    testGuiRealTimeDataDisplayer(a);
+    WaveHeightTest(a);
 
 //	xmltest();
     return 0;

@@ -368,6 +368,7 @@ errCode ConfigWindowManager::getConfig(std::auto_ptr<TiXmlElement> &xml)
 ////////////////////////////////////////////////////////////////////////////////
 void ConfigWindowManager::closeEvent(QCloseEvent *e)
 {
+	debug("Closing ConfigWindowManager\n");
 	emit closeWindowSignal();
 	QWidget::closeEvent(e);
 }
