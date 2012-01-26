@@ -510,6 +510,9 @@ void GUIWaveHeightIPS::onStartClicked(void)
 	// show the window config manager.
 	mConfigWinMngr.restart();
 	mConfigWinMngr.show();
+	mConfigWinMngr.showMaximized();
+	mConfigWinMngr.activateWindow();
+	mConfigWinMngr.raise();
 	mConfigWinMngr.exec();
 
 }
