@@ -28,146 +28,105 @@
 #include "DebugUtil.h"
 #include "WaveHeightAnalyzer.h"
 
+
 ////////////////////////////////////////////////////////////////////////////////
-void WaveHeightAnalyzer::clearDataVec(void) const
+void WaveHeightAnalyzer::createColumnAnalyzers(int numAnalyzers, int middlePoint) const
 {
-	for(int i = mData.size()-1; i >= 0; --i){
-		mData.at(i).clear();
+	mColumnAnalyzers.resize(numAnalyzers);
+	for(int i = mColumnAnalyzers.size()-1; i>=0; --i){
+		mColumnAnalyzers[i].setMiddlePoint(middlePoint);
 	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void WaveHeightAnalyzer::reserveDataSize(void)
+void WaveHeightAnalyzer::processColumnAnalyzers(cv::Mat &img) const
 {
-	// resize the mData vector
-	ASSERT(mBRZone.x > mTLZone.x);
-	mData.resize(mBRZone.x - mTLZone.x + 1);
-	for(int i = mData.size()-1; i >= 0; --i){
-		// we will work with at least 10 points per column
-		mData.at(i).reserve(10);
+	// get the left most column
+	int column = mTLZone.x;
+	for(int i = mColumnAnalyzers.size()-1; i >= 0; --i){
+		mColumnAnalyzers[i].configure(img, column, mBRZone.y, mTLZone.y);
+		++column;
+
+		// analyze
+		mColumnAnalyzers[i].analyze();
 	}
+	ASSERT(column == mBRZone.x);
 
-}
-
-////////////////////////////////////////////////////////////////////////////////
-void WaveHeightAnalyzer::postProcessData(void) const
-{
-	if(!mTimeStamp){
-		// we have to create the timestamp
-		mTimeStamp = new Timestamp();
-	}
-
-	// now process the data
-	mLastHeight = getWaveHeight();
-
-	// now transform the high using the middle point
-	mRealLastHeight = mLastHeight - (mPoint.y / mSizeRelation);
-
-	// print the data into the file
-	mLastTime = mTimeStamp->getDiffTimestamp();
-
-}
-
-////////////////////////////////////////////////////////////////////////////////
-float WaveHeightAnalyzer::getNeighborsHeight(void) const
-{
-	int neighborHeight = 0;
-	// we have not detected the new size, try getting the average from the
-	// pixels of the sides
-	std::vector<int> &l = mData.at(mMiddlePoint-1);
-	std::vector<int> &r = mData.at(mMiddlePoint+1);
-	int lh = 0;
-	int rh = 0;
-	if(l.size() != 0) {
-		// no left pixel
-		lh = l[l.size()-1];
-	}
-	if(r.size() != 0){
-		rh = r[r.size()-1];
-	}
-
-	// get the neighbor height
-	if(rh != 0 && lh != 0){
-		neighborHeight = (rh+lh)/2;
-	} else if (rh != 0){
-		neighborHeight = rh;
-	} else if (lh != 0){
-		neighborHeight = lh;
-	}
-
-	// now check if the neighborHeight is possible
-	float mmh = neighborHeight / mSizeRelation;
-	if(mLastHeight > 0.0f){
-		if(std::abs(mmh-mLastHeight) < MAX_HEIGHT_VARIANCE){
-			// we have a correct value, return it
-			return mmh;
-		} else {
-			// we cannot detect the value, return the last height
-			debug("Warning: Coludn't detect the height, returning the last"
-					" calculated Height\n");
-			return mLastHeight;
-		}
+	// We will only analyze odd numbers of columns
+	int middleColumn;
+	if(mColumnAnalyzers.size() % 2 == 0){
+		// avoid last column
+		middleColumn = (mColumnAnalyzers.size()-1) / 2;
 	} else {
-		// we can see if we have some "normal value"
-		if(mmh == 0){
-			debug("Warning: Problem detecting the height\n");
-			return mLastHeight;
-		} else {
-			return mmh;
-		}
+		middleColumn = (mColumnAnalyzers.size() / 2);
 	}
+
+	static std::vector<ColumnAnalyzerInfo> data;
+	if(data.size() != mColumnAnalyzers.size()){
+		data.resize(mColumnAnalyzers.size());
+	}
+
+	// analyze the middle point
+	getHeightAndVariance(mColumnAnalyzers[middleColumn], data[middleColumn]);
+
+	// analyze the other points
+	int upperStep, lowerStep;
+	for(int step = 1; step <= middleColumn; ++step){
+		upperStep = middleColumn + step;
+		lowerStep = middleColumn - step;
+
+		getHeightAndVariance(mColumnAnalyzers[upperStep], data[upperStep]);
+		getHeightAndVariance(mColumnAnalyzers[lowerStep], data[lowerStep]);
+	}
+
+	// now that we have all the info we choose the best option
+	mLastHeight = getBetterWaveHeight(data, middleColumn);
+
+	// now correct the possible accumulated error of the ColumnAnalyzers
+	int correctColum = mLastHeight * mSizeRelation;
+
+	for(int i = 0; i < mColumnAnalyzers.size(); ++i){
+		mColumnAnalyzers[i].correctRelativeHeight(correctColum);
+	}
+
 }
 
-/* Function used to get the height of the wave using the middlePoint and
- * middlepoint-1 & middlePoint+1 positions. We will get the first value from
- * bottom to top and check if is a possible value (using the last value
- * and the left and right values)
- * Returns:
- * 	height			The height of the wave.
- */
 ////////////////////////////////////////////////////////////////////////////////
-float WaveHeightAnalyzer::getWaveHeight(void) const
+float WaveHeightAnalyzer::getBetterWaveHeight(const std::vector<ColumnAnalyzerInfo> &data,
+		int middleColumn) const
 {
-	ASSERT(mMiddlePoint > 0);
-	ASSERT(mMiddlePoint < mData.size());
+	// get the better height
+	float bestVariance = data[middleColumn].variance;
+	float bestHeight = data[middleColumn].height;
 
-	//TODO: Aca no estamos trabajando con mas de un valor, lo que deberiamos
-	// hacer es tener en cuenta el valor anterior y hacia donde estaba yendo la ola
-	// (vector de direccion) para poder estimar aproximadamente la nueva posicion
-	// y de esta forma obtener el valor que se encuentra lo mas proximo a
-	// lastPosition + moveDirectionVector (simplemente con std::abs() con cada
-	// valor para obtener el mas cercano).
-	//
+	float avrgHeight, avrgVariance;
+	int upperStep, lowerStep;
+	for(int step = 1; step <= middleColumn; ++step){
+		upperStep = middleColumn + step;
+		lowerStep = middleColumn - step;
 
-
-	// now get the first point from bottom to top
-	std::vector<int> &p = mData.at(mMiddlePoint);
-	if(p.size() == 0){
-		return getNeighborsHeight();
-	}
-	// else we have some value, try to get the height
-	int h = p[p.size()-1];
-	if(mLastHeight > 0){
-		float mmh = h / mSizeRelation;// TODO: save 1/Relation and multiply here (is faster)
-		if(std::abs(h - mLastHeight) < MAX_HEIGHT_VARIANCE){
-			// we have a good value
-			return mmh;
-		} else {
-			// to much variance, try to approximate using the neighbors
-			return getNeighborsHeight();
+		// check the variance of neighbor columns
+		if(data[upperStep].variance > bestVariance ||
+				data[lowerStep].variance > bestVariance){
+			// probably we are getting more erroneus data
+			continue;
 		}
-	} else {
-		float mmh = h / mSizeRelation;
-		if(mmh == 0.0f){
-			return getNeighborsHeight();
-		} else {
-			return mmh;
-		}
+
+		// else, this could be a better approximation
+		avrgHeight = (data[upperStep].height + data[lowerStep].height) / 2.0f;
+
+		// get the average variance
+		avrgVariance = std::abs(bestHeight - avrgHeight);
+
+		if(avrgVariance < bestVariance){
+			bestVariance = avrgVariance;
+			bestHeight = avrgHeight;
+		} // else continue
 	}
 
-	ASSERT(false);
+	// now in best height we have the better height
+	return bestHeight;
 }
-
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -221,10 +180,11 @@ errCode WaveHeightAnalyzer::setParameter(int param, double value)
 
 	if((mTLZone.x != -1) && (mTLZone.y != -1) && (mBRZone.x != -1) &&
 			(mBRZone.y != -1) && (mSizeRelation != -1) && (mPoint.y != -1)){
-		reserveDataSize();
-
 		// configure the middle point
-		mMiddlePoint = (mBRZone.x - mTLZone.y) / 2;
+		mMiddlePoint = (mBRZone.x - mTLZone.x) / 2;
+
+		// create the column analyzers
+		createColumnAnalyzers((mBRZone.x - mTLZone.x), mPoint.y);
 
 		mConfigOk = true;
 	} else {
@@ -261,7 +221,7 @@ errCode WaveHeightAnalyzer::getParameter(int param, double &value) const
 		value = mLastTime;
 		break;
 	case GET_HEIGHT:
-		value = mRealLastHeight;
+		value = mLastHeight;
 		break;
 	case GET_PIXEL_POS:
 		debug("Warning: trying to get an unused feature\n");
@@ -288,47 +248,16 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 		return INCOMPLETE_CONFIGURATION;
 	}
 
-	// Clears the old data
-	clearDataVec();
+	processColumnAnalyzers(image);
 
-	// set the coords to analyze
-	int l = mTLZone.y;
-	int nl = l + (mBRZone.y - mTLZone.y);
-
-	int c = mTLZone.x;
-	int beginColumn = mTLZone.x;
-	int nc = c + (mBRZone.x - mTLZone.x);
-
-	int brY = mBRZone.y;
-
-	// Check that we are inside of the image
-	if((nl > image.rows) || (c  > image.cols)){
-		debug("Error: Analyze Zone is wrong\n");
-		ASSERT(false);
-	}
-	ASSERT(mData.size() >= nc);
-
-
-	uchar* data = image.data + l*image.step + c*image.elemSize();
-	// for all pixels
-	for (; l < nl; ++l) {
-		for (c = beginColumn; c < nc; ++c){
-			if (*data == 0) {
-				// go to the next column
-				data += image.elemSize();
-				continue;
-			}
-			// we have a point to store
-			(mData.at(c - beginColumn)).push_back(brY - l);
-			data += image.elemSize();
-		}
-
-		// go to the next row/line
-		data = image.data + l*image.step + beginColumn*image.elemSize();
+	if(!mTimeStamp){
+		// we have to create the timestamp
+		mTimeStamp = new Timestamp();
 	}
 
-	// TODO: post process the data
-	postProcessData();
+	// print the data into the file
+	mLastTime = mTimeStamp->getDiffTimestamp();
+
 
 	return NO_ERROR;
 }

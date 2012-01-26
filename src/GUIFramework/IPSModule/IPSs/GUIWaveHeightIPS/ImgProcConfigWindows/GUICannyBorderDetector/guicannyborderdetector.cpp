@@ -168,14 +168,12 @@ void GUICannyBorderDetector::windowVisible(void)
 	ui.threshole1_slider->setValue(ui.threshole1_text->text().toInt(&ok));
 	ui.threshole2_slider->setValue(ui.threshole2_text->text().toInt(&ok));
 
-	// check if we have an image to show
-	if(mFrame.data.empty()){
-		mImgGenerator->captureFrame(mFrame);
+	// always get a new fresh image
+	mImgGenerator->captureFrame(mFrame);
 
-		// apply the transformation
-		ASSERT(mPerspectiveRectImgProc);
-		mPerspectiveRectImgProc->processData(mFrame.data);
-	}
+	// apply the transformation
+	ASSERT(mPerspectiveRectImgProc);
+	mPerspectiveRectImgProc->processData(mFrame.data);
 
 	showImage(mFrame.data);
 }

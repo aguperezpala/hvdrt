@@ -13,7 +13,6 @@ void VideoFileConfigWindow::readVideoProperties(void)
 
 	double value = vc->get(CV_CAP_PROP_FRAME_COUNT);
 	ui.totalFramesLabel->setText(QString::number(value));
-	ui.frameSlider->setMaximum(value-1);
 	debug("VideoProperties[Total Frames]: %lf\n", value);
 
 	value = vc->get(CV_CAP_PROP_FPS);
@@ -22,10 +21,51 @@ void VideoFileConfigWindow::readVideoProperties(void)
 
 	value = vc->get(CV_CAP_PROP_POS_FRAMES);
 	ui.currentFrameLabel->setText(QString::number(value));
-	ui.frameSlider->setValue(value);
 	debug("VideoProperties[CurrentFrame]: %lf\n", value);
 
 
+}
+
+void VideoFileConfigWindow::updateActualFrameLabel(void)
+{
+	ASSERT(mImgGenerator);
+
+	cv::VideoCapture *cv = mImgGenerator->getDevice();
+	ASSERT(cv);
+
+	// update the current frame
+	ui.currentFrameLabel->setText(QString::number(cv->get(CV_CAP_PROP_POS_FRAMES)));
+}
+
+
+/* display frame number x */
+void VideoFileConfigWindow::displayFrame(double frame)
+{
+	ASSERT(mImgGenerator);
+
+	cv::VideoCapture *cv = mImgGenerator->getDevice();
+	ASSERT(cv);
+	debug("Displaying frame: %lf\n", frame);
+
+	cv->set(CV_CAP_PROP_POS_FRAMES, frame);
+	cv->set(CV_CAP_PROP_POS_FRAMES, frame);
+
+	Frame f;
+	mImgGenerator->captureFrame(f);
+	mDisplayer.setImage(f.data);
+
+	// update the current frame
+	updateActualFrameLabel();
+}
+
+double VideoFileConfigWindow::getActualFrame(void)
+{
+	ASSERT(mImgGenerator);
+
+	cv::VideoCapture *cv = mImgGenerator->getDevice();
+	ASSERT(cv);
+
+	return cv->get(CV_CAP_PROP_POS_FRAMES);
 }
 
 
@@ -40,8 +80,20 @@ VideoFileConfigWindow::VideoFileConfigWindow(QWidget *parent)
 	// insert the displayer
 	ui.verticalLayout->insertWidget(0,&mDisplayer);
 
-	QObject::connect(ui.frameSlider,SIGNAL(valueChanged(int)), this,
-						SLOT(onSlideChange(int)));
+	QObject::connect(ui.prevFrameButton,SIGNAL(clicked(bool)), this,
+						SLOT(onPrevClicked(void)));
+	QObject::connect(ui.nextFrameButton,SIGNAL(clicked(bool)), this,
+						SLOT(onNextClicked(void)));
+	QObject::connect(ui.prevFramex2Button,SIGNAL(clicked(bool)), this,
+						SLOT(onPrevx2Clicked(void)));
+	QObject::connect(ui.nextFramex2Button,SIGNAL(clicked(bool)), this,
+						SLOT(onNextx2Clicked(void)));
+	QObject::connect(ui.prevFramex3Button,SIGNAL(clicked(bool)), this,
+						SLOT(onPrevx3Clicked(void)));
+	QObject::connect(ui.nextFramex3Button,SIGNAL(clicked(bool)), this,
+						SLOT(onNextx3Clicked(void)));
+	QObject::connect(ui.jumpFrameButton,SIGNAL(clicked(bool)), this,
+						SLOT(onjumpFrameClicked(void)));
 
 }
 
@@ -104,7 +156,11 @@ std::auto_ptr<TiXmlElement> VideoFileConfigWindow::getConfig(void) const
 /* Function called when the window get visible */
 void VideoFileConfigWindow::windowVisible(void)
 {
-	onSlideChange(1);
+	if(getActualFrame() < 1.0){
+		displayFrame(1.0);
+	}
+	// update the current frame
+	updateActualFrameLabel();
 }
 
 /* Function used to retrieve the info about the ConfigWindow. This is
@@ -128,29 +184,49 @@ errCode VideoFileConfigWindow::finish(QString &error)
 
 
 
-void VideoFileConfigWindow::onSlideChange(int value)
+void VideoFileConfigWindow::onPrevClicked(void)
 {
-	ASSERT(mImgGenerator);
+	displayFrame(getActualFrame() - 1.0);
+}
 
-	cv::VideoCapture *cv = mImgGenerator->getDevice();
-	ASSERT(cv);
 
-	debug("Changing to frame: %d\n", value);
-	// update the video to the current frame
-	cv->set(CV_CAP_PROP_POS_FRAMES, value);
-
-	// get the new frame and show it
+void VideoFileConfigWindow::onNextClicked(void)
+{
 	Frame f;
 	mImgGenerator->captureFrame(f);
 	mDisplayer.setImage(f.data);
 
 	// update the current frame
-	ui.currentFrameLabel->setText(QString::number(cv->get(CV_CAP_PROP_POS_FRAMES)));
-
+	updateActualFrameLabel();
 }
 
-
-
+void VideoFileConfigWindow::onNextx2Clicked(void)
+{
+	displayFrame(getActualFrame() + 5.0);
+}
+void VideoFileConfigWindow::onPrevx2Clicked(void)
+{
+	displayFrame(getActualFrame() - 5.0);
+}
+void VideoFileConfigWindow::onNextx3Clicked(void)
+{
+	displayFrame(getActualFrame() + 15.0);
+}
+void VideoFileConfigWindow::onPrevx3Clicked(void)
+{
+	displayFrame(getActualFrame() - 15.0);
+}
+void VideoFileConfigWindow::onjumpFrameClicked(void)
+{
+	bool ok;
+	double val;
+	val = ui.frameText->text().toDouble(&ok);
+	if(!ok){
+		GUIUtils::showMessageBox("El campo frame debe ser un valor numerico");
+		return;
+	}
+	displayFrame(val);
+}
 
 
 
