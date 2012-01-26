@@ -48,12 +48,25 @@ public:
 	errCode finish(QString &error);
 
 public slots:
-	void onSlideChange(int);
+	void onNextClicked(void);
+	void onPrevClicked(void);
+	void onNextx2Clicked(void);
+	void onPrevx2Clicked(void);
+	void onNextx3Clicked(void);
+	void onPrevx3Clicked(void);
+	void onjumpFrameClicked(void);
 
 
 private:
 	/* Read the video file properties */
 	void readVideoProperties(void);
+
+	/* update the actual video frame label */
+	void updateActualFrameLabel(void);
+
+	/* display frame number x */
+	void displayFrame(double frame);
+	double getActualFrame(void);
 
 private:
     Ui::VideoFileConfigWindowClass ui;

@@ -16,10 +16,12 @@ LIBS += -L/usr/local/lib \
     -lopencv_video \
     -lopencv_ts \
     -lopencv_legacy
-HEADERS += src/GUIFramework/Utils/GUIUtils.h \
+HEADERS += src/GUIFramework/IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
+    src/GUIFramework/Utils/GUIUtils.h \
     src/GUIFramework/ConfigWindowManager/configwindow.h \
     realtimedatadisplayer.h
-SOURCES += src/GUIFramework/Utils/GUIUtils.cpp \
+SOURCES += src/GUIFramework/IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
+    src/GUIFramework/Utils/GUIUtils.cpp \
     src/GUIFramework/ConfigWindowManager/configwindow.cpp \
     main.cpp \
     realtimedatadisplayer.cpp

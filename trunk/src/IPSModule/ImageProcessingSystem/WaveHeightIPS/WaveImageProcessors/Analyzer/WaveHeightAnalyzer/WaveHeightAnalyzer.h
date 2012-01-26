@@ -32,6 +32,7 @@
 
 #include "Timestamp.h"
 #include "IAnalyzer.h"
+#include "ColumnAnalyzer.h"
 
 class WaveHeightAnalyzer : public IAnalyzer {
 
@@ -66,38 +67,55 @@ public:
 	errCode processData(cv::gpu::GpuMat &data) const;
 
 private:
-	// Clears the DataVec
-	void clearDataVec(void) const;
+	// Define a structure used to store the height and variance of a column analyzer
+	typedef struct {
+		float	height;
+		float	variance;
+		float	previusHeight;
+	} ColumnAnalyzerInfo;
 
-	// Reserve the Data vector size
-	void reserveDataSize(void);
 
-	// Process the data
-	void postProcessData(void) const;
+private:
+	// Create the column analyzers
+	void createColumnAnalyzers(int numAnalyzers, int middlePoint) const;
 
-	// Auxiliar function used to process the data
-	float getNeighborsHeight(void) const;
-	float getWaveHeight(void) const;
+	// configure and process the data of the ColumnAlayzers
+	void processColumnAnalyzers(cv::Mat &img) const;
+
+	// This function retrieves the height in mm from a ColumnAnalyzer and the
+	// variance between the actual point and the last point calculated.
+	inline void getHeightAndVariance(const ColumnAnalyzer &ca,
+			ColumnAnalyzerInfo &cai) const
+	{
+		cai.height = static_cast<float>(ca.getRelativeLastHeight()) / mSizeRelation;
+		cai.variance = static_cast<float>(ca.getRelativePreviusHeight()) / mSizeRelation;
+		cai.variance = std::abs(cai.variance - cai.height);
+		cai.previusHeight = static_cast<float>(ca.getRelativePreviusHeight()) / mSizeRelation;
+	}
+
+	// Function that analyze a vector of ColumnAnalyzerInfo and gets the best
+	// wave height.
+	float getBetterWaveHeight(const std::vector<ColumnAnalyzerInfo> &data,
+			int middleColumn) const;
 
 private:
 
-	typedef std::vector<std::vector<int> >	DataVec;
+	typedef std::vector<ColumnAnalyzer>		ColumnAnalyzerVec;
 
 
 	double							mSizeRelation;
-	cv::Point2f						mTLZone;
-	cv::Point2f						mBRZone;
-	mutable DataVec					mData;
-
+	cv::Point2i						mTLZone;
+	cv::Point2i						mBRZone;
 	// Data processor
 	mutable Timestamp				*mTimeStamp;
 	int								mMiddlePoint;
 	mutable float					mLastHeight;
-	mutable float					mRealLastHeight;
 	mutable double					mLastTime;
 	cv::Point						mPoint;
 
 	bool							mConfigOk;
+
+	mutable ColumnAnalyzerVec		mColumnAnalyzers;
 
 };
 

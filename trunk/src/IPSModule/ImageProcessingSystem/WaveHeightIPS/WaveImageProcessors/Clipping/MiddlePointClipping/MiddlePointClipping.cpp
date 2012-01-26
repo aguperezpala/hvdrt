@@ -84,8 +84,8 @@ errCode MiddlePointClipping::processData(cv::Mat &data) const
 
 	// else we copy the data to the new matrix
 	ASSERT(mMiddlePoint > 0 && mMiddlePoint < data.cols);
-	ASSERT(mNumColumns > 0 && (mMiddlePoint + (mNumColumns >> 1) ) < data.cols &&
-			(mMiddlePoint - (mNumColumns >> 1)) > 0);
+	ASSERT(mNumColumns > 0 && (mMiddlePoint + (mNumColumns / 2) ) < data.cols &&
+			(mMiddlePoint - (mNumColumns / 2)) > 0);
 
 //	// copy the peace of the matrix
 //	int deltaColumn = (mNumColumns >> 1);
@@ -107,7 +107,7 @@ errCode MiddlePointClipping::processData(cv::Mat &data) const
 //	}
 
 	// TODO: Analyze if this function (colRange) really do what we want!
-	int deltaColumn = (mNumColumns >> 1);
+	int deltaColumn = (mNumColumns / 2);
 	int beginColumn = mMiddlePoint - deltaColumn;
 	mAnalyzeMatrix = data.colRange(beginColumn, mMiddlePoint + deltaColumn);
 
