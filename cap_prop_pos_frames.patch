@@ -1,0 +1,100 @@
+--- modules/highgui/src/cap_ffmpeg_impl.hpp.orig 2012-01-21 01:15:31.000000000 -0500
++++ modules/highgui/src/cap_ffmpeg_impl.hpp 2012-01-21 01:16:04.000000000 -0500
+@@ -785,71 +785,36 @@
+
+
+bool CvCapture?_FFMPEG::setProperty( int property_id, double value )
+-{
+- if( !video_st ) return false;
+-
+- switch( property_id )
+- {
+- case CV_FFMPEG_CAP_PROP_POS_MSEC:
+- case CV_FFMPEG_CAP_PROP_POS_FRAMES:
+- case CV_FFMPEG_CAP_PROP_POS_AVI_RATIO:
+- {
+- int64_t timestamp = ic->streams[video_stream]->first_dts;
+- AVRational time_base = ic->streams[video_stream]->time_base;
+- AVRational frame_base = ic->streams[video_stream]->r_frame_rate;
+- double timeScale = (time_base.den / (double)time_base.num) / (frame_base.num / (double)frame_base.den);
+- switch( property_id )
+- {
+- case CV_FFMPEG_CAP_PROP_POS_FRAMES:
+- timestamp += (int64_t)(value * timeScale);
+- if(ic->start_time != AV_NOPTS_VALUE_)
+- timestamp += ic->start_time;
+- break;
+-
+- case CV_FFMPEG_CAP_PROP_POS_MSEC:
+- timestamp +=(int64_t)(value*(float(time_base.den)/float(time_base.num))/1000);
+- if(ic->start_time != AV_NOPTS_VALUE_)
+- timestamp += ic->start_time;
+- break;
+-
+- case CV_FFMPEG_CAP_PROP_POS_AVI_RATIO:
+- timestamp += (int64_t)(value*ic->duration);
+- if(ic->start_time != AV_NOPTS_VALUE_ && ic->duration != AV_NOPTS_VALUE_)
+- timestamp += ic->start_time;
+- break;
+- }
+-
+- if ( filename )
+- {
+- // ffmpeg's seek doesn't work...
+- if (!slowSeek((int)timestamp))
+- {
+- fprintf(stderr, "HIGHGUI ERROR: AVI: could not (slow) seek to position %0.3f\n",
+- (double)timestamp / AV_TIME_BASE);
+- return false;
+- }
+- }
+- else
+- {
+- int flags = AVSEEK_FLAG_FRAME;
+- if (timestamp < ic->streams[video_stream]->cur_dts)
+- flags |= AVSEEK_FLAG_BACKWARD;
+- int ret = av_seek_frame(ic, video_stream, timestamp, flags);
+- if (ret < 0)
+- {
+- fprintf(stderr, "HIGHGUI ERROR: AVI: could not seek to position %0.3f\n",
+- (double)timestamp / AV_TIME_BASE);
+- return false;
+- }
+- }
+- picture_pts=(int64_t)value;
+- }
+- break;
+- default:
+- return false;
++{ 
++ if( !video_st ) return false; 
++ int ret, framenumber; 
++
++ switch(property_id) 
++ { 
++ case CV_CAP_PROP_POS_FRAMES:
++ framenumber=(int)value;
++ break;
++ case CV_CAP_PROP_POS_MSEC:
++ framenumber=value/(1000.0f * av_q2d(video_st->time_base));
++ break;
++ default:
++ return false;
++ }
++ 
++ if(framenumber == 0) {
++ ret=av_seek_frame(ic, video_stream, framenumber, AVSEEK_FLAG_BACKWARD);
++ assert(ret>=0);
++ if(ret<0) return false;
++ } else {
++ ret=av_seek_frame(ic, video_stream, framenumber - 1, AVSEEK_FLAG_BACKWARD);
++ assert(ret>=0);
++ if(ret<0) return false;
++ if(!grabFrame()) return false;
++ while(video_st->cur_dts != framenumber)
++ if(!grabFrame()) return false;
+}
+
+- return true;
++ return true; 
+}

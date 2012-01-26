@@ -45,9 +45,8 @@ void VideoFileConfigWindow::displayFrame(double frame)
 
 	cv::VideoCapture *cv = mImgGenerator->getDevice();
 	ASSERT(cv);
-	debug("Displaying frame: %lf\n", frame);
+	debug("Displaying frame: %lf\n", frame)
 
-	cv->set(CV_CAP_PROP_POS_FRAMES, frame);
 	cv->set(CV_CAP_PROP_POS_FRAMES, frame);
 
 	Frame f;
