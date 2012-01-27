@@ -7,6 +7,7 @@ FrameLabelDisplayer::FrameLabelDisplayer(QWidget *parent)
     : QLabel(parent)
 {
 	ui.setupUi(this);
+	setSizePolicy(QSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding));
 }
 
 FrameLabelDisplayer::~FrameLabelDisplayer()
@@ -25,6 +26,7 @@ void FrameLabelDisplayer::setImage(const cv::Mat &img)
 	}
 
 	// set the content
+	adjustSize();
 	setScaledContents(true);
 	setPixmap(QPixmap::fromImage(mShowImage));
 

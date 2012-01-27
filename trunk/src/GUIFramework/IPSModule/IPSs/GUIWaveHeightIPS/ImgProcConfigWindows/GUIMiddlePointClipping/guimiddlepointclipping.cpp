@@ -220,17 +220,23 @@ void GUIMiddlePointClipping::windowVisible(void)
 	ASSERT(mPerspectiveIP);
 	ASSERT(mWaveHeightAIP);
 
-	refreshFrame();
+	errCode err = mImgGenerator->captureFrame(mFrame);
+	ASSERT(err == NO_ERROR);
+	// apply the perspective
+	err = mPerspectiveIP->processData(mFrame.data);
+	ASSERT(err == NO_ERROR);
 
-	// check if we have some image set
-	if(!mZoomedLabel.getImage().isNull()){
-		// we already have some image, return
-		return;
-	}
+//	// check if we have some image set
+//	if(!mZoomedLabel.getImage().isNull()){
+//		// we already have some image, return
+//		return;
+//	}
 	// set the img
 	QImage img;
 	GUIUtils::IplImage2QImage(mFrame.data, img);
 	mZoomedLabel.setImage(img);
+
+	mZoomedLabel.drawPoints();
 
 }
 
