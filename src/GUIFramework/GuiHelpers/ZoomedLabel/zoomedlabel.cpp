@@ -161,3 +161,15 @@ void ZoomedLabel::clearPoints(void)
 	mPoints.clear();
 	showImage(mImg);
 }
+
+/* draws the points that have associated */
+void ZoomedLabel::drawPoints(void)
+{
+	for(int i = mPoints.size()-1; i>=0; --i){
+		// show the new point
+		remarkPoint(mImg, mPoints[i].x(), mPoints[i].y());
+		showImage(mImg);
+	}
+}
+
+

@@ -179,7 +179,13 @@ errCode WaveHeightIPS::execute(void)
 
 	errCode result = NO_ERROR;
 	Frame frame;
-	while(mRunning && (result = mImageGenerator.captureFrame(frame))== NO_ERROR){
+	debug("Starting main loop\n");
+	while(mRunning && (result == NO_ERROR)){
+		result = mImageGenerator.captureFrame(frame);
+		if(result != NO_ERROR){
+			debug("Error while getting the frame\n");
+			break;
+		}
 		switch(mProcType){
 		case CPU_PROCESS:
 			result = mImgAnalyzer->processImageOnCPU(frame, mTrack);

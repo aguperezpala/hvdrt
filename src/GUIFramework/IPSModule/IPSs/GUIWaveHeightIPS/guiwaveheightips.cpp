@@ -30,6 +30,7 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 	switch(event){
 	case GUIRealTimeDataDisplayer::EVENT_START_CAPTURING:
 	{
+		debug("Start capturing\n");
 		ASSERT(mIPS);
 		// execute the ips, in a new thread? TODO: ver esto de los threads
 		mError = NO_ERROR;
@@ -42,6 +43,7 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 		break;
 	case GUIRealTimeDataDisplayer::EVENT_STOP_CAPTURING:
 	{
+		debug("Stop capturing\n");
 		ASSERT(mIPS);
 		// stops the execution
 		mIPS->stop();
@@ -57,12 +59,15 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::RealTimeDDEventReceiver::run()
 {
+	debug("Capturing thread started\n");
 	mError = mIPS->execute();
 	if(mError != NO_ERROR){
 		debug("Some error occurr during the executiong of the IPS: %d\n", mError);
 		GUIUtils::showMessageBox("Ocurrio un error al ejecutar el IPS: " +
 				QString::number(mError));
 	}
+
+	debug("Capturing thread finish\n");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -313,7 +318,7 @@ void GUIWaveHeightIPS::clearFields(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void GUIWaveHeightIPS::onWinMngrClose(int)
+void GUIWaveHeightIPS::onWinMngrClose(void)
 {
 	debug("ConfigWinMngr closed event detected, showing GUIWaveHeightIPS again\n");
 
@@ -537,8 +542,8 @@ GUIWaveHeightIPS::GUIWaveHeightIPS(QWidget *parent, int windowW, int windowH)
 
 	ui.setupUi(this);
 
-	QObject::connect(&mConfigWinMngr, SIGNAL(finished(int)), this,
-			SLOT(onWinMngrClose(int)));
+	QObject::connect(&mConfigWinMngr, SIGNAL(closeWindowSignal(void)), this,
+			SLOT(onWinMngrClose(void)));
 	QObject::connect(ui.loadSessionButton,SIGNAL(clicked(bool)), this,
 						SLOT(onLoadSessionClicked(void)));
 	QObject::connect(ui.newSessionButton,SIGNAL(clicked(bool)), this,

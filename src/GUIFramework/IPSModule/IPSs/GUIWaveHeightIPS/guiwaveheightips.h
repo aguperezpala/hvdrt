@@ -113,7 +113,7 @@ private:
 
 
 private slots:
-	void onWinMngrClose(int);
+	void onWinMngrClose(void);
 	void onLoadSessionClicked(void);
 	void onNewSessionClicked(void);
 	void onStartClicked(void);
