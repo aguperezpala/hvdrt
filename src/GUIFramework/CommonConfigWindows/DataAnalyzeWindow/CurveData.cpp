@@ -40,21 +40,43 @@ void CurveData::calculateSpectralCurve(const QVector<double> &xs,
 
 }
 
+// calculate maximums and minimums
+void CurveData::calculateMaxAndMin(const QVector<double> &xs,
+				const QVector<double> &ys)
+{
+	ASSERT(!xs.empty());
+	ASSERT(!ys.empty());
 
+	mMaxHeight = mMinHeight = ys[0];
+	mMaxTime = mMinTime = xs[0];
+
+	for(int i = xs.size()-1; i >= 0; --i){
+		if(mMaxHeight < ys[i]) mMaxHeight = ys[i];
+		if(mMinHeight > ys[i]) mMinHeight = ys[i];
+
+		if(mMaxTime < xs[i]) mMaxTime = xs[i];
+		if(mMinTime > xs[i]) mMinTime = xs[i];
+
+	}
+}
 
 CurveData::CurveData()
 {
 	// set the new color to this curve
+	QPen pen;
 	if(colorId == COLOR_BLUE){
-		mCurve.setPen(QPen(Qt::blue));
-		mSpectralCurve.setPen(QPen(Qt::blue));
+		pen.setColor(Qt::blue);
 	} else if(colorId == COLOR_GREEN){
-		mCurve.setPen(QPen(Qt::green));
-		mSpectralCurve.setPen(QPen(Qt::green));
+		pen.setColor(Qt::green);
 	} else if(colorId == COLOR_RED){
-		mCurve.setPen(QPen(Qt::red));
-		mSpectralCurve.setPen(QPen(Qt::red));
+		pen.setColor(Qt::red);
 	}
+
+	pen.setWidth(2);
+	mCurve.setPen(pen);
+	mSpectralCurve.setPen(pen);
+
+
 	++colorId;
 
 }
@@ -79,6 +101,7 @@ void CurveData::loadData(const QVector<double> &xs,
 	calculateHs(xs, ys);
 	calculateTp(xs, ys);
 	calculateSpectralCurve(xs, ys);
+	calculateMaxAndMin(xs, ys);
 }
 
 

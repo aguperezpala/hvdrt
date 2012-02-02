@@ -36,6 +36,13 @@ private:
     // configure MainPlot/SecondPlot
     void configurePlots(void);
 
+    // get min and max values of all the curves of the axis
+    void getMaxAndMinAxisValues(double &maxX, double &minX, double &maxY,
+    		double &minY);
+
+    // auto adjust plotters scales
+    void adjustPlottersScales(void);
+
     // enable/disable checkboxs
     void showCorrectCheckboxs(void);
 
