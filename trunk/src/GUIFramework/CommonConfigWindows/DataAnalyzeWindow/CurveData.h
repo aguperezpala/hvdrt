@@ -32,6 +32,12 @@ public:
 	double getH(void) const {return mH;}
 	double getTp(void) const {return mTp;}
 
+	// get maximums / minimums
+	double getMaxTime(void) const {return mMaxTime;}
+	double getMinTime(void) const {return mMinTime;}
+	double getMaxHeight(void) const {return mMaxHeight;}
+	double getMinHeight(void) const {return mMinHeight;}
+
 
 private:
 	// Calculate Hs;
@@ -50,6 +56,10 @@ private:
 	void calculateSpectralCurve(const QVector<double> &xs,
 					const QVector<double> &ys);
 
+	// calculate maximums and minimums
+	void calculateMaxAndMin(const QVector<double> &xs,
+					const QVector<double> &ys);
+
 
 	enum {
 		COLOR_GREEN,
@@ -57,6 +67,11 @@ private:
 		COLOR_BLUE
 	};
 private:
+	double			mMaxTime;
+	double			mMinTime;
+	double			mMaxHeight;
+	double			mMinHeight;
+
 	double			mHs;
 	double 			mH;
 	double			mTp;

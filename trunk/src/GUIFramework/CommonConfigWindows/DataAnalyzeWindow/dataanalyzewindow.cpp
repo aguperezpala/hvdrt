@@ -1,5 +1,6 @@
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>
+#include <qwt_scale_engine.h>
 #include <qfile.h>
 #include <qfiledialog.h>
 
@@ -50,6 +51,8 @@ void DataAnalyzeWindow::configurePlots(void)
 	mainPlot->setAxisTitle(QwtPlot::yLeft, "metros");
 	mainPlot->setAxisAutoScale(QwtPlot::xBottom, true);
 	mainPlot->setAxisAutoScale(QwtPlot::yLeft, true);
+	QwtScaleEngine *se1 = mainPlot->axisScaleEngine(QwtPlot::xBottom);
+	ASSERT(se1);
 	mMainGird.attach(mainPlot);
 
 	 // panning with the left mouse button
@@ -67,6 +70,43 @@ void DataAnalyzeWindow::configurePlots(void)
 	 // zoom in/out with the wheel
 	mMagnifier2 = new QwtPlotMagnifier( spectralPlot->canvas() );
 
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void DataAnalyzeWindow::getMaxAndMinAxisValues(double &maxX, double &minX,
+		double &maxY, double &minY)
+{
+	if(mCurves.empty()){
+		maxX = maxY = 1;
+		minX = minY = 0;
+		return;
+	} else {
+		maxX = mCurves[0]->getMaxTime();
+		maxY = mCurves[0]->getMaxHeight();
+		minX = mCurves[0]->getMinTime();
+		minY = mCurves[0]->getMinHeight();
+	}
+
+	for(int i = 1; i < mCurves.size(); ++i){
+		if(mCurves[i]->getMaxHeight() > maxY) maxY = mCurves[i]->getMaxHeight();
+		if(mCurves[i]->getMinHeight() < minY) minY = mCurves[i]->getMinHeight();
+
+		if(mCurves[i]->getMaxTime() > maxX) maxX = mCurves[i]->getMaxTime();
+		if(mCurves[i]->getMinTime() < minX) minX = mCurves[i]->getMinTime();
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void DataAnalyzeWindow::adjustPlottersScales(void)
+{
+	double maxX, minX, maxY, minY;
+	getMaxAndMinAxisValues(maxX, minX, maxY, minY);
+
+	QwtPlot *mainPlot = ui.mainqwtPlot;
+	QwtPlot *spectralPlot = ui.secondqwtPlot;
+
+	mainPlot->setAxisScale(QwtPlot::xBottom, minX, maxX);
+	mainPlot->setAxisScale(QwtPlot::yLeft, minY, maxY);
 
 }
 
@@ -104,12 +144,20 @@ void DataAnalyzeWindow::fillmainPlot(CurveData &c)
 {
 	// we only show the curve
 	c.getDataCurve().show();
+	adjustPlottersScales();
 
+	QwtPlot *mainPlot = ui.mainqwtPlot;
+	mainPlot->replot();
 }
 
 void DataAnalyzeWindow::fillsecondPlot(CurveData &c)
 {
 	c.getSpectralCurve().show();
+
+	QwtPlot *spectralPlot = ui.secondqwtPlot;
+	spectralPlot->replot();
+
+	// TODO: adjustPlottersScales pero para la spectralPlotter
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -138,6 +186,11 @@ void DataAnalyzeWindow::hideAllInfo(CurveData &c)
 		ui.hLabel->setText(str0);
 		ui.tpLabel->setText(str0);
 	}
+	QwtPlot *mainPlot = ui.mainqwtPlot;
+	QwtPlot *spectralPlot = ui.secondqwtPlot;
+
+	mainPlot->replot();
+	spectralPlot->replot();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -333,6 +386,18 @@ void DataAnalyzeWindow::onLoadFileClicked(void)
 		fillmainPlot(*curve);
 		fillsecondPlot(*curve);
 	}
+
+	// change the name of the checkbox
+	QString fname = filename.mid(filename.lastIndexOf(QChar('/'))+1);
+	int checkboxIndex = mCurves.size();
+	switch(checkboxIndex){
+	case 1: ui.datos1CheckBox->setText(fname); break;
+	case 2: ui.datos2CheckBox->setText(fname); break;
+	case 3: ui.datos3CheckBox->setText(fname); break;
+	default:
+		ASSERT(false);
+	}
+
 
 
 }
