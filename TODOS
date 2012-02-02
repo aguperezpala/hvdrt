@@ -1,9 +1,32 @@
 TODO:
 Pantalla principal 
 +agregar autor de la session
-Agregar boton de "post proceso" de los datos
++Agregar boton de "post proceso" de los datos
 +agregar posibilidad de cambiar "out.txt"
 
 +Volver atras en perspective rectifier (error)
 
 +eliminar ventanita de video antes de canny
+
+--------------------------------------------------------------------------------
++Ver porque el DataAnalyzedWindow me muestra menos datos cuando los leo del .cvs
+exportado del soft the ellos (en algun momento deja de leer datos).
+
+Cambiar ventana de "RealTimeDataDisplayer"
+
+Crear ventana de configuracion de Camara (y verificar que todas las ConfigWindows
+tomen un nuevo frame cada vez que se llame al metodo "showingWindow").
+
+Ver de ejecutar el analisis del proceso en un nuevo thread y que el 
+RealTimeDataDisplayer use el thread principal (el thread del procesamiento
+de imagenes no se clave actualizando la parte grafica). Ver ejemplos de Qwt.
+
+
+
+BUGS menor importancia
+-----------------------
+Cuando hacemos un load session y luego salimos sin haber recorrido todos las
+ventanas, en el configWindowManager estamos devolviendo el mAutosaveDoc (que
+se va cargando a medida que se van viendo las ventanas, por lo que si no vemos
+todas las ventanas solo se van a devolver las configuraciones de aquellas
+que solo hayamos visto). Esto se sobrescribe sobre la vieja y nos la borra.

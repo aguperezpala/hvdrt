@@ -3,6 +3,7 @@
 #include <qwt_scale_engine.h>
 #include <qfile.h>
 #include <qfiledialog.h>
+#include <cmath>
 
 #include "GUIUtils.h"
 #include "DebugUtil.h"
@@ -59,6 +60,24 @@ void DataAnalyzeWindow::configurePlots(void)
 	mPlanner1 = new QwtPlotPanner( mainPlot->canvas() );
 	 // zoom in/out with the wheel
 	mMagnifier1 = new QwtPlotMagnifier( mainPlot->canvas() );
+	 // LeftButton for the zooming
+	// MidButton for the panning
+	// RightButton: zoom out by 1
+	// Ctrl+RighButton: zoom out to full size
+	mZoomer1 = new QwtPlotZoomer( mainPlot->canvas() );
+	mZoomer1->setRubberBandPen( QColor( Qt::black ) );
+	mZoomer1->setTrackerPen( QColor( Qt::black ) );
+	mZoomer1->setMousePattern( QwtEventPattern::MouseSelect2,
+		Qt::RightButton, Qt::ControlModifier );
+	mZoomer1->setMousePattern( QwtEventPattern::MouseSelect3,
+		Qt::RightButton );
+	mPlanner1->setMouseButton( Qt::MidButton );
+
+
+
+//	canvas()->setPalette( Qt::darkGray );
+//	canvas()->setBorderRadius( 10 );
+
 
 	// Spectral Plot
 	spectralPlot->setAxisTitle(QwtPlot::xBottom, "segundos");
@@ -69,6 +88,14 @@ void DataAnalyzeWindow::configurePlots(void)
 	mPlanner2 = new QwtPlotPanner( spectralPlot->canvas() );
 	 // zoom in/out with the wheel
 	mMagnifier2 = new QwtPlotMagnifier( spectralPlot->canvas() );
+
+	mZoomer2 = new QwtPlotZoomer( spectralPlot->canvas() );
+	mZoomer2->setRubberBandPen( QColor( Qt::black ) );
+	mZoomer2->setTrackerPen( QColor( Qt::black ) );
+	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect2,
+		Qt::RightButton, Qt::ControlModifier );
+	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect3,
+		Qt::RightButton );
 
 }
 
@@ -107,6 +134,10 @@ void DataAnalyzeWindow::adjustPlottersScales(void)
 
 	mainPlot->setAxisScale(QwtPlot::xBottom, minX, maxX);
 	mainPlot->setAxisScale(QwtPlot::yLeft, minY, maxY);
+
+	double width = ((minX < 0.0) ? -minX : minX) + ((maxX < 0.0) ? -maxX : maxX);
+	double height = ((minY < 0.0) ? -minY : minY) + ((maxY < 0.0) ? -maxY : maxY);
+	mZoomer1->setZoomBase(QRectF(minX,minY,width,height));
 
 }
 
@@ -313,7 +344,7 @@ bool DataAnalyzeWindow::parseFile(const QString &fname, QVector<double> &xs,
 
 	bool ok;
 	// now we read line per line and parse the data
-	while(file.canReadLine()){
+	while(!file.atEnd()){
 		if(file.readLine(auxBuff, 511) < 0){
 			break;
 		}
@@ -388,6 +419,8 @@ DataAnalyzeWindow::~DataAnalyzeWindow()
 	delete mPlanner2;
 	delete mMagnifier1;
 	delete mMagnifier2;
+	delete mZoomer1;
+	delete mZoomer2;
 
 	for(int i = mCurves.size()-1; i >= 0; --i) delete mCurves[i];
 

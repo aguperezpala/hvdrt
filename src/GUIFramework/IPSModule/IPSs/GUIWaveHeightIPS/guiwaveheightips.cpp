@@ -35,10 +35,6 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 		// execute the ips, in a new thread? TODO: ver esto de los threads
 		mError = NO_ERROR;
 
-		// TODO: cambiar esto
-		mIPS->execute();
-		break;
-
 		if(isRunning()){
 			mIPS->stop();
 			terminate();
@@ -384,10 +380,6 @@ void GUIWaveHeightIPS::onWinMngrClose(void)
 		GUIUtils::showMessageBox("Error al intentar guardar la session en " +
 				ui.fileLabel->text());
 	}
-
-	// show this window
-	show();
-	exec();
 
 }
 

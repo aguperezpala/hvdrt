@@ -55,9 +55,6 @@ public:
      */
     errCode getConfig(std::auto_ptr<TiXmlElement> &xml);
 
-    /* The close event will emitt the "ClosingSignal()" used by the parent class */
-    void closeEvent(QCloseEvent *);
-
 signals:
 	void closeWindowSignal(void);
 
@@ -68,6 +65,11 @@ public slots:
 
 	// Slot associated when the ConfigWindow is automatically closed.
 	void configWindowFinished(int errCode, QString errInfo);
+
+protected:
+    /* The close event will emitt the "ClosingSignal()" used by the parent class */
+    void closeEvent(QCloseEvent *);
+
 
 private:
 	// Function used to disconnect all the actual signals
