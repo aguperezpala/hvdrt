@@ -36,8 +36,8 @@
 
 class WaveHeightAnalyzer : public IAnalyzer {
 
-	// Set the max possible variance between one wave height and another. in mm
-	static const float		MAX_HEIGHT_VARIANCE		= 20;
+	// Set the max possible variance between one wave height and another. in m
+	static const float		MAX_HEIGHT_VARIANCE		= 0.020f;
 
 public:
 	enum {
@@ -46,7 +46,7 @@ public:
 		TLY_ZONE,
 		BRX_ZONE,
 		BRY_ZONE,
-		SIZE_RELATION,	// the relation between pixels and millimeters (pixels/mm)
+		SIZE_RELATION,	// the relation between pixels and millimeters (pixels/m)
 		POS_WAVE_REPOSE,// the position where the wave is in repose
 	};
 

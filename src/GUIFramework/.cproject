@@ -177,6 +177,7 @@
 				<pathentry base-path="GUIFramework" include="IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer" kind="inc" path="" system="true"/>
 				<pathentry base-path="HydrodynamicVariablesDetection" include="src/IPSModule/ImageProcessingSystem/WaveHeightIPS" kind="inc" path="" system="true"/>
 				<pathentry include="/usr/local/qwt-6.0.1/include" kind="inc" path="" system="true"/>
+				<pathentry base-path="GUIFramework" include="CommonConfigWindows/DataAnalyzeWindow" kind="inc" path="" system="true"/>
 				<pathentry kind="src" path=""/>
 				<pathentry kind="out" path=""/>
 			</storageModule>

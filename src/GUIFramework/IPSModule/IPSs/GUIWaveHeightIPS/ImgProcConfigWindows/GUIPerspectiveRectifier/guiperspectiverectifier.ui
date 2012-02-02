@@ -80,7 +80,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>300.0</string>
+            <string>0.297</string>
            </property>
           </widget>
          </item>
@@ -93,7 +93,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Altura rectangulo (mm)</string>
+            <string>Altura rectangulo (m)</string>
            </property>
           </widget>
          </item>

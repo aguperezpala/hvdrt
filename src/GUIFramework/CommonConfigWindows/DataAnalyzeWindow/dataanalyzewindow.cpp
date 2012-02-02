@@ -221,6 +221,51 @@ void DataAnalyzeWindow::initializeCurveData(CurveData &c)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void DataAnalyzeWindow::loadCurveFromFile(const QString &filename)
+{
+	if(mCurves.size() >= 3){
+		GUIUtils::showMessageBox("Error: Solo se pueden cargar hasta 3 datos");
+		return;
+	}
+
+	// check if we can parse it
+	QVector<double> xs, ys;
+	if(!parseFile(filename,xs, ys)){
+		return;
+	}
+
+	// we could parse it, create a new curve
+	CurveData *curve = new CurveData;
+	initializeCurveData(*curve);
+	mCurves.push_back(curve);
+	curve->loadData(xs, ys);
+
+	// now let available the label
+	showCorrectCheckboxs();
+
+	// if is the first curve, then we show in all the plotters and info
+	if(mCurves.size() == 1){
+		ui.datos1CheckBox->setChecked(true);
+		// show the curve
+		fillAdditionalInfo(*curve);
+		fillmainPlot(*curve);
+		fillsecondPlot(*curve);
+	}
+
+	// change the name of the checkbox
+	QString fname = filename.mid(filename.lastIndexOf(QChar('/'))+1);
+	int checkboxIndex = mCurves.size();
+	switch(checkboxIndex){
+	case 1: ui.datos1CheckBox->setText(fname); break;
+	case 2: ui.datos2CheckBox->setText(fname); break;
+	case 3: ui.datos3CheckBox->setText(fname); break;
+	default:
+		ASSERT(false);
+	}
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
 bool DataAnalyzeWindow::parseFile(const QString &fname, QVector<double> &xs,
   		QVector<double> &ys)
 {
@@ -346,6 +391,35 @@ DataAnalyzeWindow::~DataAnalyzeWindow()
 
 	for(int i = mCurves.size()-1; i >= 0; --i) delete mCurves[i];
 
+	debug("Destroying AnalyzeWindow\n");
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void DataAnalyzeWindow::loadFile(const QString &filename)
+{
+	if(filename.isEmpty()){
+		return;
+	}
+
+	loadCurveFromFile(filename);
+}
+
+void DataAnalyzeWindow::clear(void)
+{
+	ui.datos1CheckBox->setText("Datos 1");
+	ui.datos2CheckBox->setText("Datos 2");
+	ui.datos3CheckBox->setText("Datos 3");
+
+	for(int i = mCurves.size()-1; i >= 0; --i) delete mCurves[i];
+	mCurves.clear();
+	showCorrectCheckboxs();
+
+	QwtPlot *mainPlot = ui.mainqwtPlot;
+	QwtPlot *spectralPlot = ui.secondqwtPlot;
+
+	mainPlot->replot();
+	spectralPlot->replot();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -363,43 +437,7 @@ void DataAnalyzeWindow::onLoadFileClicked(void)
 		return;
 	}
 
-	// check if we can parse it
-	QVector<double> xs, ys;
-	if(!parseFile(filename,xs, ys)){
-		return;
-	}
-
-	// we could parse it, create a new curve
-	CurveData *curve = new CurveData;
-	initializeCurveData(*curve);
-	mCurves.push_back(curve);
-	curve->loadData(xs, ys);
-
-	// now let available the label
-	showCorrectCheckboxs();
-
-	// if is the first curve, then we show in all the plotters and info
-	if(mCurves.size() == 1){
-		ui.datos1CheckBox->setChecked(true);
-		// show the curve
-		fillAdditionalInfo(*curve);
-		fillmainPlot(*curve);
-		fillsecondPlot(*curve);
-	}
-
-	// change the name of the checkbox
-	QString fname = filename.mid(filename.lastIndexOf(QChar('/'))+1);
-	int checkboxIndex = mCurves.size();
-	switch(checkboxIndex){
-	case 1: ui.datos1CheckBox->setText(fname); break;
-	case 2: ui.datos2CheckBox->setText(fname); break;
-	case 3: ui.datos3CheckBox->setText(fname); break;
-	default:
-		ASSERT(false);
-	}
-
-
-
+	loadCurveFromFile(filename);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

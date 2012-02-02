@@ -28,6 +28,7 @@
 #include "videofileconfigwindow.h"
 
 #include "DataDisplayerBridge.h"
+#include "dataanalyzewindow.h"
 
 
 
@@ -140,6 +141,8 @@ private:
 
 	QString								mInputPath;
 	TiXmlDocument						*mDocument;
+
+	DataAnalyzeWindow					mDataAnalyzeWin;
 };
 
 #endif // GUIWAVEHEIGHTIPS_H
