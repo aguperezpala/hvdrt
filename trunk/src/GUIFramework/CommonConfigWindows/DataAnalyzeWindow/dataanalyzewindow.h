@@ -5,6 +5,7 @@
 #include <qwt_plot_grid.h>
 #include <qwt_plot_panner.h>
 #include <qwt_plot_magnifier.h>
+#include <qwt_plot_zoomer.h>
 
 #include "CurveData.h"
 
@@ -84,6 +85,8 @@ private:
     QwtPlotMagnifier	*mMagnifier1;
     QwtPlotPanner		*mPlanner2;
     QwtPlotMagnifier	*mMagnifier2;
+    QwtPlotZoomer		*mZoomer1;
+    QwtPlotZoomer		*mZoomer2;
 
 
     // Curves used
