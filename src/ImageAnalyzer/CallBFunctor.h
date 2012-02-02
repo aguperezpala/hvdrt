@@ -29,7 +29,7 @@
 typedef struct {
 	double time;
 	double height;
-	// int pixel position?
+	double pixelPos;
 } AnalyzedData;
 
 class CallBFunctor {

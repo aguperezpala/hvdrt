@@ -34,6 +34,11 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 		ASSERT(mIPS);
 		// execute the ips, in a new thread? TODO: ver esto de los threads
 		mError = NO_ERROR;
+
+		// TODO: cambiar esto
+		mIPS->execute();
+		break;
+
 		if(isRunning()){
 			mIPS->stop();
 			terminate();
@@ -210,6 +215,16 @@ void GUIWaveHeightIPS::addXmlSessionInfo(TiXmlElement *root)
 	inputPath->SetAttribute("value", mInputPath.toAscii().data());
 	si->LinkEndChild(inputPath);
 
+	// Autor
+	TiXmlElement *autor = new TiXmlElement("Autor");
+	autor->SetAttribute("value", ui.autorText->text().toAscii().data());
+	si->LinkEndChild(autor);
+
+	// OutFile
+	TiXmlElement *OutFile = new TiXmlElement("OutFile");
+	OutFile->SetAttribute("value", ui.outText->text().toAscii().data());
+	si->LinkEndChild(OutFile);
+
 
 	// check if already exists
 	TiXmlElement *toReplace = root->FirstChildElement("SessionInfo");
@@ -241,8 +256,10 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	const TiXmlElement *date = root->FirstChildElement("Date");
 	const TiXmlElement *input = root->FirstChildElement("InputType");
 	const TiXmlElement *inputPath = root->FirstChildElement("InputPath");
+	const TiXmlElement *autor = root->FirstChildElement("Autor");
+	const TiXmlElement *dataOut = root->FirstChildElement("OutFile");
 
-	if(!name || !desc || !date || !input || !inputPath){
+	if(!name || !desc || !date || !input || !inputPath || !autor || !dataOut){
 		GUIUtils::showMessageBox("XML Invalido");
 		return INVALID_PARAM;
 	}
@@ -255,6 +272,9 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	ui.comboBox->setCurrentIndex(QString(date->Attribute("value")).toInt(&ok));
 	ui.inputLabel->setText(inputPath->Attribute("value"));
 	mInputPath = inputPath->Attribute("value");
+
+	ui.autorText->setText(autor->Attribute("value"));
+	ui.outText->setText(dataOut->Attribute("value"));
 
 
 	return NO_ERROR;
@@ -273,7 +293,7 @@ void GUIWaveHeightIPS::configureWindowManager(bool fromFile) throw (WaveHeightEx
 		mConfigWinMngr.addNewWindow(&mPerspectiveWin);
 		mConfigWinMngr.addNewWindow(&mVideoFileWin);
 		mConfigWinMngr.addNewWindow(&mMiddlePointWin);
-		mConfigWinMngr.addNewWindow(&mVideoFileWin);
+		//mConfigWinMngr.addNewWindow(&mVideoFileWin);
 		mConfigWinMngr.addNewWindow(&mCannyWin);
 		mConfigWinMngr.addNewWindow(&mVideoFileWin);
 		mConfigWinMngr.addNewWindow(&mRealTimeDDWin);
@@ -304,6 +324,16 @@ bool GUIWaveHeightIPS::checkFields(void)
 		GUIUtils::showMessageBox("El nombre de sesion no puede ser vacio");
 		return false;
 	}
+	if(ui.autorText->text().isEmpty()){
+		GUIUtils::showMessageBox("El nombre del autor no puede ser vacio");
+		return false;
+	}
+	if(ui.outText->text().isEmpty()){
+		GUIUtils::showMessageBox("El nombre del archivo de salida no puede ser"
+				" vacio");
+		return false;
+	}
+
 	// nothing else to check
 	return true;
 }
@@ -510,6 +540,8 @@ void GUIWaveHeightIPS::onStartClicked(void)
 		}
 	}
 
+	// set the outfile name
+	mWaveHeightIPS.setOutFilename(ui.outText->text().toAscii().data());
 
 
 	// show the window config manager.
@@ -520,6 +552,29 @@ void GUIWaveHeightIPS::onStartClicked(void)
 	mConfigWinMngr.raise();
 	mConfigWinMngr.exec();
 
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIWaveHeightIPS::onOutClicked(void)
+{
+	QString filename = QFileDialog::getSaveFileName(0, "Archivo salida", ".", "*.txt");
+	if(filename.isEmpty()){
+		return;
+	}
+
+	ui.outText->setText(filename);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIWaveHeightIPS::onAnalyzeClicked(void)
+{
+	// TODO:
+	ASSERT(false);
+
+	// first check if the outText file exists, if not, then we can open a new
+	// window (qfiledialgobox) and let the user to choose it.
+	// after that we just open a new window (separated window) and show it
+	//
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -550,6 +605,10 @@ GUIWaveHeightIPS::GUIWaveHeightIPS(QWidget *parent, int windowW, int windowH)
 						SLOT(onNewSessionClicked(void)));
 	QObject::connect(ui.startButton,SIGNAL(clicked(bool)), this,
 						SLOT(onStartClicked(void)));
+	QObject::connect(ui.outButton,SIGNAL(clicked(bool)), this,
+						SLOT(onOutClicked(void)));
+	QObject::connect(ui.analyzeButton,SIGNAL(clicked(bool)), this,
+						SLOT(onAnalyzeClicked(void)));
 	showMaximized();
 	activateWindow();
 	raise();

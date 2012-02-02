@@ -97,7 +97,8 @@ void WaveHeightIPS::getAnalyzedData(void)
 	ASSERT(mIPAnalyzer);
 	// returns the data analyzed
 	if(mIPAnalyzer->getParameter(IAnalyzer::GET_TIME, mAnalyzedData.time) != NO_ERROR ||
-			mIPAnalyzer->getParameter(IAnalyzer::GET_HEIGHT, mAnalyzedData.height) != NO_ERROR)
+			mIPAnalyzer->getParameter(IAnalyzer::GET_HEIGHT, mAnalyzedData.height) != NO_ERROR ||
+			mIPAnalyzer->getParameter(IAnalyzer::GET_PIXEL_POS, mAnalyzedData.pixelPos) != NO_ERROR)
 	{
 		debug("Error: Invalid IPAnalyzer\n");
 		ASSERT(false);
@@ -108,10 +109,60 @@ void WaveHeightIPS::getAnalyzedData(void)
 void WaveHeightIPS::saveDataToFile(void)
 {
 	if(mOutFile.is_open()){
-		mOutFile << mAnalyzedData.time << "\t" << mAnalyzedData.height << std::endl;
+		mOutFile << mAnalyzedData.time << "," << mAnalyzedData.height << std::endl;
 	}
+
+
 }
 
+////////////////////////////////////////////////////////////////////////////////
+#ifdef DEBUG
+	// this function will save the frame and pixel choosed as the "wave height"
+void WaveHeightIPS::savePixelDetected(void)
+{
+	static std::ofstream out;
+	static double v = -1.0;
+	static bool pointsSaved = false;
+
+	if(!out.is_open()){
+		out.open("debug_info.txt");
+	}
+	if(!pointsSaved){
+		ImageProcessor *ip = getImageProcessor("PerspectiveRectifier");
+		ASSERT(ip);
+		double value;
+
+		ip->getParameter(0, value);
+		out << value << "\t";
+		ip->getParameter(1, value);
+		out << value << "\t";
+		ip->getParameter(2, value);
+		out << value << "\t";
+		ip->getParameter(3, value);
+		out << value << "\t";
+		ip->getParameter(4, value);
+		out << value << "\t";
+		ip->getParameter(5, value);
+		out << value << "\t";
+		ip->getParameter(6, value);
+		out << value << "\t";
+		ip->getParameter(7, value);
+		out << value << "\n";
+		pointsSaved = true;
+	}
+
+	if(v < 0.0){
+		getImageProcessor("MiddlePointClipping")->getParameter(0, v);
+	}
+
+
+
+	out << mImageGenerator.getDevice()->get(CV_CAP_PROP_POS_FRAMES) <<
+			"\t" << static_cast<int>(mAnalyzedData.pixelPos) << "\t" <<
+			static_cast<int>(v) << std::endl;
+
+}
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -173,6 +224,9 @@ errCode WaveHeightIPS::execute(void)
 			debug("Error while opening %s file\n", mOutFilename.c_str());
 			return INTERNAL_ERROR;
 		}
+
+		// write initial values
+		mOutFile << "Tiempo (segudos),Altura (metros)" << std::endl;
 	}
 
 	mRunning = true;
@@ -209,6 +263,11 @@ errCode WaveHeightIPS::execute(void)
 		if(mCallback){
 			(*mCallback)(mAnalyzedData);
 		}
+
+#ifdef DEBUG
+		savePixelDetected();
+#endif
+
 	}
 
 	// close the file

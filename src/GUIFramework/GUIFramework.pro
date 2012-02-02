@@ -1,4 +1,5 @@
 TEMPLATE = app
+CONFIG += qwt
 TARGET = GUIFramework
 DEFINES += DEBUG
 QMAKE_CXX += -g
@@ -19,9 +20,14 @@ LIBS += -L/usr/local/lib \
     -lopencv_ts \
     -lopencv_legacy
 LIBS += -L../Common/tinyxml \
-    -ltinyxmlpath
-INCLUDEPATH += ../Common/tinyxml
+    -ltinyxmlpath \
+    -L/usr/local/qwt-6.0.1/lib \
+    -lqwt \
+    -lqwtmathml
+INCLUDEPATH += ../Common/tinyxml \
+    /usr/local/qwt-6.0.1/include
 DEPENDPATH += ../Common/tinyxml
+DEPENDPATH += /usr/local/qwt-6.0.1/lib
 PRE_TARGETDEPS += ../Common/tinyxml/libtinyxmlpath.a
 
 # #############################################################################
@@ -110,6 +116,7 @@ INCLUDEPATH += Utils \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer \
     IPSModule/IPSs/GUIWaveHeightIPS \
+    CommonConfigWindows/DataAnalyzeWindow \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \
@@ -125,7 +132,9 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
+HEADERS += CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
+    CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
     IPSModule/IPSs/GUIWaveHeightIPS/DataDisplayerBridge.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.h \
@@ -134,7 +143,9 @@ HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataD
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
+SOURCES += CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
+    CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.cpp \
@@ -151,7 +162,8 @@ SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataD
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.cpp \
     main.cpp \
     guiframework.cpp
-FORMS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.ui \
+FORMS += CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.ui \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \
