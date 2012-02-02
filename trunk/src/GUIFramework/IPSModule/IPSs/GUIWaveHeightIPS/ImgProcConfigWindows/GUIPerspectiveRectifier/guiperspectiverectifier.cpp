@@ -144,7 +144,7 @@ errCode GUIPerspectiveRectifier::setRectangleSizeToIP(void)
 	}
 
 	// now we have the size of the image and we want the
-	// SIZE_RELATION,	// the relation between pixels and millimeters (pixels/mm)
+	// SIZE_RELATION,	// the relation between pixels and millimeters (pixels/m)
 	double relation = static_cast<double>(mImgSizeY) / ySize;
 
 	return mWaveHAnalyzerIP->setParameter(WaveHeightAnalyzer::SIZE_RELATION, relation);

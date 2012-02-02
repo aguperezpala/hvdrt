@@ -19,6 +19,11 @@ public:
     ~DataAnalyzeWindow();
 
 
+    // Load a curve from file
+    void loadFile(const QString &filename);
+
+    // Clear all
+    void clear(void);
 
 private slots:
 	void onLoadFileClicked(void);
@@ -61,6 +66,9 @@ private:
 
     // initialize a CurveData
     void initializeCurveData(CurveData &c);
+
+    // load a curve from file
+    void loadCurveFromFile(const QString &filename);
 
     // Parse a file, this function should return two vectors, one of time
     // and other of wave height. All files have to be in the same scale

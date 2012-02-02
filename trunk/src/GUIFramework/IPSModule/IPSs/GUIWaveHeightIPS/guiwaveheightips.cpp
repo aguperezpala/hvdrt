@@ -557,7 +557,7 @@ void GUIWaveHeightIPS::onStartClicked(void)
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onOutClicked(void)
 {
-	QString filename = QFileDialog::getSaveFileName(0, "Archivo salida", ".", "*.txt");
+	QString filename = QFileDialog::getSaveFileName(0, "Archivo salida", ".", "*.agu");
 	if(filename.isEmpty()){
 		return;
 	}
@@ -568,13 +568,13 @@ void GUIWaveHeightIPS::onOutClicked(void)
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onAnalyzeClicked(void)
 {
-	// TODO:
-	ASSERT(false);
-
 	// first check if the outText file exists, if not, then we can open a new
 	// window (qfiledialgobox) and let the user to choose it.
 	// after that we just open a new window (separated window) and show it
 	//
+	mDataAnalyzeWin.clear();
+	mDataAnalyzeWin.loadFile(ui.outText->text());
+	mDataAnalyzeWin.show();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

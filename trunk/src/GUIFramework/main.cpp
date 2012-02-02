@@ -271,8 +271,10 @@ static void WaveHeightTest(QApplication &a)
 {
 	GUIWaveHeightIPS gwh(0, a.desktop()->width(),a.desktop()->height());
 
-	ASSERT(gwh.initialize() == NO_ERROR);
-	ASSERT(gwh.execute() == NO_ERROR);
+	errCode err = gwh.initialize();
+	ASSERT(err == NO_ERROR);
+	err = gwh.execute() ;
+	ASSERT(err == NO_ERROR);
 
 }
 
@@ -310,8 +312,8 @@ int main(int argc, char *argv[])
 //    testGuiBorderDetector(a);
 //    testGuiMiddlePointClipping(a);
 //    testGuiRealTimeDataDisplayer(a);
-    testDataAnalyzeWindow(a);
-//    WaveHeightTest(a);
+//    testDataAnalyzeWindow(a);
+    WaveHeightTest(a);
 
 //	xmltest();
     return 0;
