@@ -122,6 +122,10 @@ private:
 	/* Save data to file */
 	void saveDataToFile(void);
 
+#ifdef DEBUG
+	// this function will save the frame and pixel choosed as the "wave height"
+	void savePixelDetected(void);
+#endif
 
 private:
 

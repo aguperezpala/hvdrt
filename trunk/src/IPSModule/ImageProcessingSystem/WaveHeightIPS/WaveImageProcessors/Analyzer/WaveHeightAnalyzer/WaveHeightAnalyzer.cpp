@@ -25,6 +25,10 @@
 
 #include <cmath>
 
+#ifdef DEBUG
+#include <opencv2/highgui/highgui.hpp>
+#endif
+
 #include "DebugUtil.h"
 #include "WaveHeightAnalyzer.h"
 
@@ -78,6 +82,15 @@ void WaveHeightAnalyzer::processColumnAnalyzers(cv::Mat &img) const
 		getHeightAndVariance(mColumnAnalyzers[upperStep], data[upperStep]);
 		getHeightAndVariance(mColumnAnalyzers[lowerStep], data[lowerStep]);
 	}
+
+	// get the variance of the middle point, if is bigger than the "umbral"
+	// then we check for a better height
+	if(data[middleColumn].variance <= MAX_HEIGHT_VARIANCE){
+		mLastHeight = data[middleColumn].height;
+		return;
+	}
+
+	// else we have to get a better wave height
 
 	// now that we have all the info we choose the best option
 	mLastHeight = getBetterWaveHeight(data, middleColumn);
@@ -224,8 +237,7 @@ errCode WaveHeightAnalyzer::getParameter(int param, double &value) const
 		value = mLastHeight;
 		break;
 	case GET_PIXEL_POS:
-		debug("Warning: trying to get an unused feature\n");
-		return FEATURE_NOT_SUPPORTED;
+		value = mPoint.y - (mLastHeight * mSizeRelation);
 		break;
 
 
@@ -258,6 +270,22 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 	// print the data into the file
 	mLastTime = mTimeStamp->getDiffTimestamp();
 
+
+
+#ifdef DEBUG
+	static bool winCreated = false;
+	if(!winCreated){cv::namedWindow("debugWin"); winCreated = true;}
+
+	cv::Point p(image.cols/2, mPoint.y -(mLastHeight * mSizeRelation));
+	cv::Scalar c = CV_RGB(255,0,0);
+
+	cv::Mat colorFrame;
+
+	cv::cvtColor(image, colorFrame, CV_GRAY2BGR);
+	cv::circle(colorFrame,p , 3, c);
+	cv::imshow("debugWin", colorFrame);
+	cv::waitKey(200);
+#endif
 
 	return NO_ERROR;
 }

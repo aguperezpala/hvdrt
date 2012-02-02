@@ -71,7 +71,7 @@ public slots:
 
 private:
 	// Function used to disconnect all the actual signals
-	void disconnectSignals(ConfigWindow *w);
+	void disconnectSignals(ConfigWindow *w, bool autoSave = true);
 
 	/* Function used to set and show new widget (connect signals to). */
 	bool showNewWindow(ConfigWindow *w);

@@ -8,7 +8,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-void ConfigWindowManager::disconnectSignals(ConfigWindow *w)
+void ConfigWindowManager::disconnectSignals(ConfigWindow *w, bool autoSave)
 {
 	ASSERT(w);
 
@@ -21,13 +21,15 @@ void ConfigWindowManager::disconnectSignals(ConfigWindow *w)
 	w->windowInvisible();
 	ui.configWindowLayout->removeWidget(w);
 
-	// autosave the config
-	std::auto_ptr<TiXmlElement> config = w->getConfig();
-	if(config.get()){
-		addTempXml(config.release(), w->getName());
-		updateAutoSaveFile();
-	} else {
-		debug("Error getting the config of %s\n", w->getName().c_str());
+	if(autoSave){
+		// autosave the config
+		std::auto_ptr<TiXmlElement> config = w->getConfig();
+		if(config.get()){
+			addTempXml(config.release(), w->getName());
+			updateAutoSaveFile();
+		} else {
+			debug("Error getting the config of %s\n", w->getName().c_str());
+		}
 	}
 
 }
@@ -118,7 +120,7 @@ void ConfigWindowManager::backwardWindow(void)
 	}
 
 	// hide the actual
-	disconnectSignals(*mConfigWinIt);
+	disconnectSignals(*mConfigWinIt, false);
 
 	--mConfigWinIt;
 
@@ -394,7 +396,7 @@ void ConfigWindowManager::nextButtonClicked(void)
 ////////////////////////////////////////////////////////////////////////////////
 void ConfigWindowManager::backButtonClicked(void)
 {
-	if(mConfigWinIt != mConfigWindows.end() && canCloseConfigWindow(*mConfigWinIt)){
+	if(mConfigWinIt != mConfigWindows.end()){
 		backwardWindow();
 	} else {
 		// do nothing

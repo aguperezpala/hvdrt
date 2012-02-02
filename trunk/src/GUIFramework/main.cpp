@@ -29,6 +29,8 @@
 #include "XmlHelper.h"
 #include "guiwaveheightips.h"
 
+#include "dataanalyzewindow.h"
+
 
 // load/save config tester
 static bool testLoadSaveConfig(ConfigWindow &cw)
@@ -274,6 +276,16 @@ static void WaveHeightTest(QApplication &a)
 
 }
 
+
+static void testDataAnalyzeWindow(QApplication &a)
+{
+	DataAnalyzeWindow daw;
+	daw.show();
+	a.exec();
+}
+
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -298,7 +310,8 @@ int main(int argc, char *argv[])
 //    testGuiBorderDetector(a);
 //    testGuiMiddlePointClipping(a);
 //    testGuiRealTimeDataDisplayer(a);
-    WaveHeightTest(a);
+    testDataAnalyzeWindow(a);
+//    WaveHeightTest(a);
 
 //	xmltest();
     return 0;

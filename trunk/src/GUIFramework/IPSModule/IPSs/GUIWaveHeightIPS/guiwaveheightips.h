@@ -117,6 +117,8 @@ private slots:
 	void onLoadSessionClicked(void);
 	void onNewSessionClicked(void);
 	void onStartClicked(void);
+	void onOutClicked(void);
+	void onAnalyzeClicked(void);
 
 
 private:
