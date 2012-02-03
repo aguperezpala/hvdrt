@@ -8,6 +8,7 @@
 #include "imgprocconfigwindows.h"
 #include "ImageProcessor.h"
 
+#include "framelabeldisplayer.h"
 #include "RealTimePlot.h"
 
 // reserve 5 min * 60 seconds * 25 fps
@@ -17,6 +18,8 @@
 class GUIRealTimeDataDisplayer : public ImgProcConfigWindows
 {
     Q_OBJECT
+
+    static const int FRAME_UPDATE_TIME		=	500; //ms
 
 public:
 
@@ -80,7 +83,16 @@ public:
 
 public slots:
 	void onStartCapturingClicked(void);
+	void onFrameChecboxToggled(bool);
+	void onPloterChecboxToggled(bool);
 
+protected:
+    virtual void timerEvent(QTimerEvent *e);
+
+private:
+	void showFrame(void);
+	void enableTimers(void);
+	void disableTimers(void);
 
 private:
 
@@ -88,6 +100,8 @@ private:
 
 	CallbackFunctor					*mCallbackFunct;
 	RealTimePlot					mPlotter;
+	FrameLabelDisplayer				mFrameDisplayer;
+	int								mTimerId;
 
 };
 

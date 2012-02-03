@@ -74,6 +74,9 @@ public:
 	 */
 	virtual errCode captureFrame(Frame &result);
 
+	/* Returns the last image frame captured */
+	virtual const cv::Mat &getLastFrameCaptured(void) const {return mFrameData;}
+
 	/* This is the main function. Start to capture frames an call the FrameListeners
 	 * This will create the threadpool/threads if it is necessary.
 	 * Is a blocking function

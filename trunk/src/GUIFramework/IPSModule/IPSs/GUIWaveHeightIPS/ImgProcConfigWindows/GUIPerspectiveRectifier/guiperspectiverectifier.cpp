@@ -320,10 +320,18 @@ QString GUIPerspectiveRectifier::getInfo(void) const
 ////////////////////////////////////////////////////////////////////////////////
 void GUIPerspectiveRectifier::windowVisible(void)
 {
-	// update the image if and olny if we have no img
-	if(mFrame.data.empty()){
-		updateImg();
+	// we always will get a new fresh image (this will solve the problem
+	// when using camera)
+	updateImg();
+	if(!mZoomedLabel.getPoints().empty()){
+		// show the points
+		mZoomedLabel.drawPoints();
 	}
+
+	// update the image if and olny if we have no img
+//	if(mFrame.data.empty()){
+//		updateImg();
+//	}
 }
 
 

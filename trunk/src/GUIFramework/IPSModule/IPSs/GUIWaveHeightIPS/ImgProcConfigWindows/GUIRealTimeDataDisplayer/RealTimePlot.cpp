@@ -95,5 +95,6 @@ void RealTimePlot::stopRefresh(void)
 {
 	if(mTimerId >= 0){
 		killTimer(mTimerId);
+		mTimerId = -1;
 	}
 }
