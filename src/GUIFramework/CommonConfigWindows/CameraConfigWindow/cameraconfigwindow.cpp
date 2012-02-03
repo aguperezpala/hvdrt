@@ -1,12 +1,20 @@
 #include "cameraconfigwindow.h"
-
+#include <cstdlib>
 
 
 CameraConfigWindow::CameraConfigWindow(QWidget *parent)
     : ConfigWindow(parent, "CameraConfigWindow"),
-      mImgGenerator(0)
+      mImgGenerator(0),
+      mFrameDisplayer(this),
+      mTimerId(-1)
 {
 	ui.setupUi(this);
+
+	// add the frame displayer
+	ui.scrollArea->setWidget(&mFrameDisplayer);
+
+	QObject::connect(ui.qv4lButton,SIGNAL(clicked(bool)), this,
+				SLOT(onqv4lClicked(void)));
 }
 
 CameraConfigWindow::~CameraConfigWindow()
@@ -14,7 +22,7 @@ CameraConfigWindow::~CameraConfigWindow()
 
 }
 
-/* Set the ImageGenerator to be used */
+////////////////////////////////////////////////////////////////////////////////
 errCode CameraConfigWindow::setImageGenerator(ImageGenerator *ig)
 {
 	ASSERT(ig);
@@ -31,38 +39,73 @@ errCode CameraConfigWindow::setImageGenerator(ImageGenerator *ig)
 	return NO_ERROR;
 }
 
-/* Function used to load the configurations from a xml file
- * Returns:
- * 	errCode
- */
+////////////////////////////////////////////////////////////////////////////////
 errCode CameraConfigWindow::loadConfig(const TiXmlElement *)
 {
 	// TODO: implementar esto!
+
+	return FEATURE_NOT_SUPPORTED;
 }
 
-/* Save the data to an xml and return it.
- * Returns:
- * 	0			on Error
- * 	xml			on success */
+////////////////////////////////////////////////////////////////////////////////
 std::auto_ptr<TiXmlElement> CameraConfigWindow::getConfig(void) const
 {
-	// TODO: implementar esto!
+	// TODO:
+	return std::auto_ptr<TiXmlElement> (0);
 }
 
-/* Function used to retrieve the info about the ConfigWindow. This is
- * an optional function.
- */
+////////////////////////////////////////////////////////////////////////////////
 QString CameraConfigWindow::getInfo(void) const
 {
-	// TODO: implementar esto!
+	return "Configure la camara.";
 }
 
-/* Function called when the user click on "Next Button" and the ConfigWindow
- * will be hide and show the next one. This function shall return NO_ERROR
- * if the ConfigWindow can be closed, or the error and the string error
- * by param
- */
+////////////////////////////////////////////////////////////////////////////////
+void  CameraConfigWindow::windowVisible(void)
+{
+	// start timer
+	if(mTimerId > 0){
+		killTimer(mTimerId);
+	}
+	mTimerId = startTimer(FRAME_TIME_UPDATE);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void  CameraConfigWindow::windowInvisible(void)
+{
+	if(mTimerId > 0){
+		killTimer(mTimerId);
+		mTimerId = -1;
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 errCode CameraConfigWindow::finish(QString &error)
 {
 	// TODO: implementar esto!
+
+	return NO_ERROR;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void CameraConfigWindow::onqv4lClicked(void)
+{
+	// destroy the device and then create it agan, stop the timer
+	killTimer(mTimerId);
+	mImgGenerator->destroyDevice();
+	std::system(QV4L_COMMAND_PATH);
+	mImgGenerator->createDevice(0);
+	mTimerId = startTimer(FRAME_TIME_UPDATE);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void CameraConfigWindow::timerEvent(QTimerEvent *e)
+{
+	if(e->timerId() == mTimerId){
+		// update the frame
+		mImgGenerator->captureFrame(mFrame);
+		mFrameDisplayer.setImage(mFrame.data);
+	}
+
 }
