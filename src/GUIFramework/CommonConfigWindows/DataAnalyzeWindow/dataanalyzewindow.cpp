@@ -73,8 +73,6 @@ void DataAnalyzeWindow::configurePlots(void)
 		Qt::RightButton );
 	mPlanner1->setMouseButton( Qt::MidButton );
 
-
-
 //	canvas()->setPalette( Qt::darkGray );
 //	canvas()->setBorderRadius( 10 );
 

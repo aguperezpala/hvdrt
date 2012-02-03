@@ -132,7 +132,9 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
+HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.h \
+    CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
     CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
     IPSModule/IPSs/GUIWaveHeightIPS/DataDisplayerBridge.h \
@@ -143,7 +145,9 @@ HEADERS += CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
+SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.cpp \
+    CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
     CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \
