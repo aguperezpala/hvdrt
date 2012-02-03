@@ -314,7 +314,9 @@ std::auto_ptr<TiXmlElement> GUIPerspectiveRectifier::getConfig(void) const
 QString GUIPerspectiveRectifier::getInfo(void) const
 {
 	// TODO:
-	return "NO INFO";
+	return "Seleccione los 4 puntos correspondientes al rectangulo de sobre el"
+			" cual se va a trabajar. Seleccione ademas la altura en metros "
+			"del rectaungulo.";
 }
 
 ////////////////////////////////////////////////////////////////////////////////

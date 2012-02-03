@@ -208,8 +208,9 @@ std::auto_ptr<TiXmlElement> GUIMiddlePointClipping::getConfig(void) const
 ////////////////////////////////////////////////////////////////////////////////
 QString GUIMiddlePointClipping::getInfo(void) const
 {
-	// TODO:
-	return "NO INFO BY NOW!!!!! :(";
+	return "Seleccione el punto correspondiente a la altura de ola en reposo. "
+			"Seleccione adicionalmente la cantidad de columnas que se quieren"
+			" analizar (preferentemente 5).";
 }
 
 

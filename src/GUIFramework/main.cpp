@@ -276,6 +276,7 @@ static void WaveHeightTest(QApplication &a)
 	err = gwh.execute() ;
 	ASSERT(err == NO_ERROR);
 
+	a.exec();
 }
 
 
