@@ -15,18 +15,24 @@
 class CircularBuffer: public QwtSeriesData<QPointF>
 {
 public:
-    CircularBuffer(size_t numPoints = 1000);
+    CircularBuffer(size_t numPoints = 1000, double cantSeconds = 15.0);
+    virtual ~CircularBuffer(){};
 
     virtual size_t size() const;
     virtual QPointF sample(size_t i) const;
 
     virtual QRectF boundingRect() const;
 
+    int getNumPoints(void) const {return mValues.size();}
+
+    const double getCantSeconds(void) const {return mCantSeconds;}
+
     void addNewPoint(double x, double y);
 
     void clear(void);
 
 private:
+    double				mCantSeconds;
     int 				mIndex;
     QVector<QPointF> 	mValues;
     QRectF				mBoundingRect;

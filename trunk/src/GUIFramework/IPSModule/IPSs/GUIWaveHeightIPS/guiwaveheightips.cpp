@@ -35,6 +35,16 @@ void GUIWaveHeightIPS::RealTimeDDEventReceiver::operator()(int event)
 		// execute the ips, in a new thread? TODO: ver esto de los threads
 		mError = NO_ERROR;
 
+//#ifdef DEBUG
+//		mError = mIPS->execute();
+//		if(mError != NO_ERROR){
+//			debug("Some error occurr during the executiong of the IPS: %d\n", mError);
+//			GUIUtils::showMessageBox("Ocurrio un error al ejecutar el IPS: " +
+//					QString::number(mError));
+//		}
+//		break;
+//#endif
+
 		if(isRunning()){
 			mIPS->stop();
 			terminate();

@@ -8,6 +8,8 @@
 #include "imgprocconfigwindows.h"
 #include "ImageProcessor.h"
 
+#include "RealTimePlot.h"
+
 // reserve 5 min * 60 seconds * 25 fps
 #define RTDD_RESERVE_NUM_ITEMS		5*60*25
 
@@ -77,60 +79,15 @@ public:
   	void setEventCallbackFunctor(CallbackFunctor *);
 
 public slots:
-	void onChangeScaleClicked(void);
 	void onStartCapturingClicked(void);
-	void onShowLinesToggled(bool);
 
 
 private:
-	// create the axis
-	void createAxis(void);
-
-	// create a line between 2 points
-	inline void createNewLine(float x1, float y1, float x2, float y2)
-	{
-		QGraphicsLineItem *l = mScene.addLine(x1, y1, x2, y2);
-		if(!mShowLines){
-			l->hide();
-		}
-		mLines.push_back(l);
-	}
-
-	// create a point using the new scale
-	void createNewPoint(float x, float y);
-
-	// Redraw every object using the old scale and assuming that the
-	// mXAxisScale and mYAxisScale are the new scales
-	void redrawAll(float oldXScale, float oldYScale);
-
-	// read the Axis values
-	bool readAxisScales(float &xScale, float &yScale);
-
-	// update the axis size given a new point
-	void updateAxis(float x, float y);
-
-
-
-private:
-	typedef std::vector<QGraphicsEllipseItem *> PointsVector;
-	typedef std::vector<QGraphicsLineItem *> 	LinesVector;
 
     Ui::GUIRealTimeDataDisplayerClass ui;
 
-    QGraphicsScene					mScene;
-    // Axis scales
-    float							mXAxisScale;
-	float							mYAxisScale;
-	float							mOldXAxisScale;
-	float							mOldYAxisScale;
-
-	PointsVector					mPoints;
-	LinesVector						mLines;
-	bool							mShowLines;
 	CallbackFunctor					*mCallbackFunct;
-
-	QGraphicsLineItem 				*mXAxisLine;
-	QGraphicsLineItem 				*mYAxisLine;
+	RealTimePlot					mPlotter;
 
 };
 

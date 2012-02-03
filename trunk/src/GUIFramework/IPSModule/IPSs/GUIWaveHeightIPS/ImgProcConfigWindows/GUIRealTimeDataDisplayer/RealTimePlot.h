@@ -17,16 +17,18 @@
 #include "CircularBuffer.h"
 
 
-class RealTimePlot : QwtPlot
+class RealTimePlot : public QwtPlot
 {
 	 Q_OBJECT
 
-	 static const int TIMER_REFRESH_TIME	=	33; // refresh 30 times per second
+	 static const int TIMER_REFRESH_TIME	=	250; // refresh 30 times per second
 public:
-	RealTimePlot(QWidget*w = NULL);
+	RealTimePlot(QWidget *w = 0);
 	virtual ~RealTimePlot();
 
 	void clearData(void);
+
+	void addNewPoint(double x, double y);
 
 	void startRefresh(void);
 	void stopRefresh(void);
@@ -40,6 +42,9 @@ private:
     QwtPlotCurve	mCurve;
     QwtPlotGrid		mGrid;
     int				mTimerId;
+    double			mMaxY;
+    double			mMinY;
+    bool			mDirtyAxis;
 };
 
 #endif /* REALTIMEPLOT_H_ */

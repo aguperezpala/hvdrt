@@ -5,14 +5,20 @@
  *      Author: agustin
  *
  */
+#include <qwt_plot_canvas.h>
+#include <qwt_plot_layout.h>
 
+#include "DebugUtil.h"
 #include "RealTimePlot.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
 RealTimePlot::RealTimePlot(QWidget *parent):
 QwtPlot(parent),
-mTimerId(-1)
+mTimerId(-1),
+mMaxY(-99999999.0),
+mMinY(99999999.0),
+mDirtyAxis(false)
 {
 	// insert grid
 	mGrid.attach(this);
@@ -24,10 +30,12 @@ mTimerId(-1)
 
 	 // Axis
 	setAxisTitle(QwtPlot::xBottom, "segundos");
-	setAxisScale(QwtPlot::xBottom, 0, 10.0);
+	setAxisScale(QwtPlot::xBottom, 0, mCircularBuff.getCantSeconds());
 
 	setAxisTitle(QwtPlot::yLeft, "metros");
-	setAxisScale(QwtPlot::yLeft, -0.7, 0.7);
+	setAxisScale(QwtPlot::yLeft, -0.4, 0.4);
+//	setAxisAutoScale(QwtPlot::yLeft, true);
+
 
 }
 
@@ -41,30 +49,41 @@ RealTimePlot::~RealTimePlot()
 ////////////////////////////////////////////////////////////////////////////////
 void RealTimePlot::timerEvent(QTimerEvent *e)
 {
-//	 CircularBuffer *buffer = (CircularBuffer *)d_curve->data();
-	// buffer->setReferenceTime(mClock.elapsed() / 1000.0);
+	canvas()->replot();
 
-//
-//	switch(d_settings.updateType)
-//	{
-//		case Settings::RepaintCanvas:
-//		{
-//			// the axes in this example doesn't change. So all we need to do
-//			// is to repaint the canvas.
-//
-//			canvas()->replot();
-//			break;
-//		}
-//		default:
-//		{
-//			replot();
-//		}
+//	if(mDirtyAxis){
+//		setAxisScale(QwtPlot::yLeft, mMinY, mMaxY);
+//		replot();
+//		mDirtyAxis = false;
+//	} else {
+//		canvas()->replot();
 //	}
+
 }
 
 void RealTimePlot::clearData(void)
 {
+	mMaxY = -999999999.0;
+	mMinY = 99999999.0;
 	mCircularBuff.clear();
+}
+
+void RealTimePlot::addNewPoint(double x, double y)
+{
+//	if(mMaxY < y){
+//		mMaxY = y;
+//		if(mMinY > y){
+//			mMinY = y;
+//		}
+//		// change the scales
+//		mDirtyAxis = true;
+//	} else if(mMinY > y){
+//		mMinY = y;
+//		mDirtyAxis = true;
+//	}
+
+	mCircularBuff.addNewPoint(x,y);
+//	debug("NewPoint: y: %lf, maxY: %lf, minY: %lf\n", y, mMaxY, mMinY);
 }
 
 void RealTimePlot::startRefresh(void)
