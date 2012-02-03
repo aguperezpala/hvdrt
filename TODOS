@@ -17,7 +17,7 @@ Cambiar ventana de "RealTimeDataDisplayer"
 Crear ventana de configuracion de Camara (y verificar que todas las ConfigWindows
 tomen un nuevo frame cada vez que se llame al metodo "showingWindow").
 
-Ver de ejecutar el analisis del proceso en un nuevo thread y que el 
++Ver de ejecutar el analisis del proceso en un nuevo thread y que el 
 RealTimeDataDisplayer use el thread principal (el thread del procesamiento
 de imagenes no se clave actualizando la parte grafica). Ver ejemplos de Qwt.
 
@@ -30,3 +30,7 @@ ventanas, en el configWindowManager estamos devolviendo el mAutosaveDoc (que
 se va cargando a medida que se van viendo las ventanas, por lo que si no vemos
 todas las ventanas solo se van a devolver las configuraciones de aquellas
 que solo hayamos visto). Esto se sobrescribe sobre la vieja y nos la borra.
+
+Problemas cuando queremos hacer un update de las escalas de los axis en el
+RealTimePlot (esta comentado el codigo, usando la mDirtyAxis), hay un sigsev
+raro, capaz que haciendo un update de Qt funciona.

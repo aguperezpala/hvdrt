@@ -270,22 +270,22 @@ errCode WaveHeightAnalyzer::processData(cv::Mat &image) const
 	// print the data into the file
 	mLastTime = mTimeStamp->getDiffTimestamp();
 
-
-
-#ifdef DEBUG
-	static bool winCreated = false;
-	if(!winCreated){cv::namedWindow("debugWin"); winCreated = true;}
-
-	cv::Point p(image.cols/2, mPoint.y -(mLastHeight * mSizeRelation));
-	cv::Scalar c = CV_RGB(255,0,0);
-
-	cv::Mat colorFrame;
-
-	cv::cvtColor(image, colorFrame, CV_GRAY2BGR);
-	cv::circle(colorFrame,p , 3, c);
-	cv::imshow("debugWin", colorFrame);
-	cv::waitKey(200);
-#endif
+//
+//
+//#ifdef DEBUG
+//	static bool winCreated = false;
+//	if(!winCreated){cv::namedWindow("debugWin"); winCreated = true;}
+//
+//	cv::Point p(image.cols/2, mPoint.y -(mLastHeight * mSizeRelation));
+//	cv::Scalar c = CV_RGB(255,0,0);
+//
+//	cv::Mat colorFrame;
+//
+//	cv::cvtColor(image, colorFrame, CV_GRAY2BGR);
+//	cv::circle(colorFrame,p , 3, c);
+//	cv::imshow("debugWin", colorFrame);
+//	cv::waitKey(200);
+//#endif
 
 	return NO_ERROR;
 }
