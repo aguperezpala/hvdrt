@@ -73,7 +73,8 @@ double VideoFileConfigWindow::getActualFrame(void)
 
 VideoFileConfigWindow::VideoFileConfigWindow(QWidget *parent)
     : ConfigWindow(parent, "VideoFileConfigWindow"),
-      mDisplayer(this)
+      mDisplayer(this),
+      mImgGenerator(0)
 {
 	ui.setupUi(this);
 	// insert the displayer

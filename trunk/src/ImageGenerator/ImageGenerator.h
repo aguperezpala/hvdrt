@@ -93,6 +93,7 @@ private:
 	cv::VideoCapture		*mCapturer;
 	cv::Mat					mFrameData;
 	bool					mStop;
+	DeviceType				mDevType;
 
 };
 

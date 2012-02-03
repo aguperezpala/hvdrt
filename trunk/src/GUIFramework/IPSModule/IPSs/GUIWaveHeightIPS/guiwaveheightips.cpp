@@ -185,7 +185,10 @@ void GUIWaveHeightIPS::configureVideoFileConfWin(void) throw (WaveHeightExceptio
 ////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::configureCameraConfigWin(void) throw (WaveHeightException)
 {
-	// TODO:
+	errCode err = mCameraConfWin.setImageGenerator(mWaveHeightIPS.getImageGenerator());
+	if(err != NO_ERROR){
+		throw WaveHeightException(err, "Error al configurar la CameraConfigWindow");
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -275,7 +278,7 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	ui.descriptionTextEdit->setPlainText(desc->Attribute("value"));
 	ui.dateTimeEdit->setDateTime(QDateTime::fromString(date->Attribute("value")));
 	bool ok;
-	ui.comboBox->setCurrentIndex(QString(date->Attribute("value")).toInt(&ok));
+	ui.comboBox->setCurrentIndex(QString(input->Attribute("value")).toInt(&ok));
 	ui.inputLabel->setText(inputPath->Attribute("value"));
 	mInputPath = inputPath->Attribute("value");
 
@@ -476,7 +479,7 @@ void GUIWaveHeightIPS::onStartClicked(void)
 	// create the device by the mInputPath
 	ImageGenerator *ig = mWaveHeightIPS.getImageGenerator();
 	ig->destroyDevice();
-
+	bool isVideo = false;
 	if(mInputPath == "Camera0"){
 		if(!ig->createDevice(0)){
 			GUIUtils::showMessageBox("Error al crear el ImageGenerator en"
@@ -484,12 +487,14 @@ void GUIWaveHeightIPS::onStartClicked(void)
 			mInputPath = "none";
 			return;
 		}
+		isVideo = false;
 		// configure the camera
 		try{
 			configureCameraConfigWin();
 		}catch(WaveHeightException &e){
 			QString info = e.info.c_str();
 			GUIUtils::showMessageBox(info + " | error code:" + QString::number(e.code));
+			return;
 		}
 	} else {
 		// load the new ImageGenerator
@@ -499,11 +504,13 @@ void GUIWaveHeightIPS::onStartClicked(void)
 			mInputPath = "none";
 			return;
 		}
+		isVideo = true;
 		try{
 			configureVideoFileConfWin();
 		}catch(WaveHeightException &e){
 			QString info = e.info.c_str();
 			GUIUtils::showMessageBox(info + " | error code:" + QString::number(e.code));
+			return;
 		}
 	}
 
@@ -528,7 +535,7 @@ void GUIWaveHeightIPS::onStartClicked(void)
 
 	// Configure the window manager depending which (if currentIndex == 0 -> From
 	// file, otherwise is from camera
-	configureWindowManager(ui.comboBox->currentIndex() == 0);
+	configureWindowManager(isVideo);
 
 	// check if we have info to load
 	TiXmlElement *session = mDocument->RootElement();

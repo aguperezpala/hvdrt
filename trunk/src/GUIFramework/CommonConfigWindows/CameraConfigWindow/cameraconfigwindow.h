@@ -6,12 +6,17 @@
 #include "configwindow.h"
 #include "ImageGenerator.h"
 
+#include "framelabeldisplayer.h"
+#include "Frame.h"
 
-// TODO: implementar esto!
+
+#define QV4L_COMMAND_PATH	"qv4l2"
 
 class CameraConfigWindow : public ConfigWindow
 {
     Q_OBJECT
+
+    static const int FRAME_TIME_UPDATE		=	30;	//ms
 
 public:
     CameraConfigWindow(QWidget *parent = 0);
@@ -39,6 +44,12 @@ public:
 	 */
 	QString getInfo(void) const;
 
+	/* Function called when the window get visible */
+	void windowVisible(void);
+
+	/* Function called when the window get invisible */
+	void windowInvisible(void);
+
 	/* Function called when the user click on "Next Button" and the ConfigWindow
 	 * will be hide and show the next one. This function shall return NO_ERROR
 	 * if the ConfigWindow can be closed, or the error and the string error
@@ -47,11 +58,20 @@ public:
 	errCode finish(QString &error);
 
 
+protected slots:
+	void onqv4lClicked(void);
+
+
+    virtual void timerEvent(QTimerEvent *e);
+
 
 private:
     Ui::CameraConfigWindowClass ui;
 
     ImageGenerator				*mImgGenerator;
+    FrameLabelDisplayer			mFrameDisplayer;
+    int							mTimerId;
+    Frame						mFrame;
 };
 
 #endif // CAMERACONFIGWINDOW_H

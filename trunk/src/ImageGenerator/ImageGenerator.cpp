@@ -13,7 +13,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ImageGenerator::ImageGenerator() :
-	mCapturer(0)
+	mCapturer(0),
+	mDevType(NONE)
 {
 	// TODO Auto-generated constructor stub
 
@@ -49,6 +50,7 @@ bool ImageGenerator::createDevice(int device)
 		debug("Problem opening the device: %d\n", device);
 		return false;
 	}
+	mDevType = CAMERA_DEV;
 
 	return true;
 }
@@ -76,6 +78,7 @@ bool ImageGenerator::createDevice(const std::string &videoPath)
 		debug("Problem opening the file: %s\n", videoPath.c_str());
 		return false;
 	}
+	mDevType = VIDEO_DEV;
 
 	return true;
 }
@@ -84,18 +87,7 @@ bool ImageGenerator::createDevice(const std::string &videoPath)
 /* Check what type of device is */
 ImageGenerator::DeviceType ImageGenerator::getDeviceType(void) const
 {
-	if(!mCapturer){
-		return NONE;
-	}
-
-	// check if we can count frames, if not, there is a webcam
-	if(mCapturer->get(CV_CAP_PROP_FRAME_COUNT) == 0.0){
-		return CAMERA_DEV;
-	} else {
-		return VIDEO_DEV;
-	}
-
-	return NONE;
+	return mDevType;
 }
 
 /* Destroy the actual device */
@@ -109,6 +101,7 @@ void ImageGenerator::destroyDevice(void)
 	mCapturer->release();
 	delete mCapturer;
 	mCapturer = 0;
+	mDevType = NONE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +119,13 @@ bool ImageGenerator::setDevice(cv::VideoCapture *d)
 	if(!d->isOpened()){
 		debug("The device set is not opened\n");
 		return false;
+	}
+	// check if is a camera
+	if(d->get(CV_CAP_PROP_GAIN) == 0.0){
+		// is a video
+		mDevType = VIDEO_DEV;
+	} else {
+		mDevType = CAMERA_DEV;
 	}
 
 	return true;
