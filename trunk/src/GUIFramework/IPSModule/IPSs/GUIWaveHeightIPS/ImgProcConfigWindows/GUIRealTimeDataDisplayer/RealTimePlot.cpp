@@ -33,7 +33,7 @@ mDirtyAxis(false)
 	setAxisScale(QwtPlot::xBottom, 0, mCircularBuff.getCantSeconds());
 
 	setAxisTitle(QwtPlot::yLeft, "metros");
-	setAxisScale(QwtPlot::yLeft, -0.4, 0.4);
+	setAxisScale(QwtPlot::yLeft, -0.05, 0.05);
 //	setAxisAutoScale(QwtPlot::yLeft, true);
 
 

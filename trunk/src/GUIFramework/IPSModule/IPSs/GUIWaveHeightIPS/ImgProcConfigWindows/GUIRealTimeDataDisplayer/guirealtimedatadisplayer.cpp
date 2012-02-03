@@ -53,8 +53,8 @@ GUIRealTimeDataDisplayer::GUIRealTimeDataDisplayer(ImageGenerator *ig,QWidget *p
 	ui.scrollArea->setWidget(&mFrameDisplayer);
 
 	// add the plotter
-	mPlotter.setMinimumHeight(100);
-	mPlotter.setMaximumHeight(250);
+	mPlotter.setMinimumHeight(80);
+	mPlotter.setMaximumHeight(180);
 	mPlotter.setSizePolicy(QSizePolicy(QSizePolicy::Minimum,
 			QSizePolicy::Minimum));
 	ui.verticalLayout->insertWidget(0,&mPlotter);
@@ -99,7 +99,7 @@ QString GUIRealTimeDataDisplayer::getInfo(void) const
 	// TODO:
 
 	return "Ventana de captura de datos, para comenzar a capturar datos apriete"
-			" el boton \"Comenzar Capturar\". Si quiere dejar de mostrar el"
+			" el boton \"Comenzar Capturar\".\nSi quiere dejar de mostrar el"
 			" video o el graficador, seleccione/desseleccione la opcion "
 			"correspondiente";
 }
