@@ -34,3 +34,6 @@ que solo hayamos visto). Esto se sobrescribe sobre la vieja y nos la borra.
 Problemas cuando queremos hacer un update de las escalas de los axis en el
 RealTimePlot (esta comentado el codigo, usando la mDirtyAxis), hay un sigsev
 raro, capaz que haciendo un update de Qt funciona.
+
+Cuando salimos del programa hay un SIGSEV, problema en el orden de destruccion
+de los objetos de RealTimePlotter, o alguno de ahi.

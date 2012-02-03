@@ -215,7 +215,7 @@ errCode ImageGenerator::startGenerating(void)
 
 		// delay to get the next frame
 		//usleep(static_cast<useconds_t>(delay - static_cast<int>(tm2))*1000);
-		cv::waitKey(10);
+//		cv::waitKey(10);
 	}
 
 	return NO_ERROR;

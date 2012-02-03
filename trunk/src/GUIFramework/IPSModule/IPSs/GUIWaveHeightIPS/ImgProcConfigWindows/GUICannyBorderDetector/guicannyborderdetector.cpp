@@ -155,9 +155,11 @@ std::auto_ptr<TiXmlElement> GUICannyBorderDetector::getConfig(void) const
 ////////////////////////////////////////////////////////////////////////////////
 QString GUICannyBorderDetector::getInfo(void) const
 {
-	// TODO:
 
-	return "NO INFO BY NOW\nSi, testeando esta cosa\n otro enter mas\n y otro mas!";
+	return "Seleccione los distintos posibles valores del algoritmo \"Canny\" "
+			"utilizado para la deteccion de contornos. Utilice el boton "
+			"\"Aplicar Canny\" para ver la imagen luego de ser aplicado"
+			" el alogirtmo.";
 }
 
 ////////////////////////////////////////////////////////////////////////////////
