@@ -12,7 +12,7 @@ Pantalla principal
 +Ver porque el DataAnalyzedWindow me muestra menos datos cuando los leo del .cvs
 exportado del soft the ellos (en algun momento deja de leer datos).
 
-Cambiar ventana de "RealTimeDataDisplayer"
++Cambiar ventana de "RealTimeDataDisplayer"
 
 Crear ventana de configuracion de Camara (y verificar que todas las ConfigWindows
 tomen un nuevo frame cada vez que se llame al metodo "showingWindow").
