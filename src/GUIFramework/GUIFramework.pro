@@ -1,7 +1,7 @@
 TEMPLATE = app
 CONFIG += qwt
 TARGET = GUIFramework
-DEFINES += DEBUG
+#DEFINES += DEBUG
 QMAKE_CXX += -g
 QT += core \
     gui

@@ -1,4 +1,4 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -432,10 +432,10 @@ diferentes escalas espacio-temporales
 Dentro del conjunto de tecnicas basadas en procesamiento de imagenes se
  pueden diferenciar aquellas que son en tiempo real y las que no, pero ambas,
  a grandes rasgos siguen un mismo proceso.
- Este proceso, que tiene como entrada una imagen determinada y como salida
- la deteccion de alguna variable determinada (en éste caso es la altura
- de la superficie libre) podemos describirlo como un conjunto de pasos (secuenci
-ales) o sub-procesos:
+ Este proceso, que tiene como entrada una imagen y como salida la deteccion
+ de alguna variable determinada (en éste caso es la altura de la superficie
+ libre) podemos describirlo como un conjunto de pasos (secuenciales) o sub-proce
+sos:
 \end_layout
 
 \begin_layout Itemize
@@ -462,7 +462,75 @@ Analisis y procesamiento de bordes (se utiliza algun algoritmo para seleccionar
 \end_layout
 
 \begin_layout Standard
-Dados
+Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
+ y utilizando diferentes algoritmos o modelos matematicos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+completar con info en general sobre las tecnicas actuales
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Rectificacion de imagen
+\end_layout
+
+\begin_layout Standard
+Este proceso tiene como objetivo la transformacion de una imagen obtenida
+ directamente desde el dispositivo y transformarla de manera tal que la
+ imagen resultante contenga la menor cantidad de errores que puedan afectar
+ la medicion a realizar.
+\end_layout
+
+\begin_layout Standard
+Se pueden diferenciar 2 problemas principales que son pertinentes a este
+ proceso: errores introducidos por el dispositivo de captura de imagen (
+\end_layout
+
+\begin_layout Standard
+Debido a que el analisis de la superficie libre se realiza sobre un plano
+ 2D (una de las paredes del canal), la imagen debe estar alineada sobre
+ este plano.
+ Como resulta practicamente imposible (siempre existe el error humano) colocar
+ la videocamara de forma perpendicular a este plano, ademas de que no es
+ conveniente (debido al angulo optimo en la que la camara debe ser colocada
+ para evitar tomar la superficie del fluido analizar, la cual genera interferenc
+ia en el procesamiento posterior), se debe realizar una transformacion de
+ la imagen tomada para 
+\end_layout
+
+\begin_layout Subsection
+Modelo propuesto
+\end_layout
+
+\begin_layout Standard
+El modelo propuesto para analizar la altura de ola se basa en el procesamiento
+ de imagenes en tiempo real por medio de videocamaras.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Bradski, Gary & Kaehler, Adrian.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Learning OpenCV
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 2008 
 \end_layout
 
 \end_body
