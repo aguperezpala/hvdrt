@@ -1,4 +1,4 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -429,7 +429,7 @@ diferentes escalas espacio-temporales
 \end_layout
 
 \begin_layout Standard
-Las tecnicas analizadas en este trabajo se basan en el modelo de camara
+Las tecnicas analizadas en este trabajo se basan en el modelo de camaras
  
 \begin_inset Quotes eld
 \end_inset
@@ -446,6 +446,18 @@ key "key-3"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Para lograr obtener resultados adecuados es necesario capturar imagenes
+ con la mayor calidad posible, ademas de una buena resolucion, es importante
+ tener en cuenta varios factores del entorno donde se realizaran las muestras
+ de laboratorio, como por ejemplo, luz ambiental, contraste de la superficie
+ libre con respecto al fluido y paredes del canal, evitar suciedades en
+ los vidrios laterales del canal, entre otras.
+ Siempre tendiendo a minimzar la cantidad de ruido (zonas que pueden generar
+ contornos que se confundan con la superficie libre, o zonas que puedan
+ evitar la correcta captura de la misma).
 \end_layout
 
 \begin_layout Standard
@@ -621,12 +633,13 @@ Deteccion de contornos/bordes
 En una primera instancia, esta etapa tiene como objetivo reducir la complejidad
  de la imagen para facilitar la posterior deteccion de contornos.
  Para lograr esto, en general, primero se convierte la imagen de entrada
- (en general RGB) a una en escalas de grises por medio de la aplicacion
+ (por ejemplo RGB) a una en escalas de grises por medio de la aplicacion
  de un/os filtro/s a la imagen.
  En segundo lugar, se aplica todo filtro (o mascara) necesario para delimitar
  la zona que se quiere analizar, evitando procesar zonas que no son de interes
  y a su vez, eliminando posibles errores causados por falsos valores (esto
- es, pixels que estan marcados que son del entorno
+ es, pixels que estan marcados que son del entorno y no de la superficie
+ libre en si
 \begin_inset Note Note
 status open
 
@@ -706,7 +719,201 @@ Modelo utilizado
 \end_layout
 
 \begin_layout Standard
-Para este trabajo se propuso lo siguiente: 
+Para este trabajo y para cada uno de los procesos mencionados anteriormente
+ se propuso lo siguiente
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+redactar mejor esto..
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Rectificacion de la imagen
+\series default
+: Se propuso aplicar simplemente una transformacion de perspectiva por medio
+ de la seleccion por parte del usuario de 4 puntos posicionados en el plano
+ de la pared del canal, los cuales delimitan la zona de trabajo a analizar.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Aca podemos agregar como es la transformacion de perspectiva, o estoy haciendo
+ cualquier cosa aca???
+\end_layout
+
+\end_inset
+
+Esta es una forma facil de obtener una rectificacion de la perspectiva de
+ la imagen como asi tambien una manera agil de configurar el software 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Justificar mejor porque elegimos esto, que en realidad, no hay motivo...
+ preguntarle a paolo que onda aca
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Deteccion de contornos/bordes:
+\series default
+ Dado que solo se necesita calcular la altura de ola, en esta etapa se realizaro
+n los siguientes pasos:
+\end_layout
+
+\begin_layout Enumerate
+Dado la zona de analisis 
+\begin_inset Formula $r$
+\end_inset
+
+ (rectangulo), sea 
+\begin_inset Formula $p$
+\end_inset
+
+ el punto medio sobre el eje 
+\begin_inset Formula $x$
+\end_inset
+
+ de tal rectangulo, sea 
+\begin_inset Formula $m$
+\end_inset
+
+ el numero de columnas (de pixels) a analizar dadas por el usuario, se genera
+ un nuevo rectangulo 
+\begin_inset Formula $r'$
+\end_inset
+
+ de altura igual 
+\begin_inset Formula $r$
+\end_inset
+
+ y de ancho 
+\begin_inset Formula $m$
+\end_inset
+
+ donde 
+\begin_inset Formula $r'.left=p_{x}-\frac{m}{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $r'.right=p_{x}+\frac{m}{2}$
+\end_inset
+
+.
+ Este recorte se hace solo con fines de agilizar el post procesamiento de
+ la imagen (descartando zonas inutiles), ya que solo queremos calcular la
+ altura de ola en un punto determinado.
+\end_layout
+
+\begin_layout Enumerate
+Se aplica un filtro de imagen para convertir la imagen de entrada (a color)
+ a una imagen en escalas de grises.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+meterle un link a el algoritmo utilizado?, simple filtro
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Se aplica un filtro denominado Gaussian Blur 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregamos link a wikipedia?
+\end_layout
+
+\end_inset
+
+ con el fin de suavizar la imagen suprimiendo posible ruido para una mayor
+ diferenciacion de los bordes reales con respecto a los puntos aleatorios
+ en la imagen.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+probablemente explicamos mas abajo en la seccion algorithms esto?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Se aplica lo que se conoce como el algoritmo de canny
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+, utilizado para la deteccion de contornos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tenemos que justificar el porque? en realidad pas 2 a 4 venia asi en la
+ libreria casi.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Analisis y procesamiento de contornos/bordes:
+\series default
+ En esta etapa se decidio desarrollar un algoritmo simple que sea robusto
+ a posibles errores de la imagen, donde se tuvo en cuenta la posibilidad
+ de que en algunas imagenes procesadas no se encontrasen bordes.
+ El algoritmo se explica en la siguiente seccion.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+porque de esto? esto de que 
+\begin_inset Quotes eld
+\end_inset
+
+esta mas adelante
+\begin_inset Quotes erd
+\end_inset
+
+ va aca? ta medio feo.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
