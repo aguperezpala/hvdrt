@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -429,6 +429,40 @@ diferentes escalas espacio-temporales
 \end_layout
 
 \begin_layout Standard
+Las tecnicas analizadas en este trabajo se basan en el modelo de camara
+ 
+\begin_inset Quotes eld
+\end_inset
+
+pinhole
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Probablemente este bueno agregar aca alguna imagen de como se toma la imagen
+ desde la camara con respecto al canal y una mini intro.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Dentro del conjunto de tecnicas basadas en procesamiento de imagenes se
  pueden diferenciar aquellas que son en tiempo real y las que no, pero ambas,
  a grandes rasgos siguen un mismo proceso.
@@ -439,21 +473,11 @@ sos:
 \end_layout
 
 \begin_layout Itemize
-Rectificacion de una imagen (transformacion de la imagen real en una imagen
- 
-\begin_inset Quotes eld
-\end_inset
-
-libre
-\begin_inset Quotes erd
-\end_inset
-
- de errores para ser procesada luego).
+Rectificacion.
 \end_layout
 
 \begin_layout Itemize
-Deteccion de contornos/bordes (se aplican diferentes algoritmos a la imagen
- para obtener una con los bordes/contornos para un posterior analisis).
+Deteccion de contornos/bordes.
 \end_layout
 
 \begin_layout Itemize
@@ -488,20 +512,180 @@ Este proceso tiene como objetivo la transformacion de una imagen obtenida
 \end_layout
 
 \begin_layout Standard
-Se pueden diferenciar 2 problemas principales que son pertinentes a este
- proceso: errores introducidos por el dispositivo de captura de imagen (
+Por un lado se encuentran los errores (distorciones) introducidos por el
+ dispositivo de captura de imagen, que pueden ser radiales (relacionada
+ con la forma del lente de la camara) y tangenciales (provenientes del proceso
+ de ensamblaje de la camara en su totalidad)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Aca podemos explayarnos bastante con los errores estos, no se si tiene sentido...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Debido a que el analisis de la superficie libre se realiza sobre un plano
- 2D (una de las paredes del canal), la imagen debe estar alineada sobre
- este plano.
- Como resulta practicamente imposible (siempre existe el error humano) colocar
- la videocamara de forma perpendicular a este plano, ademas de que no es
- conveniente (debido al angulo optimo en la que la camara debe ser colocada
- para evitar tomar la superficie del fluido analizar, la cual genera interferenc
-ia en el procesamiento posterior), se debe realizar una transformacion de
- la imagen tomada para 
+Por otro lado se encuentra el problema de la diferencia que existe entre
+ el sistema de coordenadas del plano real el cual captura la camara y el
+ sistema de coordenadas del mismo plano en la imagen de la camara
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar link a imagen
+\end_layout
+
+\end_inset
+
+ (transformacion de perspectiva).
+ Esto debido a que resulta practicamente imposible (siempre existe el error
+ humano) colocar la videocamara de forma perpendicular a este plano, ademas
+ de que no es conveniente (debido al angulo optimo en la que la camara debe
+ ser colocada para evitar tomar la superficie del fluido a analizar, la
+ cual genera interferencia en el procesamiento posterior).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_rectification_2.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Imagen 1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para llevar a cabo la rectificacion, se utilizan diferentes metodos, entre
+ ellos el modelo de transformada lineal directa (DTL) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+, solucion por minimos cuadrados 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+ y metodos alternativos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Preguntarle a paolo que onda esto, yo los lei pero no me los acuerdo mucho
+ como funcionaban, hace falta realmente acordarse de todo esto perfectamente
+ para cuando se entregue la tesis?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Deteccion de contornos/bordes
+\end_layout
+
+\begin_layout Standard
+En una primera instancia, esta etapa tiene como objetivo reducir la complejidad
+ de la imagen para facilitar la posterior deteccion de contornos.
+ Para lograr esto, en general, primero se convierte la imagen de entrada
+ (en general RGB) a una en escalas de grises por medio de la aplicacion
+ de un/os filtro/s a la imagen.
+ En segundo lugar, se aplica todo filtro (o mascara) necesario para delimitar
+ la zona que se quiere analizar, evitando procesar zonas que no son de interes
+ y a su vez, eliminando posibles errores causados por falsos valores (esto
+ es, pixels que estan marcados que son del entorno
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+redactar mejor esto
+\end_layout
+
+\end_inset
+
+).
+ Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada.
+ Existen varios metodos utilizados para detectar los bordes, alguno de estos
+ se pueden ver en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregamos algo mas? medio feo esta...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Analisis y procesamiento de contornos/bordes
+\end_layout
+
+\begin_layout Standard
+Una vez detectado los bordes de la imagen, se aplica cierta heuristica para
+ determinar cuales de los bordes son los correspondientes a la altura de
+ la superficie libre (llamemoslos 
+\shape italic
+bordes positivos
+\shape default
+), ya que en general existe una gran cantidad de bordes que no corresponden
+ a la variable que se quiere analizar (lo que se denomina ruido o 
+\shape italic
+bordes negativos
+\shape default
+).
+ Luego de lograr la deteccion de los 
+\shape italic
+bordes positivos
+\shape default
+ se procede a obtener la altura en metros (o alguna otra unidad de longitud)
+ por medio de la transformacion de la relacion pixels/metros (o la unidad
+ de longitud correspondiente).
 \end_layout
 
 \begin_layout Subsection
@@ -516,6 +700,7 @@ El modelo propuesto para analizar la altura de ola se basa en el procesamiento
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "Bradski08"
 key "key-1"
 
 \end_inset
@@ -525,12 +710,100 @@ Bradski, Gary & Kaehler, Adrian.
 \begin_inset Quotes eld
 \end_inset
 
-Learning OpenCV
+Learning OpenCV: Computer Vision with the OpenCV Library
 \begin_inset Quotes erd
 \end_inset
 
 .
- 2008 
+ 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Brady07"
+key "key-1"
+
+\end_inset
+
+P.D.M.
+ Brady , M.
+ Boutounet and S.
+ Beecham.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Free Surface Monitoring Using Image Processing
+\begin_inset Quotes erd
+\end_inset
+
+.
+ University of Technology Sydney, NSW, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Zhang"
+key "key-2"
+
+\end_inset
+
+Rong Zhang .
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Image Rectification: Remove Projective and Affine Distortions
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Perez09"
+key "key-3"
+
+\end_inset
+
+Perez Muñoz, Juan C.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Optimización no lineal y calibración de cámaras fotográficas
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Medellín, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Nader08"
+key "key-4"
+
+\end_inset
+
+Ehsan Nadernejad, Sara Sharifzadeh and Hamid Hassanpour.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Edge Detection Techniques: Evaluations and Comparisons
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Applied Mathematical Sciences, Vol.
+ 2, 2008.
 \end_layout
 
 \end_body
