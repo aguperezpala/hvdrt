@@ -688,13 +688,25 @@ bordes positivos
  de longitud correspondiente).
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+No vi tecnicas para esto.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Modelo propuesto
+Modelo utilizado
 \end_layout
 
 \begin_layout Standard
-El modelo propuesto para analizar la altura de ola se basa en el procesamiento
- de imagenes en tiempo real por medio de videocamaras.
+Para este trabajo se propuso lo siguiente: 
 \end_layout
 
 \begin_layout Bibliography
