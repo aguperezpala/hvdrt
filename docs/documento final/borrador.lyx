@@ -1,0 +1,469 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Introduccion
+\end_layout
+
+\begin_layout Section
+Fundamentos de hidrodinamica marina
+\end_layout
+
+\begin_layout Subsection
+Introduccion
+\end_layout
+
+\begin_layout Standard
+Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
+ la propagacion de energia mecánica entre la superficie marina y la atmosfera.
+ Éstas son generadas por distintos factores naturales (viento, perturbaciones
+ meterológicas, terremotos, etc).
+ Las olas se propagan debido a la fuerza de gravedad y tension superficial
+ que tienden a restaurar la forma lisa de la superficie, provocando el avance
+ de la onda.
+ 
+\end_layout
+
+\begin_layout Standard
+Matematicamente se puede describir a las olas, en forma general, como oscilacion
+es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
+ ondas progresivas (se propagan en una profundidad constante manteniendo
+ su forma) y ondas estacionarias (aquellas que no se propagan).
+ Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
+ utiles para representarlas, estas son:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\eta$
+\end_inset
+
+: Desplazamiento de la superficie libre (desplazamiento vertical de la superfici
+e del fluido con respecto a un nivel medio de referencia NM (MWL)).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T$
+\end_inset
+
+: Periodo de la onda.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L$
+\end_inset
+
+: Longitud de la onda.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $cresta$
+\end_inset
+
+: Punto en el que la superficie libre alcanza un un máximo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $seno$
+\end_inset
+
+: Punto en el que la superficie libre alcana un minimo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $pasoporcero$
+\end_inset
+
+: Puntos en el que la superficie libre interseca al nivel medio de referencia.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H$
+\end_inset
+
+: Altura de onda (distancia vertical total entre seno y cresta).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{c}$
+\end_inset
+
+: Amplitud de la cresta (distancia vertical maxima entre nivel de reposo
+ y cresta).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{s}$
+\end_inset
+
+: Amplitud del seno (distancia vertical maxima entre nivel de reposo y seno).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $nivelenreposo$
+\end_inset
+
+: NR (SWL) nivel correspondiente en ausencia de olas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h$
+\end_inset
+
+: profundidad o calado (distancia entre el fondo y el NR, en caso de presencia
+ de ondas, la referencia es NM).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_param_onda.png
+	scale 40
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Parametros de las ondas"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general, las teorias de ondas, tienen como objetivo calcular la 
+\shape italic
+celeridad 
+\shape default
+o
+\shape italic
+ velocidad de fase
+\shape default
+ (cuando las magnitudes 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+ o 
+\begin_inset Formula $h$
+\end_inset
+
+ son conocidas), que es la velocidad de propagacion 
+\begin_inset Formula $C$
+\end_inset
+
+, definida como
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C=\frac{L}{T}(m/s)$
+\end_inset
+
+ o 
+\begin_inset Formula $C=\frac{\omega}{\kappa}(m/s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ es el 
+\shape italic
+numero de onda
+\shape default
+ definida como
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\kappa=\frac{2\Pi}{L}(1/m)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+y 
+\shape italic
+
+\begin_inset Formula $\omega$
+\end_inset
+
+ 
+\shape default
+la
+\shape italic
+ frecuencia angular 
+\shape default
+definida como
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=\frac{2\Pi}{T}(1/s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Teoria lineal de ondas
+\end_layout
+
+\begin_layout Standard
+La teoria lineal de ondas presenta numerosas ventajas con respecto a las
+ otras, estas son: su simplicidad en comparacion con las otras teorias;
+ el nivel de reposo coincide con el nivel medio; su caracter lineal posibilita
+ la eliminacion de terminos no lineals dando a lugar soluciones mas sencillas;
+ la solucion es lienal y puede ser usada como base para encontrar otras
+ soluciones por superposicion(?).
+ 
+\end_layout
+
+\begin_layout Standard
+Se consideran ademas olas de forma permanente sobre un fondo horizontal
+ e impermeable sobre un plano bidimensional.
+\end_layout
+
+\begin_layout Standard
+En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
+ donde se cumple que 
+\begin_inset Formula $A_{c}=A_{s}$
+\end_inset
+
+ lo que nos da 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H=A_{c}+A_{s}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{c}=A_{s}=A$
+\end_inset
+
+ entonces 
+\begin_inset Formula $H=2A$
+\end_inset
+
+, donde 
+\begin_inset Formula $A$
+\end_inset
+
+ se define simplemente como magnitud.
+\end_layout
+
+\begin_layout Section
+Deteccion de la superficie libre en laboratorio
+\end_layout
+
+\begin_layout Subsection
+Tipo de sensores
+\end_layout
+
+\begin_layout Standard
+Existen una gran cantidad de instrumentos utilizados para medir la altura
+ de la superficie libre en laboratorio, cada uno con ventajas y desventajas
+ asociadas, donde todos requieren una buena experiencia por parte del usuario
+ para su correcta utilizacion y en general sus costos son elevados.
+ Estos se los pueden clasificar como intrusivos o no intrusivos.
+\end_layout
+
+\begin_layout Subsubsection
+Instrumentos intrusivos
+\end_layout
+
+\begin_layout Standard
+Son aquellos que se introducen dentro del canal en contacto con el medio
+ a medir.
+ Éstos tienen como desventaja que con el paso del tiempo, al estar en contacto
+ con el fluido, su durabilidad es menor, y en algunos casos limitan los
+ tipos de fluidos que se pueden medir (algunos instrumentos no pueden medir
+ agua salada).
+ Ademas, estos sensores son especificos para la medicion de variables en
+ un cierto rango de escala espacio-temporal, generan conflictos a la hora
+ de medir los procesos cerca de los contornos, dependen de la siembra de
+ particulas en el fluido, entre otras.
+ 
+\end_layout
+
+\begin_layout Standard
+Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
+ muestreos con alta presicion.
+\end_layout
+
+\begin_layout Standard
+Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter), que
+ es un sensor de nivel resistivo que trabaja altas frecuencias de muestro
+ por voltaje.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Completar con mas ejemplos, pedirle a paolo nombre de otros instrumentos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Instrumentos no instrusivos
+\end_layout
+
+\begin_layout Standard
+Son aquellos que no necesitan estar sumergidos ni en contacto con en el
+ fluido.
+ Algunos de estos instrumentos (como es el caso del PIV - Particle Image
+ Velocimeter -, LDV - Laser Doppler Velocimetry -), funcionan por medio
+ de sensores muy delicados como el laser, que en general, sin las precauciones
+ adecuadas, puede generar daños a los seres humanos o dañar el sensor en
+ si.
+ A su vez, dentro de esta rama de instrumentos se encuentra el presentado
+ en este trabajo, el cual utiliza tecnicas de videocamaras para detectar
+ la superficie libre.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Preguntar a paolo por otros metodos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tecnicas basadas en procesamiento de imagenes
+\end_layout
+
+\begin_layout Standard
+A diferencia de los intrsumentos tradicionales, los cuales son muy costosos
+ pero que brindan una elevada presicion de la medicion que realizan, las
+ técnicas basadas en procesamiento de imagenes (por medio de videocamaras)
+ brindan una opcion alternativa de bajo costo, que requieren de poca experiencia
+ por parte del usuario, no son peligrosos (ya que no pueden generar ningun
+ daño fisico a personas ni instrumentos en si), tienen una mayor flexibilidad
+ (aplicables a otros tipos de mediciones y a diferentes escalas espacio-temporal
+es de los procesos
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+que se refiere con 
+\begin_inset Quotes eld
+\end_inset
+
+diferentes escalas espacio-temporales
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+) y en general, su presicion es limitada por la definicion de la camara
+ utilizada, lo que a su vez, a mayor presicion, mayor costo.
+ Sin embargo, con una camara de alta definicion standard puede ser suficiente
+ para la aplicaciones ingenieriles de laboratorio, como lo es el fin de
+ este trabajo (medir la altura de ola).
+\end_layout
+
+\begin_layout Standard
+Dentro del conjunto de tecnicas basadas en procesamiento de imagenes se
+ pueden diferenciar aquellas que son en tiempo real y las que no, pero ambas,
+ a grandes rasgos siguen un mismo proceso.
+ Este proceso, que tiene como entrada una imagen determinada y como salida
+ la deteccion de alguna variable determinada (en éste caso es la altura
+ de la superficie libre) podemos describirlo como un conjunto de pasos (secuenci
+ales) o sub-procesos:
+\end_layout
+
+\begin_layout Itemize
+Rectificacion de una imagen (transformacion de la imagen real en una imagen
+ 
+\begin_inset Quotes eld
+\end_inset
+
+libre
+\begin_inset Quotes erd
+\end_inset
+
+ de errores para ser procesada luego).
+\end_layout
+
+\begin_layout Itemize
+Deteccion de contornos/bordes (se aplican diferentes algoritmos a la imagen
+ para obtener una con los bordes/contornos para un posterior analisis).
+\end_layout
+
+\begin_layout Itemize
+Analisis y procesamiento de bordes (se utiliza algun algoritmo para seleccionar
+ solo los bordes de interes).
+\end_layout
+
+\begin_layout Standard
+Dados
+\end_layout
+
+\end_body
+\end_document
