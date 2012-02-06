@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -719,6 +719,19 @@ Modelo utilizado
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Agregar alomejor algo con respecto a tiempo real
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Para este trabajo y para cada uno de los procesos mencionados anteriormente
  se propuso lo siguiente
 \begin_inset Note Note
@@ -740,7 +753,8 @@ Rectificacion de la imagen
 \series default
 : Se propuso aplicar simplemente una transformacion de perspectiva por medio
  de la seleccion por parte del usuario de 4 puntos posicionados en el plano
- de la pared del canal, los cuales delimitan la zona de trabajo a analizar.
+ de la pared del canal, los cuales delimitan la zona de trabajo a analizar
+ y transformando la imagen al tamaño completo del frame.
  
 \begin_inset Note Note
 status open
@@ -914,6 +928,393 @@ esta mas adelante
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Algoritmos involucrados
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+no se si poner esta seccion como separada, la mayoria de los algoritmos
+ son referencias a otros papers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+HACER ESTO!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Implementacion el sistema
+\end_layout
+
+\begin_layout Subsection
+Informacion general
+\end_layout
+
+\begin_layout Standard
+Para que el sistema pudiese cumplir los requerimientos planteados (detallados
+ a continuacion) se tomaron las siguientes desiciones:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lenguaje de programacion
+\series default
+: C/C++ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Librerias de procesamiento grafico
+\series default
+: OpenCV 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Librerias de interfaz grafica
+\series default
+: Qt 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Librerias adicionales
+\series default
+: Tinyxml 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
+ Qwt 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se desarrollo en el entorno Linux simplemente por comodidad, aunque todas
+ las librerias utilizadas son multiplataforma (a excepcion del modulo de
+ configuracion de camara, que solo funciona bajo la plataforma linux, pero
+ puede ser facilmente reemplazado).
+\end_layout
+
+\begin_layout Subsection
+Requerimientos principales
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+REDACTAR BIEN TODO ESTO:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como objetivo principal, el sistema debía poder capturar imagenes desde
+ una camara (web/USB) imagenes y procesarlas en tiempo real, devolviendo
+ como salida la altura de la superficie libre y el tiempo de captura de
+ la misma, para luego mostrar, un analisis de los datos procesados.
+\end_layout
+
+\begin_layout Standard
+Como requerimientos principales, el sistema debia cumplir con:
+\end_layout
+
+\begin_layout Enumerate
+Dada una camara web usb, poder capturar los datos a una determinada velocidad
+ y resolucion (no menos de 15 fps) y una alta resolucion para evitar la
+ perdida de presicion.
+\end_layout
+
+\begin_layout Enumerate
+No requerir de una 
+\begin_inset Quotes eld
+\end_inset
+
+supercomputadora
+\begin_inset Quotes erd
+\end_inset
+
+ para procesar en tiempo real los datos, ya que se intentaba abaratar costos
+ comparativos a los otros instrumentos de medicion (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+poner el porque de se uso C++ opencv
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Ser facil de utilizar y configurar (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+por eso se desarrollo una interfaz grafica con QT
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Ser flexible para futuras aplicaciones para poder medir otras variables
+ o para poder ser modificado por otras personas en un futuro.
+\end_layout
+
+\begin_layout Enumerate
+Poder mostrar y comprar los resultados actuales con los anteriores (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+por eso se realizo la ventana de analisis de postprocesso Qwt
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Aca explicamos el porque se eligio cada una de las libs.
+ REDACTAR MEJOR
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuacion se explica el porque de la toma de desiciones de cada una
+ de las librerias utilizadas para el desarrollo del software.
+\end_layout
+
+\begin_layout Standard
+Para poder cumplir con la velocidad de procesamiento (req 1,2) en una maquina
+ standard, se eligio el lenguaje C++ que tiene mayor performance en cuanto
+ a velocidades con respecto a otras opciones, ademas de que es orientado
+ a objetos y simplifico el desarrollo del sistema.
+ Ademas del lenguaje se tuvo que elegir una libreria para poder procesar
+ las imagenes en tiempo real, dentro de una gama grande de opciones, se
+ selecciono OpenCV debido a que fue especificamente desarrollada para aplicacion
+es de robotica y procesamiento de imagenes en tiempo real, ademas de que
+ existe mucha documentacion, tiene un alto grado de madurez y viene con
+ una interfaz para C++.
+ Por otro lado el sistema fue pensado para que el procesamiento de las imagenes
+ se pueda realizar en la GPU 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+, ya que OpenCV tiene un modulo de procesamiento en la GPU.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+explicar mejor que para poder cumplir con 1,2 se tomo la decision que en
+ un futuro, si se hacen procesamientos mas pesados que el que se necesitaba
+ para este trabajo, entonces iba hacer falta de procesar las imagenes en
+ la GPU.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para poder req 2 (y 5), se eligio Qt, ya que se tenian conocimientos previos
+ sobre la libreria, lo que ahorro cierto tiempo de investigacion, ademas
+ de que es potente, facil de utilizar y con interfaz para C++.
+\end_layout
+
+\begin_layout Standard
+Con respecto al requerimiento 4, esta puramente relacionado con el diseño
+ y arquitectura del sistema que se adopto, el cual se puede ver en los siguiente
+s puntos.
+\end_layout
+
+\begin_layout Subsection
+Arquitectura
+\end_layout
+
+\begin_layout Standard
+Para poder contemplar la posibilidad de desarrollar futuros sistemas para
+ analizar otras variables hidrodinamicas, teniendo en cuenta la 
+\begin_inset Quotes eld
+\end_inset
+
+amigabilidad
+\begin_inset Quotes erd
+\end_inset
+
+ con el usuario para su facil configuracion y uso del mismo, se plantio
+ la siguiente estructura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_arq_high_level.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La idea es poder encapsular cada Image Processing System (IPS) en un plugin
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+feo, cambiar esto
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En este trabajo, se diseño un IPS (llamado de ahora en mas WaveHeightIPS
+ o WHIPS) encargado de encontrar la altura de ola del fluido.
+ Como se puede ver en la foto 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref de la foto de arriba
+\end_layout
+
+\end_inset
+
+, cada IPS consta de 2 partes, la GUI (Graphical User Interface), encargada
+ principalmente de brindar una interfaz grafica amigable para la configuracion
+ del IPS Core, que tiene la responsabilidad de capturar imagenes por un
+ dispositivo (o archivo de video) y procesarla para obtener la altura de
+ ola.
+ A continuacion se detalla la estructura a grandes rasgos de como se implemento
+ el WHIPS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_arq_whips.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede observar en la imagen 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref img?
+\end_layout
+
+\end_inset
+
+, es un proceso secuencial en el que se realizan
+\end_layout
+
+\begin_layout Standard
+Este trabajo tiene como objetivo poder analizar la altura de la superficie
+ libre del fluido en un canal, esto es, la altura de ola del fluido.
+ Para 
 \end_layout
 
 \begin_layout Bibliography
