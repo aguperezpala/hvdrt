@@ -65,10 +65,67 @@ Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
 \end_layout
 
 \begin_layout Standard
+De manera esquematica, en la figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a imagen
+\end_layout
+
+\end_inset
+
+ se puede observar la energia de las ondas de superficie asociadas a cada
+ frecuencia.
+ En este trabajo se trabajara con las olas pertenecientes a las frecuencias
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar frecuencias de ondas con las que se trabajan en el lab.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_tam_olas.png
+	lyxscale 50
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref img
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Matematicamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
  ondas progresivas (se propagan en una profundidad constante manteniendo
- su forma) y ondas estacionarias (aquellas que no se propagan).
+ su forma) y ondas estacionarias (aquellas que no se propagan) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+poner cuales se trabajan en este trabajo
+\end_layout
+
+\end_inset
+
+.
  Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
  utiles para representarlas, estas son:
 \end_layout
@@ -230,7 +287,7 @@ numero de onda
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\kappa=\frac{2\Pi}{L}(1/m)$
+\begin_inset Formula $\kappa=\frac{2\pi}{L}(1/m)$
 \end_inset
 
 
@@ -253,7 +310,84 @@ definida como
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\omega=\frac{2\Pi}{T}(1/s)$
+\begin_inset Formula $\omega=\frac{2\pi}{T}(1/s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando estos parametros se puede caracterizar la superficie libre de
+ las ondas de tipo estacionarias como
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\eta(x,t)=A\cos\kappa x\cos\omega t$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref formula
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+las cuales se caracterizan por tener su evolución espacial y temporal desacoplad
+a.
+ Este tipo de ondas no progresa en el espacio oscilando verticalmente entre
+ puntos fijos llamados nodos.
+\end_layout
+
+\begin_layout Standard
+Por otro lado se encuentran las ondas progresivas, donde su movimiento temporal
+ y espacial estan acoplados, dando lugar a la siguiente formula, la cual
+ caracteriza su superficie libre
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\eta(x,t)=A\cos(\kappa x-\omega t)$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref formula
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+propagandose y manteniendo su forma en la direccion positiva del eje 
+\begin_inset Formula $x$
+\end_inset
+
+ a una velocidad 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+donde metemos la ref al libro?
+\end_layout
+
 \end_inset
 
 
@@ -264,13 +398,37 @@ Teoria lineal de ondas
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 La teoria lineal de ondas presenta numerosas ventajas con respecto a las
  otras, estas son: su simplicidad en comparacion con las otras teorias;
- el nivel de reposo coincide con el nivel medio; su caracter lineal posibilita
- la eliminacion de terminos no lineals dando a lugar soluciones mas sencillas;
- la solucion es lienal y puede ser usada como base para encontrar otras
- soluciones por superposicion(?).
+ el nivel de reposo de la onda coincide con el nivel medio; su caracter
+ lineal posibilita la eliminacion de terminos no lineals dando a lugar solucione
+s mas sencillas; la solucion es lienal y puede ser usada como base para
+ encontrar otras soluciones por superposicion.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La teoria lineal de ondas presenta numerosas ventajas con respecto a la
+ otra, principalmente debido a su simplicidad 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref libro donde explique esta teoria
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -285,20 +443,14 @@ En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
 \end_inset
 
  lo que nos da 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula $H=A_{c}+A_{s}$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
+ donde 
 \begin_inset Formula $A_{c}=A_{s}=A$
 \end_inset
 
- entonces 
+ quedando 
 \begin_inset Formula $H=2A$
 \end_inset
 
@@ -307,6 +459,853 @@ En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
 \end_inset
 
  se define simplemente como magnitud.
+\end_layout
+
+\begin_layout Standard
+Sea
+\begin_inset Formula $\Phi(x,z,t)$
+\end_inset
+
+ el 
+\shape italic
+potencial de velocidades 
+\shape default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+ref al libro
+\end_layout
+
+\end_inset
+
+, se lo puede expresar de diferentes formas, pero la estructura es siempre
+ la misma, donde se pueden identificar tres partes diferentes: (1) el módulo
+ o magnitud del potencial dado 
+\begin_inset Formula $g\frac{A}{\omega}$
+\end_inset
+
+ (siendo 
+\begin_inset Formula $g$
+\end_inset
+
+ la gravedad, 
+\begin_inset Formula $A$
+\end_inset
+
+ amplitud, 
+\begin_inset Formula $\omega$
+\end_inset
+
+ la frecuencia angular); (2) una funcion de profundidad 
+\begin_inset Formula $\cosh\kappa(h+z)/\cosh\kappa h$
+\end_inset
+
+ (donde 
+\begin_inset Formula $h$
+\end_inset
+
+ es la profundidad o calado y
+\begin_inset Formula $\kappa$
+\end_inset
+
+ el numero de onda); (3) una funcion 
+\begin_inset Formula $(\kappa x-\omega t)$
+\end_inset
+
+ que relaciona 
+\begin_inset Formula $x$
+\end_inset
+
+ con 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A este potencial le corresponde una superficie libre en 
+\begin_inset Formula $z=0$
+\end_inset
+
+ dada por
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\eta(x,t)=\frac{1}{g}(\frac{\partial\Phi}{\partial t})=A\cos(\kappa x-\omega t)=\frac{H}{2}\cos(\kappa x-\omega t)$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref formula 1.77
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta ultima expresion corresponde a una onda que se propaga con una celeridad
+ 
+\begin_inset Formula $C=\omega/\kappa=L/T$
+\end_inset
+
+ en el sentido positivo del eje 
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref al libro?
+\end_layout
+
+\end_inset
+
+.
+ A modo de ejemplo se puede observar la figura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a figura
+\end_layout
+
+\end_inset
+
+ donde dados dos tiempos 
+\begin_inset Formula $t_{1}<t_{2}$
+\end_inset
+
+, se marca el mismo punto sobre el perfil de la onda y se diferencian los
+ distintos puntos sobre el eje 
+\begin_inset Formula $x$
+\end_inset
+
+ (
+\begin_inset Formula $x_{1}$
+\end_inset
+
+y 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+), que al igual que los tiempos 
+\begin_inset Formula $t_{1},t_{2}$
+\end_inset
+
+ varian ya que las variables 
+\begin_inset Formula $x,t$
+\end_inset
+
+ se encuentran acopladas como lo indica la ecuacion 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref formula 1.77
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_propagacion_lineal_onda.png
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref figura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Oleaje irregular
+\end_layout
+
+\begin_layout Standard
+El oleaje irregular puede ser considerado como la superposicion de un gran
+ numero (o infinito) de componentes correspondientes a ondas con diferentes
+ periodos, alturas y direcciones.
+ Este conjunto de ondas forman un 
+\shape italic
+grupo de ondas 
+\shape default
+el cual se mueve con una velocidad equivalente a la mitad del promedio de
+ las velocidades de sus componentes.
+ Analogamente, la energia espectral de las olas (explicado en el siguiente
+ capitulo), no se mueve a la velocidad de la ola en si sino a la velocidad
+ del grupo de olas.
+ En la siguiente imagen 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a la img
+\end_layout
+
+\end_inset
+
+ se muestra como 2 
+\begin_inset Quotes eld
+\end_inset
+
+trenes
+\begin_inset Quotes erd
+\end_inset
+
+ de de olas (lineas punteadas y finas) interfieren formando un 
+\shape italic
+grupo de ondas 
+\shape default
+de mayor amplitud (linea gruesa).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_irregular_wave_group.png
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref img
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nuevamente basandonos en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref al libro...
+ queda bien eso 
+\begin_inset Quotes eld
+\end_inset
+
+basandonos en
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+la representacion de la superficie libre de este tipo de oleaje puede expresarse
+ como 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\eta(x,y,t)=\overset{\infty}{\underset{m=1}{\sum}}\overset{\infty}{\underset{n=1}{\sum}}A_{mn}\cos(\kappa_{m}\cos\theta_{n}x+\kappa_{m}\sin\theta_{n}y-2\pi f_{m}t+\epsilon_{mn})$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref formula
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $A_{mn}$
+\end_inset
+
+y 
+\begin_inset Formula $\epsilon_{mn}$
+\end_inset
+
+ representan la amplitud y la fase correspondiente a cada una de las componontes
+ cuyas frecuencias varian en el rango 
+\begin_inset Formula $f_{m}$
+\end_inset
+
+a 
+\begin_inset Formula $f_{m}+\Delta f_{m}$
+\end_inset
+
+ y el ángulo de incidencia en el rango 
+\begin_inset Formula $\alpha_{m}$
+\end_inset
+
+ a 
+\begin_inset Formula $\alpha_{m}+\Delta\alpha_{m}$
+\end_inset
+
+.
+ Las variables 
+\begin_inset Formula $A_{mn}$
+\end_inset
+
+ y 
+\begin_inset Formula $\epsilon_{mn}$
+\end_inset
+
+son aleatorias y 
+\begin_inset Formula $\kappa_{m}$
+\end_inset
+
+es el numero de onda asociado a la m-esima onda.
+\end_layout
+
+\begin_layout Standard
+Esta expresion sirve como base para la definicion del 
+\shape italic
+espectro de energia
+\shape default
+, el cual se explica en el siguiente capitulo.
+\end_layout
+
+\begin_layout Subsection
+Analisis del oleaje
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Genéricamente a los movimientos correspondientes a la superficie del mar,
+ que son ondas de gravedad, generadas por el viento y que se propagan desde
+ el area de generacion perdiendo lentamente energia por firccion con la
+ atmosfera y viscosidad molecular (hasta alcanzar las cosas), se lo conoce
+ como Oleaje.
+ Una manera simple de modelizar el comportamiento del oleaje es su descomposicio
+n en una suma de trenes de ondas regulares de amplitudes, periodos y direcciones
+ variables.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+alomejor agregar la fig 1 de la introduccion del volumen 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+La cantidad maxima de energia que puede existir en cada tren de ondas componente
+s del oleaje esta regulada por los procesos de rotura y de interaccion entre
+ las mismas.
+ Para el caso de las olas generadas por accion del viento, se las puede
+ clasificar como oleaje totalmente desarrollado (estado de equilibro logrado
+ bajo la accion de un viento constante sobre una superficie ilimitada) o
+ parcialmente desarrollado (oleaje en crecimiento, sucede cuando el tiempo
+ minimo o distancia minima para llegar al estado desarrollado no es alcanzada)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+ref al libro
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El analisis del oleaje se puede realizar mediante 2 aproximaciones diferentes,
+ por un lado el analisis estadistico o en el dominio de la probabilidad,
+ y por el otro lado, el analisis espectral en el dominio de la frecuencia
+ (utilizado en este trabajo).
+\end_layout
+
+\begin_layout Subsubsection
+Análisis estadístico
+\end_layout
+
+\begin_layout Standard
+En este enfoque, los parametros del oleaje (por ejemplo el desplazamiento
+ de la superficie libre) son considerados como sucesos aleatorios ordinarios.
+ Los valores medidos forman un conjunto de datos que son utilizados para
+ expresar los resultados finales mediante las funciones de distribucion
+ y densidad y los momentos estadisticos de las variables que se estan midiendo.
+\end_layout
+
+\begin_layout Standard
+Este enfoque tiene la ventaja de ser sencillo e intuitivo, pero es deficiente
+ a la hora de aportar informacion relativa a la direccion de propagacion
+ del oleaje
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref al libro
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Análisis espectral
+\end_layout
+
+\begin_layout Standard
+Tiene como objetivo la obtencion de la 
+\shape italic
+funcion de densidad espectral
+\shape default
+, la cual representa la energía total asociada a cada una de los trenes
+ de ondas en que se puede descomponer un registro de oleaje en funcion de
+ la frecuencia y de la dirección de propagación.
+ Este enfoque es mas complejo que el anterior pero es mas adecuado para
+ el analisis direccional del oleaje, lo que no quiere decir que pueda utilizado
+ en conjunto como complemento del modelo anterior.
+\end_layout
+
+\begin_layout Standard
+Existen 2 formas de obtener la 
+\shape italic
+funcion de densidad espectral 
+\shape default
+asociada a un conjunto de valores.
+ Un metodo se basa en la realización de las transformadas de Fourier de
+ la funcion de autocorrelación asociada a la variable medida en un punto
+ (por ejemplo la superficie libre) y de la función de correlación cruzada
+ entre dos variables de medida en el mismo punto, o de la misma variable
+ en dos puntos diferentes.
+ El segundo metodo se basa en descomponer el registro temporal en sus componente
+s de Fourier 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a esto
+\end_layout
+
+\end_inset
+
+, por medio de la tecnica 
+\shape italic
+Transformada Rápida de Fourier 
+\shape default
+o 
+\shape italic
+FFT
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+ref
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Descripcion espectral del oleaje
+\end_layout
+
+\begin_layout Subsubsection
+Metodo para la obtencion del espectro
+\end_layout
+
+\begin_layout Standard
+En nuestro caso, es de interes obtener el espectro dado un registro del
+ parametro 
+\begin_inset Quotes eld
+\end_inset
+
+superficie libre
+\begin_inset Quotes erd
+\end_inset
+
+ del oleaje.
+ Este registro del oleaje viene dado por la funcion 
+\begin_inset Formula $\eta(t)$
+\end_inset
+
+ (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref al libro donde sale esta funcion 2.3.1
+\end_layout
+
+\end_inset
+
+) donde nos da la altura de la superficie libre dado el tiempo 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Este metodo se basa en el teorema de Wiener - Kinchine
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a donde sea que haga falta
+\end_layout
+
+\end_inset
+
+partiendo de la funcion de autocorrelacion del registro, se aplica una transform
+ada de fourier sobre la misma y se consigue el espectro de frecuencias deseado.
+\end_layout
+
+\begin_layout Standard
+Para la realizacion de la transormada de fourier se emplea el algoritmo
+ de la 
+\shape italic
+Transformada Rapida de Fourier (FFT)
+\shape default
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+, el cual permite eficientemente transformar directamente la serie temporal
+ del registro al dominio frecuencial sin necesidad de determinar la funcion
+ de autocorrelacion del mismo.
+ El espectro de energia correspondiente a un registro dado por la funcion
+ 
+\begin_inset Formula $\eta(t)$
+\end_inset
+
+ puede calcularse realizando la 
+\shape italic
+FFT 
+\shape default
+mediante:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S(\omega)=\frac{1}{IR}\left[\overset{N}{\underset{n=1}{\sum}}\eta(n\Delta t)e^{i\omega n\Delta t}\Delta t\right]^{2}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar id
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset Formula $IR$
+\end_inset
+
+ es la longitud total del registro y 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ es el intervalo de muestreo 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref de donde salio la form?
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El registro se divide en 
+\begin_inset Formula $M$
+\end_inset
+
+ segmentos pequeños conteniendo igual cantidad de puntos (
+\begin_inset Formula $N$
+\end_inset
+
+), separados por un intervalo constante (
+\begin_inset Formula $\Delta t$
+\end_inset
+
+).
+ El resultado se obtiene promediando los espectros obtenidos en las 
+\begin_inset Formula $M$
+\end_inset
+
+ secciones.
+\end_layout
+
+\begin_layout Subsubsection
+Parametros espectrales
+\end_layout
+
+\begin_layout Standard
+Existen ciertos parametros que dan a conocer las caracteristicas principales
+ del espectro del oleaje.
+ Algunos de estos parametros aparecen frecuentemente en las funciones de
+ distribucion asociadas al oleaje.
+ A continuacion mencionaremos los mas relevantes para el caso de estudio
+ presente.
+\end_layout
+
+\begin_layout Standard
+Se define 
+\shape italic
+momento de orden n 
+\shape default
+de la funcion de densidad espectral como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m_{n}=\overset{\infty}{\underset{0}{\int}}\omega^{n}S(\omega)d\omega\,\:;n=0,1,2,...$
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otro parametro de utilidad es
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{s}=4.004\eta_{rms}=4.004\sqrt{m_{0}}$
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ es la altura de ola significante, o altura media de las 
+\begin_inset Formula $N/3$
+\end_inset
+
+ mayores olas de un registro de superficie libre compuesto de 
+\begin_inset Formula $N$
+\end_inset
+
+ olas.
+\end_layout
+
+\begin_layout Standard
+Estos parametros seran utilizados en los siguientes puntos.
+\end_layout
+
+\begin_layout Subsection
+Propiedades espectrales del oleaje: espectro de JONSWAP
+\end_layout
+
+\begin_layout Standard
+La energia espectral alcanza su maximo en la 
+\shape italic
+frecuencia de pico
+\shape default
+, 
+\begin_inset Formula $\omega=\omega_{p}$
+\end_inset
+
+ y decrece tanto hacia las altas como hacia las bajas frecuencias.
+\end_layout
+
+\begin_layout Standard
+El espectro provee una buena representacion del oleaje solo cuando este
+ puede representarse correctamente mediante la superposicion lienal de component
+es sinusoidales.
+ En el presente trabajo se trabajo con un espectro conocido como 
+\shape italic
+el espectro de JONSWAP
+\shape default
+ (JOint North Sea WAwe Project) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar ref
+\end_layout
+
+\end_inset
+
+ el cual extiende el espectro de 
+\shape italic
+Pierson-Moskowitz
+\shape default
+ (P-M) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
+ Este espectro esta basado en una extensa campaña de medidas llevada a cabo
+ en el Mar del Norte entre 1968 y 1969, el recibio una aprobacion casi inmediata
+ por parte de la comunidad cientifica una vez publicado, y es quizas el
+ mas utilizado.
+ La forma espectral propuesta es 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar ref, segun el libro Hasselmann et al.(1973)
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S(\omega)=\alpha g^{2}\omega^{-5}e^{-1.25\left(\frac{\omega}{\omega_{p}}\right)^{-4}}\gamma^{\delta}$
+\end_inset
+
+ con
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta=e^{-\frac{(\omega-\omega_{p})^{2}}{2\sigma_{0}^{2}\omega_{p}^{2}}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma_{0}=\begin{cases}
+\sigma_{0}^{1} & para\;\omega\leq\omega_{p}\\
+\sigma_{0}^{2} & para\;\omega>\omega_{p}\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Pedirle a paolo en teoria la ultima version aca
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+el espectro de JONSWAP (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+) contiene 5 parametros 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+completar esto dependiendo lo que me diga paolo, pagina 137 pdf Formula
+ 96
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Faltaria agregar el tema de como se diferencia esta teoria utilizada y todo
+ lo explicado anteriormente en laboratorio.
+ Me parece que todo asi explicado queda medio colgado, preguntarle a paolo....
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -319,9 +1318,10 @@ Tipo de sensores
 
 \begin_layout Standard
 Existen una gran cantidad de instrumentos utilizados para medir la altura
- de la superficie libre en laboratorio, cada uno con ventajas y desventajas
- asociadas, donde todos requieren una buena experiencia por parte del usuario
- para su correcta utilizacion y en general sus costos son elevados.
+ de la superficie libre del oleaje en laboratorio, cada uno con ventajas
+ y desventajas asociadas, donde todos requieren una buena experiencia por
+ parte del usuario para su correcta utilizacion y en general sus costos
+ son elevados.
  Estos se los pueden clasificar como intrusivos o no intrusivos.
 \end_layout
 
@@ -330,12 +1330,12 @@ Instrumentos intrusivos
 \end_layout
 
 \begin_layout Standard
-Son aquellos que se introducen dentro del canal en contacto con el medio
- a medir.
+Son aquellos que se introducen dentro de la zona que contiene el fluido
+ a medir, en contacto con el mismo.
  Éstos tienen como desventaja que con el paso del tiempo, al estar en contacto
- con el fluido, su durabilidad es menor, y en algunos casos limitan los
- tipos de fluidos que se pueden medir (algunos instrumentos no pueden medir
- agua salada).
+ con el medio, su durabilidad es menor, y en algunos casos limitan los tipos
+ de fluidos que se pueden medir (algunos instrumentos no pueden medir agua
+ salada).
  Ademas, estos sensores son especificos para la medicion de variables en
  un cierto rango de escala espacio-temporal, generan conflictos a la hora
  de medir los procesos cerca de los contornos, dependen de la siembra de
@@ -349,9 +1349,18 @@ Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
 \end_layout
 
 \begin_layout Standard
-Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter), que
- es un sensor de nivel resistivo que trabaja altas frecuencias de muestro
- por voltaje.
+Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+), que es un sensor de nivel resistivo que trabaja altas frecuencias de
+ muestro por voltaje.
 \begin_inset Note Note
 status open
 
@@ -372,13 +1381,32 @@ Instrumentos no instrusivos
 Son aquellos que no necesitan estar sumergidos ni en contacto con en el
  fluido.
  Algunos de estos instrumentos (como es el caso del PIV - Particle Image
- Velocimeter -, LDV - Laser Doppler Velocimetry -), funcionan por medio
- de sensores muy delicados como el laser, que en general, sin las precauciones
- adecuadas, puede generar daños a los seres humanos o dañar el sensor en
- si.
+ Velocimeter -
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref?
+\end_layout
+
+\end_inset
+
+, LDV - Laser Doppler Velocimetry -
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref?
+\end_layout
+
+\end_inset
+
+), funcionan por medio de sensores muy delicados como el laser, que en general,
+ sin las precauciones adecuadas, puede generar daños a los seres humanos
+ o dañar el sensor en si.
  A su vez, dentro de esta rama de instrumentos se encuentra el presentado
- en este trabajo, el cual utiliza tecnicas de videocamaras para detectar
- la superficie libre.
+ en este trabajo, el cual utiliza tecnicas de procesamiento de imagenes
+ para detectar la superficie libre.
 \begin_inset Note Note
 status open
 
@@ -429,6 +1457,9 @@ diferentes escalas espacio-temporales
 \end_layout
 
 \begin_layout Standard
+
+\shape italic
+\color red
 Las tecnicas analizadas en este trabajo se basan en el modelo de camaras
  
 \begin_inset Quotes eld
@@ -479,9 +1510,9 @@ Dentro del conjunto de tecnicas basadas en procesamiento de imagenes se
  pueden diferenciar aquellas que son en tiempo real y las que no, pero ambas,
  a grandes rasgos siguen un mismo proceso.
  Este proceso, que tiene como entrada una imagen y como salida la deteccion
- de alguna variable determinada (en éste caso es la altura de la superficie
- libre) podemos describirlo como un conjunto de pasos (secuenciales) o sub-proce
-sos:
+ de alguna variable determinada (altura de la superficie libre) podemos
+ describirlo, a grandes rasgos, como un conjunto de pasos (secuenciales)
+ o sub-procesos:
 \end_layout
 
 \begin_layout Itemize
@@ -489,17 +1520,17 @@ Rectificacion.
 \end_layout
 
 \begin_layout Itemize
-Deteccion de contornos/bordes.
+Detección de contornos.
 \end_layout
 
 \begin_layout Itemize
-Analisis y procesamiento de bordes (se utiliza algun algoritmo para seleccionar
- solo los bordes de interes).
+Analisis y procesamiento.
 \end_layout
 
 \begin_layout Standard
 Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
  y utilizando diferentes algoritmos o modelos matematicos.
+ A continuacion se explican en mayor detalle cada uno de estos pasos.
 \begin_inset Note Note
 status open
 
@@ -518,14 +1549,11 @@ Rectificacion de imagen
 
 \begin_layout Standard
 Este proceso tiene como objetivo la transformacion de una imagen obtenida
- directamente desde el dispositivo y transformarla de manera tal que la
- imagen resultante contenga la menor cantidad de errores que puedan afectar
- la medicion a realizar.
-\end_layout
-
-\begin_layout Standard
-Por un lado se encuentran los errores (distorciones) introducidos por el
- dispositivo de captura de imagen, que pueden ser radiales (relacionada
+ directamente desde el dispositivo (ya sea en tiempo real o mediante un
+ archivo de video) y transformarla de manera tal que la imagen resultante
+ contenga la menor cantidad de errores.
+ Por un lado se encuentran los errores (distorciones) introducidos por el
+ dispositivo de captura de imagen (videoc, que pueden ser radiales (relacionada
  con la forma del lente de la camara) y tangenciales (provenientes del proceso
  de ensamblaje de la camara en su totalidad)
 \begin_inset CommandInset citation
@@ -535,6 +1563,7 @@ key "key-3"
 \end_inset
 
 .
+ 
 \begin_inset Note Note
 status open
 
@@ -550,7 +1579,8 @@ Aca podemos explayarnos bastante con los errores estos, no se si tiene sentido..
 \begin_layout Standard
 Por otro lado se encuentra el problema de la diferencia que existe entre
  el sistema de coordenadas del plano real el cual captura la camara y el
- sistema de coordenadas del mismo plano en la imagen de la camara
+ sistema de coordenadas del mismo plano en la imagen que el dispositivo
+ posee
 \begin_inset Note Note
 status open
 
@@ -626,31 +1656,29 @@ Preguntarle a paolo que onda esto, yo los lei pero no me los acuerdo mucho
 \end_layout
 
 \begin_layout Subsubsection
-Deteccion de contornos/bordes
+Detección de contornos
 \end_layout
 
 \begin_layout Standard
-En una primera instancia, esta etapa tiene como objetivo reducir la complejidad
- de la imagen para facilitar la posterior deteccion de contornos.
- Para lograr esto, en general, primero se convierte la imagen de entrada
- (por ejemplo RGB) a una en escalas de grises por medio de la aplicacion
- de un/os filtro/s a la imagen.
- En segundo lugar, se aplica todo filtro (o mascara) necesario para delimitar
- la zona que se quiere analizar, evitando procesar zonas que no son de interes
- y a su vez, eliminando posibles errores causados por falsos valores (esto
- es, pixels que estan marcados que son del entorno y no de la superficie
- libre en si
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-redactar mejor esto
+Esta etapa tiene como fin detectar los bordes asociados a la superficie
+ libre que se encuentran en la imagen de entrada, minimizando la deteccion
+ de bordes falsos (aquellos que pertenecen al entorno y no a la superficie
+ libre en si).
 \end_layout
 
-\end_inset
+\begin_layout Standard
+En una primera instancia, se procede a disminuir la complejidad de la imagen
+ reduciendo la cantidad de canales (colores) de la misma, en general, convirtien
+dola a una imagen monocromatica.
+\end_layout
 
-).
- Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada.
+\begin_layout Standard
+En segundo lugar, se aplican una serie de filtros (o mascaras) con el fin
+ de delimitar la zona que se quiere analizar, evitando procesar zonas que
+ no son de interes y a su vez, eliminando posibles errores causados por
+ falsos valores (esto es, los bordes falsos mencionados anteriormente).
+ Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada
+ por medio de algun algoritmo.
  Existen varios metodos utilizados para detectar los bordes, alguno de estos
  se pueden ver en 
 \begin_inset CommandInset citation
@@ -660,6 +1688,39 @@ key "key-4"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+A continuacion se muestra un ejemplo en el que la figura superior es la
+ imagen de entrada de este sub-proceso (ya rectificada) pero sin ningun
+ filtro aplicado, mientras que la figura inferior muestra la imagen de salida
+ (de esta etapa) luego de haberla procesado con el algoritmo de deteccion
+ de contornos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_comp_canny1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_comp_canny2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede ver, dependiendo del entorno de trabajo (luz, contraste de
+ la superficie libre con respecto al canal, etc), el algoritmo utilizado,
+ y los filtros aplicados, la existencia de bordes falsos puede generar mucho
+ ruido e introducir errores a la hora de medir la altura de ola.
 \end_layout
 
 \begin_layout Standard
@@ -676,23 +1737,57 @@ agregamos algo mas? medio feo esta...
 \end_layout
 
 \begin_layout Subsubsection
-Analisis y procesamiento de contornos/bordes
+Analisis y procesamiento
 \end_layout
 
 \begin_layout Standard
-Una vez detectado los bordes de la imagen, se aplica cierta heuristica para
- determinar cuales de los bordes son los correspondientes a la altura de
- la superficie libre (llamemoslos 
+Una vez detectado los bordes de la imagen y en base a los algoritmos utilizados
+ en la etapa anterior, se aplica cierta heuristica para diferenciar los
+ bordes correspondientes a la altura de la superficie libre (llamemoslos
+ 
 \shape italic
 bordes positivos
 \shape default
-), ya que en general existe una gran cantidad de bordes que no corresponden
- a la variable que se quiere analizar (lo que se denomina ruido o 
+), de aquellos que no corresponden a la variable que se quiere analizar
+ (lo que se denomina ruido o 
 \shape italic
 bordes negativos
 \shape default
-).
- Luego de lograr la deteccion de los 
+) como claramente se puede observar en la imagen anterior 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref img anterior
+\end_layout
+
+\end_inset
+
+.
+ La forma en la que se detectan estos 
+\shape italic
+bordes positivos 
+\shape default
+no es unica y esta intimamente ligado en como fue modificada la imagen en
+ la etapa anterior.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+podemos mencionar y dar ejemplos de los otros papers que por ejemplo algunos
+ detectan el contorno, otros pintan de color el contorno, otros arman un
+ arreglo de booleanos y en base a eso determiann cual es el borde.
+ etc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego de lograr la deteccion de los 
 \shape italic
 bordes positivos
 \shape default
@@ -714,8 +1809,12 @@ No vi tecnicas para esto.
 
 \end_layout
 
+\begin_layout Standard
+Es probablemente esta etapa la que mas varia de tecnica en tecnica.
+\end_layout
+
 \begin_layout Subsection
-Modelo utilizado
+Tecnicas utilizadas
 \end_layout
 
 \begin_layout Standard
@@ -732,172 +1831,459 @@ Agregar alomejor algo con respecto a tiempo real
 \end_layout
 
 \begin_layout Standard
-Para este trabajo y para cada uno de los procesos mencionados anteriormente
- se propuso lo siguiente
+En el presente trabajo podemos dividir el proceso general en cuatro sub-procesos
+ como lo muestra el siguiente diagrama 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-redactar mejor esto..
+ref diagrama
 \end_layout
 
 \end_inset
 
-:
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_tecnica_utilizada.png
+	lyxscale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede ver, el proceso (rectangulo azul) tiene como entrada una imagen
+ que puede provenir de una videocamara o de un archivo de video.
+ Dentro del proceso general se pueden diferenciar los cuatro subprocesos
+ que trabajan de manera secuencial, donde cada uno de estos tiene como entrada
+ la imagen procesada por el subproceso inmediatamente anterior.
+ Antes de continuar a explicar cada uno de los subprocesos definiremos algunas
+ cosas para una mayor comprension de lo que se explique.
+\end_layout
+
+\begin_layout Standard
+Basandonos en el siguiente esquema 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_eje_trabajo.jpg
+	lyxscale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+definiremos el 
+\shape italic
+plano de captura
+\shape default
+ como el plano formado por los ejes 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 
+\shape italic
+zona de captura: 
+\shape default
+al rectangulo capturado por la videocamara sobre la pared del canal que
+ es paralelo al plano de captura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mejor pintar el plano de captura y dibujar una camara para que se vea como
+ capturar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+alomejor esta mas facil dibujar el rectangulo de captura y definirlo aca
+ en vez de abajo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+angulo de captura:
+\shape default
+ El angulo de rotacion del a camara con respecto al 
+\shape italic
+plano de captura.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Agregar en la imagen el angulo de captura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definamos ademas a una imagen 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ como una matriz de valores numericos enteros tal que 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ es el pixel (valor numerico) que se encuentra en la i-esima fila y j-esima
+ columna, tales que 
+\begin_inset Formula $0\leq i<m$
+\end_inset
+
+ y 
+\begin_inset Formula $0\leq j<n$
+\end_inset
+
+, definamos tambien a 
+\begin_inset Formula $I_{*k}$
+\end_inset
+
+ a la columna (de pixels) k-esima de la imagen 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $0\leq k<n$
+\end_inset
+
+ y analogamente para las filas de pixels 
+\begin_inset Formula $I_{l*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
 \series bold
-Rectificacion de la imagen
-\series default
-: Se propuso aplicar simplemente una transformacion de perspectiva por medio
- de la seleccion por parte del usuario de 4 puntos posicionados en el plano
- de la pared del canal, los cuales delimitan la zona de trabajo a analizar
- y transformando la imagen al tamaño completo del frame.
+Rectificador
+\end_layout
+
+\begin_layout Standard
+Este subproceso requiere de una previa configuracion antes de poder procesar
+ la imagen de entrada.
+ Necesita de 2 grupos de 4 puntos (en dos dimensiones) correspondientes
+ los puntos de origen y de destino.
+ Los primeros estan asociados a la zona de trabajo 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+o rectangulo de captura si lo definimos arriba
+\end_layout
+
+\end_inset
+
+ que se quiere analizar (la cual debe ser un rectangulo contenido dentro
+ de la 
+\shape italic
+zona de captura
+\shape default
+ con base alineada al eje 
+\begin_inset Formula $x$
+\end_inset
+
+).
+ Mientras que el segundo grupo esta relacionado con el tamaño de la imagen
+ capturada por el dispositivo en si (esto eso, el tamaño del frame con el
+ que se trabaja).
+ El primer grupo de puntos necesita ser especificado por el usuario mientras
+ que el segundo se asigna de manera automatica.
+ 
+\end_layout
+
+\begin_layout Standard
+Debido a que el dispositivo se encuentra con un 
+\shape italic
+angulo de captura
+\shape default
+ 
+\begin_inset Formula $\alpha\neq0$
+\end_inset
+
+, la imagen tomada por el dispositivo posee una perspectiva distinta a la
+ zona de captura 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+redactar mejor esta parte
+\end_layout
+
+\end_inset
+
+, esto es, el sistema de coordenadas de la imagen en el dispositivo se encuentra
+ rotado 
+\begin_inset Formula $-\alpha$
+\end_inset
+
+ grados sobre el eje 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Para solucionar esto, y gracias a que el 
+\shape italic
+rectangulo de captura
+\shape default
+ esta alineado con el 
+\shape italic
+plano de captura
+\shape default
+, se genera una matriz de transformacion geometrica (transformacion afín
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+) por medio de los 8 puntos mencionados anteriormente, la cual mapea cada
+ pixel de la imagen origen a su nueva posicion en la imagen destino (solventando
+ el defasaje de los distintos sistemas de coordenadas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a la imagen 1 de arriba (la que muestra la perspectiva en la camara
+ y del objeto en la realidad, sacada del opencv book)
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+De esta manera se soluciona el error de la perspectiva y al mismo tiempo
+ se eliminan las zonas (a grandes rasgos) que no pertenecen al area de interes.
+ Ademas de que es una metodo sencillo y facil de configurar por parte del
+ usuario.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+En el siguiente capitulo se realiza un desarrollo mas profundo sobre el
+ algoritmo de rectificacion.
+ (sacamos lo de arriba toda la explicacion matematicay la ponemos mas adelante?)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Recortador
+\end_layout
+
+\begin_layout Standard
+Tiene como finalidad realizar un recorte aún mayor sobre la imagen de entrada.
+ Para lograrlo requiere de 2 datos previos (configuracion), estos son:
+\end_layout
+
+\begin_layout Standard
+1) 
+\begin_inset Formula $i$
+\end_inset
+
+: Es el numero de columna 
+\begin_inset Formula $I_{*i}$
+\end_inset
+
+ (columna de pixels) de la imagen de entrada 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ a la cual se quiere analizar la altura de la superficie libre (
+\begin_inset Formula $0\leq i<n$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+2) 
+\begin_inset Formula $c$
+\end_inset
+
+: Cantidad de columnas analizar, donde las columnas analizar son las 
+\begin_inset Formula $I_{*j}$
+\end_inset
+
+ con 
+\begin_inset Formula $j=i-\frac{c}{2},...,i+\frac{c}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $c>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Su funcionalidad es simplemente la siguiente: dada la imagen de entrada
+ 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ transformarla a una imagen 
+\begin_inset Formula $I'_{mc}$
+\end_inset
+
+ (de salida) reduciendo la cantidad de datos a analizar en los siguientes
+ subprocesos (ya que como requerimiento del sistema necesitamos realizar
+ todo el proceso en tiempo real).
+ Además que solo necesitamos analizar la altura de la superficie libre en
+ un punto determinado (aún asi no podemos solo dejar una unica columna para
+ analizar debido a ciertos problemas como se analizará mas adelante).
+ Por otro lado simplifica las configuraciones de los posteriores subprocesos
+ (como se vera mas adelante).
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+Detector de bordes
+\end_layout
+
+\begin_layout Standard
+Su objetivo es detectar los bordes evitando la mayor cantidad de ruido posible,
+ pero no de discernir entre 
+\shape italic
+bordes positivos
+\shape default
+ y 
+\shape italic
+bordes negativos
+\shape default
+.
+ Podemos distinguir una secuencia de acciones realizadas por este proceso.
+ Estas son:
+\end_layout
+
+\begin_layout Enumerate
+Se convierte la imagen de entrada 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ (en general color) en una imagen en blanco y negro, por medio de un simple
+ filtro de imagen, el cual se aplica a cada 
+\begin_inset Formula $a_{ij}\in I_{mn}$
+\end_inset
+
+ modificando solo su valor.
+\end_layout
+
+\begin_layout Enumerate
+Se le aplica un segundo filtro denominado 
+\shape italic
+Gaussian Blur
+\shape default
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Aca podemos agregar como es la transformacion de perspectiva, o estoy haciendo
- cualquier cosa aca???
+ref..
 \end_layout
 
 \end_inset
 
-Esta es una forma facil de obtener una rectificacion de la perspectiva de
- la imagen como asi tambien una manera agil de configurar el software 
+ con el fin de 
+\begin_inset Quotes eld
+\end_inset
+
+suavizar
+\begin_inset Quotes erd
+\end_inset
+
+ la imagen suprimiendo posible ruido (como puntos aislados debido a basuras
+ en la imagen capturada u otras cosas) para una mayor diferenciacion de
+ los bordes reales.
+ El funcionamiento de este algoritmo se explicara en el siguiente capitulo.
+\end_layout
+
+\begin_layout Enumerate
+Por ultimo se corre el algoritmo conocido por el nombre 
+\shape italic
+Algoritmo de Canny
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Justificar mejor porque elegimos esto, que en realidad, no hay motivo...
- preguntarle a paolo que onda aca
+
+\shape italic
+ref..
 \end_layout
 
 \end_inset
 
-.
+
+\shape default
+ utilizado para detectar los bordes en la imagen basado en ciertos parametros
+ previamente configurados por el usuario que seran mencionados posteriormente
+ junto con detalles del funcionamiento del algoritmo.
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Deteccion de contornos/bordes:
-\series default
- Dado que solo se necesita calcular la altura de ola, en esta etapa se realizaro
-n los siguientes pasos:
-\end_layout
-
-\begin_layout Enumerate
-Dado la zona de analisis 
-\begin_inset Formula $r$
-\end_inset
-
- (rectangulo), sea 
-\begin_inset Formula $p$
-\end_inset
-
- el punto medio sobre el eje 
-\begin_inset Formula $x$
-\end_inset
-
- de tal rectangulo, sea 
-\begin_inset Formula $m$
-\end_inset
-
- el numero de columnas (de pixels) a analizar dadas por el usuario, se genera
- un nuevo rectangulo 
-\begin_inset Formula $r'$
-\end_inset
-
- de altura igual 
-\begin_inset Formula $r$
-\end_inset
-
- y de ancho 
-\begin_inset Formula $m$
-\end_inset
-
- donde 
-\begin_inset Formula $r'.left=p_{x}-\frac{m}{2}$
-\end_inset
-
- y 
-\begin_inset Formula $r'.right=p_{x}+\frac{m}{2}$
-\end_inset
-
-.
- Este recorte se hace solo con fines de agilizar el post procesamiento de
- la imagen (descartando zonas inutiles), ya que solo queremos calcular la
- altura de ola en un punto determinado.
-\end_layout
-
-\begin_layout Enumerate
-Se aplica un filtro de imagen para convertir la imagen de entrada (a color)
- a una imagen en escalas de grises.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-meterle un link a el algoritmo utilizado?, simple filtro
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Se aplica un filtro denominado Gaussian Blur 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-agregamos link a wikipedia?
-\end_layout
-
-\end_inset
-
- con el fin de suavizar la imagen suprimiendo posible ruido para una mayor
- diferenciacion de los bordes reales con respecto a los puntos aleatorios
- en la imagen.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-probablemente explicamos mas abajo en la seccion algorithms esto?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Se aplica lo que se conoce como el algoritmo de canny
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-4"
-
-\end_inset
-
-, utilizado para la deteccion de contornos.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tenemos que justificar el porque? en realidad pas 2 a 4 venia asi en la
- libreria casi.
-\end_layout
-
-\end_inset
-
-
+Este subproceso es el que mayor tiempo de procesamiento requiere.
+ 
+\shape italic
+\color red
+Basicamente se opto por la utilizacion de este algoritmo debido a que la
+ libreria con la que se trabajo no proveia de otro algoritmo integrado para
+ detectar bordes.
+ Aún asi, al ser el proceso de manera secuencial e independiente cada uno
+ con respecto a los otros, cambiar de algoritmo solo deberia implicar la
+ modificacion de este único subproceso (modulo).
 \end_layout
 
 \begin_layout Standard
@@ -1424,6 +2810,28 @@ Edge Detection Techniques: Evaluations and Comparisons
 .
  Applied Mathematical Sciences, Vol.
  2, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+S.
+ Barreto Melo.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Transformaciones geométricas sobre imágenes digitales
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Universidad Distrital Francisco José de Caldas.
+ 
 \end_layout
 
 \end_body
