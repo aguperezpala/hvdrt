@@ -1994,6 +1994,20 @@ Definamos ademas a una imagen
 \end_inset
 
 .
+ Dada una imagen 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{00}\in I_{mn}$
+\end_inset
+
+ corresponde al pixel superior izquierdo de la imagen mientras que el pixel
+ 
+\begin_inset Formula $a_{mn}\in I_{mn}$
+\end_inset
+
+ al inferior derecho.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2073,11 +2087,14 @@ rectangulo de captura
 \shape italic
 plano de captura
 \shape default
-, se genera una matriz de transformacion geometrica (transformacion afín
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
+, se genera una matriz de transformacion de perspectiva (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a http://java.sun.com/products/java-media/jai/forDevelopers/jai1_0_1guide-unc/
+Geom-image-manip.doc.html?
+\end_layout
 
 \end_inset
 
@@ -2274,6 +2291,37 @@ ref..
 \end_layout
 
 \begin_layout Standard
+Al finalizar esta secuencia de pasos, podemos asumir que la imagen 
+\begin_inset Formula $I'_{mn}$
+\end_inset
+
+ de salida, cumple lo siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall a_{ij}\in I_{mn}:\begin{cases}
+a_{ij}=1 & si\; a_{ij}\: pertenece\: a\: un\: contorno\\
+a_{ij}=0 & caso\: contrario.\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dicho de otra manera, la imagen de salida 
+\begin_inset Formula $I'_{mn}$
+\end_inset
+
+ pasa a ser una matriz de valores booleanos donde los 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ (pixels) perteneciente a la misma, contienen el valor verdadero si y solo
+ si forman parte de un contorno detectado por el algoritmo, caso contrario,
+ contienen el valor booleano falso.
+\end_layout
+
+\begin_layout Standard
 Este subproceso es el que mayor tiempo de procesamiento requiere.
  
 \shape italic
@@ -2286,44 +2334,902 @@ Basicamente se opto por la utilizacion de este algoritmo debido a que la
  modificacion de este único subproceso (modulo).
 \end_layout
 
+\begin_layout Subsubsection
+Analizador
+\end_layout
+
+\begin_layout Standard
+El objetivo del 
+\shape italic
+Analizador
+\shape default
+ es: dada la imagen 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ preprocesada por el algoritmo de deteccion de contornos, decidir cuales
+ de éstos 
+\begin_inset Formula $a_{ij}\in I_{mn}$
+\end_inset
+
+(pixeles) marcados como verdaderos (recordando que son verdaderos si y solo
+ si pertenecen a un contorno detectado) son 
+\shape italic
+bordes positivos 
+\shape default
+y cuales son 
+\shape italic
+bordes negativos
+\shape default
+.
+ Para lograrlo, este subproceso se basa en un simple algoritmo explicado
+ en el siguiente capitulo 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref al algoritmo
+\end_layout
+
+\end_inset
+
+ y una serie de parametros que sirven de base como configuracion inicial
+ (suministrados por el usuario).
+ 
+\end_layout
+
+\begin_layout Standard
+Una vez detectado los 
+\shape italic
+bordes positivos
+\shape default
+, se realiza una conversion de unidades, pasando de 
+\begin_inset Quotes eld
+\end_inset
+
+altura de superficie libre en pixels
+\begin_inset Quotes erd
+\end_inset
+
+ a 
+\begin_inset Quotes eld
+\end_inset
+
+altura de superficie libre en metros
+\begin_inset Quotes erd
+\end_inset
+
+, por medio de uno de los parametros de configuracion que establece la relacion
+ de equivalencia de pixels en metros.
+\end_layout
+
+\begin_layout Standard
+A diferencia de las otras etapas, ésta tiene como salida un valor numerico
+ (y no una imagen), que es la salida del proceso completo, esto es, la altura
+ de la superficie libre detectada y convertida en metros.
+\end_layout
+
+\begin_layout Section
+Algoritmos involucrados
+\end_layout
+
+\begin_layout Standard
+En esta seccion describiremos las bases teoricas de los algoritmos utilizados
+ en este trabajo a lo largo del proceso de la deteccion de la superficie
+ libre.
+ Se mencionaran en el orden en el que son aplicados sobre la imagen de entrada
+ 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ del proceso, proviniente ya sea del dispositivo (videocamara) o de un archivo
+ de video.
+\end_layout
+
+\begin_layout Subsection
+Perspective transform
+\end_layout
+
+\begin_layout Standard
+Se basa en una transformacion de perspectiva (por medio de una matriz de
+ transofrmacion 
+\begin_inset Formula $T$
+\end_inset
+
+) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref algun lado..
+ http://java.sun.com/products/java-media/jai/forDevelopers/jai1_0_1guide-unc/Geom-
+image-manip.doc.html
+\end_layout
+
+\end_inset
+
+ sobre la imagen de entrada 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ dando como resultado una imagen 
+\begin_inset Formula $I'_{mn}$
+\end_inset
+
+ donde cada pixel 
+\begin_inset Formula $a'_{i'j'}\in I'_{mn}$
+\end_inset
+
+ puede ser expresado en terminos del punto original 
+\begin_inset Formula $a_{ij}\in I_{mn}$
+\end_inset
+
+, utilizando coordenadas homogeneas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref a coordenadas homogeneas
+\end_layout
+
+\end_inset
+
+ de forma tal que las coordenadas origen 
+\begin_inset Formula $(i,j,1)$
+\end_inset
+
+ pasen a ser las coordenadas destinos 
+\begin_inset Formula $(i',j',w)$
+\end_inset
+
+ para algun 
+\begin_inset Formula $w$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{cases}
+i'=\frac{m_{00}i+m_{01}j+m_{02}}{m_{20}i+m_{21}j+m_{22}}\\
+j'=\frac{m_{10}i+m_{11}j+m_{12}}{m_{20}i+m_{21}j+m_{22}}\end{cases}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref eq1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T=\left(\begin{array}{ccc}
+m_{00} & m_{01} & m_{02}\\
+m_{10} & m_{11} & m_{12}\\
+m_{20} & m_{21} & m_{22}\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+es la matriz de transformacion, entonces podemos expresar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\begin{array}{c}
+i'\\
+j'\\
+w\end{array}\right)=\left(\begin{array}{ccc}
+m_{00} & m_{01} & m_{02}\\
+m_{10} & m_{11} & m_{12}\\
+m_{20} & m_{21} & m_{22}\end{array}\right)\left(\begin{array}{c}
+i\\
+j\\
+1\end{array}\right)=\left(\begin{array}{c}
+m_{00}i+m_{01}j+m_{02}\\
+m_{10}i+m_{11}j+m_{12}\\
+m_{20}i+m_{21}j+m_{22}\end{array}\right)$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref from Multiplicacion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+y cada uno de los 
+\begin_inset Formula $m_{ab}$
+\end_inset
+
+ se calculan en base a los 8 puntos bidimensionales de configuracion, 4
+ de origen (llamemoslos 
+\begin_inset Formula $p_{o_{k}}:k=1,..,4$
+\end_inset
+
+), con sus 4 puntos de destino correspondientes (
+\begin_inset Formula $p_{d_{k}}:k=1,..,4$
+\end_inset
+
+) resolviendo un sistema lineal de ecuaciones como se lo puede ver en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+imgwrap.cpp de openCv sale como es la matriz monstruosa.
+ Deberiamos buscar algun lugar donde se pueda ver mejor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notar que asumimos que los puntos 
+\begin_inset Formula $i'$
+\end_inset
+
+, 
+\begin_inset Formula $j'$
+\end_inset
+
+ obtenidos luego de multiplicar la matriz de transformacion sobre los puntos
+ origen 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $j$
+\end_inset
+
+, caen dentro de una imagen de igual tamaño, esto es 
+\begin_inset Formula $0\leq i,i'<m$
+\end_inset
+
+ y 
+\begin_inset Formula $0\leq j,j'<n$
+\end_inset
+
+, lo que siempre sucede debido a que los puntos origen y puntos destino
+ se encuetran dentro del tamaño de la imagen.
+\end_layout
+
+\begin_layout Standard
+Con todo esto, el algoritmo simplemente se puede describir como sigue:
+\end_layout
+
+\begin_layout Enumerate
+Establecidos los 8 puntos de configuracion (
+\begin_inset Formula $p_{o_{k}},p_{d_{k}}:k=1,..,4$
+\end_inset
+
+), se contruye la matriz de transformacion de perspectiva 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Para cada pixel 
+\begin_inset Formula $a_{ij}\in I_{mn}$
+\end_inset
+
+ se obtiene su nueva posicion en la imagen de salida 
+\begin_inset Formula $I'_{mn}$
+\end_inset
+
+utilizando la matriz 
+\begin_inset Formula $T$
+\end_inset
+
+ como se muestra en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref form Multiplicacion
+\end_layout
+
+\end_inset
+
+ copiandose el valor del pixel (
+\begin_inset Formula $a'_{i'j'}=a_{ij}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Este algoritmo es utilizado para la rectificacion de la imagen al comienzo
+ del proceso.
+ 
+\end_layout
+
+\begin_layout Subsection
+Gaussian Blur
+\end_layout
+
+\begin_layout Standard
+Este algoritmo, tambien conocido como 
+\shape italic
+Gaussian smoothing
+\shape default
+, se lo puede categorizar como un 
+\begin_inset Quotes eld
+\end_inset
+
+low-pass image filter
+\begin_inset Quotes erd
+\end_inset
+
+, que tiene como finalidad disminuir la amplitud de las variaciones de la
+ imagen (ruido)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+, especialmente utilizado en la fase previa a los algoritmos que detectan
+ bordes o contornos.
+\end_layout
+
+\begin_layout Standard
+Para comprender mejor el funcionamiento del algoritmo expliquemos algunos
+ conceptos utilizados:
+\end_layout
+
 \begin_layout Standard
 
-\series bold
-Analisis y procesamiento de contornos/bordes:
-\series default
- En esta etapa se decidio desarrollar un algoritmo simple que sea robusto
- a posibles errores de la imagen, donde se tuvo en cuenta la posibilidad
- de que en algunas imagenes procesadas no se encontrasen bordes.
- El algoritmo se explica en la siguiente seccion.
+\shape italic
+Kernel
+\shape default
+ o 
+\shape italic
+Mask
+\shape default
+: Usualmente una matriz de numeros usada en lo que se denomina 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+image convolution
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Convolution
+\shape default
+:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+Es una simple operacion matematica que provee una forma de multiplicar entre
+ si 2 arrays de numeros, generalmente de diferentes tamaños pero de igual
+ dimension produciendo un tercer array (resultado) de numeros de la misma
+ dimension.
+ En éste caso (procesamiento de imagenes), los arrays numericos multiplicados
+ son por un lado la imagen 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ (que puede verse como un array numerico bidimensional) y por el otro lado
+ la matriz 
+\shape italic
+kernel
+\shape default
+, dando como resultado, la imagen con el suavizado aplicado.
+ Para una mayor claridad observemos la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_convolution_kernel.png
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a izquierda imagen, a derecha kernel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La 
+\shape italic
+convolucion 
+\shape default
+es realizada deslizando el kernel (empezando generalmente desde por arriba
+ a la izquierda) sobre todos los pixels de la imagen de forma tal que la
+ matriz kernel entre completamente dentro de los limites de la imagen, devolvien
+do en cada posicion (que se desliza el kernel) un unico valor correspondiente.
+ A modo de ejemplo en el caso del ultimo pixel (abajo a la derecha) el resultado
+ de la operacion seria 
+\begin_inset Formula $O_{57}=I_{57}K_{11}+I_{58}K_{12}+I_{59}K_{13}+I_{67}K_{21}+I_{68}K_{22}+I_{69}K_{23}$
+\end_inset
+
+, donde 
+\begin_inset Formula $O_{57}$
+\end_inset
+
+ es el resultado de esta operación.
+ Notemos que si la imagen de entrada tiene M filas y N columnas, y el kernel
+ tiene m filas y n columnas, entonces el tamaño de la imagen de salida tendrá
+ M-m+1 filas y N-n+1 columnas.
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Distribucion gaussiana 1D:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{x^{2}}{2\sigma^{2}}}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref f1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Distribucion gaussiana 2D:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G(x,y)=\frac{1}{2\pi\sigma^{2}}e^{-\frac{x^{2}+y^{2}}{2\sigma^{2}}}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref f2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La idea es usar esta distribucion 2D (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref f2
+\end_layout
+
+\end_inset
+
+) como una funcion del tipo 
+\begin_inset Quotes eld
+\end_inset
+
+punto de propagacion
+\begin_inset Quotes erd
+\end_inset
+
+, por medio de la 
+\shape italic
+convolucion
+\shape default
+.
+ Dicho en otras palabras, armar la matriz kernel utilizando la 
+\shape italic
+distribucion gaussiana
+\shape default
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-porque de esto? esto de que 
-\begin_inset Quotes eld
-\end_inset
-
-esta mas adelante
-\begin_inset Quotes erd
-\end_inset
-
- va aca? ta medio feo.
+ref f2
 \end_layout
 
 \end_inset
 
-
+ para luego aplicar la 
+\shape italic
+convolucion
+\shape default
+ y obtener la imagen resultante
+\shape italic
+.
 \end_layout
 
-\begin_layout Section
-Algoritmos involucrados
+\begin_layout Standard
+Por temas de eficiencia en general, y gracias a que 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-no se si poner esta seccion como separada, la mayoria de los algoritmos
- son referencias a otros papers
+ref f2
+\end_layout
+
+\end_inset
+
+ puede separarse en las componentes 
+\begin_inset Formula $x$
+\end_inset
+
+ e 
+\begin_inset Formula $y$
+\end_inset
+
+ (dandonos 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref f1
+\end_layout
+
+\end_inset
+
+), podemos aplicar la 
+\shape italic
+convolucion 
+\shape default
+primero en la direccion 
+\begin_inset Formula $x$
+\end_inset
+
+ y luego en la direccion 
+\begin_inset Formula $y$
+\end_inset
+
+ por medio de 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref f1
+\end_layout
+
+\end_inset
+
+, obteniendo el mismo resultado que habiendo aplicado 
+\shape italic
+convolucion
+\shape default
+ con 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref f2
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Este algoritmo da como resultado (en cada corrida de la convolucion) un
+ promedio ponderado de cada pixel vecino, con la media ponderada mas hacia
+ el valor de los pixeles centrales.
+ Utiliza ademas ciertos parametros que determinan el tamaño de la kernel
+ y el sigma utilizado (los cuales, en este trabajo, fueron predefinidos
+ como una kernel de tamaño 7x7 y 
+\begin_inset Formula $\sigma=1.5$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tenemos que explicar porque pusimos estos valoreS? estaban por defecto en
+ la lib..
+ si no sacamos esta ultima parte!
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+A modo de ejemplo, se muestran dos imagenes, una (la izquierda) antes y
+ la otra (derecha) luego de haber aplicado el filtro (extraidas de 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_gaussian_comp.png
+	lyxscale 80
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar comments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Canny edge detector
+\end_layout
+
+\begin_layout Standard
+Este algoritmo fue desarrollado por John F.
+ Canny
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+ en 1986, tiene como finalidad detectar los bordes en una imagen, filtrando
+ todo aquello que no pertenezca a un contorno.
+ El algoritmo se basa en 5 pasos separados:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Smoothing
+\series default
+: Suavizar la imagen para remover el ruido utilizando el filtro gaussiano
+ anteriormente mencionado 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref?
+\end_layout
+
+\end_inset
+
+ con parametro 
+\begin_inset Formula $\sigma=1.4$
+\end_inset
+
+ y un kernel de tamaño 5x5.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Finding gradients
+\series default
+: Los bordes deben ser marcados donde los gradientes de la imagen tengan
+ magnitudes grandes por medio de utilizacion de alguno de los 
+\begin_inset Quotes eld
+\end_inset
+
+operadores de gradiente
+\begin_inset Quotes erd
+\end_inset
+
+ como (Roberts 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+, Sobel 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+, Prewitt 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+, entre otros).
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Non-maximum suppression
+\series default
+: Dada la imagen de magnitudes de gradientes calculada en el paso anterior,
+ se convierten los bordes encontrados pero borrosos, en bordes bien marcados
+ (fuertes).
+ Esto se hace por medio de la eliminacion de todo maximo que no sea local
+ en la imagen de gradientes y dejando solo los maximo locales, los cuales
+ son marcados como contornos fuertes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Double thresholding
+\series default
+: La imagen resultante del paso anterior es procesada comparando cada uno
+ de los pixels (marcados como pertenecientes a un contorno) con un umbral
+ alto y uno bajo.
+ Aquellos pixels que esten por debajo del 
+\begin_inset Quotes eld
+\end_inset
+
+umbral bajo
+\begin_inset Quotes erd
+\end_inset
+
+ son descartados, aquellos que esten por encima del 
+\begin_inset Quotes eld
+\end_inset
+
+umbral alto
+\begin_inset Quotes erd
+\end_inset
+
+ son marcados como 
+\shape italic
+fuertes
+\shape default
+, mientras que aquellos que se encuentren por encima del bajo y por debajo
+ del alto son marcados como 
+\shape italic
+debiles
+\shape default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Edge tracking by hysteresis
+\series default
+: Dada la imagen anterior, todos los pixels marcados como 
+\shape italic
+fuertes 
+\shape default
+son automaticamente clasificados como contornos reales (y por ende incluidos
+ a la imagen resultante).
+ Aquellos pixels marcados como 
+\shape italic
+debiles
+\shape default
+ son incluidos como contornos reales si y solo si estan conectados a alguno
+ de los contornos 
+\shape italic
+fuertes
+\shape default
+, caso contrario son descartados.
+\end_layout
+
+\begin_layout Standard
+En 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+ y en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref2
+\end_layout
+
+\end_inset
+
+ se describe en mayor detalle cada uno de los pasos mencionados anteriormente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+PREGUNTARLE A PAOLO SI EXPLICO TODO ENTERO PORQUE ES UN RESUMEN DEL MANUAL
+ ESE MAS O MENOS...
+ AL DOPE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Wave height analyzer
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Este nombre lo invente yo al igual que el primero, como hago con esto? este
+ algoritmo lo invente yo...
 \end_layout
 
 \end_inset
@@ -2332,16 +3238,224 @@ no se si poner esta seccion como separada, la mayoria de los algoritmos
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-HACER ESTO!
+Este algoritmo tiene como finalidad determinar cual de todos los contornos
+ que se encuentran en la imagen corresponde a la altura de ola que se este
+ analizando.
+ Para lograrlo requiere de la siguiente informacion.
 \end_layout
 
+\begin_layout Standard
+Sea 
+\begin_inset Formula $I_{mn}$
 \end_inset
 
+ la imagen de entrada, preprocesada de manera tal que 
+\begin_inset Formula $I_{mn}\ni a_{ij}=1$
+\end_inset
 
+ si y solo si 
+\begin_inset Formula $a_{ij}$
+\end_inset
+
+ pertenece a un contorno detectado (por simplicidad asumamos 
+\begin_inset Formula $n$
+\end_inset
+
+ impar).
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $h_{0}$
+\end_inset
+
+ el valor de la altura de ola inicial en pixels, esto es, el numero de fila
+ en la imagen 
+\begin_inset Formula $I_{mn}$
+\end_inset
+
+ en la que se encuentra la altura inicial (
+\begin_inset Formula $0\leq h_{0}<m$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $V$
+\end_inset
+
+ una constante numerica predefinida representando la maxima variancia de
+ altura de ola aceptable en pixels (esto es la cantidad maxima de pixels
+ aceptables que puede cambiar la ola de un paso al otro).
+\end_layout
+
+\begin_layout Standard
+Se asume ademas que el movimiento de la ola se realiza sobre el eje 
+\begin_inset Formula $y$
+\end_inset
+
+, esto es, dada la columna k-esima (
+\begin_inset Formula $I_{*k}$
+\end_inset
+
+) de la imagen, podemos observar la diferencia de altura a medida que nos
+ movemos verticalmente sobre las diferentes filas de 
+\begin_inset Formula $I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que como objetivo principal, este algoritmo debe obtener
+ la altura de ola en un punto determinado de la imagen (esto es, en una
+ columna determinada), se asume que este punto se encuentra sobre la columna
+ 
+\begin_inset Formula $\frac{m}{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Podemos describir entonces el funcionamiento del algoritmo como:
+\end_layout
+
+\begin_layout Enumerate
+Para cada columna 
+\begin_inset Formula $I_{*k}:0\leq k<n$
+\end_inset
+
+, sea 
+\begin_inset Formula $\bar{w}_{k}$
+\end_inset
+
+ la ultima altura calculada en la k-esima columna, buscamos la nueva altura
+ 
+\begin_inset Formula $w_{k}$
+\end_inset
+
+de la siguiente forma: Partiendo de 
+\begin_inset Formula $a_{\bar{w}_{k}k}\in I_{mn}$
+\end_inset
+
+, buscamos el 
+\begin_inset Formula $i$
+\end_inset
+
+ tal que se cumpla 
+\begin_inset Formula $a_{ik}=1\wedge\left|i-\bar{w}_{k}\right|\leq\left|j-\bar{w}_{k}\right|\forall j=0..m:\; a_{jk}=1$
+\end_inset
+
+, asignando entonces 
+\begin_inset Formula $w_{k}=a_{ik}$
+\end_inset
+
+, en caso de que tal 
+\begin_inset Formula $i$
+\end_inset
+
+ no exista, 
+\begin_inset Formula $w_{k}=\bar{w}_{k}$
+\end_inset
+
+.
+ En palabras, esto no es mas que encontrar el pixel marcado como verdadero
+ que se encuentre mas cercano (en posicion) a la ultima altura calculada
+ (
+\begin_inset Formula $\bar{w}_{k}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $k=\frac{m}{2}$
+\end_inset
+
+ la columna de mayor importancia (la que se esta analizando), se calcula
+ la varianza 
+\begin_inset Formula $v=\left|w_{k}-\bar{w}_{k}\right|$
+\end_inset
+
+.
+ Si 
+\begin_inset Formula $v\leq V$
+\end_inset
+
+ se termina el algoritmo y se devuelve 
+\begin_inset Formula $v$
+\end_inset
+
+, caso contrario se continua con el siguiente paso.
+\end_layout
+
+\begin_layout Enumerate
+Sea 
+\begin_inset Formula $k=\frac{m}{2}$
+\end_inset
+
+, calculan las 
+\begin_inset Formula $v_{i}=\left|w_{k-i}-\bar{w}_{k-i}\right|+\left|w_{k+i}-\bar{w}_{k+i}\right|,\; i=1,..,k-1$
+\end_inset
+
+ y se elije el 
+\begin_inset Formula $i$
+\end_inset
+
+ tale que 
+\begin_inset Formula $v_{i}\leq\min\{v_{j}\}:\: j=1,..,k-1$
+\end_inset
+
+.
+ Una vez encontrado este 
+\begin_inset Formula $i$
+\end_inset
+
+ se calcula la altura promedio entre estas 2 ultimas alturas de las columnas
+ correspondientes, esto es, 
+\begin_inset Formula $h=\frac{w_{k-i}+w_{k+i}}{2}$
+\end_inset
+
+ y devolvemos 
+\begin_inset Formula $h$
+\end_inset
+
+ como altura.
+\end_layout
+
+\begin_layout Standard
+Cada vez que finaliza el algoritmo se actualizan las ultimas alturas encontradas
+ para evitar acumulacion de error.
+ 
+\end_layout
+
+\begin_layout Standard
+Las 
+\begin_inset Formula $\bar{w_{k}}$
+\end_inset
+
+de cada una de las columnas, son inicializadas por defecto con el valor
+ 
+\begin_inset Formula $h_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\color red
+Puede parecer que el paso 3 agrega complejidad inecesaria pero debido a
+ que en ciertas situaciones (por problemas de luz o de entorno), la deteccion
+ de contornos no se realiza correctamente evitando la deteccion de la ola
+ (no se encuentra ningun contorno).
+ Es por esto que hay que hacer el algoritmo lo mas robusto posible.
 \end_layout
 
 \begin_layout Section
@@ -2832,6 +3946,27 @@ Transformaciones geométricas sobre imágenes digitales
 .
  Universidad Distrital Francisco José de Caldas.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Rob11"
+key "key-1"
+
+\end_inset
+
+Robert Laganière.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+OpenCV 2 Computer Vision Application Programming Cookbook
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 2011
 \end_layout
 
 \end_body
