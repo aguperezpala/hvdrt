@@ -25,7 +25,7 @@ public:
 
     int getNumPoints(void) const {return mValues.size();}
 
-    const double getCantSeconds(void) const {return mCantSeconds;}
+    double getCantSeconds(void) const {return mCantSeconds;}
 
     void addNewPoint(double x, double y);
 

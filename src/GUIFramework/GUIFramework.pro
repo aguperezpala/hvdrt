@@ -1,7 +1,8 @@
 TEMPLATE = app
 CONFIG += qwt
 TARGET = GUIFramework
-#DEFINES += DEBUG
+
+# DEFINES += DEBUG
 QMAKE_CXX += -g
 QT += core \
     gui
@@ -117,6 +118,7 @@ INCLUDEPATH += Utils \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer \
     IPSModule/IPSs/GUIWaveHeightIPS \
     CommonConfigWindows/DataAnalyzeWindow \
+    MainProgram \
     ConfigWindowManager
 HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     CommonConfigWindows/VideoFileConfigWindow/videofileconfigwindow.h \
@@ -132,7 +134,9 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.h \
+HEADERS += MainProgram/IPSFactory.h \
+    MainProgram/MainProgram.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.h \
     CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
     CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.h \
@@ -145,7 +149,9 @@ HEADERS += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataD
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
+SOURCES += MainProgram/IPSFactory.cpp \
+    MainProgram/MainProgram.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.cpp \
     CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
     CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.cpp \

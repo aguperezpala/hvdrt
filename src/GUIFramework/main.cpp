@@ -31,6 +31,9 @@
 
 #include "dataanalyzewindow.h"
 
+#include "MainProgram.h"
+#include "IPSFactory.h"
+
 
 // load/save config tester
 static bool testLoadSaveConfig(ConfigWindow &cw)
@@ -289,6 +292,9 @@ static void testDataAnalyzeWindow(QApplication &a)
 
 
 
+
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -314,8 +320,28 @@ int main(int argc, char *argv[])
 //    testGuiMiddlePointClipping(a);
 //    testGuiRealTimeDataDisplayer(a);
 //    testDataAnalyzeWindow(a);
-    WaveHeightTest(a);
+//    WaveHeightTest(a);
 
 //	xmltest();
+
+
+    MainProgram mp;
+    IPSFactory factory(a.desktop()->width(),a.desktop()->height());
+
+    errCode err = mp.loadProcessingSystems(&factory);
+    if(err != NO_ERROR){
+    	debug("Error trying to load from factory\n");
+    	return -1;
+    }
+
+    while(1){
+		// execute the waveheightIPS
+		err = mp.execute(WHIPS_NAME);
+		if(err != NO_ERROR){
+			debug("Some error ocurr when executing WHIPS: %d\n", err);
+			return -1;
+		}
+    }
+
     return 0;
 }
