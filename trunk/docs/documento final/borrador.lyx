@@ -45,6 +45,11 @@
 Introduccion
 \end_layout
 
+\begin_layout Standard
+Tenemos que poner en algun lado que en el lab se contaba con horus pero
+ no era tiempo real, y los problemas que tenia, etc.
+\end_layout
+
 \begin_layout Section
 Fundamentos de hidrodinamica marina
 \end_layout
@@ -3459,16 +3464,160 @@ Puede parecer que el paso 3 agrega complejidad inecesaria pero debido a
 \end_layout
 
 \begin_layout Section
-Implementacion el sistema
-\end_layout
-
-\begin_layout Subsection
-Informacion general
+Implementacion y funcionamiento el sistema
 \end_layout
 
 \begin_layout Standard
-Para que el sistema pudiese cumplir los requerimientos planteados (detallados
- a continuacion) se tomaron las siguientes desiciones:
+Tendriamos que poner en algun lado (no se donde) el tema de cuales fueron
+ los problemas a solucionar y como se fueron solucionando, por ejemplo:
+ buscar una camara de forma tal que cumpla con lo que se queria y ademas
+ funcione en linux (en ningun lado pusimos esto que llevo bastante tiempo).
+ Elegir una libreria de manejo de imagenes que sirviese.
+\end_layout
+
+\begin_layout Subsection
+Requerimientos principales
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+REDACTAR BIEN TODO ESTO:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como objetivo principal, el sistema debía poder capturar la altura de la
+ superficie libre del fluido a medir desde una camara (web/usb) y lograrlo
+ en tiempo real.
+ A continuacion se listan los requerimientos mas importantes que el sistema
+ debia cumplir:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+REQ1:
+\series default
+ Dada una camara web usb, poder capturar y procesar las imagenes a una velocidad
+ no inferior a 15 fps (o 15 capturas por segundo) y una resolucion que permita
+ una deteccion de altura con no mas de 0.5 cm de error.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+REQ2:
+\series default
+ El sistema debía funcionar en una maquina estandar (esto es, que no se
+ requiera de una supercomputadora para lograr la velocidad de procesamiento),
+ ya que, como se menciono anteriormente, una de las ventajas del sistema
+ era su bajo costo.(
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+poner el porque de se uso C++ opencv abajo
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+REQ3:
+\series default
+ Ser facil de utilizar y configurar por cualquier persona (que no posea
+ conocimientos previos) que use el sistema.(
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+por eso se desarrollo una interfaz grafica con QT
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+REQ4:
+\series default
+ Tener una estructura (arquitectura) flexible que posibilite el desarrollo
+ de futuras aplicaciones (que midan otras variables hidrodinamicas) o ser
+ modificado por otras personas en el futuro.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+REQ5:
+\series default
+ Contar con una interfaz grafica que permita mostrar los datos procesados
+ y además la posibilidad de compararlos con los obtenidos 
+\color red
+por el otro sistema de medicion que actualmente esta siendo utilizado (Acoustic
+ Doppler Velocimeter 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+)
+\color inherit
+ (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+por eso se realizo la ventana de analisis de postprocesso Qwt
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Debido a que no existia ninguna restriccion sobre el lenguaje de programacion
+ a utilizar, entorno sobre el cual desarrollar, ni tipos de librerias a
+ emplear, se tomaron ciertas deciciones sobre como sería la implementacion
+ del sistema, y teniendo en cuenta los requerimientos antes mencionados,
+ se opto por lo siguiente:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Entorno
+\series default
+: Linux 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -3476,7 +3625,7 @@ Para que el sistema pudiese cumplir los requerimientos planteados (detallados
 \series bold
 Lenguaje de programacion
 \series default
-: C/C++ 
+: C++ 
 \begin_inset Note Note
 status open
 
@@ -3510,7 +3659,19 @@ ref
 \begin_layout Itemize
 
 \series bold
-Librerias de interfaz grafica
+Librerias de interfaz grafica (GUI
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+ref o nota al pie
+\end_layout
+
+\end_inset
+
+)
 \series default
 : Qt 
 \begin_inset Note Note
@@ -3552,25 +3713,12 @@ ref
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Se desarrollo en el entorno Linux simplemente por comodidad, aunque todas
- las librerias utilizadas son multiplataforma (a excepcion del modulo de
- configuracion de camara, que solo funciona bajo la plataforma linux, pero
- puede ser facilmente reemplazado).
-\end_layout
-
-\begin_layout Subsection
-Requerimientos principales
-\end_layout
-
-\begin_layout Standard
+ v4l-utils 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-REDACTAR BIEN TODO ESTO:
+Ref
 \end_layout
 
 \end_inset
@@ -3579,110 +3727,45 @@ REDACTAR BIEN TODO ESTO:
 \end_layout
 
 \begin_layout Standard
-Como objetivo principal, el sistema debía poder capturar imagenes desde
- una camara (web/USB) imagenes y procesarlas en tiempo real, devolviendo
- como salida la altura de la superficie libre y el tiempo de captura de
- la misma, para luego mostrar, un analisis de los datos procesados.
+En los siguientes parrafos se dará una breve explicacion del porque de éstas
+ deciciones.
 \end_layout
 
 \begin_layout Standard
-Como requerimientos principales, el sistema debia cumplir con:
+El sistema fue desarrollado en el entorno linux principalmente por comodidad
+ y gusto, aún asi, las librerias utilizadas son multiplaforma por lo que
+ deberia poder ser compilado en otras plataformas (exceptuando la aplicacion
+ externa utilizada para configurar la camara web, que en el caso de windows,
+ la aplicacion proveída por el manufacturador de la camara deberia bastar).
 \end_layout
 
-\begin_layout Enumerate
-Dada una camara web usb, poder capturar los datos a una determinada velocidad
- y resolucion (no menos de 15 fps) y una alta resolucion para evitar la
- perdida de presicion.
-\end_layout
-
-\begin_layout Enumerate
-No requerir de una 
-\begin_inset Quotes eld
-\end_inset
-
-supercomputadora
-\begin_inset Quotes erd
-\end_inset
-
- para procesar en tiempo real los datos, ya que se intentaba abaratar costos
- comparativos a los otros instrumentos de medicion (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-poner el porque de se uso C++ opencv
-\end_layout
-
-\end_inset
-
+\begin_layout Standard
+El lenguaje de programacion 
+\shape italic
+C++
+\shape default
+ fue elegido debido a que es un lenguaje de programacion con mayor performance
+ en comparacion con otros, lo que era necesario para cumplir con el procesamient
+o en tiempo real (
+\series bold
+REQ1
+\series default
+, 
+\series bold
+REQ2
+\series default
 ).
-\end_layout
-
-\begin_layout Enumerate
-Ser facil de utilizar y configurar (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-por eso se desarrollo una interfaz grafica con QT
-\end_layout
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Enumerate
-Ser flexible para futuras aplicaciones para poder medir otras variables
- o para poder ser modificado por otras personas en un futuro.
-\end_layout
-
-\begin_layout Enumerate
-Poder mostrar y comprar los resultados actuales con los anteriores (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-por eso se realizo la ventana de analisis de postprocesso Qwt
-\end_layout
-
-\end_inset
-
-).
+ Por otro lado ya se poseian conocimientos previos del mismo (como asi tambien
+ preferencia), lo que agilizaria el desarrollo.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Aca explicamos el porque se eligio cada una de las libs.
- REDACTAR MEJOR
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A continuacion se explica el porque de la toma de desiciones de cada una
- de las librerias utilizadas para el desarrollo del software.
-\end_layout
-
-\begin_layout Standard
-Para poder cumplir con la velocidad de procesamiento (req 1,2) en una maquina
- standard, se eligio el lenguaje C++ que tiene mayor performance en cuanto
- a velocidades con respecto a otras opciones, ademas de que es orientado
- a objetos y simplifico el desarrollo del sistema.
- Ademas del lenguaje se tuvo que elegir una libreria para poder procesar
- las imagenes en tiempo real, dentro de una gama grande de opciones, se
- selecciono OpenCV debido a que fue especificamente desarrollada para aplicacion
-es de robotica y procesamiento de imagenes en tiempo real, ademas de que
- existe mucha documentacion, tiene un alto grado de madurez y viene con
- una interfaz para C++.
- Por otro lado el sistema fue pensado para que el procesamiento de las imagenes
- se pueda realizar en la GPU 
+Dentro de un gran conjunto de librerias de procesamiento grafico, se opto
+ por 
+\shape italic
+OpenCV
+\shape default
+ 
 \begin_inset Note Note
 status open
 
@@ -3692,105 +3775,374 @@ ref
 
 \end_inset
 
-, ya que OpenCV tiene un modulo de procesamiento en la GPU.
+ ya que ésta esta principalmente orientada a sistemas que requieren de manipulac
+ion de imagenes en tiempo real (real time computer vision systems) como
+ la robotica.
+ Además de que tiene un alto grado de maduración, está actualmente activa
+ y existe mucha documentacion.
+\end_layout
+
+\begin_layout Standard
+En cuanto al 
+\series bold
+REQ3
+\series default
+, para poder cumplirlo, necesariamente se requeria de una interfaz grafica
+ para el usuario, por lo cual se decidio elegir 
+\shape italic
+Qt
+\shape default
+
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-explicar mejor que para poder cumplir con 1,2 se tomo la decision que en
- un futuro, si se hacen procesamientos mas pesados que el que se necesitaba
- para este trabajo, entonces iba hacer falta de procesar las imagenes en
- la GPU.
+ref
+\end_layout
+
+\end_inset
+
+ ya que posee una interfaz para C++, cubria con todas las necesidades que
+ el sistema planteaba, era de facil integracion con 
+\shape italic
+OpenCV
+\shape default
+ y se poseia cierto grado de conocimiento previo sobre la misma.
+\end_layout
+
+\begin_layout Standard
+Con respecto a las librerias adicionales, la que mayor impacto tiene sobre
+ el sistema es 
+\shape italic
+Qwt
+\shape default
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+ ya que 
+\series bold
+REQ5 
+\series default
+se basa en ésta.
+ Fue elegida debido a que proveia la funcionalidad deseada de una manera
+ muy sencilla y de facil integracion con las demas librerias (ya que es
+ una extencion de 
+\shape italic
+Qt
+\shape default
+ - utilizada para la 
+\shape italic
+GUI
+\shape default
+ del sistema -).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Faltarian las librerias adicionales pero me parece que va agrandar esto
+ al pedo, no tienen mucha importancia (no son principales).
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Para poder req 2 (y 5), se eligio Qt, ya que se tenian conocimientos previos
- sobre la libreria, lo que ahorro cierto tiempo de investigacion, ademas
- de que es potente, facil de utilizar y con interfaz para C++.
-\end_layout
-
-\begin_layout Standard
-Con respecto al requerimiento 4, esta puramente relacionado con el diseño
- y arquitectura del sistema que se adopto, el cual se puede ver en los siguiente
-s puntos.
 \end_layout
 
 \begin_layout Subsection
 Arquitectura
 \end_layout
 
-\begin_layout Standard
-Para poder contemplar la posibilidad de desarrollar futuros sistemas para
- analizar otras variables hidrodinamicas, teniendo en cuenta la 
-\begin_inset Quotes eld
-\end_inset
-
-amigabilidad
-\begin_inset Quotes erd
-\end_inset
-
- con el usuario para su facil configuracion y uso del mismo, se plantio
- la siguiente estructura.
+\begin_layout Subsubsection
+A nivel general
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename imagenes/img_arq_high_level.png
-	lyxscale 50
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La idea es poder encapsular cada Image Processing System (IPS) en un plugin
- 
+A un nivel macro, la arquitectura del sistema se la puede simplificar como
+ se lo muestra en la figura 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-feo, cambiar esto
+ref fig 5.1
 \end_layout
 
 \end_inset
 
 .
+ Esta decision fue tomada para poder cubrir el 
+\series bold
+REQ4
+\series default
+, esto es, flexibilidad para la facil integracion de posibles futuras aplicacion
+es.
 \end_layout
 
 \begin_layout Standard
-En este trabajo, se diseño un IPS (llamado de ahora en mas WaveHeightIPS
- o WHIPS) encargado de encontrar la altura de ola del fluido.
- Como se puede ver en la foto 
+\begin_inset Graphics
+	filename imagenes/img_arq_high_level.png
+	lyxscale 80
+	scale 30
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-ref de la foto de arriba
+ref fig 5.1
 \end_layout
 
 \end_inset
 
-, cada IPS consta de 2 partes, la GUI (Graphical User Interface), encargada
- principalmente de brindar una interfaz grafica amigable para la configuracion
- del IPS Core, que tiene la responsabilidad de capturar imagenes por un
- dispositivo (o archivo de video) y procesarla para obtener la altura de
- ola.
- A continuacion se detalla la estructura a grandes rasgos de como se implemento
- el WHIPS.
+
+\end_layout
+
+\begin_layout Standard
+Como se puede ver en el diagrama superior 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref fig 5.1
+\end_layout
+
+\end_inset
+
+, el sistema consta de un modulo principal (
+\series bold
+\shape italic
+I
+\series default
+mage
+\series bold
+P
+\series default
+rocessing
+\series bold
+S
+\series default
+ystem
+\shape default
+ Loader o 
+\shape italic
+IPS
+\shape default
+ Loader) el cual tiene como finalidad listar y mostrar todos los modulos
+ 
+\shape italic
+IPS
+\shape default
+ que encuentren 
+\color red
+(ya sean plugins o no)
+\color inherit
+ dando la posibilidad al usuario de elegir y cargar uno especifico.
+ Estos 
+\shape italic
+IPS
+\shape default
+ tienen como objetivo encapsular una aplicacion con una finalidad especifica,
+ que en el caso de este trabajo, es detectar la altura de la superficie
+ libre de un fluido.
+\end_layout
+
+\begin_layout Standard
+Cada 
+\shape italic
+IPS
+\shape default
+ esta conformado por 2 partes, una grafica (
+\shape italic
+IPS GUI
+\shape default
+) y una de procesamiento (
+\shape italic
+IPS Core
+\shape default
+).
+ La primera, tiene como fin brindarle al usuario una forma facil y agil
+ de configurar a la segunda, la cual en general, requiere de muchos pasos
+ y parametros para poder ser utilizada correctamente.
+ En esta ultima (
+\shape italic
+IPS Core
+\shape default
+) se encuentra toda la logica y algoritmos para el procesamiento de imagenes,
+ que no depende en absoluto de la parte grafica para su funcionamiento,
+ lo que permite, si se deseea, desarrollar nuevas aplicaciones sin la necesidad
+ de implementar una interfaz grafica o aún más, modificar de manera sencilla
+ el sistema para soportar otro tipo de librerias para la 
+\shape italic
+GUI
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Debido a que las aplicaciones que pueden ser desarrolladas requieren de
+ una interfaz grafica, y que ademas, la configuracion se realiza en una
+ fase previa al procesamiento de imagenes (antes de empezar a capturar y
+ procesar las imagenes el 
+\shape italic
+IPS Core
+\shape default
+ debe estar configurado), se opto por ejecutar la interfaz grafica en un
+ principio y que esta sea la encargada de ejecutar la otra parte (
+\shape italic
+IPS Core
+\shape default
+).
+ Esto se lo puede ver en el diagrama anterior a travez de las flechas (
+\shape italic
+IPS Loader
+\shape default
+ --> 
+\shape italic
+IPS GUI
+\shape default
+, 
+\shape italic
+IPS GUI
+\shape default
+ --> 
+\shape italic
+IPS Core
+\shape default
+).
+\end_layout
+
+\begin_layout Subsubsection
+A nivel de IPS
+\end_layout
+
+\begin_layout Standard
+En este trabajo se creo una estructura general para todos los 
+\shape italic
+Image Processing System
+\shape default
+ que posibilitara la suficiente flexibilidad para las futuras aplicaciones
+ a desarrollar.
+ Esta estructura se aplica principalmente a la parte de procesamiento (
+\shape italic
+Core
+\shape default
+) ya que la interfaz grafica puede variar mucho de aplicacion en aplicacion.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_arq_ips.png
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref fig 5.2.2.1 ver de cambiar por la otra img alomejor (ver diagrama)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A grandes rasgos, se puede observar que el 
+\shape italic
+IPS Core
+\shape default
+ consta de dos modulos, por un lado el 
+\shape italic
+ImageGenerator
+\shape default
+, el cual, como su nombre lo indica, tiene como fin generar imagenes para
+ ser procesadas, estas pueden provenir de una camara o bien de un archivo
+ de video.
+ Por otro lado se encuentra el 
+\shape italic
+ImageAnalyzer, 
+\shape default
+el cual se rige de sus unidades basicas funcionales llamadas 
+\shape italic
+ImageProcessor
+\shape default
+, las cuales realizan el veradero procesamiento de imagenes, cada uno con
+ una funcionalidad determinada.
+ El 
+\shape italic
+ImageAnalyzer
+\shape default
+ tiene entonces como fin, tomar del 
+\shape italic
+ImageGenerator
+\shape default
+ imagenes y procesarlas por medio de cada uno de los 
+\shape italic
+ImageProcessors
+\shape default
+ que contenga.
+\end_layout
+
+\begin_layout Standard
+En la parte superior del diagrama se puede observar la interfaz grafica,
+ la cual se comunica con el IPS Core, con el fin de poder configurar cada
+ uno de estos 
+\shape italic
+ImageProcessors
+\shape default
+, que son las unidades basicas de procesamiento.
+\end_layout
+
+\begin_layout Standard
+Gracias a esta arquitectura, el sistema es muy flexible en cuanto a la actividad
+ que deba realizar (y por ende la aplicacion que se quiera desarrollar),
+ ya que simplemente se basa en lo que los 
+\shape italic
+ImageProcessor
+\shape default
+ esten configurados para hacer.
+\end_layout
+
+\begin_layout Standard
+A modo de ejemplo, en el caso particular de este trabajo se desarrollo un
+ 
+\shape italic
+IPS
+\shape default
+ con el fin de capturar la altura de superficie libre de un fluido, al cual
+ se lo llamo como 
+\series bold
+WaveHeightIPS 
+\series default
+(
+\shape italic
+WHIPS
+\shape default
+).
+ Para lograr la funcionalidad deseada se desarrollaron cuatro 
+\shape italic
+ImageProcessor
+\shape default
+ distintos los cuales se muestran en la siguiente figura.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Graphics
 	filename imagenes/img_arq_whips.png
-	scale 25
 
 \end_inset
 
@@ -3798,23 +4150,23 @@ ref de la foto de arriba
 \end_layout
 
 \begin_layout Standard
-Como se puede observar en la imagen 
+En los siguientes 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-ref img?
+capitulos?? o como pongo esto
 \end_layout
 
 \end_inset
 
-, es un proceso secuencial en el que se realizan
+ se explicara el funcionamiento detallado de cada uno de estos 
+\shape italic
+ImageProcessor.
 \end_layout
 
 \begin_layout Standard
-Este trabajo tiene como objetivo poder analizar la altura de la superficie
- libre del fluido en un canal, esto es, la altura de ola del fluido.
- Para 
+
 \end_layout
 
 \begin_layout Bibliography
