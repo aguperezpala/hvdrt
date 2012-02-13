@@ -4165,8 +4165,412 @@ capitulos?? o como pongo esto
 ImageProcessor.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
+Diseño
+\end_layout
 
+\begin_layout Subsubsection
+Preliminares
+\end_layout
+
+\begin_layout Standard
+Comenzaremos describiendo el diseño del sistema al nivel de abstraccion
+ sin entrar en detalles sobre el 
+\shape italic
+IPS
+\shape default
+ desarrollado para este trabajo, osea, se mostrará en un principio, como
+ es el diseño de la maquinaria que permite la creacion de estos 
+\shape italic
+IPS
+\shape default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Nivel abstraccion
+\end_layout
+
+\begin_layout Standard
+Como se menciono anteriormente, el sistema debia posibilitar el desarrollo
+ de futuras aplicaciones (
+\series bold
+REQ4
+\series default
+) de manera facil, para lograr esto, se modelo y encapsulo a cada posible
+ aplicacion como un 
+\shape italic
+Image Processing System
+\shape default
+.
+ Esto llevo a un 
+\begin_inset Quotes eld
+\end_inset
+
+diseño de abstraccion
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+medio raro esto de diseño de abstraccion
+\end_layout
+
+\end_inset
+
+ como se muestra a continuacion.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_abstract_design.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la imagen anterior se observa el diseño a grandes rasgos del sistema
+ completo sin ningun detalle de la interfaz de cada una de las clases, como
+ asi tambien, se obviaron varias clases auxiliares para evitar complejidad
+ en el esquema.
+ Listaremos a continuacion, en forma general, las funcionalidades principales
+ de cada una de estas clases.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+MainProgram
+\series default
+: Programa principal encargado de cargar los 
+\shape italic
+IPS
+\shape default
+ y ejecutarlos segun corresponda.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+IPSFactory
+\series default
+: Clase auxiliar encargada de buscar y listar todos los 
+\shape italic
+IPS
+\shape default
+ disponibles.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GUIImageProcessingSystem
+\series default
+: Clase abstracta que brinda la interfaz de como deben ser los 
+\shape italic
+IPS
+\shape default
+ 
+\shape italic
+GUI
+\shape default
+ a ser implementados.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ConfigWindowManager
+\series default
+: Manejador de ventanas, encargado de organizarlas y mostrarlas segun correspond
+a.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ConfigWindow
+\series default
+: Abstraccion de como debe ser toda ventana de configuracion.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageGenerator
+\series default
+: Clase encargada de abstraer la generacion de imagenes, ya sea de archivo
+ o de una videocamara.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageProcessingSystem
+\series default
+: Abstraccion de como deben ser los 
+\shape italic
+IPS
+\shape default
+ 
+\shape italic
+Core
+\shape default
+ a ser implementados.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageAnalyzer
+\series default
+: Clase encargada de contener y ejecutar en orden a los ImageProcessor que
+ contenga.
+ Representa el modulo de procesamiento de imagenes.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageProcessor
+\series default
+: Abstraccion de como debe ser la unidad basica de procesamiento.
+\end_layout
+
+\begin_layout Standard
+Como se puede observar, y como se menciono en el capitulo de la arquitectura
+ del sistema, se diferencian 2 partes (separadas por la linea discontinua
+ celeste).
+ En la fraccion superior se encuentra el denominado 
+\shape italic
+IPS Core
+\shape default
+ (donde se realiza el procesamiento real de las imagenes), mientras que
+ en la parte inferior se encuentran el programa principal (conformado por:
+\shape italic
+ MainProgram
+\shape default
+ y 
+\shape italic
+IPSFactory
+\shape default
+) y el 
+\shape italic
+IPS GUI
+\shape default
+.
+ El diseño en mayor detalle de cada una de estas partes seran descriptas
+ a continuacion.
+\end_layout
+
+\begin_layout Subsubsection
+IPS Core
+\end_layout
+
+\begin_layout Standard
+El nucleo de procesamiento se encuentra en este modulo.
+ A modo simplificado, el diseño de clases del IPS Core se puede observar
+ en la siguiente diagrama:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_disenio_IPS_Core.png
+	lyxscale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Describiremos a continuacion, de manera detallada, la funcionalidad de cada
+ uno de las clases.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Frame
+\series default
+: Es el tipo de dato con la que se maneja el sistema para almacenar la imagen
+ capturada por el dispositivo con el tiempo de captura asociada.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+FrameListener, FrameEmitter
+\series default
+: Funcionan en conjunto como notificador (
+\shape italic
+FrameEmitter
+\shape default
+) y receptor -procesador- (
+\shape italic
+FrameListener
+\shape default
+) de 
+\series bold
+Frame
+\series default
+.
+ Esto es lo que se denomina 
+\shape italic
+Observer
+\shape default
+ en patrones de diseño
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageGenerator
+\series default
+: Clase encargada de abstraer la generacion de imagenes.
+ Dependiendo del metodo llamado el 
+\shape italic
+ImageGeneretor
+\shape default
+ puede ser configurado para obtener imagenes desde una videocamara (
+\shape italic
+createDevice(cameraID)
+\shape default
+) o bien desde un archivo de video (
+\shape italic
+createDevice(videoFilePath)
+\shape default
+).
+ Ademas brinda 2 opciones para devolver nuevos 
+\series bold
+Frame
+\series default
+, por un lado los puede generar automaticamente (si se llama a 
+\shape italic
+startGenerating()
+\shape default
+) y distribuyendolos/notificando a los 
+\series bold
+FrameListener
+\series default
+ asociados (asumiendo que ya fueron asociados por medio del metodo 
+\shape italic
+addNewListener
+\shape default
+), o puede hacerlo a pedido (por medio de la llamada 
+\shape italic
+captureFrame(Frame)
+\shape default
+) devolviendo de a un único 
+\series bold
+Frame
+\series default
+.
+ 
+\shape italic
+\color red
+Ademas, en caso de ser necesario, tener la posibilidad de realizar buffering
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+ agilizando por medio de la paralelizacion, la captura de frames desde el
+ dispositivo (esto no se implemento debido a que se pudo cumplir con la
+ velocidad requerida).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageProcessor
+\series default
+: Abstraccion de la unidad base funcional, esto es, toda transformacion,
+ manipulacion y analisis que se haga sobre las imagenes tomadas (
+\series bold
+Frame
+\series default
+) se realiza por medio de un 
+\series bold
+ImageProcessor
+\series default
+.
+ Como se puede ver, existen 4 metodos principales puramente virtuales, los
+ cuales deben ser implementados por aquellos que hereden de éste.
+ Estos son: 
+\shape italic
+getParam
+\shape default
+, 
+\shape italic
+setParam
+\shape default
+, utilizados para configurar el ImageProcessor, mientras que 
+\shape italic
+processData(Image_t)
+\shape default
+, 
+\shape italic
+processData(GPUImage_t)
+\shape default
+, determinan donde se realiza el procesamiento de la imagen.
+ La existencia de este último (
+\shape italic
+processData(GPUImage_t)
+\shape default
+) es debido a que en un principio se planteo la posibilidad de realizar
+ analisis mas exaustivos sobre imagenes de mayor tamaño lo que necesariamente
+ requeria un poder de procesamiento mucho mayor, pero con la condicion de
+ mantener la velocidad, para esto, se considero la posibilidad de realizar
+ este trabajo en la GPU
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref GPU
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageAnalyzer
+\series default
+: Clase 
+\end_layout
+
+\begin_layout Subsubsection
+IPS GUI
+\end_layout
+
+\begin_layout Subsection
+WHIPS
+\end_layout
+
+\begin_layout Standard
+Aca deberiamos explicar en detalle sobre la aplicacion desarrollada para
+ este trabajo (esto es el WHIPS)
 \end_layout
 
 \begin_layout Bibliography
@@ -4319,6 +4723,27 @@ OpenCV 2 Computer Vision Application Programming Cookbook
 
 .
  2011
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Gam94"
+key "key-1"
+
+\end_inset
+
+Gamma, Helm, Johnson, Vlissides.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Design Patterns: Elements of Reusable Object Oriented Software
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 1994
 \end_layout
 
 \end_body
