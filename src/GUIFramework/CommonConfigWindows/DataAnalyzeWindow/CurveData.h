@@ -40,6 +40,10 @@ public:
 
 
 private:
+
+	void calculateFFT(const QVector<double> &xs,
+			const QVector<double> &ys);
+
 	// Calculate Hs;
 	void calculateHs(const QVector<double> &xs,
 			const QVector<double> &ys);
@@ -53,8 +57,7 @@ private:
 				const QVector<double> &ys);
 
 	// Calculate spectral curve
-	void calculateSpectralCurve(const QVector<double> &xs,
-					const QVector<double> &ys);
+	void calculateSpectralCurve(void);
 
 	// calculate maximums and minimums
 	void calculateMaxAndMin(const QVector<double> &xs,
@@ -77,6 +80,7 @@ private:
 	double			mTp;
 	QwtPlotCurve	mCurve;
 	QwtPlotCurve	mSpectralCurve;
+	std::vector<fftw_complex>	mComplexValues;
 
 
 	static int colorId;

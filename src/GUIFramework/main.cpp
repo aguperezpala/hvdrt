@@ -334,13 +334,11 @@ int main(int argc, char *argv[])
     	return -1;
     }
 
-    while(1){
-		// execute the waveheightIPS
-		err = mp.execute(WHIPS_NAME);
-		if(err != NO_ERROR){
-			debug("Some error ocurr when executing WHIPS: %d\n", err);
-			return -1;
-		}
+    // execute the waveheightIPS
+    err = mp.execute(WHIPS_NAME);
+    if(err != NO_ERROR){
+    	debug("Some error ocurr when executing WHIPS: %d\n", err);
+    	return -1;
     }
 
     return 0;

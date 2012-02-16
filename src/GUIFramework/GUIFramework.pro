@@ -24,7 +24,8 @@ LIBS += -L../Common/tinyxml \
     -ltinyxmlpath \
     -L/usr/local/qwt-6.0.1/lib \
     -lqwt \
-    -lqwtmathml
+    -lqwtmathml \
+    -lfftw3 -lm
 INCLUDEPATH += ../Common/tinyxml \
     /usr/local/qwt-6.0.1/include
 DEPENDPATH += ../Common/tinyxml
@@ -134,7 +135,9 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += MainProgram/IPSFactory.h \
+HEADERS += CommonConfigWindows/DataAnalyzeWindow/complex.h \
+    CommonConfigWindows/DataAnalyzeWindow/fft.h \
+    MainProgram/IPSFactory.h \
     MainProgram/MainProgram.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.h \
@@ -149,7 +152,9 @@ HEADERS += MainProgram/IPSFactory.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += MainProgram/IPSFactory.cpp \
+SOURCES += CommonConfigWindows/DataAnalyzeWindow/complex.cpp \
+    CommonConfigWindows/DataAnalyzeWindow/fft.cpp \
+    MainProgram/IPSFactory.cpp \
     MainProgram/MainProgram.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.cpp \

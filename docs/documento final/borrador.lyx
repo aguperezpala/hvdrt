@@ -4557,7 +4557,106 @@ ref GPU
 \series bold
 ImageAnalyzer
 \series default
-: Clase 
+: Clase encargada de contener y almacenar ordenadamente a los 
+\series bold
+ImageProcessor 
+\series default
+utilizados para la transformacion/analis del 
+\series bold
+Frame
+\series default
+.
+ En conjunto con los 
+\series bold
+ImageProcessor
+\series default
+ conforma la unidad principal de procesamiento.
+ Debido a que el procesamiento del 
+\series bold
+Frame
+\series default
+ se realiza de manera secuencial, la orden de ejecucion de cada 
+\series bold
+ImageProcessor 
+\series default
+esta dada por el orden en el que son agregados al 
+\series bold
+ImageAnalyzer 
+\series default
+(por medio del metodo 
+\shape italic
+addNewProcessor
+\shape default
+), ademas, como se puede observar, el 
+\series bold
+Frame 
+\series default
+puede ser analizado tanto en CPU como en la GPU si cada uno de los 
+\series bold
+ImageProcessor
+\series default
+ cuentan con la implementacion correspondiente.
+ Ademas de esto, se puede realizar un tracking del proceso por medio del
+ parametro adicional 
+\shape italic
+trackProcess
+\shape default
+, el cual permite recopilar informacion sobre el tiempo invertido en procesar
+ el 
+\series bold
+Frame
+\series default
+ en cada uno de los 
+\series bold
+ImageProcessor
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ImageProcessingSystem
+\series default
+: Abstraccion de un 
+\shape italic
+IPS Core
+\shape default
+.
+ Tiene asociado un nombre e informacion (sobre que hace) que lo identifican
+ (
+\shape italic
+getName()
+\shape default
+, 
+\shape italic
+getInfo()
+\shape default
+ respectivamente).
+ Los metodos a ser implementados por cada uno de los 
+\shape italic
+IPS Core
+\shape default
+ desarrollados son solamente 2: 
+\shape italic
+initialize()
+\shape default
+ y 
+\shape italic
+execute()
+\shape default
+.
+ La primera es la que carga todo lo necesario para su correcto funcionamiento,
+ mientras que la segunda, es la encargada de realizar el proceso completo
+ asociado al 
+\shape italic
+IPS
+\shape default
+ (esto es, tomar y procesar los 
+\series bold
+Frame
+\series default
+).
 \end_layout
 
 \begin_layout Subsubsection
