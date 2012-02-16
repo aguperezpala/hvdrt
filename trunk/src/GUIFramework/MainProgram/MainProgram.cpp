@@ -32,6 +32,7 @@ void MainProgram::removeIPS(void)
 	for(int i = mIPS.size() - 1; i >= 0; --i){
 		delete mIPS[i];
 	}
+	mIPS.clear();
 }
 
 MainProgram::MainProgram()
@@ -42,13 +43,14 @@ MainProgram::MainProgram()
 
 MainProgram::~MainProgram()
 {
-
+	removeIPS();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 errCode MainProgram::loadProcessingSystems(IPSFactory *factory)
 {
 	ASSERT(factory);
+	removeIPS();
 	factory->getIPS(mIPS);
 
 	return NO_ERROR;
