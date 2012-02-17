@@ -42,12 +42,14 @@ void GUIRealTimeDataDisplayer::disableTimers(void)
 
 ////////////////////////////////////////////////////////////////////////////////
 GUIRealTimeDataDisplayer::GUIRealTimeDataDisplayer(ImageGenerator *ig,QWidget *parent)
-    : ImgProcConfigWindows(ig, parent, "GUIRealTimeDataDisplayer"),
+    : ConfigWindow(parent, "GUIRealTimeDataDisplayer"),
+      mImgGenerator(ig),
       mCallbackFunct(0),
       mPlotter(0),
       mFrameDisplayer(this),
       mTimerId(-1)
 {
+	ASSERT(ig);
 	ui.setupUi(this);
 
 	ui.scrollArea->setWidget(&mFrameDisplayer);

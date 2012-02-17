@@ -80,7 +80,7 @@ private:
 	double			mTp;
 	QwtPlotCurve	mCurve;
 	QwtPlotCurve	mSpectralCurve;
-	std::vector<fftw_complex>	mComplexValues;
+//	std::vector<fftw_complex>	mComplexValues;
 
 
 	static int colorId;

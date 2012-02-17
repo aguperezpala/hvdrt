@@ -8,46 +8,37 @@
 
 #include "CurveData.h"
 #include "DebugUtil.h"
-#include <fftw3.h>
+//#include <fftw3.h>
 
 
 int CurveData::colorId = 0;
 
 
-// create the complex data vector
-void CurveData::createComplexVector(const QVector<double> &xs,
-		const QVector<double> &ys)
-{
-	for(int i = 0; i < xs.size(); ++i){
-		mComplexValues.push_back(complex(xs[i]+10, ys[i]+10));
-	}
-}
-
 void CurveData::calculateFFT(const QVector<double> &xs,
 		const QVector<double> &ys)
 {
-	fftw_complex *in;
-	fftw_complex *out;
-	fftw_plan p;
-
-	in = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * xs.size());
-	out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * xs.size());
-
-
-	for(int i = 0; i < mComplexValues.size(); ++i) out[i] = mComplexValues[i];
-	if(!CFFT::Forward(out, mComplexValues.size())){
-		debug("Error calculating the FFT\n");
-		 fftw_free(in); fftw_free(out);
-		return;
-	}
-
-	int i = mComplexValues.size();
-	mComplexValues.clear();
-	for(int j = 0; j < i; ++j){
-		mComplexValues.push_back(out[i]);
-	}
-
-	 fftw_free(in); fftw_free(out);
+//	fftw_complex *in;
+//	fftw_complex *out;
+//	fftw_plan p;
+//
+//	in = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * xs.size());
+//	out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * xs.size());
+//
+//
+//	for(int i = 0; i < mComplexValues.size(); ++i) out[i] = mComplexValues[i];
+//	if(!CFFT::Forward(out, mComplexValues.size())){
+//		debug("Error calculating the FFT\n");
+//		 fftw_free(in); fftw_free(out);
+//		return;
+//	}
+//
+//	int i = mComplexValues.size();
+//	mComplexValues.clear();
+//	for(int j = 0; j < i; ++j){
+//		mComplexValues.push_back(out[i]);
+//	}
+//
+//	 fftw_free(in); fftw_free(out);
 }
 
 
@@ -75,14 +66,14 @@ void CurveData::calculateTp(const QVector<double> &xs,
 // Calculate spectral curve
 void CurveData::calculateSpectralCurve(void)
 {
-	QVector<double> xs;
-	QVector<double> ys;
-
-	for(int i = 0; i < mComplexValues.size(); ++i){
-		xs.push_back(mComplexValues[i].re());
-		ys.push_back(mComplexValues[i].im());
-	}
-	mSpectralCurve.setSamples(xs, ys);
+//	QVector<double> xs;
+//	QVector<double> ys;
+//
+//	for(int i = 0; i < mComplexValues.size(); ++i){
+//		xs.push_back(mComplexValues[i].re());
+//		ys.push_back(mComplexValues[i].im());
+//	}
+//	mSpectralCurve.setSamples(xs, ys);
 
 }
 
@@ -142,7 +133,7 @@ void CurveData::loadData(const QVector<double> &xs,
 	ASSERT(xs.size() == ys.size());
 	mCurve.setSamples(xs, ys);
 
-	mComplexValues.clear();
+//	mComplexValues.clear();
 
 	// calculate all the values needed
 	calculateFFT(xs, ys);
@@ -152,7 +143,7 @@ void CurveData::loadData(const QVector<double> &xs,
 	calculateSpectralCurve();
 	calculateMaxAndMin(xs, ys);
 
-	mComplexValues.clear();
+//	mComplexValues.clear();
 }
 
 

@@ -603,7 +603,8 @@ GUIWaveHeightIPS::GUIWaveHeightIPS(QWidget *parent, int windowW, int windowH)
       mCameraConfWin(0),
       mEventReceiver(&mWaveHeightIPS),
       mDataDisplayerBridge(&mRealTimeDDWin),
-      mDocument(0)
+      mDocument(0),
+      mLastError(NO_ERROR)
 {
 
 	ui.setupUi(this);
@@ -677,7 +678,14 @@ errCode GUIWaveHeightIPS::execute(void)
 
 
 	debug("Going back!\n");
-	return NO_ERROR;
+	return mLastError;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void GUIWaveHeightIPS::closeEvent(QCloseEvent *e)
+{
+	mLastError = QUIT_CALLED;
+	QWidget::closeEvent(e);
 }
 
 

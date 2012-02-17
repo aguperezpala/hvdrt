@@ -1,4 +1,4 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -4426,9 +4426,9 @@ FrameEmitter
 FrameListener
 \shape default
 ) de 
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
 .
  Esto es lo que se denomina 
 \shape italic
@@ -4464,17 +4464,17 @@ createDevice(videoFilePath)
 \shape default
 ).
  Ademas brinda 2 opciones para devolver nuevos 
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
 , por un lado los puede generar automaticamente (si se llama a 
 \shape italic
 startGenerating()
 \shape default
 ) y distribuyendolos/notificando a los 
-\series bold
+\shape italic
 FrameListener
-\series default
+\shape default
  asociados (asumiendo que ya fueron asociados por medio del metodo 
 \shape italic
 addNewListener
@@ -4484,9 +4484,9 @@ addNewListener
 captureFrame(Frame)
 \shape default
 ) devolviendo de a un único 
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
 .
  
 \shape italic
@@ -4514,13 +4514,13 @@ ImageProcessor
 \series default
 : Abstraccion de la unidad base funcional, esto es, toda transformacion,
  manipulacion y analisis que se haga sobre las imagenes tomadas (
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
 ) se realiza por medio de un 
-\series bold
+\shape italic
 ImageProcessor
-\series default
+\shape default
 .
  Como se puede ver, existen 4 metodos principales puramente virtuales, los
  cuales deben ser implementados por aquellos que hereden de éste.
@@ -4568,43 +4568,55 @@ ref GPU
 ImageAnalyzer
 \series default
 : Clase encargada de contener y almacenar ordenadamente a los 
+\shape italic
+ImageProcessor
 \series bold
-ImageProcessor 
+\shape default
+ 
 \series default
 utilizados para la transformacion/analisis del 
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
 .
  En conjunto con los 
-\series bold
+\shape italic
 ImageProcessor
-\series default
+\shape default
  conforma la unidad principal de procesamiento.
  Debido a que el procesamiento del 
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
  se realiza de manera secuencial, la orden de ejecucion de cada 
+\shape italic
+ImageProcessor
 \series bold
-ImageProcessor 
+\shape default
+ 
 \series default
 esta dada por el orden en el que son agregados al 
+\shape italic
+ImageAnalyzer
 \series bold
-ImageAnalyzer 
+\shape default
+ 
 \series default
 (por medio del metodo 
 \shape italic
 addNewProcessor
 \shape default
 ), ademas, como se puede observar, el 
+\shape italic
+Frame
 \series bold
-Frame 
+\shape default
+ 
 \series default
 puede ser analizado tanto en CPU como en la GPU si cada uno de los 
-\series bold
+\shape italic
 ImageProcessor
-\series default
+\shape default
  cuenta con la implementacion correspondiente.
  Se puede realizar un tracking del proceso por medio del parametro adicional
  
@@ -4613,13 +4625,13 @@ trackProcess
 \shape default
 , el cual permite recopilar informacion sobre el tiempo invertido en procesar
  el 
-\series bold
+\shape italic
 Frame
-\series default
+\shape default
  en cada uno de los 
-\series bold
+\shape italic
 ImageProcessor
-\series default
+\shape default
 .
 \end_layout
 
@@ -4663,9 +4675,9 @@ nto, mientras que el segundo, es el encargado de realizar el proceso completo
 IPS
 \shape default
  (esto es, obtener nuevos frames del 
-\series bold
+\shape italic
 ImageGenerator
-\series default
+\shape default
  y procesar cada uno de éstos).
 \end_layout
 
@@ -4722,13 +4734,79 @@ WHIPS
 \shape italic
 IPS GUI
 \shape default
-.
+ comenzando de lo mas particular a lo mas general.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-GUIImageProcessingsystem
+CameraConfigWindow
+\series default
+: Clase utilizada para configurar los parametros de la camara web.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+VideoFileConfigWindow
+\series default
+: Clase utilzada para configurar y manipular el video (adelantar, retroceder,
+ posicionar el video en un instante determinado).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ConfigWindow
+\series default
+: Interfaz de una ventana de configuracion (utilizada principalmente para
+ configurar los 
+\shape italic
+ImageProcessor
+\shape default
+).
+ Tiene asociado un nombre identificador (el cual puede ser obtenido por
+ 
+\shape italic
+getName()
+\shape default
+).
+ Cada ConfigWindow brinda la posibilidad ademas de poder cargar/descargar
+ una configuracion determinada por medio de un xml, debido a que en general,
+ la configuracion de cada 
+\shape italic
+ImageProcessor
+\shape default
+ requiere de una previsualizacion por medio de la interfaz grafica.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ConfigWindowManager
+\series default
+: Clase encargada de manejar y administrar la forma en la que se mostraran
+ las 
+\shape italic
+ConfigWindow
+\shape default
+ (tamaño, posicion, orden de secuencia), como asi tambien la carga y descarga
+ de la configuracion correspondiente a cada una de las ventanas por medio
+ de un xml (por medio de los metodos 
+\shape italic
+loadConfig(xml)
+\shape default
+, 
+\shape italic
+getConfig(xml)
+\shape default
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GUIImageProcessingSystem
 \series default
 : Representacion (abstracta) de la clase que representa al 
 \shape italic
@@ -4780,15 +4858,288 @@ execute()
 IPS Core
 \shape default
  y su posterior ejecucion.
+ Ademas, cada 
+\shape italic
+GUIImageProcessingSystem
+\shape default
+ cuenta con un conjunto de ConfigWindow utilizadas para configurar los 
+\shape italic
+ImageProcessor
+\shape default
+ utilizados por el 
+\shape italic
+IPS Core
+\shape default
+ asociado, las cuales son mostradas y organizadas por medio de la 
+\shape italic
+ConfigWindowManager
+\shape default
+.
 \end_layout
 
 \begin_layout Subsection
 WHIPS
 \end_layout
 
+\begin_layout Subsubsection
+Introduccion
+\end_layout
+
 \begin_layout Standard
-Aca deberiamos explicar en detalle sobre la aplicacion desarrollada para
- este trabajo (esto es el WHIPS)
+Como se menciono en los capitulos anteriores, la funcionalidad del sistema
+ se encuentra en las aplicaciones que pueda ejecutar, las cuales fueron
+ modeladas como 
+\shape italic
+ImageProcessingSystem.
+ 
+\shape default
+Éstos tienen un objetivo y funcionalidad especifica.
+ Como objetivo principal de este trabajo se planteo desarrollar una aplicacion
+ que por medio de videocamaras pudiese capturar la altura de la superficie
+ libre en tiempo real.
+ Es por esto, y por medio del framework desarrollado y detallado anteriormente,
+ se implemento un 
+\shape italic
+IPS
+\shape default
+ con tal finalidad, el cual recibio el nombre de 
+\shape italic
+WHIPS
+\shape default
+ (
+\series bold
+W
+\series default
+ave 
+\series bold
+H
+\series default
+eight 
+\series bold
+I
+\series default
+mage 
+\series bold
+P
+\series default
+rocessing 
+\series bold
+S
+\series default
+ystem).
+ En este capitulo se mostrara el diseño y detalles del funcionamiento del
+ mismo.
+\end_layout
+
+\begin_layout Subsubsection
+Diseño
+\end_layout
+
+\begin_layout Standard
+El diseño de 
+\shape italic
+WHIPS
+\shape default
+ parte de la base abstracta (diseño de abstraccion) enseñado anteriormente.
+ Por un lado se encuentra la interfaz grafica y por el otro la unidad de
+ procesamiento.
+\end_layout
+
+\begin_layout Standard
+La unidad de procesamiento (o 
+\begin_inset Quotes eld
+\end_inset
+
+WHIPS Core
+\begin_inset Quotes erd
+\end_inset
+
+), como se lo muestra en la 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref fig
+\end_layout
+
+\end_inset
+
+, cuenta con la clase principal 
+\series bold
+WaveHeightIPS
+\series default
+ encargada de llevar a cabo todo el proceso de analisis de imagen para capturar
+ la algura de la superficie libre.
+ Depende de 4 ImageProcessor para lograrlo, estos son 
+\series bold
+IRectifier
+\series default
+, 
+\series bold
+IClipping
+\series default
+, 
+\series bold
+IBorderDetector
+\series default
+, 
+\series bold
+IAnalyzer
+\series default
+, cada uno con una funcionalidad determinada y representando a una de las
+ etapas explicadas en el capitulo 3.3.
+ Como se puede observar en el diagrama, estos son clases abstractas que
+ sirven solo para brindar una interfaz a las clases que hereden de estas.
+ Esta capa de abstraccion fue agregada para facilitar (y por medio de la
+ utilizacion de la 
+\series bold
+WaveHeightIPFactory
+\series default
+) la posibilidad de cambiar cada uno de los ImageProcessor (concretos) de
+ forma facil sin alterar la la estructura general del modulo (por si se
+ deseaba utilizar o probar distintos algoritmos en alguna de las etapas
+ del proceso completo).
+ En este caso en particular se muestran las 4 implementaciones correspondientes
+ a cada una de las fases del proceso (osea, cada uno de los 
+\series bold
+ImageProcessor
+\series default
+), éstos son 
+\series bold
+PerspectiveRectifier
+\series default
+, 
+\series bold
+MiddlePointClipping
+\series default
+, 
+\series bold
+CannyBorderDetector
+\series default
+ y 
+\series bold
+WaveHeightAnalyzer
+\series default
+ respectivamente.
+ En el siguiente capitulo se detallara el funcionamiento de cada uno de
+ estos.
+ 
+\begin_inset Graphics
+	filename imagenes/img_disenio_WHIPS_core.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por otro lado se encuentra la interfaz grafica (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fig 2
+\end_layout
+
+\end_inset
+
+), donde se pueden diferenciar 3 partes con respecto a las etapas del proceso,
+ donde se ven involucradas distintas clases para cada una de estas.
+ Éstas son la etapa de configuracion o pre-procesamiento (clases con reborde
+ azul), la etapa de procesamiento (clase con reborde rojo), y la etapa de
+ post-procesamiento o analisis de datos (clase con reborde verde).
+\end_layout
+
+\begin_layout Standard
+Para la primera (configuracion) se encuentran involucradas 3 clases, 
+\series bold
+GUIPerspectiveRectifier
+\series default
+, 
+\series bold
+GUIMiddlePointClipping
+\series default
+ y 
+\series bold
+GUICannyBorderDetector
+\series default
+, que tienen como finalidad la configuracion completa de los 
+\shape italic
+ImageProcessor
+\shape default
+ pertenecientes al 
+\shape italic
+WHIPS Core
+\shape default
+ (en la 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+figura 3
+\end_layout
+
+\end_inset
+
+ se pueden ver la relacion que tiene cada clase con los 
+\shape italic
+ImageProcessor
+\shape default
+).
+ Estas clases heredan de una interfaz comun 
+\end_layout
+
+\begin_layout Standard
+La segunda etapa tiene asociada la clase 
+\series bold
+GUIRealTimeDataDisplayer
+\series default
+, la cual muestra en tiempo real los datos procesados por el WHIPS Core,
+ esto es, la altura de la superficie libre obtenida luego de procesar las
+ imagenes de entrada (videocamara o archivo de video).
+ Adicionalmente se muestra la imagen que esta siendo procesada.
+\end_layout
+
+\begin_layout Standard
+La ultima etapa (analisis de datos), esta conformada por una unica clase
+ 
+\series bold
+DataAnalyzeWindow
+\series default
+, la cual muestra de manera grafica los resultados de todo el analisis extrayend
+o y calculando valores de interes (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+poner aca lo que se extrae y referencias
+\end_layout
+
+\end_inset
+
+).
+ Como se puede observar, esta clase no 
+\end_layout
+
+\begin_layout Standard
+Por un lado esta la etapa de configuracion de los ImageProcessor (donde
+ las clases asociadas a esta son las azules), perteneciente a la etapa previa
+ de procesamiento.
+ A continuacion (clase con reborde rojo) se encuentra la etapa de procesamiento
+ misma, donde se muestra en tiempo real la altura detectada de la superficie
+ libre.
+ Por ultimo esta la etapa de post-procesamiento, donde se muestra el analisis
+ de los datos obtenidos por medio de una ventana (clase con reborde verde).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_disenio_WHIPS_GUI.png
+	lyxscale 80
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
