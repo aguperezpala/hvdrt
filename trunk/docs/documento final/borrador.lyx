@@ -4950,7 +4950,11 @@ La unidad de procesamiento (o
 \begin_inset Quotes eld
 \end_inset
 
+
+\shape italic
 WHIPS Core
+\shape default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -5043,7 +5047,19 @@ fig 2
 
 \end_inset
 
-), donde se pueden diferenciar 3 partes con respecto a las etapas del proceso,
+) o 
+\shape italic
+
+\begin_inset Quotes eld
+\end_inset
+
+WHIPS GUI
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+, donde se pueden diferenciar 3 partes con respecto a las etapas del proceso,
  donde se ven involucradas distintas clases para cada una de estas.
  Éstas son la etapa de configuracion o pre-procesamiento (clases con reborde
  azul), la etapa de procesamiento (clase con reborde rojo), y la etapa de
@@ -5071,22 +5087,18 @@ ImageProcessor
 \shape italic
 WHIPS Core
 \shape default
- (en la 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-figura 3
-\end_layout
-
-\end_inset
-
- se pueden ver la relacion que tiene cada clase con los 
+ (en el capitulo siguiente se explicara la relacion que existe entre cada
+ una de estas clases con los 
 \shape italic
 ImageProcessor
 \shape default
-).
- Estas clases heredan de una interfaz comun 
+ que configuran).
+ Estas clases heredan de una interfaz comun (
+\series bold
+ImgProcConfigWindow
+\series default
+) por el simple hecho de que poseen funcionalidad similar (lo que ahorra
+ repetir codigo).
 \end_layout
 
 \begin_layout Standard
@@ -5101,8 +5113,8 @@ GUIRealTimeDataDisplayer
 \end_layout
 
 \begin_layout Standard
-La ultima etapa (analisis de datos), esta conformada por una unica clase
- 
+La ultima etapa (analisis de datos), esta conformada principalmente por
+ la clase 
 \series bold
 DataAnalyzeWindow
 \series default
@@ -5118,18 +5130,43 @@ poner aca lo que se extrae y referencias
 \end_inset
 
 ).
- Como se puede observar, esta clase no 
+ Como se puede observar, la clase fue diseñada independientemente a las
+ demas (no hereda de ninguna otra clase) ya que debia funcionar independientemen
+te del sistema de ventanas manejado por el 
+\series bold
+ConfigWindowManager
+\series default
+.
 \end_layout
 
 \begin_layout Standard
-Por un lado esta la etapa de configuracion de los ImageProcessor (donde
- las clases asociadas a esta son las azules), perteneciente a la etapa previa
- de procesamiento.
- A continuacion (clase con reborde rojo) se encuentra la etapa de procesamiento
- misma, donde se muestra en tiempo real la altura detectada de la superficie
- libre.
- Por ultimo esta la etapa de post-procesamiento, donde se muestra el analisis
- de los datos obtenidos por medio de una ventana (clase con reborde verde).
+Por otro lado se puede observar que existen 2 implementaciones de 
+\shape italic
+ConfigWindow
+\shape default
+ llamadas 
+\series bold
+CameraConfigWindow
+\series default
+ y 
+\series bold
+VideoFileConfigWindow
+\series default
+ que son utilizadas por el 
+\shape italic
+GUIWaveHeightIPS
+\shape default
+, ya sea para configurar la camara o el archivo de video dependiendo que
+ se use como sistema de entrada (osea, como este configurado el 
+\shape italic
+ImageGenerator
+\shape default
+).
+\end_layout
+
+\begin_layout Standard
+En el siguiente capitulo se dara informacion mas detallada sobre el funcionamien
+to e implementacion de cada una de las clases.
 \end_layout
 
 \begin_layout Standard
@@ -5140,6 +5177,387 @@ Por un lado esta la etapa de configuracion de los ImageProcessor (donde
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fig2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Funcionamiento WHIPS Core
+\end_layout
+
+\begin_layout Standard
+WHIPS Core hace referencia a la unidad de procesamiento principal del 
+\shape italic
+ImageProcessingSystem
+\shape default
+ encargado de detectar la altura de la superficie libre del fluido.
+ Esta representado por la clase 
+\shape italic
+WaveHeightIPS
+\shape default
+ la cual carga y coordina el procesamiento de las imagenes por medio de
+ varias clases auxiliares.
+\end_layout
+
+\begin_layout Standard
+El procedimiento del 
+\shape italic
+WHIPS Core
+\shape default
+ se lo puede describir como una serie de pasos realizados en un orden determinad
+o.
+ Estos pasos son:
+\end_layout
+
+\begin_layout Enumerate
+Obtener una imagen del 
+\shape italic
+ImageGenerator
+\shape default
+ asociado a la clase (ya sea que este configurado para tomar imagenes desde
+ un archivo o de una videocamara).
+\end_layout
+
+\begin_layout Enumerate
+Procesar por medio del 
+\shape italic
+ImageAnalyzer
+\shape default
+ la imagen obtenida.
+ Donde el 
+\shape italic
+ImageAnalyzer
+\shape default
+ consta de 4 
+\shape italic
+ImageProc
+\shape default
+essor cada uno con una funcionalidad bien definida, estos son:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+IRectifier
+\series default
+: Encargado de transformar el sistema de coordenadas de la imagen tomada
+ en un sistema de coordenadas 
+\begin_inset Quotes eld
+\end_inset
+
+conocido
+\begin_inset Quotes erd
+\end_inset
+
+ alineado al plano sobre el cual se esta calculando la altura.
+ En particular esta accion se realiza por medio del 
+\shape italic
+PerspectiveRectifier
+\shape default
+ utilizando el algoritmo 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+Perspective Transform
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref capitulo 4.1
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+IClipping
+\series default
+: Encargado de realizar el recorte de la imagen correspondiente a la zona
+ que se quiere analizar.
+ Esto lo hace actualmente el 
+\shape italic
+MiddlePointC
+\shape default
+lipping el cual usa el punto de reposo de la superficie seleccionado por
+ el usuario y un parametro adicional 
+\begin_inset Formula $k$
+\end_inset
+
+ que indica cuanta es la cantidad de columnas a analizar.
+ Lo que hace es simplemente descartar de la imagen de entrada, todos las
+ columnas de pixels que no esten contenidas entre el rango de columnas 
+\begin_inset Formula $\left[c.x-\frac{k}{2},c.x+\frac{k}{2}\right]$
+\end_inset
+
+, donde 
+\begin_inset Formula $c$
+\end_inset
+
+ es el punto de reposo seleccionado por el usuario (y 
+\begin_inset Formula $c.x$
+\end_inset
+
+ la coordenada en 
+\begin_inset Formula $x$
+\end_inset
+
+ del punto 
+\begin_inset Formula $c$
+\end_inset
+
+, equivalente a la columna 
+\begin_inset Formula $x$
+\end_inset
+
+ de la imagen).
+ De esta forma ahorramos procesar informacion que no es requerida.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+IBorderDetector
+\series default
+: Tiene como objetivo modificar la imagen de entrada de forma tal que luego
+ de ser procesada por éste ImageProcessor quede una imagen de contornos.
+ En este caso se implemento el 
+\shape italic
+CannyBorderDetector
+\shape default
+ el cual transforma la imagen (de entrada) aplicandole en una primera instancia,
+ un filtro que reduce la cantidad de colores (y por ende la cantidad de
+ datos analizar o complejidad de la imagen).
+ Luego aplica un segundo filtro denominado
+\shape italic
+ Gaussian Blur
+\shape default
+ (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref 4.2
+\end_layout
+
+\end_inset
+
+) para suavizar la imagen antes de realizar el analisis de contornos, que
+ para lograrlo, aplica como ultimo paso, el algoritmo de 
+\shape italic
+Canny
+\shape default
+ (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref 4.3
+\end_layout
+
+\end_inset
+
+).
+ Dejando como resultado una imagen con solo contornos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+IAnalyzer
+\series default
+: Dada una imagen de contornos y una serie de parametros, determina la altura
+ de la superficie libre.
+ La implementacion de este ImageProcessor se lo llamo 
+\shape italic
+WaveHeightAnalyzer
+\shape default
+ ya que se basa en el algoritmo 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+Wave height analyzer
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref 4.4
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Como ultimo paso, guarda el resultado obtenido del 
+\shape italic
+IAnalyzer
+\shape default
+ en un archivo previamente establecido por el usuario.
+\end_layout
+
+\begin_layout Standard
+Esta procedimiento (pasos 1,2,3) se realizan dentro de un loop hasta que
+ el usuario lo indica, o el 
+\shape italic
+ImageGenerator
+\shape default
+ no puede obtener mas imagenes (que esto sucede cuando las imagenes son
+ obtenidas de un archivo de video).
+\end_layout
+
+\begin_layout Standard
+Además, el 
+\shape italic
+WaveHeightIPS
+\shape default
+ brinda la posibilidad de realizar el analisis en el CPU o GPU si los correspond
+ientes 
+\shape italic
+ImageProcessor
+\shape default
+ lo permiten, para este caso particular, debido a que los implementados
+ para este trabajo no implementan esta feature, no puede ser utilizado (solo
+ CPU).
+\end_layout
+
+\begin_layout Subsubsection
+Funcionamiento WHIPS GUI
+\end_layout
+
+\begin_layout Standard
+Este modulo tiene, a grandes rasgos, 3 finalidades distintas, estas son:
+\end_layout
+
+\begin_layout Enumerate
+Brindar al usuario una interfaz grafica para poder configurar de forma facil
+ y agil los parametros que requieren los ImageProcessor del 
+\shape italic
+WHIPS Core
+\shape default
+ mencionados anteriormente.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Mostrar el proceso de computo en tiempo real (mostrar de forma interactiva
+ la altura de la superficie de ola calculada en los ultimos segundos).
+\end_layout
+
+\begin_layout Enumerate
+Calcular y mostrar los datos obtenidos una vez finalizado el proceso de
+ captura.
+\end_layout
+
+\begin_layout Standard
+El WHIPS GUI se basa en una clase principal (GUIWaveHeightIPS) encargada
+ de cargar y ordenar el sistema de ventanas (cada ConfigWindow que aparece
+ en el diagrama 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fig2
+\end_layout
+
+\end_inset
+
+ y el ConfigWindowManager) que deben ser mostrados como asi tambien la inicializ
+acion y ejecucion del WHIPS Core.
+ La funcionalidad de este modulo se la puede describir como una secuencia
+ de pasos interactivos (para el usuario) como se detallan a continuacion:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+\color red
+sessiones (permite cargar /descargar configuraciones agiliza (finalidad
+ 1)).
+ Se elige tipo de entrada archivo | camara.
+ En base a esto se arma el configwindowmanager.
+ El usuario puede elegir mostrar datos ya analizados
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+\color red
+Se muestra ventana de rectificacion (GUIPerspectiveRectifier).
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+\color red
+Se muestra ventana de seleccion de punto de reposo (aplicando rectifier).
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+\color red
+Se muestra ventana de Canny
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+\color red
+Se muestra ventana de muestra de datos en tiempo real RealTime .
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Una vez finalizada la ultima accion Vuelve a ventana inicial
+\end_layout
+
+\begin_layout Section
+Trabajos futuros
+\end_layout
+
+\begin_layout Standard
+Podriamos hablar de:
+\end_layout
+
+\begin_layout Standard
+Implementar el ImageGenerator para que haga buffering.
+\end_layout
+
+\begin_layout Standard
+Implementar algoritmos en GPU (Cuda).
 \end_layout
 
 \begin_layout Bibliography
