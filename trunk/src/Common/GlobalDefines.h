@@ -51,6 +51,7 @@ typedef enum {
 	////////////////////////////////////////////////////////////////////////////
 	INCOMPLETE_CONFIGURATION = 300,
 	ALREADY_INITIALIZED,
+	QUIT_CALLED,
 
 
 

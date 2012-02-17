@@ -5,7 +5,8 @@
 #include <qgraphicsitem.h>
 #include "ui_guirealtimedatadisplayer.h"
 
-#include "imgprocconfigwindows.h"
+#include "ImageGenerator.h"
+#include "configwindow.h"
 #include "ImageProcessor.h"
 
 #include "framelabeldisplayer.h"
@@ -15,7 +16,7 @@
 #define RTDD_RESERVE_NUM_ITEMS		5*60*25
 
 
-class GUIRealTimeDataDisplayer : public ImgProcConfigWindows
+class GUIRealTimeDataDisplayer : public ConfigWindow
 {
     Q_OBJECT
 
@@ -102,6 +103,7 @@ private:
 	RealTimePlot					mPlotter;
 	FrameLabelDisplayer				mFrameDisplayer;
 	int								mTimerId;
+	ImageGenerator					*mImgGenerator;
 
 };
 

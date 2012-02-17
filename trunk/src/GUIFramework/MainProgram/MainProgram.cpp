@@ -88,11 +88,11 @@ errCode MainProgram::execute(const std::string &ipsName)
 		return err;
 	}
 
-//	while(err == NO_ERROR){
+	while(err == NO_ERROR){
 	// TODO: arreglar esto, para que no se cierre la ventana principal a no ser
 	// que nosotros querramos.
 		err = system->execute();
-//	}
+	}
 
 	return err;
 }

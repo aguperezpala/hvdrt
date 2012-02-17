@@ -25,7 +25,8 @@ LIBS += -L../Common/tinyxml \
     -L/usr/local/qwt-6.0.1/lib \
     -lqwt \
     -lqwtmathml \
-    -lfftw3 -lm
+  #  -lfftw3 \
+    -lm
 INCLUDEPATH += ../Common/tinyxml \
     /usr/local/qwt-6.0.1/include
 DEPENDPATH += ../Common/tinyxml
@@ -116,7 +117,7 @@ INCLUDEPATH += Utils \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer \
     IPSModule/IPSs/GUIWaveHeightIPS \
     CommonConfigWindows/DataAnalyzeWindow \
     MainProgram \
@@ -135,33 +136,33 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += CommonConfigWindows/DataAnalyzeWindow/complex.h \
-    CommonConfigWindows/DataAnalyzeWindow/fft.h \
+HEADERS += CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
+    CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/CircularBuffer.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimePlot.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
+ #   CommonConfigWindows/DataAnalyzeWindow/complex.h \
+ #   CommonConfigWindows/DataAnalyzeWindow/fft.h \
     MainProgram/IPSFactory.h \
     MainProgram/MainProgram.h \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.h \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.h \
-    CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
-    CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.h \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
     IPSModule/IPSs/GUIWaveHeightIPS/DataDisplayerBridge.h \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.h \
     GuiHelpers/ZoomedLabel/zoomedlabel.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += CommonConfigWindows/DataAnalyzeWindow/complex.cpp \
-    CommonConfigWindows/DataAnalyzeWindow/fft.cpp \
+SOURCES += CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
+    CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimePlot.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \
+#    CommonConfigWindows/DataAnalyzeWindow/complex.cpp \
+#    CommonConfigWindows/DataAnalyzeWindow/fft.cpp \
     MainProgram/IPSFactory.cpp \
     MainProgram/MainProgram.cpp \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimePlot.cpp \
-    CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
-    CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.cpp \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.cpp \
     GuiHelpers/ZoomedLabel/zoomedlabel.cpp \
@@ -178,7 +179,7 @@ SOURCES += CommonConfigWindows/DataAnalyzeWindow/complex.cpp \
     main.cpp \
     guiframework.cpp
 FORMS += CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.ui \
-    IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.ui \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUICannyBorderDetector/guicannyborderdetector.ui \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.ui \

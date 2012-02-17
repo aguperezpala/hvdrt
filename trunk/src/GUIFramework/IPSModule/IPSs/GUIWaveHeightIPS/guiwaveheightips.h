@@ -58,6 +58,10 @@ public:
 	 */
 	virtual errCode execute(void);
 
+protected:
+    /* The close event will emitt the "ClosingSignal()" used by the parent class */
+    void closeEvent(QCloseEvent *);
+
 private:
 	/* We will define a class that will handle the events of the
 	 * RealTimeDataDisplayer (event StartCapturing and StopCapturing) that
@@ -143,6 +147,7 @@ private:
 	TiXmlDocument						*mDocument;
 
 	DataAnalyzeWindow					mDataAnalyzeWin;
+	errCode								mLastError;
 };
 
 #endif // GUIWAVEHEIGHTIPS_H
