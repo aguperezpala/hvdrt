@@ -4386,6 +4386,16 @@ El nucleo de procesamiento se encuentra en este modulo.
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+info img
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4561,7 +4571,7 @@ ImageAnalyzer
 \series bold
 ImageProcessor 
 \series default
-utilizados para la transformacion/analis del 
+utilizados para la transformacion/analisis del 
 \series bold
 Frame
 \series default
@@ -4595,9 +4605,9 @@ puede ser analizado tanto en CPU como en la GPU si cada uno de los
 \series bold
 ImageProcessor
 \series default
- cuentan con la implementacion correspondiente.
- Ademas de esto, se puede realizar un tracking del proceso por medio del
- parametro adicional 
+ cuenta con la implementacion correspondiente.
+ Se puede realizar un tracking del proceso por medio del parametro adicional
+ 
 \shape italic
 trackProcess
 \shape default
@@ -4624,7 +4634,7 @@ IPS Core
 \shape default
 .
  Tiene asociado un nombre e informacion (sobre que hace) que lo identifican
- (
+ (los cuales se pueden obtener por medio de 
 \shape italic
 getName()
 \shape default
@@ -4646,21 +4656,130 @@ initialize()
 execute()
 \shape default
 .
- La primera es la que carga todo lo necesario para su correcto funcionamiento,
- mientras que la segunda, es la encargada de realizar el proceso completo
+ El primero tiene como fin cargar todo lo necesario para su correcto funcionamie
+nto, mientras que el segundo, es el encargado de realizar el proceso completo
  asociado al 
 \shape italic
 IPS
 \shape default
- (esto es, tomar y procesar los 
+ (esto es, obtener nuevos frames del 
 \series bold
-Frame
+ImageGenerator
 \series default
-).
+ y procesar cada uno de éstos).
 \end_layout
 
 \begin_layout Subsubsection
 IPS GUI
+\end_layout
+
+\begin_layout Standard
+El conjunto de clases que conforman la interfaz grafica (GUI) utilizada
+ para la configuracion del 
+\shape italic
+IPS Core
+\shape default
+ se denomina 
+\shape italic
+IPS GUI
+\shape default
+.
+ Un diseño de clases simplificado y a un nivel de abstraccion se lo puede
+ observar en el siguiente diagrama
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_disenio_IPS_GUI.png
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+info img
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este diseño es el que se usará en la implementacion (concreta) de los 
+\shape italic
+IPS GUI
+\shape default
+ a desarrollar, como lo es el 
+\shape italic
+WHIPS
+\shape default
+ (mencionado en el siguiente capitulo).
+ Presentaremos las principales caracteristicas e interacciones que existen
+ entre las clases del 
+\shape italic
+IPS GUI
+\shape default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+GUIImageProcessingsystem
+\series default
+: Representacion (abstracta) de la clase que representa al 
+\shape italic
+IPS GUI
+\shape default
+.
+ Al igual que el 
+\shape italic
+IPS Core
+\shape default
+, tiene asociado un nombre que lo identifica y una breve descripcion asociada
+ a la finalidad del mismo (los cuales son accedidos por medio de los metodos
+ 
+\shape italic
+getName()
+\shape default
+, 
+\shape italic
+getInfo
+\shape default
+ respectivamente
+\shape italic
+()
+\shape default
+ ), que en general, corresponden al nombre e informacion del 
+\shape italic
+IPS Core
+\shape default
+.
+ Por otro lado cuenta con 2 funciones principales, que son 
+\shape italic
+initialize()
+\shape default
+ utilizada para inicializar el 
+\shape italic
+IPS Core
+\shape default
+ asociado y el sistema de ventanas a utilizar por el 
+\shape italic
+IPS GUI
+\shape default
+, por otro lado se encuentra 
+\shape italic
+execute()
+\shape default
+ que ejecuta el sistemas de ventanas para comenzar la configuracion del
+ 
+\shape italic
+IPS Core
+\shape default
+ y su posterior ejecucion.
 \end_layout
 
 \begin_layout Subsection
