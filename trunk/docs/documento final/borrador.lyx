@@ -50,6 +50,153 @@ Tenemos que poner en algun lado que en el lab se contaba con horus pero
  no era tiempo real, y los problemas que tenia, etc.
 \end_layout
 
+\begin_layout Subsection
+Motivaciones
+\end_layout
+
+\begin_layout Standard
+En la modelación física de laboratorio se emplean en muchos casos instrumentos
+ costosos para la medición de variables hidrodinámicas tales como velocidades,
+ variaciones de niveles, presiones, trayectorias de las partículas, turbulencia,
+ o variables de dinámica sedimentaria, como erosiones de playas, erosiones
+ en las pilas de puentes.
+ 
+\end_layout
+
+\begin_layout Standard
+Todos los instrumentos modernos de medición de laboratorio requieren una
+ buena experiencia por parte del usuario, como en el caso del PIV
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+ (Particle Image Velocimeter), donde se utilizan sensores muy delicados
+ como el laser, que inclusive pueden causar daños a las personas que lo
+ utilizan sin las adecuadas precauciones.
+ En otros casos, los instrumentos que se suelen utilizar son de tipo intrusivos,
+ como en el caso del ADV 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref
+\end_layout
+
+\end_inset
+
+(Acoustic Doppler Velocimeter), o de los sensores de nivel resistivos, que
+ se sumergen directamente en el fluido; asimismo, tales instrumentos se
+ estropean con el uso.
+ Además, todos los sensores son específicos para la medición de las variables
+ en un cierto rango de escala espacio-temporal, en algunos casos se los
+ utilizan solamente en ensayos bidimensionales, determinan un parámetro
+ en un cierto volumen de fluido, no pueden describir los procesos cerca
+ de los contornos, dependen de la siembra de partículas en el fluido, se
+ corroen si el agua es salada, etc.
+ 
+\end_layout
+
+\begin_layout Standard
+En este trabajo se desarrolla un sistema de medición y análisis de variables
+ hidrodinámicas en laboratorio mediante técnicas de video con cámaras de
+ alta definición.
+ Estas técnicas tienen diferentes ventajas con respecto a los métodos e
+ instrumentos tradicionales: son técnicas no intrusivas, económicas, son
+ fácilmente utilizables por usuarios con poca experiencia en trabajos de
+ laboratorio, y son muy flexibles porqué se pueden aplicar a diferentes
+ tipos de mediciones y a diferentes escalas espacio-temporales de los procesos.
+ 
+\end_layout
+
+\begin_layout Standard
+La ventaja principal de los instrumentos tradicionales es la elevada precisión
+ de la medición que tienen que realizar.
+ La exactitud de las mediciones que se pueden realizar con video cámaras
+ depende de la definición de las mismas, con lo cual un aumento en la precisión
+ requiere un costo económico mayor en la adquisición de la misma.
+ Sin embargo en aplicaciones ingenieriles de laboratorio, una video cámara
+ de alta definición estándar puede ser suficiente para el nivel de detalle
+ requerido.
+ Este aspecto será analizado en este proyecto, en particular para realizar
+ mediciones de niveles con la suficiente precisión.
+ 
+\end_layout
+
+\begin_layout Standard
+En mediciones de campo, las muestras con video cámaras de alta definición
+ ofrecen ya muchas aplicaciones practicas y muy funcionales, por ejemplo
+ para la detección de la erosión costera y en la determinación de parámetros
+ de oleaje (www.horusvideo.com).
+ En laboratorio, aunque en los últimos años ya se están empleando estas
+ técnicas en el estudio de variables hidrodinámicas, no se ha alcanzado
+ un nivel de optimización en el procesado de las imagenes para que el instrument
+o sea comparable con la alta definición en la adquisición de datos de los
+ muestreos con instrumentos tradicionales.
+ 
+\end_layout
+
+\begin_layout Standard
+Las aplicaciones de estas técnicas en laboratorio son múltiples en los campos
+ de la mecánica de fluidos y de la dinámica sedimentaria, entre otros.
+ En principio, se implementará una técnica para la adquisición de datos
+ de altura de ola en tiempo real, pero la metodología servirá como punto
+ de partida para las mediciones de otros parámetros hidrodinámicos y sedimentoló
+gicos de interés.
+ 
+\end_layout
+
+\begin_layout Subsection
+Problematica
+\end_layout
+
+\begin_layout Subsection
+Objetivos
+\end_layout
+
+\begin_layout Standard
+El objetivo principal de este trabajo es optimizar la toma de datos de la
+ variable 
+\begin_inset Quotes eld
+\end_inset
+
+altura de la superficie libre
+\begin_inset Quotes erd
+\end_inset
+
+ (altura de ola) mediante video cámaras de alta definición, durante la realizaci
+ón de ensayos de laboratorio con un canal bidimensional de oleaje.
+ La adquisición de datos de altura de ola en tiempo real se realiza en la
+ actualidad mediante el empleo de sensores de niveles intrusivos (se sumergen
+ en el fluido) de tipo resistivos que brindan una frecuencia de muestreo
+ de hasta 100 Hz.
+ En la mayoría de los trabajos que se realizan en el campo de la ingeniería
+ marítima o de costas, es suficiente un muestreo de 20-25 Hz para medir
+ y procesar la altura de ola que se genera en laboratorio.
+ 
+\end_layout
+
+\begin_layout Standard
+Las técnicas de video a implementar deberán en primer lugar rectificar las
+ imágenes a procesar y realizar muestreos de las variables a medir con tomas
+ de imagenes de alta definición de frecuencias igual o superiores a los
+ 20 Hz.
+ 
+\end_layout
+
+\begin_layout Standard
+Durante los ensayos estas tomas deberán permitir la visualización en tiempo
+ real de la variación de la variable a medir de manera tal que el funcionamiento
+ de esta metodología pueda ser equivalente (dentro de una precisión admitida)
+ a las mediciones realizadas con los instrumentos tradicionales para estudios
+ en el campo de la ingeniería.
+ 
+\end_layout
+
 \begin_layout Section
 Fundamentos de hidrodinamica marina
 \end_layout
@@ -5470,78 +5617,178 @@ WHIPS Core
 \end_layout
 
 \begin_layout Enumerate
-Mostrar el proceso de computo en tiempo real (mostrar de forma interactiva
+Mostrar el proceso de computo en tiempo real (indicar de forma interactiva
  la altura de la superficie de ola calculada en los ultimos segundos).
 \end_layout
 
 \begin_layout Enumerate
-Calcular y mostrar los datos obtenidos una vez finalizado el proceso de
+Mostrar y procesar los datos obtenidos una vez finalizado el proceso de
  captura.
 \end_layout
 
 \begin_layout Standard
-El WHIPS GUI se basa en una clase principal (GUIWaveHeightIPS) encargada
- de cargar y ordenar el sistema de ventanas (cada ConfigWindow que aparece
- en el diagrama 
+El 
+\shape italic
+WHIPS GUI
+\shape default
+ se basa en una clase principal (
+\shape italic
+GUIWaveHeightIPS
+\shape default
+) la cual carga y ordena el sistema de ventanas como asi tambien la inicializaci
+on y ejecucion del 
+\shape italic
+WHIPS Core
+\shape default
+.
+ Debido a la forma en la que los 
+\shape italic
+ImageProcessor
+\shape default
+ deben ser configurados (en un orden secuencial, donde en general la configuraci
+on de uno depende de como fueron configurados los anteriores), la clase
+ 
+\shape italic
+ConfigWindowManager
+\shape default
+ fue diseñada para cumplir con tal fin, permitiendo solo pasar a la siguiente
+ fase de configuracion (y por ende a la siguiente 
+\shape italic
+ConfigWindow
+\shape default
+) si y solo si se configuro correctamente el paso que esta siendo mostrado
+ actualmente (
+\shape italic
+ConfigWindow
+\shape default
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Adicionalmente, para facilitar aun mas la finalidad (1), el 
+\shape italic
+GUIWaveHeightsIPS
+\shape default
+ brinda la posibilidad de cargar y guardar las configuraciones de las distintas
+ 
+\shape italic
+ConfigWindow
+\shape default
+, que en caso de realizar multiples ensayos con la misma configuracion (como
+ es usual) ahorra tiempo al usuario evitando restablecer todos los parametros
+ de nuevo.
+\end_layout
+
+\begin_layout Standard
+Por otro lado se brinda la posibilidad de manejar sesiones donde se pueda
+ guardar fecha, autor, nombre, descripcion, entre otros, asociadas a un
+ experimento dado.
+\end_layout
+
+\begin_layout Standard
+A manera esquematica, podemos mostrar la funcionalidad (secuencia de pasos)
+ que brinda este modulo por medio del siguiente diagrama (conjuncion de
+ diagrama de clases y diagrama de flujo)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename imagenes/img_whips_gui_flujo.png
+	lyxscale 60
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-fig2
+ref
 \end_layout
 
 \end_inset
 
- y el ConfigWindowManager) que deben ser mostrados como asi tambien la inicializ
-acion y ejecucion del WHIPS Core.
- La funcionalidad de este modulo se la puede describir como una secuencia
- de pasos interactivos (para el usuario) como se detallan a continuacion:
+
 \end_layout
 
-\begin_layout Itemize
-
-\shape italic
-\color red
-sessiones (permite cargar /descargar configuraciones agiliza (finalidad
- 1)).
- Se elige tipo de entrada archivo | camara.
- En base a esto se arma el configwindowmanager.
- El usuario puede elegir mostrar datos ya analizados
+\begin_layout Standard
+En un principio, se le brinda al usuario la posibilidad de crear o cargar
+ una sesion ya existente.
+ Puede ademas, ejecutar directamente la ventana de analisis de datos (DataAnalyz
+eWindow), la cual funciona como modulo aparte (puede mostrarse datos ya
+ obtenidos de una sesion anterior, o de datos externos no necesariamente
+ de una sesion anterior).
+ Esto esta relacionado con la funcionalidad (3) anteriormente enumerada.
 \end_layout
 
-\begin_layout Itemize
-
-\shape italic
-\color red
-Se muestra ventana de rectificacion (GUIPerspectiveRectifier).
+\begin_layout Standard
+Dependiendo del tipo de entrada seleccionado (que puede ser una videocamara
+ o un archivo de video), el sistema muestra la ventana de configuracion
+ correspondiente (en la figura, VideoFileConfigWindow y CameraConfigWindow).
+ Luego se pasa al ciclo de configuracion de los diferentes ImageProcessor
+ del WHIPS Core, por medio de las ventanas de configuracion GUIPerspectiveRectif
+ier, GUIMiddlePointClipping y GUICannyBorderDetector.
+ Cabe destacar, que en el caso del tipo de entrada ser un archivo de video,
+ intercaladamente (entre cada una de estas ventanas) se muestra el VideoFileConf
+igWindow para brindar la posibilidad de adelantar o retrasar el video a
+ la posicion que se requiera (esto es de utilidad si las diferentes configuracio
+nes necesarias estan asociadas a distintos frames en el video).
+ Este conjunto de ventanas son utilizadas para lograr (1).
 \end_layout
 
-\begin_layout Itemize
-
-\shape italic
-\color red
-Se muestra ventana de seleccion de punto de reposo (aplicando rectifier).
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-\color red
-Se muestra ventana de Canny
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-\color red
-Se muestra ventana de muestra de datos en tiempo real RealTime .
+\begin_layout Standard
+Por ultimo, una vez configurado todo los ImageProcessor, el usuario puede
+ comenzar la captura de datos y observarlos en tiempo real gracias a la
+ ventana GUIRealTimeDataDisplayer (finalidad (2)).
 \end_layout
 
 \begin_layout Standard
 
 \shape italic
 \color red
-Una vez finalizada la ultima accion Vuelve a ventana inicial
+En el apendice se pueden observar imagenes de la interfaz grafica (o podemos
+ poner que en el siguiente capitulo en un caso de prueba mostramos todas
+ las interfaces)
+\end_layout
+
+\begin_layout Section
+Aplicacion en un canal 2D
+\end_layout
+
+\begin_layout Subsection
+Canal de labortatorio
+\end_layout
+
+\begin_layout Standard
+Aca tenemos que poner como es el canal, que utiliza, que sensores, la pala
+ mecanica, etc.
+\end_layout
+
+\begin_layout Subsection
+Preparacion de las mediciones
+\end_layout
+
+\begin_layout Standard
+Aca ponemos como se prepara el canal, y como se prepara el software, aca
+ deberiamos poner la interfaz grafica.
+\end_layout
+
+\begin_layout Subsection
+Ensayos propuestos
+\end_layout
+
+\begin_layout Standard
+Aca hablamos sobre las diferentes mediciones propuestas (analisis de varios
+ oleajes regulares, irregular, etc)
+\end_layout
+
+\begin_layout Subsection
+Mediciones y analisis de los resultados
+\end_layout
+
+\begin_layout Section
+Conclusiones
 \end_layout
 
 \begin_layout Section
@@ -5558,6 +5805,10 @@ Implementar el ImageGenerator para que haga buffering.
 
 \begin_layout Standard
 Implementar algoritmos en GPU (Cuda).
+\end_layout
+
+\begin_layout Standard
+Desarrollar otros IPS
 \end_layout
 
 \begin_layout Bibliography
