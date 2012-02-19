@@ -131,7 +131,17 @@ La ventaja principal de los instrumentos tradicionales es la elevada precisión
 En mediciones de campo, las muestras con video cámaras de alta definición
  ofrecen ya muchas aplicaciones practicas y muy funcionales, por ejemplo
  para la detección de la erosión costera y en la determinación de parámetros
- de oleaje (www.horusvideo.com).
+ de oleaje (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+www.horusvideo.com
+\end_layout
+
+\end_inset
+
+).
  En laboratorio, aunque en los últimos años ya se están empleando estas
  técnicas en el estudio de variables hidrodinámicas, no se ha alcanzado
  un nivel de optimización en el procesado de las imagenes para que el instrument
