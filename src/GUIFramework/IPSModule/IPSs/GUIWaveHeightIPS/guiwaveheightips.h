@@ -116,6 +116,9 @@ private:
 	// clear all the fields
 	void clearFields(void);
 
+	// clear all the window system
+	void clearWindowSystem(void);
+
 
 private slots:
 	void onWinMngrClose(void);

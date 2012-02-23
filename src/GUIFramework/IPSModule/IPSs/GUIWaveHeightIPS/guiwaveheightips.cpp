@@ -357,6 +357,12 @@ void GUIWaveHeightIPS::clearFields(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void GUIWaveHeightIPS::clearWindowSystem(void)
+{
+	mConfigWinMngr.removeAllWindows();
+}
+
+////////////////////////////////////////////////////////////////////////////////
 void GUIWaveHeightIPS::onWinMngrClose(void)
 {
 	debug("ConfigWinMngr closed event detected, showing GUIWaveHeightIPS again\n");
@@ -406,6 +412,7 @@ void GUIWaveHeightIPS::onLoadSessionClicked(void)
 		return;
 	}
 	clearFields();
+	clearWindowSystem();
 
 	if(mDocument){
 		delete mDocument; mDocument = 0;
@@ -437,6 +444,7 @@ void GUIWaveHeightIPS::onLoadSessionClicked(void)
 void GUIWaveHeightIPS::onNewSessionClicked(void)
 {
 	clearFields();
+	clearWindowSystem();
 
 	QString filename = QFileDialog::getSaveFileName(0, "Nueva session", ".", "*.xml");
 	if(filename.isEmpty()){
