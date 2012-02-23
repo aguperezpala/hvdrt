@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -46,8 +46,10 @@ Introduccion
 \end_layout
 
 \begin_layout Standard
-Tenemos que poner en algun lado que en el lab se contaba con horus pero
- no era tiempo real, y los problemas que tenia, etc.
+
+\color red
+En algun lado tenemos que poner que trabajamos con el laboratorio de hidraulica,
+ puede ser aca en la intro o puede ser en el cap Aplicaion en un canal 2D....
 \end_layout
 
 \begin_layout Subsection
@@ -161,10 +163,6 @@ gicos de interés.
 \end_layout
 
 \begin_layout Subsection
-Problematica
-\end_layout
-
-\begin_layout Subsection
 Objetivos
 \end_layout
 
@@ -228,12 +226,9 @@ Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
 
 \begin_layout Standard
 De manera esquematica, en la figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref a imagen
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distribucion-energética-de"
 
 \end_inset
 
@@ -254,18 +249,39 @@ agregar frecuencias de ondas con las que se trabajan en el lab.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_tam_olas.png
 	lyxscale 50
+	width 70page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-ref img
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distribucion-energética-de"
+
+\end_inset
+
+Distribucion energética de las ondas de superficie
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -277,22 +293,13 @@ ref img
 Matematicamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
  ondas progresivas (se propagan en una profundidad constante manteniendo
- su forma) y ondas estacionarias (aquellas que no se propagan) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-poner cuales se trabajan en este trabajo
-\end_layout
-
-\end_inset
-
-.
+ su forma) y ondas estacionarias (aquellas que no se propagan); en este
+ trabajo se analizan las primeras.
  Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
  utiles para representarlas, estas son:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $\eta$
 \end_inset
 
@@ -301,7 +308,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $T$
 \end_inset
 
@@ -309,7 +316,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $L$
 \end_inset
 
@@ -317,7 +324,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $cresta$
 \end_inset
 
@@ -325,7 +332,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $seno$
 \end_inset
 
@@ -333,7 +340,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $pasoporcero$
 \end_inset
 
@@ -341,14 +348,14 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $H$
 \end_inset
 
 : Altura de onda (distancia vertical total entre seno y cresta).
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $A_{c}$
 \end_inset
 
@@ -356,7 +363,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  y cresta).
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $A_{s}$
 \end_inset
 
@@ -364,7 +371,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $nivelenreposo$
 \end_inset
 
@@ -372,7 +379,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula $h$
 \end_inset
 
@@ -381,9 +388,34 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_param_onda.png
-	scale 40
+	width 60page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Parámetros asociados a la onda
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -426,11 +458,9 @@ o
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $C=\frac{L}{T}(m/s)$
-\end_inset
+\begin_inset Formula \begin{equation}
+C=\frac{L}{T}(m/s)\quad o\quad C=\frac{\omega}{\kappa}(m/s)\end{equation}
 
- o 
-\begin_inset Formula $C=\frac{\omega}{\kappa}(m/s)$
 \end_inset
 
 
@@ -449,7 +479,9 @@ numero de onda
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\kappa=\frac{2\pi}{L}(1/m)$
+\begin_inset Formula \begin{equation}
+\kappa=\frac{2\pi}{L}(1/m)\end{equation}
+
 \end_inset
 
 
@@ -472,7 +504,9 @@ definida como
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\omega=\frac{2\pi}{T}(1/s)$
+\begin_inset Formula \begin{equation}
+\omega=\frac{2\pi}{T}(1/s)\end{equation}
+
 \end_inset
 
 
@@ -484,16 +518,8 @@ Utilizando estos parametros se puede caracterizar la superficie libre de
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\eta(x,t)=A\cos\kappa x\cos\omega t$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref formula
-\end_layout
+\begin_inset Formula \begin{equation}
+\eta(x,t)=A\cos\kappa x\cos\omega t\end{equation}
 
 \end_inset
 
@@ -502,7 +528,17 @@ ref formula
 
 \begin_layout Standard
 las cuales se caracterizan por tener su evolución espacial y temporal desacoplad
-a.
+a 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref formula libro de paolo (no el de los volumenes si no el otro)
+\end_layout
+
+\end_inset
+
+.
  Este tipo de ondas no progresa en el espacio oscilando verticalmente entre
  puntos fijos llamados nodos.
 \end_layout
@@ -514,16 +550,8 @@ Por otro lado se encuentran las ondas progresivas, donde su movimiento temporal
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\eta(x,t)=A\cos(\kappa x-\omega t)$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref formula
-\end_layout
+\begin_inset Formula \begin{equation}
+\eta(x,t)=A\cos(\kappa x-\omega t)\end{equation}
 
 \end_inset
 
@@ -539,10 +567,7 @@ propagandose y manteniendo su forma en la direccion positiva del eje
 \begin_inset Formula $C$
 \end_inset
 
-.
-\end_layout
 
-\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -552,7 +577,7 @@ donde metemos la ref al libro?
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Subsection
@@ -561,7 +586,7 @@ Teoria lineal de ondas
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 La teoria lineal de ondas presenta numerosas ventajas con respecto a las
@@ -579,8 +604,8 @@ s mas sencillas; la solucion es lienal y puede ser usada como base para
 \end_layout
 
 \begin_layout Standard
-La teoria lineal de ondas presenta numerosas ventajas con respecto a la
- otra, principalmente debido a su simplicidad 
+La teoria lineal de ondas presenta numerosas ventajas con respecto a las
+ otras, principalmente debido a su simplicidad 
 \begin_inset Note Note
 status open
 
@@ -698,16 +723,8 @@ A este potencial le corresponde una superficie libre en
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\eta(x,t)=\frac{1}{g}(\frac{\partial\Phi}{\partial t})=A\cos(\kappa x-\omega t)=\frac{H}{2}\cos(\kappa x-\omega t)$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref formula 1.77
-\end_layout
+\begin_inset Formula \begin{equation}
+\eta(x,t)=\frac{1}{g}(\frac{\partial\Phi}{\partial t})=A\cos(\kappa x-\omega t)=\frac{H}{2}\cos(\kappa x-\omega t)\label{eq:1.77}\end{equation}
 
 \end_inset
 
@@ -736,8 +753,15 @@ ref al libro?
 
 .
  A modo de ejemplo se puede observar la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Propagación-del-perfil"
+
+\end_inset
+
+
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 ref a figura
@@ -771,12 +795,9 @@ y
 \end_inset
 
  se encuentran acopladas como lo indica la ecuacion 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref formula 1.77
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1.77"
 
 \end_inset
 
@@ -784,17 +805,38 @@ ref formula 1.77
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_propagacion_lineal_onda.png
+	width 60page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-ref figura
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Propagación-del-perfil"
+
+\end_inset
+
+Propagación del perfil de la onda
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -820,12 +862,9 @@ el cual se mueve con una velocidad equivalente a la mitad del promedio de
  capitulo), no se mueve a la velocidad de la ola en si sino a la velocidad
  del grupo de olas.
  En la siguiente imagen 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref a la img
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Solapamiento-de-trenes"
 
 \end_inset
 
@@ -845,17 +884,39 @@ de mayor amplitud (linea gruesa).
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_irregular_wave_group.png
+	width 40page%
+	rotateOrigin center
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-ref img
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Solapamiento-de-trenes"
+
+\end_inset
+
+Solapamiento y grupos de trenes de ondas
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -888,16 +949,8 @@ la representacion de la superficie libre de este tipo de oleaje puede expresarse
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\eta(x,y,t)=\overset{\infty}{\underset{m=1}{\sum}}\overset{\infty}{\underset{n=1}{\sum}}A_{mn}\cos(\kappa_{m}\cos\theta_{n}x+\kappa_{m}\sin\theta_{n}y-2\pi f_{m}t+\epsilon_{mn})$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref formula
-\end_layout
+\begin_inset Formula \begin{equation}
+\eta(x,y,t)=\overset{\infty}{\underset{m=1}{\sum}}\overset{\infty}{\underset{n=1}{\sum}}A_{mn}\cos(\kappa_{m}\cos\theta_{n}x+\kappa_{m}\sin\theta_{n}y-2\pi f_{m}t+\epsilon_{mn})\end{equation}
 
 \end_inset
 
@@ -943,7 +996,17 @@ son aleatorias y
 \begin_inset Formula $\kappa_{m}$
 \end_inset
 
-es el numero de onda asociado a la m-esima onda.
+es el numero de onda asociado a la m-esima onda 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref libro?
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -959,8 +1022,6 @@ Analisis del oleaje
 \end_layout
 
 \begin_layout Standard
-
-\color red
 Genéricamente a los movimientos correspondientes a la superficie del mar,
  que son ondas de gravedad, generadas por el viento y que se propagan desde
  el area de generacion perdiendo lentamente energia por firccion con la
@@ -987,8 +1048,6 @@ alomejor agregar la fig 1 de la introduccion del volumen 2
 \end_layout
 
 \begin_layout Standard
-
-\color red
 La cantidad maxima de energia que puede existir en cada tren de ondas componente
 s del oleaje esta regulada por los procesos de rotura y de interaccion entre
  las mismas.
@@ -997,6 +1056,8 @@ s del oleaje esta regulada por los procesos de rotura y de interaccion entre
  bajo la accion de un viento constante sobre una superficie ilimitada) o
  parcialmente desarrollado (oleaje en crecimiento, sucede cuando el tiempo
  minimo o distancia minima para llegar al estado desarrollado no es alcanzada)
+\color red
+
 \begin_inset Note Note
 status open
 
@@ -1193,7 +1254,9 @@ mediante:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $S(\omega)=\frac{1}{IR}\left[\overset{N}{\underset{n=1}{\sum}}\eta(n\Delta t)e^{i\omega n\Delta t}\Delta t\right]^{2}$
+\begin_inset Formula \begin{equation}
+S(\omega)=\frac{1}{IR}\left[\overset{N}{\underset{n=1}{\sum}}\eta(n\Delta t)e^{i\omega n\Delta t}\Delta t\right]^{2}\end{equation}
+
 \end_inset
 
 
@@ -1274,7 +1337,9 @@ de la funcion de densidad espectral como:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $m_{n}=\overset{\infty}{\underset{0}{\int}}\omega^{n}S(\omega)d\omega\,\:;n=0,1,2,...$
+\begin_inset Formula \begin{equation}
+m_{n}=\overset{\infty}{\underset{0}{\int}}\omega^{n}S(\omega)d\omega\,\:;n=0,1,2,...\end{equation}
+
 \end_inset
 
  
@@ -1295,7 +1360,9 @@ Otro parametro de utilidad es
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $H_{s}=4.004\eta_{rms}=4.004\sqrt{m_{0}}$
+\begin_inset Formula \begin{equation}
+H_{s}=4.004\eta_{rms}=4.004\sqrt{m_{0}}\end{equation}
+
 \end_inset
 
  
@@ -1398,20 +1465,24 @@ agregar ref, segun el libro Hasselmann et al.(1973)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $S(\omega)=\alpha g^{2}\omega^{-5}e^{-1.25\left(\frac{\omega}{\omega_{p}}\right)^{-4}}\gamma^{\delta}$
+\begin_inset Formula \begin{equation}
+S(\omega)=\alpha g^{2}\omega^{-5}e^{-1.25\left(\frac{\omega}{\omega_{p}}\right)^{-4}}\gamma^{\delta}\end{equation}
+
 \end_inset
 
- con
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\delta=e^{-\frac{(\omega-\omega_{p})^{2}}{2\sigma_{0}^{2}\omega_{p}^{2}}}$
-\end_inset
+con
+\end_layout
 
- y 
-\begin_inset Formula $\sigma_{0}=\begin{cases}
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+\delta=e^{-\frac{(\omega-\omega_{p})^{2}}{2\sigma_{0}^{2}\omega_{p}^{2}}}\quad y\quad\sigma_{0}=\begin{cases}
 \sigma_{0}^{1} & para\;\omega\leq\omega_{p}\\
-\sigma_{0}^{2} & para\;\omega>\omega_{p}\end{cases}$
+\sigma_{0}^{2} & para\;\omega>\omega_{p}\end{cases}\end{equation}
+
 \end_inset
 
 
@@ -1742,13 +1813,10 @@ Aca podemos explayarnos bastante con los errores estos, no se si tiene sentido..
 Por otro lado se encuentra el problema de la diferencia que existe entre
  el sistema de coordenadas del plano real el cual captura la camara y el
  sistema de coordenadas del mismo plano en la imagen que el dispositivo
- posee
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-agregar link a imagen
-\end_layout
+ posee 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diferencia-de-perspectiva"
 
 \end_inset
 
@@ -1761,10 +1829,40 @@ agregar link a imagen
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_rectification_2.png
 	lyxscale 50
-	scale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diferencia-de-perspectiva"
+
+\end_inset
+
+Diferencia de perspectiva entre la imagen en la camara y el plano real.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1853,16 +1951,60 @@ key "key-4"
 \end_layout
 
 \begin_layout Standard
-A continuacion se muestra un ejemplo en el que la figura superior es la
- imagen de entrada de este sub-proceso (ya rectificada) pero sin ningun
- filtro aplicado, mientras que la figura inferior muestra la imagen de salida
- (de esta etapa) luego de haberla procesado con el algoritmo de deteccion
- de contornos.
+A continuacion se muestra un ejemplo en el que la figura superior (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-rectificada-sin"
+
+\end_inset
+
+) es la imagen de entrada de este sub-proceso (ya rectificada) pero sin
+ ningun filtro aplicado, mientras que la figura inferior (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-rectificada-luego"
+
+\end_inset
+
+) muestra la imagen de salida (de esta etapa) luego de haberla procesado
+ con el algoritmo de deteccion de contornos.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_comp_canny1.png
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagen-rectificada-sin"
+
+\end_inset
+
+Imagen rectificada sin filtros.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1870,8 +2012,40 @@ A continuacion se muestra un ejemplo en el que la figura superior es la
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_comp_canny2.png
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagen-rectificada-luego"
+
+\end_inset
+
+Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos
+ Canny.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1916,12 +2090,9 @@ bordes positivos
 bordes negativos
 \shape default
 ) como claramente se puede observar en la imagen anterior 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref img anterior
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-rectificada-luego"
 
 \end_inset
 
@@ -1972,7 +2143,17 @@ No vi tecnicas para esto.
 \end_layout
 
 \begin_layout Standard
-Es probablemente esta etapa la que mas varia de tecnica en tecnica.
+Es probablemente esta etapa la que mas varia de tecnica en tecnica
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+escribir mejor esto
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1995,12 +2176,9 @@ Agregar alomejor algo con respecto a tiempo real
 \begin_layout Standard
 En el presente trabajo podemos dividir el proceso general en cuatro sub-procesos
  como lo muestra el siguiente diagrama 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref diagrama
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-general-del"
 
 \end_inset
 
@@ -2008,9 +2186,40 @@ ref diagrama
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_tecnica_utilizada.png
 	lyxscale 80
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-general-del"
+
+\end_inset
+
+Diagrama general del proceso de la técnica utilizada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -2028,7 +2237,52 @@ Como se puede ver, el proceso (rectangulo azul) tiene como entrada una imagen
 \end_layout
 
 \begin_layout Standard
-Basandonos en el siguiente esquema 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_eje_trabajo.jpg
+	lyxscale 40
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Esquema del canal y la zona de interes a analizar.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+escribir mas lindo esto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Basandonos en el siguiente esquema
 \begin_inset Note Note
 status open
 
@@ -2038,21 +2292,7 @@ ref
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename imagenes/img_eje_trabajo.jpg
-	lyxscale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-definiremos el 
+ definiremos el 
 \shape italic
 plano de captura
 \shape default
@@ -3625,6 +3865,8 @@ Implementacion y funcionamiento el sistema
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Tendriamos que poner en algun lado (no se donde) el tema de cuales fueron
  los problemas a solucionar y como se fueron solucionando, por ejemplo:
  buscar una camara de forma tal que cumpla con lo que se queria y ademas
@@ -5771,8 +6013,60 @@ Canal de labortatorio
 \end_layout
 
 \begin_layout Standard
-Aca tenemos que poner como es el canal, que utiliza, que sensores, la pala
- mecanica, etc.
+El canal sobre el cual se realizaron los ensayos posee las siguientes dimensione
+s: 
+\color red
+25 metros de largo, 1 metro de ancho, 1 metro de alto
+\color inherit
+.
+ Cuenta con una 
+\color red
+pala electronica
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\color red
+nombre de la pala o referencia?
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ la cual genera los oleajes que se quieran simular
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+podemos poner mas caracteristicas sobre la pala, imagen del canal y de la
+ pala
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Las mediciones de la altura de ola se realizan por medio de sensores de
+ nivel resistivos llamados 
+\color red
+agregar nombre y ref
+\color inherit
+, los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
+ segundo (o equivalentemente 100 Hz).
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Imagen del sensor
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -5780,6 +6074,115 @@ Preparacion de las mediciones
 \end_layout
 
 \begin_layout Standard
+Para poder realizar una medicion se debe preparar tanto el canal (y el entorno)
+ como el sistema.
+ En una primera instancia se debe acondicionar el canal de forma tal que
+ se pueda alcanzar una maxima diferenciacion de la superficie libre, esto
+ es, conseguir el mayor contraste posible entre el liquido y el aire (variando
+ las posiciones e intensidades de la luz que afectan la zona a medir en
+ el canal y utilizando distintos tipos de papeles o contacts sobre la cara
+ opuesta a medir del canal, evitando de esta manera, capturar objetos que
+ se encuentran por detras del canal).
+\end_layout
+
+\begin_layout Standard
+Por otro lado se debe configurar el sistema.
+ Vamos a mostrar el caso en el que se realiza una medicion nueva, los pasos
+ a seguir son:
+\end_layout
+
+\begin_layout Itemize
+Crear una nueva sesion (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fig nueva sesion
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Configuracion de la camara utilizada (foco, zoom, brillo, etc) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fig imagen camara
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Configurar la escala y zona de analisis 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+imagen ref rectangulo
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Configurar el punto de reposo de la ola (para lograr esto el nivel del fluido
+ debe estar en estado escionario) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+figura ref middlePoint
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Configuracion de los parametros del algoritmo para la deteccion de contornos
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+img ref canny
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una vez configurado el sistema se prosigue a producir el oleaje que se quiere
+ analizar por medio de la pala mecanica antes mencionada y por medio de
+ una ultima ventana (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref img RealTime
+\end_layout
+
+\end_inset
+
+) se le brinda al usuario la posibilidad de comenzar a capturar las imagenes
+ y observar en tiempo real los datos procesados.
+\end_layout
+
+\begin_layout Standard
+
+\color red
 Aca ponemos como se prepara el canal, y como se prepara el software, aca
  deberiamos poner la interfaz grafica.
 \end_layout
@@ -5789,6 +6192,62 @@ Ensayos propuestos
 \end_layout
 
 \begin_layout Standard
+En este trabajo se propusieron los siguientes ensayos:
+\end_layout
+
+\begin_layout Enumerate
+Capturar la altura de ola en un oleaje regular de altura 
+\color red
+X
+\color inherit
+ durante 
+\color red
+N
+\color inherit
+ segundos.
+\end_layout
+
+\begin_layout Enumerate
+Capturar la altura de ola en un oleaje regular de altura 
+\color red
+X2
+\color inherit
+ durante 
+\color red
+N2
+\color inherit
+ segundos.
+\end_layout
+
+\begin_layout Enumerate
+Capturar la altura de ola en un oleaje irregular de altura 
+\color red
+X3
+\color inherit
+ durante 
+\color red
+N3
+\color inherit
+ segundos.
+\end_layout
+
+\begin_layout Standard
+Cada uno de los ensayos anteriormente mencionados se realizaron utilizando
+ las mismas configuraciones del entorno (cantidad y posicion de la luz,
+ tamaño de la zona de analisis, etc), donde la camara se coloco a una distancia
+ 
+\color red
+M cm
+\color inherit
+ del canal.
+ Adicionalmente se realizaron muestreos en paralelo utilizando los sensores
+ resistivos con los que cuenta el laboratorio para poder analizar y comparar
+ los resultados obtenidos.
+\end_layout
+
+\begin_layout Standard
+
+\color red
 Aca hablamos sobre las diferentes mediciones propuestas (analisis de varios
  oleajes regulares, irregular, etc)
 \end_layout
