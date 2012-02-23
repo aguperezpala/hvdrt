@@ -68,32 +68,24 @@ En la modelación física de laboratorio se emplean en muchos casos instrumentos
 \begin_layout Standard
 Todos los instrumentos modernos de medición de laboratorio requieren una
  buena experiencia por parte del usuario, como en el caso del PIV
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
+\shape italic
+\color blue
+ ref
+\shape default
+\color inherit
  (Particle Image Velocimeter), donde se utilizan sensores muy delicados
  como el laser, que inclusive pueden causar daños a las personas que lo
  utilizan sin las adecuadas precauciones.
  En otros casos, los instrumentos que se suelen utilizar son de tipo intrusivos,
  como en el caso del ADV 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
-(Acoustic Doppler Velocimeter), o de los sensores de nivel resistivos, que
- se sumergen directamente en el fluido; asimismo, tales instrumentos se
- estropean con el uso.
+\shape default
+\color inherit
+ (Acoustic Doppler Velocimeter), o de los sensores de nivel resistivos,
+ que se sumergen directamente en el fluido; asimismo, tales instrumentos
+ se estropean con el uso.
  Además, todos los sensores son específicos para la medición de las variables
  en un cierto rango de escala espacio-temporal, en algunos casos se los
  utilizan solamente en ensayos bidimensionales, determinan un parámetro
@@ -134,12 +126,9 @@ En mediciones de campo, las muestras con video cámaras de alta definición
  ofrecen ya muchas aplicaciones practicas y muy funcionales, por ejemplo
  para la detección de la erosión costera y en la determinación de parámetros
  de oleaje (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-www.horusvideo.com
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-7"
 
 \end_inset
 
@@ -236,16 +225,9 @@ reference "fig:Distribucion-energética-de"
  frecuencia.
  En este trabajo se trabajara con las olas pertenecientes a las frecuencias
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 agregar frecuencias de ondas con las que se trabajan en el lab.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -529,16 +511,12 @@ Utilizando estos parametros se puede caracterizar la superficie libre de
 \begin_layout Standard
 las cuales se caracterizan por tener su evolución espacial y temporal desacoplad
 a 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref formula libro de paolo (no el de los volumenes si no el otro)
-\end_layout
-
-\end_inset
-
-.
+\shape italic
+\color blue
+ref formula libro de paolo (no el de los volumenes si no el otro
+\shape default
+\color inherit
+).
  Este tipo de ondas no progresa en el espacio oscilando verticalmente entre
  puntos fijos llamados nodos.
 \end_layout
@@ -568,15 +546,11 @@ propagandose y manteniendo su forma en la direccion positiva del eje
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 donde metemos la ref al libro?
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -586,9 +560,12 @@ Teoria lineal de ondas
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
+
+\shape italic
+\color blue
 La teoria lineal de ondas presenta numerosas ventajas con respecto a las
  otras, estas son: su simplicidad en comparacion con las otras teorias;
  el nivel de reposo de la onda coincide con el nivel medio; su caracter
@@ -606,15 +583,11 @@ s mas sencillas; la solucion es lienal y puede ser usada como base para
 \begin_layout Standard
 La teoria lineal de ondas presenta numerosas ventajas con respecto a las
  otras, principalmente debido a su simplicidad 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref libro donde explique esta teoria
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -656,19 +629,10 @@ Sea
  el 
 \shape italic
 potencial de velocidades 
-\shape default
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\shape italic
+\color blue
 ref al libro
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 , se lo puede expresar de diferentes formas, pero la estructura es siempre
  la misma, donde se pueden identificar tres partes diferentes: (1) el módulo
  o magnitud del potencial dado 
@@ -742,15 +706,11 @@ Esta ultima expresion corresponde a una onda que se propaga con una celeridad
 \end_inset
 
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref al libro?
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
  A modo de ejemplo se puede observar la figura 
 \begin_inset CommandInset ref
@@ -759,17 +719,7 @@ reference "fig:Propagación-del-perfil"
 
 \end_inset
 
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-ref a figura
-\end_layout
-
-\end_inset
-
- donde dados dos tiempos 
+ref a figura donde dados dos tiempos 
 \begin_inset Formula $t_{1}<t_{2}$
 \end_inset
 
@@ -926,10 +876,8 @@ Solapamiento y grupos de trenes de ondas
 
 \begin_layout Standard
 Nuevamente basandonos en 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref al libro...
  queda bien eso 
 \begin_inset Quotes eld
@@ -940,10 +888,8 @@ basandonos en
 \end_inset
 
  
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 la representacion de la superficie libre de este tipo de oleaje puede expresarse
  como 
 \end_layout
@@ -997,15 +943,11 @@ son aleatorias y
 \end_inset
 
 es el numero de onda asociado a la m-esima onda 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref libro?
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -1034,17 +976,9 @@ n en una suma de trenes de ondas regulares de amplitudes, periodos y direcciones
 
 \begin_layout Standard
 
-\color red
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 alomejor agregar la fig 1 de la introduccion del volumen 2
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1056,19 +990,11 @@ s del oleaje esta regulada por los procesos de rotura y de interaccion entre
  bajo la accion de un viento constante sobre una superficie ilimitada) o
  parcialmente desarrollado (oleaje en crecimiento, sucede cuando el tiempo
  minimo o distancia minima para llegar al estado desarrollado no es alcanzada)
-\color red
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
 \shape italic
+\color blue
 ref al libro
-\end_layout
-
-\end_inset
-
+\shape default
+\color red
 .
 \end_layout
 
@@ -1095,15 +1021,11 @@ En este enfoque, los parametros del oleaje (por ejemplo el desplazamiento
 Este enfoque tiene la ventaja de ser sencillo e intuitivo, pero es deficiente
  a la hora de aportar informacion relativa a la direccion de propagacion
  del oleaje
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref al libro
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -1137,15 +1059,11 @@ asociada a un conjunto de valores.
  en dos puntos diferentes.
  El segundo metodo se basa en descomponer el registro temporal en sus componente
 s de Fourier 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref a esto
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 , por medio de la tecnica 
 \shape italic
 Transformada Rápida de Fourier 
@@ -1153,17 +1071,9 @@ Transformada Rápida de Fourier
 o 
 \shape italic
 FFT
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\color inherit
 .
 \end_layout
 
@@ -1191,15 +1101,11 @@ superficie libre
 \end_inset
 
  (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref al libro donde sale esta funcion 2.3.1
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ) donde nos da la altura de la superficie libre dado el tiempo 
 \begin_inset Formula $t$
 \end_inset
@@ -1209,15 +1115,11 @@ ref al libro donde sale esta funcion 2.3.1
 
 \begin_layout Standard
 Este metodo se basa en el teorema de Wiener - Kinchine
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref a donde sea que haga falta
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 partiendo de la funcion de autocorrelacion del registro, se aplica una transform
 ada de fourier sobre la misma y se consigue el espectro de frecuencias deseado.
 \end_layout
@@ -1229,15 +1131,11 @@ Para la realizacion de la transormada de fourier se emplea el algoritmo
 Transformada Rapida de Fourier (FFT)
 \shape default
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 , el cual permite eficientemente transformar directamente la serie temporal
  del registro al dominio frecuencial sin necesidad de determinar la funcion
  de autocorrelacion del mismo.
@@ -1260,16 +1158,6 @@ S(\omega)=\frac{1}{IR}\left[\overset{N}{\underset{n=1}{\sum}}\eta(n\Delta t)e^{i
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-agregar id
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1282,15 +1170,11 @@ donde
 \end_inset
 
  es el intervalo de muestreo 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref de donde salio la form?
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -1343,16 +1227,6 @@ m_{n}=\overset{\infty}{\underset{0}{\int}}\omega^{n}S(\omega)d\omega\,\:;n=0,1,2
 \end_inset
 
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1366,16 +1240,6 @@ H_{s}=4.004\eta_{rms}=4.004\sqrt{m_{0}}\end{equation}
 \end_inset
 
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1423,44 +1287,32 @@ es sinusoidales.
 el espectro de JONSWAP
 \shape default
  (JOint North Sea WAwe Project) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 agregar ref
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
  el cual extiende el espectro de 
 \shape italic
 Pierson-Moskowitz
 \shape default
  (P-M) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
  Este espectro esta basado en una extensa campaña de medidas llevada a cabo
  en el Mar del Norte entre 1968 y 1969, el recibio una aprobacion casi inmediata
  por parte de la comunidad cientifica una vez publicado, y es quizas el
  mas utilizado.
  La forma espectral propuesta es 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 agregar ref, segun el libro Hasselmann et al.(1973)
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 :
 \end_layout
 
@@ -1489,56 +1341,33 @@ con
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Pedirle a paolo en teoria la ultima version aca
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 el espectro de JONSWAP (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ) contiene 5 parametros 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 completar esto dependiendo lo que me diga paolo, pagina 137 pdf Formula
  96
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Faltaria agregar el tema de como se diferencia esta teoria utilizada y todo
  lo explicado anteriormente en laboratorio.
  Me parece que todo asi explicado queda medio colgado, preguntarle a paolo....
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1583,27 +1412,16 @@ Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
 
 \begin_layout Standard
 Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ), que es un sensor de nivel resistivo que trabaja altas frecuencias de
  muestro por voltaje.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Completar con mas ejemplos, pedirle a paolo nombre de otros instrumentos
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1615,41 +1433,26 @@ Son aquellos que no necesitan estar sumergidos ni en contacto con en el
  fluido.
  Algunos de estos instrumentos (como es el caso del PIV - Particle Image
  Velocimeter -
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref?
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 , LDV - Laser Doppler Velocimetry -
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref?
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ), funcionan por medio de sensores muy delicados como el laser, que en general,
  sin las precauciones adecuadas, puede generar daños a los seres humanos
  o dañar el sensor en si.
  A su vez, dentro de esta rama de instrumentos se encuentra el presentado
  en este trabajo, el cual utiliza tecnicas de procesamiento de imagenes
  para detectar la superficie libre.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Preguntar a paolo por otros metodos
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1665,10 +1468,8 @@ A diferencia de los intrsumentos tradicionales, los cuales son muy costosos
  daño fisico a personas ni instrumentos en si), tienen una mayor flexibilidad
  (aplicables a otros tipos de mediciones y a diferentes escalas espacio-temporal
 es de los procesos
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 que se refiere con 
 \begin_inset Quotes eld
 \end_inset
@@ -1678,10 +1479,8 @@ diferentes escalas espacio-temporales
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ) y en general, su presicion es limitada por la definicion de la camara
  utilizada, lo que a su vez, a mayor presicion, mayor costo.
  Sin embargo, con una camara de alta definicion standard puede ser suficiente
@@ -1725,17 +1524,11 @@ Para lograr obtener resultados adecuados es necesario capturar imagenes
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Probablemente este bueno agregar aca alguna imagen de como se toma la imagen
  desde la camara con respecto al canal y una mini intro.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1764,16 +1557,9 @@ Analisis y procesamiento.
 Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
  y utilizando diferentes algoritmos o modelos matematicos.
  A continuacion se explican en mayor detalle cada uno de estos pasos.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 completar con info en general sobre las tecnicas actuales
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1797,16 +1583,9 @@ key "key-3"
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Aca podemos explayarnos bastante con los errores estos, no se si tiene sentido...
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1901,18 +1680,11 @@ key "key-2"
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Preguntarle a paolo que onda esto, yo los lei pero no me los acuerdo mucho
  como funcionaban, hace falta realmente acordarse de todo esto perfectamente
  para cuando se entregue la tesis?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -2038,8 +1810,7 @@ name "fig:Imagen-rectificada-luego"
 
 \end_inset
 
-Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos
- Canny.
+Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos.
 \end_layout
 
 \end_inset
@@ -2060,16 +1831,10 @@ Como se puede ver, dependiendo del entorno de trabajo (luz, contraste de
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\shape italic
+\color blue
 agregamos algo mas? medio feo esta...
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -2104,19 +1869,12 @@ bordes positivos
 no es unica y esta intimamente ligado en como fue modificada la imagen en
  la etapa anterior.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 podemos mencionar y dar ejemplos de los otros papers que por ejemplo algunos
  detectan el contorno, otros pintan de color el contorno, otros arman un
  arreglo de booleanos y en base a eso determiann cual es el borde.
  etc
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2130,16 +1888,10 @@ bordes positivos
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\shape italic
+\color blue
 No vi tecnicas para esto.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2161,16 +1913,10 @@ Tecnicas utilizadas
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Agregar alomejor algo con respecto a tiempo real
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2258,6 +2004,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-del-canal"
+
+\end_inset
+
 Esquema del canal y la zona de interes a analizar.
 \begin_inset Note Note
 status open
@@ -2282,19 +2034,21 @@ escribir mas lindo esto
 \end_layout
 
 \begin_layout Standard
-Basandonos en el siguiente esquema
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
+Basandonos en el esquema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-del-canal"
 
 \end_inset
 
- definiremos el 
+ haremos algunas definiciones para aclarar posteriores explicaciones.
+ Definiremos: 
+\end_layout
+
+\begin_layout Itemize
+
 \shape italic
-plano de captura
+plano de captura:
 \shape default
  como el plano formado por los ejes 
 \begin_inset Formula $x$
@@ -2307,27 +2061,24 @@ plano de captura
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \shape italic
 zona de captura: 
 \shape default
-al rectangulo capturado por la videocamara sobre la pared del canal que
- es paralelo al plano de captura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+al rectangulo (en el esquema, el de lineas punteadas) capturado por la videocama
+ra sobre la pared del canal que es paralelo al 
+\shape italic
+plano de captura
+\shape default
+ 
+\shape italic
+\color blue
 mejor pintar el plano de captura y dibujar una camara para que se vea como
  capturar
-\end_layout
+\shape default
+\color inherit
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -2341,24 +2092,24 @@ alomejor esta mas facil dibujar el rectangulo de captura y definirlo aca
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \shape italic
 angulo de captura:
 \shape default
- El angulo de rotacion del a camara con respecto al 
+ El angulo de rotacion de la camara con respecto al 
 \shape italic
-plano de captura.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Agregar en la imagen el angulo de captura
-\end_layout
-
+plano de captura
+\shape default
+ (en la imagen, el angulo 
+\begin_inset Formula $\theta$
 \end_inset
 
 
+\shape italic
+).
+\color blue
+Agregar en la imagen el angulo de captura
 \end_layout
 
 \begin_layout Standard
@@ -2457,23 +2208,13 @@ Debido a que el dispositivo se encuentra con un
 angulo de captura
 \shape default
  
-\begin_inset Formula $\alpha\neq0$
+\begin_inset Formula $\theta\neq0$
 \end_inset
 
 , la imagen tomada por el dispositivo posee una perspectiva distinta a la
- zona de captura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-redactar mejor esta parte
-\end_layout
-
-\end_inset
-
-, esto es, el sistema de coordenadas de la imagen en el dispositivo se encuentra
- rotado 
-\begin_inset Formula $-\alpha$
+ real, esto es, el sistema de coordenadas de la imagen en el dispositivo
+ se encuentra rotado 
+\begin_inset Formula $-\theta$
 \end_inset
 
  grados sobre el eje 
@@ -2481,9 +2222,9 @@ redactar mejor esta parte
 \end_inset
 
 .
- Para solucionar esto, y gracias a que el 
+ Para solucionar esto, y gracias a que la 
 \shape italic
-rectangulo de captura
+zona de captura
 \shape default
  esta alineado con el 
 \shape italic
@@ -2502,14 +2243,11 @@ Geom-image-manip.doc.html?
 
 ) por medio de los 8 puntos mencionados anteriormente, la cual mapea cada
  pixel de la imagen origen a su nueva posicion en la imagen destino (solventando
- el defasaje de los distintos sistemas de coordenadas 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref a la imagen 1 de arriba (la que muestra la perspectiva en la camara
- y del objeto en la realidad, sacada del opencv book)
-\end_layout
+ el defasaje de los distintos sistemas de coordenadas como se puede observar
+ en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diferencia-de-perspectiva"
 
 \end_inset
 
@@ -2525,7 +2263,7 @@ De esta manera se soluciona el error de la perspectiva y al mismo tiempo
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 En el siguiente capitulo se realiza un desarrollo mas profundo sobre el
@@ -2600,11 +2338,11 @@ Su funcionalidad es simplemente la siguiente: dada la imagen de entrada
  (de salida) reduciendo la cantidad de datos a analizar en los siguientes
  subprocesos (ya que como requerimiento del sistema necesitamos realizar
  todo el proceso en tiempo real).
- Además que solo necesitamos analizar la altura de la superficie libre en
+ Además que solo necesitamos capturar la altura de la superficie libre en
  un punto determinado (aún asi no podemos solo dejar una unica columna para
- analizar debido a ciertos problemas como se analizará mas adelante).
- Por otro lado simplifica las configuraciones de los posteriores subprocesos
- (como se vera mas adelante).
+ analizar debido a ciertos problemas mencionados posteriormente).
+ Por otro lado simplifica las configuraciones de los siguientes subprocesos
+ (como se vera luego).
 \end_layout
 
 \begin_layout Subsubsection
@@ -2647,12 +2385,9 @@ Se le aplica un segundo filtro denominado
 Gaussian Blur
 \shape default
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref..
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
 
 \end_inset
 
@@ -2664,24 +2399,19 @@ suavizar
 \begin_inset Quotes erd
 \end_inset
 
- la imagen suprimiendo posible ruido (como puntos aislados debido a basuras
- en la imagen capturada u otras cosas) para una mayor diferenciacion de
- los bordes reales.
+ la imagen suprimiendo la mayor cantidad posible de ruido (como puntos aislados
+ debido a basuras capturadas en la imagen) para una mayor diferenciacion
+ de los bordes reales.
  El funcionamiento de este algoritmo se explicara en el siguiente capitulo.
 \end_layout
 
 \begin_layout Enumerate
 Por ultimo se corre el algoritmo conocido por el nombre 
 \shape italic
-Algoritmo de Canny
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\shape italic
-ref..
-\end_layout
+Algoritmo de Canny 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
 
 \end_inset
 
@@ -2701,9 +2431,11 @@ Al finalizar esta secuencia de pasos, podemos asumir que la imagen
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\forall a_{ij}\in I_{mn}:\begin{cases}
+\begin_inset Formula \[
+\forall a_{ij}\in I_{mn}:\begin{cases}
 a_{ij}=1 & si\; a_{ij}\: pertenece\: a\: un\: contorno\\
-a_{ij}=0 & caso\: contrario.\end{cases}$
+a_{ij}=0 & caso\: contrario.\end{cases}\]
+
 \end_inset
 
 
@@ -2718,7 +2450,7 @@ Dicho de otra manera, la imagen de salida
 \begin_inset Formula $a_{ij}$
 \end_inset
 
- (pixels) perteneciente a la misma, contienen el valor verdadero si y solo
+ (pixels) perteneciente a la misma contienen el valor verdadero si y solo
  si forman parte de un contorno detectado por el algoritmo, caso contrario,
  contienen el valor booleano falso.
 \end_layout
@@ -2754,8 +2486,8 @@ Analizador
 \begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
 
-(pixeles) marcados como verdaderos (recordando que son verdaderos si y solo
- si pertenecen a un contorno detectado) son 
+ marcados como verdaderos (recordando que son verdaderos si y solo si pertenecen
+ a un contorno detectado) son 
 \shape italic
 bordes positivos 
 \shape default
@@ -2765,13 +2497,10 @@ bordes negativos
 \shape default
 .
  Para lograrlo, este subproceso se basa en un simple algoritmo explicado
- en el siguiente capitulo 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref al algoritmo
-\end_layout
+ en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wave-height-analyzer"
 
 \end_inset
 
@@ -2815,6 +2544,10 @@ A diferencia de las otras etapas, ésta tiene como salida un valor numerico
 Algoritmos involucrados
 \end_layout
 
+\begin_layout Subsection
+Introduccion
+\end_layout
+
 \begin_layout Standard
 En esta seccion describiremos las bases teoricas de los algoritmos utilizados
  en este trabajo a lo largo del proceso de la deteccion de la superficie
@@ -2830,6 +2563,13 @@ En esta seccion describiremos las bases teoricas de los algoritmos utilizados
 
 \begin_layout Subsection
 Perspective transform
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Perspective-transform"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2839,17 +2579,17 @@ Se basa en una transformacion de perspectiva (por medio de una matriz de
 \end_inset
 
 ) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref algun lado..
  http://java.sun.com/products/java-media/jai/forDevelopers/jai1_0_1guide-unc/Geom-
-image-manip.doc.html
-\end_layout
-
-\end_inset
-
+image-manip.doc.html, no encuentro otro lugar que lo explique asi de simple,
+ el tema es que esta referencia es muy trucha por el hecho de que es la
+ explicacion de como lo implementa java (java es un lenguaje de programacion
+ como C++)....
+ Vale esta referencia?
+\shape default
+\color inherit
  sobre la imagen de entrada 
 \begin_inset Formula $I_{mn}$
 \end_inset
@@ -2867,6 +2607,12 @@ image-manip.doc.html
 \end_inset
 
 , utilizando coordenadas homogeneas 
+\shape italic
+\color red
+[BaTra]
+\shape default
+\color inherit
+
 \begin_inset Note Note
 status open
 
@@ -2892,18 +2638,10 @@ ref a coordenadas homogeneas
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\begin{cases}
+\begin_inset Formula \[
+\begin{cases}
 i'=\frac{m_{00}i+m_{01}j+m_{02}}{m_{20}i+m_{21}j+m_{22}}\\
-j'=\frac{m_{10}i+m_{11}j+m_{12}}{m_{20}i+m_{21}j+m_{22}}\end{cases}$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref eq1
-\end_layout
+j'=\frac{m_{10}i+m_{11}j+m_{12}}{m_{20}i+m_{21}j+m_{22}}\end{cases}\]
 
 \end_inset
 
@@ -2915,10 +2653,12 @@ donde
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $T=\left(\begin{array}{ccc}
+\begin_inset Formula \[
+T=\left(\begin{array}{ccc}
 m_{00} & m_{01} & m_{02}\\
 m_{10} & m_{11} & m_{12}\\
-m_{20} & m_{21} & m_{22}\end{array}\right)$
+m_{20} & m_{21} & m_{22}\end{array}\right)\]
+
 \end_inset
 
 
@@ -2929,7 +2669,8 @@ es la matriz de transformacion, entonces podemos expresar
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\left(\begin{array}{c}
+\begin_inset Formula \begin{equation}
+\left(\begin{array}{c}
 i'\\
 j'\\
 w\end{array}\right)=\left(\begin{array}{ccc}
@@ -2941,16 +2682,7 @@ j\\
 1\end{array}\right)=\left(\begin{array}{c}
 m_{00}i+m_{01}j+m_{02}\\
 m_{10}i+m_{11}j+m_{12}\\
-m_{20}i+m_{21}j+m_{22}\end{array}\right)$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref from Multiplicacion
-\end_layout
+m_{20}i+m_{21}j+m_{22}\end{array}\right)\label{eq:multiplicacion}\end{equation}
 
 \end_inset
 
@@ -2972,17 +2704,10 @@ y cada uno de los
 \end_inset
 
 ) resolviendo un sistema lineal de ecuaciones como se lo puede ver en 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 imgwrap.cpp de openCv sale como es la matriz monstruosa.
  Deberiamos buscar algun lugar donde se pueda ver mejor
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3011,8 +2736,8 @@ Notar que asumimos que los puntos
 \begin_inset Formula $0\leq j,j'<n$
 \end_inset
 
-, lo que siempre sucede debido a que los puntos origen y puntos destino
- se encuetran dentro del tamaño de la imagen.
+, en caso de no cumplirse esta condicion, los pixels son automaticamente
+ descartados.
 \end_layout
 
 \begin_layout Standard
@@ -3045,12 +2770,9 @@ utilizando la matriz
 \end_inset
 
  como se muestra en 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref form Multiplicacion
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multiplicacion"
 
 \end_inset
 
@@ -3069,6 +2791,13 @@ Este algoritmo es utilizado para la rectificacion de la imagen al comienzo
 
 \begin_layout Subsection
 Gaussian Blur
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Gaussian-Blur"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3076,6 +2805,13 @@ Este algoritmo, tambien conocido como
 \shape italic
 Gaussian smoothing
 \shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
 , se lo puede categorizar como un 
 \begin_inset Quotes eld
 \end_inset
@@ -3085,15 +2821,8 @@ low-pass image filter
 \end_inset
 
 , que tiene como finalidad disminuir la amplitud de las variaciones de la
- imagen (ruido)
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
-
-\end_inset
-
-, especialmente utilizado en la fase previa a los algoritmos que detectan
- bordes o contornos.
+ imagen (ruido), especialmente utilizado en la fase previa a los algoritmos
+ que detectan bordes o contornos.
 \end_layout
 
 \begin_layout Standard
@@ -3101,7 +2830,7 @@ Para comprender mejor el funcionamiento del algoritmo expliquemos algunos
  conceptos utilizados:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \shape italic
 Kernel
@@ -3125,25 +2854,21 @@ image convolution
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \shape italic
 Convolution
 \shape default
-:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
+: Es una simple operacion matematica 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-6"
 
 \end_inset
 
-Es una simple operacion matematica que provee una forma de multiplicar entre
- si 2 arrays de numeros, generalmente de diferentes tamaños pero de igual
- dimension produciendo un tercer array (resultado) de numeros de la misma
- dimension.
+ que provee una forma de multiplicar entre si 2 arrays de numeros, generalmente
+ de diferentes tamaños pero de igual dimension produciendo un tercer array
+ (resultado) de numeros de la misma dimension.
  En éste caso (procesamiento de imagenes), los arrays numericos multiplicados
  son por un lado la imagen 
 \begin_inset Formula $I_{mn}$
@@ -3159,17 +2884,36 @@ kernel
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_convolution_kernel.png
+	width 40page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-a izquierda imagen, a derecha kernel
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Representacion de una imágen (a izquierda) y un 
+\shape italic
+kernel
+\shape default
+ (a derecha).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3208,16 +2952,8 @@ Distribucion gaussiana 1D:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $G(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{x^{2}}{2\sigma^{2}}}$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f1
-\end_layout
+\begin_inset Formula \begin{equation}
+G(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{x^{2}}{2\sigma^{2}}}\label{eq:dist_gaus_1d}\end{equation}
 
 \end_inset
 
@@ -3231,16 +2967,8 @@ Distribucion gaussiana 2D:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $G(x,y)=\frac{1}{2\pi\sigma^{2}}e^{-\frac{x^{2}+y^{2}}{2\sigma^{2}}}$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f2
-\end_layout
+\begin_inset Formula \begin{equation}
+G(x,y)=\frac{1}{2\pi\sigma^{2}}e^{-\frac{x^{2}+y^{2}}{2\sigma^{2}}}\label{eq:dist_gaus_2d}\end{equation}
 
 \end_inset
 
@@ -3249,12 +2977,9 @@ ref f2
 
 \begin_layout Standard
 La idea es usar esta distribucion 2D (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f2
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dist_gaus_2d"
 
 \end_inset
 
@@ -3276,12 +3001,9 @@ convolucion
 distribucion gaussiana
 \shape default
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f2
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dist_gaus_2d"
 
 \end_inset
 
@@ -3296,12 +3018,9 @@ convolucion
 
 \begin_layout Standard
 Por temas de eficiencia en general, y gracias a que 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f2
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dist_gaus_2d"
 
 \end_inset
 
@@ -3314,12 +3033,9 @@ ref f2
 \end_inset
 
  (dandonos 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f1
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dist_gaus_1d"
 
 \end_inset
 
@@ -3336,12 +3052,9 @@ primero en la direccion
 \end_inset
 
  por medio de 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f1
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dist_gaus_1d"
 
 \end_inset
 
@@ -3350,12 +3063,9 @@ ref f1
 convolucion
 \shape default
  con 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref f2
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dist_gaus_2d"
 
 \end_inset
 
@@ -3363,9 +3073,12 @@ ref f2
 \end_layout
 
 \begin_layout Standard
-Este algoritmo da como resultado (en cada corrida de la convolucion) un
- promedio ponderado de cada pixel vecino, con la media ponderada mas hacia
- el valor de los pixeles centrales.
+Este algoritmo da como resultado (en cada corrida de la 
+\shape italic
+convolucion
+\shape default
+) un promedio ponderado de cada pixel vecino, con la media ponderada mas
+ hacia el valor de los pixeles centrales.
  Utiliza ademas ciertos parametros que determinan el tamaño de la kernel
  y el sigma utilizado (los cuales, en este trabajo, fueron predefinidos
  como una kernel de tamaño 7x7 y 
@@ -3373,17 +3086,13 @@ Este algoritmo da como resultado (en cada corrida de la convolucion) un
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Tenemos que explicar porque pusimos estos valoreS? estaban por defecto en
  la lib..
  si no sacamos esta ultima parte!
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ).
 \end_layout
 
@@ -3400,18 +3109,94 @@ key "key-1"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename imagenes/img_gaussian_comp.png
+	filename imagenes/img_gaussian_sin_filtro.png
 	lyxscale 80
+	width 40page%
 
 \end_inset
 
 
-\begin_inset Note Note
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Imagen antes de aplicar el filtro.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-agregar comments
+\align center
+\begin_inset Graphics
+	filename imagenes/img_gaussian_comp.png
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Imagen luego de aplicar el filtro.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Imagen comparativa de una imagen aplicando el filtro 
+\shape italic
+Gaussian Blur
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3421,20 +3206,33 @@ agregar comments
 
 \begin_layout Subsection
 Canny edge detector
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Canny-edge-detector"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Este algoritmo fue desarrollado por John F.
+Este algoritmo fue desarrollado por 
+\shape italic
+John F.
  Canny
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+
+\shape italic
+http://www.eecs.berkeley.edu/Faculty/Homepages/canny.html
 \end_layout
 
 \end_inset
 
+
+\shape default
  en 1986, tiene como finalidad detectar los bordes en una imagen, filtrando
  todo aquello que no pertenezca a un contorno.
  El algoritmo se basa en 5 pasos separados:
@@ -3446,17 +3244,7 @@ ref
 Smoothing
 \series default
 : Suavizar la imagen para remover el ruido utilizando el filtro gaussiano
- anteriormente mencionado 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref?
-\end_layout
-
-\end_inset
-
- con parametro 
+ anteriormente mencionado con parametro 
 \begin_inset Formula $\sigma=1.4$
 \end_inset
 
@@ -3477,36 +3265,50 @@ operadores de gradiente
 \begin_inset Quotes erd
 \end_inset
 
- como (Roberts 
-\begin_inset Note Note
+ como (
+\shape italic
+Roberts
+\shape default
+
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+http://en.wikipedia.org/wiki/Roberts_Cross
 \end_layout
 
 \end_inset
 
-, Sobel 
-\begin_inset Note Note
+, 
+\shape italic
+Sobel
+\shape default
+
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+http://en.wikipedia.org/wiki/Sobel_operator
 \end_layout
 
 \end_inset
 
-, Prewitt 
-\begin_inset Note Note
+, 
+\shape italic
+Prewitt
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+
+\shape italic
+http://en.wikipedia.org/wiki/Prewitt_operator
 \end_layout
 
 \end_inset
 
+
+\shape default
 , entre otros).
 \end_layout
 
@@ -3517,7 +3319,11 @@ Non-maximum suppression
 \series default
 : Dada la imagen de magnitudes de gradientes calculada en el paso anterior,
  se convierten los bordes encontrados pero borrosos, en bordes bien marcados
- (fuertes).
+ (
+\shape italic
+fuertes
+\shape default
+).
  Esto se hace por medio de la eliminacion de todo maximo que no sea local
  en la imagen de gradientes y dejando solo los maximo locales, los cuales
  son marcados como contornos fuertes.
@@ -3584,59 +3390,32 @@ fuertes
 
 \begin_layout Standard
 En 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
- y en 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref2
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
 
 \end_inset
 
  se describe en mayor detalle cada uno de los pasos mencionados anteriormente.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-PREGUNTARLE A PAOLO SI EXPLICO TODO ENTERO PORQUE ES UN RESUMEN DEL MANUAL
- ESE MAS O MENOS...
- AL DOPE
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Wave height analyzer
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Este nombre lo invente yo al igual que el primero, como hago con esto? este
- algoritmo lo invente yo...
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Wave-height-analyzer"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color blue
+Este nombre lo invente yo al igual que el primero, como hago con esto? este
+ algoritmo lo invente yo...
 \end_layout
 
 \begin_layout Standard
@@ -3851,9 +3630,7 @@ de cada una de las columnas, son inicializadas por defecto con el valor
 \end_layout
 
 \begin_layout Standard
-
-\color red
-Puede parecer que el paso 3 agrega complejidad inecesaria pero debido a
+Puede parecer que el paso 3 agrega complejidad inecesaria, pero debido a
  que en ciertas situaciones (por problemas de luz o de entorno), la deteccion
  de contornos no se realiza correctamente evitando la deteccion de la ola
  (no se encuentra ningun contorno).
@@ -3918,15 +3695,11 @@ REQ2:
  requiera de una supercomputadora para lograr la velocidad de procesamiento),
  ya que, como se menciono anteriormente, una de las ventajas del sistema
  era su bajo costo.(
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 poner el porque de se uso C++ opencv abajo
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ).
 \end_layout
 
@@ -3937,15 +3710,11 @@ REQ3:
 \series default
  Ser facil de utilizar y configurar por cualquier persona (que no posea
  conocimientos previos) que use el sistema.(
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 por eso se desarrollo una interfaz grafica con QT
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ).
 \end_layout
 
@@ -3967,29 +3736,22 @@ REQ5:
  Contar con una interfaz grafica que permita mostrar los datos procesados
  y además la posibilidad de compararlos con los obtenidos 
 \color red
-por el otro sistema de medicion que actualmente esta siendo utilizado (Acoustic
- Doppler Velocimeter 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+por el otro sistema de medicion que actualmente esta siendo utilizado (poner
+ como se llama el sensor de niveles resistivos...
+ 
+\shape italic
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\shape default
+\color red
 )
 \color inherit
  (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 por eso se realizo la ventana de analisis de postprocesso Qwt
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ).
 \end_layout
 
@@ -4006,12 +3768,12 @@ Debido a que no existia ninguna restriccion sobre el lenguaje de programacion
 \series bold
 Entorno
 \series default
-: Linux 
-\begin_inset Note Note
+: Linux
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+www.linux.com
 \end_layout
 
 \end_inset
@@ -4024,12 +3786,12 @@ ref
 \series bold
 Lenguaje de programacion
 \series default
-: C++ 
-\begin_inset Note Note
+: C++
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+www.cplusplus.com
 \end_layout
 
 \end_inset
@@ -4042,12 +3804,12 @@ ref
 \series bold
 Librerias de procesamiento grafico
 \series default
-: OpenCV 
-\begin_inset Note Note
+: OpenCV
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+http://opencv.willowgarage.com/wiki/
 \end_layout
 
 \end_inset
@@ -4058,26 +3820,14 @@ ref
 \begin_layout Itemize
 
 \series bold
-Librerias de interfaz grafica (GUI
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-ref o nota al pie
-\end_layout
-
-\end_inset
-
-)
+Librerias de interfaz grafica (Graphical User Interface o GUI)
 \series default
-: Qt 
-\begin_inset Note Note
+: Qt
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+http://qt.nokia.com/
 \end_layout
 
 \end_inset
@@ -4090,39 +3840,39 @@ ref
 \series bold
 Librerias adicionales
 \series default
-: Tinyxml 
-\begin_inset Note Note
+: Tinyxml
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+http://www.grinninglizard.com/tinyxml/
 \end_layout
 
 \end_inset
 
 .
- Qwt 
-\begin_inset Note Note
+ Qwt
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref
+http://qwt.sourceforge.net/
 \end_layout
 
 \end_inset
 
 .
- v4l-utils 
-\begin_inset Note Note
+ v4l-utils
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Ref
+http://freecode.com/projects/libv4l
 \end_layout
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -4164,16 +3914,6 @@ Dentro de un gran conjunto de librerias de procesamiento grafico, se opto
 \shape italic
 OpenCV
 \shape default
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
  ya que ésta esta principalmente orientada a sistemas que requieren de manipulac
 ion de imagenes en tiempo real (real time computer vision systems) como
  la robotica.
@@ -4191,18 +3931,12 @@ REQ3
 \shape italic
 Qt
 \shape default
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
- ya que posee una interfaz para C++, cubria con todas las necesidades que
- el sistema planteaba, era de facil integracion con 
+ ya que posee una interfaz para
+\shape italic
+ C++
+\shape default
+, cubria con todas las necesidades que el sistema planteaba, era de facil
+ integracion con 
 \shape italic
 OpenCV
 \shape default
@@ -4215,16 +3949,6 @@ Con respecto a las librerias adicionales, la que mayor impacto tiene sobre
 \shape italic
 Qwt
 \shape default
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref
-\end_layout
-
-\end_inset
-
  ya que 
 \series bold
 REQ5 
@@ -4243,20 +3967,6 @@ GUI
  del sistema -).
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Faltarian las librerias adicionales pero me parece que va agrandar esto
- al pedo, no tienen mucha importancia (no son principales).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Arquitectura
 \end_layout
@@ -4268,12 +3978,9 @@ A nivel general
 \begin_layout Standard
 A un nivel macro, la arquitectura del sistema se la puede simplificar como
  se lo muestra en la figura 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref fig 5.1
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Arquitectura-general-del"
 
 \end_inset
 
@@ -4287,19 +3994,39 @@ es.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_arq_high_level.png
 	lyxscale 80
-	scale 30
+	width 30page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-ref fig 5.1
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Arquitectura-general-del"
+
+\end_inset
+
+Arquitectura general del sistema.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4308,13 +4035,10 @@ ref fig 5.1
 \end_layout
 
 \begin_layout Standard
-Como se puede ver en el diagrama superior 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref fig 5.1
-\end_layout
+Como se puede ver en el diagrama 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Arquitectura-general-del"
 
 \end_inset
 
@@ -4441,17 +4165,40 @@ Core
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_arq_ips.png
+	width 50page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-ref fig 5.2.2.1 ver de cambiar por la otra img alomejor (ver diagrama)
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Arquitectura-de-los"
+
+\end_inset
+
+Arquitectura de los 
+\shape italic
+Image Processing System (IPS)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4460,7 +4207,14 @@ ref fig 5.2.2.1 ver de cambiar por la otra img alomejor (ver diagrama)
 \end_layout
 
 \begin_layout Standard
-A grandes rasgos, se puede observar que el 
+A grandes rasgos, se puede observar (en Figura:
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Arquitectura-de-los"
+
+\end_inset
+
+) que el 
 \shape italic
 IPS Core
 \shape default
@@ -4498,8 +4252,11 @@ ImageProcessors
 
 \begin_layout Standard
 En la parte superior del diagrama se puede observar la interfaz grafica,
- la cual se comunica con el IPS Core, con el fin de poder configurar cada
- uno de estos 
+ la cual se comunica con el 
+\shape italic
+IPS Core
+\shape default
+, con el fin de poder configurar cada uno de estos 
 \shape italic
 ImageProcessors
 \shape default
@@ -4536,30 +4293,67 @@ WHIPS
 \shape italic
 ImageProcessor
 \shape default
- distintos los cuales se muestran en la siguiente figura.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename imagenes/img_arq_whips.png
+ distintos los cuales se muestran en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ImagePorcessor's-del-WaveHeightIPS."
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-En los siguientes 
-\begin_inset Note Note
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-capitulos?? o como pongo esto
+\align center
+\begin_inset Graphics
+	filename imagenes/img_arq_whips.png
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ImagePorcessor's-del-WaveHeightIPS."
+
+\end_inset
+
+ImagePorcessor's
+\shape default
+ del 
+\shape italic
+WaveHeightIPS
+\shape default
+.
 \end_layout
 
 \end_inset
 
- se explicara el funcionamiento detallado de cada uno de estos 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En los siguientes capitulos se explicara el funcionamiento detallado de
+ cada uno de estos 
 \shape italic
 ImageProcessor.
 \end_layout
@@ -4602,30 +4396,52 @@ REQ4
 Image Processing System
 \shape default
 .
- Esto llevo a un 
-\begin_inset Quotes eld
-\end_inset
-
-diseño de abstraccion
-\begin_inset Quotes erd
-\end_inset
-
+ Esto llevo a un diseño al nivel de abstraccion como se muestra en la figura
  
-\begin_inset Note Note
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diseño-de-alto"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-medio raro esto de diseño de abstraccion
-\end_layout
-
-\end_inset
-
- como se muestra a continuacion.
-\end_layout
-
-\begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename imagenes/img_abstract_design.png
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diseño-de-alto"
+
+\end_inset
+
+Diseño de alto nivel.
+ Se muestra al nivel de abstracción.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4633,10 +4449,9 @@ medio raro esto de diseño de abstraccion
 \end_layout
 
 \begin_layout Standard
-En la imagen anterior se observa el diseño a grandes rasgos del sistema
- completo sin ningun detalle de la interfaz de cada una de las clases, como
- asi tambien, se obviaron varias clases auxiliares para evitar complejidad
- en el esquema.
+Se observa el diseño a grandes rasgos del sistema completo sin ningun detalle
+ de la interfaz de cada una de las clases, como asi tambien, se obviaron
+ varias clases auxiliares para evitar complejidad en el esquema.
  Listaremos a continuacion, en forma general, las funcionalidades principales
  de cada una de estas clases.
 \end_layout
@@ -4744,7 +4559,7 @@ ImageProcessor
 \begin_layout Standard
 Como se puede observar, y como se menciono en el capitulo de la arquitectura
  del sistema, se diferencian 2 partes (separadas por la linea discontinua
- celeste).
+ horizontal).
  En la fraccion superior se encuentra el denominado 
 \shape italic
 IPS Core
@@ -4773,23 +4588,58 @@ IPS Core
 
 \begin_layout Standard
 El nucleo de procesamiento se encuentra en este modulo.
- A modo simplificado, el diseño de clases del IPS Core se puede observar
- en la siguiente diagrama:
+ A modo simplificado, el diseño de clases del 
+\shape italic
+IPS Core
+\shape default
+ se puede observar en el diagrama de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diseño-de-clases-1"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_disenio_IPS_Core.png
 	lyxscale 80
+	width 60page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-info img
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diseño-de-clases"
+
+\end_inset
+
+Diseño de clases simplificado de un 
+\shape italic
+IPS Core
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4892,15 +4742,9 @@ Frame
 \color red
 Ademas, en caso de ser necesario, tener la posibilidad de realizar buffering
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\color blue
 ref
-\end_layout
-
-\end_inset
-
+\color red
  agilizando por medio de la paralelizacion, la captura de frames desde el
  dispositivo (esto no se implemento debido a que se pudo cumplir con la
  velocidad requerida).
@@ -4949,11 +4793,11 @@ processData(GPUImage_t)
  requeria un poder de procesamiento mucho mayor, pero con la condicion de
  mantener la velocidad, para esto, se considero la posibilidad de realizar
  este trabajo en la GPU
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-ref GPU
+http://en.wikipedia.org/wiki/Graphics_processing_unit
 \end_layout
 
 \end_inset
@@ -5096,21 +4940,53 @@ IPS GUI
 \shape default
 .
  Un diseño de clases simplificado y a un nivel de abstraccion se lo puede
- observar en el siguiente diagrama
+ observar en diagrama de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diseño-de-clases-1"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_disenio_IPS_GUI.png
+	width 50page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-info img
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diseño-de-clases-1"
+
+\end_inset
+
+Diseño de clases simplificado de un 
+\shape italic
+IPS GUI
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5357,13 +5233,10 @@ WHIPS Core
 \begin_inset Quotes erd
 \end_inset
 
-), como se lo muestra en la 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref fig
-\end_layout
+), como se lo muestra en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diseño-de-clases-2"
 
 \end_inset
 
@@ -5427,8 +5300,43 @@ WaveHeightAnalyzer
  En el siguiente capitulo se detallara el funcionamiento de cada uno de
  estos.
  
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_disenio_WHIPS_core.png
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diseño-de-clases-2"
+
+\end_inset
+
+Diseño de clases de un 
+\shape italic
+WHIPS Core
+\shape default
+ a nivel de abstracción.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -5436,13 +5344,10 @@ WaveHeightAnalyzer
 \end_layout
 
 \begin_layout Standard
-Por otro lado se encuentra la interfaz grafica (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-fig 2
-\end_layout
+Por otro lado se encuentra la interfaz grafica (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diseño-de-clases-3"
 
 \end_inset
 
@@ -5519,15 +5424,11 @@ DataAnalyzeWindow
 \series default
 , la cual muestra de manera grafica los resultados de todo el analisis extrayend
 o y calculando valores de interes (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 poner aca lo que se extrae y referencias
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ).
  Como se puede observar, la clase fue diseñada independientemente a las
  demas (no hereda de ninguna otra clase) ya que debia funcionar independientemen
@@ -5569,18 +5470,43 @@ to e implementacion de cada una de las clases.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_disenio_WHIPS_GUI.png
 	lyxscale 80
+	width 60page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-fig2
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diseño-de-clases-3"
+
+\end_inset
+
+Diseño de clases de un 
+\shape italic
+WHIPS GUI
+\shape default
+ a nivel de abstracción
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5675,12 +5601,9 @@ Perspective Transform
 \end_inset
 
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref capitulo 4.1
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Perspective-transform"
 
 \end_inset
 
@@ -5752,12 +5675,9 @@ CannyBorderDetector
  Gaussian Blur
 \shape default
  (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref 4.2
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Gaussian-Blur"
 
 \end_inset
 
@@ -5767,12 +5687,9 @@ ref 4.2
 Canny
 \shape default
  (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref 4.3
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Canny-edge-detector"
 
 \end_inset
 
@@ -5804,12 +5721,9 @@ Wave height analyzer
 \end_inset
 
  (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref 4.4
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wave-height-analyzer"
 
 \end_inset
 
@@ -5940,23 +5854,55 @@ Por otro lado se brinda la posibilidad de manejar sesiones donde se pueda
 
 \begin_layout Standard
 A manera esquematica, podemos mostrar la funcionalidad (secuencia de pasos)
- que brinda este modulo por medio del siguiente diagrama (conjuncion de
- diagrama de clases y diagrama de flujo)
+ que brinda este modulo por medio del diagrama (conjuncion de diagrama de
+ clases y diagrama de flujo) de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-representativo-del"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_whips_gui_flujo.png
 	lyxscale 60
+	width 60page%
 
 \end_inset
 
 
-\begin_inset Note Note
-status open
+\end_layout
 
 \begin_layout Plain Layout
-ref
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-representativo-del"
+
+\end_inset
+
+Esquema representativo del 
+\shape italic
+WHIPS
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5967,32 +5913,71 @@ ref
 \begin_layout Standard
 En un principio, se le brinda al usuario la posibilidad de crear o cargar
  una sesion ya existente.
- Puede ademas, ejecutar directamente la ventana de analisis de datos (DataAnalyz
-eWindow), la cual funciona como modulo aparte (puede mostrarse datos ya
- obtenidos de una sesion anterior, o de datos externos no necesariamente
- de una sesion anterior).
+ Puede ademas, ejecutar directamente la ventana de analisis de datos (
+\shape italic
+DataAnalyzeWindow
+\shape default
+), la cual funciona como modulo aparte (puede mostrarse datos ya obtenidos
+ de una sesion anterior, o de datos externos no necesariamente de una sesion
+ anterior).
  Esto esta relacionado con la funcionalidad (3) anteriormente enumerada.
 \end_layout
 
 \begin_layout Standard
 Dependiendo del tipo de entrada seleccionado (que puede ser una videocamara
  o un archivo de video), el sistema muestra la ventana de configuracion
- correspondiente (en la figura, VideoFileConfigWindow y CameraConfigWindow).
- Luego se pasa al ciclo de configuracion de los diferentes ImageProcessor
- del WHIPS Core, por medio de las ventanas de configuracion GUIPerspectiveRectif
-ier, GUIMiddlePointClipping y GUICannyBorderDetector.
+ correspondiente (en la figura, 
+\shape italic
+VideoFileConfigWindow
+\shape default
+ y 
+\shape italic
+CameraConfigWindow
+\shape default
+).
+ Luego se pasa al ciclo de configuracion de los diferentes 
+\shape italic
+ImageProcessor
+\shape default
+ del 
+\shape italic
+WHIPS
+\shape default
+ Core, por medio de las ventanas de configuracion 
+\shape italic
+GUIPerspectiveRectifier
+\shape default
+, 
+\shape italic
+GUIMiddlePointClipping
+\shape default
+ y 
+\shape italic
+GUICannyBorderDetector
+\shape default
+.
  Cabe destacar, que en el caso del tipo de entrada ser un archivo de video,
- intercaladamente (entre cada una de estas ventanas) se muestra el VideoFileConf
-igWindow para brindar la posibilidad de adelantar o retrasar el video a
- la posicion que se requiera (esto es de utilidad si las diferentes configuracio
-nes necesarias estan asociadas a distintos frames en el video).
+ intercaladamente (entre cada una de estas ventanas) se muestra el 
+\shape italic
+VideoFileConfigWindow
+\shape default
+ para brindar la posibilidad de adelantar o retrasar el video a la posicion
+ que se requiera (esto es de utilidad si las diferentes configuraciones
+ necesarias estan asociadas a distintos frames en el video).
  Este conjunto de ventanas son utilizadas para lograr (1).
 \end_layout
 
 \begin_layout Standard
-Por ultimo, una vez configurado todo los ImageProcessor, el usuario puede
- comenzar la captura de datos y observarlos en tiempo real gracias a la
- ventana GUIRealTimeDataDisplayer (finalidad (2)).
+Por ultimo, una vez configurado todo los 
+\shape italic
+ImageProcessor
+\shape default
+, el usuario puede comenzar la captura de datos y observarlos en tiempo
+ real gracias a la ventana 
+\shape italic
+GUIRealTimeDataDisplayer
+\shape default
+ (finalidad (2)).
 \end_layout
 
 \begin_layout Standard
@@ -6021,52 +6006,31 @@ s:
 .
  Cuenta con una 
 \color red
-pala electronica
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\color red
-nombre de la pala o referencia?
-\end_layout
-
-\end_inset
-
-
+pala electronica (nombre de la pala o referencia?)
 \color inherit
  la cual genera los oleajes que se quieran simular
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-podemos poner mas caracteristicas sobre la pala, imagen del canal y de la
- pala
-\end_layout
-
-\end_inset
-
+\shape italic
+\color blue
+ podemos poner mas caracteristicas sobre la pala, imagen del canal y de
+ la pala
+\shape default
+\color inherit
 .
 \end_layout
 
 \begin_layout Standard
 Las mediciones de la altura de ola se realizan por medio de sensores de
  nivel resistivos llamados 
-\color red
+\shape italic
+\color blue
 agregar nombre y ref
+\shape default
 \color inherit
 , los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
  segundo (o equivalentemente 100 Hz).
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 Imagen del sensor
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -6093,73 +6057,53 @@ Por otro lado se debe configurar el sistema.
 
 \begin_layout Itemize
 Crear una nueva sesion (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 fig nueva sesion
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 )
 \end_layout
 
 \begin_layout Itemize
 Configuracion de la camara utilizada (foco, zoom, brillo, etc) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 fig imagen camara
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
 \begin_layout Itemize
 Configurar la escala y zona de analisis 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 imagen ref rectangulo
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
 \begin_layout Itemize
 Configurar el punto de reposo de la ola (para lograr esto el nivel del fluido
  debe estar en estado escionario) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 figura ref middlePoint
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
 \begin_layout Itemize
 Configuracion de los parametros del algoritmo para la deteccion de contornos
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 img ref canny
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -6167,15 +6111,11 @@ img ref canny
 Una vez configurado el sistema se prosigue a producir el oleaje que se quiere
  analizar por medio de la pala mecanica antes mencionada y por medio de
  una ultima ventana (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
+\shape italic
+\color blue
 ref img RealTime
-\end_layout
-
-\end_inset
-
+\shape default
+\color inherit
 ) se le brinda al usuario la posibilidad de comenzar a capturar las imagenes
  y observar en tiempo real los datos procesados.
 \end_layout
@@ -6304,6 +6244,16 @@ Learning OpenCV: Computer Vision with the OpenCV Library
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+www.horusvideo.com
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Brady07"
 key "key-1"
 
@@ -6392,6 +6342,7 @@ Edge Detection Techniques: Evaluations and Comparisons
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "BaTra"
 key "key-1"
 
 \end_inset
@@ -6451,6 +6402,64 @@ Design Patterns: Elements of Reusable Object Oriented Software
 
 .
  1994
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "UnEdi"
+key "key-1"
+
+\end_inset
+
+"UNIVERSITY OF EDIMBURGH SCHOOL OF INFORMATIC".
+ http://www.inf.ed.ac.uk/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "canny"
+key "key-2"
+
+\end_inset
+
+
+\shape italic
+\color red
+
+\begin_inset Quotes erd
+\end_inset
+
+Canny Edge Detection
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 09gr820, March 23, 2009
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+
+\shape italic
+\color red
+http://en.wikipedia.org/wiki/Convolution
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+si no lo podemos encontrar tmb en UnEdi
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
