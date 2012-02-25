@@ -207,10 +207,8 @@ Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
  la propagacion de energia mecánica entre la superficie marina y la atmosfera.
  Éstas son generadas por distintos factores naturales (viento, perturbaciones
  meterológicas, terremotos, etc).
- Las olas se propagan debido a la fuerza de gravedad y tension superficial
- que tienden a restaurar la forma lisa de la superficie, provocando el avance
- de la onda.
- 
+ Las olas son perturbaciones que se propagan en la superficie del mar y
+ cuyo movimiento viene amortiguado principalmente por la gravedad.
 \end_layout
 
 \begin_layout Standard
@@ -223,11 +221,15 @@ reference "fig:Distribucion-energética-de"
 
  se puede observar la energia de las ondas de superficie asociadas a cada
  frecuencia.
- En este trabajo se trabajara con las olas pertenecientes a las frecuencias
- 
+ En este trabajo se trabajara con olas de viento pertenecientes a las frecuencia
+s con
 \shape italic
 \color blue
-agregar frecuencias de ondas con las que se trabajan en el lab.
+ 
+\shape default
+\color inherit
+períodos entre 1 y 30 segundos (ondas de viento cuya fuerza estabilizadora
+ es la gravedad).
 \end_layout
 
 \begin_layout Standard
@@ -275,10 +277,18 @@ Distribucion energética de las ondas de superficie
 Matematicamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
  ondas progresivas (se propagan en una profundidad constante manteniendo
- su forma) y ondas estacionarias (aquellas que no se propagan); en este
- trabajo se analizan las primeras.
+ su forma) y ondas estacionarias (aquellas que no se propagan, como por
+ ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos
+ ); en este trabajo se analizan las primeras.
  Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
- utiles para representarlas, estas son:
+ utiles para representarlas, estas son 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Parámetros-asociados-a"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Itemize
@@ -286,7 +296,12 @@ es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
 \end_inset
 
 : Desplazamiento de la superficie libre (desplazamiento vertical de la superfici
-e del fluido con respecto a un nivel medio de referencia NM (MWL)).
+e del fluido con respecto a un nivel medio de referencia NM (en ingles MWL,
+ siglas correspondientes a 
+\shape italic
+Mean Water Level
+\shape default
+)).
  
 \end_layout
 
@@ -294,7 +309,8 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
 \begin_inset Formula $T$
 \end_inset
 
-: Periodo de la onda.
+: Periodo de la onda (tiempo que transcurre entre dos pasos de un punto
+ idéntico de la ola).
  
 \end_layout
 
@@ -302,7 +318,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
 \begin_inset Formula $L$
 \end_inset
 
-: Longitud de la onda.
+: Longitud de la onda (distancia entre dos puntos idénticos de la ola).
  
 \end_layout
 
@@ -323,7 +339,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $pasoporcero$
+\begin_inset Formula $paso\; por\; cero$
 \end_inset
 
 : Puntos en el que la superficie libre interseca al nivel medio de referencia.
@@ -354,10 +370,14 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $nivelenreposo$
+\begin_inset Formula $nivel\; en\; reposo$
 \end_inset
 
-: NR (SWL) nivel correspondiente en ausencia de olas.
+: NR (o en ingles SWL, siglas correspondientes a 
+\shape italic
+Still Water Level
+\shape default
+) nivel correspondiente en ausencia de olas.
  
 \end_layout
 
@@ -366,7 +386,8 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL)).
 \end_inset
 
 : profundidad o calado (distancia entre el fondo y el NR, en caso de presencia
- de ondas, la referencia es NM).
+ de ondas el nivel medio no es NR ya que este viene modificado usandose
+ en cambio a NM como referencia).
 \end_layout
 
 \begin_layout Standard
@@ -391,6 +412,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Parámetros-asociados-a"
+
+\end_inset
+
 Parámetros asociados a la onda
 \end_layout
 
@@ -441,7 +468,7 @@ o
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-C=\frac{L}{T}(m/s)\quad o\quad C=\frac{\omega}{\kappa}(m/s)\end{equation}
+C=\frac{L}{T}[m/s]\quad o\quad C=\frac{\omega}{\kappa}[m/s]\end{equation}
 
 \end_inset
 
@@ -462,7 +489,7 @@ numero de onda
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\kappa=\frac{2\pi}{L}(1/m)\end{equation}
+\kappa=\frac{2\pi}{L}[1/m]\end{equation}
 
 \end_inset
 
@@ -487,7 +514,7 @@ definida como
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\omega=\frac{2\pi}{T}(1/s)\end{equation}
+\omega=\frac{2\pi}{T}[1/s]\end{equation}
 
 \end_inset
 
@@ -510,13 +537,7 @@ Utilizando estos parametros se puede caracterizar la superficie libre de
 
 \begin_layout Standard
 las cuales se caracterizan por tener su evolución espacial y temporal desacoplad
-a 
-\shape italic
-\color blue
-ref formula libro de paolo (no el de los volumenes si no el otro
-\shape default
-\color inherit
-).
+a.
  Este tipo de ondas no progresa en el espacio oscilando verticalmente entre
  puntos fijos llamados nodos.
 \end_layout
@@ -545,12 +566,6 @@ propagandose y manteniendo su forma en la direccion positiva del eje
 \begin_inset Formula $C$
 \end_inset
 
-
-\shape italic
-\color blue
-donde metemos la ref al libro?
-\shape default
-\color inherit
 .
 \end_layout
 
@@ -559,36 +574,11 @@ Teoria lineal de ondas
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\shape italic
-\color blue
-La teoria lineal de ondas presenta numerosas ventajas con respecto a las
- otras, estas son: su simplicidad en comparacion con las otras teorias;
- el nivel de reposo de la onda coincide con el nivel medio; su caracter
- lineal posibilita la eliminacion de terminos no lineals dando a lugar solucione
-s mas sencillas; la solucion es lienal y puede ser usada como base para
- encontrar otras soluciones por superposicion.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La teoria lineal de ondas presenta numerosas ventajas con respecto a las
- otras, principalmente debido a su simplicidad 
-\shape italic
-\color blue
-ref libro donde explique esta teoria
-\shape default
-\color inherit
-.
+La teoria lineal de ondas es una simplificación matemática al problema de
+ la descripción del movimiento y transformación de las ondas en el mar.
+ Tiene ventajas en el sentido que (i) es una teoría sencilla, (ii) posibilita
+ la obtención de soluciones analíticas, (iii) puede usarse como base para
+ obtener otras soluciones por superposición.
 \end_layout
 
 \begin_layout Standard
@@ -619,6 +609,104 @@ En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
 \end_inset
 
  se define simplemente como magnitud.
+\end_layout
+
+\begin_layout Standard
+El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
+ del fluido, la ecuación de continuidad y las ecuaciones de momentum (que
+ deriva deirectamente de la 2a ley de Newton).
+ Con este planteamiento se tienen 4 variables: las tres componentes de la
+ velocidad 
+\begin_inset Formula $u$
+\end_inset
+
+, 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $w$
+\end_inset
+
+ y la presión 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Bajo ciertas hipótesis simplificativas las ecuaciones llegan a tener la
+ siguiente forma: 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+(1) ec de continuidad 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+(2) ec de momentum (de Eulero) 
+\end_layout
+
+\begin_layout Standard
+La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
+ de flujo irrotacional se puede introducir una funcion escalar de la cual
+ dependen las variables a determinar 
+\begin_inset Formula $u$
+\end_inset
+
+, 
+\begin_inset Formula $v$
+\end_inset
+
+ y 
+\begin_inset Formula $w$
+\end_inset
+
+.
+ El problema se reduce a un problema de dos variables: 
+\begin_inset Formula $FI$
+\end_inset
+
+ y 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Con eso el problema se reduce a dos ecuaciones, la de continuidad y la
+ ecuación de Bernoulli.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+(3) ec nueva de continuidad 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+(4) ec de Bernoulli 
+\end_layout
+
+\begin_layout Standard
+El problema sigue siendo no-lineal.
+ La hipótesis de linealidad simplifica aun más el problema y permite llegar
+ a una formulación analítica de la solución del potencial.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+(5) solución del potencial
 \end_layout
 
 \begin_layout Standard
@@ -705,12 +793,6 @@ Esta ultima expresion corresponde a una onda que se propaga con una celeridad
 \begin_inset Formula $x$
 \end_inset
 
- 
-\shape italic
-\color blue
-ref al libro?
-\shape default
-\color inherit
 .
  A modo de ejemplo se puede observar la figura 
 \begin_inset CommandInset ref
@@ -799,19 +881,33 @@ Oleaje irregular
 \end_layout
 
 \begin_layout Standard
-El oleaje irregular puede ser considerado como la superposicion de un gran
+En el mar, un registro de una señal de oleaje, dado por ejemplo por un boya,
+ es un registro de forma caotica y se denomina Oleaje Irregular 
+\shape italic
+\color red
+figura4?
+\shape default
+\color inherit
+.
+ El oleaje irregular puede ser considerado como la superposicion de un gran
  numero (o infinito) de componentes correspondientes a ondas con diferentes
- periodos, alturas y direcciones.
+ periodos, alturas y direcciones 
+\shape italic
+\color red
+figura5?
+\shape default
+\color inherit
+.
  Este conjunto de ondas forman un 
 \shape italic
 grupo de ondas 
 \shape default
 el cual se mueve con una velocidad equivalente a la mitad del promedio de
  las velocidades de sus componentes.
- Analogamente, la energia espectral de las olas (explicado en el siguiente
- capitulo), no se mueve a la velocidad de la ola en si sino a la velocidad
- del grupo de olas.
- En la siguiente imagen 
+ Analogamente, la energia espectral asociada al oleaje (explicado en el
+ siguiente capitulo), no se mueve a la velocidad de la ola en si sino a
+ la velocidad del grupo de olas.
+ En la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Solapamiento-de-trenes"
@@ -875,18 +971,9 @@ Solapamiento y grupos de trenes de ondas
 \end_layout
 
 \begin_layout Standard
-Nuevamente basandonos en 
+Matematicamente
 \shape italic
 \color blue
-ref al libro...
- queda bien eso 
-\begin_inset Quotes eld
-\end_inset
-
-basandonos en
-\begin_inset Quotes erd
-\end_inset
-
  
 \shape default
 \color inherit
@@ -967,18 +1054,11 @@ Analisis del oleaje
 Genéricamente a los movimientos correspondientes a la superficie del mar,
  que son ondas de gravedad, generadas por el viento y que se propagan desde
  el area de generacion perdiendo lentamente energia por firccion con la
- atmosfera y viscosidad molecular (hasta alcanzar las cosas), se lo conoce
- como Oleaje.
+ atmosfera, viscosidad molecular, pero principalmente por la gravedad, (hasta
+ alcanzar las costas) se lo conoce como Oleaje.
  Una manera simple de modelizar el comportamiento del oleaje es su descomposicio
 n en una suma de trenes de ondas regulares de amplitudes, periodos y direcciones
  variables.
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color blue
-alomejor agregar la fig 1 de la introduccion del volumen 2
 \end_layout
 
 \begin_layout Standard
@@ -1038,6 +1118,10 @@ Tiene como objetivo la obtencion de la
 \shape italic
 funcion de densidad espectral
 \shape default
+ o 
+\shape italic
+espectro del oleaje
+\shape default
 , la cual representa la energía total asociada a cada una de los trenes
  de ondas en que se puede descomponer un registro de oleaje en funcion de
  la frecuencia y de la dirección de propagación.
@@ -1047,34 +1131,26 @@ funcion de densidad espectral
 \end_layout
 
 \begin_layout Standard
-Existen 2 formas de obtener la 
+Asumiendo que el proceso es estacionario y ergódico se puede expresar la
+ señal en términos de frecuencias usando la serie de Fourier 
 \shape italic
-funcion de densidad espectral 
-\shape default
-asociada a un conjunto de valores.
- Un metodo se basa en la realización de las transformadas de Fourier de
- la funcion de autocorrelación asociada a la variable medida en un punto
- (por ejemplo la superficie libre) y de la función de correlación cruzada
- entre dos variables de medida en el mismo punto, o de la misma variable
- en dos puntos diferentes.
- El segundo metodo se basa en descomponer el registro temporal en sus componente
-s de Fourier 
-\shape italic
-\color blue
-ref a esto
+\color red
+(1) 3.21 Kamphuis
 \shape default
 \color inherit
-, por medio de la tecnica 
+ que se convierte en 
 \shape italic
-Transformada Rápida de Fourier 
+\color red
+(2)
 \shape default
-o 
-\shape italic
-FFT
-\color blue
-ref
 \color inherit
 .
+ Esta expresión representa la señal en el tiempo en términos de componentes
+ discretas de frecuencias (DFT)
+\shape italic
+\color red
+...
+ seguir poáginas 65 y 66 del Kamphuis 
 \end_layout
 
 \begin_layout Subsection
@@ -1114,17 +1190,6 @@ ref al libro donde sale esta funcion 2.3.1
 \end_layout
 
 \begin_layout Standard
-Este metodo se basa en el teorema de Wiener - Kinchine
-\shape italic
-\color blue
-ref a donde sea que haga falta
-\shape default
-\color inherit
-partiendo de la funcion de autocorrelacion del registro, se aplica una transform
-ada de fourier sobre la misma y se consigue el espectro de frecuencias deseado.
-\end_layout
-
-\begin_layout Standard
 Para la realizacion de la transormada de fourier se emplea el algoritmo
  de la 
 \shape italic
@@ -1137,8 +1202,7 @@ ref
 \shape default
 \color inherit
 , el cual permite eficientemente transformar directamente la serie temporal
- del registro al dominio frecuencial sin necesidad de determinar la funcion
- de autocorrelacion del mismo.
+ del registro al dominio frecuencial.
  El espectro de energia correspondiente a un registro dado por la funcion
  
 \begin_inset Formula $\eta(t)$
@@ -1247,7 +1311,22 @@ donde
 \begin_inset Formula $H_{s}$
 \end_inset
 
- es la altura de ola significante, o altura media de las 
+ es la altura de ola significante, el cual es el parámetro más importante
+ en ingeniería marítima a la hora de clasificar un estado de mar (junto
+ con el período de pico 
+\begin_inset Formula $Tp=1/f_{p}$
+\end_inset
+
+ donde 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ es la frecuencia asociada al pico de máxima energía del espectro).
+ 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ se define como la altura media de las 
 \begin_inset Formula $N/3$
 \end_inset
 
@@ -1255,7 +1334,16 @@ donde
 \begin_inset Formula $N$
 \end_inset
 
- olas.
+ olas; 
+\begin_inset Formula $m_{0}$
+\end_inset
+
+ representa el momento de orden cero y es la integral del espectro.
+ Por lo tanto, 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ se puede obtener simplemente calculando el espectro de la señal.
 \end_layout
 
 \begin_layout Standard
@@ -1275,7 +1363,13 @@ frecuencia de pico
 \begin_inset Formula $\omega=\omega_{p}$
 \end_inset
 
- y decrece tanto hacia las altas como hacia las bajas frecuencias.
+ y decrece tanto hacia las altas como hacia las bajas frecuencias 
+\shape italic
+\color red
+figura7
+\shape default
+\color inherit
+?.
 \end_layout
 
 \begin_layout Standard
@@ -1290,16 +1384,6 @@ el espectro de JONSWAP
 \shape italic
 \color blue
 agregar ref
-\shape default
-\color inherit
- el cual extiende el espectro de 
-\shape italic
-Pierson-Moskowitz
-\shape default
- (P-M) 
-\shape italic
-\color blue
-ref
 \shape default
 \color inherit
 .
@@ -2263,7 +2347,7 @@ De esta manera se soluciona el error de la perspectiva y al mismo tiempo
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 En el siguiente capitulo se realiza un desarrollo mas profundo sobre el
