@@ -41,6 +41,182 @@
 
 \begin_body
 
+\begin_layout Address
+\align center
+
+\size huge
+\noun on
+Facultad de Matemática, Astronomía y Física
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size huge
+\noun on
+Universidad Nacional de Córdoba
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/escudo.png
+	width 20page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size largest
+\noun on
+\color black
+Trabajo final de grado
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size largest
+\emph on
+Software para la detección de variables hidrodinámicas en laboratorio mediante
+ técnicas de video de alta definición.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Autor:
+\series default
+\size default
+ Pérez Paladini, Agustín Daniel.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Director:
+\series default
+\size default
+ Ing.
+ Mg.
+ Paolo Gyssels.
+ Profesor Asistente del Laboratorio de Hidráulica de la UNC.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Profesor Representante:
+\series default
+\size default
+ Dr.
+ Oscar Bustos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color red
+25/02/12
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Aca tenemos que poner el resumen general del trabajo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+\color black
+Agradecimientos
+\end_layout
+
+\begin_layout Standard
+Aca ponemos los agradecimientos..
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Introduccion
 \end_layout
@@ -68,21 +244,29 @@ En la modelación física de laboratorio se emplean en muchos casos instrumentos
 \begin_layout Standard
 Todos los instrumentos modernos de medición de laboratorio requieren una
  buena experiencia por parte del usuario, como en el caso del PIV
-\shape italic
-\color blue
- ref
-\shape default
-\color inherit
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Particle_image_velocimetry
+\end_layout
+
+\end_inset
+
  (Particle Image Velocimeter), donde se utilizan sensores muy delicados
  como el laser, que inclusive pueden causar daños a las personas que lo
  utilizan sin las adecuadas precauciones.
  En otros casos, los instrumentos que se suelen utilizar son de tipo intrusivos,
- como en el caso del ADV 
-\shape italic
-\color blue
-ref
-\shape default
-\color inherit
+ como en el caso del ADV
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Acoustic_Doppler_velocimetry
+\end_layout
+
+\end_inset
+
  (Acoustic Doppler Velocimeter), o de los sensores de nivel resistivos,
  que se sumergen directamente en el fluido; asimismo, tales instrumentos
  se estropean con el uso.
@@ -194,6 +378,13 @@ Durante los ensayos estas tomas deberán permitir la visualización en tiempo
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Fundamentos de hidrodinamica marina
 \end_layout
@@ -250,7 +441,7 @@ status open
 \begin_inset Graphics
 	filename imagenes/img_tam_olas.png
 	lyxscale 50
-	width 60page%
+	width 55page%
 
 \end_inset
 
@@ -407,7 +598,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_param_onda.png
-	width 60page%
+	width 45page%
 	rotateOrigin center
 
 \end_inset
@@ -853,7 +1044,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_propagacion_lineal_onda.png
-	width 60page%
+	width 40page%
 
 \end_inset
 
@@ -946,7 +1137,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_irregular_wave_group.png
-	width 40page%
+	width 25page%
 	rotateOrigin center
 
 \end_inset
@@ -1461,6 +1652,13 @@ Faltaria agregar el tema de como se diferencia esta teoria utilizada y todo
  Me parece que todo asi explicado queda medio colgado, preguntarle a paolo....
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Deteccion de la superficie libre en laboratorio
 \end_layout
@@ -1487,8 +1685,8 @@ Son aquellos que se introducen dentro de la zona que contiene el fluido
  a medir, en contacto con el mismo.
  Éstos tienen como desventaja que con el paso del tiempo, al estar en contacto
  con el medio, su durabilidad es menor, y en algunos casos limitan los tipos
- de fluidos que se pueden medir (algunos instrumentos no pueden medir agua
- salada).
+ de fluidos que se pueden medir (por ejemplo, algunos instrumentos no pueden
+ medir agua salada).
  Ademas, estos sensores son especificos para la medicion de variables en
  un cierto rango de escala espacio-temporal, generan conflictos a la hora
  de medir los procesos cerca de los contornos, dependen de la siembra de
@@ -1502,17 +1700,13 @@ Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
 \end_layout
 
 \begin_layout Standard
-Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter 
+Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter), que
+ es un sensor de nivel resistivo que trabaja altas frecuencias de muestro
+ por voltaje.
 \shape italic
 \color blue
-ref
-\shape default
-\color inherit
-), que es un sensor de nivel resistivo que trabaja altas frecuencias de
- muestro por voltaje.
-\shape italic
-\color blue
-Completar con mas ejemplos, pedirle a paolo nombre de otros instrumentos
+Completar con mas ejemplos, pedirle a paolo nombre de otros instrumentos,
+ mencionar cual es el que se usa en el lab
 \end_layout
 
 \begin_layout Subsubsection
@@ -1523,21 +1717,19 @@ Instrumentos no instrusivos
 Son aquellos que no necesitan estar sumergidos ni en contacto con en el
  fluido.
  Algunos de estos instrumentos (como es el caso del PIV - Particle Image
- Velocimeter -
-\shape italic
-\color blue
-ref?
-\shape default
-\color inherit
-, LDV - Laser Doppler Velocimetry -
-\shape italic
-\color blue
-ref?
-\shape default
-\color inherit
-), funcionan por medio de sensores muy delicados como el laser, que en general,
- sin las precauciones adecuadas, puede generar daños a los seres humanos
- o dañar el sensor en si.
+ Velocimeter -, LDV - Laser Doppler Velocimetry
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Laser_Doppler_velocimetry
+\end_layout
+
+\end_inset
+
+-), funcionan por medio de sensores muy delicados como el laser, que en
+ general, sin las precauciones adecuadas, puede generar daños a los seres
+ humanos o dañar el sensor en si.
  A su vez, dentro de esta rama de instrumentos se encuentra el presentado
  en este trabajo, el cual utiliza tecnicas de procesamiento de imagenes
  para detectar la superficie libre.
@@ -1556,12 +1748,12 @@ A diferencia de los intrsumentos tradicionales, los cuales son muy costosos
  técnicas basadas en procesamiento de imagenes (por medio de videocamaras)
  brindan una opcion alternativa de bajo costo, que requieren de poca experiencia
  por parte del usuario, no son peligrosos (ya que no pueden generar ningun
- daño fisico a personas ni instrumentos en si), tienen una mayor flexibilidad
+ daño fisico a personas ni al instrumentos en si), tienen una mayor flexibilidad
  (aplicables a otros tipos de mediciones y a diferentes escalas espacio-temporal
 es de los procesos
 \shape italic
 \color blue
-que se refiere con 
+ que se refiere con 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1580,18 +1772,11 @@ diferentes escalas espacio-temporales
 \end_layout
 
 \begin_layout Standard
-
+El conjunto de tecnicas investigadas en este trabajo como asi tambien el
+ trabajo desarrollado se basan en la utilizacion de camaras 
 \shape italic
-\color red
-Las tecnicas analizadas en este trabajo se basan en el modelo de camaras
- 
-\begin_inset Quotes eld
-\end_inset
-
 pinhole
-\begin_inset Quotes erd
-\end_inset
-
+\shape default
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1615,20 +1800,12 @@ Para lograr obtener resultados adecuados es necesario capturar imagenes
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-\color blue
-Probablemente este bueno agregar aca alguna imagen de como se toma la imagen
- desde la camara con respecto al canal y una mini intro.
-\end_layout
-
-\begin_layout Standard
 Dentro del conjunto de tecnicas basadas en procesamiento de imagenes se
  pueden diferenciar aquellas que son en tiempo real y las que no, pero ambas,
  a grandes rasgos siguen un mismo proceso.
  Este proceso, que tiene como entrada una imagen y como salida la deteccion
  de alguna variable determinada (altura de la superficie libre) podemos
- describirlo, a grandes rasgos, como un conjunto de pasos (secuenciales)
+ describirlo, de forma general, como un conjunto de pasos (secuenciales)
  o sub-procesos:
 \end_layout
 
@@ -1647,10 +1824,19 @@ Analisis y procesamiento.
 \begin_layout Standard
 Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
  y utilizando diferentes algoritmos o modelos matematicos.
- A continuacion se explican en mayor detalle cada uno de estos pasos.
+ A continuacion se explican en mayor detalle cada uno de éstos.
+
 \shape italic
 \color blue
-completar con info en general sobre las tecnicas actuales
+ Preguntarle a paolo si conoce algo mas sobre 
+\begin_inset Quotes eld
+\end_inset
+
+info en general sobre las tecnicas actuales
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1663,20 +1849,24 @@ Este proceso tiene como objetivo la transformacion de una imagen obtenida
  archivo de video) y transformarla de manera tal que la imagen resultante
  contenga la menor cantidad de errores.
  Por un lado se encuentran los errores (distorciones) introducidos por el
- dispositivo de captura de imagen (videoc, que pueden ser radiales (relacionada
- con la forma del lente de la camara) y tangenciales (provenientes del proceso
- de ensamblaje de la camara en su totalidad)
+ dispositivo de captura de imagen, los cuales pueden ser clasificados como
+\shape italic
+ radiales 
+\shape default
+(relacionada con la forma del lente de la camara) y 
+\shape italic
+tangenciales
+\shape default
+ (provenientes del proceso de ensamblaje de la camara en su totalidad).
+ En 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
 
 \end_inset
 
-.
+ se puede encontrar mayor informacion sobre éstos errores.
  
-\shape italic
-\color blue
-Aca podemos explayarnos bastante con los errores estos, no se si tiene sentido...
 \end_layout
 
 \begin_layout Standard
@@ -1691,11 +1881,18 @@ reference "fig:Diferencia-de-perspectiva"
 \end_inset
 
  (transformacion de perspectiva).
- Esto debido a que resulta practicamente imposible (siempre existe el error
- humano) colocar la videocamara de forma perpendicular a este plano, ademas
- de que no es conveniente (debido al angulo optimo en la que la camara debe
- ser colocada para evitar tomar la superficie del fluido a analizar, la
- cual genera interferencia en el procesamiento posterior).
+ Ésto es debido a que resulta practicamente imposible (siempre existe el
+ error humano) colocar la videocamara de forma perpendicular a este plano,
+ ademas de que no es conveniente (en general la camara se coloca por debajo
+ de la superficie libre con un leve grado de inclinacion 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-2D-del"
+
+\end_inset
+
+ para evitar capturar la superficie del fluido la cual introduce interferencia
+ en los pasos posteriores del procesamiento de la imagen).
 \end_layout
 
 \begin_layout Standard
@@ -1726,20 +1923,14 @@ name "fig:Diferencia-de-perspectiva"
 
 \end_inset
 
-Diferencia de perspectiva entre la imagen en la camara y el plano real.
+Diferencia de perspectiva entre la imagen en la camara (image plane) y el
+ plano real (object plane).
 \end_layout
 
 \end_inset
 
 
 \end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "Imagen 1"
 
 \end_inset
 
@@ -1771,11 +1962,6 @@ key "key-2"
 
 .
  
-\shape italic
-\color blue
-Preguntarle a paolo que onda esto, yo los lei pero no me los acuerdo mucho
- como funcionaban, hace falta realmente acordarse de todo esto perfectamente
- para cuando se entregue la tesis?
 \end_layout
 
 \begin_layout Subsubsection
@@ -1814,23 +2000,25 @@ key "key-4"
 \end_layout
 
 \begin_layout Standard
-A continuacion se muestra un ejemplo en el que la figura superior (
+A modo de ejemplo, observemos la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-sin"
 
 \end_inset
 
-) es la imagen de entrada de este sub-proceso (ya rectificada) pero sin
- ningun filtro aplicado, mientras que la figura inferior (
+ representando a la imagen de entrada de este sub-proceso (ya rectificada)
+ pero sin ningun filtro aplicado, mientras que la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-luego"
 
 \end_inset
 
-) muestra la imagen de salida (de esta etapa) luego de haberla procesado
- con el algoritmo de deteccion de contornos.
+ muestra la imagen de salida (de esta etapa) luego de haberla procesado
+ con el algoritmo de deteccion de contornos (cabe destacar que en este caso
+ no se delimito ninguna zona analizar si no que se aplico el algoritmo de
+ deteccion de contornos a toda la imagen de entrada).
 \end_layout
 
 \begin_layout Standard
@@ -1841,9 +2029,16 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/img_comp_canny1.png
-	width 60page%
+	width 50page%
 
 \end_inset
 
@@ -1861,7 +2056,7 @@ name "fig:Imagen-rectificada-sin"
 
 \end_inset
 
-Imagen rectificada sin filtros.
+Imagen rectificada sin filtros (imagen de entrada).
 \end_layout
 
 \end_inset
@@ -1874,7 +2069,8 @@ Imagen rectificada sin filtros.
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -1884,7 +2080,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_comp_canny2.png
-	width 60page%
+	width 50page%
 
 \end_inset
 
@@ -1901,11 +2097,40 @@ name "fig:Imagen-rectificada-luego"
 
 \end_inset
 
-Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos.
+Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos
+ (imagen de salida).
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Resultado-del-proceso"
+
+\end_inset
+
+Resultado del proceso de deteccion de contornos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -1918,14 +2143,9 @@ Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos.
 Como se puede ver, dependiendo del entorno de trabajo (luz, contraste de
  la superficie libre con respecto al canal, etc), el algoritmo utilizado,
  y los filtros aplicados, la existencia de bordes falsos puede generar mucho
- ruido e introducir errores a la hora de medir la altura de ola.
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color blue
-agregamos algo mas? medio feo esta...
+ ruido e introducir errores a la hora de medir la altura de ola, es por
+ esto que es necesario de una etapa posterior que permita discernir los
+ bordes que pertenecen a la superficie libre, la cual se menciona a continuacion.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1945,7 +2165,7 @@ bordes positivos
 \shape italic
 bordes negativos
 \shape default
-) como claramente se puede observar en la imagen anterior 
+) como claramente se puede observar en la figura anterior anterior 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-luego"
@@ -1957,15 +2177,15 @@ reference "fig:Imagen-rectificada-luego"
 \shape italic
 bordes positivos 
 \shape default
-no es unica y esta intimamente ligado en como fue modificada la imagen en
- la etapa anterior.
+no es unica y esta fuertemente ligada en como fue modificada la imagen en
+ la etapa anterior y/o en la forma de representar los contornos detectados.
  
 \shape italic
 \color blue
 podemos mencionar y dar ejemplos de los otros papers que por ejemplo algunos
  detectan el contorno, otros pintan de color el contorno, otros arman un
  arreglo de booleanos y en base a eso determiann cual es el borde.
- etc
+ etc.
 \end_layout
 
 \begin_layout Standard
@@ -1979,24 +2199,8 @@ bordes positivos
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-\color blue
-No vi tecnicas para esto.
-\end_layout
-
-\begin_layout Standard
-Es probablemente esta etapa la que mas varia de tecnica en tecnica
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-escribir mejor esto
-\end_layout
-
-\end_inset
-
-.
+Es probablemente esta etapa la que mas se diferencia entre las distintas
+ tecnicas utilizadas.
 \end_layout
 
 \begin_layout Subsection
@@ -2004,15 +2208,8 @@ Tecnicas utilizadas
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-\color blue
-Agregar alomejor algo con respecto a tiempo real
-\end_layout
-
-\begin_layout Standard
 En el presente trabajo podemos dividir el proceso general en cuatro sub-procesos
- como lo muestra el siguiente diagrama 
+ como lo muestra en el diagrama del a figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-general-del"
@@ -2081,10 +2278,17 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename imagenes/img_eje_trabajo.jpg
-	lyxscale 40
-	width 50page%
+	filename imagenes/img_eje_trabajo_3d.png
+	lyxscale 30
+	width 60page%
 
 \end_inset
 
@@ -2092,6 +2296,77 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-3D-del"
+
+\end_inset
+
+Esquema 3D del canal y zona de captura.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_eje_trabajo.png
+	lyxscale 20
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-2D-del"
+
+\end_inset
+
+Esquema 2D del canal y angulo de captura.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -2125,7 +2400,7 @@ escribir mas lindo esto
 \end_layout
 
 \begin_layout Standard
-Basandonos en el esquema 
+Basandonos en el esquema presentado en la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-del-canal"
@@ -2157,30 +2432,10 @@ plano de captura:
 \shape italic
 zona de captura: 
 \shape default
-al rectangulo (en el esquema, el de lineas punteadas) capturado por la videocama
-ra sobre la pared del canal que es paralelo al 
+al rectangulo capturado por la videocamara sobre la pared del canal que
+ es paralelo al 
 \shape italic
-plano de captura
-\shape default
- 
-\shape italic
-\color blue
-mejor pintar el plano de captura y dibujar una camara para que se vea como
- capturar
-\shape default
-\color inherit
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-alomejor esta mas facil dibujar el rectangulo de captura y definirlo aca
- en vez de abajo
-\end_layout
-
-\end_inset
-
-
+plano de captura.
 \end_layout
 
 \begin_layout Itemize
@@ -2192,15 +2447,20 @@ angulo de captura:
 \shape italic
 plano de captura
 \shape default
- (en la imagen, el angulo 
+ (en el diagrama el angulo 
 \begin_inset Formula $\theta$
 \end_inset
 
 
 \shape italic
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-2D-del"
+
+\end_inset
+
 ).
-\color blue
-Agregar en la imagen el angulo de captura
 \end_layout
 
 \begin_layout Standard
@@ -2221,7 +2481,8 @@ Definamos ademas a una imagen
 \begin_inset Formula $0\leq j<n$
 \end_inset
 
-, definamos tambien a 
+.
+ Definamos tambien a 
 \begin_inset Formula $I_{*k}$
 \end_inset
 
@@ -2254,6 +2515,18 @@ Definamos ademas a una imagen
  al inferior derecho.
 \end_layout
 
+\begin_layout Standard
+A continuacion mencionaremos las caracteristicas principales y finalidad
+ de cada uno de los subprocesos (que se muestran en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-general-del"
+
+\end_inset
+
+) utilizados en este trabajo para capturar la altura de la superficie libre.
+\end_layout
+
 \begin_layout Subsubsection
 
 \series bold
@@ -2264,30 +2537,35 @@ Rectificador
 Este subproceso requiere de una previa configuracion antes de poder procesar
  la imagen de entrada.
  Necesita de 2 grupos de 4 puntos (en dos dimensiones) correspondientes
- los puntos de origen y de destino.
- Los primeros estan asociados a la zona de trabajo 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-o rectangulo de captura si lo definimos arriba
-\end_layout
-
-\end_inset
-
+ a los puntos de origen y de destino.
+ Los primeros estan asociados a la 
+\shape italic
+zona de trabajo
+\shape default
  que se quiere analizar (la cual debe ser un rectangulo contenido dentro
  de la 
 \shape italic
-zona de captura
+zona de captura 
 \shape default
- con base alineada al eje 
+-figura 
+\shape italic
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-3D-del"
+
+\end_inset
+
+
+\shape default
+- con base alineada al eje 
 \begin_inset Formula $x$
 \end_inset
 
 ).
  Mientras que el segundo grupo esta relacionado con el tamaño de la imagen
- capturada por el dispositivo en si (esto eso, el tamaño del frame con el
- que se trabaja).
+ capturada por el dispositivo en si (esto eso, el tamaño del frame/imagen
+ con el que se trabaja).
  El primer grupo de puntos necesita ser especificado por el usuario mientras
  que el segundo se asigna de manera automatica.
  
@@ -2302,8 +2580,15 @@ angulo de captura
 \begin_inset Formula $\theta\neq0$
 \end_inset
 
-, la imagen tomada por el dispositivo posee una perspectiva distinta a la
- real, esto es, el sistema de coordenadas de la imagen en el dispositivo
+ (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-2D-del"
+
+\end_inset
+
+), la imagen tomada por el dispositivo posee una perspectiva distinta a
+ la real, esto es, el sistema de coordenadas de la imagen en el dispositivo
  se encuentra rotado 
 \begin_inset Formula $-\theta$
 \end_inset
@@ -2321,21 +2606,10 @@ zona de captura
 \shape italic
 plano de captura
 \shape default
-, se genera una matriz de transformacion de perspectiva (
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref a http://java.sun.com/products/java-media/jai/forDevelopers/jai1_0_1guide-unc/
-Geom-image-manip.doc.html?
-\end_layout
-
-\end_inset
-
-) por medio de los 8 puntos mencionados anteriormente, la cual mapea cada
- pixel de la imagen origen a su nueva posicion en la imagen destino (solventando
- el defasaje de los distintos sistemas de coordenadas como se puede observar
- en 
+, se genera una matriz de transformacion de perspectiva por medio de los
+ 8 puntos mencionados anteriormente, la cual mapea cada pixel de la imagen
+ origen a su nueva posicion en la imagen destino (solventando el defasaje
+ de los distintos sistemas de coordenadas como se puede observar en 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diferencia-de-perspectiva"
@@ -2353,18 +2627,15 @@ De esta manera se soluciona el error de la perspectiva y al mismo tiempo
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-En el siguiente capitulo se realiza un desarrollo mas profundo sobre el
- algoritmo de rectificacion.
- (sacamos lo de arriba toda la explicacion matematicay la ponemos mas adelante?)
-\end_layout
+En el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Perspective-transform"
 
 \end_inset
 
-
+ se realiza un desarrollo mas profundo sobre el algoritmo que permite realizar
+ esta rectificacion.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2475,13 +2746,6 @@ Se le aplica un segundo filtro denominado
 \shape italic
 Gaussian Blur
 \shape default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
-
-\end_inset
-
  con el fin de 
 \begin_inset Quotes eld
 \end_inset
@@ -2493,22 +2757,29 @@ suavizar
  la imagen suprimiendo la mayor cantidad posible de ruido (como puntos aislados
  debido a basuras capturadas en la imagen) para una mayor diferenciacion
  de los bordes reales.
- El funcionamiento de este algoritmo se explicara en el siguiente capitulo.
+ El funcionamiento de este algoritmo se explicara en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Gaussian-Blur"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
 Por ultimo se corre el algoritmo conocido por el nombre 
 \shape italic
 Algoritmo de Canny 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-2"
+\shape default
+(detallado en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Canny-edge-detector"
 
 \end_inset
 
-
-\shape default
- utilizado para detectar los bordes en la imagen basado en ciertos parametros
+) utilizado para detectar los bordes en la imagen basado en ciertos parametros
  previamente configurados por el usuario que seran mencionados posteriormente
  junto con detalles del funcionamiento del algoritmo.
 \end_layout
@@ -2541,22 +2812,38 @@ Dicho de otra manera, la imagen de salida
 \begin_inset Formula $a_{ij}$
 \end_inset
 
- (pixels) perteneciente a la misma contienen el valor verdadero si y solo
- si forman parte de un contorno detectado por el algoritmo, caso contrario,
- contienen el valor booleano falso.
+ perteneciente a la misma contienen el valor verdadero si y solo si forman
+ parte de un contorno detectado por el algoritmo, caso contrario, contienen
+ el valor booleano falso.
 \end_layout
 
 \begin_layout Standard
 Este subproceso es el que mayor tiempo de procesamiento requiere.
  
+\end_layout
+
+\begin_layout Standard
+En este trabajo se opto por la utilizacion de este algoritmo (
 \shape italic
-\color red
-Basicamente se opto por la utilizacion de este algoritmo debido a que la
- libreria con la que se trabajo no proveia de otro algoritmo integrado para
- detectar bordes.
- Aún asi, al ser el proceso de manera secuencial e independiente cada uno
- con respecto a los otros, cambiar de algoritmo solo deberia implicar la
- modificacion de este único subproceso (modulo).
+Canny
+\shape default
+) debido a que es uno de los mas utilizados en el area de 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+computer vision
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+ y además la libreria con la que se trabajo proveia de una implementacion
+ del mismo.
+ Aún asi, al ser el proceso general una secuencia de subprocesos independientes
+ (cada uno con respecto a los otros), cambiar de algoritmo solo debería
+ implicar la modificación de este único subproceso (modulo).
 \end_layout
 
 \begin_layout Subsubsection
@@ -2622,13 +2909,20 @@ altura de superficie libre en metros
 \end_inset
 
 , por medio de uno de los parametros de configuracion que establece la relacion
- de equivalencia de pixels en metros.
+ de equivalencia entre pixels y metros.
 \end_layout
 
 \begin_layout Standard
 A diferencia de las otras etapas, ésta tiene como salida un valor numerico
  (y no una imagen), que es la salida del proceso completo, esto es, la altura
  de la superficie libre detectada y convertida en metros.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2640,7 +2934,7 @@ Introduccion
 \end_layout
 
 \begin_layout Standard
-En esta seccion describiremos las bases teoricas de los algoritmos utilizados
+En esta seccion describiremos las bases matematicas de los algoritmos utilizados
  en este trabajo a lo largo del proceso de la deteccion de la superficie
  libre.
  Se mencionaran en el orden en el que son aplicados sobre la imagen de entrada
@@ -2650,6 +2944,34 @@ En esta seccion describiremos las bases teoricas de los algoritmos utilizados
 
  del proceso, proviniente ya sea del dispositivo (videocamara) o de un archivo
  de video.
+\end_layout
+
+\begin_layout Standard
+Los algoritmos utilizados para la rectificacion de la imagen y el analisis
+ de los contornos (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Perspective-transform"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wave-height-analyzer"
+
+\end_inset
+
+ respectivamente) no poseen nombres concretos por lo que se decidio asignarles
+ uno con el fin de facilitar su identificacion en los capitulos siguientes.
+ En particular, este ultimo (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wave-height-analyzer"
+
+\end_inset
+
+) fue completamente desarrollado para este trabajo.
 \end_layout
 
 \begin_layout Subsection
@@ -2669,19 +2991,7 @@ Se basa en una transformacion de perspectiva (por medio de una matriz de
 \begin_inset Formula $T$
 \end_inset
 
-) 
-\shape italic
-\color blue
-ref algun lado..
- http://java.sun.com/products/java-media/jai/forDevelopers/jai1_0_1guide-unc/Geom-
-image-manip.doc.html, no encuentro otro lugar que lo explique asi de simple,
- el tema es que esta referencia es muy trucha por el hecho de que es la
- explicacion de como lo implementa java (java es un lenguaje de programacion
- como C++)....
- Vale esta referencia?
-\shape default
-\color inherit
- sobre la imagen de entrada 
+) sobre la imagen de entrada 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
@@ -2794,11 +3104,48 @@ y cada uno de los
 \begin_inset Formula $p_{d_{k}}:k=1,..,4$
 \end_inset
 
-) resolviendo un sistema lineal de ecuaciones como se lo puede ver en 
-\shape italic
-\color blue
-imgwrap.cpp de openCv sale como es la matriz monstruosa.
- Deberiamos buscar algun lugar donde se pueda ver mejor
+) resolviendo el siguiente sistema lineal de ecuaciones 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\left(\begin{array}{cccccccc}
+p_{o_{1}}.x & p_{o_{1}}.y & 1 & 0 & 0 & 0 & -p_{o_{1}}.x*p_{d_{1}}.x & -p_{o_{1}}.y*p_{d_{1}}.x\\
+p_{o_{2}}.x & p_{o_{2}}.y & 1 & 0 & 0 & 0 & -p_{o_{2}}.x*p_{d_{2}}.x & -p_{o_{2}}.y*p_{d_{2}}.x\\
+p_{o_{3}}.x & p_{o_{3}}.y & 1 & 0 & 0 & 0 & -p_{o_{3}}.x*p_{d_{3}}.x & -p_{o_{3}}.y*p_{d_{3}}.x\\
+p_{o_{4}}.x & p_{o_{4}}.y & 1 & 0 & 0 & 0 & -p_{o_{4}}.x*p_{d_{4}}.x & -p_{o_{4}}.y*p_{d_{4}}.x\\
+0 & 0 & 0 & p_{o_{1}}.x & p_{o_{1}}.y & 1 & -p_{o_{1}}.x*p_{d_{1}}.y & -p_{o_{1}}.y*p_{d_{1}}.y\\
+0 & 0 & 0 & p_{o_{2}}.x & p_{o_{2}}.y & 1 & -p_{o_{2}}.x*p_{d_{2}}.y & -p_{o_{2}}.y*p_{d_{2}}.y\\
+0 & 0 & 0 & p_{o_{3}}.x & p_{o_{3}}.y & 1 & -p_{o_{3}}.x*p_{d_{3}}.y & -p_{o_{3}}.y*p_{d_{3}}.y\\
+0 & 0 & 0 & p_{o_{4}}.x & p_{o_{4}}.y & 1 & -p_{o_{4}}.x*p_{d_{4}}.y & -p_{o_{4}}.y*p_{d_{4}}.y\end{array}\right)*\left(\begin{array}{c}
+m_{00}\\
+m_{01}\\
+m_{02}\\
+m_{10}\\
+m_{11}\\
+m_{12}\\
+m_{20}\\
+m_{21}\end{array}\right)=\left(\begin{array}{c}
+p_{d_{1}}.x\\
+p_{d_{2}}.x\\
+p_{d_{3}}.x\\
+p_{d_{4}}.x\\
+p_{d_{1}}.y\\
+p_{d_{2}}.y\\
+p_{d_{3}}.y\\
+p_{d_{4}}.y\end{array}\right)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\begin_inset Formula $m_{22}=1$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2877,7 +3224,6 @@ reference "eq:multiplicacion"
 \begin_layout Standard
 Este algoritmo es utilizado para la rectificacion de la imagen al comienzo
  del proceso.
- 
 \end_layout
 
 \begin_layout Subsection
@@ -2930,7 +3276,14 @@ Kernel
 \shape italic
 Mask
 \shape default
-: Usualmente una matriz de numeros usada en lo que se denomina 
+: Usualmente una matriz de numeros (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Representacion-de-una"
+
+\end_inset
+
+) usada en lo que se denomina 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2958,8 +3311,8 @@ key "key-6"
 \end_inset
 
  que provee una forma de multiplicar entre si 2 arrays de numeros, generalmente
- de diferentes tamaños pero de igual dimension produciendo un tercer array
- (resultado) de numeros de la misma dimension.
+ de diferentes tamaños pero de igual tipo numerico produciendo un tercer
+ array (resultado) de numeros del mismo tipo.
  En éste caso (procesamiento de imagenes), los arrays numericos multiplicados
  son por un lado la imagen 
 \begin_inset Formula $I_{mn}$
@@ -2970,8 +3323,15 @@ key "key-6"
 \shape italic
 kernel
 \shape default
-, dando como resultado, la imagen con el suavizado aplicado.
- Para una mayor claridad observemos la siguiente figura:
+ (como lo muestra la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Representacion-de-una"
+
+\end_inset
+
+), dando como resultado, la imagen con el suavizado aplicado.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2984,7 +3344,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_convolution_kernel.png
-	width 40page%
+	width 30page%
 
 \end_inset
 
@@ -2995,6 +3355,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Representacion-de-una"
+
+\end_inset
+
 Representacion de una imágen (a izquierda) y un 
 \shape italic
 kernel
@@ -3017,10 +3383,10 @@ La
 \shape italic
 convolucion 
 \shape default
-es realizada deslizando el kernel (empezando generalmente desde por arriba
- a la izquierda) sobre todos los pixels de la imagen de forma tal que la
- matriz kernel entre completamente dentro de los limites de la imagen, devolvien
-do en cada posicion (que se desliza el kernel) un unico valor correspondiente.
+es realizada deslizando el kernel (empezando generalmente por arriba a la
+ izquierda) sobre todos los pixels de la imagen de forma tal que la matriz
+ kernel entre completamente dentro de los limites de la misma, devolviendo
+ en cada posicion (que se desliza el kernel) un unico valor correspondiente.
  A modo de ejemplo en el caso del ultimo pixel (abajo a la derecha) el resultado
  de la operacion seria 
 \begin_inset Formula $O_{57}=I_{57}K_{11}+I_{58}K_{12}+I_{59}K_{13}+I_{67}K_{21}+I_{68}K_{22}+I_{69}K_{23}$
@@ -3067,7 +3433,7 @@ G(x,y)=\frac{1}{2\pi\sigma^{2}}e^{-\frac{x^{2}+y^{2}}{2\sigma^{2}}}\label{eq:dis
 \end_layout
 
 \begin_layout Standard
-La idea es usar esta distribucion 2D (
+La idea es usar esta distribucion 2D (ecuacion 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_2d"
@@ -3089,15 +3455,8 @@ convolucion
 .
  Dicho en otras palabras, armar la matriz kernel utilizando la 
 \shape italic
-distribucion gaussiana
+distribucion gaussiana 2D
 \shape default
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:dist_gaus_2d"
-
-\end_inset
-
  para luego aplicar la 
 \shape italic
 convolucion
@@ -3108,7 +3467,7 @@ convolucion
 \end_layout
 
 \begin_layout Standard
-Por temas de eficiencia en general, y gracias a que 
+Por temas de eficiencia en general, y gracias a que ecuacion 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_2d"
@@ -3123,7 +3482,7 @@ reference "eq:dist_gaus_2d"
 \begin_inset Formula $y$
 \end_inset
 
- (dandonos 
+ (dandonos como resultado ecuacion
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_1d"
@@ -3142,7 +3501,7 @@ primero en la direccion
 \begin_inset Formula $y$
 \end_inset
 
- por medio de 
+ por medio de ecuacion 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_1d"
@@ -3153,7 +3512,7 @@ reference "eq:dist_gaus_1d"
 \shape italic
 convolucion
 \shape default
- con 
+ con la ecuacion 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_2d"
@@ -3171,32 +3530,36 @@ convolucion
 ) un promedio ponderado de cada pixel vecino, con la media ponderada mas
  hacia el valor de los pixeles centrales.
  Utiliza ademas ciertos parametros que determinan el tamaño de la kernel
- y el sigma utilizado (los cuales, en este trabajo, fueron predefinidos
- como una kernel de tamaño 7x7 y 
-\begin_inset Formula $\sigma=1.5$
+ y el 
+\begin_inset Formula $\sigma$
 \end_inset
 
-
-\shape italic
-\color blue
-Tenemos que explicar porque pusimos estos valoreS? estaban por defecto en
- la lib..
- si no sacamos esta ultima parte!
-\shape default
-\color inherit
-).
+ utilizado.
 \end_layout
 
 \begin_layout Standard
-A modo de ejemplo, se muestran dos imagenes, una (la izquierda) antes y
- la otra (derecha) luego de haber aplicado el filtro (extraidas de 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
+A modo de ejemplo, se muestran dos imagenes en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-comparativa-de"
 
 \end_inset
 
-.
+, una (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-antes-de"
+
+\end_inset
+
+) antes y la otra (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-luego-de"
+
+\end_inset
+
+) luego de haber aplicado el filtro explicado anteriormente.
 \end_layout
 
 \begin_layout Standard
@@ -3206,6 +3569,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -3216,7 +3580,7 @@ status open
 \begin_inset Graphics
 	filename imagenes/img_gaussian_sin_filtro.png
 	lyxscale 80
-	width 40page%
+	width 30page%
 
 \end_inset
 
@@ -3227,6 +3591,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagen-antes-de"
+
+\end_inset
+
 Imagen antes de aplicar el filtro.
 \end_layout
 
@@ -3241,6 +3611,7 @@ Imagen antes de aplicar el filtro.
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -3250,7 +3621,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_gaussian_comp.png
-	width 40page%
+	width 30page%
 
 \end_inset
 
@@ -3261,6 +3632,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagen-luego-de"
+
+\end_inset
+
 Imagen luego de aplicar el filtro.
 \end_layout
 
@@ -3275,14 +3652,28 @@ Imagen luego de aplicar el filtro.
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagen-comparativa-de"
+
+\end_inset
+
 Imagen comparativa de una imagen aplicando el filtro 
 \shape italic
 Gaussian Blur
 \shape default
-.
+ (extraidas de 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+).
 \end_layout
 
 \end_inset
@@ -3326,7 +3717,7 @@ http://www.eecs.berkeley.edu/Faculty/Homepages/canny.html
 \shape default
  en 1986, tiene como finalidad detectar los bordes en una imagen, filtrando
  todo aquello que no pertenezca a un contorno.
- El algoritmo se basa en 5 pasos separados:
+ El algoritmo se lo puede dividir en 5 pasos:
 \end_layout
 
 \begin_layout Enumerate
@@ -3417,7 +3808,11 @@ fuertes
 ).
  Esto se hace por medio de la eliminacion de todo maximo que no sea local
  en la imagen de gradientes y dejando solo los maximo locales, los cuales
- son marcados como contornos fuertes.
+ son marcados como contornos 
+\shape italic
+fuertes
+\shape default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -3466,7 +3861,7 @@ Edge tracking by hysteresis
 fuertes 
 \shape default
 son automaticamente clasificados como contornos reales (y por ende incluidos
- a la imagen resultante).
+ a la imagen final resultante).
  Aquellos pixels marcados como 
 \shape italic
 debiles
@@ -3488,6 +3883,19 @@ key "key-2"
 \end_inset
 
  se describe en mayor detalle cada uno de los pasos mencionados anteriormente.
+ En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resultado-del-proceso"
+
+\end_inset
+
+ se puede observar la imagen resultante luego de aplicar el algoritmo de
+ 
+\shape italic
+Canny
+\shape default
+.
 \end_layout
 
 \begin_layout Subsection
@@ -3726,6 +4134,13 @@ Puede parecer que el paso 3 agrega complejidad inecesaria, pero debido a
  de contornos no se realiza correctamente evitando la deteccion de la ola
  (no se encuentra ningun contorno).
  Es por esto que hay que hacer el algoritmo lo mas robusto posible.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -6080,6 +6495,13 @@ En el apendice se pueden observar imagenes de la interfaz grafica (o podemos
  las interfaces)
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Aplicacion en un canal 2D
 \end_layout
@@ -6346,8 +6768,22 @@ Aca hablamos sobre las diferentes mediciones propuestas (analisis de varios
 Mediciones y analisis de los resultados
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Conclusiones
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
