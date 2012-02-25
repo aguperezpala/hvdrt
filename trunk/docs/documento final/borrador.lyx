@@ -221,13 +221,6 @@ LatexCommand tableofcontents
 Introduccion
 \end_layout
 
-\begin_layout Standard
-
-\color red
-En algun lado tenemos que poner que trabajamos con el laboratorio de hidraulica,
- puede ser aca en la intro o puede ser en el cap Aplicaion en un canal 2D....
-\end_layout
-
 \begin_layout Subsection
 Motivaciones
 \end_layout
@@ -3910,14 +3903,6 @@ name "sub:Wave-height-analyzer"
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-\color blue
-Este nombre lo invente yo al igual que el primero, como hago con esto? este
- algoritmo lo invente yo...
-\end_layout
-
-\begin_layout Standard
 Este algoritmo tiene como finalidad determinar cual de todos los contornos
  que se encuentran en la imagen corresponde a la altura de ola que se este
  analizando.
@@ -3986,6 +3971,10 @@ Se asume ademas que el movimiento de la ola se realiza sobre el eje
 \begin_inset Formula $I$
 \end_inset
 
+ sobre la columna 
+\begin_inset Formula $k$
+\end_inset
+
 .
 \end_layout
 
@@ -4035,11 +4024,12 @@ de la siguiente forma: Partiendo de
 \begin_inset Formula $w_{k}=a_{ik}$
 \end_inset
 
-, en caso de que tal 
+.
+ En caso de que tal 
 \begin_inset Formula $i$
 \end_inset
 
- no exista, 
+ no exista asignamos 
 \begin_inset Formula $w_{k}=\bar{w}_{k}$
 \end_inset
 
@@ -4080,7 +4070,7 @@ Sea
 \begin_inset Formula $k=\frac{m}{2}$
 \end_inset
 
-, calculan las 
+, se calculan las 
 \begin_inset Formula $v_{i}=\left|w_{k-i}-\bar{w}_{k-i}\right|+\left|w_{k+i}-\bar{w}_{k+i}\right|,\; i=1,..,k-1$
 \end_inset
 
@@ -4131,9 +4121,11 @@ de cada una de las columnas, son inicializadas por defecto con el valor
 \begin_layout Standard
 Puede parecer que el paso 3 agrega complejidad inecesaria, pero debido a
  que en ciertas situaciones (por problemas de luz o de entorno), la deteccion
- de contornos no se realiza correctamente evitando la deteccion de la ola
- (no se encuentra ningun contorno).
- Es por esto que hay que hacer el algoritmo lo mas robusto posible.
+ de contornos no se realiza correctamente en ciertos puntos, es necesario
+ una forma alternativa de detectar la altura de ola a los alrededores del
+ punto que se esta analizando, evitando de esta forma posibles mediciones
+ erroneas (hace que el algoritmo sea mas robusto y por ende menos propenso
+ a fallas).
 \end_layout
 
 \begin_layout Standard
@@ -4200,13 +4192,7 @@ REQ2:
  El sistema debía funcionar en una maquina estandar (esto es, que no se
  requiera de una supercomputadora para lograr la velocidad de procesamiento),
  ya que, como se menciono anteriormente, una de las ventajas del sistema
- era su bajo costo.(
-\shape italic
-\color blue
-poner el porque de se uso C++ opencv abajo
-\shape default
-\color inherit
-).
+ era su bajo costo.
 \end_layout
 
 \begin_layout Itemize
@@ -4215,13 +4201,7 @@ poner el porque de se uso C++ opencv abajo
 REQ3:
 \series default
  Ser facil de utilizar y configurar por cualquier persona (que no posea
- conocimientos previos) que use el sistema.(
-\shape italic
-\color blue
-por eso se desarrollo una interfaz grafica con QT
-\shape default
-\color inherit
-).
+ conocimientos previos) que use el sistema.
 \end_layout
 
 \begin_layout Itemize
@@ -4239,11 +4219,12 @@ REQ4:
 \series bold
 REQ5:
 \series default
- Contar con una interfaz grafica que permita mostrar los datos procesados
+ Contar con una interfaz grafica que permitiese mostrar los datos procesados
  y además la posibilidad de compararlos con los obtenidos 
+\color black
+por el otro sistema de medicion actualmente utilizado
 \color red
-por el otro sistema de medicion que actualmente esta siendo utilizado (poner
- como se llama el sensor de niveles resistivos...
+ (poner como se llama el sensor de niveles resistivos...
  
 \shape italic
 \color blue
@@ -4252,13 +4233,7 @@ ref
 \color red
 )
 \color inherit
- (
-\shape italic
-\color blue
-por eso se realizo la ventana de analisis de postprocesso Qwt
-\shape default
-\color inherit
-).
+.
 \end_layout
 
 \begin_layout Standard
@@ -4391,7 +4366,7 @@ El sistema fue desarrollado en el entorno linux principalmente por comodidad
  y gusto, aún asi, las librerias utilizadas son multiplaforma por lo que
  deberia poder ser compilado en otras plataformas (exceptuando la aplicacion
  externa utilizada para configurar la camara web, que en el caso de windows,
- la aplicacion proveída por el manufacturador de la camara deberia bastar).
+ la aplicacion proveída por el manufacturador de la camara deberia alcanzar).
 \end_layout
 
 \begin_layout Standard
@@ -4461,8 +4436,8 @@ REQ5
 \series default
 se basa en ésta.
  Fue elegida debido a que proveia la funcionalidad deseada de una manera
- muy sencilla y de facil integracion con las demas librerias (ya que es
- una extencion de 
+ muy sencilla y de facil integracion con las demas librerias (es una extencion
+ de 
 \shape italic
 Qt
 \shape default
@@ -4475,6 +4450,13 @@ GUI
 
 \begin_layout Subsection
 Arquitectura
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Arquitectura"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -4482,8 +4464,16 @@ A nivel general
 \end_layout
 
 \begin_layout Standard
-A un nivel macro, la arquitectura del sistema se la puede simplificar como
- se lo muestra en la figura 
+A un nivel 
+\begin_inset Quotes eld
+\end_inset
+
+macro
+\begin_inset Quotes erd
+\end_inset
+
+, la arquitectura del sistema se la puede simplificar como se lo muestra
+ en la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-general-del"
@@ -4541,7 +4531,7 @@ Arquitectura general del sistema.
 \end_layout
 
 \begin_layout Standard
-Como se puede ver en el diagrama 
+Como se puede ver en el diagrama de la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-general-del"
@@ -4563,20 +4553,28 @@ S
 \series default
 ystem
 \shape default
- Loader o 
-\shape italic
-IPS
-\shape default
- Loader) el cual tiene como finalidad listar y mostrar todos los modulos
  
 \shape italic
+\color black
+Loader
+\shape default
+\color inherit
+ o 
+\shape italic
 IPS
 \shape default
- que encuentren 
-\color red
-(ya sean plugins o no)
+ 
+\shape italic
+\color black
+Loader
+\shape default
 \color inherit
- dando la posibilidad al usuario de elegir y cargar uno especifico.
+) el cual tiene como finalidad listar y mostrar todos los modulos 
+\shape italic
+IPS
+\shape default
+ que encuentren dando la posibilidad al usuario de elegir y cargar uno especific
+o.
  Estos 
 \shape italic
 IPS
@@ -4632,7 +4630,14 @@ IPS Core
 IPS Core
 \shape default
 ).
- Esto se lo puede ver en el diagrama anterior a travez de las flechas (
+ Esto se lo puede ver en el diagrama de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Arquitectura-general-del"
+
+\end_inset
+
+ a travez de las flechas (
 \shape italic
 IPS Loader
 \shape default
@@ -4658,10 +4663,10 @@ A nivel de IPS
 \begin_layout Standard
 En este trabajo se creo una estructura general para todos los 
 \shape italic
-Image Processing System
+Image Processing System (IPS)
 \shape default
- que posibilitara la suficiente flexibilidad para las futuras aplicaciones
- a desarrollar.
+ que brindara la suficiente flexibilidad para las futuras aplicaciones a
+ desarrollar.
  Esta estructura se aplica principalmente a la parte de procesamiento (
 \shape italic
 Core
@@ -4786,7 +4791,7 @@ A modo de ejemplo, en el caso particular de este trabajo se desarrollo un
 IPS
 \shape default
  con el fin de capturar la altura de superficie libre de un fluido, al cual
- se lo llamo como 
+ se lo llamo 
 \series bold
 WaveHeightIPS 
 \series default
@@ -4891,16 +4896,22 @@ Nivel abstraccion
 \end_layout
 
 \begin_layout Standard
-Como se menciono anteriormente, el sistema debia posibilitar el desarrollo
+Como se menciono anteriormente, el sistema debia facilitar el desarrollo
  de futuras aplicaciones (
 \series bold
 REQ4
 \series default
-) de manera facil, para lograr esto, se modelo y encapsulo a cada posible
- aplicacion como un 
+), para lograr esto, se modelo y encapsulo a cada posible aplicacion como
+ un 
 \shape italic
 Image Processing System
 \shape default
+ 
+\shape italic
+\color black
+(IPS)
+\shape default
+\color inherit
 .
  Esto llevo a un diseño al nivel de abstraccion como se muestra en la figura
  
@@ -4940,8 +4951,7 @@ name "fig:Diseño-de-alto"
 
 \end_inset
 
-Diseño de alto nivel.
- Se muestra al nivel de abstracción.
+Diseño de alto nivel (al nivel de clases abstractas).
 \end_layout
 
 \end_inset
@@ -5000,6 +5010,14 @@ IPS
 GUI
 \shape default
  a ser implementados.
+ Esta es la clase que se ejecuta en una primera instancia cuando el usuario
+ desea ejecutar un 
+\shape italic
+\color black
+IPS
+\shape default
+\color inherit
+ determinado.
 \end_layout
 
 \begin_layout Itemize
@@ -5049,8 +5067,13 @@ Core
 \series bold
 ImageAnalyzer
 \series default
-: Clase encargada de contener y ejecutar en orden a los ImageProcessor que
- contenga.
+: Clase encargada de contener y ejecutar en orden a los 
+\shape italic
+\color black
+ImageProcessor
+\shape default
+\color inherit
+ que contenga.
  Representa el modulo de procesamiento de imagenes.
 \end_layout
 
@@ -5063,9 +5086,21 @@ ImageProcessor
 \end_layout
 
 \begin_layout Standard
-Como se puede observar, y como se menciono en el capitulo de la arquitectura
- del sistema, se diferencian 2 partes (separadas por la linea discontinua
- horizontal).
+Como se puede observar (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diseño-de-alto"
+
+\end_inset
+
+, y como se menciono en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Arquitectura"
+
+\end_inset
+
+, se diferencian 2 partes (separadas por la linea discontinua horizontal).
  En la fraccion superior se encuentra el denominado 
 \shape italic
 IPS Core
@@ -6511,6 +6546,35 @@ Canal de labortatorio
 \end_layout
 
 \begin_layout Standard
+Los ensayos que se llevaron a cabo en este trabajo se realizaron en el 
+\shape italic
+\color black
+Laboratorio de Hidráulica
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+http://www.efn.uncor.edu/investigacion/hidraulica/
+\end_layout
+
+\end_inset
+
+
+\shape default
+\color inherit
+ de la 
+\shape italic
+\color black
+Facultad de Ciencias Exactas, Fisicas y Naturales (UNC)
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
 El canal sobre el cual se realizaron los ensayos posee las siguientes dimensione
 s: 
 \color red
@@ -6546,7 +6610,7 @@ En laboratorio se genera un oleaje regular poniendo por ordenador
 \begin_inset Formula $T$
 \end_inset
 
- (altura y periodo de onda respectivamente 
+ (altura y periodo de onda respectivamente, capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Hidrodinamica-Introduccion"
@@ -6570,18 +6634,28 @@ reference "sub:Hidrodinamica-Introduccion"
 \end_layout
 
 \begin_layout Standard
-Las mediciones de la altura de ola se realizan por medio de sensores de
- nivel resistivos llamados 
+Las mediciones de la altura de ola se realizan por medio del sistema implementad
+o utilizando una camara Logitech C910
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.logitech.com/es-es/webcam-communications/webcams/devices/6816
+\end_layout
+
+\end_inset
+
+ y utilizando los sensores de nivel resistivos llamados 
 \shape italic
 \color blue
-agregar nombre y ref
+agregar nombre y ref (podemos alomejor agregar Imagen del sensor)
 \shape default
 \color inherit
-, los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
+ , los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
  segundo (o equivalentemente 100 Hz).
-\shape italic
-\color blue
-Imagen del sensor
+ Se utilizaron dos tecnicas diferentes para la medicion de los datos con
+ el fin de poder comparar el metodo propuesto con el utilizado anteriormente
+ por el laboratorio.
 \end_layout
 
 \begin_layout Subsection
@@ -6800,6 +6874,10 @@ Implementar el ImageGenerator para que haga buffering.
 
 \begin_layout Standard
 Implementar algoritmos en GPU (Cuda).
+\end_layout
+
+\begin_layout Standard
+Hacer que los IPS sean plugins..
 \end_layout
 
 \begin_layout Standard
