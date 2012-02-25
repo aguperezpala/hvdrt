@@ -200,6 +200,13 @@ Fundamentos de hidrodinamica marina
 
 \begin_layout Subsection
 Introduccion
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Hidrodinamica-Introduccion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6100,6 +6107,44 @@ pala electronica (nombre de la pala o referencia?)
 \shape default
 \color inherit
 .
+ Ésta pala usa un software que permite sacar el espectro de la señal y el
+ valor de 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ que se desea medir por medio del sistema implementado en este trabajo.
+\end_layout
+
+\begin_layout Standard
+En laboratorio se genera un oleaje regular poniendo por ordenador 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $T$
+\end_inset
+
+ (altura y periodo de onda respectivamente 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Hidrodinamica-Introduccion"
+
+\end_inset
+
+), o un oleaje irregular poniendo por computadora 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma=3.3$
+\end_inset
+
+ con espectro JONSWAP.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -6130,7 +6175,7 @@ Para poder realizar una medicion se debe preparar tanto el canal (y el entorno)
  las posiciones e intensidades de la luz que afectan la zona a medir en
  el canal y utilizando distintos tipos de papeles o contacts sobre la cara
  opuesta a medir del canal, evitando de esta manera, capturar objetos que
- se encuentran por detras del canal).
+ se encuentran por detras del mismo).
 \end_layout
 
 \begin_layout Standard
@@ -6193,8 +6238,29 @@ img ref canny
 
 \begin_layout Standard
 Una vez configurado el sistema se prosigue a producir el oleaje que se quiere
- analizar por medio de la pala mecanica antes mencionada y por medio de
- una ultima ventana (
+ analizar por medio de la pala mecanica antes mencionada (introduciendo
+ por computadora los valores 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $T$
+\end_inset
+
+ en el caso de oleaje regular y 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ y 
+\begin_inset Formula $\gamma=3.3$
+\end_inset
+
+ con espectro JONSWAP para oleaje irregular) y por medio de una ultima ventana
+ (
 \shape italic
 \color blue
 ref img RealTime
