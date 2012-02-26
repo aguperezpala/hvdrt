@@ -4,7 +4,7 @@
 \begin_header
 \textclass article
 \use_default_options true
-\language english
+\language spanish
 \inputencoding auto
 \font_roman default
 \font_sans default
@@ -17,6 +17,7 @@
 
 \graphics default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -25,6 +26,7 @@
 \cite_engine basic
 \use_bibtopic false
 \paperorientation portrait
+\leftmargin 4ex
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -2198,6 +2200,13 @@ Es probablemente esta etapa la que mas se diferencia entre las distintas
 
 \begin_layout Subsection
 Tecnicas utilizadas
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Tecnicas-utilizadas"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5190,7 +5199,7 @@ IPS Core
 
 \begin_layout Standard
 Describiremos a continuacion, de manera detallada, la funcionalidad de cada
- uno de las clases.
+ una de las clases.
 \end_layout
 
 \begin_layout Itemize
@@ -5199,7 +5208,7 @@ Describiremos a continuacion, de manera detallada, la funcionalidad de cada
 Frame
 \series default
 : Es el tipo de dato con la que se maneja el sistema para almacenar la imagen
- capturada por el dispositivo con el tiempo de captura asociada.
+ capturada por el dispositivo con el tiempo de captura asociado.
 \end_layout
 
 \begin_layout Itemize
@@ -5306,8 +5315,8 @@ Frame
 ImageProcessor
 \shape default
 .
- Como se puede ver, existen 4 metodos principales puramente virtuales, los
- cuales deben ser implementados por aquellos que hereden de éste.
+ Como se puede ver, existen 4 metodos principales, los cuales deben ser
+ implementados por aquellos que hereden de éste.
  Estos son: 
 \shape italic
 getParam
@@ -5316,7 +5325,11 @@ getParam
 \shape italic
 setParam
 \shape default
-, utilizados para configurar el ImageProcessor, mientras que 
+, utilizados para obtener y configurar los parametros del 
+\shape italic
+ImageProcessor
+\shape default
+, mientras que 
 \shape italic
 processData(Image_t)
 \shape default
@@ -5324,16 +5337,8 @@ processData(Image_t)
 \shape italic
 processData(GPUImage_t)
 \shape default
-, determinan donde se realiza el procesamiento de la imagen.
- La existencia de este último (
-\shape italic
-processData(GPUImage_t)
-\shape default
-) es debido a que en un principio se planteo la posibilidad de realizar
- analisis mas exaustivos sobre imagenes de mayor tamaño lo que necesariamente
- requeria un poder de procesamiento mucho mayor, pero con la condicion de
- mantener la velocidad, para esto, se considero la posibilidad de realizar
- este trabajo en la GPU
+, determinan donde se realizará el procesamiento de la imagen (en CPU o
+ en GPU
 \begin_inset Foot
 status open
 
@@ -5343,7 +5348,16 @@ http://en.wikipedia.org/wiki/Graphics_processing_unit
 
 \end_inset
 
-.
+).
+ La existencia de este último (
+\shape italic
+processData(GPUImage_t)
+\shape default
+) surgió debido a que en un principio se planteo la posibilidad de realizar
+ analisis mas exaustivos sobre imagenes de mayor tamaño lo que necesariamente
+ requeria un poder de procesamiento mucho mayor, pero al mismo tiempo se
+ debía mantener la velocidad, para lograrlo se considero la posibilidad
+ de realizar este trabajo en la GPU.
 \end_layout
 
 \begin_layout Itemize
@@ -5481,7 +5495,7 @@ IPS GUI
 \shape default
 .
  Un diseño de clases simplificado y a un nivel de abstraccion se lo puede
- observar en diagrama de la figura 
+ observar en el diagrama de la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diseño-de-clases-1"
@@ -5544,7 +5558,7 @@ IPS GUI
 \shape italic
 WHIPS
 \shape default
- (mencionado en el siguiente capitulo).
+ (descripto en el siguiente capitulo).
  Presentaremos las principales caracteristicas e interacciones que existen
  entre las clases del 
 \shape italic
@@ -5608,7 +5622,7 @@ ConfigWindow
 \shape default
  (tamaño, posicion, orden de secuencia), como asi tambien la carga y descarga
  de la configuracion correspondiente a cada una de las ventanas por medio
- de un xml (por medio de los metodos 
+ de un xml (a travez de los metodos 
 \shape italic
 loadConfig(xml)
 \shape default
@@ -5624,7 +5638,7 @@ getConfig(xml)
 \series bold
 GUIImageProcessingSystem
 \series default
-: Representacion (abstracta) de la clase que representa al 
+: Representacion (abstracta) del 
 \shape italic
 IPS GUI
 \shape default
@@ -5633,8 +5647,8 @@ IPS GUI
 \shape italic
 IPS Core
 \shape default
-, tiene asociado un nombre que lo identifica y una breve descripcion asociada
- a la finalidad del mismo (los cuales son accedidos por medio de los metodos
+, tiene asociado un nombre que lo identifica y una breve descripcion sobre
+ la finalidad del mismo (los cuales son accedidos por medio de los metodos
  
 \shape italic
 getName()
@@ -5674,23 +5688,6 @@ execute()
 IPS Core
 \shape default
  y su posterior ejecucion.
- Ademas, cada 
-\shape italic
-GUIImageProcessingSystem
-\shape default
- cuenta con un conjunto de ConfigWindow utilizadas para configurar los 
-\shape italic
-ImageProcessor
-\shape default
- utilizados por el 
-\shape italic
-IPS Core
-\shape default
- asociado, las cuales son mostradas y organizadas por medio de la 
-\shape italic
-ConfigWindowManager
-\shape default
-.
 \end_layout
 
 \begin_layout Subsection
@@ -5713,8 +5710,25 @@ ImageProcessingSystem.
  Como objetivo principal de este trabajo se planteo desarrollar una aplicacion
  que por medio de videocamaras pudiese capturar la altura de la superficie
  libre en tiempo real.
- Es por esto, y por medio del framework desarrollado y detallado anteriormente,
- se implemento un 
+ Es por esto, y por medio del 
+\begin_inset Quotes eld
+\end_inset
+
+framework
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://es.wikipedia.org/wiki/Framework
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+ desarrollado y detallado anteriormente, se implemento un 
 \shape italic
 IPS
 \shape default
@@ -5786,7 +5800,7 @@ reference "fig:Diseño-de-clases-2"
 WaveHeightIPS
 \series default
  encargada de llevar a cabo todo el proceso de analisis de imagen para capturar
- la algura de la superficie libre.
+ la altura de la superficie libre.
  Depende de 4 ImageProcessor para lograrlo, estos son 
 \series bold
 IRectifier
@@ -5804,7 +5818,14 @@ IBorderDetector
 IAnalyzer
 \series default
 , cada uno con una funcionalidad determinada y representando a una de las
- etapas explicadas en el capitulo 3.3.
+ etapas explicadas en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Tecnicas-utilizadas"
+
+\end_inset
+
+.
  Como se puede observar en el diagrama, estos son clases abstractas que
  sirven solo para brindar una interfaz a las clases que hereden de estas.
  Esta capa de abstraccion fue agregada para facilitar (y por medio de la
@@ -5812,15 +5833,18 @@ IAnalyzer
 \series bold
 WaveHeightIPFactory
 \series default
-) la posibilidad de cambiar cada uno de los ImageProcessor (concretos) de
- forma facil sin alterar la la estructura general del modulo (por si se
- deseaba utilizar o probar distintos algoritmos en alguna de las etapas
- del proceso completo).
+) la posibilidad de cambiar cada uno de los 
+\shape italic
+ImageProcessor
+\shape default
+ (concretos) de forma facil sin alterar la la estructura general del modulo
+ (por si se deseaba utilizar o probar distintos algoritmos en alguna de
+ las etapas del proceso completo).
  En este caso en particular se muestran las 4 implementaciones correspondientes
  a cada una de las fases del proceso (osea, cada uno de los 
-\series bold
+\shape italic
 ImageProcessor
-\series default
+\shape default
 ), éstos son 
 \series bold
 PerspectiveRectifier
@@ -5904,15 +5928,9 @@ WHIPS GUI
 \begin_inset Quotes erd
 \end_inset
 
-, donde se pueden diferenciar 3 partes con respecto a las etapas del proceso,
- donde se ven involucradas distintas clases para cada una de estas.
- Éstas son la etapa de configuracion o pre-procesamiento (clases con reborde
- azul), la etapa de procesamiento (clase con reborde rojo), y la etapa de
- post-procesamiento o analisis de datos (clase con reborde verde).
-\end_layout
-
-\begin_layout Standard
-Para la primera (configuracion) se encuentran involucradas 3 clases, 
+, donde se pueden diferenciar 3 partes con respecto a las etapas del proceso
+ y sus respectivas clases.
+ Éstas son la etapa de configuracion o pre-procesamiento (
 \series bold
 GUIPerspectiveRectifier
 \series default
@@ -5924,7 +5942,20 @@ GUIMiddlePointClipping
 \series bold
 GUICannyBorderDetector
 \series default
-, que tienen como finalidad la configuracion completa de los 
+), la etapa de procesamiento (
+\series bold
+GUIRealTimeDataDisplayer
+\series default
+), y la etapa de post-procesamiento o analisis de datos (
+\series bold
+DataAnalyzerWindow
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+Para la primera (configuracion) las clases involucradas tienen como finalidad
+ la configuracion completa de los 
 \shape italic
 ImageProcessor
 \shape default
@@ -5951,10 +5982,14 @@ La segunda etapa tiene asociada la clase
 \series bold
 GUIRealTimeDataDisplayer
 \series default
-, la cual muestra en tiempo real los datos procesados por el WHIPS Core,
- esto es, la altura de la superficie libre obtenida luego de procesar las
+, la cual muestra en tiempo real los datos procesados por el 
+\shape italic
+WHIPS Core
+\shape default
+, esto es, la altura de la superficie libre obtenida luego de procesar las
  imagenes de entrada (videocamara o archivo de video).
- Adicionalmente se muestra la imagen que esta siendo procesada.
+ Adicionalmente se muestra la imagen que esta siendo procesada para brindarle
+ al usuario una idea sobre el transcurso del ensayo.
 \end_layout
 
 \begin_layout Standard
@@ -6060,7 +6095,11 @@ Funcionamiento WHIPS Core
 \end_layout
 
 \begin_layout Standard
-WHIPS Core hace referencia a la unidad de procesamiento principal del 
+
+\shape italic
+WHIPS Core
+\shape default
+ hace referencia a la unidad de procesamiento principal del 
 \shape italic
 ImageProcessingSystem
 \shape default
@@ -6097,16 +6136,11 @@ Procesar por medio del
 \shape italic
 ImageAnalyzer
 \shape default
- la imagen obtenida.
- Donde el 
-\shape italic
-ImageAnalyzer
-\shape default
- consta de 4 
+ la imagen obtenida, estando este ultimo conformado por 4 
 \shape italic
 ImageProc
 \shape default
-essor cada uno con una funcionalidad bien definida, estos son:
+essor:
 \end_layout
 
 \begin_deeper
@@ -6141,7 +6175,7 @@ Perspective Transform
 \begin_inset Quotes erd
 \end_inset
 
- 
+ explicado en el capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Perspective-transform"
@@ -6189,7 +6223,7 @@ lipping el cual usa el punto de reposo de la superficie seleccionado por
 \begin_inset Formula $c$
 \end_inset
 
-, equivalente a la columna 
+, correspondiente a la columna 
 \begin_inset Formula $x$
 \end_inset
 
@@ -6202,8 +6236,8 @@ lipping el cual usa el punto de reposo de la superficie seleccionado por
 \series bold
 IBorderDetector
 \series default
-: Tiene como objetivo modificar la imagen de entrada de forma tal que luego
- de ser procesada por éste ImageProcessor quede una imagen de contornos.
+: Tiene como objetivo modificar la imagen de entrada de forma tal que la
+ resultante sea una imagen que contenga solo contornos.
  En este caso se implemento el 
 \shape italic
 CannyBorderDetector
@@ -6215,7 +6249,7 @@ CannyBorderDetector
 \shape italic
  Gaussian Blur
 \shape default
- (
+ (capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Gaussian-Blur"
@@ -6227,7 +6261,7 @@ reference "sub:Gaussian-Blur"
 \shape italic
 Canny
 \shape default
- (
+ (capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Canny-edge-detector"
@@ -6245,7 +6279,11 @@ IAnalyzer
 \series default
 : Dada una imagen de contornos y una serie de parametros, determina la altura
  de la superficie libre.
- La implementacion de este ImageProcessor se lo llamo 
+ La implementacion de este 
+\shape italic
+ImageProcessor
+\shape default
+ se lo denomino 
 \shape italic
 WaveHeightAnalyzer
 \shape default
@@ -6261,7 +6299,7 @@ Wave height analyzer
 \begin_inset Quotes erd
 \end_inset
 
- (
+ (capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Wave-height-analyzer"
@@ -6273,7 +6311,7 @@ reference "sub:Wave-height-analyzer"
 
 \end_deeper
 \begin_layout Enumerate
-Como ultimo paso, guarda el resultado obtenido del 
+Como ultimo paso, guarda el resultado devuelto por el 
 \shape italic
 IAnalyzer
 \shape default
@@ -6281,8 +6319,8 @@ IAnalyzer
 \end_layout
 
 \begin_layout Standard
-Esta procedimiento (pasos 1,2,3) se realizan dentro de un loop hasta que
- el usuario lo indica, o el 
+Esta procedimiento (pasos 1,2,3) se realizan dentro de un bucle hasta que
+ el usuario indica finalizar, o el 
 \shape italic
 ImageGenerator
 \shape default
@@ -6300,9 +6338,9 @@ ientes
 \shape italic
 ImageProcessor
 \shape default
- lo permiten, para este caso particular, debido a que los implementados
- para este trabajo no implementan esta feature, no puede ser utilizado (solo
- CPU).
+ lo permiten.
+ Para este caso en particular solo se implementó para procesar las imagenes
+ en la CPU.
 \end_layout
 
 \begin_layout Subsubsection
@@ -6315,7 +6353,11 @@ Este modulo tiene, a grandes rasgos, 3 finalidades distintas, estas son:
 
 \begin_layout Enumerate
 Brindar al usuario una interfaz grafica para poder configurar de forma facil
- y agil los parametros que requieren los ImageProcessor del 
+ y agil los parametros que requieren los 
+\shape italic
+ImageProcessor
+\shape default
+ del 
 \shape italic
 WHIPS Core
 \shape default
@@ -6363,13 +6405,11 @@ ConfigWindowManager
 \shape italic
 ConfigWindow
 \shape default
-) si y solo si se configuro correctamente el paso que esta siendo mostrado
- actualmente (
+) si y solo si se configuro correctamente el paso (
 \shape italic
 ConfigWindow
 \shape default
-).
- 
+) que esta siendo mostrado actualmente.
 \end_layout
 
 \begin_layout Standard
@@ -6484,7 +6524,11 @@ ImageProcessor
 \shape italic
 WHIPS
 \shape default
- Core, por medio de las ventanas de configuracion 
+ 
+\shape italic
+Core
+\shape default
+, por medio de las ventanas de configuracion 
 \shape italic
 GUIPerspectiveRectifier
 \shape default
@@ -6498,7 +6542,7 @@ GUICannyBorderDetector
 \shape default
 .
  Cabe destacar, que en el caso del tipo de entrada ser un archivo de video,
- intercaladamente (entre cada una de estas ventanas) se muestra el 
+ se muestra intercaladamente (entre cada una de estas ventanas) el 
 \shape italic
 VideoFileConfigWindow
 \shape default
@@ -6523,11 +6567,14 @@ GUIRealTimeDataDisplayer
 
 \begin_layout Standard
 
+\color black
+En el siguiente capitulo se describe un ensayo realizado donde se muestran
+ las interfaces graficas de cada una de las ventanas que componen al IPS
+ GUI
 \shape italic
+ 
 \color red
-En el apendice se pueden observar imagenes de la interfaz grafica (o podemos
- poner que en el siguiente capitulo en un caso de prueba mostramos todas
- las interfaces)
+(si no ponemos abajo las imagenes entonces tenemos que re-redactar esto).
 \end_layout
 
 \begin_layout Standard
