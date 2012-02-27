@@ -6569,10 +6569,9 @@ GUIRealTimeDataDisplayer
 
 \color black
 En el siguiente capitulo se describe un ensayo realizado donde se muestran
- las interfaces graficas de cada una de las ventanas que componen al IPS
- GUI
+ las interfaces graficas de cada una de las ventanas que componen al 
 \shape italic
- 
+IPS GUI 
 \color red
 (si no ponemos abajo las imagenes entonces tenemos que re-redactar esto).
 \end_layout
@@ -6630,26 +6629,10 @@ s:
 .
  Cuenta con una 
 \color red
-pala electronica (nombre de la pala o referencia?)
+pala mecanica (nombre de la pala o referencia?)
 \color inherit
- la cual genera los oleajes que se quieran simular
-\shape italic
-\color blue
- podemos poner mas caracteristicas sobre la pala, imagen del canal y de
- la pala
-\shape default
-\color inherit
-.
- Ésta pala usa un software que permite sacar el espectro de la señal y el
- valor de 
-\begin_inset Formula $H_{s}$
-\end_inset
-
- que se desea medir por medio del sistema implementado en este trabajo.
-\end_layout
-
-\begin_layout Standard
-En laboratorio se genera un oleaje regular poniendo por ordenador 
+ la cual genera los oleajes que se quieran simular introduciendo por computadora
+ 
 \begin_inset Formula $H$
 \end_inset
 
@@ -6664,7 +6647,8 @@ reference "sub:Hidrodinamica-Introduccion"
 
 \end_inset
 
-), o un oleaje irregular poniendo por computadora 
+) en el caso del oleaje regular, mientras que el oleaje irregular se lo
+ simula estableciendo los valores 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -6677,12 +6661,26 @@ reference "sub:Hidrodinamica-Introduccion"
 \end_inset
 
  con espectro JONSWAP.
- 
+
+\shape italic
+\color blue
+ podemos poner mas caracteristicas sobre la pala, imagen del canal y de
+ la pala
+\shape default
+\color inherit
+.
+ Por otro lado, el software utilizado por la pala mecanica permite extraer
+ el espectro de la señal y el valor de 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ del oleaje simulado, que sirve como referencia comparativa para los datos
+ catpurados por el sistema implementado para este trabajo.
 \end_layout
 
 \begin_layout Standard
-Las mediciones de la altura de ola se realizan por medio del sistema implementad
-o utilizando una camara Logitech C910
+Las mediciones de la altura de ola se realizaron utilizando una camara Logitech
+ C910
 \begin_inset Foot
 status open
 
@@ -6723,8 +6721,8 @@ Para poder realizar una medicion se debe preparar tanto el canal (y el entorno)
 
 \begin_layout Standard
 Por otro lado se debe configurar el sistema.
- Vamos a mostrar el caso en el que se realiza una medicion nueva, los pasos
- a seguir son:
+ Vamos a mostrar el caso en el que se realiza una medicion nueva (desde
+ cero), los pasos a seguir son:
 \end_layout
 
 \begin_layout Itemize
