@@ -97,8 +97,8 @@ Trabajo final de grado
 \align center
 
 \series bold
-\size largest
-\emph on
+\shape italic
+\size larger
 Software para la detección de variables hidrodinámicas en laboratorio mediante
  técnicas de video de alta definición.
 \end_layout
@@ -118,7 +118,7 @@ Software para la detección de variables hidrodinámicas en laboratorio mediante
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 \size large
@@ -128,7 +128,7 @@ Autor:
  Pérez Paladini, Agustín Daniel.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 \size large
@@ -141,7 +141,7 @@ Director:
  Profesor Asistente del Laboratorio de Hidráulica de la UNC.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 
 \series bold
 \size large
