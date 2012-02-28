@@ -87,13 +87,13 @@ void DataAnalyzeWindow::configurePlots(void)
 	 // zoom in/out with the wheel
 	mMagnifier2 = new QwtPlotMagnifier( spectralPlot->canvas() );
 
-	mZoomer2 = new QwtPlotZoomer( spectralPlot->canvas() );
-	mZoomer2->setRubberBandPen( QColor( Qt::black ) );
-	mZoomer2->setTrackerPen( QColor( Qt::black ) );
-	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect2,
-		Qt::RightButton, Qt::ControlModifier );
-	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect3,
-		Qt::RightButton );
+//	mZoomer2 = new QwtPlotZoomer( spectralPlot->canvas() );
+//	mZoomer2->setRubberBandPen( QColor( Qt::black ) );
+//	mZoomer2->setTrackerPen( QColor( Qt::black ) );
+//	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect2,
+//		Qt::RightButton, Qt::ControlModifier );
+//	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect3,
+//		Qt::RightButton );
 
 }
 

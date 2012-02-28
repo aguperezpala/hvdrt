@@ -8,55 +8,107 @@
 
 #include "CurveData.h"
 #include "DebugUtil.h"
-//#include <fftw3.h>
 
+
+using namespace Array;
+using namespace fftwpp;
 
 int CurveData::colorId = 0;
 
-
+////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateFFT(const QVector<double> &xs,
-		const QVector<double> &ys)
+		const QVector<double> &ys, QVector<Complex> &result)
 {
-//	fftw_complex *in;
-//	fftw_complex *out;
-//	fftw_plan p;
-//
-//	in = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * xs.size());
-//	out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * xs.size());
-//
-//
-//	for(int i = 0; i < mComplexValues.size(); ++i) out[i] = mComplexValues[i];
-//	if(!CFFT::Forward(out, mComplexValues.size())){
-//		debug("Error calculating the FFT\n");
-//		 fftw_free(in); fftw_free(out);
-//		return;
-//	}
-//
-//	int i = mComplexValues.size();
-//	mComplexValues.clear();
-//	for(int j = 0; j < i; ++j){
-//		mComplexValues.push_back(out[i]);
-//	}
-//
-//	 fftw_free(in); fftw_free(out);
+	unsigned int n = xs.size();
+//	unsigned int np = n/2+1;
+	size_t align = sizeof(Complex);
+
+	array1<Complex> f(n,align);
+//	array1<Complex> g(n,align);
+
+	fft1d Forward(-1,f);
+
+	// we assume that we have equal intervals time (for all xs[i]-xs[i-i])
+	for(unsigned int i=0; i < n; i++) f[i]= Complex(ys[i]);
+
+	Forward.fft(f);
+
+	result.clear();
+	for(int i = 0; i < f.Size(); ++i) result.push_back(f[i]);
+//	for(int i = 0; i < g.Size(); ++i) result.push_back(g[i]);
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void CurveData::calculateSpectrum(const QVector<Complex> &Y, QVector<Complex> &result,
+		double delta)
+{
+	double fmin = 1.0 / (Y.size()*delta);
+	result.clear();
+	int n = Y.size()/2 +1;
+	int realSize = Y.size();
+
+	QVector<Complex> YP;
+	for(int i = 0; i < n; ++i) YP.push_back(Y[i]);
+
+	// set the YP.*conj(YP) in result.
+	for(int i = 0; i < n; ++i) {
+		Complex aux = YP[i] * conj(YP[i]);
+		aux = sqrt(aux);
+		aux *= 2;
+		aux /= realSize;
+		result.push_back(aux);
+	}
+
+	// now get do the last transform
+	for(int i = 0; i < n; ++i){
+		Complex aux = result[i];
+		aux = (aux * aux)/(2*fmin);
+		result[i] = aux;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+double CurveData::getDiscreteInterval(const QVector<double> &xs)
+{
+	// we assume that all the time is absolute... so we only need to return
+	// the maximum time / num_samples
+	return xs.back()/static_cast<double>(xs.size());
 }
 
 
-// Calculate Hs;
+////////////////////////////////////////////////////////////////////////////////
+int CurveData::calculateFp(const QVector<Complex> &spectrum)
+{
+	Complex max = spectrum[0];
+	int result = 0;
+
+	for(int i = 1; i < spectrum.size(); ++i){
+		if(spectrum[i].real() > max.real()){
+			max = spectrum[i];
+			result = i;
+		}
+	}
+
+	return result;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateHs(const QVector<double> &xs,
 		const QVector<double> &ys)
 {
 
 }
 
-// calculate H
+////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateH(const QVector<double> &xs,
 			const QVector<double> &ys)
 {
 
 }
 
-// calculate Tp
+////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateTp(const QVector<double> &xs,
 			const QVector<double> &ys)
 {
@@ -64,16 +116,17 @@ void CurveData::calculateTp(const QVector<double> &xs,
 }
 
 // Calculate spectral curve
-void CurveData::calculateSpectralCurve(void)
+void CurveData::calculateSpectralCurve(double interval,
+		const QVector<Complex> &result)
 {
-//	QVector<double> xs;
-//	QVector<double> ys;
-//
-//	for(int i = 0; i < mComplexValues.size(); ++i){
-//		xs.push_back(mComplexValues[i].re());
-//		ys.push_back(mComplexValues[i].im());
-//	}
-//	mSpectralCurve.setSamples(xs, ys);
+	QVector<double> xs;
+	QVector<double> ys;
+
+	for(int i = 0; i < result.size(); ++i){
+		xs.push_back(i*interval);
+		ys.push_back(result[i].real());
+	}
+	mSpectralCurve.setSamples(xs, ys);
 
 }
 
@@ -132,15 +185,22 @@ void CurveData::loadData(const QVector<double> &xs,
 {
 	ASSERT(xs.size() == ys.size());
 	mCurve.setSamples(xs, ys);
+	double discreteInterval = getDiscreteInterval(xs);
 
 //	mComplexValues.clear();
 
+	QVector<Complex> complx, result;
 	// calculate all the values needed
-	calculateFFT(xs, ys);
+	calculateFFT(xs, ys, complx);
+	calculateSpectrum(complx, result, discreteInterval);
+	mFp = calculateFp(result);
+
+	debug("discreteInterval: %f\tFp: %d\n",discreteInterval,
+			static_cast<int>(mFp*discreteInterval));
 	calculateH(xs, ys);
 	calculateHs(xs, ys);
 	calculateTp(xs, ys);
-	calculateSpectralCurve();
+	calculateSpectralCurve(discreteInterval,result);
 	calculateMaxAndMin(xs, ys);
 
 //	mComplexValues.clear();
