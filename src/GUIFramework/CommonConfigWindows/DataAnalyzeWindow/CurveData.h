@@ -11,6 +11,8 @@
 
 #include <qvector.h>
 #include <qwt_plot_curve.h>
+#include "Array.h"
+#include "fftw++.h"
 
 class CurveData {
 public:
@@ -42,7 +44,15 @@ public:
 private:
 
 	void calculateFFT(const QVector<double> &xs,
-			const QVector<double> &ys);
+			const QVector<double> &ys, QVector<Complex> &result);
+
+	void calculateSpectrum(const QVector<Complex> &Y, QVector<Complex> &result,
+			double df);
+
+	double getDiscreteInterval(const QVector<double> &xs);
+
+	// calcualte the fp
+	int calculateFp(const QVector<Complex> &spectrum);
 
 	// Calculate Hs;
 	void calculateHs(const QVector<double> &xs,
@@ -57,7 +67,7 @@ private:
 				const QVector<double> &ys);
 
 	// Calculate spectral curve
-	void calculateSpectralCurve(void);
+	void calculateSpectralCurve(double interval,const QVector<Complex> &result);
 
 	// calculate maximums and minimums
 	void calculateMaxAndMin(const QVector<double> &xs,
@@ -75,6 +85,7 @@ private:
 	double			mMaxHeight;
 	double			mMinHeight;
 
+	int				mFp;
 	double			mHs;
 	double 			mH;
 	double			mTp;

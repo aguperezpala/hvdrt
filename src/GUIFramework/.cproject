@@ -179,6 +179,7 @@
 				<pathentry include="/usr/local/qwt-6.0.1/include" kind="inc" path="" system="true"/>
 				<pathentry base-path="GUIFramework" include="CommonConfigWindows/DataAnalyzeWindow" kind="inc" path="" system="true"/>
 				<pathentry include="/usr/include" kind="inc" path="" system="true"/>
+				<pathentry base-path="HydrodynamicVariablesDetection" include="src/Common/ExternalLibs/fftw++-1.09" kind="inc" path="" system="true"/>
 				<pathentry kind="src" path=""/>
 				<pathentry kind="out" path=""/>
 			</storageModule>

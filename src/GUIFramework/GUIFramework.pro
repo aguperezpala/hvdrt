@@ -2,7 +2,7 @@ TEMPLATE = app
 CONFIG += qwt
 TARGET = GUIFramework
 
-# DEFINES += DEBUG
+DEFINES += DEBUG
 QMAKE_CXX += -g
 QT += core \
     gui
@@ -25,7 +25,7 @@ LIBS += -L../Common/tinyxml \
     -L/usr/local/qwt-6.0.1/lib \
     -lqwt \
     -lqwtmathml \
-  #  -lfftw3 \
+    -lfftw3 \
     -lm
 INCLUDEPATH += ../Common/tinyxml \
     /usr/local/qwt-6.0.1/include
@@ -40,6 +40,7 @@ INCLUDEPATH += ../Common/Debug \
     ../Common/Timestamp \
     ../Common \
     ../Common/tinyxml \
+    ../Common/ExternalLibs/fftw++-1.09 \
     ../Common/XmlHelper \
     ../DeviceCalibrator \
     ../IPSModule/ImageProcessingSystem \ # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter \
@@ -60,6 +61,14 @@ INCLUDEPATH += ../Common/Debug \
 HEADERS += ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
     ../Common/tinyxml/tinyxml.h \
+    ../Common/ExternalLibs/fftw++-1.09/fftw++.h \
+    ../Common/ExternalLibs/fftw++-1.09/Array.h \
+    ../Common/ExternalLibs/fftw++-1.09/cmult-sse2.h \
+    ../Common/ExternalLibs/fftw++-1.09/Complex.h \
+    ../Common/ExternalLibs/fftw++-1.09/convolution.h \
+    ../Common/ExternalLibs/fftw++-1.09/getopt.h \
+    ../Common/ExternalLibs/fftw++-1.09/precision.h \
+    ../Common/ExternalLibs/fftw++-1.09/utils.h \
     ../Common/XmlHelper/XmlHelper.h \
     ../Common/Timestamp/Timestamp.h \
     ../DeviceCalibrator/DeviceCalibrator.h \
@@ -89,6 +98,7 @@ HEADERS += ../Common/Debug/DebugUtil.h \
     ../ImageGenerator/FrameListener.h \
     ../ImageGenerator/ImageGenerator.h
 SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
+    ../Common/ExternalLibs/fftw++-1.09/fftw++.cc \
     ../Common/XmlHelper/XmlHelper.cpp \ # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
 # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
 # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
