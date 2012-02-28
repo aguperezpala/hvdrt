@@ -1,4 +1,4 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -414,8 +414,8 @@ reference "fig:Distribucion-energética-de"
 
  se puede observar la energia de las ondas de superficie asociadas a cada
  frecuencia.
- En este trabajo se trabajara con olas de viento pertenecientes a las frecuencia
-s con
+ En este trabajo se estudiaran las olas de viento pertenecientes a las frecuenci
+as con
 \shape italic
 \color blue
  
@@ -471,17 +471,17 @@ Matematicamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
  ondas progresivas (se propagan en una profundidad constante manteniendo
  su forma) y ondas estacionarias (aquellas que no se propagan, como por
- ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos
- ); en este trabajo se analizan las primeras.
+ ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos);
+ en este trabajo se analizan las primeras.
  Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
- utiles para representarlas, estas son 
+ utiles para representarlas, estas son (figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Parámetros-asociados-a"
 
 \end_inset
 
-:
+):
 \end_layout
 
 \begin_layout Itemize
@@ -489,10 +489,9 @@ reference "fig:Parámetros-asociados-a"
 \end_inset
 
 : Desplazamiento de la superficie libre (desplazamiento vertical de la superfici
-e del fluido con respecto a un nivel medio de referencia NM (en ingles MWL,
- siglas correspondientes a 
+e del fluido con respecto a un nivel medio de referencia NM (MWL
 \shape italic
-Mean Water Level
+, Mean Water Level
 \shape default
 )).
  
@@ -566,7 +565,7 @@ Mean Water Level
 \begin_inset Formula $nivel\; en\; reposo$
 \end_inset
 
-: NR (o en ingles SWL, siglas correspondientes a 
+: NR (SWL, 
 \shape italic
 Still Water Level
 \shape default
@@ -661,7 +660,7 @@ o
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-C=\frac{L}{T}[m/s]\quad o\quad C=\frac{\omega}{\kappa}[m/s]\end{equation}
+C=\frac{L}{T}[m/s]\quad o\quad C=\frac{\omega}{\kappa}\;[m/s]\end{equation}
 
 \end_inset
 
@@ -682,7 +681,7 @@ numero de onda
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\kappa=\frac{2\pi}{L}[1/m]\end{equation}
+\kappa=\frac{2\pi\;}{L}[1/m]\end{equation}
 
 \end_inset
 
@@ -707,7 +706,7 @@ definida como
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\omega=\frac{2\pi}{T}[1/s]\end{equation}
+\omega=\frac{2\pi}{T}\;[1/s]\end{equation}
 
 \end_inset
 
@@ -1171,7 +1170,11 @@ Matematicamente
 \shape default
 \color inherit
 la representacion de la superficie libre de este tipo de oleaje puede expresarse
- como 
+ como (
+\color red
+ref al libro
+\color inherit
+)
 \end_layout
 
 \begin_layout Standard
@@ -1250,8 +1253,11 @@ Genéricamente a los movimientos correspondientes a la superficie del mar,
  atmosfera, viscosidad molecular, pero principalmente por la gravedad, (hasta
  alcanzar las costas) se lo conoce como Oleaje.
  Una manera simple de modelizar el comportamiento del oleaje es su descomposicio
-n en una suma de trenes de ondas regulares de amplitudes, periodos y direcciones
- variables.
+n en una suma de trenes de ondas regulares (
+\color red
+ver ref fig 5
+\color inherit
+) de amplitudes, periodos y direcciones variables.
 \end_layout
 
 \begin_layout Standard
@@ -1433,27 +1439,6 @@ ref de donde salio la form?
 \shape default
 \color inherit
 .
-\end_layout
-
-\begin_layout Standard
-El registro se divide en 
-\begin_inset Formula $M$
-\end_inset
-
- segmentos pequeños conteniendo igual cantidad de puntos (
-\begin_inset Formula $N$
-\end_inset
-
-), separados por un intervalo constante (
-\begin_inset Formula $\Delta t$
-\end_inset
-
-).
- El resultado se obtiene promediando los espectros obtenidos en las 
-\begin_inset Formula $M$
-\end_inset
-
- secciones.
 \end_layout
 
 \begin_layout Subsubsection
@@ -6690,17 +6675,15 @@ http://www.logitech.com/es-es/webcam-communications/webcams/devices/6816
 
 \end_inset
 
- y utilizando los sensores de nivel resistivos llamados 
+ y utilizando los sensores de nivel resistivos 
 \shape italic
 \color blue
-agregar nombre y ref (podemos alomejor agregar Imagen del sensor)
+(agregar Imagen del sensor)
 \shape default
 \color inherit
  , los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
  segundo (o equivalentemente 100 Hz).
- Se utilizaron dos tecnicas diferentes para la medicion de los datos con
- el fin de poder comparar el metodo propuesto con el utilizado anteriormente
- por el laboratorio.
+ 
 \end_layout
 
 \begin_layout Subsection
