@@ -174,7 +174,19 @@ Profesor Representante:
 \end_layout
 
 \begin_layout Abstract
-Aca tenemos que poner el resumen general del trabajo
+En laboratorio se utilizan distintos tipos de instrumentos para poder medir
+ la altura de ola (y otras variables hidrodinamicas), los cuales en general
+ tienen un alto costo economico y requieren de un gran conocimiento por
+ parte del usuario para su correcta utilizacion como asi tambien para evitar
+ generar daños fisicos a las personas o el instrumento en si.
+\end_layout
+
+\begin_layout Abstract
+En este trabajo se plantea el desarrollo de un sistema utilizado para capturar
+ variables hidronidamicas (en particular la altura de ola) en tiempo real
+ y por medio de una videocamara como metodo alternativo y de bajo costo
+ con respecto a los utilizados actualmente en laboratorio.
+ 
 \end_layout
 
 \begin_layout Standard
