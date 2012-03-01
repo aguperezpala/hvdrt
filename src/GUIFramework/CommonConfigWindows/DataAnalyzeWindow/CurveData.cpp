@@ -226,7 +226,6 @@ void CurveData::loadData(const QVector<double> &xs,
 	// Show the spectral curve
 	calculateSpectralCurve(freqVec, auxVec);
 
-
 	// Calculate all the other values..
 	calculateH(xs, ys);
 	calculateHs(auxVec);
@@ -237,6 +236,9 @@ void CurveData::loadData(const QVector<double> &xs,
 
 //	mFp = calculateFp(result) * freq;
 	calculateMaxAndMin(xs, ys);
+	double max, min;
+	getMaxMin(max,min, ys);
+	debug("Max calculated: %f\t Min calculated: %f\n", max,min);
 
 //	mComplexValues.clear();
 }

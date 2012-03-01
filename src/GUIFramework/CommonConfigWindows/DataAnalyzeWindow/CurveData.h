@@ -54,8 +54,6 @@ private:
 	void calculateVecFreq(const QVector<double> &xs, QVector<double> &result,
 			double &df);
 
-
-
 	// calcualte the fp
 	double calculateFp(const QVector<double> &spectrumxs, const QVector<double> &spectrumys);
 
@@ -95,6 +93,15 @@ private:
 		sqrVar /= static_cast<double>(xs.size());
 		debug("Mean: %f\t sqrVar: %f\n", mean, sqrVar);
 		return sqrVar;
+	}
+
+	void getMaxMin(double &max, double &min, const QVector<double> &v)
+	{
+		max = min = v[0];
+		for(int i = 0; i < v.size(); ++i){
+			if(max < v[i]) max = v[i];
+			if(min > v[i]) min = v[i];
+		}
 	}
 
 	// Calculate spectral curve
