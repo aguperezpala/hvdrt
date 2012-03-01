@@ -5,7 +5,7 @@
  *      Author: agustin
  *
  */
-
+#include <cmath>
 #include "CurveData.h"
 #include "DebugUtil.h"
 
@@ -20,86 +20,109 @@ void CurveData::calculateFFT(const QVector<double> &xs,
 		const QVector<double> &ys, QVector<Complex> &result)
 {
 	unsigned int n = xs.size();
-//	unsigned int np = n/2+1;
+	unsigned int np = n/2+1;
 	size_t align = sizeof(Complex);
 
-	array1<Complex> f(n,align);
-//	array1<Complex> g(n,align);
+	array1<double> f(n,align);
+	array1<Complex> g(np,align);
 
-	fft1d Forward(-1,f);
+	rcfft1d Forward(n,f,g);
+	crfft1d Backward(n,g,f);
 
-	// we assume that we have equal intervals time (for all xs[i]-xs[i-i])
-	for(unsigned int i=0; i < n; i++) f[i]= Complex(ys[i]);
+	for(unsigned int i=0; i < n; i++) f[i]=ys[i];
 
-	Forward.fft(f);
+	Forward.fft(f,g);
 
+
+//	std::cout << " G:\n" << g << std::endl;
 	result.clear();
-	for(int i = 0; i < f.Size(); ++i) result.push_back(f[i]);
-//	for(int i = 0; i < g.Size(); ++i) result.push_back(g[i]);
-
-}
-
-////////////////////////////////////////////////////////////////////////////////
-void CurveData::calculateSpectrum(const QVector<Complex> &Y, QVector<Complex> &result,
-		double delta)
-{
-	double fmin = 1.0 / (Y.size()*delta);
-	result.clear();
-	int n = Y.size()/2 +1;
-	int realSize = Y.size();
-
-	QVector<Complex> YP;
-	for(int i = 0; i < n; ++i) YP.push_back(Y[i]);
-
-	// set the YP.*conj(YP) in result.
-	for(int i = 0; i < n; ++i) {
-		Complex aux = YP[i] * conj(YP[i]);
-		aux = sqrt(aux);
-		aux *= 2;
-		aux /= realSize;
-		result.push_back(aux);
+//	for(int i = 0; i < f.Size(); ++i) result.push_back(f[i]);
+	for(int i = 0; i < g.Size(); ++i) {
+		result.push_back(g[i]);
 	}
 
-	// now get do the last transform
-	for(int i = 0; i < n; ++i){
-		Complex aux = result[i];
-		aux = (aux * aux)/(2*fmin);
-		result[i] = aux;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void CurveData::calculateSpectrum(const QVector<Complex> &Y, double df,
+		QVector<double> &result)
+{
+//	double fmin = 1.0 / (Y.size()*delta);
+//	result.clear();
+//	int n = Y.size()/2 +1;
+//	int realSize = Y.size();
+//
+//	QVector<Complex> YP;
+//	for(int i = 0; i < n; ++i) YP.push_back(Y[i]);
+//
+//	// set the YP.*conj(YP) in result.
+//	for(int i = 0; i < n; ++i) {
+//		Complex aux = YP[i] * conj(YP[i]);
+//		aux = sqrt(aux);
+//		aux *= 2;
+//		aux /= realSize;
+//		result.push_back(aux);
+//	}
+//
+//	// now get do the last transform
+//	for(int i = 0; i < n; ++i){
+//		Complex aux = result[i];
+//		aux = (aux * aux)/(2*fmin);
+//		result[i] = aux;
+//	}
+
+	result.clear();
+	for(int i = 1; i < Y.size(); ++i){
+		double value = (std::sqrt(std::pow(Y[i].real(),2.0) +
+				std::pow(Y[i].imag(),2.0)));
+		value = value * value / (2.0*df);
+		result.push_back(value);
 	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-double CurveData::getDiscreteInterval(const QVector<double> &xs)
+void CurveData::calculateVecFreq(const QVector<double> &xs, QVector<double> &result,
+		double &df)
 {
-	// we assume that all the time is absolute... so we only need to return
-	// the maximum time / num_samples
-	return xs.back()/static_cast<double>(xs.size());
+	// get the sample rate
+	double sampleRate = xs.back()/static_cast<double>(xs.size());
+	int halfSize = (xs.size()/2.0)+1;
+	// calculate the fMin = df = 1/(N*dt). where dt = sampleRate
+	double step = 1.0/(static_cast<double>(xs.size())*sampleRate);
+//	double step = 3.0/static_cast<double>(xs.size());
+	df = step;
+
+
+
+	// create the freqVector
+	result.clear();
+	for(int i = 1; i < halfSize; ++i){
+		result.push_back(static_cast<double>(i)*step);
+	}
+
+	debug("num samples (halfsize): %d, sample rate: %f, step: %f\n",
+			halfSize, sampleRate, step);
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
-int CurveData::calculateFp(const QVector<Complex> &spectrum)
+double CurveData::calculateFp(const QVector<double> &spectrumxs,
+		const QVector<double> &spectrumys)
 {
-	Complex max = spectrum[0];
+	double max = spectrumys[1];
 	int result = 0;
+	ASSERT(spectrumxs.size() == spectrumys.size());
 
-	for(int i = 1; i < spectrum.size(); ++i){
-		if(spectrum[i].real() > max.real()){
-			max = spectrum[i];
+	for(int i = 2; i < spectrumys.size(); ++i){
+		if(spectrumys[i] > max){
+			max = spectrumys[i];
 			result = i;
 		}
 	}
 
-	return result;
+	debug("FPcalc[%d]=%f\n", result, spectrumxs[result]);
+	return spectrumxs[result];
 }
 
-
-////////////////////////////////////////////////////////////////////////////////
-void CurveData::calculateHs(const QVector<double> &xs,
-		const QVector<double> &ys)
-{
-
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateH(const QVector<double> &xs,
@@ -108,25 +131,19 @@ void CurveData::calculateH(const QVector<double> &xs,
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
-void CurveData::calculateTp(const QVector<double> &xs,
-			const QVector<double> &ys)
-{
-
-}
-
 // Calculate spectral curve
-void CurveData::calculateSpectralCurve(double interval,
-		const QVector<Complex> &result)
+void CurveData::calculateSpectralCurve(const QVector<double> &freqVec,
+		const QVector<double> &result)
 {
-	QVector<double> xs;
-	QVector<double> ys;
-
-	for(int i = 0; i < result.size(); ++i){
-		xs.push_back(i*interval);
-		ys.push_back(result[i].real());
-	}
-	mSpectralCurve.setSamples(xs, ys);
+////	QVector<double> xs;
+//	QVector<double> ys;
+//
+//	for(int i = 0; i < result.size(); ++i){
+////		xs.push_back(i*freq);
+////		xs.push_back(result[i].imag());
+//		ys.push_back(result[i].real());
+//	}
+	mSpectralCurve.setSamples(freqVec, result);
 
 }
 
@@ -185,22 +202,40 @@ void CurveData::loadData(const QVector<double> &xs,
 {
 	ASSERT(xs.size() == ys.size());
 	mCurve.setSamples(xs, ys);
-	double discreteInterval = getDiscreteInterval(xs);
 
-//	mComplexValues.clear();
 
-	QVector<Complex> complx, result;
-	// calculate all the values needed
+	QVector<double> freqVec, auxVec;
+	QVector<Complex> complx;
+	double df;
+
+
+	// calculate freq vector
+	calculateVecFreq(xs,freqVec, df);
+
+	// Apply FFT
 	calculateFFT(xs, ys, complx);
-	calculateSpectrum(complx, result, discreteInterval);
-	mFp = calculateFp(result);
 
-	debug("discreteInterval: %f\tFp: %d\n",discreteInterval,
-			static_cast<int>(mFp*discreteInterval));
+	// Now calculate the spectrum
+	calculateSpectrum(complx, df, auxVec);
+
+	// Calculate fp
+	mFp = calculateFp(freqVec, auxVec);
+	debug("Fp: %f\n", mFp);
+
+
+	// Show the spectral curve
+	calculateSpectralCurve(freqVec, auxVec);
+
+
+	// Calculate all the other values..
 	calculateH(xs, ys);
-	calculateHs(xs, ys);
-	calculateTp(xs, ys);
-	calculateSpectralCurve(discreteInterval,result);
+	calculateHs(auxVec);
+	calculateTp();
+
+	debug("Tp: %f\tHs: %f\n", mTp, mHs);
+
+
+//	mFp = calculateFp(result) * freq;
 	calculateMaxAndMin(xs, ys);
 
 //	mComplexValues.clear();

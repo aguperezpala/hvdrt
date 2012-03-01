@@ -78,22 +78,22 @@ void DataAnalyzeWindow::configurePlots(void)
 
 
 	// Spectral Plot
-	spectralPlot->setAxisTitle(QwtPlot::xBottom, "segundos");
-	spectralPlot->setAxisTitle(QwtPlot::yLeft, "metros");
+	spectralPlot->setAxisTitle(QwtPlot::xBottom, "Frecuencia");
+	spectralPlot->setAxisTitle(QwtPlot::yLeft, "Espectro");
 	mSecondGird.attach(spectralPlot);
 
 	 // panning with the left mouse button
-	mPlanner2 = new QwtPlotPanner( spectralPlot->canvas() );
-	 // zoom in/out with the wheel
-	mMagnifier2 = new QwtPlotMagnifier( spectralPlot->canvas() );
+//	mPlanner2 = new QwtPlotPanner( spectralPlot->canvas() );
+//	 // zoom in/out with the wheel
+//	mMagnifier2 = new QwtPlotMagnifier( spectralPlot->canvas() );
 
-//	mZoomer2 = new QwtPlotZoomer( spectralPlot->canvas() );
-//	mZoomer2->setRubberBandPen( QColor( Qt::black ) );
-//	mZoomer2->setTrackerPen( QColor( Qt::black ) );
-//	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect2,
-//		Qt::RightButton, Qt::ControlModifier );
-//	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect3,
-//		Qt::RightButton );
+	mZoomer2 = new QwtPlotZoomer( spectralPlot->canvas() );
+	mZoomer2->setRubberBandPen( QColor( Qt::black ) );
+	mZoomer2->setTrackerPen( QColor( Qt::black ) );
+	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect2,
+		Qt::RightButton, Qt::ControlModifier );
+	mZoomer2->setMousePattern( QwtEventPattern::MouseSelect3,
+		Qt::RightButton );
 
 }
 
@@ -185,6 +185,10 @@ void DataAnalyzeWindow::fillsecondPlot(CurveData &c)
 
 	QwtPlot *spectralPlot = ui.secondqwtPlot;
 	spectralPlot->replot();
+	int l,r,t,b;
+	spectralPlot->getContentsMargins(&l,&t,&r,&b);
+	mZoomer2->setZoomBase(QRectF(l,t,r-l,b-t));
+
 
 	// TODO: adjustPlottersScales pero para la spectralPlotter
 }
