@@ -25,7 +25,7 @@ int main(int argc, char **args)
 	// removemos las primeros 2 valores"
 	ifs.getline(buff, 500);
 	std::cout << "first line: " << buff << std::endl;
-
+	ofs << buff << std::endl;
 	double ft;
 	char c;
 	ifs >> 	ft >> c >> v;
