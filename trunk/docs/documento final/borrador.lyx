@@ -7968,7 +7968,8 @@ Generales
 \begin_layout Standard
 
 \color red
-Conclusiones generales...
+Conclusiones generales......
+ capaz que no haga falta separarlo en 2 titulos.
 \end_layout
 
 \begin_layout Standard
@@ -7983,23 +7984,63 @@ Trabajos futuros
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Podriamos hablar de:
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Implementar el ImageGenerator para que haga buffering.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Implementar algoritmos en GPU (Cuda).
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Hacer que los IPS sean plugins..
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Desarrollar otros IPS
+\end_layout
+
+\begin_layout Standard
+Como trabajos futuros que se pueden realizar tomando como base el actual
+ son:
+\end_layout
+
+\begin_layout Itemize
+Desarrollar nuevos IPS que implementen otras funcionalidades para medir
+ distintas variables hydrodinamicas utilizando el Framework desarrollado,
+ como por ejemplo 
+\color red
+agregar ej (rotura de ola, seguimiento/tracking de particulas en el fluido,
+ etc)
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Portar el actual IPS para que el procesamiento se realize en la GPU (utilizando
+ la interfaz ya creada) y medir la performance obtenida para compararla
+ con el metodo actual.
+\end_layout
+
+\begin_layout Itemize
+Probar y comparar diferentes algoritmos utilizados en las distintas etapas
+ con el fin de aumentar la presicion de captura de datos y disminuir la
+ deteccion de ruido al maximo (intentar lograr que el sistema no sea tan
+ sensible al entorno como los cambios de luces, basuras en la zona de captura,
+ etc).
 \end_layout
 
 \begin_layout Bibliography
