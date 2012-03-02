@@ -34,7 +34,7 @@ void CurveData::calculateFFT(const QVector<double> &xs,
 	Forward.fft(f,g);
 
 
-//	std::cout << " G:\n" << g << std::endl;
+	std::cout << " FFT:G:\n" << g << std::endl;
 	result.clear();
 //	for(int i = 0; i < f.Size(); ++i) result.push_back(f[i]);
 	for(int i = 0; i < g.Size(); ++i) {
@@ -49,7 +49,7 @@ void CurveData::calculateSpectrum(const QVector<Complex> &Y, double df,
 {
 //	double fmin = 1.0 / (Y.size()*delta);
 //	result.clear();
-//	int n = Y.size()/2 +1;
+//	int n = Y.size();
 //	int realSize = Y.size();
 //
 //	QVector<Complex> YP;
@@ -60,22 +60,24 @@ void CurveData::calculateSpectrum(const QVector<Complex> &Y, double df,
 //		Complex aux = YP[i] * conj(YP[i]);
 //		aux = sqrt(aux);
 //		aux *= 2;
-//		aux /= realSize;
-//		result.push_back(aux);
+//		aux /= static_cast<double>(realSize);
+//		result.push_back(aux.real());
 //	}
 //
 //	// now get do the last transform
 //	for(int i = 0; i < n; ++i){
-//		Complex aux = result[i];
-//		aux = (aux * aux)/(2*fmin);
+//		double aux = result[i];
+//		aux = (aux * aux)/(2.0*df);
 //		result[i] = aux;
 //	}
 
+	double dsize = static_cast<double>( Y.size() + 1);
 	result.clear();
 	for(int i = 1; i < Y.size(); ++i){
-		double value = (std::sqrt(std::pow(Y[i].real(),2.0) +
+		double value = 2.0/(dsize)*(std::sqrt(std::pow(Y[i].real(),2.0) +
 				std::pow(Y[i].imag(),2.0)));
 		value = value * value / (2.0*df);
+		std::cout << "Value: A " << value << "\t";
 		result.push_back(value);
 	}
 }
@@ -110,6 +112,7 @@ double CurveData::calculateFp(const QVector<double> &spectrumxs,
 {
 	double max = spectrumys[1];
 	int result = 0;
+	debug("spectrums sizes:%d, %d\n", spectrumxs.size(), spectrumys.size());
 	ASSERT(spectrumxs.size() == spectrumys.size());
 
 	for(int i = 2; i < spectrumys.size(); ++i){
@@ -143,6 +146,7 @@ void CurveData::calculateSpectralCurve(const QVector<double> &freqVec,
 ////		xs.push_back(result[i].imag());
 //		ys.push_back(result[i].real());
 //	}
+
 	mSpectralCurve.setSamples(freqVec, result);
 
 }
@@ -217,6 +221,7 @@ void CurveData::loadData(const QVector<double> &xs,
 
 	// Now calculate the spectrum
 	calculateSpectrum(complx, df, auxVec);
+	debug("auxVec[100]: %f\n", auxVec[100]);
 
 	// Calculate fp
 	mFp = calculateFp(freqVec, auxVec);
