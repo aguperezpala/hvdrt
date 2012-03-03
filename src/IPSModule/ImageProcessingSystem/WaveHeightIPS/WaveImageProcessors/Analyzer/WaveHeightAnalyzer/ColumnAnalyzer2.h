@@ -105,6 +105,40 @@ private:
 		return (*data != 0);
 	}
 
+	// check if the pixel is se using the lastSnapshoot captured
+	inline bool isPixelSetUsingLastSnapshoot(size_t pos)
+	{
+#ifdef DEBUG
+		if(!(pos < mTopRow)){
+			debug("pos: %d\tmTopRow: %d\n", pos, mTopRow);
+		}
+#endif
+		ASSERT(pos < mTopRow);
+		ASSERT(pos - mBottomRow >= 0);
+		uchar *data = mBaseAddr + pos * mRowJumpSize;
+
+		return (*data != 0 && (mLastColumn[pos - mBottomRow]));
+	}
+
+	// Update the size of the lastColumn captured
+	inline void updateSize(void)
+	{
+		const int actualSize = (mTopRow - mBottomRow);
+		if(mLastColumn.size() < actualSize){
+			mLastcolumn.resize(actualSize);
+			for(int i = 0; i < actualSize; ++i) mLastColumn[i] = false;
+		}
+	}
+
+	// save the actual column pixels in the array
+	inline void updateLastSnapshoot(void)
+	{
+		const int size = mLastColumn.size();
+		for(int i = 0; i < size; ++i){
+			mLastColumn[i] = isPixelSet(mBottomRow + i);
+		}
+	}
+
 private:
 	size_t		mMiddlePoint;
 	int 		mLastHeight;
@@ -113,6 +147,7 @@ private:
 	uchar		*mBaseAddr;
 	int			mTopRow;
 	int			mBottomRow;
+	std::vector<bool>	mLastColumn;
 };
 
 #endif /* COLUMNANALYZER_H_ */
