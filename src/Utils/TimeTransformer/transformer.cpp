@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 
 int main(int argc, char **args)
@@ -28,8 +29,16 @@ int main(int argc, char **args)
 	ofs << buff << std::endl;
 	double ft;
 	char c;
-	ifs >> 	ft >> c >> v;
-	ofs << 0.0 << "," << v << std::endl;
+	
+	// verificamos si tenemos tiempo por parametro o no
+	if(argc == 3){
+		std::stringstream ss;
+		ss << args[2];
+		ss >> ft;
+	} else {
+		ifs >> 	ft >> c >> v;
+		ofs << 0.0 << "," << v << std::endl;
+	}
 	while (ifs.good()){
 		ifs >> 	t >> c >> v;
 		ofs << t - ft << "," << v << std::endl;	
