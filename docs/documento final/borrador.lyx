@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -68,6 +68,8 @@ Universidad Nacional de Córdoba
 \end_inset
 
 
+\color red
+sacar mouse de imagen
 \end_layout
 
 \begin_layout Standard
@@ -174,8 +176,8 @@ Profesor Representante:
 \end_layout
 
 \begin_layout Abstract
-En laboratorio se utilizan distintos tipos de instrumentos para poder medir
- la altura de ola (y otras variables hidrodinamicas), los cuales en general
+En laboratorio se utilizan distintos tipos de instrumentos para medir la
+ altura de ola (y otras variables hidrodinamicas), los cuales en general
  tienen un alto costo economico y requieren de un gran conocimiento por
  parte del usuario para su correcta utilizacion como asi tambien para evitar
  generar daños fisicos a las personas o el instrumento en si.
@@ -183,9 +185,8 @@ En laboratorio se utilizan distintos tipos de instrumentos para poder medir
 
 \begin_layout Abstract
 En este trabajo se plantea el desarrollo de un sistema utilizado para capturar
- variables hidronidamicas (en particular la altura de ola) en tiempo real
- y por medio de una videocamara como metodo alternativo y de bajo costo
- con respecto a los utilizados actualmente en laboratorio.
+ la altura de ola en tiempo real y por medio de una webcam como metodo alternati
+vo y de bajo costo con respecto a los utilizados actualmente en laboratorio.
  
 \end_layout
 
@@ -304,8 +305,8 @@ La ventaja principal de los instrumentos tradicionales es la elevada precisión
  La exactitud de las mediciones que se pueden realizar con video cámaras
  depende de la definición de las mismas, con lo cual un aumento en la precisión
  requiere un costo económico mayor en la adquisición de la misma.
- Sin embargo en aplicaciones ingenieriles de laboratorio, una video cámara
- de alta definición estándar puede ser suficiente para el nivel de detalle
+ Sin embargo en aplicaciones ingenieriles de laboratorio, una webcam de
+ alta definición estándar puede ser suficiente para el nivel de detalle
  requerido.
  Este aspecto será analizado en este proyecto, en particular para realizar
  mediciones de niveles con la suficiente precisión.
@@ -336,9 +337,10 @@ o sea comparable con la alta definición en la adquisición de datos de los
 Las aplicaciones de estas técnicas en laboratorio son múltiples en los campos
  de la mecánica de fluidos y de la dinámica sedimentaria, entre otros.
  En principio, se implementará una técnica para la adquisición de datos
- de altura de ola en tiempo real, pero la metodología servirá como punto
- de partida para las mediciones de otros parámetros hidrodinámicos y sedimentoló
-gicos de interés.
+ de altura de ola en tiempo real y su posterior analisis, pero la metodología
+ servirá como punto de partida para las mediciones de otros parámetros hidrodiná
+micos (como rotura de oleaje, dispercion de contaminante) y sedimentológicos
+ de interés (erosion de un perfil de playa).
  
 \end_layout
 
@@ -417,7 +419,7 @@ Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
 \end_layout
 
 \begin_layout Standard
-De manera esquematica, en la figura 
+De manera esquematica, en la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Distribucion-energética-de"
@@ -439,6 +441,7 @@ períodos entre 1 y 30 segundos (ondas de viento cuya fuerza estabilizadora
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -446,9 +449,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_tam_olas.png
+	filename imagenes/img_tam_olas.JPG
 	lyxscale 50
-	width 55page%
+	width 45page%
 
 \end_inset
 
@@ -465,7 +468,7 @@ name "fig:Distribucion-energética-de"
 
 \end_inset
 
-Distribucion energética de las ondas de superficie
+Distribucion energética de las ondas de superficie.
 \end_layout
 
 \end_inset
@@ -486,7 +489,7 @@ es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
  ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos);
  en este trabajo se analizan las primeras.
  Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
- utiles para representarlas, estas son (figura
+ utiles para representarlas, estas son (Figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Parámetros-asociados-a"
@@ -596,6 +599,7 @@ Still Water Level
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -603,7 +607,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_param_onda.png
+	filename imagenes/img_param_onda.JPG
 	width 45page%
 	rotateOrigin center
 
@@ -622,7 +626,11 @@ name "fig:Parámetros-asociados-a"
 
 \end_inset
 
-Parámetros asociados a la onda
+Parámetros asociados a la onda (extraida de 
+\color red
+[1]
+\color inherit
+)
 \end_layout
 
 \end_inset
@@ -838,14 +846,35 @@ El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
 
 .
  Bajo ciertas hipótesis simplificativas las ecuaciones llegan a tener la
- siguiente forma: 
+ siguiente forma 
+\color red
+[2]
+\color inherit
+: 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula \begin{equation}
+\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}=0\label{eq:continuidad}\end{equation}
+
+\end_inset
+
 
 \shape italic
 \color red
 (1) ec de continuidad 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+\begin{array}{c}
+\,\frac{Du}{Dt}=\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial x}\\
+\frac{Dv}{Dt}=\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial y}\\
+\qquad\,\frac{Dw}{Dt}=\frac{\partial w}{\partial t}+u\frac{\partial w}{\partial x}+v\frac{\partial w}{\partial y}+w\frac{\partial w}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial z}-g\end{array}\label{eq:euler}\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -872,7 +901,7 @@ La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
 
 .
  El problema se reduce a un problema de dos variables: 
-\begin_inset Formula $FI$
+\begin_inset Formula $\Phi$
 \end_inset
 
  y 
@@ -886,10 +915,28 @@ La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula \begin{equation}
+\nabla{}^{2}\Phi=\frac{\partial^{2}\Phi}{\partial x^{2}}+\frac{\partial^{2}\Phi}{\partial y^{2}}+\frac{\partial^{2}\Phi}{\partial z^{2}}=0\label{eq:continuidad2}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \shape italic
 \color red
 (3) ec nueva de continuidad 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+-\frac{\partial\Phi}{\partial t}+\frac{1}{2}\left[\left(\frac{\partial\Phi}{\partial x}\right)^{2}+\left(\frac{\partial\Phi}{\partial y}\right)^{2}+\left(\frac{\partial\Phi}{\partial z}\right)^{2}\right]+\frac{p}{\rho}+gz=C(t)\label{eq:bernoulli}\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -907,6 +954,15 @@ El problema sigue siendo no-lineal.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula \begin{equation}
+\Phi(x,z,t)=-\frac{Ag}{w}\frac{\cosh k(h+z)}{\cosh kh}\sin(kx-wt)\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \shape italic
 \color red
@@ -920,11 +976,8 @@ Sea
 
  el 
 \shape italic
-potencial de velocidades 
-\color blue
-ref al libro
+potencial de velocidades
 \shape default
-\color inherit
 , se lo puede expresar de diferentes formas, pero la estructura es siempre
  la misma, donde se pueden identificar tres partes diferentes: (1) el módulo
  o magnitud del potencial dado 
@@ -951,7 +1004,7 @@ ref al libro
 \begin_inset Formula $h$
 \end_inset
 
- es la profundidad o calado y
+ es la profundidad o calado y 
 \begin_inset Formula $\kappa$
 \end_inset
 
@@ -975,7 +1028,11 @@ A este potencial le corresponde una superficie libre en
 \begin_inset Formula $z=0$
 \end_inset
 
- dada por
+ dada por (
+\color red
+[2]
+\color inherit
+):
 \end_layout
 
 \begin_layout Standard
@@ -998,43 +1055,20 @@ Esta ultima expresion corresponde a una onda que se propaga con una celeridad
 \end_inset
 
 .
- A modo de ejemplo se puede observar la figura 
+ En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Propagación-del-perfil"
 
 \end_inset
 
-ref a figura donde dados dos tiempos 
-\begin_inset Formula $t_{1}<t_{2}$
+ se puede observar una representacion de la elevacion de la superficie libre
+ dada por 
+\begin_inset Formula $\eta$
 \end_inset
 
-, se marca el mismo punto sobre el perfil de la onda y se diferencian los
- distintos puntos sobre el eje 
-\begin_inset Formula $x$
-\end_inset
-
- (
-\begin_inset Formula $x_{1}$
-\end_inset
-
-y 
-\begin_inset Formula $x_{2}$
-\end_inset
-
-), que al igual que los tiempos 
-\begin_inset Formula $t_{1},t_{2}$
-\end_inset
-
- varian ya que las variables 
-\begin_inset Formula $x,t$
-\end_inset
-
- se encuentran acopladas como lo indica la ecuacion 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:1.77"
-
+ en funcion del tiempo 
+\begin_inset Formula $t$
 \end_inset
 
 .
@@ -1042,6 +1076,7 @@ reference "eq:1.77"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1049,7 +1084,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_propagacion_lineal_onda.png
+	filename imagenes/img_propagacion_lineal_onda.JPG
 	width 40page%
 
 \end_inset
@@ -1067,7 +1102,11 @@ name "fig:Propagación-del-perfil"
 
 \end_inset
 
-Propagación del perfil de la onda
+Altura de la superficie libre en funcion del tiempo (extraidea de 
+\color red
+[3]
+\color inherit
+).
 \end_layout
 
 \end_inset
@@ -1086,22 +1125,25 @@ Oleaje irregular
 
 \begin_layout Standard
 En el mar, un registro de una señal de oleaje, dado por ejemplo por un boya,
- es un registro de forma caotica y se denomina Oleaje Irregular 
-\shape italic
-\color red
-figura4?
-\shape default
-\color inherit
-.
+ es un registro de forma caotica y se denomina Oleaje Irregular (Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Señal-de-un"
+
+\end_inset
+
+).
  El oleaje irregular puede ser considerado como la superposicion de un gran
  numero (o infinito) de componentes correspondientes a ondas con diferentes
- periodos, alturas y direcciones 
-\shape italic
-\color red
-figura5?
-\shape default
-\color inherit
-.
+ periodos, alturas y direcciones (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resultado-de-la"
+
+\end_inset
+
+).
  Este conjunto de ondas forman un 
 \shape italic
 grupo de ondas 
@@ -1111,7 +1153,7 @@ el cual se mueve con una velocidad equivalente a la mitad del promedio de
  Analogamente, la energia espectral asociada al oleaje (explicado en el
  siguiente capitulo), no se mueve a la velocidad de la ola en si sino a
  la velocidad del grupo de olas.
- En la figura 
+ En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Solapamiento-de-trenes"
@@ -1135,6 +1177,105 @@ de mayor amplitud (linea gruesa).
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_irregular_signal.JPG
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Señal-de-un"
+
+\end_inset
+
+Señal de un oleaje irregular (
+\color red
+tenemos que poner ref aca
+\color inherit
+, 
+\color red
+de donde salio esta imagen? es esta la imagen que decis paolo?
+\color inherit
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_sum_oleaje.JPG
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Resultado-de-la"
+
+\end_inset
+
+Resultado de la suma (o superposicion) de distintos oleajes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1161,7 +1302,17 @@ name "fig:Solapamiento-de-trenes"
 
 \end_inset
 
-Solapamiento y grupos de trenes de ondas
+Solapamiento y grupos de trenes de ondas (extraido de 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+1 http://www.seafriends.org.nz/oceano/waves.htm
+\end_layout
+
+\end_inset
+
+)
 \end_layout
 
 \end_inset
@@ -1184,7 +1335,7 @@ Matematicamente
 la representacion de la superficie libre de este tipo de oleaje puede expresarse
  como (
 \color red
-ref al libro
+[3]
 \color inherit
 )
 \end_layout
@@ -1237,13 +1388,7 @@ son aleatorias y
 \begin_inset Formula $\kappa_{m}$
 \end_inset
 
-es el numero de onda asociado a la m-esima onda 
-\shape italic
-\color blue
-ref libro?
-\shape default
-\color inherit
-.
+es el numero de onda asociado a la m-esima onda.
 \end_layout
 
 \begin_layout Standard
@@ -1262,20 +1407,23 @@ Analisis del oleaje
 Genéricamente a los movimientos correspondientes a la superficie del mar,
  que son ondas de gravedad, generadas por el viento y que se propagan desde
  el area de generacion perdiendo lentamente energia por firccion con la
- atmosfera, viscosidad molecular, pero principalmente por la gravedad, (hasta
- alcanzar las costas) se lo conoce como Oleaje.
+ atmosfera, viscosidad molecular, y por la gravedad, (hasta alcanzar las
+ costas) se lo conoce como Oleaje.
  Una manera simple de modelizar el comportamiento del oleaje es su descomposicio
-n en una suma de trenes de ondas regulares (
-\color red
-ver ref fig 5
-\color inherit
+n en una suma de trenes de ondas regulares (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Solapamiento-de-trenes"
+
+\end_inset
+
 ) de amplitudes, periodos y direcciones variables.
 \end_layout
 
 \begin_layout Standard
 La cantidad maxima de energia que puede existir en cada tren de ondas componente
-s del oleaje esta regulada por los procesos de rotura y de interaccion entre
- las mismas.
+s del oleaje esta regulada por los procesos entre las mismas y los de interaccio
+n de rotura.
  Para el caso de las olas generadas por accion del viento, se las puede
  clasificar como oleaje totalmente desarrollado (estado de equilibro logrado
  bajo la accion de un viento constante sobre una superficie ilimitada) o
@@ -1283,49 +1431,17 @@ s del oleaje esta regulada por los procesos de rotura y de interaccion entre
  minimo o distancia minima para llegar al estado desarrollado no es alcanzada)
 \shape italic
 \color blue
-ref al libro
-\shape default
-\color red
 .
 \end_layout
 
 \begin_layout Standard
-El analisis del oleaje se puede realizar mediante 2 aproximaciones diferentes,
- por un lado el analisis estadistico o en el dominio de la probabilidad,
- y por el otro lado, el analisis espectral en el dominio de la frecuencia
- (utilizado en este trabajo).
-\end_layout
-
-\begin_layout Subsubsection
-Análisis estadístico
+El analisis del oleaje se puede realizar mediante 2 aproximaciones diferentes:
+ a) en el tiempo; b) en frecuencia o analisis espectral.
 \end_layout
 
 \begin_layout Standard
-En este enfoque, los parametros del oleaje (por ejemplo el desplazamiento
- de la superficie libre) son considerados como sucesos aleatorios ordinarios.
- Los valores medidos forman un conjunto de datos que son utilizados para
- expresar los resultados finales mediante las funciones de distribucion
- y densidad y los momentos estadisticos de las variables que se estan midiendo.
-\end_layout
-
-\begin_layout Standard
-Este enfoque tiene la ventaja de ser sencillo e intuitivo, pero es deficiente
- a la hora de aportar informacion relativa a la direccion de propagacion
- del oleaje
-\shape italic
-\color blue
-ref al libro
-\shape default
-\color inherit
-.
-\end_layout
-
-\begin_layout Subsubsection
-Análisis espectral
-\end_layout
-
-\begin_layout Standard
-Tiene como objetivo la obtencion de la 
+En este trabajo se utiliza el analisis en frecuencia (b), el cual tiene
+ como objetivo la obtencion de la 
 \shape italic
 funcion de densidad espectral
 \shape default
@@ -1333,35 +1449,74 @@ funcion de densidad espectral
 \shape italic
 espectro del oleaje
 \shape default
-, la cual representa la energía total asociada a cada una de los trenes
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Representacion-esquematica-de"
+
+\end_inset
+
+), la cual representa la energía total asociada a cada una de los trenes
  de ondas en que se puede descomponer un registro de oleaje en funcion de
  la frecuencia y de la dirección de propagación.
- Este enfoque es mas complejo que el anterior pero es mas adecuado para
- el analisis direccional del oleaje, lo que no quiere decir que pueda utilizado
- en conjunto como complemento del modelo anterior.
+ 
 \end_layout
 
 \begin_layout Standard
-Asumiendo que el proceso es estacionario y ergódico se puede expresar la
- señal en términos de frecuencias usando la serie de Fourier 
-\shape italic
+El espectro del oleaje contiene gran cantidad de informacion que puede ser
+ representada mediante la introduccion de una serie de parametros que sirven
+ para conocer las caracteristicas principales de dicho espectro, los cuales
+ se mencionaran en el siguiente capitulo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_espectro_esquematico.jpg
+	width 30page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Representacion-esquematica-de"
+
+\end_inset
+
+Representacion esquematica de las componentes de un registro de olas (extraido
+ de 
 \color red
-(1) 3.21 Kamphuis
-\shape default
+[4]
 \color inherit
- que se convierte en 
-\shape italic
-\color red
-(2)
-\shape default
-\color inherit
-.
- Esta expresión representa la señal en el tiempo en términos de componentes
- discretas de frecuencias (DFT)
-\shape italic
-\color red
-...
- seguir poáginas 65 y 66 del Kamphuis 
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1387,48 +1542,37 @@ superficie libre
 \begin_inset Formula $\eta(t)$
 \end_inset
 
- (
-\shape italic
-\color blue
-ref al libro donde sale esta funcion 2.3.1
-\shape default
-\color inherit
-) donde nos da la altura de la superficie libre dado el tiempo 
+, donde nos da la altura de la superficie libre dado el tiempo 
 \begin_inset Formula $t$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Para la realizacion de la transormada de fourier se emplea el algoritmo
- de la 
-\shape italic
-Transformada Rapida de Fourier (FFT)
-\shape default
- 
-\shape italic
-\color blue
-ref
-\shape default
-\color inherit
-, el cual permite eficientemente transformar directamente la serie temporal
- del registro al dominio frecuencial.
- El espectro de energia correspondiente a un registro dado por la funcion
- 
+ Si 
 \begin_inset Formula $\eta(t)$
 \end_inset
 
- puede calcularse realizando la 
+ es una funcion periodica, con perioto 
+\begin_inset Formula $T$
+\end_inset
+
+ (lo cual es una hipotesis bastante fuerte en el caso de una serie de oleaje),
+ puede representarse como una 
 \shape italic
-FFT 
+\color black
+Serie de Fourier 
 \shape default
-mediante:
+(
+\color red
+[3]
+\color black
+)
+\shape italic
+:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-S(\omega)=\frac{1}{IR}\left[\overset{N}{\underset{n=1}{\sum}}\eta(n\Delta t)e^{i\omega n\Delta t}\Delta t\right]^{2}\end{equation}
+\eta(t)=a_{0}+2\overset{\infty}{\underset{k=1}{\sum}}\left(a_{k}\cos\frac{2\pi kt}{T}+b_{k}\sin\frac{2\pi kt}{T}\right)\end{equation}
 
 \end_inset
 
@@ -1437,19 +1581,244 @@ S(\omega)=\frac{1}{IR}\left[\overset{N}{\underset{n=1}{\sum}}\eta(n\Delta t)e^{i
 
 \begin_layout Standard
 donde 
-\begin_inset Formula $IR$
+\begin_inset Formula $k=1...\infty$
 \end_inset
 
- es la longitud total del registro y 
-\begin_inset Formula $\Delta t$
+ es el numero de armonico considerado, y
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+a_{k}=\frac{1}{T}\overset{T}{\underset{0}{\int}}\eta(t)\cos\frac{2\pi kt}{T}dt\qquad k\geq0\label{eq:a0}\end{equation}
+
 \end_inset
 
- es el intervalo de muestreo 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+b_{k}=\frac{1}{T}\overset{T}{\underset{0}{\int}}\eta(t)\sin\frac{2\pi kt}{T}dt\qquad k\geq1\label{eq:bk}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+son los 
 \shape italic
-\color blue
-ref de donde salio la form?
+\color black
+Coeficientes de Fourier
 \shape default
 \color inherit
+, funciones continuas de la frecuencia y denominadas las 
+\shape italic
+\color black
+Transformadas de Fourier
+\shape default
+\color inherit
+ (es por medio de estas donde se pasa del dominio del tiempo al dominio
+ de la frecuencia).
+ En el analisis del oleaje 
+\begin_inset Formula $a_{0}=valor\; medio$
+\end_inset
+
+ se lo considera nulo por comodidad (
+\shape italic
+\color red
+porque es comodo?
+\shape default
+\color inherit
+), con lo que la ecuacion 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:a0"
+
+\end_inset
+
+ pasa a ser 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, por otro lado 
+\begin_inset Formula $T$
+\end_inset
+
+ corresponde a la duracion del registro entero debiendo ser el 
+\begin_inset Formula $m.c.m$
+\end_inset
+
+ de los periodos existentes.
+\end_layout
+
+\begin_layout Standard
+Para realizar un analisis espectral del oleaje se debe realizar el calculo
+ de la 
+\shape italic
+\color black
+Transformada Discreta de Fourier
+\shape default
+\color inherit
+, donde los 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $b_{k}$
+\end_inset
+
+ (de las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:a0"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bk"
+
+\end_inset
+
+ respectivamente) se los puede concentrar en una expresion compleja como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+X_{k}=a_{k}-i\cdot b_{k}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+con lo cual la Transformada de Fourier pasa a tener la forma
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+X_{k}=\frac{1}{T}\overset{T}{\underset{0}{\int}}\eta(t)\exp^{-i\frac{2\pi kt}{T}}dt\qquad k\geq0\label{eq:fourier_compleja}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ahora la seria temporal es dada por una muestra discreta de datos uniformemen
+te espaciados:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+\left\{ x_{r}\right\} :r=0,1,2,...,(N-1)\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+con 
+\begin_inset Formula $t=r\Delta$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta=T/N$
+\end_inset
+
+, y 
+\begin_inset Formula $T$
+\end_inset
+
+ periodo 
+\begin_inset Formula $m.c.m$
+\end_inset
+
+ que corresponde con la duracion del registro, 
+\begin_inset Formula $N$
+\end_inset
+
+ tamaño del registro, podemos expresar la 
+\shape italic
+\color black
+Transformada Discreta de Fourier (DFT)
+\shape default
+\color inherit
+ de la ecuacion 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fourier_compleja"
+
+\end_inset
+
+ como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+X_{k}=\frac{1}{T}\overset{N-1}{\underset{r=0}{\sum}}x_{r}\exp^{-i\frac{2\pi kr\Delta}{T}}\Delta;\; k\geq0\qquad o\qquad X_{k}=\frac{1}{N}\overset{N-1}{\underset{r=0}{\sum}}x_{r}\exp^{-i\frac{2\pi kr}{N}};\; k\geq0\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos entonces calcular el espectro de energia asociado a un registro
+ de datos por medio de (
+\shape italic
+\color red
+[3]
+\shape default
+\color inherit
+ 
+\shape italic
+\color red
+toda esta info del documento de Fourier que me hiciste paolo, salio del
+ G.I.O.C?
+\shape default
+\color inherit
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+S(f)=\frac{A^{2}}{2\cdot df}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+A=\frac{2\sqrt{Re(X_{k})^{2}+Im(X_{k})^{2}}}{N+1}\end{equation}
+
+\end_inset
+
+
+\shape italic
+\color red
+preguntar a paolo si este N+1 esta bien (eso tengo en el soft)...
+\end_layout
+
+\begin_layout Standard
+con 
+\begin_inset Formula $a_{k}=Re(X_{k})$
+\end_inset
+
+, 
+\begin_inset Formula $b_{k}=Im(X_{k})$
+\end_inset
+
 .
 \end_layout
 
@@ -1471,7 +1840,13 @@ Se define
 \shape italic
 momento de orden n 
 \shape default
-de la funcion de densidad espectral como:
+de la funcion de densidad espectral como (
+\shape italic
+\color red
+[3]
+\shape default
+\color inherit
+):
 \end_layout
 
 \begin_layout Standard
@@ -1553,38 +1928,78 @@ frecuencia de pico
 \begin_inset Formula $\omega=\omega_{p}$
 \end_inset
 
- y decrece tanto hacia las altas como hacia las bajas frecuencias 
+ y decrece tanto hacia las altas como hacia las bajas frecuencias (Figura
+ 
 \shape italic
 \color red
 figura7
 \shape default
 \color inherit
-?.
+).
 \end_layout
 
 \begin_layout Standard
-El espectro provee una buena representacion del oleaje solo cuando este
- puede representarse correctamente mediante la superposicion lienal de component
-es sinusoidales.
- En el presente trabajo se trabajo con un espectro conocido como 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_jonswap_ejemplo.jpg
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Espectro de JONSWAP calculados y medidos (extraidos de 
 \shape italic
-el espectro de JONSWAP
-\shape default
- (JOint North Sea WAwe Project) 
-\shape italic
-\color blue
-agregar ref
+\color red
+[4]
 \shape default
 \color inherit
-.
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En ingenieria maritima se suele representar el contenido energetico de la
+ señal de oleaje mediante el espectro parametrico de 
+\shape italic
+\color black
+JONSWAP 
+\shape default
+\color inherit
+(JOint North Sea WAwe Project).
  Este espectro esta basado en una extensa campaña de medidas llevada a cabo
  en el Mar del Norte entre 1968 y 1969, el recibio una aprobacion casi inmediata
  por parte de la comunidad cientifica una vez publicado, y es quizas el
  mas utilizado.
  La forma espectral propuesta es 
+\end_layout
+
+\begin_layout Standard
+
 \shape italic
 \color blue
-agregar ref, segun el libro Hasselmann et al.(1973)
+Hasselmann et al.(1973)
 \shape default
 \color inherit
 :
@@ -1592,7 +2007,7 @@ agregar ref, segun el libro Hasselmann et al.(1973)
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-S(\omega)=\alpha g^{2}\omega^{-5}e^{-1.25\left(\frac{\omega}{\omega_{p}}\right)^{-4}}\gamma^{\delta}\end{equation}
+S(f)=\alpha H_{s}^{2}T_{p}^{-2}f^{-5}e^{-1.25\left(T_{p}f\right)^{-4}}\gamma^{\exp^{}}\end{equation}
 
 \end_inset
 
