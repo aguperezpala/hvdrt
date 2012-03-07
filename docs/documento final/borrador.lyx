@@ -1239,7 +1239,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_sum_oleaje.JPG
-	width 45page%
+	width 30page%
 
 \end_inset
 
@@ -1303,15 +1303,9 @@ name "fig:Solapamiento-de-trenes"
 \end_inset
 
 Solapamiento y grupos de trenes de ondas (extraido de 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-1 http://www.seafriends.org.nz/oceano/waves.htm
-\end_layout
-
-\end_inset
-
+\color red
+http://www.seafriends.org.nz/oceano/waves.htm
+\color inherit
 )
 \end_layout
 
@@ -1700,7 +1694,7 @@ con lo cual la Transformada de Fourier pasa a tener la forma
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-X_{k}=\frac{1}{T}\overset{T}{\underset{0}{\int}}\eta(t)\exp^{-i\frac{2\pi kt}{T}}dt\qquad k\geq0\label{eq:fourier_compleja}\end{equation}
+X_{k}=\frac{1}{T}\overset{T}{\underset{0}{\int}}\eta(t)e^{-i\frac{2\pi kt}{T}}dt\qquad k\geq0\label{eq:fourier_compleja}\end{equation}
 
 \end_inset
 
@@ -1760,7 +1754,7 @@ reference "eq:fourier_compleja"
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-X_{k}=\frac{1}{T}\overset{N-1}{\underset{r=0}{\sum}}x_{r}\exp^{-i\frac{2\pi kr\Delta}{T}}\Delta;\; k\geq0\qquad o\qquad X_{k}=\frac{1}{N}\overset{N-1}{\underset{r=0}{\sum}}x_{r}\exp^{-i\frac{2\pi kr}{N}};\; k\geq0\end{equation}
+X_{k}=\frac{1}{T}\overset{N-1}{\underset{r=0}{\sum}}x_{r}e^{-i\frac{2\pi kr\Delta}{T}}\Delta;\; k\geq0\qquad o\qquad X_{k}=\frac{1}{N}\overset{N-1}{\underset{r=0}{\sum}}x_{r}e^{-i\frac{2\pi kr}{N}};\; k\geq0\end{equation}
 
 \end_inset
 
@@ -1993,21 +1987,15 @@ JONSWAP
  por parte de la comunidad cientifica una vez publicado, y es quizas el
  mas utilizado.
  La forma espectral propuesta es 
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color blue
-Hasselmann et al.(1973)
-\shape default
+\color red
+[3]
 \color inherit
 :
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-S(f)=\alpha H_{s}^{2}T_{p}^{-2}f^{-5}e^{-1.25\left(T_{p}f\right)^{-4}}\gamma^{\exp^{}}\end{equation}
+S(f)=\alpha H_{s}^{2}T_{p}^{-2}f^{-5}e^{-1.25\left(T_{p}f\right)^{-4}}\gamma^{e^{-\frac{(T_{p}f-1)^{2}}{2\sigma^{2}}}}\end{equation}
 
 \end_inset
 
@@ -2019,10 +2007,8 @@ con
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula \begin{equation}
-\delta=e^{-\frac{(\omega-\omega_{p})^{2}}{2\sigma_{0}^{2}\omega_{p}^{2}}}\quad y\quad\sigma_{0}=\begin{cases}
-\sigma_{0}^{1} & para\;\omega\leq\omega_{p}\\
-\sigma_{0}^{2} & para\;\omega>\omega_{p}\end{cases}\end{equation}
+\begin_inset Formula \[
+\alpha\cong\frac{0.0624}{0.230+0.0336\gamma-0.185(1.9+\gamma)^{-1}}\]
 
 \end_inset
 
@@ -2030,33 +2016,33 @@ con
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula \[
+\sigma=\begin{cases}
+\sigma_{a}; & f\leq f_{p}\\
+\sigma_{b}; & f>f_{p}\end{cases}\quad con\;\sigma_{a}=0.07,\;\sigma_{b}=0.09\]
 
-\shape italic
-\color blue
-Pedirle a paolo en teoria la ultima version aca
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-el espectro de JONSWAP (
-\shape italic
-\color blue
-ref
-\shape default
-\color inherit
-) contiene 5 parametros 
-\shape italic
-\color blue
-completar esto dependiendo lo que me diga paolo, pagina 137 pdf Formula
- 96
+\begin_inset Formula \[
+\gamma=1\; a\;7\;(media\; de\;3.3)\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\color black
+Aplicaciones en laboratorio
 \end_layout
 
 \begin_layout Standard
 
-\shape italic
-\color blue
-Faltaria agregar el tema de como se diferencia esta teoria utilizada y todo
- lo explicado anteriormente en laboratorio.
- Me parece que todo asi explicado queda medio colgado, preguntarle a paolo....
 \end_layout
 
 \begin_layout Standard
