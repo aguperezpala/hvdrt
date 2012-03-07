@@ -318,6 +318,10 @@ En mediciones de campo, las muestras con video cámaras de alta definición
  ofrecen ya muchas aplicaciones practicas y muy funcionales, por ejemplo
  para la detección de la erosión costera y en la determinación de parámetros
  de oleaje (
+\color red
+[0]
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-7"
@@ -1446,7 +1450,7 @@ espectro del oleaje
  (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Representacion-esquematica-de"
+reference "fig:Representacion-esquematica-de-1"
 
 \end_inset
 
@@ -1995,7 +1999,7 @@ JONSWAP
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-S(f)=\alpha H_{s}^{2}T_{p}^{-2}f^{-5}e^{-1.25\left(T_{p}f\right)^{-4}}\gamma^{e^{-\frac{(T_{p}f-1)^{2}}{2\sigma^{2}}}}\end{equation}
+S(f)=\alpha H_{s}^{2}T_{p}^{-2}f^{-5}e^{-1.25\left(T_{p}f\right)^{-4}}\gamma^{e^{-\frac{(T_{p}f-1)^{2}}{2\sigma^{2}}}}\label{eq:JONSWAP}\end{equation}
 
 \end_inset
 
@@ -2035,6 +2039,19 @@ con
 
 \end_layout
 
+\begin_layout Standard
+Como se observa, el espectro de JONSWAP depende de los parametros 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+, los cuales son objeto de analisis en este trabajo como se lo detalla en
+ el siguiente capitulo.
+\end_layout
+
 \begin_layout Subsection
 
 \color black
@@ -2042,7 +2059,153 @@ Aplicaciones en laboratorio
 \end_layout
 
 \begin_layout Standard
+Todo el marco teorico anteriormente mencionado se aplicó en este trabajo
+ para la deteccion de la altura de ola en laboratorio y su posterior analisis
+ espectral de la siguiente manera:
+\end_layout
 
+\begin_layout Standard
+Los oleajes simulados en el canal del laboratorio se generan por medio de
+ una pala mecanica la cual toma como parametros valores de 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ para formar una serie temporal de oleaje irregular con el espectro de JONSWAP
+ 
+\begin_inset Formula $S(f)$
+\end_inset
+
+ asociado a la ecuacion 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:JONSWAP"
+
+\end_inset
+
+ (utilizando 
+\begin_inset Formula $\gamma=3.3$
+\end_inset
+
+ constante).
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Representacion-esquematica-de-1"
+
+\end_inset
+
+ se puede observar por un lado el espectro 
+\begin_inset Quotes eld
+\end_inset
+
+teorico
+\begin_inset Quotes erd
+\end_inset
+
+ generado por la pala mecanica (
+\begin_inset Formula $S(f)$
+\end_inset
+
+) por medio de los parametros introducidos por computadora (
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+), y por el otro lado el sensor, el cual mide la altura de ola 
+\begin_inset Formula $\eta(t)$
+\end_inset
+
+ a lo largo del tiempo.
+ En la parte derecha de la figura se observa el espectro de JONSWAP 
+\begin_inset Formula $S'(f)$
+\end_inset
+
+ calculado por el sensor (en base a los datos obtenidos 
+\begin_inset Formula $\eta(t)$
+\end_inset
+
+), que en general difiere al espectro 
+\begin_inset Quotes eld
+\end_inset
+
+teorico
+\begin_inset Quotes erd
+\end_inset
+
+ debido a varios factores como el caso del desnivel, friccion de la ola
+ con los laterales del canal, etc.
+ Una vez calculado el espectro, se pueden deducir los parametros 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{s}$
+\end_inset
+
+, que son el objeto de estudio a la hora de clasificar el estado del oleaje.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_canal_jonswap.jpg
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Representacion-esquematica-de-1"
+
+\end_inset
+
+Representacion esquematica de la generacion y medicion del espectro de JONSWAP.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Canal-de-labortatorio"
+
+\end_inset
+
+.Canal de laboratorio se detallaran las caracteristicas del canal, la pala
+ mecanica y los intrumentos utilizados para realizar las mediciones.
 \end_layout
 
 \begin_layout Standard
@@ -2063,8 +2226,8 @@ Tipo de sensores
 \begin_layout Standard
 Existen una gran cantidad de instrumentos utilizados para medir la altura
  de la superficie libre del oleaje en laboratorio, cada uno con ventajas
- y desventajas asociadas, donde todos requieren una buena experiencia por
- parte del usuario para su correcta utilizacion y en general sus costos
+ y desventajas asociadas, donde todos requieren de una buena experiencia
+ por parte del usuario para su correcta utilizacion y en general sus costos
  son elevados.
  Estos se los pueden clasificar como intrusivos o no intrusivos.
 \end_layout
@@ -2078,12 +2241,12 @@ Son aquellos que se introducen dentro de la zona que contiene el fluido
  a medir, en contacto con el mismo.
  Éstos tienen como desventaja que con el paso del tiempo, al estar en contacto
  con el medio, su durabilidad es menor, y en algunos casos limitan los tipos
- de fluidos que se pueden medir (por ejemplo, algunos instrumentos no pueden
- medir agua salada).
+ de fluidos que se pueden medir (por ejemplo, instrumentos se estropean
+ en agua salada).
  Ademas, estos sensores son especificos para la medicion de variables en
- un cierto rango de escala espacio-temporal, generan conflictos a la hora
- de medir los procesos cerca de los contornos, dependen de la siembra de
- particulas en el fluido, entre otras.
+ un cierto rango de escala espacio-temporal, generalmente no pueden medir
+ los procesos cerca de los contornos, dependen de la siembra de particulas
+ en el fluido, entre otras.
  
 \end_layout
 
@@ -2093,13 +2256,223 @@ Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
 \end_layout
 
 \begin_layout Standard
-Como ejemplo, podemos mencionar el ADV (Acoustic Doppler Velocimeter), que
- es un sensor de nivel resistivo que trabaja altas frecuencias de muestro
- por voltaje.
+Como ejemplo, podemos mencionar el 
 \shape italic
-\color blue
-Completar con mas ejemplos, pedirle a paolo nombre de otros instrumentos,
- mencionar cual es el que se usa en el lab
+\color black
+ADV (Acoustic Doppler Velocimeter, 
+\shape default
+Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ADV-(Acoustic-Doppler"
+
+\end_inset
+
+
+\shape italic
+)
+\shape default
+\color inherit
+ que mide velocidades en un volumen de fluido al igual que el 
+\shape italic
+\color black
+Tubo Pitot
+\shape default
+\color inherit
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://es.wikipedia.org/wiki/Tubo_Pitot
+\end_layout
+
+\end_inset
+
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tubo-Pitot"
+
+\end_inset
+
+), o el sensor de nivel resistivo (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor-resistivo."
+
+\end_inset
+
+) para medir niveles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_sensor_PIV.jpeg
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ADV-(Acoustic-Doppler"
+
+\end_inset
+
+ADV (Acoustic Doppler Velocimeter).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_tubo_pitot.JPG
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tubo-Pitot"
+
+\end_inset
+
+Tubo Pitot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_sensor_resistivo.JPG
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sensor-resistivo."
+
+\end_inset
+
+Sensor de nivel resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Instrumentos intrusivos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -2109,8 +2482,26 @@ Instrumentos no instrusivos
 \begin_layout Standard
 Son aquellos que no necesitan estar sumergidos ni en contacto con en el
  fluido.
- Algunos de estos instrumentos (como es el caso del PIV - Particle Image
- Velocimeter -, LDV - Laser Doppler Velocimetry
+ Algunos de estos instrumentos (como es el caso del 
+\shape italic
+\color black
+PIV - Particle Image Velocimeter -
+\shape default
+\color inherit
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PIV-(Particle-Image"
+
+\end_inset
+
+), 
+\shape italic
+\color black
+LDV - Laser Doppler Velocimetry
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -2126,9 +2517,55 @@ http://en.wikipedia.org/wiki/Laser_Doppler_velocimetry
  A su vez, dentro de esta rama de instrumentos se encuentra el presentado
  en este trabajo, el cual utiliza tecnicas de procesamiento de imagenes
  para detectar la superficie libre.
-\shape italic
-\color blue
-Preguntar a paolo por otros metodos
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_sensor_PIV.jpeg
+	height 15pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PIV-(Particle-Image"
+
+\end_inset
+
+PIV (Particle Image Veolcimeter).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2143,22 +2580,8 @@ A diferencia de los intrsumentos tradicionales, los cuales son muy costosos
  por parte del usuario, no son peligrosos (ya que no pueden generar ningun
  daño fisico a personas ni al instrumentos en si), tienen una mayor flexibilidad
  (aplicables a otros tipos de mediciones y a diferentes escalas espacio-temporal
-es de los procesos
-\shape italic
-\color blue
- que se refiere con 
-\begin_inset Quotes eld
-\end_inset
-
-diferentes escalas espacio-temporales
-\begin_inset Quotes erd
-\end_inset
-
-
-\shape default
-\color inherit
-) y en general, su presicion es limitada por la definicion de la camara
- utilizada, lo que a su vez, a mayor presicion, mayor costo.
+es de los procesos) y en general, su presicion es limitada por la definicion
+ de la camara web utilizada, lo que a su vez, a mayor presicion, mayor costo.
  Sin embargo, con una camara de alta definicion standard puede ser suficiente
  para la aplicaciones ingenieriles de laboratorio, como lo es el fin de
  este trabajo (medir la altura de ola).
@@ -2170,14 +2593,20 @@ El conjunto de tecnicas investigadas en este trabajo como asi tambien el
 \shape italic
 pinhole
 \shape default
- 
+ (
+\shape italic
+\color red
+[5]
+\shape default
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
 
 \end_inset
 
-.
+).
 \end_layout
 
 \begin_layout Standard
@@ -2185,8 +2614,8 @@ Para lograr obtener resultados adecuados es necesario capturar imagenes
  con la mayor calidad posible, ademas de una buena resolucion, es importante
  tener en cuenta varios factores del entorno donde se realizaran las muestras
  de laboratorio, como por ejemplo, luz ambiental, contraste de la superficie
- libre con respecto al fluido y paredes del canal, evitar suciedades en
- los vidrios laterales del canal, entre otras.
+ libre con respecto al fluido, suciedades en los vidrios laterales del canal,
+ entre otras.
  Siempre tendiendo a minimzar la cantidad de ruido (zonas que pueden generar
  contornos que se confundan con la superficie libre, o zonas que puedan
  evitar la correcta captura de la misma).
@@ -2217,19 +2646,29 @@ Analisis y procesamiento.
 \begin_layout Standard
 Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
  y utilizando diferentes algoritmos o modelos matematicos.
- A continuacion se explican en mayor detalle cada uno de éstos.
+ 
+\end_layout
 
+\begin_layout Standard
+Algunas de las tecnicas analizadas en este trabajo se pueden encontrar en
+ 
 \shape italic
-\color blue
- Preguntarle a paolo si conoce algo mas sobre 
-\begin_inset Quotes eld
-\end_inset
+\color red
+[6]
+\shape default
+\color inherit
+, 
+\shape italic
+\color red
+[7]
+\shape default
+\color inherit
+.
+\end_layout
 
-info en general sobre las tecnicas actuales
-\begin_inset Quotes erd
-\end_inset
-
-
+\begin_layout Standard
+A continuacion se explican en mayor detalle cada uno de los pasos mencionados
+ anteriormente.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2237,59 +2676,89 @@ Rectificacion de imagen
 \end_layout
 
 \begin_layout Standard
-Este proceso tiene como objetivo la transformacion de una imagen obtenida
- directamente desde el dispositivo (ya sea en tiempo real o mediante un
- archivo de video) y transformarla de manera tal que la imagen resultante
- contenga la menor cantidad de errores.
- Por un lado se encuentran los errores (distorciones) introducidos por el
- dispositivo de captura de imagen, los cuales pueden ser clasificados como
+Para lograr una correcta medicion de la altura de ola (u otra variable hidrodina
+mica de interes) es necesario trabajar sobre una imagen libre (o al menos
+ con la menor cantidad posible) de errores.
+ Podemos diferenciar 2 tipos de errores o problemas: a) aquellos introducidos
+ por el dispositivo de captura (camara de video); b) aquellos relacionados
+ con la posicion y orientacion de la camara.
+\end_layout
+
+\begin_layout Standard
+Con respecto a los primeros (a), tambien llamados distorciones, podemos
+ clasificarlos como radiales (relacionado con la forma del lente de la camara)
+ y tangenciales (provenientes del proceso de ensamblaje de la camara en
+ su totalidad), entre otros (
 \shape italic
- radiales 
+\color red
+[5]
 \shape default
-(relacionada con la forma del lente de la camara) y 
-\shape italic
-tangenciales
-\shape default
- (provenientes del proceso de ensamblaje de la camara en su totalidad).
- En 
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
 
 \end_inset
 
- se puede encontrar mayor informacion sobre éstos errores.
- 
+ ).
 \end_layout
 
 \begin_layout Standard
-Por otro lado se encuentra el problema de la diferencia que existe entre
- el sistema de coordenadas del plano real el cual captura la camara y el
- sistema de coordenadas del mismo plano en la imagen que el dispositivo
- posee 
+Por el otro lado (b), el problema de mayor importancia es el de la diferencia
+ que existe entre el sistema de coordenadas entre la camara y el plano sobre
+ el cual se quiere realizar las mediciones.
+ En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diferencia-de-perspectiva"
 
 \end_inset
 
- (transformacion de perspectiva).
- Ésto es debido a que resulta practicamente imposible (siempre existe el
- error humano) colocar la videocamara de forma perpendicular a este plano,
- ademas de que no es conveniente (en general la camara se coloca por debajo
- de la superficie libre con un leve grado de inclinacion 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Esquema-2D-del"
-
+ se muestra como el plano de la zona a analizar (en la figura 
+\shape italic
+\color black
+object plane
+\shape default
+\color inherit
+, que en este trabajo representaria la pared del canal donde se realiza
+ la captura de imagen para detectar la altura de la ola), se representa
+ dentro de la imagen capturada por el dispositivo (en la figura 
+\shape italic
+\color black
+image plane
+\shape default
+\color inherit
+) con cierta perspectiva.
+ Esto es un problema debido a que, como el objeto de estudio es la altura
+ de la superficie libre (aunque se aplique en general a cualquier otra variable
+ a medir), la altura real de la misma que se observa en el canal se encuentra
+ proyectada en la imagen y con una perspectiva diferente a la real, esto
+ es, con un sistema de coordenadas diferentes.
+ Es por esto que se debe encontrar la relacion entre estos 2 sistemas de
+ coordenadas (por medio de lo que se denomina 
+\begin_inset Quotes eld
 \end_inset
 
- para evitar capturar la superficie del fluido la cual introduce interferencia
- en los pasos posteriores del procesamiento de la imagen).
+transformacion de la perspectiva
+\begin_inset Quotes erd
+\end_inset
+
+, como se explicara mas adelante) para poder determinar la correspondencia
+ de cada punto de la imagen a su respectivo punto en la pared del canal.
+\end_layout
+
+\begin_layout Standard
+En un principio, los problemas introducidos por (a) son de menor importancia
+ (debido a que son despreciables en las camaras nuevas, teniendo en cuenta
+ que no se requiere de una altisima presicion) con respecto a los de (b).
+ Ademas, estos ultimos, causados principalmente por la posicion en la que
+ se coloca la camara frente a la zona que se quiere medir, 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2332,29 +2801,62 @@ Diferencia de perspectiva entre la imagen en la camara (image plane) y el
 
 \begin_layout Standard
 Para llevar a cabo la rectificacion, se utilizan diferentes metodos, entre
- ellos el modelo de transformada lineal directa (DTL) 
+ ellos el modelo de Transformada Lineal Directa (DTL) (
+\shape italic
+\color red
+[5]
+\shape default
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
 
 \end_inset
 
-, solucion por minimos cuadrados 
+), solucion por minimos cuadrados (
+\shape italic
+\color red
+[5]
+\shape default
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
 
 \end_inset
 
- y metodos alternativos 
+) y metodos alternativos (
+\shape italic
+\color red
+[8]
+\shape default
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-2"
 
 \end_inset
 
-.
+).
  
+\end_layout
+
+\begin_layout Standard
+En este trabajo se planteo utilizar un metodo de simple implementacion (y
+ configuracion) el cual se basa en transformar la perspectiva de la imagen
+ de entrada alineandola a un sistema de coordenadas cartesianas como se
+ lo detallara en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Rectificador"
+
+\end_inset
+
+.
+ Rectificador.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2416,6 +2918,7 @@ reference "fig:Imagen-rectificada-luego"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2930,6 +3433,12 @@ reference "fig:Diagrama-general-del"
 \begin_layout Subsubsection
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Rectificador"
+
+\end_inset
+
 Rectificador
 \end_layout
 
@@ -6987,6 +7496,13 @@ Aplicacion en un canal 2D
 
 \begin_layout Subsection
 Canal de labortatorio
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Canal-de-labortatorio"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
