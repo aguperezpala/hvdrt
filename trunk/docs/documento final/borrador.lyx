@@ -3055,7 +3055,13 @@ http://en.wikipedia.org/wiki/Canny_edge_detector
 
 \end_inset
 
-, el cual se explicara en mayor detalle en el 
+ (o simplemente 
+\shape italic
+\color black
+Canny
+\shape default
+\color inherit
+), el cual se explicara en mayor detalle en el 
 \shape italic
 \color black
 capitulo 
@@ -4038,8 +4044,8 @@ Detector de bordes
 \end_layout
 
 \begin_layout Standard
-Su objetivo es detectar los bordes evitando la mayor cantidad de ruido posible,
- pero no de discernir entre 
+Su objetivo es detectar los bordes, eliminando en lo posible la mayor cantidad
+ de ruido, pero no de discernir entre 
 \shape italic
 bordes positivos
 \shape default
@@ -4069,6 +4075,18 @@ Se convierte la imagen de entrada
 Se le aplica un segundo filtro denominado 
 \shape italic
 Gaussian Blur
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+http://en.wikipedia.org/wiki/Gaussian_blur
+\end_layout
+
+\end_inset
+
+
 \shape default
  con el fin de 
 \begin_inset Quotes eld
@@ -4081,20 +4099,32 @@ suavizar
  la imagen suprimiendo la mayor cantidad posible de ruido (como puntos aislados
  debido a basuras capturadas en la imagen) para una mayor diferenciacion
  de los bordes reales.
- El funcionamiento de este algoritmo se explicara en el capitulo 
+ El funcionamiento de este algoritmo se explicara en el 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Gaussian-Blur"
 
 \end_inset
 
+ 
+\shape italic
+\color black
+Gaussian Blur
+\shape default
+\color inherit
 .
 \end_layout
 
 \begin_layout Enumerate
 Por ultimo se corre el algoritmo conocido por el nombre 
 \shape italic
-Algoritmo de Canny 
+Canny Edge Detector 
 \shape default
 (detallado en el capitulo 
 \begin_inset CommandInset ref
@@ -4105,7 +4135,7 @@ reference "sub:Canny-edge-detector"
 
 ) utilizado para detectar los bordes en la imagen basado en ciertos parametros
  previamente configurados por el usuario que seran mencionados posteriormente
- junto con detalles del funcionamiento del algoritmo.
+ junto con los detalles del funcionamiento del algoritmo.
 \end_layout
 
 \begin_layout Standard
@@ -4118,7 +4148,7 @@ Al finalizar esta secuencia de pasos, podemos asumir que la imagen
 
 \begin_layout Standard
 \begin_inset Formula \[
-\forall a_{ij}\in I_{mn}:\begin{cases}
+\forall a_{ij}\in I'_{mn}:\begin{cases}
 a_{ij}=1 & si\; a_{ij}\: pertenece\: a\: un\: contorno\\
 a_{ij}=0 & caso\: contrario.\end{cases}\]
 
@@ -4137,12 +4167,12 @@ Dicho de otra manera, la imagen de salida
 \end_inset
 
  perteneciente a la misma contienen el valor verdadero si y solo si forman
- parte de un contorno detectado por el algoritmo, caso contrario, contienen
- el valor booleano falso.
+ parte de un contorno o falso en el caso contrario.
 \end_layout
 
 \begin_layout Standard
-Este subproceso es el que mayor tiempo de procesamiento requiere.
+Este subproceso es el que mayor tiempo de procesamiento requiere en comparacion
+ con todos los otros.
  
 \end_layout
 
@@ -4167,7 +4197,7 @@ computer vision
  del mismo.
  Aún asi, al ser el proceso general una secuencia de subprocesos independientes
  (cada uno con respecto a los otros), cambiar de algoritmo solo debería
- implicar la modificación de este único subproceso (modulo).
+ implicar la modificación de este único subproceso (o modulo).
 \end_layout
 
 \begin_layout Subsubsection
@@ -4175,16 +4205,12 @@ Analizador
 \end_layout
 
 \begin_layout Standard
-El objetivo del 
-\shape italic
-Analizador
-\shape default
- es: dada la imagen 
+Dada la imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- preprocesada por el algoritmo de deteccion de contornos, decidir cuales
- de éstos 
+ (de entrada) preprocesada por el algoritmo de deteccion de contornos, este
+ proceso tiene como fin decidir cuales de éstos 
 \begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
 
@@ -4198,14 +4224,27 @@ y cuales son
 bordes negativos
 \shape default
 .
- Para lograrlo, este subproceso se basa en un simple algoritmo explicado
- en el capitulo 
+ Para lograrlo se basa en un simple algoritmo implementado en este trabajo
+ el cual se explica en el 
+\shape italic
+\color black
+capitulo 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Wave-height-analyzer"
 
 \end_inset
 
+ 
+\shape italic
+\color black
+Wave height analyzer
+\shape default
+\color inherit
+.
  y una serie de parametros que sirven de base como configuracion inicial
  (suministrados por el usuario).
  
@@ -4240,6 +4279,55 @@ altura de superficie libre en metros
 A diferencia de las otras etapas, ésta tiene como salida un valor numerico
  (y no una imagen), que es la salida del proceso completo, esto es, la altura
  de la superficie libre detectada y convertida en metros.
+\end_layout
+
+\begin_layout Subsubsection
+Proceso completo
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Aca mostramos el proceso completo
+\end_layout
+
+\begin_layout Standard
+En la figura 
+\shape italic
+\color red
+figura de abajo
+\shape default
+\color inherit
+ se muestra el proceso completo detallado en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-general-del"
+
+\end_inset
+
+.
+ La primera imagen (
+\shape italic
+\color red
+figura A
+\shape default
+\color inherit
+) se muestra la imagen tomada por la camara web sin ningun tipo de transformacio
+n.
+ En la segunda imagen (
+\shape italic
+\color red
+figura 
+\shape default
+\color inherit
+B) se puede observar la imagen luego de ser rectificada
 \end_layout
 
 \begin_layout Standard
