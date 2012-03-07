@@ -423,7 +423,13 @@ Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
 \end_layout
 
 \begin_layout Standard
-De manera esquematica, en la Figura 
+De manera esquematica, en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Distribucion-energética-de"
@@ -493,7 +499,13 @@ es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
  ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos);
  en este trabajo se analizan las primeras.
  Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
- utiles para representarlas, estas son (Figura
+ utiles para representarlas, estas son (
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Parámetros-asociados-a"
@@ -1059,7 +1071,13 @@ Esta ultima expresion corresponde a una onda que se propaga con una celeridad
 \end_inset
 
 .
- En la Figura 
+ En la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Propagación-del-perfil"
@@ -1129,7 +1147,12 @@ Oleaje irregular
 
 \begin_layout Standard
 En el mar, un registro de una señal de oleaje, dado por ejemplo por un boya,
- es un registro de forma caotica y se denomina Oleaje Irregular (Figura
+ es un registro de forma caotica y se denomina Oleaje Irregular (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1140,7 +1163,13 @@ reference "fig:Señal-de-un"
 ).
  El oleaje irregular puede ser considerado como la superposicion de un gran
  numero (o infinito) de componentes correspondientes a ondas con diferentes
- periodos, alturas y direcciones (Figura 
+ periodos, alturas y direcciones (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Resultado-de-la"
@@ -1157,7 +1186,13 @@ el cual se mueve con una velocidad equivalente a la mitad del promedio de
  Analogamente, la energia espectral asociada al oleaje (explicado en el
  siguiente capitulo), no se mueve a la velocidad de la ola en si sino a
  la velocidad del grupo de olas.
- En la Figura 
+ En la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Solapamiento-de-trenes"
@@ -1408,7 +1443,13 @@ Genéricamente a los movimientos correspondientes a la superficie del mar,
  atmosfera, viscosidad molecular, y por la gravedad, (hasta alcanzar las
  costas) se lo conoce como Oleaje.
  Una manera simple de modelizar el comportamiento del oleaje es su descomposicio
-n en una suma de trenes de ondas regulares (Figura 
+n en una suma de trenes de ondas regulares (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Solapamiento-de-trenes"
@@ -1447,7 +1488,13 @@ funcion de densidad espectral
 \shape italic
 espectro del oleaje
 \shape default
- (Figura 
+ (
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+a 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Representacion-esquematica-de-1"
@@ -1628,7 +1675,13 @@ Transformadas de Fourier
 porque es comodo?
 \shape default
 \color inherit
-), con lo que la ecuacion 
+), con lo que la 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:a0"
@@ -1666,7 +1719,13 @@ Transformada Discreta de Fourier
 \begin_inset Formula $b_{k}$
 \end_inset
 
- (de las ecuaciones 
+ (de las 
+\shape italic
+\color black
+ecuaciones
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:a0"
@@ -1746,7 +1805,13 @@ con
 Transformada Discreta de Fourier (DFT)
 \shape default
 \color inherit
- de la ecuacion 
+ de la 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fourier_compleja"
@@ -1926,13 +1991,19 @@ frecuencia de pico
 \begin_inset Formula $\omega=\omega_{p}$
 \end_inset
 
- y decrece tanto hacia las altas como hacia las bajas frecuencias (Figura
- 
+ y decrece tanto hacia las altas como hacia las bajas frecuencias (
 \shape italic
-\color red
-figura7
+\color black
+Figura
 \shape default
 \color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Espectro-de-JONSWAP"
+
+\end_inset
+
 ).
 \end_layout
 
@@ -1958,6 +2029,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Espectro-de-JONSWAP"
+
+\end_inset
+
 Espectro de JONSWAP calculados y medidos (extraidos de 
 \shape italic
 \color red
@@ -2079,7 +2156,13 @@ Los oleajes simulados en el canal del laboratorio se generan por medio de
 \begin_inset Formula $S(f)$
 \end_inset
 
- asociado a la ecuacion 
+ asociado a la 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:JONSWAP"
@@ -2094,7 +2177,13 @@ reference "eq:JONSWAP"
 \end_layout
 
 \begin_layout Standard
-En la Figura 
+En la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Representacion-esquematica-de-1"
@@ -2197,15 +2286,21 @@ Representacion esquematica de la generacion y medicion del espectro de JONSWAP.
 \end_layout
 
 \begin_layout Standard
-En el capitulo 
+En el 
+\shape italic
+\color black
+capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Canal-de-labortatorio"
 
 \end_inset
 
-.Canal de laboratorio se detallaran las caracteristicas del canal, la pala
- mecanica y los intrumentos utilizados para realizar las mediciones.
+.Canal de laboratorio
+\shape default
+\color inherit
+ se detallaran las caracteristicas del canal, la pala mecanica y los intrumentos
+ utilizados para realizar las mediciones.
 \end_layout
 
 \begin_layout Standard
@@ -2259,9 +2354,9 @@ Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
 Como ejemplo, podemos mencionar el 
 \shape italic
 \color black
-ADV (Acoustic Doppler Velocimeter, 
+ADV (Acoustic Doppler Velocimeter, Figura
 \shape default
-Figura 
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ADV-(Acoustic-Doppler"
@@ -2289,14 +2384,26 @@ http://es.wikipedia.org/wiki/Tubo_Pitot
 
 \end_inset
 
- (Figura 
+ (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Tubo-Pitot"
 
 \end_inset
 
-), o el sensor de nivel resistivo (Figura 
+), o el sensor de nivel resistivo (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Sensor-resistivo."
@@ -2488,7 +2595,13 @@ Son aquellos que no necesitan estar sumergidos ni en contacto con en el
 PIV - Particle Image Velocimeter -
 \shape default
 \color inherit
- (Figura 
+ (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:PIV-(Particle-Image"
@@ -2678,6 +2791,12 @@ A continuacion se explican en mayor detalle cada uno de los pasos mencionados
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Rectificacion-de-imagen"
+
+\end_inset
+
 Rectificacion de imagen
 \end_layout
 
@@ -2714,7 +2833,13 @@ key "key-3"
 Por el otro lado (b), el problema de mayor importancia es el de la diferencia
  que existe entre el sistema de coordenadas entre la camara y el plano sobre
  el cual se quiere realizar las mediciones.
- En la Figura 
+ En la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diferencia-de-perspectiva"
@@ -2854,7 +2979,10 @@ key "key-2"
 En este trabajo se planteo utilizar un metodo de simple implementacion (y
  configuracion) el cual se basa en transformar la perspectiva de la imagen
  de entrada alineandola a un sistema de coordenadas cartesianas como se
- lo detallara en el capitulo 
+ lo detallara en el 
+\shape italic
+\color black
+capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Rectificador"
@@ -2862,7 +2990,10 @@ reference "sub:Rectificador"
 \end_inset
 
 .
- Rectificador.
+ Rectificador
+\shape default
+\color inherit
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2924,7 +3055,10 @@ http://en.wikipedia.org/wiki/Canny_edge_detector
 
 \end_inset
 
-, el cual se explicara en mayor detalle en el capitulo 
+, el cual se explicara en mayor detalle en el 
+\shape italic
+\color black
+capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Canny-edge-detector"
@@ -2932,11 +3066,20 @@ reference "sub:Canny-edge-detector"
 \end_inset
 
 .
- Canny Edge Detector.
+ Canny Edge Detector
+\shape default
+\color inherit
+.
 \end_layout
 
 \begin_layout Standard
-A modo de ejemplo, observemos la figura 
+A modo de ejemplo, observemos la 
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-sin"
@@ -2944,7 +3087,13 @@ reference "fig:Imagen-rectificada-sin"
 \end_inset
 
  representando a la imagen de entrada de este sub-proceso (ya rectificada)
- pero sin ningun filtro aplicado, mientras que la figura 
+ pero sin ningun filtro aplicado, mientras que la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-luego"
@@ -3102,7 +3251,13 @@ bordes positivos
 \shape italic
 bordes negativos
 \shape default
-) como claramente se puede observar en la Figura 
+) como claramente se puede observar en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-luego"
@@ -3134,7 +3289,10 @@ reference "sub:Wave-height-analyzer"
 \end_inset
 
 .
- Wave height analyzer.
+ 
+\shape italic
+\color black
+Wave height analyzer.
 \end_layout
 
 \begin_layout Standard
@@ -3167,7 +3325,13 @@ name "sub:Tecnicas-utilizadas"
 
 \begin_layout Standard
 En el presente trabajo podemos dividir el proceso general en cuatro sub-procesos
- como lo muestra en el diagrama de la Figura 
+ como lo muestra en el diagrama de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-general-del"
@@ -3360,7 +3524,13 @@ escribir mas lindo esto
 \end_layout
 
 \begin_layout Standard
-Basandonos en el esquema presentado en la figura 
+Basandonos en el esquema presentado en la 
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-del-canal"
@@ -3423,16 +3593,41 @@ reference "fig:Esquema-2D-del"
 \end_layout
 
 \begin_layout Standard
+Podemos observar que no se realizo distincion del angulo de la camara sobre
+ el eje 
+\begin_inset Formula $y$
+\end_inset
+
+ con respecto a la zona de captura, el cual llamaremos angulo 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ Esto debido a que como se verá mas adelante, no tiene tiene la misma importanci
+a que el angulo de captura 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 Definamos ademas a una imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
  como una matriz de valores numericos enteros tal que 
-\begin_inset Formula $a_{ij}$
+\begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
 
  es el pixel (valor numerico) que se encuentra en la i-esima fila y j-esima
- columna (Figura 
+ columna (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Matriz-de-pixels"
@@ -3531,7 +3726,13 @@ Matriz de pixels representando una imágen.
 
 \begin_layout Standard
 A continuacion mencionaremos las caracteristicas principales y finalidad
- de cada uno de los subprocesos (que se muestran en la Figura 
+ de cada uno de los subprocesos (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-general-del"
@@ -3554,10 +3755,9 @@ Rectificador
 \end_layout
 
 \begin_layout Standard
-Este subproceso requiere de una previa configuracion antes de poder procesar
- la imagen de entrada.
- Necesita de 2 grupos de 4 puntos (en dos dimensiones) correspondientes
- a los puntos de origen y de destino.
+Este subproceso se basa en 2 grupos de 4 puntos (2D) correspondientes a
+ los puntos de origen y de destino (de la imagen de entrada y salida respectivam
+ente).
  Los primeros estan asociados a la 
 \shape italic
 zona de trabajo
@@ -3567,7 +3767,13 @@ zona de trabajo
 \shape italic
 zona de captura 
 \shape default
--figura 
+- 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \shape italic
 
 \begin_inset CommandInset ref
@@ -3584,15 +3790,15 @@ reference "fig:Esquema-3D-del"
 
 ).
  Mientras que el segundo grupo esta relacionado con el tamaño de la imagen
- capturada por el dispositivo en si (esto eso, el tamaño del frame/imagen
- con el que se trabaja).
+ capturada por el dispositivo en si (el tamaño del frame/imagen con el que
+ se trabaja).
  El primer grupo de puntos necesita ser especificado por el usuario mientras
  que el segundo se asigna de manera automatica.
  
 \end_layout
 
 \begin_layout Standard
-Debido a que el dispositivo se encuentra con un 
+Debido a que la camara se encuentra con un 
 \shape italic
 angulo de captura
 \shape default
@@ -3600,16 +3806,47 @@ angulo de captura
 \begin_inset Formula $\theta\neq0$
 \end_inset
 
- (figura 
+ (
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-2D-del"
 
 \end_inset
 
-), la imagen tomada por el dispositivo posee una perspectiva distinta a
- la real, esto es, el sistema de coordenadas de la imagen en el dispositivo
- se encuentra rotado 
+), la 
+\shape italic
+\color black
+zona de trabajo
+\shape default
+\color inherit
+ se encuentra proyectada en la imagen tomada por el dispositivo con cierta
+ perspectiva (como se explico en el 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Rectificacion-de-imagen"
+
+\end_inset
+
+ 
+\shape italic
+\color black
+Rectificacion de imagen
+\shape default
+\color inherit
+.), esto es, el sistema de coordenadas de la imagen en el dispositivo se
+ encuentra rotado 
 \begin_inset Formula $-\theta$
 \end_inset
 
@@ -3618,18 +3855,35 @@ reference "fig:Esquema-2D-del"
 \end_inset
 
 .
- Para solucionar esto, y gracias a que la 
+ Por otro lado y como se menciono anteriormente, existe tambien el angulo
+ de rotacion 
+\begin_inset Formula $\beta$
+\end_inset
+
+, el cual produce el mismo efecto sobre el sistema de coordenadas de la
+ imagen capturada.
+ 
+\end_layout
+
+\begin_layout Standard
+Para solucionar esto, y gracias a que la 
 \shape italic
 zona de captura
 \shape default
- esta alineado con el 
+ es paralela al 
 \shape italic
 plano de captura
 \shape default
 , se genera una matriz de transformacion de perspectiva por medio de los
  8 puntos mencionados anteriormente, la cual mapea cada pixel de la imagen
  origen a su nueva posicion en la imagen destino (solventando el defasaje
- de los distintos sistemas de coordenadas como se puede observar en 
+ de los distintos sistemas de coordenadas como se puede observar en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diferencia-de-perspectiva"
@@ -3647,13 +3901,43 @@ De esta manera se soluciona el error de la perspectiva y al mismo tiempo
 \end_layout
 
 \begin_layout Standard
-En el capitulo 
+Por conveniencia, en este trabajo, se intenta posicionar la camara de forma
+ tal que el angulo 
+\begin_inset Formula $\beta=0$
+\end_inset
+
+ y el angulo 
+\begin_inset Formula $\theta>0$
+\end_inset
+
+ para evitar capturar la superficie del fluido a lo largo del eje 
+\begin_inset Formula $z$
+\end_inset
+
+, la cual genera errores (como se explicara posteriormente) a la hora de
+ determinar el contorno de la ola.
+\end_layout
+
+\begin_layout Standard
+En el 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Perspective-transform"
 
 \end_inset
 
+.
+\shape italic
+\color black
+Perspective transform
+\shape default
+\color inherit
  se realiza un desarrollo mas profundo sobre el algoritmo que permite realizar
  esta rectificacion.
 \end_layout
@@ -3663,8 +3947,10 @@ Recortador
 \end_layout
 
 \begin_layout Standard
-Tiene como finalidad realizar un recorte aún mayor sobre la imagen de entrada.
- Para lograrlo requiere de 2 datos previos (configuracion), estos son:
+Este proceso realiza un recorte aún mayor sobre la imagen de entrada descartando
+ aquellas zonas que no son de interes, con el fin de agilizar el procesamiento
+ de los posteriores sub-procesos.
+ Se basa en los siguientes parametros:
 \end_layout
 
 \begin_layout Standard
@@ -3692,7 +3978,7 @@ Tiene como finalidad realizar un recorte aún mayor sobre la imagen de entrada.
 \begin_inset Formula $c$
 \end_inset
 
-: Cantidad de columnas analizar, donde las columnas analizar son las 
+: Cantidad de columnas a analizar, donde éstas son las 
 \begin_inset Formula $I_{*j}$
 \end_inset
 
@@ -3708,23 +3994,41 @@ Tiene como finalidad realizar un recorte aún mayor sobre la imagen de entrada.
 \end_layout
 
 \begin_layout Standard
-Su funcionalidad es simplemente la siguiente: dada la imagen de entrada
- 
+Dada la imagen de entrada 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- transformarla a una imagen 
+ este proceso la transforma a una imagen 
 \begin_inset Formula $I'_{mc}$
 \end_inset
 
- (de salida) reduciendo la cantidad de datos a analizar en los siguientes
- subprocesos (ya que como requerimiento del sistema necesitamos realizar
- todo el proceso en tiempo real).
- Además que solo necesitamos capturar la altura de la superficie libre en
- un punto determinado (aún asi no podemos solo dejar una unica columna para
- analizar debido a ciertos problemas mencionados posteriormente).
- Por otro lado simplifica las configuraciones de los siguientes subprocesos
- (como se vera luego).
+ (de salida) reduciendola su numero de columnas a 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La existencia de este simple proceso se debe a que en este trabajo necesitamos
+ detectar la altura de la superficie libre (y por ende realizar todo el
+ proceso) en tiempo real.
+ Por otro lado, solo es necesario capturar la altura de la misma en un punto
+ determinado (una columna de pixels, dada por el parametro 
+\begin_inset Formula $i$
+\end_inset
+
+), aunque esta unica columna no alcanza debido a que podria no detectarse
+ el contorno de la superficie de forma correcta dando lugar a calculos erroneos
+ y un sistema muy propenso a fallas (por tal motivo se utiliza el parametro
+ 
+\begin_inset Formula $c>0$
+\end_inset
+
+).
+ Como ultimo, simplifica las configuraciones de los posteriores subprocesos,
+ evitando tener que configurar en cada uno de estos la zona de analisis,
+ tomando directamente toda la imagen ya recortada.
 \end_layout
 
 \begin_layout Subsubsection
@@ -7904,6 +8208,27 @@ Cada uno de los ensayos anteriormente mencionados se realizaron utilizando
 
 \begin_layout Subsection
 Mediciones y analisis de los resultados
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Agregar y explicar errores de cuando se captura por encima de la superficie
+ (angulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+ de la camara).
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Agregar el error de cuando la ola se vuelve difusa (se mueve muy rapido
+ la camara no detectar bien el contorno (probarlo con canny), y explicar
+ el porque de esos picos derechos...
 \end_layout
 
 \begin_layout Subsubsection
