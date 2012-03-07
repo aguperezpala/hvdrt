@@ -2663,6 +2663,12 @@ Algunas de las tecnicas analizadas en este trabajo se pueden encontrar en
 [7]
 \shape default
 \color inherit
+, 
+\shape italic
+\color red
+[10]
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -2881,10 +2887,20 @@ En segundo lugar, se aplican una serie de filtros (o mascaras) con el fin
  de delimitar la zona que se quiere analizar, evitando procesar zonas que
  no son de interes y a su vez, eliminando posibles errores causados por
  falsos valores (esto es, los bordes falsos mencionados anteriormente).
- Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada
+ 
+\end_layout
+
+\begin_layout Standard
+Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada
  por medio de algun algoritmo.
  Existen varios metodos utilizados para detectar los bordes, alguno de estos
  se pueden ver en 
+\shape italic
+\color red
+[9]
+\shape default
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-4"
@@ -2892,6 +2908,31 @@ key "key-4"
 \end_inset
 
 .
+ En este trabajo se utilizo el algoritmo denominado 
+\shape italic
+\color black
+Canny Edge Detector
+\shape default
+\color inherit
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Canny_edge_detector
+\end_layout
+
+\end_inset
+
+, el cual se explicara en mayor detalle en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Canny-edge-detector"
+
+\end_inset
+
+.
+ Canny Edge Detector.
 \end_layout
 
 \begin_layout Standard
@@ -3039,9 +3080,9 @@ Resultado del proceso de deteccion de contornos.
 Como se puede ver, dependiendo del entorno de trabajo (luz, contraste de
  la superficie libre con respecto al canal, etc), el algoritmo utilizado,
  y los filtros aplicados, la existencia de bordes falsos puede generar mucho
- ruido e introducir errores a la hora de medir la altura de ola, es por
- esto que es necesario de una etapa posterior que permita discernir los
- bordes que pertenecen a la superficie libre, la cual se menciona a continuacion.
+ ruido e introducir errores a la hora de medir la altura de ola.
+ Por esto es necesario una etapa posterior que permita discernir los bordes
+ que pertenecen a la superficie libre, la cual se menciona a continuacion.
 \end_layout
 
 \begin_layout Subsubsection
@@ -3061,27 +3102,39 @@ bordes positivos
 \shape italic
 bordes negativos
 \shape default
-) como claramente se puede observar en la figura anterior anterior 
+) como claramente se puede observar en la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-rectificada-luego"
 
 \end_inset
 
-.
+ anterior.
  La forma en la que se detectan estos 
 \shape italic
 bordes positivos 
 \shape default
 no es unica y esta fuertemente ligada en como fue modificada la imagen en
  la etapa anterior y/o en la forma de representar los contornos detectados.
- 
+ A modo de ejemplo podemos mencionar distintos metodos utilizados, como
+ el caso de 
 \shape italic
-\color blue
-podemos mencionar y dar ejemplos de los otros papers que por ejemplo algunos
- detectan el contorno, otros pintan de color el contorno, otros arman un
- arreglo de booleanos y en base a eso determiann cual es el borde.
- etc.
+\color red
+[6]
+\shape default
+\color inherit
+ que utiliza una funcion de interpolacion y filtrado de contornos para eliminar
+ puntos (o bordes) falsos.
+ Para este trabajo se desarrollo un algoritmo simple con tal finalidad,
+ el cual se describe en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wave-height-analyzer"
+
+\end_inset
+
+.
+ Wave height analyzer.
 \end_layout
 
 \begin_layout Standard
@@ -3095,8 +3148,10 @@ bordes positivos
 \end_layout
 
 \begin_layout Standard
-Es probablemente esta etapa la que mas se diferencia entre las distintas
- tecnicas utilizadas.
+Podemos decir, en base a los trabajos analizados, que para esta etapa (Analisis
+ y procesamiento) no existe algun lineamiento especifico de como llevarla
+ a cabo, si no que es la que mas varia (de trabajo en trabajo) y esta sumamente
+ relacionada con la forma en que fueron realizadas las etapas anteriores.
 \end_layout
 
 \begin_layout Subsection
@@ -3112,7 +3167,7 @@ name "sub:Tecnicas-utilizadas"
 
 \begin_layout Standard
 En el presente trabajo podemos dividir el proceso general en cuatro sub-procesos
- como lo muestra en el diagrama del a figura 
+ como lo muestra en el diagrama de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-general-del"
@@ -3124,6 +3179,7 @@ reference "fig:Diagrama-general-del"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3165,7 +3221,7 @@ Diagrama general del proceso de la técnica utilizada.
 
 \begin_layout Standard
 Como se puede ver, el proceso (rectangulo azul) tiene como entrada una imagen
- que puede provenir de una videocamara o de un archivo de video.
+ que puede provenir de una camara de video o de un archivo.
  Dentro del proceso general se pueden diferenciar los cuatro subprocesos
  que trabajan de manera secuencial, donde cada uno de estos tiene como entrada
  la imagen procesada por el subproceso inmediatamente anterior.
@@ -3175,6 +3231,7 @@ Como se puede ver, el proceso (rectangulo azul) tiene como entrada una imagen
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3189,7 +3246,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_eje_trabajo_3d.png
+	filename imagenes/img_eje_trabajo_3d.jpg
 	lyxscale 30
 	width 60page%
 
@@ -3310,8 +3367,7 @@ reference "fig:Esquema-del-canal"
 
 \end_inset
 
- haremos algunas definiciones para aclarar posteriores explicaciones.
- Definiremos: 
+ definiremos: 
 \end_layout
 
 \begin_layout Itemize
@@ -3376,7 +3432,14 @@ Definamos ademas a una imagen
 \end_inset
 
  es el pixel (valor numerico) que se encuentra en la i-esima fila y j-esima
- columna, tales que 
+ columna (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Matriz-de-pixels"
+
+\end_inset
+
+), tales que 
 \begin_inset Formula $0\leq i<m$
 \end_inset
 
@@ -3419,8 +3482,56 @@ Definamos ademas a una imagen
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_ref_img_matrix.png
+	width 25page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Matriz-de-pixels"
+
+\end_inset
+
+Matriz de pixels representando una imágen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 A continuacion mencionaremos las caracteristicas principales y finalidad
- de cada uno de los subprocesos (que se muestran en la figura 
+ de cada uno de los subprocesos (que se muestran en la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-general-del"
@@ -4596,7 +4707,7 @@ key "key-1"
 \end_layout
 
 \begin_layout Subsection
-Canny edge detector
+Canny Edge Detector
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Canny-edge-detector"
