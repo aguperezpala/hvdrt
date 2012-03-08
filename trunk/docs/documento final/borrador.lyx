@@ -2133,6 +2133,13 @@ Como se observa, el espectro de JONSWAP depende de los parametros
 
 \color black
 Aplicaciones en laboratorio
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Aplicaciones-en-laboratorio"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2430,7 +2437,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_sensor_PIV.jpeg
+	filename imagenes/img_sensor_ADV.JPG
 	height 15pheight%
 
 \end_inset
@@ -2826,6 +2833,12 @@ key "key-3"
 
 \end_inset
 
+, 
+\shape italic
+\color red
+[12]
+\shape default
+\color inherit
  ).
 \end_layout
 
@@ -2917,7 +2930,13 @@ name "fig:Diferencia-de-perspectiva"
 \end_inset
 
 Diferencia de perspectiva entre la imagen en la camara (image plane) y el
- plano real (object plane).
+ plano real (object plane), extraida de 
+\shape italic
+\color red
+[12]
+\shape default
+\color inherit
+.
 \end_layout
 
 \end_inset
@@ -3949,6 +3968,12 @@ Perspective transform
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Recortador"
+
+\end_inset
+
 Recortador
 \end_layout
 
@@ -4286,22 +4311,26 @@ Proceso completo
 \end_layout
 
 \begin_layout Standard
-
+En la 
 \shape italic
-\color red
-Aca mostramos el proceso completo
-\end_layout
-
-\begin_layout Standard
-En la figura 
-\shape italic
-\color red
-figura de abajo
+Figura
 \shape default
-\color inherit
- se muestra el proceso completo detallado en la 
-\shape italic
+ 
 \color black
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagenes-resultantes-en"
+
+\end_inset
+
+
+\color inherit
+ se muestran las imagenes resultantes de cada uno de los procesos mensionados
+ anteriormente 
+\color black
+(diagramados en la 
+\shape italic
 Figura
 \shape default
 \color inherit
@@ -4312,22 +4341,130 @@ reference "fig:Diagrama-general-del"
 
 \end_inset
 
+).
+\end_layout
+
+\begin_layout Standard
+En una primera instancia, tenemos la imagen de entrada sin ningun tipo de
+ transformacion (obtenida directamente de la camara de video o un archivo),
+ ésta es procesada por el 
+\shape italic
+\color black
+Rectificador
+\shape default
+\color inherit
+ dando lugar a la segunda imagen, la cual solo contiene la zona seleccionada
+ por el usuario (el rectangulo de trabajo mencionado en el 
+\shape italic
+capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Rectificador"
+
+\end_inset
+
 .
- La primera imagen (
-\shape italic
-\color red
-figura A
+ Rectificador.
 \shape default
-\color inherit
-) se muestra la imagen tomada por la camara web sin ningun tipo de transformacio
-n.
- En la segunda imagen (
+).
+ Ésta imagen resultante es la entrada del proceso denomiado 
 \shape italic
-\color red
-figura 
+Recortador
 \shape default
-\color inherit
-B) se puede observar la imagen luego de ser rectificada
+, el cual descarta fragmentos de la misma generando una con menor cantidad
+ de columnas (en este caso en particular se uso el parametro 
+\begin_inset Formula $c$
+\end_inset
+
+ anteriormente mencionado con un valor de 
+\begin_inset Formula $201$
+\end_inset
+
+ con el fin de poder obtener una imagen de mayor tamaño como resultado,
+ lo que no es practico y en general se utilizan valores entre 
+\begin_inset Formula $5\leq c\leq15$
+\end_inset
+
+).
+ El siguiente proceso involucrado es el 
+\shape italic
+Detector de bordes
+\shape default
+, encargado de localizar los contornos en la imagen de entrada (por medio
+ del algoritmo 
+\shape italic
+Canny)
+\shape default
+ dando lugar a una nueva imagen en la que solo se aprecian bordes.
+ Se puede observar que existe gran cantidad de ruido (
+\shape italic
+bordes falsos
+\shape default
+) por encima y por debajo de la superficie libre, lo que varia mucho dependiendo
+ de varios factores como la luz utilizada, suciedad en las paredes del canal,
+ parametros utilizados en el algoritmo de 
+\shape italic
+Canny
+\shape default
+ (umbrales de 
+\begin_inset Quotes eld
+\end_inset
+
+sensibilidad
+\begin_inset Quotes erd
+\end_inset
+
+ a la deteccion de contornos), entre otros.
+ Por ultimo se encuentra el 
+\shape italic
+Analizador
+\shape default
+, el cual tiene como finalidad detectar la altura de ola en la imagen de
+ contornos procesada anteriormente.
+ Como mencionamos en el capitulo anterior, este proceso tiene como salida
+ un valor numerico el cual se lo representa por medio de la ultima imagen
+ en la que se resalta (en rojo) la altura de ola detectada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_proc_completo.png
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagenes-resultantes-en"
+
+\end_inset
+
+Imagenes resultantes en cada etapa del proceso de la tecnica utilizada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4354,35 +4491,47 @@ En esta seccion describiremos las bases matematicas de los algoritmos utilizados
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- del proceso, proviniente ya sea del dispositivo (videocamara) o de un archivo
+ del proceso, proviniente ya sea del dispositivo (webcam) o de un archivo
  de video.
 \end_layout
 
 \begin_layout Standard
 Los algoritmos utilizados para la rectificacion de la imagen y el analisis
  de los contornos (
+\shape italic
+\color black
+capitulos 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Perspective-transform"
 
 \end_inset
 
+Perspective transform.
+
+\shape default
+\color inherit
  y 
+\shape italic
+\color black
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Wave-height-analyzer"
 
 \end_inset
 
+Wave height analyzer
+\shape default
+\color inherit
  respectivamente) no poseen nombres concretos por lo que se decidio asignarles
  uno con el fin de facilitar su identificacion en los capitulos siguientes.
  En particular, este ultimo (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Wave-height-analyzer"
-
-\end_inset
-
+\shape italic
+\color black
+Wave height analyzer
+\shape default
+\color inherit
 ) fue completamente desarrollado para este trabajo.
 \end_layout
 
@@ -4398,11 +4547,22 @@ name "sub:Perspective-transform"
 \end_layout
 
 \begin_layout Standard
+Este algoritmo es utilizado para la rectificacion de la imagen al comienzo
+ del proceso.
+\end_layout
+
+\begin_layout Standard
 Se basa en una transformacion de perspectiva (por medio de una matriz de
  transofrmacion 
 \begin_inset Formula $T$
 \end_inset
 
+ 
+\shape italic
+\color red
+[13]
+\shape default
+\color inherit
 ) sobre la imagen de entrada 
 \begin_inset Formula $I_{mn}$
 \end_inset
@@ -4422,19 +4582,9 @@ Se basa en una transformacion de perspectiva (por medio de una matriz de
 , utilizando coordenadas homogeneas 
 \shape italic
 \color red
-[BaTra]
+[11]
 \shape default
 \color inherit
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ref a coordenadas homogeneas
-\end_layout
-
-\end_inset
-
  de forma tal que las coordenadas origen 
 \begin_inset Formula $(i,j,1)$
 \end_inset
@@ -4478,7 +4628,11 @@ m_{20} & m_{21} & m_{22}\end{array}\right)\]
 \end_layout
 
 \begin_layout Standard
-es la matriz de transformacion, entonces podemos expresar
+es la matriz de transformacion y con 
+\begin_inset Formula $m_{22}=1$
+\end_inset
+
+, entonces podemos expresar
 \end_layout
 
 \begin_layout Standard
@@ -4520,6 +4674,8 @@ y cada uno de los
 \end_layout
 
 \begin_layout Standard
+
+\size small
 \begin_inset Formula \[
 \left(\begin{array}{cccccccc}
 p_{o_{1}}.x & p_{o_{1}}.y & 1 & 0 & 0 & 0 & -p_{o_{1}}.x*p_{d_{1}}.x & -p_{o_{1}}.y*p_{d_{1}}.x\\
@@ -4553,11 +4709,50 @@ p_{d_{4}}.y\end{array}\right)\]
 \end_layout
 
 \begin_layout Standard
-donde 
-\begin_inset Formula $m_{22}=1$
+Con todo esto, el algoritmo simplemente se puede describir como sigue:
+\end_layout
+
+\begin_layout Enumerate
+Establecidos los 8 puntos de configuracion (
+\begin_inset Formula $p_{o_{k}},p_{d_{k}}:k=1,..,4$
+\end_inset
+
+), se contruye la matriz de transformacion de perspectiva 
+\begin_inset Formula $T$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Enumerate
+Para cada pixel 
+\begin_inset Formula $a_{ij}\in I_{mn}$
+\end_inset
+
+ se obtiene su nueva posicion en la imagen de salida 
+\begin_inset Formula $I'_{mn}$
+\end_inset
+
+utilizando la matriz 
+\begin_inset Formula $T$
+\end_inset
+
+ como se muestra en la 
+\shape italic
+ecuacion 
+\shape default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:multiplicacion"
+
+\end_inset
+
+ copiandose el valor del pixel (
+\begin_inset Formula $a'_{i'j'}=a_{ij}$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -4590,54 +4785,6 @@ Notar que asumimos que los puntos
  descartados.
 \end_layout
 
-\begin_layout Standard
-Con todo esto, el algoritmo simplemente se puede describir como sigue:
-\end_layout
-
-\begin_layout Enumerate
-Establecidos los 8 puntos de configuracion (
-\begin_inset Formula $p_{o_{k}},p_{d_{k}}:k=1,..,4$
-\end_inset
-
-), se contruye la matriz de transformacion de perspectiva 
-\begin_inset Formula $T$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Para cada pixel 
-\begin_inset Formula $a_{ij}\in I_{mn}$
-\end_inset
-
- se obtiene su nueva posicion en la imagen de salida 
-\begin_inset Formula $I'_{mn}$
-\end_inset
-
-utilizando la matriz 
-\begin_inset Formula $T$
-\end_inset
-
- como se muestra en 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:multiplicacion"
-
-\end_inset
-
- copiandose el valor del pixel (
-\begin_inset Formula $a'_{i'j'}=a_{ij}$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-Este algoritmo es utilizado para la rectificacion de la imagen al comienzo
- del proceso.
-\end_layout
-
 \begin_layout Subsection
 Gaussian Blur
 \begin_inset CommandInset label
@@ -4655,23 +4802,21 @@ Este algoritmo, tambien conocido como
 Gaussian smoothing
 \shape default
  
+\shape italic
+\color red
+[14]
+\shape default
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-1"
 
 \end_inset
 
-, se lo puede categorizar como un 
-\begin_inset Quotes eld
-\end_inset
-
-low-pass image filter
-\begin_inset Quotes erd
-\end_inset
-
-, que tiene como finalidad disminuir la amplitud de las variaciones de la
- imagen (ruido), especialmente utilizado en la fase previa a los algoritmos
- que detectan bordes o contornos.
+, tiene como finalidad disminuir la amplitud de las variaciones de la imagen
+ (ruido), especialmente utilizado en la fase previa a los algoritmos que
+ detectan bordes o contornos.
 \end_layout
 
 \begin_layout Standard
@@ -4688,7 +4833,14 @@ Kernel
 \shape italic
 Mask
 \shape default
-: Usualmente una matriz de numeros (figura 
+: Usualmente una matriz de numeros (
+\color black
+a derecha en 
+\shape italic
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Representacion-de-una"
@@ -4715,10 +4867,13 @@ image convolution
 \shape italic
 Convolution
 \shape default
-: Es una simple operacion matematica 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-6"
+: Es una simple operacion matematica
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Convolution
+\end_layout
 
 \end_inset
 
@@ -4730,19 +4885,25 @@ key "key-6"
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- (que puede verse como un array numerico bidimensional) y por el otro lado
- la matriz 
+ (que puede verse como un array numerico bidimensional, a izquierda en la
+ 
 \shape italic
-kernel
+\color black
+Figura
 \shape default
- (como lo muestra la figura 
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Representacion-de-una"
 
 \end_inset
 
-), dando como resultado, la imagen con el suavizado aplicado.
+) y por el otro lado la matriz 
+\shape italic
+kernel
+\shape default
+, dando como resultado, la imagen con el suavizado aplicado.
  
 \end_layout
 
@@ -4778,6 +4939,10 @@ Representacion de una imágen (a izquierda) y un
 kernel
 \shape default
  (a derecha).
+ Extraida de 
+\shape italic
+\color red
+[14]
 \end_layout
 
 \end_inset
@@ -4795,12 +4960,29 @@ La
 \shape italic
 convolucion 
 \shape default
-es realizada deslizando el kernel (empezando generalmente por arriba a la
- izquierda) sobre todos los pixels de la imagen de forma tal que la matriz
- kernel entre completamente dentro de los limites de la misma, devolviendo
- en cada posicion (que se desliza el kernel) un unico valor correspondiente.
- A modo de ejemplo en el caso del ultimo pixel (abajo a la derecha) el resultado
- de la operacion seria 
+es realizada deslizando el 
+\shape italic
+\color black
+kernel
+\shape default
+\color inherit
+ (empezando generalmente por arriba a la izquierda) sobre todos los pixels
+ de la imagen de forma tal que la matriz 
+\shape italic
+\color black
+kernel
+\shape default
+\color inherit
+ entre completamente dentro de los limites de la misma, devolviendo en cada
+ posicion (que se desliza el 
+\shape italic
+\color black
+kernel
+\shape default
+\color inherit
+) un unico valor correspondiente.
+ A modo de ejemplo, en el caso del ultimo pixel (abajo a la derecha) el
+ resultado de la operacion seria 
 \begin_inset Formula $O_{57}=I_{57}K_{11}+I_{58}K_{12}+I_{59}K_{13}+I_{67}K_{21}+I_{68}K_{22}+I_{69}K_{23}$
 \end_inset
 
@@ -4809,9 +4991,31 @@ es realizada deslizando el kernel (empezando generalmente por arriba a la
 \end_inset
 
  es el resultado de esta operación.
- Notemos que si la imagen de entrada tiene M filas y N columnas, y el kernel
- tiene m filas y n columnas, entonces el tamaño de la imagen de salida tendrá
- M-m+1 filas y N-n+1 columnas.
+ Notemos que si la imagen de entrada tiene 
+\begin_inset Formula $M$
+\end_inset
+
+ filas y 
+\begin_inset Formula $N$
+\end_inset
+
+ columnas, y el kernel tiene 
+\begin_inset Formula $m$
+\end_inset
+
+ filas y 
+\begin_inset Formula $n$
+\end_inset
+
+ columnas, entonces el tamaño de la imagen de salida tendrá 
+\begin_inset Formula $M-m+1$
+\end_inset
+
+ filas y 
+\begin_inset Formula $N-n+1$
+\end_inset
+
+ columnas.
 \end_layout
 
 \begin_layout Standard
@@ -4845,7 +5049,21 @@ G(x,y)=\frac{1}{2\pi\sigma^{2}}e^{-\frac{x^{2}+y^{2}}{2\sigma^{2}}}\label{eq:dis
 \end_layout
 
 \begin_layout Standard
-La idea es usar esta distribucion 2D (ecuacion 
+donde 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ es la desviacion estandard de la distribucion gaussiana.
+\end_layout
+
+\begin_layout Standard
+La idea es usar esta distribucion 2D (
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_2d"
@@ -4879,7 +5097,13 @@ convolucion
 \end_layout
 
 \begin_layout Standard
-Por temas de eficiencia en general, y gracias a que ecuacion 
+Por temas de eficiencia en general, y gracias a que la 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_2d"
@@ -4894,7 +5118,13 @@ reference "eq:dist_gaus_2d"
 \begin_inset Formula $y$
 \end_inset
 
- (dandonos como resultado ecuacion
+ (dandonos como resultado 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_1d"
@@ -4913,7 +5143,13 @@ primero en la direccion
 \begin_inset Formula $y$
 \end_inset
 
- por medio de ecuacion 
+ por medio de la 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_1d"
@@ -4924,7 +5160,13 @@ reference "eq:dist_gaus_1d"
 \shape italic
 convolucion
 \shape default
- con la ecuacion 
+ con la 
+\shape italic
+\color black
+ecuacion
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_2d"
@@ -4941,7 +5183,12 @@ convolucion
 \shape default
 ) un promedio ponderado de cada pixel vecino, con la media ponderada mas
  hacia el valor de los pixeles centrales.
- Utiliza ademas ciertos parametros que determinan el tamaño de la kernel
+ Utiliza ademas ciertos parametros que determinan el tamaño de la 
+\shape italic
+\color black
+kernel
+\shape default
+\color inherit
  y el 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -4950,81 +5197,43 @@ convolucion
 \end_layout
 
 \begin_layout Standard
-A modo de ejemplo, se muestran dos imagenes en la figura 
+A modo de ejemplo, se muestran dos imagenes en la 
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Imagen-comparativa-de"
 
 \end_inset
 
-, una (figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Imagen-antes-de"
-
+, a izquierda la imagen original antes de aplicarse el filtro y a derecha
+ luego de haber aplicado el 
+\shape italic
+\color black
+Gaussian blur
+\shape default
+\color inherit
+.
+ Para este ejemplo se utilizo un 
+\shape italic
+\color black
+kernel
+\shape default
+\color inherit
+ de tamaño 7x7 y un 
+\begin_inset Formula $\sigma=2$
 \end_inset
 
-) antes y la otra (figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Imagen-luego-de"
-
-\end_inset
-
-) luego de haber aplicado el filtro explicado anteriormente.
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename imagenes/img_gaussian_sin_filtro.png
-	lyxscale 80
-	width 30page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Imagen-antes-de"
-
-\end_inset
-
-Imagen antes de aplicar el filtro.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5032,31 +5241,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_gaussian_comp.png
-	width 30page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Imagen-luego-de"
-
-\end_inset
-
-Imagen luego de aplicar el filtro.
-\end_layout
-
-\end_inset
-
-
-\end_layout
+	filename imagenes/img_gaussian_filter.png
+	width 50page%
 
 \end_inset
 
@@ -5074,18 +5260,22 @@ name "fig:Imagen-comparativa-de"
 
 \end_inset
 
-Imagen comparativa de una imagen aplicando el filtro 
+Imagen comparativa de una imagen antes (a izquierda) y luego (a derecha)
+ de aplicar el filtro 
 \shape italic
 Gaussian Blur
 \shape default
- (extraidas de 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
-
+ con un tamaño de 
+\shape italic
+\color black
+kernel
+\shape default
+\color inherit
+ 7x7 y 
+\begin_inset Formula $\sigma=2$
 \end_inset
 
-).
+.
 \end_layout
 
 \end_inset
@@ -5129,7 +5319,7 @@ http://www.eecs.berkeley.edu/Faculty/Homepages/canny.html
 \shape default
  en 1986, tiene como finalidad detectar los bordes en una imagen, filtrando
  todo aquello que no pertenezca a un contorno.
- El algoritmo se lo puede dividir en 5 pasos:
+ El algoritmo se lo puede dividir en una serie de pasos:
 \end_layout
 
 \begin_layout Enumerate
@@ -5151,7 +5341,7 @@ Smoothing
 Finding gradients
 \series default
 : Los bordes deben ser marcados donde los gradientes de la imagen tengan
- magnitudes grandes por medio de utilizacion de alguno de los 
+ magnitudes grandes por medio de alguno de los 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5159,7 +5349,7 @@ operadores de gradiente
 \begin_inset Quotes erd
 \end_inset
 
- como (
+ (como 
 \shape italic
 Roberts
 \shape default
@@ -5187,7 +5377,7 @@ http://en.wikipedia.org/wiki/Sobel_operator
 
 \end_inset
 
-, 
+ - el cual es el utilizado en este trabajo -, 
 \shape italic
 Prewitt
 \begin_inset Foot
@@ -5203,7 +5393,64 @@ http://en.wikipedia.org/wiki/Prewitt_operator
 
 
 \shape default
-, entre otros).
+).
+ Estos operadores devuelven el valor de la derivada primera en la direccion
+ horizontal 
+\begin_inset Formula $G_{x}$
+\end_inset
+
+ y vertical 
+\begin_inset Formula $G_{y}$
+\end_inset
+
+, los cuales sirven para determinar la magnitud del gradiente 
+\begin_inset Formula $G$
+\end_inset
+
+ (o tambien conocidos como 
+\shape italic
+\color black
+edge strengths
+\shape default
+\color inherit
+) y direccion 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ asociados a cada uno de los pixels de la imagen, donde 
+\begin_inset Formula \[
+G=\sqrt{G_{x}^{2}+G_{y}^{2}}\]
+
+\end_inset
+
+
+\begin_inset Formula \[
+\Theta=\arctan\left(\frac{G_{y}}{G_{x}}\right)\]
+
+\end_inset
+
+El angulo 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ es 
+\begin_inset Quotes eld
+\end_inset
+
+redoneado
+\begin_inset Quotes erd
+\end_inset
+
+ a una de las 4 posibles 
+\begin_inset Quotes eld
+\end_inset
+
+inclinaciones
+\begin_inset Quotes erd
+\end_inset
+
+ dadas por los angulos 0, 45, 90 y 135 (ya que 180 se lo considerara analogo
+ a 0, 135 a 45, 270 a 90 y 315 a 135).
 \end_layout
 
 \begin_layout Enumerate
@@ -5212,19 +5459,156 @@ http://en.wikipedia.org/wiki/Prewitt_operator
 Non-maximum suppression
 \series default
 : Dada la imagen de magnitudes de gradientes calculada en el paso anterior,
- se convierten los bordes encontrados pero borrosos, en bordes bien marcados
- (
+ donde cada pixel contiene el valor 
+\begin_inset Formula $\left|G\right|$
+\end_inset
+
+ y el 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ redondeado, se procede a eliminar todo borde borroso dejando solo aquellos
+ bien marcados (tambien denominados como 
 \shape italic
+\color black
 fuertes
 \shape default
+\color inherit
+), esto se logra por medio de la eliminacion de todo maximo que no sea local
+ en la imagen de gradientes y dejando solo aquellos que si lo sean.
+ Se puede describir el procedimiento realizado sobre cada pixel 
+\begin_inset Formula $p$
+\end_inset
+
+ en 2 pasos y por medio de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Non-maximum-suppression.-La"
+
+\end_inset
+
+ como: a) Se obtienen los pixels vecinos (
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+) asociados a 
+\begin_inset Formula $p$
+\end_inset
+
+ en base a la direccion 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ (en este caso 
+\begin_inset Formula $\Theta=90$
+\end_inset
+
+ por lo tanto se toman tanto el pixel vecino superior 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ y el pixel vecino inferior 
+\begin_inset Formula $p_{2}$
+\end_inset
+
 ).
- Esto se hace por medio de la eliminacion de todo maximo que no sea local
- en la imagen de gradientes y dejando solo los maximo locales, los cuales
- son marcados como contornos 
-\shape italic
-fuertes
-\shape default
+ b) Se compara la magnitud del gradiente 
+\begin_inset Formula $G$
+\end_inset
+
+ de 
+\begin_inset Formula $p$
+\end_inset
+
+ con el de los vecinos 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $p_{2}$
+\end_inset
+
 .
+ Si éste es mayor que el de sus vecinos se lo deja marcado, caso contrario
+ se lo suprime
+\shape italic
+\color black
+.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_canny_gradientes.png
+	width 25page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Non-maximum-suppression.-La"
+
+\end_inset
+
+Non-maximum suppression.
+ La magnitud del gradiente (edge strengths) se muestra como numeros (y escala
+ de gris) al costado de la direccion de 
+\begin_inset Formula $G$
+\end_inset
+
+, indicadas como flechas (
+\begin_inset Formula $\Theta)$
+\end_inset
+
+.
+ Los pixels pertenecientes a los bordes fuertes se resaltan con un borde
+ blanco.
+ (extraida y modificada de 
+\color red
+[15]
+\color black
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -5288,6 +5672,10 @@ fuertes
 
 \begin_layout Standard
 En 
+\color red
+[15]
+\color inherit
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-2"
@@ -5295,19 +5683,218 @@ key "key-2"
 \end_inset
 
  se describe en mayor detalle cada uno de los pasos mencionados anteriormente.
- En la figura 
+ 
+\end_layout
+
+\begin_layout Standard
+A modo de ejemplo podemos observar la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Resultado-del-proceso"
+reference "fig:Imagenes-resultantes-luego"
 
 \end_inset
 
- se puede observar la imagen resultante luego de aplicar el algoritmo de
+ en la que se muestran 2 imagenes luego de ser aplicado el algoritmo de
  
 \shape italic
+\color black
 Canny
 \shape default
+\color inherit
+, utilizando distintos parametros de umbrales sobre la misma imagen de entrada
+ (a izquierda en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Imagen-comparativa-de"
+
+\end_inset
+
+).
+ En la primera (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Canny-Thresholds:-2"
+
+\end_inset
+
+) podemos observar una gran cantidad de bordes detectados provenientes del
+ ruido mismo de la imagen y debido a que se usaron valores bajos para ambos
+ umbrales (thresholds).
+ En la segunda (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Canny-Thresholds:-20"
+
+\end_inset
+
+) se puede ver que la cantidad de contornos es semejante a lo que uno esperaria
+ y practicamente no se percibe ruido o bordes no deseados.
+ Es por esto, que es de suma importancia elegir valores adecuados para ambos
+ umbrales a la hora de utilizar el algoritmo de 
+\shape italic
+\color black
+Canny
+\shape default
+\color inherit
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_canny_2.png
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Canny-Thresholds:-2"
+
+\end_inset
+
+Canny
+\shape default
+\color inherit
+ Thresholds: 2 y 15
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_canny_1.png
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Canny-Thresholds:-20"
+
+\end_inset
+
+Canny
+\shape default
+\color inherit
+ Thresholds: 20 y 50
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Imagenes-resultantes-luego"
+
+\end_inset
+
+Imagenes resultantes luego de aplicar el algoritmo 
+\shape italic
+\color black
+Canny
+\shape default
+\color inherit
+ con distintos parametros de umbrales (thresholds).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -5323,8 +5910,7 @@ name "sub:Wave-height-analyzer"
 
 \begin_layout Standard
 Este algoritmo tiene como finalidad determinar cual de todos los contornos
- que se encuentran en la imagen corresponde a la altura de ola que se este
- analizando.
+ detectados en la imagen corresponde a la altura de ola que se este analizando.
  Para lograrlo requiere de la siguiente informacion.
 \end_layout
 
@@ -5345,7 +5931,11 @@ Sea
 \begin_inset Formula $n$
 \end_inset
 
- impar).
+ impar, caso contrario se trabaja sobre 
+\begin_inset Formula $I_{m(n-1)}$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -5371,7 +5961,7 @@ Sea
 \begin_inset Formula $V$
 \end_inset
 
- una constante numerica predefinida representando la maxima variancia de
+ una constante numerica predefinida representando la maxima variacion de
  altura de ola aceptable en pixels (esto es la cantidad maxima de pixels
  aceptables que puede cambiar la ola de un paso al otro).
 \end_layout
@@ -5381,7 +5971,20 @@ Se asume ademas que el movimiento de la ola se realiza sobre el eje
 \begin_inset Formula $y$
 \end_inset
 
-, esto es, dada la columna k-esima (
+ (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Matriz-de-pixels"
+
+\end_inset
+
+), esto es, dada la columna k-esima (
 \begin_inset Formula $I_{*k}$
 \end_inset
 
@@ -5399,10 +6002,9 @@ Se asume ademas que el movimiento de la ola se realiza sobre el eje
 
 \begin_layout Standard
 Teniendo en cuenta que como objetivo principal, este algoritmo debe obtener
- la altura de ola en un punto determinado de la imagen (esto es, en una
- columna determinada), se asume que este punto se encuentra sobre la columna
- 
-\begin_inset Formula $\frac{m}{2}$
+ la altura de ola en un punto determinado de la imagen (en una columna determina
+da), se asume que este punto se encuentra sobre la columna 
+\begin_inset Formula $\frac{n}{2}$
 \end_inset
 
 .
@@ -5422,12 +6024,15 @@ Para cada columna
 \begin_inset Formula $\bar{w}_{k}$
 \end_inset
 
- la ultima altura calculada en la k-esima columna, buscamos la nueva altura
- 
+ la ultima altura calculada en la k-esima columna (donde 
+\begin_inset Formula $\bar{w}_{k}$
+\end_inset
+
+ es el indice de una fila), buscamos la nueva altura 
 \begin_inset Formula $w_{k}$
 \end_inset
 
-de la siguiente forma: Partiendo de 
+ de la siguiente forma: Partiendo de 
 \begin_inset Formula $a_{\bar{w}_{k}k}\in I_{mn}$
 \end_inset
 
@@ -5436,11 +6041,11 @@ de la siguiente forma: Partiendo de
 \end_inset
 
  tal que se cumpla 
-\begin_inset Formula $a_{ik}=1\wedge\left|i-\bar{w}_{k}\right|\leq\left|j-\bar{w}_{k}\right|\forall j=0..m:\; a_{jk}=1$
+\begin_inset Formula $a_{ik}=1\wedge\left|i-\bar{w}_{k}\right|\leq\left|j-\bar{w}_{k}\right|\forall j=0..m\;:\; a_{jk}=1$
 \end_inset
 
 , asignando entonces 
-\begin_inset Formula $w_{k}=a_{ik}$
+\begin_inset Formula $w_{k}=i$
 \end_inset
 
 .
@@ -5464,7 +6069,7 @@ de la siguiente forma: Partiendo de
 
 \begin_layout Enumerate
 Sea 
-\begin_inset Formula $k=\frac{m}{2}$
+\begin_inset Formula $k=\frac{n}{2}$
 \end_inset
 
  la columna de mayor importancia (la que se esta analizando), se calcula
@@ -5482,15 +6087,21 @@ Sea
 \end_inset
 
 , caso contrario se continua con el siguiente paso.
+ En palabras, calculamos la distancia entre la altura anterior y la altura
+ actual y verificamos si esta altura es menor que la constante 
+\begin_inset Formula $V$
+\end_inset
+
+, de ser asi se devuelve la devuelve, caso contrario se sigue con 3.
 \end_layout
 
 \begin_layout Enumerate
 Sea 
-\begin_inset Formula $k=\frac{m}{2}$
+\begin_inset Formula $k=\frac{n}{2}$
 \end_inset
 
 , se calculan las 
-\begin_inset Formula $v_{i}=\left|w_{k-i}-\bar{w}_{k-i}\right|+\left|w_{k+i}-\bar{w}_{k+i}\right|,\; i=1,..,k-1$
+\begin_inset Formula $v_{i}=\left|w_{k-i}-\bar{w}_{k-i}\right|+\left|w_{k+i}-\bar{w}_{k+i}\right|,\; i=1,..,\frac{n-1}{2}$
 \end_inset
 
  y se elije el 
@@ -5498,7 +6109,7 @@ Sea
 \end_inset
 
  tale que 
-\begin_inset Formula $v_{i}\leq\min\{v_{j}\}:\: j=1,..,k-1$
+\begin_inset Formula $v_{i}\leq\min\{v_{j}\}:\: j=1,..,\frac{n-1}{2}$
 \end_inset
 
 .
@@ -5529,12 +6140,12 @@ Las
 \begin_inset Formula $\bar{w_{k}}$
 \end_inset
 
-de cada una de las columnas, son inicializadas por defecto con el valor
+ de cada una de las columnas son inicializadas por defecto con el valor
  
 \begin_inset Formula $h_{0}$
 \end_inset
 
-.
+ (altura inicial de ola).
 \end_layout
 
 \begin_layout Standard
@@ -5555,7 +6166,11 @@ Puede parecer que el paso 3 agrega complejidad inecesaria, pero debido a
 \end_layout
 
 \begin_layout Section
-Implementacion y funcionamiento el sistema
+Implementacion y funcionamiento del sistema
+\end_layout
+
+\begin_layout Subsection
+Introduccion
 \end_layout
 
 \begin_layout Standard
@@ -5573,22 +6188,9 @@ Requerimientos principales
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-REDACTAR BIEN TODO ESTO:
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Como objetivo principal, el sistema debía poder capturar la altura de la
- superficie libre del fluido a medir desde una camara (web/usb) y lograrlo
- en tiempo real.
+Como objetivo principal, el sistema debía capturar la altura de la superficie
+ libre del fluido a medir desde una camara (web/usb) y lograrlo en tiempo
+ real.
  A continuacion se listan los requerimientos mas importantes que el sistema
  debia cumplir:
 \end_layout
@@ -5608,10 +6210,10 @@ REQ1:
 \series bold
 REQ2:
 \series default
- El sistema debía funcionar en una maquina estandar (esto es, que no se
- requiera de una supercomputadora para lograr la velocidad de procesamiento),
- ya que, como se menciono anteriormente, una de las ventajas del sistema
- era su bajo costo.
+ El sistema debía funcionar en una maquina estandar (que no se requiera
+ de una supercomputadora para lograr la velocidad de procesamiento), ya
+ que, como se menciono anteriormente, una de las ventajas del sistema era
+ su bajo costo.
 \end_layout
 
 \begin_layout Itemize
@@ -5630,7 +6232,7 @@ REQ4:
 \series default
  Tener una estructura (arquitectura) flexible que posibilite el desarrollo
  de futuras aplicaciones (que midan otras variables hidrodinamicas) o ser
- modificado por otras personas en el futuro.
+ modificado por otros investigadores en el futuro.
 \end_layout
 
 \begin_layout Itemize
@@ -5643,14 +6245,9 @@ REQ5:
 \color black
 por el otro sistema de medicion actualmente utilizado
 \color red
- (poner como se llama el sensor de niveles resistivos...
  
-\shape italic
-\color blue
-ref
-\shape default
-\color red
-)
+\color black
+(sensor de nivel resistivo)
 \color inherit
 .
 \end_layout
@@ -5668,7 +6265,13 @@ Debido a que no existia ninguna restriccion sobre el lenguaje de programacion
 \series bold
 Entorno
 \series default
-: Linux
+: 
+\shape italic
+\color black
+Linux
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5686,7 +6289,13 @@ www.linux.com
 \series bold
 Lenguaje de programacion
 \series default
-: C++
+: 
+\shape italic
+\color black
+C++
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5704,7 +6313,13 @@ www.cplusplus.com
 \series bold
 Librerias de procesamiento grafico
 \series default
-: OpenCV
+: 
+\shape italic
+\color black
+OpenCV
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5722,7 +6337,13 @@ http://opencv.willowgarage.com/wiki/
 \series bold
 Librerias de interfaz grafica (Graphical User Interface o GUI)
 \series default
-: Qt
+: 
+\shape italic
+\color black
+Qt
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5740,7 +6361,13 @@ http://qt.nokia.com/
 \series bold
 Librerias adicionales
 \series default
-: Tinyxml
+: 
+\shape italic
+\color black
+Tinyxml
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5751,7 +6378,13 @@ http://www.grinninglizard.com/tinyxml/
 \end_inset
 
 .
- Qwt
+ 
+\shape italic
+\color black
+Qwt
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5762,7 +6395,13 @@ http://qwt.sourceforge.net/
 \end_inset
 
 .
- v4l-utils
+ 
+\shape italic
+\color black
+v4l-utils
+\shape default
+\color inherit
+
 \begin_inset Foot
 status open
 
@@ -5772,6 +6411,23 @@ http://freecode.com/projects/libv4l
 
 \end_inset
 
+, 
+\shape italic
+\color black
+FFTW++
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://fftwpp.sourceforge.net/
+\end_layout
+
+\end_inset
+
+, 
+\color red
+agregar la de integrales
+\color black
 .
 \end_layout
 
@@ -5783,7 +6439,7 @@ En los siguientes parrafos se dará una breve explicacion del porque de éstas
 \begin_layout Standard
 El sistema fue desarrollado en el entorno linux principalmente por comodidad
  y gusto, aún asi, las librerias utilizadas son multiplaforma por lo que
- deberia poder ser compilado en otras plataformas (exceptuando la aplicacion
+ deberia poder ser compilado en otras entornos (exceptuando la aplicacion
  externa utilizada para configurar la camara web, que en el caso de windows,
  la aplicacion proveída por el manufacturador de la camara deberia alcanzar).
 \end_layout
@@ -5815,8 +6471,13 @@ Dentro de un gran conjunto de librerias de procesamiento grafico, se opto
 OpenCV
 \shape default
  ya que ésta esta principalmente orientada a sistemas que requieren de manipulac
-ion de imagenes en tiempo real (real time computer vision systems) como
- la robotica.
+ion de imagenes en tiempo real (
+\shape italic
+\color black
+real time computer vision systems
+\shape default
+\color inherit
+) como la robotica.
  Además de que tiene un alto grado de maduración, está actualmente activa
  y existe mucha documentacion.
 \end_layout
@@ -5831,7 +6492,26 @@ REQ3
 \shape italic
 Qt
 \shape default
- ya que posee una interfaz para
+ ya que posee una 
+\shape italic
+\color black
+API
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+\color black
+Application Programming Interface
+\end_layout
+
+\end_inset
+
+
+\shape default
+\color inherit
+ para
 \shape italic
  C++
 \shape default
@@ -5844,8 +6524,8 @@ OpenCV
 \end_layout
 
 \begin_layout Standard
-Con respecto a las librerias adicionales, la que mayor impacto tiene sobre
- el sistema es 
+Con respecto a las librerias adicionales, las de mayor impacto sobre el
+ sistema es 
 \shape italic
 Qwt
 \shape default
@@ -5865,6 +6545,19 @@ Qt
 GUI
 \shape default
  del sistema -).
+ Ademas 
+\shape italic
+\color black
+FFTW++
+\shape default
+\color inherit
+ y 
+\shape italic
+\color red
+agregar la de inte
+\shape default
+\color inherit
+ se utilizaron para el calculo y analisis de los datos obtenidos.
 \end_layout
 
 \begin_layout Subsection
@@ -5880,6 +6573,13 @@ name "sub:Arquitectura"
 
 \begin_layout Subsubsection
 A nivel general
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:A-nivel-general"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5892,7 +6592,13 @@ macro
 \end_inset
 
 , la arquitectura del sistema se la puede simplificar como se lo muestra
- en la figura 
+ en la 
+\shape italic
+\color black
+Figura 
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-general-del"
@@ -5904,12 +6610,12 @@ reference "fig:Arquitectura-general-del"
 \series bold
 REQ4
 \series default
-, esto es, flexibilidad para la facil integracion de posibles futuras aplicacion
-es.
+ (flexibilidad para la facil integracion de posibles futuras aplicaciones).
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5919,7 +6625,7 @@ status open
 \begin_inset Graphics
 	filename imagenes/img_arq_high_level.png
 	lyxscale 80
-	width 30page%
+	width 50page%
 
 \end_inset
 
@@ -5950,7 +6656,13 @@ Arquitectura general del sistema.
 \end_layout
 
 \begin_layout Standard
-Como se puede ver en el diagrama de la figura 
+Como se puede ver en el diagrama de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-general-del"
@@ -5992,8 +6704,8 @@ Loader
 \shape italic
 IPS
 \shape default
- que encuentren dando la posibilidad al usuario de elegir y cargar uno especific
-o.
+ que se encuentren dando la posibilidad al usuario de elegir y cargar uno
+ especifico.
  Estos 
 \shape italic
 IPS
@@ -6036,10 +6748,10 @@ GUI
 \end_layout
 
 \begin_layout Standard
-Debido a que las aplicaciones que pueden ser desarrolladas requieren de
- una interfaz grafica, y que ademas, la configuracion se realiza en una
- fase previa al procesamiento de imagenes (antes de empezar a capturar y
- procesar las imagenes el 
+Debido a que las aplicaciones que pueden ser desarrolladas requieren en
+ general de una interfaz grafica, y que ademas, la configuracion se realiza
+ en una fase previa al procesamiento de imagenes (antes de empezar a capturar
+ y procesar las imagenes el 
 \shape italic
 IPS Core
 \shape default
@@ -6049,7 +6761,13 @@ IPS Core
 IPS Core
 \shape default
 ).
- Esto se lo puede ver en el diagrama de la figura 
+ Esto se lo puede ver en el diagrama de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-general-del"
@@ -6080,11 +6798,27 @@ A nivel de IPS
 \end_layout
 
 \begin_layout Standard
-En este trabajo se creo una estructura general para todos los 
+En este trabajo se creo una estructura general (una especie de 
+\shape italic
+\color black
+Framework
+\shape default
+\color inherit
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://es.wikipedia.org/wiki/Framework
+\end_layout
+
+\end_inset
+
+) para todos los 
 \shape italic
 Image Processing System (IPS)
 \shape default
- que brindara la suficiente flexibilidad para las futuras aplicaciones a
+ que brindará la suficiente flexibilidad para las futuras aplicaciones a
  desarrollar.
  Esta estructura se aplica principalmente a la parte de procesamiento (
 \shape italic
@@ -6096,6 +6830,7 @@ Core
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6137,7 +6872,13 @@ Image Processing System (IPS)
 \end_layout
 
 \begin_layout Standard
-A grandes rasgos, se puede observar (en Figura:
+A grandes rasgos, se puede observar (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-de-los"
@@ -6165,32 +6906,50 @@ ImageProcessor
 \shape default
 , las cuales realizan el veradero procesamiento de imagenes, cada uno con
  una funcionalidad determinada.
- El 
-\shape italic
-ImageAnalyzer
-\shape default
- tiene entonces como fin, tomar del 
+ Dada una imagen 
+\begin_inset Formula $I$
+\end_inset
+
+ obtenida del 
 \shape italic
 ImageGenerator
 \shape default
- imagenes y procesarlas por medio de cada uno de los 
+, el 
+\shape italic
+ImageAnalyzer
+\shape default
+ tiene como finalidad procesar la imagen 
+\begin_inset Formula $I$
+\end_inset
+
+ (a travez de los distintos 
 \shape italic
 ImageProcessors
 \shape default
- que contenga.
+ que contiene) y devolver el resultado del procesamiento completo.
 \end_layout
 
 \begin_layout Standard
-En la parte superior del diagrama se puede observar la interfaz grafica,
- la cual se comunica con el 
+En la parte superior del diagrama se puede observar la interfaz grafica
+ (
 \shape italic
-IPS Core
+IPS 
+\color black
+GUI
 \shape default
-, con el fin de poder configurar cada uno de estos 
+\color inherit
+), la cual se comunica con el 
+\shape italic
+IPS 
+\color black
+Core
+\shape default
+\color inherit
+ con el fin de poder configurar cada uno de estos 
 \shape italic
 ImageProcessors
 \shape default
-, que son las unidades basicas de procesamiento.
+.
 \end_layout
 
 \begin_layout Standard
@@ -6223,7 +6982,13 @@ WHIPS
 \shape italic
 ImageProcessor
 \shape default
- distintos los cuales se muestran en la figura 
+ distintos los cuales se muestran en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ImagePorcessor's-del-WaveHeightIPS."
@@ -6235,6 +7000,7 @@ reference "fig:ImagePorcessor's-del-WaveHeightIPS."
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6243,7 +7009,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_arq_whips.png
-	width 50page%
+	width 60page%
 
 \end_inset
 
@@ -6282,10 +7048,16 @@ WaveHeightIPS
 \end_layout
 
 \begin_layout Standard
-En los siguientes capitulos se explicara el funcionamiento detallado de
- cada uno de estos 
+En los siguientes capitulos se explicara el funcionamiento detallado del
+ 
 \shape italic
-ImageProcessor.
+WHIPS
+\shape default
+ y de cada uno de los 
+\shape italic
+ImageProcessor 
+\shape default
+que lo conforman.
 \end_layout
 
 \begin_layout Subsection
@@ -6297,13 +7069,19 @@ Preliminares
 \end_layout
 
 \begin_layout Standard
-Comenzaremos describiendo el diseño del sistema al nivel de abstraccion
- sin entrar en detalles sobre el 
+Comenzaremos describiendo el diseño del sistema al nivel estructural sin
+ entrar en detalles sobre el 
 \shape italic
 IPS
 \shape default
  desarrollado para este trabajo, osea, se mostrará en un principio, como
- es el diseño de la maquinaria que permite la creacion de estos 
+ es el diseño de la maquinaria (
+\shape italic
+\color black
+framework
+\shape default
+\color inherit
+) que permite la creacion de estos 
 \shape italic
 IPS
 \shape default
@@ -6311,7 +7089,7 @@ IPS
 \end_layout
 
 \begin_layout Subsubsection
-Nivel abstraccion
+Nivel estructural o de framework
 \end_layout
 
 \begin_layout Standard
@@ -6332,7 +7110,12 @@ Image Processing System
 \shape default
 \color inherit
 .
- Esto llevo a un diseño al nivel de abstraccion como se muestra en la figura
+ Esto llevo a un diseño al nivel de framework como se muestra en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6345,6 +7128,7 @@ reference "fig:Diseño-de-alto"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6370,7 +7154,14 @@ name "fig:Diseño-de-alto"
 
 \end_inset
 
-Diseño de alto nivel (al nivel de clases abstractas).
+Diseño de alto nivel (al nivel estructural de los 
+\shape italic
+\color black
+IPS
+\shape default
+\color inherit
+).
+ 
 \end_layout
 
 \end_inset
@@ -6462,7 +7253,7 @@ ConfigWindow
 ImageGenerator
 \series default
 : Clase encargada de abstraer la generacion de imagenes, ya sea de archivo
- o de una videocamara.
+ o de una camara de video.
 \end_layout
 
 \begin_layout Itemize
@@ -6505,21 +7296,41 @@ ImageProcessor
 \end_layout
 
 \begin_layout Standard
-Como se puede observar (figura 
+Como se puede observar (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diseño-de-alto"
 
 \end_inset
 
-, y como se menciono en el capitulo 
+, y como se menciono en el 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Arquitectura"
+reference "sub:A-nivel-general"
 
 \end_inset
 
-, se diferencian 2 partes (separadas por la linea discontinua horizontal).
+.
+ 
+\shape italic
+\color black
+A nivel general
+\shape default
+\color inherit
+, se diferencian 2 partes (en la imagen anterior, separadas por la linea
+ discontinua horizontal).
  En la fraccion superior se encuentra el denominado 
 \shape italic
 IPS Core
@@ -6552,7 +7363,13 @@ El nucleo de procesamiento se encuentra en este modulo.
 \shape italic
 IPS Core
 \shape default
- se puede observar en el diagrama de la figura 
+ se puede observar en el diagrama de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diseño-de-clases-1"
@@ -6564,6 +7381,7 @@ reference "fig:Diseño-de-clases-1"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6608,8 +7426,7 @@ IPS Core
 \end_layout
 
 \begin_layout Standard
-Describiremos a continuacion, de manera detallada, la funcionalidad de cada
- una de las clases.
+Describiremos a continuacion la funcionalidad de cada una de las clases:
 \end_layout
 
 \begin_layout Itemize
@@ -6643,13 +7460,12 @@ Frame
 \shape italic
 Observer
 \shape default
- en patrones de diseño
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
-
-\end_inset
-
+ en patrones de diseño 
+\shape italic
+\color red
+[16]
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -6663,7 +7479,7 @@ ImageGenerator
 \shape italic
 ImageGeneretor
 \shape default
- puede ser configurado para obtener imagenes desde una videocamara (
+ puede ser configurado para obtener imagenes desde una camara de video (
 \shape italic
 createDevice(cameraID)
 \shape default
@@ -6697,17 +7513,35 @@ captureFrame(Frame)
 Frame
 \shape default
 .
- 
+ Se penso ademas, en caso de ser necesario, la posibilidad de realizar 
 \shape italic
-\color red
-Ademas, en caso de ser necesario, tener la posibilidad de realizar buffering
- 
-\color blue
-ref
-\color red
- agilizando por medio de la paralelizacion, la captura de frames desde el
- dispositivo (esto no se implemento debido a que se pudo cumplir con la
- velocidad requerida).
+\color black
+buffering
+\shape default
+\color inherit
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://es.wikipedia.org/wiki/Buffer
+\end_layout
+
+\end_inset
+
+ agilizando por medio de la paralelizacion (usando mas de un core) la captura
+ de frames desde el dispositivo y su posterior procesamiento
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Actualmente no se implemento debido a que a la hora de realizar las pruebas
+ se logro cumplir con la performance requerida.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -6905,7 +7739,13 @@ IPS GUI
 \shape default
 .
  Un diseño de clases simplificado y a un nivel de abstraccion se lo puede
- observar en el diagrama de la figura 
+ observar en el diagrama de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diseño-de-clases-1"
@@ -6917,6 +7757,7 @@ reference "fig:Diseño-de-clases-1"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6925,7 +7766,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_disenio_IPS_GUI.png
-	width 50page%
+	width 60page%
 
 \end_inset
 
@@ -7017,7 +7858,7 @@ getName()
 \shape italic
 ImageProcessor
 \shape default
- requiere de una previsualizacion por medio de la interfaz grafica.
+ requiere de una previsualizacion a travez de la interfaz grafica.
 \end_layout
 
 \begin_layout Itemize
@@ -7071,7 +7912,7 @@ getInfo
 \shape italic
 ()
 \shape default
- ), que en general, corresponden al nombre e informacion del 
+), que en general, corresponden al nombre e informacion del 
 \shape italic
 IPS Core
 \shape default
@@ -7118,26 +7959,14 @@ ImageProcessingSystem.
 \shape default
 Éstos tienen un objetivo y funcionalidad especifica.
  Como objetivo principal de este trabajo se planteo desarrollar una aplicacion
- que por medio de videocamaras pudiese capturar la altura de la superficie
+ que por medio de una webcam pudiese capturar la altura de la superficie
  libre en tiempo real.
  Es por esto, y por medio del 
-\begin_inset Quotes eld
-\end_inset
-
+\shape italic
+\color black
 framework
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-http://es.wikipedia.org/wiki/Framework
-\end_layout
-
-\end_inset
-
-
-\begin_inset Quotes eld
-\end_inset
-
+\shape default
+\color inherit
  desarrollado y detallado anteriormente, se implemento un 
 \shape italic
 IPS
@@ -7198,7 +8027,13 @@ WHIPS Core
 \begin_inset Quotes erd
 \end_inset
 
-), como se lo muestra en la figura 
+), como se lo muestra en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diseño-de-clases-2"
@@ -7211,7 +8046,13 @@ WaveHeightIPS
 \series default
  encargada de llevar a cabo todo el proceso de analisis de imagen para capturar
  la altura de la superficie libre.
- Depende de 4 ImageProcessor para lograrlo, estos son 
+ Depende de 4 
+\shape italic
+\color black
+ImageProcessor
+\shape default
+\color inherit
+ para lograrlo, estos son 
 \series bold
 IRectifier
 \series default
@@ -7228,13 +8069,25 @@ IBorderDetector
 IAnalyzer
 \series default
 , cada uno con una funcionalidad determinada y representando a una de las
- etapas explicadas en el capitulo 
+ etapas explicadas en el 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Tecnicas-utilizadas"
 
 \end_inset
 
+
+\shape italic
+\color black
+Tecnicas utilizadas
+\shape default
+\color inherit
 .
  Como se puede observar en el diagrama, estos son clases abstractas que
  sirven solo para brindar una interfaz a las clases que hereden de estas.
@@ -7251,7 +8104,7 @@ ImageProcessor
  (por si se deseaba utilizar o probar distintos algoritmos en alguna de
  las etapas del proceso completo).
  En este caso en particular se muestran las 4 implementaciones correspondientes
- a cada una de las fases del proceso (osea, cada uno de los 
+ a cada una de las fases del proceso (cada uno de los 
 \shape italic
 ImageProcessor
 \shape default
@@ -7276,6 +8129,7 @@ WaveHeightAnalyzer
  estos.
  
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -7301,11 +8155,11 @@ name "fig:Diseño-de-clases-2"
 
 \end_inset
 
-Diseño de clases de un 
+Diseño de clases del 
 \shape italic
 WHIPS Core
 \shape default
- a nivel de abstracción.
+.
 \end_layout
 
 \end_inset
@@ -7319,7 +8173,13 @@ WHIPS Core
 \end_layout
 
 \begin_layout Standard
-Por otro lado se encuentra la interfaz grafica (figura 
+Por otro lado se encuentra la interfaz grafica (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diseño-de-clases-3"
@@ -7338,8 +8198,8 @@ WHIPS GUI
 \begin_inset Quotes erd
 \end_inset
 
-, donde se pueden diferenciar 3 partes con respecto a las etapas del proceso
- y sus respectivas clases.
+, donde se pueden diferenciar 3 partes (remarcadas con distintos colores
+ en la figura) con respecto a las etapas del proceso y sus respectivas clases.
  Éstas son la etapa de configuracion o pre-procesamiento (
 \series bold
 GUIPerspectiveRectifier
@@ -7397,9 +8257,9 @@ GUIRealTimeDataDisplayer
 WHIPS Core
 \shape default
 , esto es, la altura de la superficie libre obtenida luego de procesar las
- imagenes de entrada (videocamara o archivo de video).
- Adicionalmente se muestra la imagen que esta siendo procesada para brindarle
- al usuario una idea sobre el transcurso del ensayo.
+ imagenes de entrada (camara de video o archivo).
+ Adicionalmente, ésta clase muestra al usuario la imagen que esta siendo
+ procesada para darle una idea sobre el transcurso del ensayo.
 \end_layout
 
 \begin_layout Standard
@@ -7411,8 +8271,15 @@ DataAnalyzeWindow
 , la cual muestra de manera grafica los resultados de todo el analisis extrayend
 o y calculando valores de interes (
 \shape italic
-\color blue
-poner aca lo que se extrae y referencias
+\color black
+capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Aplicaciones-en-laboratorio"
+
+\end_inset
+
+Aplicaciones en laboratorio
 \shape default
 \color inherit
 ).
@@ -7452,11 +8319,12 @@ ImageGenerator
 
 \begin_layout Standard
 En el siguiente capitulo se dara informacion mas detallada sobre el funcionamien
-to e implementacion de cada una de las clases.
+to de cada una de las clases.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -7483,11 +8351,9 @@ name "fig:Diseño-de-clases-3"
 
 \end_inset
 
-Diseño de clases de un 
+Diseño de clases del 
 \shape italic
-WHIPS GUI
-\shape default
- a nivel de abstracción
+WHIPS GUI.
 \end_layout
 
 \end_inset
@@ -7585,13 +8451,25 @@ Perspective Transform
 \begin_inset Quotes erd
 \end_inset
 
- explicado en el capitulo 
+ explicado en el 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Perspective-transform"
 
 \end_inset
 
+
+\shape italic
+\color black
+Perspective transform
+\shape default
+\color inherit
 .
 \end_layout
 
@@ -7611,7 +8489,7 @@ lipping el cual usa el punto de reposo de la superficie seleccionado por
 \begin_inset Formula $k$
 \end_inset
 
- que indica cuanta es la cantidad de columnas a analizar.
+ que indicala cantidad de columnas a analizar.
  Lo que hace es simplemente descartar de la imagen de entrada, todos las
  columnas de pixels que no esten contenidas entre el rango de columnas 
 \begin_inset Formula $\left[c.x-\frac{k}{2},c.x+\frac{k}{2}\right]$
@@ -7659,25 +8537,49 @@ CannyBorderDetector
 \shape italic
  Gaussian Blur
 \shape default
- (capitulo 
+ (
+\shape italic
+\color black
+ca
+\shape default
+\color inherit
+pitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Gaussian-Blur"
 
 \end_inset
 
+
+\shape italic
+\color black
+Gaussian Blur
+\shape default
+\color inherit
 ) para suavizar la imagen antes de realizar el analisis de contornos, que
  para lograrlo, aplica como ultimo paso, el algoritmo de 
 \shape italic
 Canny
 \shape default
- (capitulo 
+ (
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Canny-edge-detector"
 
 \end_inset
 
+
+\shape italic
+\color black
+Canny edge detector
+\shape default
+\color inherit
 ).
  Dejando como resultado una imagen con solo contornos.
 \end_layout
@@ -7709,13 +8611,23 @@ Wave height analyzer
 \begin_inset Quotes erd
 \end_inset
 
- (capitulo 
+ (
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Wave-height-analyzer"
 
 \end_inset
 
+
+\shape italic
+Wave height analyzer
+\shape default
 ).
 \end_layout
 
@@ -7729,7 +8641,7 @@ IAnalyzer
 \end_layout
 
 \begin_layout Standard
-Esta procedimiento (pasos 1,2,3) se realizan dentro de un bucle hasta que
+Este procedimiento (pasos 1,2,3) se realizan dentro de un bucle hasta que
  el usuario indica finalizar, o el 
 \shape italic
 ImageGenerator
@@ -7846,7 +8758,13 @@ Por otro lado se brinda la posibilidad de manejar sesiones donde se pueda
 \begin_layout Standard
 A manera esquematica, podemos mostrar la funcionalidad (secuencia de pasos)
  que brinda este modulo por medio del diagrama (conjuncion de diagrama de
- clases y diagrama de flujo) de la figura 
+ clases y diagrama de flujo) de la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-representativo-del"
@@ -7858,6 +8776,7 @@ reference "fig:Esquema-representativo-del"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -7915,9 +8834,9 @@ DataAnalyzeWindow
 \end_layout
 
 \begin_layout Standard
-Dependiendo del tipo de entrada seleccionado (que puede ser una videocamara
- o un archivo de video), el sistema muestra la ventana de configuracion
- correspondiente (en la figura, 
+Dependiendo del tipo de entrada seleccionado (que puede ser una camara de
+ video o un archivo), el sistema muestra la ventana de configuracion correspondi
+ente (en la figura, 
 \shape italic
 VideoFileConfigWindow
 \shape default
