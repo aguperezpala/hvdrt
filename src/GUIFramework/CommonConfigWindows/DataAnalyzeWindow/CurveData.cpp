@@ -260,8 +260,9 @@ CurveData::CurveData()
 		pen.setColor(Qt::red);
 	}
 
-	pen.setWidth(1);
+	pen.setWidth(2);
 	mCurve.setPen(pen);
+	pen.setWidth(1);
 	mSpectralCurve.setPen(pen);
 
 	// set the second color
