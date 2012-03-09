@@ -1,7 +1,6 @@
 TEMPLATE = app
 CONFIG += qwt
 TARGET = GUIFramework
-
 DEFINES += DEBUG
 QMAKE_CXX += -g
 QT += core \
@@ -146,14 +145,14 @@ HEADERS += GuiHelpers/FrameLabelDisplayer/framelabeldisplayer.h \
     IPSModule/guiimageprocessingsystem.h \
     IPSModule/IPSs/GUIWaveHeightIPS/guiwaveheightips.h \
     CommonConfigWindows/CameraConfigWindow/cameraconfigwindow.h
-HEADERS += CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
+HEADERS += CommonConfigWindows/DataAnalyzeWindow/IntegralCalculator.h \
+    CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
     CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.h \
     IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/CircularBuffer.h \
     IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimePlot.h \
     IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.h \
-    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \
- #   CommonConfigWindows/DataAnalyzeWindow/complex.h \
- #   CommonConfigWindows/DataAnalyzeWindow/fft.h \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.h \ # CommonConfigWindows/DataAnalyzeWindow/complex.h \
+# CommonConfigWindows/DataAnalyzeWindow/fft.h \
     MainProgram/IPSFactory.h \
     MainProgram/MainProgram.h \
     IPSModule/IPSs/GUIWaveHeightIPS/DataDisplayerBridge.h \
@@ -163,14 +162,14 @@ HEADERS += CommonConfigWindows/DataAnalyzeWindow/CurveData.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/imgprocconfigwindows.h \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIPerspectiveRectifier/guiperspectiverectifier.h \
     guiframework.h
-SOURCES += CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
+SOURCES += CommonConfigWindows/DataAnalyzeWindow/IntegralCalculator.cpp \
+    CommonConfigWindows/DataAnalyzeWindow/CurveData.cpp \
     CommonConfigWindows/DataAnalyzeWindow/dataanalyzewindow.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/CircularBuffer.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimePlot.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/RealTimeProcessorBridge.cpp \
-    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \
-#    CommonConfigWindows/DataAnalyzeWindow/complex.cpp \
-#    CommonConfigWindows/DataAnalyzeWindow/fft.cpp \
+    IPSModule/IPSs/GUIWaveHeightIPS/GUIRealTimeDataDisplayer/guirealtimedatadisplayer.cpp \ # CommonConfigWindows/DataAnalyzeWindow/complex.cpp \
+# CommonConfigWindows/DataAnalyzeWindow/fft.cpp \
     MainProgram/IPSFactory.cpp \
     MainProgram/MainProgram.cpp \
     IPSModule/IPSs/GUIWaveHeightIPS/ImgProcConfigWindows/GUIMiddlePointClipping/guimiddlepointclipping.cpp \

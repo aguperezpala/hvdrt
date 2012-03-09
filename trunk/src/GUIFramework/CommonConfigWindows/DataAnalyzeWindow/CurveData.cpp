@@ -15,6 +15,55 @@ using namespace fftwpp;
 
 int CurveData::colorId = 0;
 
+
+
+// Auxiliar class that will simulate a function given an array of xs and ys values
+
+FuncSimulator::FuncSimulator(const QVector<double> &xs,
+			const QVector<double> &ys) : mXs(xs), mYs(ys), mLastIndex(0)
+{
+	mSize = mXs.size();
+	ASSERT(mXs.size() == mYs.size());
+}
+FuncSimulator::~FuncSimulator()
+{
+
+}
+
+double FuncSimulator::operator()(double d) const
+{
+//	ASSERT(mLastIndex < mXs.size());
+	ASSERT(mXs[mLastIndex] <= d);
+
+	// get the closest point
+	while(mLastIndex < mSize && mXs[mLastIndex] < d) ++mLastIndex;
+
+	if(mLastIndex >= mSize) {
+		debug("entro aca\n");
+		return mYs[mSize-1];
+	}
+	// if just what we want returnit
+	if(mXs[mLastIndex] == d) return mYs[mLastIndex];
+
+	// else we have to find the better point of this... is an ugly interpolation
+	// between the actual point an the next point
+//    			(y2 - y1)
+//	0 = y - y1 ----------- (x - x1)
+//       		(x2 - x1)
+	double y2 = mYs[mLastIndex];
+	double x2 = mXs[mLastIndex];
+	--mLastIndex;
+	double y1 = mYs[mLastIndex];
+	double x1 = mXs[mLastIndex];
+
+	return y1 + ((y2-y1) / (x2-x1)) * (d - x1);
+}
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateFFT(const QVector<double> &xs,
 		const QVector<double> &ys, QVector<Complex> &result)
@@ -189,6 +238,18 @@ CurveData::CurveData()
 
 
 	++colorId;
+
+
+	// test the integrate
+	QVector<double> xs,ys;
+	for(int i = 0; i < 1000; ++i){
+		double x = static_cast<double>(i)/1000.0;
+		xs.push_back(x);
+		ys.push_back(x*x);
+	}
+	FuncSimulator sim(xs,ys);
+	double result = IntegralCalculator::ApproximateIntegral(sim, 0, 999.0/1000.0, 1000);
+	std::cout << "RESULT INTEGRAL: " << result << std::endl;
 
 }
 

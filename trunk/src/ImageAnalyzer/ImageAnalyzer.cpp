@@ -4,7 +4,6 @@
  *  Created on: 13/09/2011
  *      Author: agustin
  */
-
 #include "ImageAnalyzer.h"
 
 

@@ -2261,8 +2261,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img_canal_jonswap.jpg
-	width 45page%
+	filename imagenes/img_canal_jonswap.png
+	width 60page%
 
 \end_inset
 
@@ -2279,7 +2279,8 @@ name "fig:Representacion-esquematica-de-1"
 
 \end_inset
 
-Representacion esquematica de la generacion y medicion del espectro de JONSWAP.
+Representacion esquematica de la generacion del oleaje irregular y medicion
+ del espectro de JONSWAP en el canal de laboratorio.
 \end_layout
 
 \end_inset
@@ -8900,9 +8901,7 @@ GUIRealTimeDataDisplayer
 En el siguiente capitulo se describe un ensayo realizado donde se muestran
  las interfaces graficas de cada una de las ventanas que componen al 
 \shape italic
-IPS GUI 
-\color red
-(si no ponemos abajo las imagenes entonces tenemos que re-redactar esto).
+IPS GUI.
 \end_layout
 
 \begin_layout Standard
@@ -8937,7 +8936,6 @@ status open
 
 \begin_layout Plain Layout
 
-\shape italic
 \color black
 http://www.efn.uncor.edu/investigacion/hidraulica/
 \end_layout
@@ -8957,18 +8955,52 @@ Facultad de Ciencias Exactas, Fisicas y Naturales (UNC)
 \end_layout
 
 \begin_layout Standard
-El canal sobre el cual se realizaron los ensayos posee las siguientes dimensione
-s: 
-\color red
-25 metros de largo, 1 metro de ancho, 1 metro de alto
+En la 
+\shape italic
+\color black
+Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Canal-del-Laboratorio"
+
+\end_inset
+
+
+\shape default
 \color inherit
-.
- Cuenta con una 
-\color red
-pala mecanica (nombre de la pala o referencia?)
+ se muestra el canal sobre el cual se realizaron los experimentos, el cual
+ posee una longitud de 25 metros, 0.50 m de ancho y 0.80 m de altura.
+ Cuenta con una pala mecánica 
+\shape italic
+\color black
+HR Wallingford
+\shape default
 \color inherit
- la cual genera los oleajes que se quieran simular introduciendo por computadora
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://equipment.hrwallingford.co.uk/
+\end_layout
+
+\end_inset
+
+ (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pala-mecánica-HR"
+
+\end_inset
+
+) la cual genera los oleajes que se quieran simular introduciendo por computador
+a 
 \begin_inset Formula $H$
 \end_inset
 
@@ -8976,13 +9008,25 @@ pala mecanica (nombre de la pala o referencia?)
 \begin_inset Formula $T$
 \end_inset
 
- (altura y periodo de onda respectivamente, capitulo 
+ (altura y periodo de onda respectivamente, 
+\shape italic
+\color black
+capitulo
+\shape default
+\color inherit
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Hidrodinamica-Introduccion"
 
 \end_inset
 
+
+\shape italic
+\color black
+Introduccion
+\shape default
+\color inherit
 ) en el caso del oleaje regular, mientras que el oleaje irregular se lo
  simula estableciendo los valores 
 \begin_inset Formula $H_{s}$
@@ -9000,13 +9044,12 @@ reference "sub:Hidrodinamica-Introduccion"
 
 \shape italic
 \color blue
- podemos poner mas caracteristicas sobre la pala, imagen del canal y de
- la pala
-\shape default
-\color inherit
-.
- Por otro lado, el software utilizado por la pala mecanica permite extraer
- el espectro de la señal y el valor de 
+ 
+\end_layout
+
+\begin_layout Standard
+Por otro lado, el software utilizado por la pala mecanica permite extraer
+ el espectro de la señal medido por los sensores y el valor de 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -9015,8 +9058,105 @@ reference "sub:Hidrodinamica-Introduccion"
 \end_layout
 
 \begin_layout Standard
-Las mediciones de la altura de ola se realizaron utilizando una camara Logitech
- C910
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_canal_real.png
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Canal-del-Laboratorio"
+
+\end_inset
+
+Canal del Laboratorio de Hidráulica F.C.E.F.yN.
+ donde se realizaron los ensayos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_pala_mecanica.png
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pala-mecánica-HR"
+
+\end_inset
+
+Pala mecánica 
+\shape italic
+\color black
+HR Wallingford
+\shape default
+\color inherit
+ generadora de oleaje bidimensional.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para el caso del sistema implementado en este trabajo, las mediciones de
+ la altura de ola se realizaron utilizando una camara Logitech C910
 \begin_inset Foot
 status open
 
@@ -9026,13 +9166,20 @@ http://www.logitech.com/es-es/webcam-communications/webcams/devices/6816
 
 \end_inset
 
- y utilizando los sensores de nivel resistivos 
+ y en paralelo utilizando los sensores de nivel resistivo (
 \shape italic
-\color blue
-(agregar Imagen del sensor)
+\color black
+Figura
 \shape default
 \color inherit
- , los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sensor-resistivo."
+
+\end_inset
+
+), los cuales tienen la capacidad de realizar un muestreo de 100 tomas por
  segundo (o equivalentemente 100 Hz).
  
 \end_layout
@@ -9062,53 +9209,322 @@ Por otro lado se debe configurar el sistema.
 \begin_layout Itemize
 Crear una nueva sesion (
 \shape italic
-\color blue
-fig nueva sesion
+\color black
+Figura
 \shape default
 \color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ventana:-crear/cargar-una"
+
+\end_inset
+
 )
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_session.png
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ventana:-crear/cargar-una"
+
+\end_inset
+
+Ventana: crear/cargar una session.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Configuracion de la camara utilizada (foco, zoom, brillo, etc) 
+Configuracion de la camara utilizada (foco, zoom, brillo, etc), como se
+ lo muestra en la 
 \shape italic
-\color blue
-fig imagen camara
+\color black
+Figura 
 \shape default
 \color inherit
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ventana-de-configuracion"
+
+\end_inset
+
 .
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_conf_cam1.png
+	lyxscale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ventana-de-configuracion"
+
+\end_inset
+
+Ventana de configuracion (
+\shape italic
+\color black
+CameraConfigWindow
+\shape default
+\color inherit
+): Configuracion de la camara.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Configurar la escala y zona de analisis 
+Configurar la escala y zona de analisis (
 \shape italic
-\color blue
-imagen ref rectangulo
+\color black
+Figura
 \shape default
 \color inherit
-.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ventana-de-conf_perspective"
+
+\end_inset
+
+).
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_conf_rect.png
+	lyxscale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ventana-de-conf_perspective"
+
+\end_inset
+
+Ventana de configuracion (
+\shape italic
+\color black
+GUIPerspectiveRectifier
+\shape default
+\color inherit
+): Configuracion de zona de analisis, en este caso el rectangulo blanco.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 Configurar el punto de reposo de la ola (para lograr esto el nivel del fluido
- debe estar en estado escionario) 
+ debe estar en estado escionario).
+ La ventana asociada se la muestra en la 
 \shape italic
-\color blue
-figura ref middlePoint
+\color black
+Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ventana-de-conf_midle_clip"
+
+\end_inset
+
+.
+
+\shape default
+\color inherit
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_conf_middle.png
+	lyxscale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ventana-de-conf_midle_clip"
+
+\end_inset
+
+Ventana de configuracion (
+\shape italic
+\color black
+GUIMiddlePointClipping
+\shape default
+\color inherit
+): Configuracion del punto de reposo de ola.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Configuracion de los parametros del algoritmo para la deteccion de contornos
+ (
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ventana-de-conf_canny"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_conf_canny.png
+	lyxscale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ventana-de-conf_canny"
+
+\end_inset
+
+Ventana de configuracion (
+\shape italic
+\color black
+GUICannyBorderDetector
+\shape default
+\color inherit
+): Configuracion de los parametros asociados al algoritmo de 
+\shape italic
+\color black
+Canny
 \shape default
 \color inherit
 .
 \end_layout
 
-\begin_layout Itemize
-Configuracion de los parametros del algoritmo para la deteccion de contornos
- 
-\shape italic
-\color blue
-img ref canny
-\shape default
-\color inherit
-.
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9137,19 +9553,68 @@ Una vez configurado el sistema se prosigue a producir el oleaje que se quiere
  con espectro JONSWAP para oleaje irregular) y por medio de una ultima ventana
  (
 \shape italic
-\color blue
-ref img RealTime
+\color black
+Figura
 \shape default
 \color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ventana-de-conf_realTime"
+
+\end_inset
+
 ) se le brinda al usuario la posibilidad de comenzar a capturar las imagenes
  y observar en tiempo real los datos procesados.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\color red
-Aca ponemos como se prepara el canal, y como se prepara el software, aca
- deberiamos poner la interfaz grafica.
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_conf_realTime.png
+	lyxscale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ventana-de-conf_realTime"
+
+\end_inset
+
+Ventana (
+\shape italic
+\color black
+GUIRealTimeDataDisplayer
+\shape default
+\color inherit
+): Muestra los datos procesados en tiempo real al igual que las imagenes
+ capturadas por el dispositivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
