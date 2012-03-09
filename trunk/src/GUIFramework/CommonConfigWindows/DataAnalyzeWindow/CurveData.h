@@ -158,7 +158,7 @@ private:
 	double			mMaxHeight;
 	double			mMinHeight;
 
-	int				mFp;
+	double			mFp;
 	double			mHs;
 	double 			mH;
 	double			mTp;
