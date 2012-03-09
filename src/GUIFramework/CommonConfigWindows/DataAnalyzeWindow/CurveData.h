@@ -79,10 +79,16 @@ private:
 	double calculateFp(const QVector<double> &spectrumxs, const QVector<double> &spectrumys);
 
 	// Calculate Hs;
-	void calculateHs(const QVector<double> &ys)
+	void calculateHs(const QVector<double> &xs, const QVector<double> &ys)
 	{
 		// Hs = 4.004 * sqrt(m0), where m0 = total process variance
-		mHs = 4.004 * sqrt(calculateSqrVariance(ys));
+//		mHs = 4.004 * sqrt(calculateSqrVariance(ys));
+		FuncSimulator fsim(xs, ys);
+		double start = xs[0];
+		double end = xs.back();
+
+		mHs = IntegralCalculator::ApproximateIntegral(fsim, start, end, 10000);
+		mHs = 4.004 * std::sqrt(mHs);
 	}
 
 	// calculate H

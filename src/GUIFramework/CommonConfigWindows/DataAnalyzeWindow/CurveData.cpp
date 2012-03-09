@@ -39,8 +39,9 @@ double FuncSimulator::operator()(double d) const
 	while(mLastIndex < mSize && mXs[mLastIndex] < d) ++mLastIndex;
 
 	if(mLastIndex >= mSize) {
+		mLastIndex = mSize-1;
 		debug("entro aca\n");
-		return mYs[mSize-1];
+		return mYs[mLastIndex];
 	}
 	// if just what we want returnit
 	if(mXs[mLastIndex] == d) return mYs[mLastIndex];
@@ -83,7 +84,7 @@ void CurveData::calculateFFT(const QVector<double> &xs,
 	Forward.fft(f,g);
 
 
-	std::cout << " FFT:G:\n" << g << std::endl;
+//	std::cout << " FFT:G:\n" << g << std::endl;
 	result.clear();
 //	for(int i = 0; i < f.Size(); ++i) result.push_back(f[i]);
 	for(int i = 0; i < g.Size(); ++i) {
@@ -126,7 +127,7 @@ void CurveData::calculateSpectrum(const QVector<Complex> &Y, double df,
 		double value = 2.0/(dsize)*(std::sqrt(std::pow(Y[i].real(),2.0) +
 				std::pow(Y[i].imag(),2.0)));
 		value = value * value / (2.0*df);
-		std::cout << "Value: A " << value << "\t";
+//		std::cout << "Value: A " << value << "\t";
 		result.push_back(value);
 	}
 }
@@ -239,17 +240,17 @@ CurveData::CurveData()
 
 	++colorId;
 
-
-	// test the integrate
-	QVector<double> xs,ys;
-	for(int i = 0; i < 1000; ++i){
-		double x = static_cast<double>(i)/1000.0;
-		xs.push_back(x);
-		ys.push_back(x*x);
-	}
-	FuncSimulator sim(xs,ys);
-	double result = IntegralCalculator::ApproximateIntegral(sim, 0, 999.0/1000.0, 1000);
-	std::cout << "RESULT INTEGRAL: " << result << std::endl;
+//
+//	// test the integrate
+//	QVector<double> xs,ys;
+//	for(int i = 0; i < 1000; ++i){
+//		double x = static_cast<double>(i)/1000.0;
+//		xs.push_back(x);
+//		ys.push_back(x*x);
+//	}
+//	FuncSimulator sim(xs,ys);
+//	double result = IntegralCalculator::ApproximateIntegral(sim, 0, 999.0/1000.0, 1000);
+//	std::cout << "RESULT INTEGRAL: " << result << std::endl;
 
 }
 
@@ -294,7 +295,7 @@ void CurveData::loadData(const QVector<double> &xs,
 
 	// Calculate all the other values..
 	calculateH(xs, ys);
-	calculateHs(auxVec);
+	calculateHs(freqVec, auxVec);
 	calculateTp();
 
 	debug("Tp: %f\tHs: %f\n", mTp, mHs);
