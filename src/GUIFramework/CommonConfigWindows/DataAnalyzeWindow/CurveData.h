@@ -14,6 +14,27 @@
 #include "Array.h"
 #include "fftw++.h"
 #include "DebugUtil.h"
+#include "IntegralCalculator.h"
+
+
+
+// Auxiliar class that will simulate a function given an array of xs and ys values
+class FuncSimulator : public FunctionFunctr {
+public:
+	FuncSimulator(const QVector<double> &xs,
+				const QVector<double> &ys);
+	~FuncSimulator();
+
+	double operator()(double d) const;
+
+private:
+	const QVector<double> &mXs;
+	const QVector<double> &mYs;
+	int						mSize;
+	mutable int				mLastIndex;
+
+};
+
 
 class CurveData {
 public:
