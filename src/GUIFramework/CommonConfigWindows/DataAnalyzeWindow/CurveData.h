@@ -51,6 +51,8 @@ public:
 	// returns the spectral curve
 	QwtPlotCurve &getSpectralCurve(void){return mSpectralCurve;}
 
+	QwtPlotCurve &getSpectralJONSWAP(void){return mSpectralJONSWAP;}
+
 	// Returns the different fields
 	double getHs(void) const {return mHs;}
 	double getH(void) const {return mH;}
@@ -69,7 +71,7 @@ private:
 			const QVector<double> &ys, QVector<Complex> &result);
 
 	void calculateSpectrum(const QVector<Complex> &Y, double df,
-			QVector<double> &result);
+			QVector<double> &result, int n);
 
 	// total_time/total_num_samples and dfmin
 	void calculateVecFreq(const QVector<double> &xs, QVector<double> &result,
@@ -131,6 +133,11 @@ private:
 		}
 	}
 
+
+	// calculate JONSWAP
+	void calculateJONSWAP(const QVector<double> &freqVec);
+
+
 	// Calculate spectral curve
 	void calculateSpectralCurve(const QVector<double> &freqVec,
 			const QVector<double> &result);
@@ -157,6 +164,7 @@ private:
 	double			mTp;
 	QwtPlotCurve	mCurve;
 	QwtPlotCurve	mSpectralCurve;
+	QwtPlotCurve	mSpectralJONSWAP;
 //	std::vector<fftw_complex>	mComplexValues;
 
 
