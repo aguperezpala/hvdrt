@@ -33,15 +33,16 @@ FuncSimulator::~FuncSimulator()
 double FuncSimulator::operator()(double d) const
 {
 //	ASSERT(mLastIndex < mXs.size());
+
+	if(mLastIndex >= mSize){return 0.0;}
 	ASSERT(mXs[mLastIndex] <= d);
 
 	// get the closest point
 	while(mLastIndex < mSize && mXs[mLastIndex] < d) ++mLastIndex;
 
 	if(mLastIndex >= mSize) {
-		mLastIndex = mSize-1;
 		debug("entro aca\n");
-		return mYs[mLastIndex];
+		return mYs[mSize-1];
 	}
 	// if just what we want returnit
 	if(mXs[mLastIndex] == d) return mYs[mLastIndex];
@@ -95,7 +96,7 @@ void CurveData::calculateFFT(const QVector<double> &xs,
 
 ////////////////////////////////////////////////////////////////////////////////
 void CurveData::calculateSpectrum(const QVector<Complex> &Y, double df,
-		QVector<double> &result)
+		QVector<double> &result, int n)
 {
 //	double fmin = 1.0 / (Y.size()*delta);
 //	result.clear();
@@ -121,13 +122,16 @@ void CurveData::calculateSpectrum(const QVector<Complex> &Y, double df,
 //		result[i] = aux;
 //	}
 
-	double dsize = static_cast<double>( Y.size() + 1);
+	double dsize = static_cast<double>( n + 1);
 	result.clear();
+	debug("n:%d\n", n);
 	for(int i = 1; i < Y.size(); ++i){
-		double value = 2.0/(dsize)*(std::sqrt(std::pow(Y[i].real(),2.0) +
+		// value = A
+		double value = (2.0/(dsize))*(std::sqrt(std::pow(Y[i].real(),2.0) +
 				std::pow(Y[i].imag(),2.0)));
-		value = value * value / (2.0*df);
 //		std::cout << "Value: A " << value << "\t";
+		// calculate S(f) = A*A/(2*df)
+		value = value * value / (2.0*df);
 		result.push_back(value);
 	}
 }
@@ -184,6 +188,28 @@ void CurveData::calculateH(const QVector<double> &xs,
 
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
+void CurveData::calculateJONSWAP(const QVector<double> &xs)
+{
+	QVector<double> rys;
+
+	double gamma = 3.3;
+	double alfa = 0.0624 / (0.230+0.0336*gamma-0.185*pow(1.9+gamma,-1.0));
+	for(int i = 0; i < xs.size(); ++i){
+		double f = xs[i];
+		double sigma = (f<= mFp)?0.07 : 0.09;
+		double S = alfa * (mHs * mHs)* std::pow(mTp, -2.0) * std::pow(f, -5.0) *
+				std::pow(M_E, -1.25 * std::pow(mTp * f, -4.0)) *
+				std::pow(gamma, std::pow(M_E,-(std::pow(mTp * f - 1.0, 2.0))/(2.0*sigma*sigma)));
+
+		rys.push_back(S);
+	}
+
+	mSpectralJONSWAP.setSamples(xs, rys);
+
+}
+
 // Calculate spectral curve
 void CurveData::calculateSpectralCurve(const QVector<double> &freqVec,
 		const QVector<double> &result)
@@ -233,9 +259,20 @@ CurveData::CurveData()
 		pen.setColor(Qt::red);
 	}
 
-	pen.setWidth(2);
+	pen.setWidth(1);
 	mCurve.setPen(pen);
 	mSpectralCurve.setPen(pen);
+
+	// set the second color
+	if(colorId == COLOR_BLUE){
+		pen.setColor(Qt::yellow);
+	} else if(colorId == COLOR_GREEN){
+		pen.setColor(Qt::black);
+	} else if(colorId == COLOR_RED){
+		pen.setColor(Qt::magenta);
+	}
+	pen.setWidth(2);
+	mSpectralJONSWAP.setPen(pen);
 
 
 	++colorId;
@@ -282,8 +319,8 @@ void CurveData::loadData(const QVector<double> &xs,
 	calculateFFT(xs, ys, complx);
 
 	// Now calculate the spectrum
-	calculateSpectrum(complx, df, auxVec);
-	debug("auxVec[100]: %f\n", auxVec[100]);
+	calculateSpectrum(complx, df, auxVec, xs.size());
+	debug("Fmin(o df): %f\n", df);
 
 	// Calculate fp
 	mFp = calculateFp(freqVec, auxVec);
@@ -293,10 +330,15 @@ void CurveData::loadData(const QVector<double> &xs,
 	// Show the spectral curve
 	calculateSpectralCurve(freqVec, auxVec);
 
+
+
 	// Calculate all the other values..
 	calculateH(xs, ys);
 	calculateHs(freqVec, auxVec);
 	calculateTp();
+
+	// Calculate JONSWAP
+	calculateJONSWAP(freqVec);
 
 	debug("Tp: %f\tHs: %f\n", mTp, mHs);
 

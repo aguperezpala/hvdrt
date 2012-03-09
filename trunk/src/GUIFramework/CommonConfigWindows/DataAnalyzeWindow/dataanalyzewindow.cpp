@@ -182,6 +182,7 @@ void DataAnalyzeWindow::fillmainPlot(CurveData &c)
 void DataAnalyzeWindow::fillsecondPlot(CurveData &c)
 {
 	c.getSpectralCurve().show();
+	c.getSpectralJONSWAP().show();
 
 	QwtPlot *spectralPlot = ui.secondqwtPlot;
 	spectralPlot->replot();
@@ -211,6 +212,7 @@ void DataAnalyzeWindow::hideAllInfo(CurveData &c)
 {
 	c.getDataCurve().hide();
 	c.getSpectralCurve().hide();
+	c.getSpectralJONSWAP().hide();
 
 	if(getNumCheckboxSelected() == 1){
 		// remove the label info
@@ -251,6 +253,10 @@ void DataAnalyzeWindow::initializeCurveData(CurveData &c)
 	c.getSpectralCurve().detach();
 	c.getSpectralCurve().attach(spectralPlot);
 	c.getSpectralCurve().hide();
+
+	c.getSpectralJONSWAP().detach();
+	c.getSpectralJONSWAP().attach(spectralPlot);
+	c.getSpectralJONSWAP().hide();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
