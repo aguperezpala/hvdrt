@@ -1565,6 +1565,12 @@ Representacion esquematica de las componentes de un registro de olas (extraido
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Descripcion-espectral-del"
+
+\end_inset
+
 Descripcion espectral del oleaje
 \end_layout
 
@@ -9622,11 +9628,49 @@ Ensayos propuestos
 \end_layout
 
 \begin_layout Standard
-En este trabajo se propusieron los siguientes ensayos:
+Existen una gran cantidad de ensayos posibles para realizar, dependiendo
+ tanto de variables externas como la luz del entorno, angulo y posicion
+ de la camara, entre otras, como asi tambien del tipo de oleaje generado
+ (regular o irregular y los parametros asociados a cada uno de éstos).
+ Debido a que el oleaje irregular tiene mayor peso en el estudio ingenieril
+ y para el caso del sistema es el mas interesante para medir (debido a su
+ irregularidad), se decidio realizar la mayoria de los ensayos en base a
+ oleajes irregulares.
+ Por otro lado se intento mantener constante los factores externos (como
+ luz del entorno, intensidad, zona de captura) a excepcion de la posicion
+ de la camara (se realizaron ensayos en 2 posiciones distintas).
+ 
 \end_layout
 
-\begin_layout Enumerate
-Capturar la altura de ola en un oleaje regular con parametros 
+\begin_layout Standard
+Los ensayos propuestos para la primera ubicacion de la camara (
+\shape italic
+\color black
+P1
+\shape default
+\color inherit
+, 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Posicion-1:-El"
+
+\end_inset
+
+) se listan a continuacion:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EN1
+\series default
+: Capturar la altura de ola en un oleaje regular con parametros 
 \begin_inset Formula $H=6\; cm$
 \end_inset
 
@@ -9637,8 +9681,12 @@ Capturar la altura de ola en un oleaje regular con parametros
 .
 \end_layout
 
-\begin_layout Enumerate
-Capturar la altura de ola en un oleaje irregular con parametros 
+\begin_layout Itemize
+
+\series bold
+EN2
+\series default
+: Capturar la altura de ola en un oleaje irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -9649,8 +9697,12 @@ Capturar la altura de ola en un oleaje irregular con parametros
  durante 5 minutos.
 \end_layout
 
-\begin_layout Enumerate
-Capturar la altura de ola en un oleaje irregular con parametros 
+\begin_layout Itemize
+
+\series bold
+EN3
+\series default
+: Capturar la altura de ola en un oleaje irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -9658,24 +9710,211 @@ Capturar la altura de ola en un oleaje irregular con parametros
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 5 minutos.
+ durante 30 minutos.
 \end_layout
 
 \begin_layout Standard
-Se decidio ademas realizar un ensayo similar a (2) posicoinando la camara
- unos cm mas alejada del canal.
- Al mismo tiempo se realizaron las mediciones utilizando los sensores resistivos
- con los que cuenta el laboratorio con el fin de poder comparar los resultados
- obtenidos.
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Cada uno de los ensayos anteriormente mencionados se realizaron utilizando
- las mismas configuraciones del entorno (cantidad y posicion de la luz,
- tamaño de la zona de analisis, etc).
+Para la segunda posicion de la camara (
+\shape italic
+\color black
+P2
+\shape default
+\color inherit
+, 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Posicion-2:-El"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EN4
+\series default
+: Capturar la altura de ola en un oleaje irregular con parametros 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 5 minutos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EN5
+\series default
+: Capturar la altura de ola en un oleaje irregular con parametros 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 30 minutos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_resultados_pos_camara2.png
+	lyxscale 50
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Posicion-1:-El"
+
+\end_inset
+
+Posicion 1: El nivel de reposo de la superficie libre se encuentra aproximadamen
+te a la altura del lente de la camara.
+ Ésta se encuentra a una distancia 
+\begin_inset Formula $c\approx0.5\; m$
+\end_inset
+
+ con respecto a la pared del canal (
+\shape italic
+\color black
+zona de captura
+\shape default
+\color inherit
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_resultados_pos_camara.png
+	lyxscale 50
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Posicion-2:-El"
+
+\end_inset
+
+Posicion 2: El nivel de reposo de la superficie libre se encuentra por encima
+ del lente de la camara.
+ Ésta se encuentra posicionada a 
+\begin_inset Formula $c\approx0.90\; m$
+\end_inset
+
+ de la pared del canal (
+\shape italic
+\color black
+zona de captura
+\shape default
+\color inherit
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Posiciones de la camara en los distintos ensayos realizados.
+ En ambias figuras se muestra la posible altura 
+\begin_inset Formula $h$
+\end_inset
+
+ de la superficie libre (tanto por encima como por debajo del nivel de reposo).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En conjunto con los ensayos propuestos anteriormente, se realizarían mediciones
+ utilizando los sensores resistivos con los que cuenta el laboratorio con
+ el fin de poder comparar los resultados obtenidos.
 \end_layout
 
 \begin_layout Subsection
@@ -9708,29 +9947,166 @@ Que medimos?
 \end_layout
 
 \begin_layout Standard
-Para cada uno de los ensayos realizados (mencionados en el capitulo anterior)
- se pueden realizar distintos analisis.
- Uno esta relacionado directamente con los datos obtenidos entre el sistema
- implementado en este trabajo con respecto a los datos capturados por los
- sensores resistivos que actualmente utiliza el laboratorio.
- Por otro se analiza la 
+En cada uno de los ensayos realizados (mencionados anteriormente) el sistema
+ implementado captura la altura de ola a lo largo del tiempo en un punto
+ determinado del canal.
+ Este conjunto de datos (altura de ola en el tiempo) fue comparado con los
+ obtenidos por los sensores resistivos utilizados en el laboratorio con
+ el fin de poder determinar la precision del sistema implementado.
+ En base a esto se puede realizar dos tipos de comparaciones distintas:
+ a) los datos 
 \begin_inset Quotes eld
 \end_inset
 
-energía asociada a la ola
+crudos
 \begin_inset Quotes erd
 \end_inset
 
-, por medio del espectro calculado.
+ (altura en el tiempo); b) realizar un analisis espectral del oleaje obtenido
+ por el sistema y por el sensor y comparar los parametros asociados al mismo
+ (
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ en el caso del oleaje regular, o 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ en conjunto con los graficos espectrales asociados a los oleajes irregulares).
 \end_layout
 
 \begin_layout Standard
-Cada uno de los siguientes subcapitulos detallan los distintos analisis
- de resultados obtenidos en los ensayos realizados.
+Todas las comparaciones llevadas a cabo se realizaron por medio del 
+\begin_inset Quotes eld
+\end_inset
+
+modulo
+\begin_inset Quotes erd
+\end_inset
+
+ de analisis desarrollado en este trabajo, el cual se muestra en la 
+\shape italic
+\color black
+Figura
+\shape default
+\color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DataAnalyzeWindow:-Ventana-en"
+
+\end_inset
+
+.
+ En la parte superior se muestran los datos crudos obtenidos asociados a
+ un oleaje irregular, por debajo a la derecha se observa en rojo el calculo
+ del espectro 
+\begin_inset Formula $S(f)$
+\end_inset
+
+ y en color magenta el espectro de 
+\shape italic
+\color black
+JONSWAP
+\shape default
+\color inherit
+ (
+\shape italic
+\color black
+capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Descripcion-espectral-del"
+
+\end_inset
+
+Descripcion espectral del oleaje.
+\shape default
+\color inherit
+).
+ En la parte inferior izquierda se muestran ademas otros parametros calculados
+ como 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Esta ventana permite ademas cargar mas de un conjunto de datos en simultaneo
+ lo que permite comparar hasta tres oleajes diferentes al mismo tiempo con
+ sus respectivos espectros y parametros asociados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_analyz_win.png
+	lyxscale 60
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DataAnalyzeWindow:-Ventana-en"
+
+\end_inset
+
+
+\shape italic
+\color black
+DataAnalyzeWindow
+\shape default
+\color inherit
+: Ventana en donde se realizan los analisis espectrales y comparaciones
+ de los datos obtenidos (por el sistema implementado o por el sensor resistivo).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En los siguientes subcapitulos se detalla la comparacion realizada en cada
+ uno de los ensayos realizados.
 \end_layout
 
 \begin_layout Subsubsection
-Oleaje regular
+EN1: Oleaje regular
 \end_layout
 
 \begin_layout Standard
