@@ -177,6 +177,7 @@ double CurveData::calculateFp(const QVector<double> &spectrumxs,
 	}
 
 	debug("FPcalc[%d]=%f\n", result, spectrumxs[result]);
+	mFp = spectrumxs[result];
 	return spectrumxs[result];
 }
 
@@ -323,7 +324,8 @@ void CurveData::loadData(const QVector<double> &xs,
 	debug("Fmin(o df): %f\n", df);
 
 	// Calculate fp
-	mFp = calculateFp(freqVec, auxVec);
+	calculateFp(freqVec, auxVec);
+	calculateTp();
 	debug("Fp: %f\n", mFp);
 
 
@@ -335,7 +337,7 @@ void CurveData::loadData(const QVector<double> &xs,
 	// Calculate all the other values..
 	calculateH(xs, ys);
 	calculateHs(freqVec, auxVec);
-	calculateTp();
+
 
 	// Calculate JONSWAP
 	calculateJONSWAP(freqVec);
@@ -347,6 +349,7 @@ void CurveData::loadData(const QVector<double> &xs,
 	calculateMaxAndMin(xs, ys);
 	double max, min;
 	getMaxMin(max,min, ys);
+
 	debug("Max calculated: %f\t Min calculated: %f\n", max,min);
 
 //	mComplexValues.clear();

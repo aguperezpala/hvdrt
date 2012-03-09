@@ -27,22 +27,29 @@ int main(int argc, char **args)
 	ifs.getline(buff, 500);
 	std::cout << "first line: " << buff << std::endl;
 	ofs << buff << std::endl;
-	double ft;
+	double ft, deltaV = 0.0;
 	char c;
 	
 	// verificamos si tenemos tiempo por parametro o no
-	if(argc == 3){
+	if(argc > 3){
+		std::stringstream ss;
+		ss << args[3];
+		ss >> deltaV;
+	}
+
+	if(argc > 2){
 		std::stringstream ss;
 		ss << args[2];
 		ss >> ft;
 	} else {
 		ifs >> 	ft >> c >> v;
-		ofs << 0.0 << "," << v << std::endl;
+		ofs << 0.0 << "," << v - deltaV << std::endl;
 	}
 	while (ifs.good()){
 		ifs >> 	t >> c >> v;
-		ofs << t - ft << "," << v << std::endl;	
+		ofs << t - ft << "," << v - deltaV << std::endl;
 	}
+
 
 	ifs.close();
 	ofs.close();
