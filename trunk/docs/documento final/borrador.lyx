@@ -9633,9 +9633,9 @@ Existen una gran cantidad de ensayos posibles para realizar, dependiendo
  de la camara, entre otras, como asi tambien del tipo de oleaje generado
  (regular o irregular y los parametros asociados a cada uno de éstos).
  Debido a que el oleaje irregular tiene mayor peso en el estudio ingenieril
- y para el caso del sistema es el mas interesante para medir (debido a su
- irregularidad), se decidio realizar la mayoria de los ensayos en base a
- oleajes irregulares.
+ (ya que es mas representativo de la realidad) y en el caso del sistema
+ es el mas interesante para medir (debido a su irregularidad), se decidio
+ realizar la mayoria de los ensayos en base a oleajes irregulares.
  Por otro lado se intento mantener constante los factores externos (como
  luz del entorno, intensidad, zona de captura) a excepcion de la posicion
  de la camara (se realizaron ensayos en 2 posiciones distintas).
@@ -9912,9 +9912,98 @@ Posiciones de la camara en los distintos ensayos realizados.
 \end_layout
 
 \begin_layout Standard
+Donde recordando que 
+\begin_inset Formula $H$
+\end_inset
+
+ es la altura de ola (en el caso de un oleaje regular), 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+ es la altura de ola significante en un oleaje irregular, y 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ es la frecuencia de pico o la frecuencia en la que el espectro del oleaje
+ contiene mayor energia.
+\end_layout
+
+\begin_layout Standard
 En conjunto con los ensayos propuestos anteriormente, se realizarían mediciones
  utilizando los sensores resistivos con los que cuenta el laboratorio con
  el fin de poder comparar los resultados obtenidos.
+ De manera esquematica, como se lo muestra en la 
+\shape italic
+Figura
+\shape default
+ 
+\shape italic
+\color red
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-la"
+
+\end_inset
+
+
+\shape default
+\color inherit
+, podemos observar la columna de pixels analizados por el sistema para detectar
+ la altura de ola al costado del sensor resistivo (debido a que el sistema
+ se basa en detectar contornos, la columna de pixels no puede estar sobre
+ el sensor).
+ A causa de esto, los resultados obtenidos por el sistema implementado se
+ encuentran defasados en el tiempo con respectos a los del sensor resistivo,
+ por lo que, es necesario modificar (previamente a la comparacion) los datos
+ de manera tal que queden sincronizados en el tiempo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_zona_captura_sensor.png
+	lyxscale 55
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-de-la"
+
+\end_inset
+
+Esquema de la zona de captura y analizada por el sistema implementado en
+ el canal de laboratorio.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -10110,213 +10199,188 @@ EN1: Oleaje regular
 \end_layout
 
 \begin_layout Standard
-Este ensayo se realizo utilizando una altura de ola de 6 cm con una frecuencia
- de 1Hz (esto es, una ola de 6 cm de altura por segundo).
- En la figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Datos-crudos-capturados-1"
-
+Se trata de un ensayo en donde se simula un oleaje con una altura de ola
+ de 6 cm (
+\begin_inset Formula $H=6\; cm$
 \end_inset
 
- podemos observar los datos 
-\begin_inset Quotes eld
+) a una frecuencia de 1Hz (
+\begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
-crudos
-\begin_inset Quotes erd
-\end_inset
-
- obtenidos por el sensor (figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Datos-obtenidos-por-2"
-
-\end_inset
-
-) y los obtenidos por el sistema (figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Datos-obtenidos-por-1"
-
-\end_inset
-
-).
- Podemos observar ademas en la figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Datos-crudos-comparativos"
-
-\end_inset
-
- que la altura de ola capturada por el sistema difiere en aproximadamente
- 
+), esto es, se genera una ola de 6 cm de altura por segundo (por medio de
+ la pala mecanica mencionada anteriormente), 
 \color red
-4 mm (esta mal realizada esta prueba, hubo algun problema de conversion
- aca o algo raro, esta muyyy distinta a la otra) 
+este oleaje se lo puede observar en la fig x(ponemos un foto del oleaje
+ sacado del canal??? a eso te referias?)
 \color inherit
-de altura con respecto a la obtenida por el sensor resistivo.
- 
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-obtenidos-por"
-
-\end_inset
-
-Datos obtenidos por el sensor resistivo.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-obtenidos-por-1"
-
-\end_inset
-
-Datos obtenidos por el sistema implementado.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-crudos-capturados"
-
-\end_inset
-
-Datos crudos capturados para un olejae regular con 
-\begin_inset Formula $H=6\; cm$
-\end_inset
-
- y 
-\begin_inset Formula $f_{p}=1\; Hz$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-crudos-comparativos"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-aca tenemos que hacerle un zoom a los datos
-\end_layout
-
-\end_inset
-
-Datos crudos comparativos obtenidos por el sensor y el sistema para un olejae
- regular con 
-\begin_inset Formula $H=6\; cm$
-\end_inset
-
- y 
-\begin_inset Formula $f_{p}=1\; Hz$
-\end_inset
-
 .
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-Por otro lado se puede comprar el espectro del oleaje como lo muestra la
- figura 
+En la 
+\shape italic
+Figura
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Espectros-del-oleaje"
+reference "fig:Comparacion-regular_crudo"
+
+\end_inset
+
+ podemos ver los datos obtenidos por ambos sensores superpuestos en un mismo
+ grafico, en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Datos-regular_total"
+
+\end_inset
+
+ se observan los resultados obtenidos a lo largo de todo el ensayo, donde
+ a simple vista la altura de ola capturada por la camara difiere por encima
+ (0,0047 metros aproximadamente) como por debajo (0,0074 metros aproximadamente)
+ de la altura capturada por el sensor en base al punto de reposo (valor
+ 0 m en el grafico).
+ Podemos observar ademas en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ampliacion-regular_total"
+
+\end_inset
+
+ la presencia de ruido durante la captura realizada por el sistema, en donde
+ la gran mayoria de las ondas (la parte inferior o 
+\shape italic
+seno
+\shape default
+ de la ola), esta cortada abruptamente (por ejemplo las primeras 4 olas
+ muestran un corte abrupto en su parte inferior, mientras que la 5ta y 6ta
+ no).
+ La causa de esto será explicado en el apartado 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Consideraciones-generales"
 
 \end_inset
 
 .
- 
-\begin_inset Note Note
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-que mas podemos poner aca sobre esto? Es un oleaje regular no importa mucho
- estas cosas..
- podemos calcular el H
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/regular1.png
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Datos-regular_total"
+
+\end_inset
+
+Datos de los 5 minutos de captura por ambos metodos y superpuestos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/regular2.png
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ampliacion-regular_total"
+
+\end_inset
+
+Ampliacion (zoom) de una fraccion de los datos capturados por ambos metodos
+ y superpuestos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparacion-regular_crudo"
+
+\end_inset
+
+Comparacion entre los datos crudos obtenidos por ambos metodos (camara y
+ sensor resistivo) de un oleaje regular.
+ En color rojo se muestra el obtenido por el sistema implementado (video
+ camara) y en verde el capturado por el sensor resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -10325,30 +10389,118 @@ que mas podemos poner aca sobre esto? Es un oleaje regular no importa mucho
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
+Por otro lado se obtuvieron los siguientes valores de 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ para cada uno de los sistemas de medicion:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ds
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+as
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+as
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Espectros-del-oleaje"
-
-\end_inset
-
-Espectros del oleaje regular con parametros 
-\begin_inset Formula $H=6\; cm$
+Comparacion de los valores 
+\begin_inset Formula $H$
 \end_inset
 
  y 
-\begin_inset Formula $f_{p}=1\; Hz$
+\begin_inset Formula $f_{p}$
 \end_inset
 
-
+ del oleaje regular realizado en 
+\series bold
+EN1
+\series default
+.
 \end_layout
 
 \end_inset
@@ -11109,6 +11261,25 @@ Comparacion de los espectros calculados por ambos metodos del oleaje irregular
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Consideraciones-generales"
+
+\end_inset
+
+Consideraciones generales
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Aca vamos a poner lo relacionado con los errores que se pueden observar
+ en los ensayos realziados y vamos a explicar en profundidad el porque y
+ mostrarlos.
 \end_layout
 
 \begin_layout Standard
