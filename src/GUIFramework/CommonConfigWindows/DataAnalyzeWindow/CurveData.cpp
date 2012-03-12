@@ -5,6 +5,7 @@
  *      Author: agustin
  *
  */
+#include <iostream>
 #include <cmath>
 #include "CurveData.h"
 #include "DebugUtil.h"
@@ -186,7 +187,132 @@ double CurveData::calculateFp(const QVector<double> &spectrumxs,
 void CurveData::calculateH(const QVector<double> &xs,
 			const QVector<double> &ys)
 {
+//	bool vectorPositive = false;
+//	int  numChangeVector = 0;
+//	bool lastPositive = false;
+//	double max = 0, aux;
+//	double lvalue = 0;
+//	double seno = 0, cresta = 0;
+//	double accumH = 0;
+//	int 	numWaves = 0;
+//
+//	ASSERT(xs.size() == ys.size());
+//	ASSERT(ys.size() > 1);
+//
+//	lvalue = ys[0];
+//	vectorPositive = (lvalue > ys[1]) ? false : true;
+//	lastPositive = ys[0] > 0.0;
+//
+//	for(int i = 1; i < ys.size(); ++i){
+//		bool auxVecPositive = (lvalue > ys[i]) ? false : true;
+//		bool nowPositive = ys[i] > 0.0;
+//		std::cout << "nowpositive: " << nowPositive << "\tlastpositive: " <<
+//								lastPositive << "\tys[i]:" << ys[i] << std::endl;
+//		if(auxVecPositive != vectorPositive){
+//			// we have a change... now check what change
+//			++numChangeVector;
+//
+//			if(auxVecPositive){
+//				seno = std::abs((ys[i] + lvalue) * 0.5);
+//			} else {
+//				cresta = std::abs((ys[i] + lvalue) * 0.5);
+//			}
+//
+//			// check if this is the second change of the vector
+//			if(numChangeVector == 1){
+//				numChangeVector = 0;
+//
+//				if((lastPositive && !nowPositive) || (!lastPositive && nowPositive)){
+//					lastPositive = nowPositive;
+//					max = (max > aux) ? max : aux;
+//					++numWaves;
+//					aux = cresta + seno;
+//					accumH += aux;
+//					debug("AAAA\n");
+//				}
+//			}
+//		}
+//
+//		vectorPositive = auxVecPositive;
+//	}
+//
+//
+//	debug("numWaveS: %d\taccum: %f\tmax: %f\tseno:%f\tcresta:%f\n", numWaves, accumH, max, seno, cresta);
+//
+//	mH = accumH / static_cast<double>(numWaves);
+//	mHmax = max;
+//	mNumWaves = numWaves;
+//
+//	return;
 
+
+
+	////////////////////////////////////////////////////////////////////////////
+	double max = 0, aux;
+	double lvalue = 0;
+	double seno = 0, cresta = 0;
+	bool	inNegative = false;
+	bool	firstCresta = false;
+	double accumH = 0;
+	int 	numWaves = 0;
+	bool	haveToCalc = false;
+
+	ASSERT(xs.size() == ys.size());
+	ASSERT(ys.size() > 1);
+
+	firstCresta = (ys[0] < ys[1]);
+	lvalue = ys[0];
+	inNegative = (ys[0] < 0.0) ? true : false;
+	for(int i = 1; i < ys.size(); ++i){
+		if(inNegative){
+			// last value was negative...
+			if(ys[i] > lvalue && haveToCalc){
+				haveToCalc = false;
+				// we have a seno
+				seno = (ys[i] + lvalue) * 0.5;
+
+				if(firstCresta){
+					// we calculate the new H
+					aux = std::abs(cresta) + std::abs(seno);
+					accumH += aux;
+					++numWaves;
+					max = (max > aux) ? max : aux;
+				}
+			}
+
+			if(ys[i] > 0.0){
+				haveToCalc = true;
+				inNegative = false;
+			}
+		} else {
+			// last value was positive...
+			if(ys[i] < lvalue && haveToCalc) {
+				haveToCalc =false;
+				// we have a cresta
+				cresta = (ys[i] + lvalue) * 0.5;
+				if(!firstCresta){
+					// we have a wave ...
+					aux = std::abs(cresta) + std::abs(seno);
+					accumH += aux;
+					++numWaves;
+					max = (max > aux) ? max : aux;
+				}
+			}
+			if(ys[i] < 0.0){
+				haveToCalc = true;
+				inNegative = true;
+			}
+		}
+
+
+		lvalue = ys[i];
+	}
+
+	debug("numWaveS: %d\taccum: %f\tmax: %f\tseno:%f\tcresta:%f\n", numWaves, accumH, max, seno, cresta);
+
+	mH = accumH / static_cast<double>(numWaves);
+	mHmax = max;
+	mNumWaves = numWaves;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -332,8 +458,6 @@ void CurveData::loadData(const QVector<double> &xs,
 
 	// Show the spectral curve
 	calculateSpectralCurve(freqVec, auxVec);
-
-
 
 	// Calculate all the other values..
 	calculateH(xs, ys);
