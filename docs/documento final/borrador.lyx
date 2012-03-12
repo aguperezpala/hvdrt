@@ -318,13 +318,9 @@ En mediciones de campo, las muestras con video cámaras de alta definición
  ofrecen ya muchas aplicaciones practicas y muy funcionales, por ejemplo
  para la detección de la erosión costera y en la determinación de parámetros
  de oleaje (
-\color red
-[0]
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-7"
+key "key-2"
 
 \end_inset
 
@@ -643,9 +639,12 @@ name "fig:Parámetros-asociados-a"
 \end_inset
 
 Parámetros asociados a la onda (extraida de 
-\color red
-[1]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
 )
 \end_layout
 
@@ -863,9 +862,12 @@ El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
 .
  Bajo ciertas hipótesis simplificativas las ecuaciones llegan a tener la
  siguiente forma 
-\color red
-[2]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
 : 
 \end_layout
 
@@ -876,9 +878,6 @@ El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
 \end_inset
 
 
-\shape italic
-\color red
-(1) ec de continuidad 
 \end_layout
 
 \begin_layout Standard
@@ -891,13 +890,6 @@ El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color red
-(2) ec de momentum (de Eulero) 
 \end_layout
 
 \begin_layout Standard
@@ -940,26 +932,12 @@ La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
 \end_layout
 
 \begin_layout Standard
-
-\shape italic
-\color red
-(3) ec nueva de continuidad 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula \begin{equation}
 -\frac{\partial\Phi}{\partial t}+\frac{1}{2}\left[\left(\frac{\partial\Phi}{\partial x}\right)^{2}+\left(\frac{\partial\Phi}{\partial y}\right)^{2}+\left(\frac{\partial\Phi}{\partial z}\right)^{2}\right]+\frac{p}{\rho}+gz=C(t)\label{eq:bernoulli}\end{equation}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color red
-(4) ec de Bernoulli 
 \end_layout
 
 \begin_layout Standard
@@ -976,13 +954,6 @@ El problema sigue siendo no-lineal.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color red
-(5) solución del potencial
 \end_layout
 
 \begin_layout Standard
@@ -1045,9 +1016,12 @@ A este potencial le corresponde una superficie libre en
 \end_inset
 
  dada por (
-\color red
-[2]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
 ):
 \end_layout
 
@@ -1125,9 +1099,12 @@ name "fig:Propagación-del-perfil"
 \end_inset
 
 Altura de la superficie libre en funcion del tiempo (extraidea de 
-\color red
-[3]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
 ).
 \end_layout
 
@@ -1342,9 +1319,12 @@ name "fig:Solapamiento-de-trenes"
 \end_inset
 
 Solapamiento y grupos de trenes de ondas (extraido de 
-\color red
-http://www.seafriends.org.nz/oceano/waves.htm
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-19"
+
+\end_inset
+
 )
 \end_layout
 
@@ -1367,9 +1347,12 @@ Matematicamente
 \color inherit
 la representacion de la superficie libre de este tipo de oleaje puede expresarse
  como (
-\color red
-[3]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
 )
 \end_layout
 
@@ -1544,9 +1527,12 @@ name "fig:Representacion-esquematica-de"
 
 Representacion esquematica de las componentes de un registro de olas (extraido
  de 
-\color red
-[4]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-6"
+
+\end_inset
+
 ).
 \end_layout
 
@@ -1613,8 +1599,15 @@ superficie libre
 Serie de Fourier 
 \shape default
 (
-\color red
-[3]
+\color inherit
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+
 \color black
 )
 \shape italic
@@ -1839,11 +1832,12 @@ X_{k}=\frac{1}{T}\overset{N-1}{\underset{r=0}{\sum}}x_{r}e^{-i\frac{2\pi kr\Delt
 \begin_layout Standard
 Podemos entonces calcular el espectro de energia asociado a un registro
  de datos por medio de (
-\shape italic
-\color red
-[3]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
  
 \shape italic
 \color red
@@ -1907,11 +1901,12 @@ Se define
 momento de orden n 
 \shape default
 de la funcion de densidad espectral como (
-\shape italic
-\color red
-[3]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
 ):
 \end_layout
 
@@ -2039,11 +2034,12 @@ name "fig:Espectro-de-JONSWAP"
 \end_inset
 
 Espectro de JONSWAP calculados y medidos (extraidos de 
-\shape italic
-\color red
-[4]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-6"
+
+\end_inset
+
 )
 \end_layout
 
@@ -2071,9 +2067,12 @@ JONSWAP
  por parte de la comunidad cientifica una vez publicado, y es quizas el
  mas utilizado.
  La forma espectral propuesta es 
-\color red
-[3]
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
 :
 \end_layout
 
@@ -2718,15 +2717,9 @@ El conjunto de tecnicas investigadas en este trabajo como asi tambien el
 pinhole
 \shape default
  (
-\shape italic
-\color red
-[5]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-3"
+key "key-7"
 
 \end_inset
 
@@ -2776,23 +2769,26 @@ Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
 \begin_layout Standard
 Algunas de las tecnicas analizadas en este trabajo se pueden encontrar en
  
-\shape italic
-\color red
-[6]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
 , 
-\shape italic
-\color red
-[7]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-9"
+
+\end_inset
+
 , 
-\shape italic
-\color red
-[10]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-12"
+
+\end_inset
+
 .
 \end_layout
 
@@ -2825,25 +2821,20 @@ Con respecto a los primeros (a), tambien llamados distorciones, podemos
  clasificarlos como radiales (relacionado con la forma del lente de la camara)
  y tangenciales (provenientes del proceso de ensamblaje de la camara en
  su totalidad), entre otros (
-\shape italic
-\color red
-[5]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-3"
+key "key-7"
 
 \end_inset
 
 , 
-\shape italic
-\color red
-[12]
-\shape default
-\color inherit
- ).
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-14"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -2935,11 +2926,12 @@ name "fig:Diferencia-de-perspectiva"
 
 Diferencia de perspectiva entre la imagen en la camara (image plane) y el
  plano real (object plane), extraida de 
-\shape italic
-\color red
-[12]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-14"
+
+\end_inset
+
 .
 \end_layout
 
@@ -2956,41 +2948,23 @@ Diferencia de perspectiva entre la imagen en la camara (image plane) y el
 \begin_layout Standard
 Para llevar a cabo la rectificacion, se utilizan diferentes metodos, entre
  ellos el modelo de Transformada Lineal Directa (DTL) (
-\shape italic
-\color red
-[5]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-3"
+key "key-7"
 
 \end_inset
 
 ), solucion por minimos cuadrados (
-\shape italic
-\color red
-[5]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-3"
+key "key-7"
 
 \end_inset
 
 ) y metodos alternativos (
-\shape italic
-\color red
-[8]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-2"
+key "key-10"
 
 \end_inset
 
@@ -3049,15 +3023,9 @@ Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada
  por medio de algun algoritmo.
  Existen varios metodos utilizados para detectar los bordes, alguno de estos
  se pueden ver en 
-\shape italic
-\color red
-[9]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-4"
+key "key-11"
 
 \end_inset
 
@@ -3302,11 +3270,12 @@ no es unica y esta fuertemente ligada en como fue modificada la imagen en
  la etapa anterior y/o en la forma de representar los contornos detectados.
  A modo de ejemplo podemos mencionar distintos metodos utilizados, como
  el caso de 
-\shape italic
-\color red
-[6]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
  que utiliza una funcion de interpolacion y filtrado de contornos para eliminar
  puntos (o bordes) falsos.
  Para este trabajo se desarrollo un algoritmo simple con tal finalidad,
@@ -3605,20 +3574,28 @@ angulo de captura:
 \shape italic
 plano de captura
 \shape default
- (en el diagrama el angulo 
-\begin_inset Formula $\theta$
-\end_inset
-
-
+ (en el diagrama de la 
 \shape italic
+Figura
+\shape default
  
+\shape italic
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-2D-del"
 
 \end_inset
 
-).
+
+\shape default
+, el angulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\shape italic
+ ).
 \end_layout
 
 \begin_layout Standard
@@ -4562,11 +4539,12 @@ Se basa en una transformacion de perspectiva (por medio de una matriz de
 \end_inset
 
  
-\shape italic
-\color red
-[13]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-15"
+
+\end_inset
+
 ) sobre la imagen de entrada 
 \begin_inset Formula $I_{mn}$
 \end_inset
@@ -4584,11 +4562,12 @@ Se basa en una transformacion de perspectiva (por medio de una matriz de
 \end_inset
 
 , utilizando coordenadas homogeneas 
-\shape italic
-\color red
-[11]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-13"
+
+\end_inset
+
  de forma tal que las coordenadas origen 
 \begin_inset Formula $(i,j,1)$
 \end_inset
@@ -4806,15 +4785,9 @@ Este algoritmo, tambien conocido como
 Gaussian smoothing
 \shape default
  
-\shape italic
-\color red
-[14]
-\shape default
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-1"
+key "key-16"
 
 \end_inset
 
@@ -4944,9 +4917,13 @@ kernel
 \shape default
  (a derecha).
  Extraida de 
-\shape italic
-\color red
-[14]
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-16"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -5595,8 +5572,17 @@ Non-maximum suppression.
  Los pixels pertenecientes a los bordes fuertes se resaltan con un borde
  blanco.
  (extraida y modificada de 
-\color red
-[15]
+\shape default
+\color inherit
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-17"
+
+\end_inset
+
+
+\shape italic
 \color black
 )
 \end_layout
@@ -5676,13 +5662,9 @@ fuertes
 
 \begin_layout Standard
 En 
-\color red
-[15]
-\color inherit
-
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-2"
+key "key-17"
 
 \end_inset
 
@@ -6428,10 +6410,6 @@ http://fftwpp.sourceforge.net/
 
 \end_inset
 
-, 
-\color red
-agregar la de integrales
-\color black
 .
 \end_layout
 
@@ -6555,13 +6533,7 @@ GUI
 FFTW++
 \shape default
 \color inherit
- y 
-\shape italic
-\color red
-agregar la de inte
-\shape default
-\color inherit
- se utilizaron para el calculo y analisis de los datos obtenidos.
+ se utilizaro para el calculo y analisis de los datos obtenidos.
 \end_layout
 
 \begin_layout Subsection
@@ -7465,11 +7437,12 @@ Frame
 Observer
 \shape default
  en patrones de diseño 
-\shape italic
-\color red
-[16]
-\shape default
-\color inherit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-18"
+
+\end_inset
+
 .
 \end_layout
 
@@ -10007,27 +9980,6 @@ Esquema de la zona de captura y analizada por el sistema implementado en
 Mediciones y analisis de los resultados
 \end_layout
 
-\begin_layout Standard
-
-\shape italic
-\color red
-Agregar y explicar errores de cuando se captura por encima de la superficie
- (angulo 
-\begin_inset Formula $\theta$
-\end_inset
-
- de la camara).
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color red
-Agregar el error de cuando la ola se vuelve difusa (se mueve muy rapido
- la camara no detectar bien el contorno (probarlo con canny), y explicar
- el porque de esos picos derechos...
-\end_layout
-
 \begin_layout Subsubsection
 Que medimos?
 \end_layout
@@ -11259,14 +11211,21 @@ EN3
 \end_layout
 
 \begin_layout Standard
-En la 
+En las 
 \shape italic
-Figura
+Figuras
 \shape default
  
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparacion-de-los-2"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Espectros-calculados-para"
 
 \end_inset
 
@@ -11280,7 +11239,14 @@ Tabla
  
 \shape italic
 \color red
-re
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:comp_en3"
+
+\end_inset
+
+
 \shape default
 \color inherit
  se puede apreciar con mayor detalle esto.
@@ -11292,6 +11258,10 @@ placement H
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -11374,6 +11344,55 @@ Espectros asociado a los datos capturados por el sistema.
 
 
 \end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Espectros-calculados-para"
+
+\end_inset
+
+Espectros calculados para los datos obtenidos por ambos metodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parametros
+ 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 30 minutos (
+\series bold
+EN3
+\series default
+).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -11617,6 +11636,12 @@ sistema implementado
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:comp_en3"
+
+\end_inset
+
 Comparacion de los parametros 
 \begin_inset Formula $H_{s}$
 \end_inset
@@ -11651,6 +11676,1103 @@ EN3
 
 \end_layout
 
+\begin_layout Subsubsection
+EN4: Oleaje irregular de 5 minutos
+\end_layout
+
+\begin_layout Standard
+A diferencia del ensayo anterior de 5 minutos (
+\series bold
+EN2
+\series default
+), este se realizo con la camara en una posicion distinta (
+\shape italic
+Figura 
+\shape default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Posicion-2:-El"
+
+\end_inset
+
+) logrando mejores resultados como se los muestra a continuacion (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Superposicion-en4"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg5min_p2_datos.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Datos obtenidos durante los 5 minutos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg5min_p2_zoomed.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Datos obtenidos durante 38 segundos (del segundo 126 al 164).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Superposicion-en4"
+
+\end_inset
+
+Superposicion de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del olejae irregular con parametros 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 5 minutos (
+\series bold
+EN4
+\series default
+) con la camara ubicada a 
+\begin_inset Formula $90\; cm$
+\end_inset
+
+ del canal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede ver que los datos coinciden en su gran mayoria (donde la maxima
+ diferencia encontrada es de 0,0055 metros), además de que no se perciben
+ a grandes rasgos cambios abruptos como en los casos anteriores.
+ Si ahora observamos los espectros asociados a los datos (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparacion-de-los-1"
+
+\end_inset
+
+) podemos decir que se asemejan tanto en simetria como amplitud con un pequeño
+ defasaje sobre el eje 
+\begin_inset Formula $x$
+\end_inset
+
+ (en el espectro de 
+\shape italic
+JONSWAP
+\shape default
+ asociado a los datos capturados por el sistema en base al generado por
+ los datos del sensor resistivo) y de menor amplitud (causado por la diferencia
+ en los 
+\shape italic
+senos
+\shape default
+ detectados de las olas).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg5min_p2_esp.png
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparacion-de-los-1"
+
+\end_inset
+
+Espectros calculados para los datos obtenidos por ambos metodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parametros
+ 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 5 minutos (
+\series bold
+EN2
+\series default
+).
+ En verde (y negro) se observa el espectro resultado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+ respectivamente) de los datos capturados por el sensor resistivo mientras
+ que en rojo (y magenta) el espectro calculado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+) por el sistema.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la siguiente tabla (
+\shape italic
+Tabla
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:comp_en4"
+
+\end_inset
+
+) podemos observar nuevamente la similitud de los 3 valores de interes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features booktabs="true">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Metodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sensor resistivo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.042
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.024
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.987
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sistema implementado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.041
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.023
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.978
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:comp_en4"
+
+\end_inset
+
+Comparacion de los parametros 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ asociados a los datos capturados por el sistema implementado y el sensor
+ resistivo en el ensayo 
+\series bold
+EN4
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+EN5: Oleaje irregular de 30 minutos
+\end_layout
+
+\begin_layout Standard
+En este ensayo se simulo un oleaje irregular con parametros 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 30 minutos y posicionando la camara a unos 
+\begin_inset Formula $90\; cm$
+\end_inset
+
+ del canal (como lo muestra la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Posicion-2:-El"
+
+\end_inset
+
+).
+ A diferencia del ensayo anterior, se decidio modificar la configuracion
+ interna del algoritmo de deteccion de contornos (
+\shape italic
+Canny, capitulo
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Canny-edge-detector"
+
+\end_inset
+
+.
+ 
+\shape italic
+Canny edge detector
+\shape default
+) estableciendo valores de umbrales mas bajos de forma tal que la deteccion
+ sea mas sensible.
+ Los resultados obtenidos se muestran en la 
+\shape italic
+Figura
+\shape default
+ 
+\shape italic
+\color red
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Superposicion-en4-1"
+
+\end_inset
+
+
+\shape default
+\color inherit
+.
+ Se puede observar que a diferencia de 
+\series bold
+EN3 
+\series default
+(el otro ensayo de 30 minutos) se obtuvieron mejores resultados (con mayor
+ presicion) pero no asi en comparación al ensayo anterior (
+\series bold
+EN4
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_p2_datos.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Datos obtenidos durante los 30 minutos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_p2_zoomed.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Datos obtenidos durante 20 segundos (del segundo 840 al 900).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Superposicion-en4-1"
+
+\end_inset
+
+Superposicion de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del olejae irregular con parametros 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 30 minutos (
+\series bold
+EN5
+\series default
+) con la camara ubicada a 
+\begin_inset Formula $90\; cm$
+\end_inset
+
+ del canal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En las 
+\shape italic
+Figuras
+\shape default
+ 
+\shape italic
+\color red
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Espectros-calculados-para-1"
+
+\end_inset
+
+
+\shape default
+\color inherit
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Superposicion-de-los-1"
+
+\end_inset
+
+ se pueden observar los distintos espectros resultantes y en la 
+\shape italic
+Tabla
+\shape default
+ 
+\shape italic
+\color red
+ro
+\shape default
+\color inherit
+ los valores de los parametros de interes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30_p2_e1.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Espectro-calculado-por-3-1"
+
+\end_inset
+
+Espectros asociado a los datos capturados por el sensor resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_p2_e2.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Espectro-calculado-por-1-2-1"
+
+\end_inset
+
+Espectros asociado a los datos capturados por el sistema.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Espectros-calculados-para-1"
+
+\end_inset
+
+Espectros calculados para los datos obtenidos por ambos metodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parametros
+ 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 30 minutos (
+\series bold
+EN5
+\series default
+).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_p2_e12.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Superposicion-de-los-1"
+
+\end_inset
+
+Superposicion de los espectros de ambos metodos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparacion-de-los-2-1"
+
+\end_inset
+
+Espectros calculados para los datos obtenidos por ambos metodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parametros
+ 
+\begin_inset Formula $H_{s}=5\; cm$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{p}=1\; Hz$
+\end_inset
+
+ durante 30 minutos (
+\series bold
+EN5
+\series default
+).
+ En verde (y negro) se observa el espectro resultado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+ respectivamente) de los datos capturados por el sensor resistivo mientras
+ que en rojo (y magenta) el espectro calculado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+) por el sistema.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features booktabs="true">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Metodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sensor resistivo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.046
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.011
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sistema implementado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.047
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.024
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.966
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:comp_en4-1"
+
+\end_inset
+
+Comparacion de los parametros 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ asociados a los datos capturados por el sistema implementado y el sensor
+ resistivo en el ensayo 
+\series bold
+EN5
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -11668,6 +12790,27 @@ Consideraciones generales
 Aca vamos a poner lo relacionado con los errores que se pueden observar
  en los ensayos realziados y vamos a explicar en profundidad el porque y
  mostrarlos.
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Agregar y explicar errores de cuando se captura por encima de la superficie
+ (angulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+ de la camara).
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\color red
+Agregar el error de cuando la ola se vuelve difusa (se mueve muy rapido
+ la camara no detectar bien el contorno (probarlo con canny), y explicar
+ el porque de esos picos derechos...
 \end_layout
 
 \begin_layout Standard
@@ -11815,45 +12958,150 @@ Probar y comparar diferentes algoritmos utilizados en las distintas etapas
  etc).
 \end_layout
 
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Bradski08"
-key "key-1"
-
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
-Bradski, Gary & Kaehler, Adrian.
- 
-\begin_inset Quotes eld
-\end_inset
 
-Learning OpenCV: Computer Vision with the OpenCV Library
-\begin_inset Quotes erd
-\end_inset
-
-.
- 2008.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-7"
+key "key-2"
 
 \end_inset
 
+
+\lang english
 www.horusvideo.com
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Brady07"
-key "key-1"
+key "key-3"
 
 \end_inset
 
+
+\lang english
+Robert M.
+ Sorensen, 
+\begin_inset Quotes eld
+\end_inset
+
+Basic Coastal Engineering
+\begin_inset Quotes eld
+\end_inset
+
+ (Third Edition), Department of Civil and Environmental Engineering, Lehigh
+ University, Bethlehem, Pennsylvania, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+
+\lang english
+Robert G.
+ Dean, Robert A.
+ Dalrymple, 
+\begin_inset Quotes eld
+\end_inset
+
+Water Wave Mechanics for Engineers and Scientists
+\begin_inset Quotes erd
+\end_inset
+
+, Prentice-Hall, Inc.
+ Englewwod Cliffs, New Jersey 07632.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+
+\lang english
+G.I.O.C., 
+\begin_inset Quotes eld
+\end_inset
+
+Documento de referencia, Volumen 1: Dinámicas
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\color red
+www.smc.unican.es
+\color inherit
+, Universidad de Cantabria, 2000.
+\end_layout
+
+\begin_layout Bibliography
+
+\lang english
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+Ricardo V.
+ Petroni, 
+\begin_inset Quotes eld
+\end_inset
+
+Hidráulica marĩtima y de estuarios
+\begin_inset Quotes erd
+\end_inset
+
+, Dunken, Buenos Aires, 2005.
+\end_layout
+
+\begin_layout Bibliography
+
+\lang english
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+
+\lang spanish
+Perez Muñoz, Juan C.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Optimización no lineal y calibración de cámaras fotográficas
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Medellín, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+
+\lang english
+Medellín, 2009.
+\lang spanish
 P.D.M.
  Brady , M.
  Boutounet and S.
@@ -11873,8 +13121,19 @@ Free Surface Monitoring Using Image Processing
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Zhang"
-key "key-2"
+key "key-9"
+
+\end_inset
+
+http://hdl.handle.net/2099.1/5945, Cap.
+ 5.
+ Procesado de Imágenes.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-10"
 
 \end_inset
 
@@ -11894,29 +13153,7 @@ Image Rectification: Remove Projective and Affine Distortions
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Perez09"
-key "key-3"
-
-\end_inset
-
-Perez Muñoz, Juan C.
- 
-\begin_inset Quotes eld
-\end_inset
-
-Optimización no lineal y calibración de cámaras fotográficas
-\begin_inset Quotes erd
-\end_inset
-
-.
- Medellín, 2009.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Nader08"
-key "key-4"
+key "key-11"
 
 \end_inset
 
@@ -11937,8 +13174,28 @@ Edge Detection Techniques: Evaluations and Comparisons
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "BaTra"
-key "key-1"
+key "key-12"
+
+\end_inset
+
+Ing.
+ Francisco J.
+ Sánchez R., 
+\begin_inset Quotes eld
+\end_inset
+
+Medicion y Analisis de las Variaciones en el Nivel de un Modelo Físico Empleando
+ Imágenes
+\begin_inset Quotes erd
+\end_inset
+
+, Universidad Autonoma Metropolinata Unidad Azcapotzalco, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-13"
 
 \end_inset
 
@@ -11954,35 +13211,65 @@ Transformaciones geométricas sobre imágenes digitales
 
 .
  Universidad Distrital Francisco José de Caldas.
- 
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Rob11"
-key "key-1"
+key "key-14"
 
 \end_inset
 
-Robert Laganière.
- 
+Gary Bradski, Adrian Kaehler, 
 \begin_inset Quotes eld
 \end_inset
 
-OpenCV 2 Computer Vision Application Programming Cookbook
+Learning OpenCV: Computer Vision with the OpenCV Library
 \begin_inset Quotes erd
 \end_inset
 
-.
- 2011
+, O'Reilly, September 2008.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Gam94"
-key "key-1"
+key "key-15"
+
+\end_inset
+
+Christopher R.
+ Wren, http://alumni.media.mit.edu/~cwren/interpolator/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-16"
+
+\end_inset
+
+"UNIVERSITY OF EDIMBURGH SCHOOL OF INFORMATIC".
+ http://www.inf.ed.ac.uk/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-17"
+
+\end_inset
+
+
+\lang english
+Canny Edge Detection.
+ 09gr820, March 23, 2009 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-18"
 
 \end_inset
 
@@ -12002,59 +13289,11 @@ Design Patterns: Elements of Reusable Object Oriented Software
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "UnEdi"
-key "key-1"
+key "key-19"
 
 \end_inset
 
-"UNIVERSITY OF EDIMBURGH SCHOOL OF INFORMATIC".
- http://www.inf.ed.ac.uk/
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "canny"
-key "key-2"
-
-\end_inset
-
-
-\shape italic
-\color red
-
-\begin_inset Quotes erd
-\end_inset
-
-Canny Edge Detection
-\begin_inset Quotes erd
-\end_inset
-
-.
- 09gr820, March 23, 2009
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-6"
-
-\end_inset
-
-
-\shape italic
-\color red
-http://en.wikipedia.org/wiki/Convolution
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-si no lo podemos encontrar tmb en UnEdi
-\end_layout
-
-\end_inset
-
-
+http://www.seafriends.org.nz/oceano/waves.htm
 \end_layout
 
 \end_body

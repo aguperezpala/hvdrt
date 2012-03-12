@@ -277,6 +277,9 @@ void CurveData::calculateH(const QVector<double> &xs,
 					accumH += aux;
 					++numWaves;
 					max = (max > aux) ? max : aux;
+				} else {
+					aux = std::abs(cresta) + std::abs(seno);
+					max = (max > aux) ? max : aux;
 				}
 			}
 
@@ -295,6 +298,9 @@ void CurveData::calculateH(const QVector<double> &xs,
 					aux = std::abs(cresta) + std::abs(seno);
 					accumH += aux;
 					++numWaves;
+					max = (max > aux) ? max : aux;
+				} else {
+					aux = std::abs(cresta) + std::abs(seno);
 					max = (max > aux) ? max : aux;
 				}
 			}
