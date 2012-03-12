@@ -79,7 +79,7 @@ void DataAnalyzeWindow::configurePlots(void)
 
 	// Spectral Plot
 	spectralPlot->setAxisTitle(QwtPlot::xBottom, "Frecuencia");
-	spectralPlot->setAxisTitle(QwtPlot::yLeft, "Espectro");
+	spectralPlot->setAxisTitle(QwtPlot::yLeft, "Espectro (unidades^2/Hz)");
 	mSecondGird.attach(spectralPlot);
 
 	 // panning with the left mouse button
@@ -200,10 +200,14 @@ void DataAnalyzeWindow::fillAdditionalInfo(CurveData &c)
 	QString h = QString::number(c.getH());
 	QString hs = QString::number(c.getHs());
 	QString tp = QString::number(c.getTp());
+	QString hmax = QString::number(c.getHmax());
+	QString numW = QString::number(c.getNumwaves());
 
 	ui.hsLabel->setText(hs);
 	ui.hLabel->setText(h);
 	ui.tpLabel->setText(tp);
+	ui.hmax_label->setText(hmax);
+	ui.numWaves_label->setText(numW);
 
 }
 

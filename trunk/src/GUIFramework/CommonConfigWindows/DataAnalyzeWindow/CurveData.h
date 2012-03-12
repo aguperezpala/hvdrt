@@ -55,7 +55,10 @@ public:
 
 	// Returns the different fields
 	double getHs(void) const {return mHs;}
+	double getHmax(void) const {return mHmax;}
 	double getH(void) const {return mH;}
+	int getNumwaves(void) const {return mNumWaves;}
+
 	double getTp(void) const {return mTp;}
 
 	// get maximums / minimums
@@ -161,6 +164,8 @@ private:
 	double			mFp;
 	double			mHs;
 	double 			mH;
+	double 			mHmax;
+	int				mNumWaves;
 	double			mTp;
 	QwtPlotCurve	mCurve;
 	QwtPlotCurve	mSpectralCurve;

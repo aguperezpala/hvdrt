@@ -1874,9 +1874,6 @@ A=\frac{2\sqrt{Re(X_{k})^{2}+Im(X_{k})^{2}}}{N+1}\end{equation}
 \end_inset
 
 
-\shape italic
-\color red
-preguntar a paolo si este N+1 esta bien (eso tengo en el soft)...
 \end_layout
 
 \begin_layout Standard
@@ -9120,7 +9117,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img_pala_mecanica.png
-	width 50page%
+	width 40page%
 
 \end_inset
 
@@ -10411,8 +10408,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="3">
-<features>
+<lyxtabular version="3" rows="3" columns="3">
+<features booktabs="true">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
@@ -10421,7 +10418,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-as
+Metodo
 \end_layout
 
 \end_inset
@@ -10430,7 +10427,10 @@ as
 \begin_inset Text
 
 \begin_layout Plain Layout
-ds
+\begin_inset Formula $H$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -10439,7 +10439,7 @@ ds
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H_{s}$
+\begin_inset Formula $f_{p}$
 \end_inset
 
 
@@ -10449,29 +10449,58 @@ ds
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-as
+sensor resistivo
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-d
+0.051
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-as
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sistema implementado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.041
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.984
 \end_layout
 
 \end_inset
@@ -10518,11 +10547,11 @@ EN1
 \end_layout
 
 \begin_layout Subsubsection
-Oleaje irregular de 5 minutos
+EN2: Oleaje irregular de 5 minutos
 \end_layout
 
 \begin_layout Standard
-En este ensayo se simulo un oleaje irregular con parametros 
+Para este ensayo se simulo un oleaje irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -10530,15 +10559,13 @@ En este ensayo se simulo un oleaje irregular con parametros
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 5 minutos donde se obtuvieron datos 
-\begin_inset Quotes eld
-\end_inset
-
-crudos
-\begin_inset Quotes erd
-\end_inset
-
- que se muestran en la figura 
+ durante 5 minutos por medio de la pala mecanica.
+ Los datos capturados de la altura de ola por ambos metodos (sistema implementad
+o y sensor resistivo) se muestran en la 
+\shape italic
+Figura
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Datos-crudos-capturados-1"
@@ -10551,17 +10578,27 @@ reference "fig:Datos-crudos-capturados-1"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/irreg_5min_pos1_crudos.png
+	lyxscale 50
+	width 55page%
+
+\end_inset
+
 
 \end_layout
 
@@ -10575,7 +10612,7 @@ name "fig:Datos-obtenidos-por-2"
 
 \end_inset
 
-Datos obtenidos por el sensor resistivo.
+Datos obtenidos durante los 5 minutos.
 \end_layout
 
 \end_inset
@@ -10589,12 +10626,21 @@ Datos obtenidos por el sensor resistivo.
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/irreg_5min_pos1_zoom.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
 
 \end_layout
 
@@ -10608,7 +10654,7 @@ name "fig:Datos-obtenidos-por-3"
 
 \end_inset
 
-Datos obtenidos por el sistema.
+Datos obtenidos durante 50 segundos (segundo 28 al 48 aproximadamente).
 \end_layout
 
 \end_inset
@@ -10626,6 +10672,7 @@ Datos obtenidos por el sistema.
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -10635,8 +10682,8 @@ name "fig:Datos-crudos-capturados-1"
 
 \end_inset
 
-Datos crudos capturados por el sistema y los sensores del laboratorio de
- un olejae irregular con parametros 
+Superposicion de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del olejae irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -10644,7 +10691,11 @@ Datos crudos capturados por el sistema y los sensores del laboratorio de
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 5 minutos.
+ durante 5 minutos (
+\series bold
+EN2
+\series default
+).
 \end_layout
 
 \end_inset
@@ -10658,67 +10709,83 @@ Datos crudos capturados por el sistema y los sensores del laboratorio de
 \end_layout
 
 \begin_layout Standard
-En la figura 
+Como se puede observar (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Datos-obtenidos-por-3"
+
+\end_inset
+
+), en la gran mayoria de de los 
+\shape italic
+senos
+\shape default
+ (parte inferior) de las olas, el sistema implementado difiere bastante
+ (hasta 0,0153 metros aproximadamente en algunos casos) con respecto al
+ obtenido por el sensor resistivo.
+ Por otro lado se puede ver la presencia de pequeños arcos a lo largo de
+ la linea roja del grafico, esto es otro problema el cual se detalla en
+ el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Consideraciones-generales"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por otro lado (
+\shape italic
+Figura
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparacion-de-los"
 
 \end_inset
 
- se muestran los espectros obtenidos por el sensor resistivo (figura 
+) se comparan los espectros obtenidos por el sensor resistivo y por el sistema.
+ Claramente se puede observar (a travez del espectro de 
+\shape italic
+JONSWAP
+\shape default
+) que por un lado la simetria de ambos espectros se asemeja, pero que el
+ asociado a los datos obtenidos por el sistema implementado es inferior
+ al del obtenido por los del sensor resistivo (como se lo percibe en la
+ 
+\shape italic
+Figura
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Espectro-calculado-por"
+reference "fig:Datos-obtenidos-por-3"
 
 \end_inset
 
-) y por el sistema (figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Espectro-calculado-por-1"
-
-\end_inset
-
-).
- Como se puede observar 
-\color red
-aca tenemos que poner la comparacion y sobretodo que valores queremos comparar
- (Hs, Tp, Fp...).
+ en donde las ondas capturadas por el sensor resistivo poseen una mayor
+ amplitud que las capturadas por el sistema).
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Espectro-calculado-por"
-
-\end_inset
-
-Espectro calculado por el sensor resistivo.
-\end_layout
-
-\end_inset
-
-
-\end_layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/irreg_5min_pos1_espectro.png
+	width 55page%
 
 \end_inset
 
@@ -10726,39 +10793,6 @@ Espectro calculado por el sensor resistivo.
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Espectro-calculado-por-1"
-
-\end_inset
-
-Espectro calculado por el sistema.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -10772,139 +10806,9 @@ name "fig:Comparacion-de-los"
 
 \end_inset
 
-Comparacion de los espectros calculados por ambos metodos del oleaje irregular
- con parametros 
-\begin_inset Formula $H_{s}=5\; cm$
-\end_inset
-
- y 
-\begin_inset Formula $f_{p}=1\; Hz$
-\end_inset
-
- durante 5 minutos.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Este mismo ensayo se realizo posicionando la camara unos 
-\color red
-15 cm
-\color inherit
- (aproximadamente) mas alejado del canal, en la figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Datos-crudos-obtenidos"
-
-\end_inset
-
- se pueden observar los datos crudos obtenidos mientras que en la figura
+Espectros calculados para los datos obtenidos por ambos metodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parametros
  
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Comparacion-de-los-1"
-
-\end_inset
-
- se observan los distintos espectros obtenidos.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-obtenidos-por-4"
-
-\end_inset
-
-Datos obtenidos por el sensor resistivo.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-obtenidos-por-5"
-
-\end_inset
-
-Datos obtenidos por el sistema.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Datos-crudos-obtenidos"
-
-\end_inset
-
-Datos crudos obtenidos por el sistema y el sensor resistivo para un oleaje
- irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -10912,15 +10816,25 @@ Datos crudos obtenidos por el sistema y el sensor resistivo para un oleaje
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 5 minutos con la camara posicionada a una distancia mayor.
+ durante 5 minutos (
+\series bold
+EN2
+\series default
+).
+ En verde (y negro) se observa el espectro resultado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+ respectivamente) de los datos capturados por el sensor resistivo mientras
+ que en rojo (y magenta) el espectro calculado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+) por el sistema.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -10930,88 +10844,189 @@ Datos crudos obtenidos por el sistema y el sensor resistivo para un oleaje
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
+Se calcularon ademas los parametros de interes (
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+) asociados al oleaje capturado por ambos metodos, como se lo muestra en
+ la siguiente tabla:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features booktabs="true">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Metodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sensor resistivo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.040
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.024
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.974
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sistema implementado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.034
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.975
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Espectro-calculado-por-2"
-
+Comparacion de los parametros 
+\begin_inset Formula $H_{s}$
 \end_inset
 
-Espectro calculado por el sensor resistivo.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Espectro-calculado-por-1-1"
-
-\end_inset
-
-Espectro calculado por el sistema.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Comparacion-de-los-1"
-
-\end_inset
-
-Comparacion de los espectros calculados por ambos metodos del oleaje irregular
- con parametros 
-\begin_inset Formula $H_{s}=5\; cm$
+, 
+\begin_inset Formula $H$
 \end_inset
 
  y 
-\begin_inset Formula $f_{p}=1\; Hz$
+\begin_inset Formula $T_{p}$
 \end_inset
 
+ asociados a los datos capturados por el sistema implementado y el sensor
+ resistivo en el ensayo 
+\series bold
+EN2
+\series default
 .
 \end_layout
 
@@ -11020,25 +11035,46 @@ Comparacion de los espectros calculados por ambos metodos del oleaje irregular
 
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Claramente se observa una gran diferencia entre las alturas de olas calculadas
+ (
+\begin_inset Formula $H$
+\end_inset
+
+), mientras que el periodo de pico (
+\begin_inset Formula $T_{p}$
+\end_inset
+
+) se asemeja bastante.
 \end_layout
 
 \begin_layout Subsubsection
-Oleaje irregular de 30 minutos
+EN3: Oleaje irregular de 30 minutos
 \end_layout
 
 \begin_layout Standard
-En este ensayo se puso el sistema a prueba para observar si podia realizar
- muestras durante un largo periodo de tiempo 
-\color red
-(que con los otros metodos esto no era viable debido a la cantidad de memoria
- requerida para almacenar todas las imagenes capturadas para luego ser procesada
-s)
-\color inherit
-.
- Se simulo un oleaje irregular con parametros 
+En general, los ensayos realizados en ingenieria (y en el laboroatorio)
+ duran alrededor de los 30 minutos.
+ Con este ensayo se puso a prueba la factibilidad de capturar durante un
+ periodo relativamente prolongado de tiempo la altura de ola, debido a que
+ otras tecnicas anteriormente utilizados en el laboratorio no eran capaces
+ de hacerlo por falta de memoria o velocidad de computo (solo se lograba
+ realizar un video de 10 minutos con su posterior procesamiento de apeoximadamen
+te unos 30 minutos).
+ 
+\end_layout
+
+\begin_layout Standard
+Para este ensayo (oleaje irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -11046,7 +11082,10 @@ s)
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 30 minutos donde se obtuvieron los datos mostrados en la figura
+ y duracion de 30 minutos) se capturaron los datos mostrados en la 
+\shape italic
+Figura
+\shape default
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11055,20 +11094,67 @@ reference "fig:Datos-crudos-capturados-1-1"
 \end_inset
 
 .
+ A grandes rasgos se puede ver que nuevamente los 
+\shape italic
+senos
+\shape default
+ (parte inferior de las olas) difieren en gran medida (los datos obtenidos
+ con el sistema son menores que los del sensor resistivo).
+ Ademas se puede observar (
+\shape italic
+Figura
+\shape default
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Datos-obtenidos-por-3-1"
+
+\end_inset
+
+) la existencia de cambios repentinos de una 
+\shape italic
+cresta
+\shape default
+ (parte superior de la ola) a un 
+\shape italic
+sen
+\shape default
+o cerca del segundo 17.5 causado por una erronea deteccion de la altura de
+ ola (explicado en el capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Consideraciones-generales"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30_pos1_datos.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption
@@ -11080,7 +11166,7 @@ name "fig:Datos-obtenidos-por-2-1"
 
 \end_inset
 
-Datos obtenidos por el sensor resistivo.
+Datos obtenidos durante los 30 minutos.
 \end_layout
 
 \end_inset
@@ -11094,10 +11180,23 @@ Datos obtenidos por el sensor resistivo.
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30_pos1_zoomed.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption
@@ -11109,7 +11208,7 @@ name "fig:Datos-obtenidos-por-3-1"
 
 \end_inset
 
-Datos obtenidos por el sistema.
+Datos obtenidos durante los 30 primeros segundos.
 \end_layout
 
 \end_inset
@@ -11123,6 +11222,7 @@ Datos obtenidos por el sistema.
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -11132,8 +11232,8 @@ name "fig:Datos-crudos-capturados-1-1"
 
 \end_inset
 
-Datos crudos capturados por el sistema y los sensores del laboratorio de
- un olejae irregular con parametros 
+Superposicion de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del olejae irregular con parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -11141,7 +11241,11 @@ Datos crudos capturados por el sistema y los sensores del laboratorio de
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 30 minutos.
+ durante 30 minutos (
+\series bold
+EN3
+\series default
+).
 \end_layout
 
 \end_inset
@@ -11155,20 +11259,36 @@ Datos crudos capturados por el sistema y los sensores del laboratorio de
 \end_layout
 
 \begin_layout Standard
-Por otro lado se puede observar que los espectros calculados (figura 
+En la 
+\shape italic
+Figura
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparacion-de-los-2"
 
 \end_inset
 
-) 
+ se muestran los respectivos espectros, donde se observa por medio del espectro
+ de JONSWAP una diferencia mayor que los ensayos anteriores en la simetria
+ y altura del mismo.
+ Por medio de los parametros mostrados en la 
+\shape italic
+Tabla
+\shape default
+ 
+\shape italic
 \color red
-(completar aca con la info comparativa y lo que haya que poner).
+re
+\shape default
+\color inherit
+ se puede apreciar con mayor detalle esto.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -11178,6 +11298,18 @@ status open
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_p1_e1.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption
@@ -11189,7 +11321,7 @@ name "fig:Espectro-calculado-por-3"
 
 \end_inset
 
-Espectro calculado por el sensor resistivo.
+Espectros asociado a los datos capturados por el sensor resistivo.
 \end_layout
 
 \end_inset
@@ -11209,6 +11341,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_p1_e2.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -11218,11 +11362,56 @@ name "fig:Espectro-calculado-por-1-2"
 
 \end_inset
 
-Espectro calculado por el sistema.
+Espectros asociado a los datos capturados por el sistema.
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/img_irreg30min_pos1_espectros.png
+	lyxscale 80
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Superposicion-de-los"
+
+\end_inset
+
+Superposicion de los espectros de ambos metodos.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -11241,8 +11430,9 @@ name "fig:Comparacion-de-los-2"
 
 \end_inset
 
-Comparacion de los espectros calculados por ambos metodos del oleaje irregular
- con parametros 
+Espectros calculados para los datos obtenidos por ambos metodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parametros
+ 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -11250,11 +11440,209 @@ Comparacion de los espectros calculados por ambos metodos del oleaje irregular
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 30 minutos.
+ durante 30 minutos (
+\series bold
+EN3
+\series default
+).
+ En verde (y negro) se observa el espectro resultado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+ respectivamente) de los datos capturados por el sensor resistivo mientras
+ que en rojo (y magenta) el espectro calculado (y espectro de 
+\shape italic
+JONSWAP
+\shape default
+) por el sistema.
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features booktabs="true">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Metodo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sensor resistivo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.040
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.023
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.011
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sistema implementado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.033
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.015
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.973
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Comparacion de los parametros 
+\begin_inset Formula $H_{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ asociados a los datos capturados por el sistema implementado y el sensor
+ resistivo en el ensayo 
+\series bold
+EN3
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
