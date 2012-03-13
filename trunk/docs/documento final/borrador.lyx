@@ -1219,15 +1219,7 @@ name "fig:Señal-de-un"
 
 \end_inset
 
-Señal de un oleaje irregular (
-\color red
-tenemos que poner ref aca
-\color inherit
-, 
-\color red
-de donde salio esta imagen? es esta la imagen que decis paolo?
-\color inherit
-).
+Señal de un oleaje irregular.
 \end_layout
 
 \end_inset
@@ -1668,13 +1660,7 @@ Transformadas de Fourier
 \begin_inset Formula $a_{0}=valor\; medio$
 \end_inset
 
- se lo considera nulo por comodidad (
-\shape italic
-\color red
-porque es comodo?
-\shape default
-\color inherit
-), con lo que la 
+ se lo considera nulo por comodidad, con lo que la 
 \shape italic
 \color black
 ecuacion
@@ -1838,13 +1824,6 @@ key "key-5"
 
 \end_inset
 
- 
-\shape italic
-\color red
-toda esta info del documento de Fourier que me hiciste paolo, salio del
- G.I.O.C?
-\shape default
-\color inherit
 ):
 \end_layout
 
@@ -12797,7 +12776,280 @@ Angulo y posicion de captura
 \end_layout
 
 \begin_layout Standard
-Uno de los posibles problemas encontrados 
+Uno de los posibles errores a la hora de detectar la altura de la superficie
+ libre se debe a la posicion y angulo de la camara con respecto al nivel
+ en reposo del fluido en el canal.
+ Como se señalo anteriormente, los primeros ensayos se realizaron en la
+ posicion P1 (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Posicion-1:-El"
+
+\end_inset
+
+), en donde la lente de la camara se casi a la altura de la superficie libre
+ (en reposo).
+ Cuando la pala mecanica comienza a producir el oleaje a medir, la superficie
+ libre se desplaza por encima y por debajo del punto de reposo (como lo
+ indican las flechas de la figura).
+ En el momento en el que la superficie libre se encuentra por debajo de
+ la altura del lente de la camara (flecha hacia abajo o 
+\begin_inset Formula $-h$
+\end_inset
+
+), se produce un efecto no deseado que es la captura de la superficie del
+ fluido a lo largo del ancho del canal, la cual genera reflejos e introduce
+ ruido a la hora de detectar los contornos de la ola.
+\end_layout
+
+\begin_layout Standard
+En la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Altura-de-la"
+
+\end_inset
+
+, se muestra por encima la imagen capturada por la camara de video antes
+ de ser procesada, y por debajo luego de ser procesada y aplicado el algoritmo
+ de deteccion de contornos (
+\shape italic
+Canny
+\shape default
+).
+ Esta figura hace referencia a la altura de ola por encima del nivel de
+ reposo donde se captura de forma correcta.
+ En cambio, en la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Altura-de-la-1"
+
+\end_inset
+
+, se puede observar el otro caso, en donde la superficie del fluido esta
+ por debajo y donde se puede observar el ruido introducido en la deteccion
+ de contornos, donde se ve una doble linea con trozos de bordes entre las
+ mismas provenientes del reflejo mencionado anteriormente.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_pos_captura_1.png
+	lyxscale 80
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Altura-de-la"
+
+\end_inset
+
+Errores introducidos por la posicion y angulo de la camara a la hora de
+ detectar los contornos de la superficie libre.
+ Altura de la superficie libre por encima del lente de la camara.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_pos_captura_2.png
+	lyxscale 80
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Altura-de-la-1"
+
+\end_inset
+
+Errores introducidos por la posicion y angulo de la camara a la hora de
+ detectar los contornos de la superficie libre.
+ Altura de la superficie libre por debajo del lente de la camara.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta situacion (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Altura-de-la-1"
+
+\end_inset
+
+), en donde se detecta una 
+\begin_inset Quotes eld
+\end_inset
+
+doble superficie
+\begin_inset Quotes erd
+\end_inset
+
+ puede generar una falsa deteccion de la altura de ola (mas especificamente
+ el 
+\shape italic
+seno
+\shape default
+ o parte inferior de la ola) dando como resultado una altura menor a la
+ real como se lo puede ver en la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Errores-(remarcados-en-1"
+
+\end_inset
+
+.
+ Se puede observar que las 
+\shape italic
+crestas
+\shape default
+ de las olas son detectadas correctamente mientras que los 
+\shape italic
+senos
+\shape default
+ no.
+ En este caso se puede deducir que la posicion del lente de la camara se
+ encuentra aproximadamente a la altura del borde superior de cada uno de
+ los rectangulos azules, que es el punto donde los datos comienzan a diferenciar
+se.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_pos_captura_resultado.png
+	lyxscale 80
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Errores-(remarcados-en-1"
+
+\end_inset
+
+Errores (remarcados en azul) introducidos por la posicion y angulo de la
+ camara a la hora de detectar los contornos de la superficie libre cuando
+ la altura de la superficie libre se encuentra por debajo del lente de la
+ camara.
+ En rojo se muestra los datos capturados por el sistema implementado mientras
+ que en verde los del sensor resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Claramente esto fue lo que sucedio en todos los ensayos realizados con la
+ camara ubicada en la posicion P1 (estos fueron 
+\series bold
+EN1
+\series default
+, 
+\series bold
+EN2
+\series default
+, 
+\series bold
+EN3
+\series default
+).
 \end_layout
 
 \begin_layout Standard
@@ -13152,17 +13404,30 @@ Posibles puntos detectados por el sistema (P1, P2, los cuales se encuentran
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Si analizamos mas de cerca estos errores podemos observar que en 1
+Las consecuencias de la primera situacion (1) antes descripta se las puede
+ observar en la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Errores-(remarcados-en-1"
+
+\end_inset
+
+, donde los datos devueltos por el sistema (altura de ola) estan graficados
+ en rojo.
+ Se puede ver que existen zonas (en azul) donde la altura permanece constante,
+ esto es debido a que al no encontrar el contorno de la superficie libre,
+ el sistema devuelve la ultima altura de ola detectada.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -13187,6 +13452,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Errores-(remarcados-en"
+
+\end_inset
+
 Errores (remarcados en azul) causados por la imposibilidad de detectar la
  superficie libre, en donde el sistema devuelve durante cierto tiempo la
  altura de ola detectada en la captura anterior.
@@ -13209,17 +13480,275 @@ Errores (remarcados en azul) causados por la imposibilidad de detectar la
 \end_layout
 
 \begin_layout Standard
-Un problema que surge en conjunto con las condiciones del entorno (luz,
- contraste de la superficie libre, etc) 
+Por otro lado podemos analizar (2), la cual a su vez se puede dividir en
+ dos situaciones mas: a) Cuando la nueva altura de ola detectada (el P2
+ mencionado anteriormente) es un contorno 
+\begin_inset Quotes eld
+\end_inset
+
+fijo
+\begin_inset Quotes erd
+\end_inset
+
+ que se mantiene a lo largo de todas las imagenes (por ejemplo un borde
+ del canal el cual en cada imagen procesada siempre se detecta el mismo
+ contorno); o b) cuando el nuevo P2 detectado pertenece algun contorno no
+ 
+\begin_inset Quotes eld
+\end_inset
+
+fijo
+\begin_inset Quotes erd
+\end_inset
+
+ y por ende puede aparecer y desaparecer a lo largo de las imagenes procesadas
+ (como por ejemplo reflejos de luces momentaneos sobre el vidrio del canal,
+ o particulas en el fluido, etc).
+ 
 \end_layout
 
 \begin_layout Standard
+Para el primer caso (a), se puede detectar casi al comienzo del ensayo,
+ ya que en estos casos, si sucede, el algoritmo es incapaz de salir de ese
+ contorno (por como fue implementado), y por ende, siempre se devuelve la
+ misma altura de ola (que es el contorno fijo mencionado).
+ Por suerte, esta circunstancia se puede prevenir facilmente.
+\end_layout
 
+\begin_layout Standard
+La segunda situacion (b), aunque en general no sucede, es mas dificil de
+ evitar.
+ En la 
+\shape italic
+Figura
+\shape default
+ 
 \shape italic
 \color red
-Agregar el error de cuando la ola se vuelve difusa (se mueve muy rapido
- la camara no detectar bien el contorno (probarlo con canny), y explicar
- el porque de esos picos derechos...
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-(remarcado-en"
+
+\end_inset
+
+
+\shape default
+\color inherit
+ se obvserva como hay un cambio un salto abrupto en la continuidad de los
+ datos obtenidos, debido a la falla en la deteccion de la altura de ola
+ y en donde se detecto un contorno 
+\begin_inset Quotes eld
+\end_inset
+
+temporal
+\begin_inset Quotes erd
+\end_inset
+
+ ubicado en el vertice del arco remarcado.
+ Como se puede ver además, en la siguiente ola detectada (a la derecha)
+ este error no sucede nuevamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_vel_captura_err2.png
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-(remarcado-en"
+
+\end_inset
+
+Error (remarcado en azul) causado por la imposibilidad de detectar la superficie
+ libre, en donde el sistema devuelve la altura mas cercana al ultimo punto
+ detectado.
+ En rojo se observa los datos tomados por el sistema implementado y en verde
+ los obtenidos por el sensor resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Claramente ambos casos (1 y 2), generan grandes diferencias en los valores
+ capturados por el sistema implementado en comparacion con los obtenidos
+ por el sensor resistivo.
+ Una posible situacion que solventa estos errores es la disminucion de los
+ valores umbrales utilizados en el algoritmo de 
+\shape italic
+Canny
+\shape default
+.
+ En la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-(remarcado-en-1-1"
+
+\end_inset
+
+, (la cual es la misma que la imagen superior de la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparacion-del-segundo"
+
+\end_inset
+
+ luego de aplicar el algoritmo de 
+\shape italic
+Canny
+\shape default
+) se puede ver que la zona (remarcada en rojo) que anteriormente no se detectaba
+ la superficie libre en este caso si lo hace, pero como con una especie
+ de interferencia (no es una linea continua como se lo observa a la izquierda
+ del sensor en la imagen).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_vel_cap_ruido.png
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-(remarcado-en-1-1"
+
+\end_inset
+
+Interferencia en la deteccion de la superficie libre generada a causa de
+ la utilizacion de valores bajos en los umbrales del algoritmo de 
+\shape italic
+Canny
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta interferencia varia mucho a lo largo que la ola se translada generando
+ un cambio brusco en los valores de la altura de la superficie libre detectada
+ por el sistema.
+ En la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-(remarcado-en-1"
+
+\end_inset
+
+ se puede observar el resultado de tal situacion.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_vel_captura_err_noise.png
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-(remarcado-en-1"
+
+\end_inset
+
+Errores (remarcados en azul) causado por los bajos valores de los umbrales
+ del algoritmo de Canny utilizados para solventar el problema de deteccion
+ de la superficie libre en movimiento.
+ En rojo se observa los datos tomados por el sistema implementado y en verde
+ los obtenidos por el sensor resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -13227,7 +13756,74 @@ Superficie libre
 \end_layout
 
 \begin_layout Standard
-explicamos el 2ble borde de la superficie libre
+Otro inconveniente que se pudo observar es el hecho de la doble linea (doble
+ contorno) que se detecta al capturar la altura de la superficie libre como
+ lo indica la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Doble-contorno-detectado"
+
+\end_inset
+
+.
+ En la imagen superior se muestra la imagen capturada por la camara de video,
+ en la inferior el resultado de aplicar sobre la primera el algoritmo de
+ deteccion de contornos (
+\shape italic
+Canny
+\shape default
+).
+ Este tipo de situacion genera en algunos casos (cuando el movimiento de
+ la ola es muy rapido/brusco) un error similar al planteado en el subcapitulo
+ anterior, en donde los 2 bordes pueden ser no detectados de forma intercalada
+ (primero se detecta uno y luego el otro) generando pequeños saltos (que
+ en este caso son de aproximadamente 4 mm) en los datos capturados y por
+ ende en la altura de ola resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_superficie_libre.png
+	width 55page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Doble-contorno-detectado"
+
+\end_inset
+
+Doble contorno detectado de la superficie libre.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
