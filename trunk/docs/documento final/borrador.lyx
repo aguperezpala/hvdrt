@@ -62,14 +62,13 @@ Universidad Nacional de Córdoba
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/escudo.png
+	filename imagenes/escudo.jpg
+	lyxscale 30
 	width 20page%
 
 \end_inset
 
 
-\color red
-sacar mouse de imagen
 \end_layout
 
 \begin_layout Standard
@@ -12762,15 +12761,6 @@ name "sub:Consideraciones-generales"
 Consideraciones generales
 \end_layout
 
-\begin_layout Standard
-
-\shape italic
-\color red
-Aca vamos a poner lo relacionado con los errores que se pueden observar
- en los ensayos realziados y vamos a explicar en profundidad el porque y
- mostrarlos.
-\end_layout
-
 \begin_layout Subsubsection
 Angulo y posicion de captura
 \end_layout
@@ -13050,18 +13040,6 @@ EN2
 EN3
 \series default
 ).
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-\color red
-Agregar y explicar errores de cuando se captura por encima de la superficie
- (angulo 
-\begin_inset Formula $\theta$
-\end_inset
-
- de la camara).
 \end_layout
 
 \begin_layout Subsubsection
@@ -13837,67 +13815,68 @@ Doble contorno detectado de la superficie libre.
 Conclusiones
 \end_layout
 
-\begin_layout Subsection
-Resultados
+\begin_layout Standard
+En este trabajo se propuso desarrollar un sistema capaz de capturar la altura
+ de la ola en laboratorio por medio de una camara web y en tiempo real.
+ Como se pudo observar en los analisis de los resultados del capitulo anterior,
+ la presicion del sistema esta ligada y fuertemente afectada por factores
+ externos como la luz utilizada (intentando buscar siempre aquella que genere
+ mayor contraste entre el fluido y la superficite y al mismo tiempo no genere
+ reflejos sobre el vidrio del canal), la cantidad de particulas tanto en
+ el fluido como en las paredes del canal, la posicion y angulo de la camara
+ la cual cumple un papel crucial, y ademas los valores de configuracion
+ para el algoritmo de deteccion de contornos, el cual varia dependiendo
+ de los factores recientemente mencionados.
 \end_layout
 
 \begin_layout Standard
+Se puede decir que el sistema logra capturar y analizar la altura de ola
+ en tiempo real y a una velocidad superior a la minima esperada (alcanzando
+ 25 Hz) mostrando al mismo tiempo el proceso del ensayo realizado y los
+ datos obtenidos (lo que quiere decir que puede correrse la interfaz grafica
+ en simultaneo con el proceso de captura).
+ Aún asi no se logro alcanzar una presicion milimetrica para poder realizar
+ mediciones que requieran un error menor a 0.0055 metros, donde las causas
+ se debieron tanto por motivos de hardware como de software.
+ Por otro lado se pudieron realizar mediciones en donde los errores de los
+ valores de importancia como 
+\begin_inset Formula $H_{s}$
+\end_inset
 
-\color red
-Aca escribimos las concluciones de los resultados obtenidos en los analisis
- anteriores...
+ y 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ se encuentran aproximadamente en el orden de los 0.001 y 0.009 respectivamente,
+ lo cual habilitaria al sistema para ser utilizado en diversas pruebas de
+ ingenieria en laboratorio.
 \end_layout
 
 \begin_layout Standard
-En este trabajo se propuse desarrollar un sistema capaz de capturar la altura
- de la ola en un laboratorio por medio de una video camara en tiempo real.
- Como se pudo observar en los analisis de los resultados en el capitulo
- anterior, podemos concluir que el sistema puede ser factible de ser utilizado
- en distintos tipos de experimentos donde no se requierea de una alta precision
- en la medicion, ya que el sistema captura la altura de la ola con un error
- de aproximadamente 
-\color red
-2 mm
-\color inherit
-.
- Ademas se pudo observar que los valores de importancia (
-\color red
-como el Hs, Tp, etc
-\color inherit
-) 
-\color red
-no varian considerablemente a los capturados por el sensor resistivo utilizado
- por el laboratorio (poner margen de error aca).
+Por otro lado se considera altamente viable la posibilidad de aumentar la
+ presicion del sistema por medio de distintos algoritmos en la fase final
+ que complementen los posibles errores introducidos por la velocidad de
+ captura de la camara, como asi tambien en una etapa posterior a la deteccion
+ de los datos (post-procesamiento) en la que se filtren y corrijan aquellos
+ valores que se consideren erroneos.
 \end_layout
 
 \begin_layout Standard
-Se logró tambien realizar las mediciones con la velocidad esperada (20 Hz)
- y por encima de la misma (llegando a los 25 Hz) utilizando una camara web
- estandard (pero de alta defincion) lo que brinda una solucion de bajo costo.
+Se logro ademas armar una interfaz grafica que permitiese al usuario del
+ sistema una facil y rapida configuracion a la hora de realizar las mediciones,
+ dandole mucha flexibilidad sobre los parametros utilizados en los algoritmos
+ de las distintas etapas.
 \end_layout
 
 \begin_layout Standard
-Por otro lado se pudo observar que se pueden realizar mediciones de larga
- duración sin la necesidad de utilizar grandes cantidades de memoria.
-\end_layout
-
-\begin_layout Standard
-Una ventaja que tiene el sistema es su facil y rapida configuracion a la
- hora de realizar las mediciones.
- Como desventaja podemos mencionar que se ve facilmente afectado por los
- distintos factores del entorno como la suciedad en los vidrios, la intensidad
- y tipo de luz utilizada, que introducen errores a los valores medidos.
-\end_layout
-
-\begin_layout Subsection
-Generales
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Conclusiones generales......
- capaz que no haga falta separarlo en 2 titulos.
+Fuera del sistema implementado para detectar la altura de la superficie
+ libre, se logro desarrollar ademas un 
+\shape italic
+framework
+\shape default
+ el cual permitirá crear futuras aplicaciones (que brinden la oportunidad
+ de medir otras variables hidrodinamicas) de una forma mas facil y rapida,
+ dando tambien la opcion de utilizar el GPU como unidad de procesamiento.
 \end_layout
 
 \begin_layout Standard
@@ -13912,63 +13891,54 @@ Trabajos futuros
 \end_layout
 
 \begin_layout Standard
-
-\color red
-Podriamos hablar de:
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Implementar el ImageGenerator para que haga buffering.
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Implementar algoritmos en GPU (Cuda).
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Hacer que los IPS sean plugins..
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Desarrollar otros IPS
-\end_layout
-
-\begin_layout Standard
-Como trabajos futuros que se pueden realizar tomando como base el actual
- son:
+Algunos de los trabajos futuros que se pueden realizar tomando como base
+ el actual son:
 \end_layout
 
 \begin_layout Itemize
-Desarrollar nuevos IPS que implementen otras funcionalidades para medir
- distintas variables hydrodinamicas utilizando el Framework desarrollado,
- como por ejemplo 
-\color red
-agregar ej (rotura de ola, seguimiento/tracking de particulas en el fluido,
- etc)
-\color inherit
-.
+Desarrollar nuevos 
+\shape italic
+IPS 
+\shape default
+(
+\shape italic
+Image Processing System
+\shape default
+) que implementen otras funcionalidades para medir distintas variables hydrodina
+micas utilizando el 
+\shape italic
+framework
+\shape default
+ desarrollado, como por ejemplo detectar y analizar la forma de la rotura
+ de la ola, realizar tracking de particulas en el fluido, etc.
 \end_layout
 
 \begin_layout Itemize
-Portar el actual IPS para que el procesamiento se realize en la GPU (utilizando
- la interfaz ya creada) y medir la performance obtenida para compararla
- con el metodo actual.
+Desarrollar un algoritmo que permita detectar la altura de la ola en cada
+ columna de pixels de la imagen capturada por la video camara por medio
+ de la paralelizacion y usando el GPU como unidad de procesamiento (con
+ el objetivo de mantener la captura en tiempo real), logrando de esta forma
+ determinar la altura de la superficie libre con mucho mayor presicion.
 \end_layout
 
 \begin_layout Itemize
 Probar y comparar diferentes algoritmos utilizados en las distintas etapas
  con el fin de aumentar la presicion de captura de datos y disminuir la
  deteccion de ruido al maximo (intentar lograr que el sistema no sea tan
- sensible al entorno como los cambios de luces, basuras en la zona de captura,
- etc).
+ sensible al entorno como los cambios de luces, particulas en la zona de
+ captura, etc).
+ Y realizar en una segunda etapa el postprocesamiento de los datos obtenidos
+ con el objetivo de eliminar por medio de distintas tecnicas (uso de splines
+ por ejemplo) aquellos datos erroneos y corregir al mismo tiempo aquellos
+ datos que se consideren 
+\begin_inset Quotes eld
+\end_inset
+
+defasados
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
