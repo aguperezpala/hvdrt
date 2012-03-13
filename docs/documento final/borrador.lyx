@@ -694,7 +694,7 @@ o
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-C=\frac{L}{T}[m/s]\quad o\quad C=\frac{\omega}{\kappa}\;[m/s]\end{equation}
+C=\frac{L}{T}\;[m/s]\quad o\quad C=\frac{\omega}{\kappa}\;[m/s]\end{equation}
 
 \end_inset
 
@@ -715,7 +715,7 @@ numero de onda
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\kappa=\frac{2\pi\;}{L}[1/m]\end{equation}
+\kappa=\frac{2\pi}{L}\;[1/m]\end{equation}
 
 \end_inset
 
@@ -840,7 +840,7 @@ En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
 \begin_layout Standard
 El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
  del fluido, la ecuación de continuidad y las ecuaciones de momentum (que
- deriva deirectamente de la 2a ley de Newton).
+ deriva deirectamente de la 2da ley de Newton).
  Con este planteamiento se tienen 4 variables: las tres componentes de la
  velocidad 
 \begin_inset Formula $u$
@@ -907,7 +907,7 @@ La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
 \end_inset
 
 .
- El problema se reduce a un problema de dos variables: 
+ El problema se reduce a uno de dos variables: 
 \begin_inset Formula $\Phi$
 \end_inset
 
@@ -915,9 +915,8 @@ La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
 \begin_inset Formula $p$
 \end_inset
 
-.
- Con eso el problema se reduce a dos ecuaciones, la de continuidad y la
- ecuación de Bernoulli.
+, dando como resultado dos ecuaciones, la de continuidad y la ecuación de
+ Bernoulli.
  
 \end_layout
 
@@ -956,7 +955,7 @@ El problema sigue siendo no-lineal.
 \end_layout
 
 \begin_layout Standard
-Sea
+Sea 
 \begin_inset Formula $\Phi(x,z,t)$
 \end_inset
 
@@ -1183,7 +1182,7 @@ trenes
 \begin_inset Quotes erd
 \end_inset
 
- de de olas (lineas punteadas y finas) interfieren formando un 
+ de olas (lineas punteadas y finas) interfieren formando un 
 \shape italic
 grupo de ondas 
 \shape default
@@ -1370,7 +1369,7 @@ y
 \begin_inset Formula $f_{m}$
 \end_inset
 
-a 
+ a 
 \begin_inset Formula $f_{m}+\Delta f_{m}$
 \end_inset
 
@@ -1391,11 +1390,11 @@ a
 \begin_inset Formula $\epsilon_{mn}$
 \end_inset
 
-son aleatorias y 
+ son aleatorias y 
 \begin_inset Formula $\kappa_{m}$
 \end_inset
 
-es el numero de onda asociado a la m-esima onda.
+ es el numero de onda asociado a la m-esima onda.
 \end_layout
 
 \begin_layout Standard
@@ -1468,10 +1467,10 @@ espectro del oleaje
 Figura 
 \shape default
 \color inherit
-a 
+
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Representacion-esquematica-de-1"
+reference "fig:Representacion-esquematica-de"
 
 \end_inset
 
@@ -1749,7 +1748,7 @@ X_{k}=\frac{1}{T}\overset{T}{\underset{0}{\int}}\eta(t)e^{-i\frac{2\pi kt}{T}}dt
 \end_layout
 
 \begin_layout Standard
-Si ahora la seria temporal es dada por una muestra discreta de datos uniformemen
+Si ahora la serie temporal es dada por una muestra discreta de datos uniformemen
 te espaciados:
 \end_layout
 
@@ -2041,17 +2040,17 @@ JONSWAP
 \color inherit
 (JOint North Sea WAwe Project).
  Este espectro esta basado en una extensa campaña de medidas llevada a cabo
- en el Mar del Norte entre 1968 y 1969, el recibio una aprobacion casi inmediata
- por parte de la comunidad cientifica una vez publicado, y es quizas el
- mas utilizado.
- La forma espectral propuesta es 
+ en el Mar del Norte entre 1968 y 1969, el cual recibio una aprobacion casi
+ inmediata por parte de la comunidad cientifica una vez publicado, y es
+ quizas el mas utilizado.
+ La forma espectral propuesta es (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
 
 \end_inset
 
-:
+):
 \end_layout
 
 \begin_layout Standard
@@ -2712,7 +2711,7 @@ Para lograr obtener resultados adecuados es necesario capturar imagenes
  libre con respecto al fluido, suciedades en los vidrios laterales del canal,
  entre otras.
  Siempre tendiendo a minimzar la cantidad de ruido (zonas que pueden generar
- contornos que se confundan con la superficie libre, o zonas que puedan
+ contornos que se confundan con la superficie libre, o areas que puedan
  evitar la correcta captura de la misma).
 \end_layout
 
@@ -2782,7 +2781,7 @@ name "sub:Rectificacion-de-imagen"
 
 \end_inset
 
-Rectificacion de imagen
+Rectificacion
 \end_layout
 
 \begin_layout Standard
@@ -2869,8 +2868,8 @@ transformacion de la perspectiva
 En un principio, los problemas introducidos por (a) son de menor importancia
  (debido a que son despreciables en las camaras nuevas, teniendo en cuenta
  que no se requiere de una altisima presicion) con respecto a los de (b).
- Ademas, estos ultimos, causados principalmente por la posicion en la que
- se coloca la camara frente a la zona que se quiere medir, 
+ Ademas, estos ultimos, son causados principalmente por la posicion en la
+ que se coloca la camara frente a la zona que se quiere medir.
 \end_layout
 
 \begin_layout Standard
@@ -3041,7 +3040,7 @@ reference "sub:Canny-edge-detector"
 \end_inset
 
 .
- Canny Edge Detector
+ Canny edge detector
 \shape default
 \color inherit
 .
@@ -3257,13 +3256,17 @@ key "key-8"
  que utiliza una funcion de interpolacion y filtrado de contornos para eliminar
  puntos (o bordes) falsos.
  Para este trabajo se desarrollo un algoritmo simple con tal finalidad,
- el cual se describe en 
+ el cual se describe en el 
+\shape italic
+capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Wave-height-analyzer"
 
 \end_inset
 
+
+\shape default
 .
  
 \shape italic
@@ -3365,8 +3368,8 @@ Como se puede ver, el proceso (rectangulo azul) tiene como entrada una imagen
  Dentro del proceso general se pueden diferenciar los cuatro subprocesos
  que trabajan de manera secuencial, donde cada uno de estos tiene como entrada
  la imagen procesada por el subproceso inmediatamente anterior.
- Antes de continuar a explicar cada uno de los subprocesos definiremos algunas
- cosas para una mayor comprension de lo que se explique.
+ Antes de continuar a explicar cada uno de los subprocesos realizaremos
+ las siguientes definiciones para una mayor comprension de lo que se desarrolle.
 \end_layout
 
 \begin_layout Standard
@@ -3596,7 +3599,7 @@ a que el angulo de captura
 \end_layout
 
 \begin_layout Standard
-Definamos ademas a una imagen 
+Definiremos ademas a una imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
@@ -3627,7 +3630,7 @@ reference "fig:Matriz-de-pixels"
 \end_inset
 
 .
- Definamos tambien a 
+ Definiremos tambien a 
 \begin_inset Formula $I_{*k}$
 \end_inset
 
@@ -3710,7 +3713,7 @@ Matriz de pixels representando una imágen.
 
 \begin_layout Standard
 A continuacion mencionaremos las caracteristicas principales y finalidad
- de cada uno de los subprocesos (
+ de cada uno de los subprocesos (mostrados en la 
 \shape italic
 \color black
 Figura
@@ -3768,7 +3771,7 @@ reference "fig:Esquema-3D-del"
 
 
 \shape default
-- con base alineada al eje 
+ - con base alineada al eje 
 \begin_inset Formula $x$
 \end_inset
 
@@ -3826,7 +3829,7 @@ reference "sub:Rectificacion-de-imagen"
  
 \shape italic
 \color black
-Rectificacion de imagen
+Rectificacion
 \shape default
 \color inherit
 .), esto es, el sistema de coordenadas de la imagen en el dispositivo se
@@ -4081,7 +4084,7 @@ suavizar
 \end_inset
 
  la imagen suprimiendo la mayor cantidad posible de ruido (como puntos aislados
- debido a basuras capturadas en la imagen) para una mayor diferenciacion
+ debido a particulas sobre la pared del canal) para una mayor diferenciacion
  de los bordes reales.
  El funcionamiento de este algoritmo se explicara en el 
 \shape italic
@@ -4110,7 +4113,11 @@ Por ultimo se corre el algoritmo conocido por el nombre
 \shape italic
 Canny Edge Detector 
 \shape default
-(detallado en el capitulo 
+(detallado en el 
+\shape italic
+capitulo
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Canny-edge-detector"
@@ -4466,7 +4473,7 @@ reference "sub:Perspective-transform"
 
 \end_inset
 
-Perspective transform.
+ Perspective transform.
 
 \shape default
 \color inherit
@@ -4480,7 +4487,7 @@ reference "sub:Wave-height-analyzer"
 
 \end_inset
 
-Wave height analyzer
+ Wave height analyzer
 \shape default
 \color inherit
  respectivamente) no poseen nombres concretos por lo que se decidio asignarles
@@ -4717,7 +4724,7 @@ reference "eq:multiplicacion"
 \end_layout
 
 \begin_layout Standard
-Notar que asumimos que los puntos 
+Notar que asumimos que los valores 
 \begin_inset Formula $i'$
 \end_inset
 
@@ -4725,8 +4732,8 @@ Notar que asumimos que los puntos
 \begin_inset Formula $j'$
 \end_inset
 
- obtenidos luego de multiplicar la matriz de transformacion sobre los puntos
- origen 
+ obtenidos luego de multiplicar la matriz de transformacion sobre el punto
+ de origen (valores 
 \begin_inset Formula $i$
 \end_inset
 
@@ -4734,7 +4741,7 @@ Notar que asumimos que los puntos
 \begin_inset Formula $j$
 \end_inset
 
-, caen dentro de una imagen de igual tamaño, esto es 
+), caen dentro de una imagen de igual tamaño, esto es 
 \begin_inset Formula $0\leq i,i'<m$
 \end_inset
 
@@ -4864,6 +4871,7 @@ kernel
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5083,7 +5091,7 @@ reference "eq:dist_gaus_2d"
 ecuacion
 \shape default
 \color inherit
-
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dist_gaus_1d"
@@ -5219,8 +5227,8 @@ name "fig:Imagen-comparativa-de"
 
 \end_inset
 
-Imagen comparativa de una imagen antes (a izquierda) y luego (a derecha)
- de aplicar el filtro 
+Imagen comparativa de antes (a izquierda) y luego (a derecha) de aplicar
+ el filtro 
 \shape italic
 Gaussian Blur
 \shape default
@@ -6056,7 +6064,7 @@ Sea
 \begin_inset Formula $V$
 \end_inset
 
-, de ser asi se devuelve la devuelve, caso contrario se sigue con 3.
+, de ser asi se la devuelve, caso contrario se sigue con 3.
 \end_layout
 
 \begin_layout Enumerate
@@ -6134,20 +6142,6 @@ Implementacion y funcionamiento del sistema
 \end_layout
 
 \begin_layout Subsection
-Introduccion
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Tendriamos que poner en algun lado (no se donde) el tema de cuales fueron
- los problemas a solucionar y como se fueron solucionando, por ejemplo:
- buscar una camara de forma tal que cumpla con lo que se queria y ademas
- funcione en linux (en ningun lado pusimos esto que llevo bastante tiempo).
- Elegir una libreria de manejo de imagenes que sirviese.
-\end_layout
-
-\begin_layout Subsection
 Requerimientos principales
 \end_layout
 
@@ -6165,7 +6159,7 @@ Como objetivo principal, el sistema debía capturar la altura de la superficie
 REQ1:
 \series default
  Dada una camara web usb, poder capturar y procesar las imagenes a una velocidad
- no inferior a 15 fps (o 15 capturas por segundo) y una resolucion que permita
+ no inferior a 20 fps (o 20 capturas por segundo) y una resolucion que permita
  una deteccion de altura con no mas de 0.5 cm de error.
 \end_layout
 
