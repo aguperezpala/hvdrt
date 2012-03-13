@@ -101,7 +101,7 @@ Trabajo final de grado
 \shape italic
 \size larger
 Software para la detección de variables hidrodinámicas en laboratorio mediante
- técnicas de video de alta definición.
+ técnicas de vídeo de alta definición.
 \end_layout
 
 \begin_layout Standard
@@ -176,15 +176,15 @@ Profesor Representante:
 
 \begin_layout Abstract
 En laboratorio se utilizan distintos tipos de instrumentos para medir la
- altura de ola (y otras variables hidrodinamicas), los cuales en general
- tienen un alto costo economico y requieren de un gran conocimiento por
- parte del usuario para su correcta utilizacion como asi tambien para evitar
- generar daños fisicos a las personas o el instrumento en si.
+ altura de ola (y otras variables hidrodinámicas), los cuales en general
+ tienen un alto costo económico y requieren de un gran conocimiento por
+ parte del usuario para su correcta utilización como así también para evitar
+ generar daños físicos a las personas o el instrumento en si.
 \end_layout
 
 \begin_layout Abstract
 En este trabajo se plantea el desarrollo de un sistema utilizado para capturar
- la altura de ola en tiempo real y por medio de una webcam como metodo alternati
+ la altura de ola en tiempo real y por medio de una webcam como método alternati
 vo y de bajo costo con respecto a los utilizados actualmente en laboratorio.
  
 \end_layout
@@ -205,7 +205,7 @@ Agradecimientos
 \end_layout
 
 \begin_layout Standard
-Aca ponemos los agradecimientos..
+Acá ponemos los agradecimientos..
 \end_layout
 
 \begin_layout Standard
@@ -232,7 +232,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Section
-Introduccion
+Introducción
 \end_layout
 
 \begin_layout Subsection
@@ -261,7 +261,7 @@ http://en.wikipedia.org/wiki/Particle_image_velocimetry
 \end_inset
 
  (Particle Image Velocimeter), donde se utilizan sensores muy delicados
- como el laser, que inclusive pueden causar daños a las personas que lo
+ como el láser, que inclusive pueden causar daños a las personas que lo
  utilizan sin las adecuadas precauciones.
  En otros casos, los instrumentos que se suelen utilizar son de tipo intrusivos,
  como en el caso del ADV
@@ -288,7 +288,7 @@ http://en.wikipedia.org/wiki/Acoustic_Doppler_velocimetry
 
 \begin_layout Standard
 En este trabajo se desarrolla un sistema de medición y análisis de variables
- hidrodinámicas en laboratorio mediante técnicas de video con cámaras de
+ hidrodinámicas en laboratorio mediante técnicas de vídeo con cámaras de
  alta definición.
  Estas técnicas tienen diferentes ventajas con respecto a los métodos e
  instrumentos tradicionales: son técnicas no intrusivas, económicas, son
@@ -301,7 +301,7 @@ En este trabajo se desarrolla un sistema de medición y análisis de variables
 \begin_layout Standard
 La ventaja principal de los instrumentos tradicionales es la elevada precisión
  de la medición que tienen que realizar.
- La exactitud de las mediciones que se pueden realizar con video cámaras
+ La exactitud de las mediciones que se pueden realizar con vídeo cámaras
  depende de la definición de las mismas, con lo cual un aumento en la precisión
  requiere un costo económico mayor en la adquisición de la misma.
  Sin embargo en aplicaciones ingenieriles de laboratorio, una webcam de
@@ -313,7 +313,7 @@ La ventaja principal de los instrumentos tradicionales es la elevada precisión
 \end_layout
 
 \begin_layout Standard
-En mediciones de campo, las muestras con video cámaras de alta definición
+En mediciones de campo, las muestras con vídeo cámaras de alta definición
  ofrecen ya muchas aplicaciones practicas y muy funcionales, por ejemplo
  para la detección de la erosión costera y en la determinación de parámetros
  de oleaje (
@@ -326,7 +326,7 @@ key "key-2"
 ).
  En laboratorio, aunque en los últimos años ya se están empleando estas
  técnicas en el estudio de variables hidrodinámicas, no se ha alcanzado
- un nivel de optimización en el procesado de las imagenes para que el instrument
+ un nivel de optimización en el procesado de las imágenes para que el instrument
 o sea comparable con la alta definición en la adquisición de datos de los
  muestreos con instrumentos tradicionales.
  
@@ -336,10 +336,10 @@ o sea comparable con la alta definición en la adquisición de datos de los
 Las aplicaciones de estas técnicas en laboratorio son múltiples en los campos
  de la mecánica de fluidos y de la dinámica sedimentaria, entre otros.
  En principio, se implementará una técnica para la adquisición de datos
- de altura de ola en tiempo real y su posterior analisis, pero la metodología
+ de altura de ola en tiempo real y su posterior análisis, pero la metodología
  servirá como punto de partida para las mediciones de otros parámetros hidrodiná
-micos (como rotura de oleaje, dispercion de contaminante) y sedimentológicos
- de interés (erosion de un perfil de playa).
+micos (como rotura de oleaje, dispersión de contaminante) y sedimento-lógicos
+ de interés (erosión de un perfil de playa).
  
 \end_layout
 
@@ -357,7 +357,7 @@ altura de la superficie libre
 \begin_inset Quotes erd
 \end_inset
 
- (altura de ola) mediante video cámaras de alta definición, durante la realizaci
+ (altura de ola) mediante vídeo cámaras de alta definición, durante la realizaci
 ón de ensayos de laboratorio con un canal bidimensional de oleaje.
  La adquisición de datos de altura de ola en tiempo real se realiza en la
  actualidad mediante el empleo de sensores de niveles intrusivos (se sumergen
@@ -370,9 +370,9 @@ altura de la superficie libre
 \end_layout
 
 \begin_layout Standard
-Las técnicas de video a implementar deberán en primer lugar rectificar las
+Las técnicas de vídeo a implementar deberán en primer lugar rectificar las
  imágenes a procesar y realizar muestreos de las variables a medir con tomas
- de imagenes de alta definición de frecuencias igual o superiores a los
+ de imágenes de alta definición de frecuencias igual o superiores a los
  20 Hz.
  
 \end_layout
@@ -394,11 +394,11 @@ Durante los ensayos estas tomas deberán permitir la visualización en tiempo
 \end_layout
 
 \begin_layout Section
-Fundamentos de hidrodinamica marina
+Fundamentos de hidrodinámica marina
 \end_layout
 
 \begin_layout Subsection
-Introduccion
+Introducción
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Hidrodinamica-Introduccion"
@@ -409,16 +409,16 @@ name "sub:Hidrodinamica-Introduccion"
 \end_layout
 
 \begin_layout Standard
-Las olas del oceano son movimientos ondulatorios que ponen de manifiesto
- la propagacion de energia mecánica entre la superficie marina y la atmosfera.
+Las olas del océano son movimientos ondulatorios que ponen de manifiesto
+ la propagación de energía mecánica entre la superficie marina y la atmósfera.
  Éstas son generadas por distintos factores naturales (viento, perturbaciones
- meterológicas, terremotos, etc).
+ meteorológicas, terremotos, etc).
  Las olas son perturbaciones que se propagan en la superficie del mar y
  cuyo movimiento viene amortiguado principalmente por la gravedad.
 \end_layout
 
 \begin_layout Standard
-De manera esquematica, en la 
+De manera esquemática, en la 
 \shape italic
 \color black
 Figura
@@ -431,7 +431,7 @@ reference "fig:Distribucion-energética-de"
 
 \end_inset
 
- se puede observar la energia de las ondas de superficie asociadas a cada
+ se puede observar la energía de las ondas de superficie asociadas a cada
  frecuencia.
  En este trabajo se estudiaran las olas de viento pertenecientes a las frecuenci
 as con
@@ -473,7 +473,7 @@ name "fig:Distribucion-energética-de"
 
 \end_inset
 
-Distribucion energética de las ondas de superficie.
+Distribución energética de las ondas de superficie.
 \end_layout
 
 \end_inset
@@ -487,14 +487,14 @@ Distribucion energética de las ondas de superficie.
 \end_layout
 
 \begin_layout Standard
-Matematicamente se puede describir a las olas, en forma general, como oscilacion
-es uniformes y periodicas de la superficie del agua, distinguiendo dos tipos:
+Matemáticamente se puede describir a las olas, en forma general, como oscilacion
+es uniformes y periódicas de la superficie del agua, distinguiendo dos tipos:
  ondas progresivas (se propagan en una profundidad constante manteniendo
  su forma) y ondas estacionarias (aquellas que no se propagan, como por
  ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos);
  en este trabajo se analizan las primeras.
- Existen distintas magnitudes que caraterizan a las ondas y algunas definiciones
- utiles para representarlas, estas son (
+ Existen distintas magnitudes que caracterizan a las ondas y algunas definicione
+s útiles para representarlas, estas son (
 \shape italic
 \color black
 Figura 
@@ -552,7 +552,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL
 \begin_inset Formula $seno$
 \end_inset
 
-: Punto en el que la superficie libre alcana un minimo.
+: Punto en el que la superficie libre alcanza un mínimo.
  
 \end_layout
 
@@ -575,7 +575,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL
 \begin_inset Formula $A_{c}$
 \end_inset
 
-: Amplitud de la cresta (distancia vertical maxima entre nivel de reposo
+: Amplitud de la cresta (distancia vertical máxima entre nivel de reposo
  y cresta).
 \end_layout
 
@@ -583,7 +583,7 @@ e del fluido con respecto a un nivel medio de referencia NM (MWL
 \begin_inset Formula $A_{s}$
 \end_inset
 
-: Amplitud del seno (distancia vertical maxima entre nivel de reposo y seno).
+: Amplitud del seno (distancia vertical máxima entre nivel de reposo y seno).
  
 \end_layout
 
@@ -604,7 +604,7 @@ Still Water Level
 \end_inset
 
 : profundidad o calado (distancia entre el fondo y el NR, en caso de presencia
- de ondas el nivel medio no es NR ya que este viene modificado usandose
+ de ondas el nivel medio no es NR ya que este viene modificado usándose
  en cambio a NM como referencia).
 \end_layout
 
@@ -637,7 +637,7 @@ name "fig:Parámetros-asociados-a"
 
 \end_inset
 
-Parámetros asociados a la onda (extraida de 
+Parámetros asociados a la onda (extraída de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
@@ -665,7 +665,7 @@ name "Parametros de las ondas"
 \end_layout
 
 \begin_layout Standard
-En general, las teorias de ondas, tienen como objetivo calcular la 
+En general, las teorías de ondas, tienen como objetivo calcular la 
 \shape italic
 celeridad 
 \shape default
@@ -685,7 +685,7 @@ o
 \begin_inset Formula $h$
 \end_inset
 
- son conocidas), que es la velocidad de propagacion 
+ son conocidas), que es la velocidad de propagación 
 \begin_inset Formula $C$
 \end_inset
 
@@ -748,7 +748,7 @@ definida como
 \end_layout
 
 \begin_layout Standard
-Utilizando estos parametros se puede caracterizar la superficie libre de
+Utilizando estos parámetros se puede caracterizar la superficie libre de
  las ondas de tipo estacionarias como
 \end_layout
 
@@ -770,7 +770,7 @@ a.
 
 \begin_layout Standard
 Por otro lado se encuentran las ondas progresivas, donde su movimiento temporal
- y espacial estan acoplados, dando lugar a la siguiente formula, la cual
+ y espacial están acoplados, dando lugar a la siguiente formula, la cual
  caracteriza su superficie libre
 \end_layout
 
@@ -784,7 +784,7 @@ Por otro lado se encuentran las ondas progresivas, donde su movimiento temporal
 \end_layout
 
 \begin_layout Standard
-propagandose y manteniendo su forma en la direccion positiva del eje 
+propagándose y manteniendo su forma en la dirección positiva del eje 
 \begin_inset Formula $x$
 \end_inset
 
@@ -796,11 +796,11 @@ propagandose y manteniendo su forma en la direccion positiva del eje
 \end_layout
 
 \begin_layout Subsection
-Teoria lineal de ondas
+Teoría lineal de ondas
 \end_layout
 
 \begin_layout Standard
-La teoria lineal de ondas es una simplificación matemática al problema de
+La teoría lineal de ondas es una simplificación matemática al problema de
  la descripción del movimiento y transformación de las ondas en el mar.
  Tiene ventajas en el sentido que (i) es una teoría sencilla, (ii) posibilita
  la obtención de soluciones analíticas, (iii) puede usarse como base para
@@ -808,12 +808,12 @@ La teoria lineal de ondas es una simplificación matemática al problema de
 \end_layout
 
 \begin_layout Standard
-Se consideran ademas olas de forma permanente sobre un fondo horizontal
+Se consideran además olas de forma permanente sobre un fondo horizontal
  e impermeable sobre un plano bidimensional.
 \end_layout
 
 \begin_layout Standard
-En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
+En esta teoría existe un eje horizontal de simetría que es el nivel de reposo
  donde se cumple que 
 \begin_inset Formula $A_{c}=A_{s}$
 \end_inset
@@ -840,7 +840,7 @@ En esta teoria existe un eje horizontal de simetria que es el nivel de reposo
 \begin_layout Standard
 El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
  del fluido, la ecuación de continuidad y las ecuaciones de momentum (que
- deriva deirectamente de la 2da ley de Newton).
+ deriva directamente de la 2da ley de Newton).
  Con este planteamiento se tienen 4 variables: las tres componentes de la
  velocidad 
 \begin_inset Formula $u$
@@ -893,7 +893,7 @@ key "key-4"
 
 \begin_layout Standard
 La solución de estas ecuaciones es complicada, pero introduciendo la hipótesis
- de flujo irrotacional se puede introducir una funcion escalar de la cual
+ de flujo irrotacional se puede introducir una función escalar de la cual
  dependen las variables a determinar 
 \begin_inset Formula $u$
 \end_inset
@@ -981,7 +981,7 @@ potencial de velocidades
 \begin_inset Formula $\omega$
 \end_inset
 
- la frecuencia angular); (2) una funcion de profundidad 
+ la frecuencia angular); (2) una función de profundidad 
 \begin_inset Formula $\cosh\kappa(h+z)/\cosh\kappa h$
 \end_inset
 
@@ -993,7 +993,7 @@ potencial de velocidades
 \begin_inset Formula $\kappa$
 \end_inset
 
- el numero de onda); (3) una funcion 
+ el numero de onda); (3) una función 
 \begin_inset Formula $(\kappa x-\omega t)$
 \end_inset
 
@@ -1033,7 +1033,7 @@ key "key-4"
 \end_layout
 
 \begin_layout Standard
-Esta ultima expresion corresponde a una onda que se propaga con una celeridad
+Esta ultima expresión corresponde a una onda que se propaga con una celeridad
  
 \begin_inset Formula $C=\omega/\kappa=L/T$
 \end_inset
@@ -1056,12 +1056,12 @@ reference "fig:Propagación-del-perfil"
 
 \end_inset
 
- se puede observar una representacion de la elevacion de la superficie libre
+ se puede observar una representación de la elevación de la superficie libre
  dada por 
 \begin_inset Formula $\eta$
 \end_inset
 
- en funcion del tiempo 
+ en función del tiempo 
 \begin_inset Formula $t$
 \end_inset
 
@@ -1096,7 +1096,7 @@ name "fig:Propagación-del-perfil"
 
 \end_inset
 
-Altura de la superficie libre en funcion del tiempo (extraidea de 
+Altura de la superficie libre en función del tiempo (extraída de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
@@ -1122,7 +1122,7 @@ Oleaje irregular
 
 \begin_layout Standard
 En el mar, un registro de una señal de oleaje, dado por ejemplo por un boya,
- es un registro de forma caotica y se denomina Oleaje Irregular (
+ es un registro de forma caótica y se denomina Oleaje Irregular (
 \shape italic
 \color black
 Figura
@@ -1136,7 +1136,7 @@ reference "fig:Señal-de-un"
 \end_inset
 
 ).
- El oleaje irregular puede ser considerado como la superposicion de un gran
+ El oleaje irregular puede ser considerado como la superposición de un gran
  numero (o infinito) de componentes correspondientes a ondas con diferentes
  periodos, alturas y direcciones (
 \shape italic
@@ -1158,7 +1158,7 @@ grupo de ondas
 \shape default
 el cual se mueve con una velocidad equivalente a la mitad del promedio de
  las velocidades de sus componentes.
- Analogamente, la energia espectral asociada al oleaje (explicado en el
+ Análogamente, la energía espectral asociada al oleaje (explicado en el
  siguiente capitulo), no se mueve a la velocidad de la ola en si sino a
  la velocidad del grupo de olas.
  En la 
@@ -1262,7 +1262,7 @@ name "fig:Resultado-de-la"
 
 \end_inset
 
-Resultado de la suma (o superposicion) de distintos oleajes.
+Resultado de la suma (o superposición) de distintos oleajes.
 \end_layout
 
 \end_inset
@@ -1308,7 +1308,7 @@ name "fig:Solapamiento-de-trenes"
 
 \end_inset
 
-Solapamiento y grupos de trenes de ondas (extraido de 
+Solapamiento y grupos de trenes de ondas (extraída de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-19"
@@ -1329,13 +1329,13 @@ key "key-19"
 \end_layout
 
 \begin_layout Standard
-Matematicamente
+Matemáticamente
 \shape italic
 \color blue
  
 \shape default
 \color inherit
-la representacion de la superficie libre de este tipo de oleaje puede expresarse
+la representación de la superficie libre de este tipo de oleaje puede expresarse
  como (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1364,8 +1364,8 @@ y
 \begin_inset Formula $\epsilon_{mn}$
 \end_inset
 
- representan la amplitud y la fase correspondiente a cada una de las componontes
- cuyas frecuencias varian en el rango 
+ representan la amplitud y la fase correspondiente a cada una de las componentes
+ cuyas frecuencias varían en el rango 
 \begin_inset Formula $f_{m}$
 \end_inset
 
@@ -1394,28 +1394,28 @@ y
 \begin_inset Formula $\kappa_{m}$
 \end_inset
 
- es el numero de onda asociado a la m-esima onda.
+ es el numero de onda asociado a la m-ésima onda.
 \end_layout
 
 \begin_layout Standard
-Esta expresion sirve como base para la definicion del 
+Esta expresión sirve como base para la definición del 
 \shape italic
-espectro de energia
+espectro de energía
 \shape default
 , el cual se explica en el siguiente capitulo.
 \end_layout
 
 \begin_layout Subsection
-Analisis del oleaje
+Análisis del oleaje
 \end_layout
 
 \begin_layout Standard
 Genéricamente a los movimientos correspondientes a la superficie del mar,
  que son ondas de gravedad, generadas por el viento y que se propagan desde
- el area de generacion perdiendo lentamente energia por firccion con la
- atmosfera, viscosidad molecular, y por la gravedad, (hasta alcanzar las
+ el área de generación perdiendo lentamente energía por fricción con la
+ atmósfera, viscosidad molecular, y por la gravedad, (hasta alcanzar las
  costas) se lo conoce como Oleaje.
- Una manera simple de modelizar el comportamiento del oleaje es su descomposicio
+ Una manera simple de modelizar el comportamiento del oleaje es su descomposició
 n en una suma de trenes de ondas regulares (
 \shape italic
 \color black
@@ -1433,29 +1433,29 @@ reference "fig:Solapamiento-de-trenes"
 \end_layout
 
 \begin_layout Standard
-La cantidad maxima de energia que puede existir en cada tren de ondas componente
-s del oleaje esta regulada por los procesos entre las mismas y los de interaccio
+La cantidad máxima de energía que puede existir en cada tren de ondas componente
+s del oleaje esta regulada por los procesos entre las mismas y los de interacció
 n de rotura.
- Para el caso de las olas generadas por accion del viento, se las puede
+ Para el caso de las olas generadas por acción del viento, se las puede
  clasificar como oleaje totalmente desarrollado (estado de equilibro logrado
- bajo la accion de un viento constante sobre una superficie ilimitada) o
+ bajo la acción de un viento constante sobre una superficie ilimitada) o
  parcialmente desarrollado (oleaje en crecimiento, sucede cuando el tiempo
- minimo o distancia minima para llegar al estado desarrollado no es alcanzada)
+ mínimo o distancia mínima para llegar al estado desarrollado no es alcanzada)
 \shape italic
 \color blue
 .
 \end_layout
 
 \begin_layout Standard
-El analisis del oleaje se puede realizar mediante 2 aproximaciones diferentes:
- a) en el tiempo; b) en frecuencia o analisis espectral.
+El análisis del oleaje se puede realizar mediante 2 aproximaciones diferentes:
+ a) en el tiempo; b) en frecuencia o análisis espectral.
 \end_layout
 
 \begin_layout Standard
-En este trabajo se utiliza el analisis en frecuencia (b), el cual tiene
- como objetivo la obtencion de la 
+En este trabajo se utiliza el análisis en frecuencia (b), el cual tiene
+ como objetivo la obtención de la 
 \shape italic
-funcion de densidad espectral
+función de densidad espectral
 \shape default
  o 
 \shape italic
@@ -1475,15 +1475,15 @@ reference "fig:Representacion-esquematica-de"
 \end_inset
 
 ), la cual representa la energía total asociada a cada una de los trenes
- de ondas en que se puede descomponer un registro de oleaje en funcion de
+ de ondas en que se puede descomponer un registro de oleaje en función de
  la frecuencia y de la dirección de propagación.
  
 \end_layout
 
 \begin_layout Standard
-El espectro del oleaje contiene gran cantidad de informacion que puede ser
- representada mediante la introduccion de una serie de parametros que sirven
- para conocer las caracteristicas principales de dicho espectro, los cuales
+El espectro del oleaje contiene gran cantidad de información que puede ser
+ representada mediante la introducción de una serie de parámetros que sirven
+ para conocer las características principales de dicho espectro, los cuales
  se mencionaran en el siguiente capitulo.
 \end_layout
 
@@ -1515,7 +1515,7 @@ name "fig:Representacion-esquematica-de"
 
 \end_inset
 
-Representacion esquematica de las componentes de un registro de olas (extraido
+Representación esquemática de las componentes de un registro de olas (extraído
  de 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1547,16 +1547,16 @@ name "sub:Descripcion-espectral-del"
 
 \end_inset
 
-Descripcion espectral del oleaje
+Descripción espectral del oleaje
 \end_layout
 
 \begin_layout Subsubsection
-Metodo para la obtencion del espectro
+Método para la obtención del espectro
 \end_layout
 
 \begin_layout Standard
-En nuestro caso, es de interes obtener el espectro dado un registro del
- parametro 
+En nuestro caso, es de interés obtener el espectro dado un registro del
+ parámetro 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1565,7 +1565,7 @@ superficie libre
 \end_inset
 
  del oleaje.
- Este registro del oleaje viene dado por la funcion 
+ Este registro del oleaje viene dado por la función 
 \begin_inset Formula $\eta(t)$
 \end_inset
 
@@ -1578,11 +1578,11 @@ superficie libre
 \begin_inset Formula $\eta(t)$
 \end_inset
 
- es una funcion periodica, con perioto 
+ es una función periódica, con periodo 
 \begin_inset Formula $T$
 \end_inset
 
- (lo cual es una hipotesis bastante fuerte en el caso de una serie de oleaje),
+ (lo cual es una hipótesis bastante fuerte en el caso de una serie de oleaje),
  puede representarse como una 
 \shape italic
 \color black
@@ -1722,7 +1722,7 @@ reference "eq:bk"
 
 \end_inset
 
- respectivamente) se los puede concentrar en una expresion compleja como:
+ respectivamente) se los puede concentrar en una expresión compleja como:
 \end_layout
 
 \begin_layout Standard
@@ -1778,7 +1778,7 @@ con
 \begin_inset Formula $m.c.m$
 \end_inset
 
- que corresponde con la duracion del registro, 
+ que corresponde con la duración del registro, 
 \begin_inset Formula $N$
 \end_inset
 
@@ -1791,7 +1791,7 @@ Transformada Discreta de Fourier (DFT)
  de la 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -1814,7 +1814,7 @@ X_{k}=\frac{1}{T}\overset{N-1}{\underset{r=0}{\sum}}x_{r}e^{-i\frac{2\pi kr\Delt
 \end_layout
 
 \begin_layout Standard
-Podemos entonces calcular el espectro de energia asociado a un registro
+Podemos entonces calcular el espectro de energía asociado a un registro
  de datos por medio de (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1860,15 +1860,15 @@ con
 \end_layout
 
 \begin_layout Subsubsection
-Parametros espectrales
+Parámetros espectrales
 \end_layout
 
 \begin_layout Standard
-Existen ciertos parametros que dan a conocer las caracteristicas principales
+Existen ciertos parámetros que dan a conocer las características principales
  del espectro del oleaje.
- Algunos de estos parametros aparecen frecuentemente en las funciones de
- distribucion asociadas al oleaje.
- A continuacion mencionaremos los mas relevantes para el caso de estudio
+ Algunos de estos parámetros aparecen frecuentemente en las funciones de
+ distribución asociadas al oleaje.
+ A continuación mencionaremos los mas relevantes para el caso de estudio
  presente.
 \end_layout
 
@@ -1877,7 +1877,7 @@ Se define
 \shape italic
 momento de orden n 
 \shape default
-de la funcion de densidad espectral como (
+de la función de densidad espectral como (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
@@ -1897,7 +1897,7 @@ m_{n}=\overset{\infty}{\underset{0}{\int}}\omega^{n}S(\omega)d\omega\,\:;n=0,1,2
 \end_layout
 
 \begin_layout Standard
-Otro parametro de utilidad es
+Otro parámetro de utilidad es
 \end_layout
 
 \begin_layout Standard
@@ -1950,7 +1950,7 @@ donde
 \end_layout
 
 \begin_layout Standard
-Estos parametros seran utilizados en los siguientes puntos.
+Estos parámetros serán utilizados en los siguientes puntos.
 \end_layout
 
 \begin_layout Subsection
@@ -1958,7 +1958,7 @@ Propiedades espectrales del oleaje: espectro de JONSWAP
 \end_layout
 
 \begin_layout Standard
-La energia espectral alcanza su maximo en la 
+La energía espectral alcanza su máximo en la 
 \shape italic
 frecuencia de pico
 \shape default
@@ -2010,7 +2010,7 @@ name "fig:Espectro-de-JONSWAP"
 
 \end_inset
 
-Espectro de JONSWAP calculados y medidos (extraidos de 
+Espectro de JONSWAP calculados y medidos (extraído de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-6"
@@ -2031,8 +2031,8 @@ key "key-6"
 \end_layout
 
 \begin_layout Standard
-En ingenieria maritima se suele representar el contenido energetico de la
- señal de oleaje mediante el espectro parametrico de 
+En ingeniería marítima se suele representar el contenido energético de la
+ señal de oleaje mediante el espectro perimétrico de 
 \shape italic
 \color black
 JONSWAP 
@@ -2040,9 +2040,9 @@ JONSWAP
 \color inherit
 (JOint North Sea WAwe Project).
  Este espectro esta basado en una extensa campaña de medidas llevada a cabo
- en el Mar del Norte entre 1968 y 1969, el cual recibio una aprobacion casi
- inmediata por parte de la comunidad cientifica una vez publicado, y es
- quizas el mas utilizado.
+ en el Mar del Norte entre 1968 y 1969, el cual recibió una aprobación casi
+ inmediata por parte de la comunidad científica una vez publicado, y es
+ quizás el mas utilizado.
  La forma espectral propuesta es (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2096,7 +2096,7 @@ con
 \end_layout
 
 \begin_layout Standard
-Como se observa, el espectro de JONSWAP depende de los parametros 
+Como se observa, el espectro de JONSWAP depende de los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -2104,7 +2104,7 @@ Como se observa, el espectro de JONSWAP depende de los parametros
 \begin_inset Formula $T_{p}$
 \end_inset
 
-, los cuales son objeto de analisis en este trabajo como se lo detalla en
+, los cuales son objeto de análisis en este trabajo como se lo detalla en
  el siguiente capitulo.
 \end_layout
 
@@ -2122,14 +2122,14 @@ name "sub:Aplicaciones-en-laboratorio"
 \end_layout
 
 \begin_layout Standard
-Todo el marco teorico anteriormente mencionado se aplicó en este trabajo
- para la deteccion de la altura de ola en laboratorio y su posterior analisis
+Todo el marco teórico anteriormente mencionado se aplicó en este trabajo
+ para la detección de la altura de ola en laboratorio y su posterior análisis
  espectral de la siguiente manera:
 \end_layout
 
 \begin_layout Standard
 Los oleajes simulados en el canal del laboratorio se generan por medio de
- una pala mecanica la cual toma como parametros valores de 
+ una pala mecánica la cual toma como parámetros valores de 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -2145,7 +2145,7 @@ Los oleajes simulados en el canal del laboratorio se generan por medio de
  asociado a la 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -2180,15 +2180,15 @@ reference "fig:Representacion-esquematica-de-1"
 \begin_inset Quotes eld
 \end_inset
 
-teorico
+teórico
 \begin_inset Quotes erd
 \end_inset
 
- generado por la pala mecanica (
+ generado por la pala mecánica (
 \begin_inset Formula $S(f)$
 \end_inset
 
-) por medio de los parametros introducidos por computadora (
+) por medio de los parámetros introducidos por computadora (
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -2213,13 +2213,13 @@ teorico
 \begin_inset Quotes eld
 \end_inset
 
-teorico
+teórico
 \begin_inset Quotes erd
 \end_inset
 
- debido a varios factores como el caso del desnivel, friccion de la ola
+ debido a varios factores como el caso del desnivel, fricción de la ola
  con los laterales del canal, etc.
- Una vez calculado el espectro, se pueden deducir los parametros 
+ Una vez calculado el espectro, se pueden deducir los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -2258,7 +2258,7 @@ name "fig:Representacion-esquematica-de-1"
 
 \end_inset
 
-Representacion esquematica de la generacion del oleaje irregular y medicion
+Representación esquemática de la generación del oleaje irregular y medición
  del espectro de JONSWAP en el canal de laboratorio.
 \end_layout
 
@@ -2286,8 +2286,8 @@ reference "sub:Canal-de-labortatorio"
 .Canal de laboratorio
 \shape default
 \color inherit
- se detallaran las caracteristicas del canal, la pala mecanica y los intrumentos
- utilizados para realizar las mediciones.
+ se detallaran las características del canal, la pala mecánica y los instrumento
+s utilizados para realizar las mediciones.
 \end_layout
 
 \begin_layout Standard
@@ -2298,7 +2298,7 @@ reference "sub:Canal-de-labortatorio"
 \end_layout
 
 \begin_layout Section
-Deteccion de la superficie libre en laboratorio
+Detección de la superficie libre en laboratorio
 \end_layout
 
 \begin_layout Subsection
@@ -2309,7 +2309,7 @@ Tipo de sensores
 Existen una gran cantidad de instrumentos utilizados para medir la altura
  de la superficie libre del oleaje en laboratorio, cada uno con ventajas
  y desventajas asociadas, donde todos requieren de una buena experiencia
- por parte del usuario para su correcta utilizacion y en general sus costos
+ por parte del usuario para su correcta utilización y en general sus costos
  son elevados.
  Estos se los pueden clasificar como intrusivos o no intrusivos.
 \end_layout
@@ -2325,16 +2325,16 @@ Son aquellos que se introducen dentro de la zona que contiene el fluido
  con el medio, su durabilidad es menor, y en algunos casos limitan los tipos
  de fluidos que se pueden medir (por ejemplo, instrumentos se estropean
  en agua salada).
- Ademas, estos sensores son especificos para la medicion de variables en
+ Además, estos sensores son específicos para la medición de variables en
  un cierto rango de escala espacio-temporal, generalmente no pueden medir
- los procesos cerca de los contornos, dependen de la siembra de particulas
+ los procesos cerca de los contornos, dependen de la siembra de partículas
  en el fluido, entre otras.
  
 \end_layout
 
 \begin_layout Standard
 Por otra parte, estos instrumentos pueden brindar una alta frecuencia de
- muestreos con alta presicion.
+ muestreos con alta precisión.
 \end_layout
 
 \begin_layout Standard
@@ -2570,7 +2570,7 @@ Instrumentos intrusivos.
 \end_layout
 
 \begin_layout Subsubsection
-Instrumentos no instrusivos
+Instrumentos no intrusivos
 \end_layout
 
 \begin_layout Standard
@@ -2611,11 +2611,11 @@ http://en.wikipedia.org/wiki/Laser_Doppler_velocimetry
 
 \end_inset
 
--), funcionan por medio de sensores muy delicados como el laser, que en
+-), funcionan por medio de sensores muy delicados como el láser, que en
  general, sin las precauciones adecuadas, puede generar daños a los seres
  humanos o dañar el sensor en si.
  A su vez, dentro de esta rama de instrumentos se encuentra el presentado
- en este trabajo, el cual utiliza tecnicas de procesamiento de imagenes
+ en este trabajo, el cual utiliza técnicas de procesamiento de imágenes
  para detectar la superficie libre.
 \end_layout
 
@@ -2651,7 +2651,7 @@ name "fig:PIV-(Particle-Image"
 
 \end_inset
 
-PIV (Particle Image Veolcimeter).
+PIV (Particle Image Velocimeter).
 \end_layout
 
 \end_inset
@@ -2669,27 +2669,27 @@ PIV (Particle Image Veolcimeter).
 \end_layout
 
 \begin_layout Subsection
-Tecnicas basadas en procesamiento de imagenes
+Técnicas basadas en procesamiento de imágenes
 \end_layout
 
 \begin_layout Standard
-A diferencia de los intrsumentos tradicionales, los cuales son muy costosos
- pero que brindan una elevada presicion de la medicion que realizan, las
- técnicas basadas en procesamiento de imagenes (por medio de videocamaras)
- brindan una opcion alternativa de bajo costo, que requieren de poca experiencia
- por parte del usuario, no son peligrosos (ya que no pueden generar ningun
- daño fisico a personas ni al instrumentos en si), tienen una mayor flexibilidad
+A diferencia de los instrumentos tradicionales, los cuales son muy costosos
+ pero que brindan una elevada precisión de la medición que realizan, las
+ técnicas basadas en procesamiento de imágenes (por medio de vídeo cámaras)
+ brindan una opción alternativa de bajo costo, que requieren de poca experiencia
+ por parte del usuario, no son peligrosos (ya que no pueden generar ningún
+ daño físico a personas ni al instrumentos en si), tienen una mayor flexibilidad
  (aplicables a otros tipos de mediciones y a diferentes escalas espacio-temporal
-es de los procesos) y en general, su presicion es limitada por la definicion
- de la camara web utilizada, lo que a su vez, a mayor presicion, mayor costo.
- Sin embargo, con una camara de alta definicion standard puede ser suficiente
+es de los procesos) y en general, su precisión es limitada por la definición
+ de la cámara web utilizada, lo que a su vez, a mayor precisión, mayor costo.
+ Sin embargo, con una cámara de alta definición estándar puede ser suficiente
  para la aplicaciones ingenieriles de laboratorio, como lo es el fin de
  este trabajo (medir la altura de ola).
 \end_layout
 
 \begin_layout Standard
-El conjunto de tecnicas investigadas en este trabajo como asi tambien el
- trabajo desarrollado se basan en la utilizacion de camaras 
+El conjunto de técnicas investigadas en este trabajo como así también el
+ trabajo desarrollado se basan en la utilización de cámaras 
 \shape italic
 pinhole
 \shape default
@@ -2704,29 +2704,29 @@ key "key-7"
 \end_layout
 
 \begin_layout Standard
-Para lograr obtener resultados adecuados es necesario capturar imagenes
- con la mayor calidad posible, ademas de una buena resolucion, es importante
+Para lograr obtener resultados adecuados es necesario capturar imágenes
+ con la mayor calidad posible, además de una buena resolución, es importante
  tener en cuenta varios factores del entorno donde se realizaran las muestras
  de laboratorio, como por ejemplo, luz ambiental, contraste de la superficie
  libre con respecto al fluido, suciedades en los vidrios laterales del canal,
  entre otras.
- Siempre tendiendo a minimzar la cantidad de ruido (zonas que pueden generar
- contornos que se confundan con la superficie libre, o areas que puedan
+ Siempre tendiendo a minimizar la cantidad de ruido (zonas que pueden generar
+ contornos que se confundan con la superficie libre, o áreas que puedan
  evitar la correcta captura de la misma).
 \end_layout
 
 \begin_layout Standard
-Dentro del conjunto de tecnicas basadas en procesamiento de imagenes se
+Dentro del conjunto de técnicas basadas en procesamiento de imágenes se
  pueden diferenciar aquellas que son en tiempo real y las que no, pero ambas,
  a grandes rasgos siguen un mismo proceso.
- Este proceso, que tiene como entrada una imagen y como salida la deteccion
+ Este proceso, que tiene como entrada una imagen y como salida la detección
  de alguna variable determinada (altura de la superficie libre) podemos
  describirlo, de forma general, como un conjunto de pasos (secuenciales)
  o sub-procesos:
 \end_layout
 
 \begin_layout Itemize
-Rectificacion.
+Rectificación.
 \end_layout
 
 \begin_layout Itemize
@@ -2734,17 +2734,17 @@ Detección de contornos.
 \end_layout
 
 \begin_layout Itemize
-Analisis y procesamiento.
+Análisis y procesamiento.
 \end_layout
 
 \begin_layout Standard
 Cada uno de estos pasos pueden ser llevados a cabo de distintas maneras
- y utilizando diferentes algoritmos o modelos matematicos.
+ y utilizando diferentes algoritmos o modelos matemáticos.
  
 \end_layout
 
 \begin_layout Standard
-Algunas de las tecnicas analizadas en este trabajo se pueden encontrar en
+Algunas de las técnicas analizadas en este trabajo se pueden encontrar en
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2770,7 +2770,7 @@ key "key-12"
 \end_layout
 
 \begin_layout Standard
-A continuacion se explican en mayor detalle cada uno de los pasos mencionados
+A continuación se explican en mayor detalle cada uno de los pasos mencionados
  anteriormente.
 \end_layout
 
@@ -2781,22 +2781,22 @@ name "sub:Rectificacion-de-imagen"
 
 \end_inset
 
-Rectificacion
+Rectificación
 \end_layout
 
 \begin_layout Standard
-Para lograr una correcta medicion de la altura de ola (u otra variable hidrodina
-mica de interes) es necesario trabajar sobre una imagen libre (o al menos
+Para lograr una correcta medición de la altura de ola (u otra variable hidrodiná
+mica de interés) es necesario trabajar sobre una imagen libre (o al menos
  con la menor cantidad posible) de errores.
  Podemos diferenciar 2 tipos de errores o problemas: a) aquellos introducidos
- por el dispositivo de captura (camara de video); b) aquellos relacionados
- con la posicion y orientacion de la camara.
+ por el dispositivo de captura (cámara de vídeo); b) aquellos relacionados
+ con la posición y orientación de la cámara.
 \end_layout
 
 \begin_layout Standard
-Con respecto a los primeros (a), tambien llamados distorciones, podemos
- clasificarlos como radiales (relacionado con la forma del lente de la camara)
- y tangenciales (provenientes del proceso de ensamblaje de la camara en
+Con respecto a los primeros (a), también llamados distorsiones, podemos
+ clasificarlos como radiales (relacionado con la forma del lente de la cámara)
+ y tangenciales (provenientes del proceso de ensamblaje de la cámara en
  su totalidad), entre otros (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2816,7 +2816,7 @@ key "key-14"
 
 \begin_layout Standard
 Por el otro lado (b), el problema de mayor importancia es el de la diferencia
- que existe entre el sistema de coordenadas entre la camara y el plano sobre
+ que existe entre el sistema de coordenadas entre la cámara y el plano sobre
  el cual se quiere realizar las mediciones.
  En la 
 \shape italic
@@ -2837,7 +2837,7 @@ reference "fig:Diferencia-de-perspectiva"
 object plane
 \shape default
 \color inherit
-, que en este trabajo representaria la pared del canal donde se realiza
+, que en este trabajo representaría la pared del canal donde se realiza
  la captura de imagen para detectar la altura de la ola), se representa
  dentro de la imagen capturada por el dispositivo (en la figura 
 \shape italic
@@ -2851,12 +2851,12 @@ image plane
  a medir), la altura real de la misma que se observa en el canal se encuentra
  proyectada en la imagen y con una perspectiva diferente a la real, esto
  es, con un sistema de coordenadas diferentes.
- Es por esto que se debe encontrar la relacion entre estos 2 sistemas de
+ Es por esto que se debe encontrar la relación entre estos 2 sistemas de
  coordenadas (por medio de lo que se denomina 
 \begin_inset Quotes eld
 \end_inset
 
-transformacion de la perspectiva
+transformación de la perspectiva
 \begin_inset Quotes erd
 \end_inset
 
@@ -2866,10 +2866,10 @@ transformacion de la perspectiva
 
 \begin_layout Standard
 En un principio, los problemas introducidos por (a) son de menor importancia
- (debido a que son despreciables en las camaras nuevas, teniendo en cuenta
- que no se requiere de una altisima presicion) con respecto a los de (b).
- Ademas, estos ultimos, son causados principalmente por la posicion en la
- que se coloca la camara frente a la zona que se quiere medir.
+ (debido a que son despreciables en las cámaras nuevas, teniendo en cuenta
+ que no se requiere de una altísima precisión) con respecto a los de (b).
+ Además, estos últimos, son causados principalmente por la posición en la
+ que se coloca la cámara frente a la zona que se quiere medir.
 \end_layout
 
 \begin_layout Standard
@@ -2901,8 +2901,8 @@ name "fig:Diferencia-de-perspectiva"
 
 \end_inset
 
-Diferencia de perspectiva entre la imagen en la camara (image plane) y el
- plano real (object plane), extraida de 
+Diferencia de perspectiva entre la imagen en la cámara (image plane) y el
+ plano real (object plane), extraída de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-14"
@@ -2923,7 +2923,7 @@ key "key-14"
 \end_layout
 
 \begin_layout Standard
-Para llevar a cabo la rectificacion, se utilizan diferentes metodos, entre
+Para llevar a cabo la rectificación, se utilizan diferentes métodos, entre
  ellos el modelo de Transformada Lineal Directa (DTL) (
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2931,14 +2931,14 @@ key "key-7"
 
 \end_inset
 
-), solucion por minimos cuadrados (
+), solución por mínimos cuadrados (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-7"
 
 \end_inset
 
-) y metodos alternativos (
+) y métodos alternativos (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-10"
@@ -2950,9 +2950,9 @@ key "key-10"
 \end_layout
 
 \begin_layout Standard
-En este trabajo se planteo utilizar un metodo de simple implementacion (y
- configuracion) el cual se basa en transformar la perspectiva de la imagen
- de entrada alineandola a un sistema de coordenadas cartesianas como se
+En este trabajo se planteo utilizar un método de simple implementación (y
+ configuración) el cual se basa en transformar la perspectiva de la imagen
+ de entrada alineándola a un sistema de coordenadas cartesianas como se
  lo detallara en el 
 \shape italic
 \color black
@@ -2976,29 +2976,29 @@ Detección de contornos
 
 \begin_layout Standard
 Esta etapa tiene como fin detectar los bordes asociados a la superficie
- libre que se encuentran en la imagen de entrada, minimizando la deteccion
+ libre que se encuentran en la imagen de entrada, minimizando la detección
  de bordes falsos (aquellos que pertenecen al entorno y no a la superficie
  libre en si).
 \end_layout
 
 \begin_layout Standard
 En una primera instancia, se procede a disminuir la complejidad de la imagen
- reduciendo la cantidad de canales (colores) de la misma, en general, convirtien
-dola a una imagen monocromatica.
+ reduciendo la cantidad de canales (colores) de la misma, en general, convirtién
+dola a una imagen monocromática.
 \end_layout
 
 \begin_layout Standard
 En segundo lugar, se aplican una serie de filtros (o mascaras) con el fin
  de delimitar la zona que se quiere analizar, evitando procesar zonas que
- no son de interes y a su vez, eliminando posibles errores causados por
+ no son de interés y a su vez, eliminando posibles errores causados por
  falsos valores (esto es, los bordes falsos mencionados anteriormente).
  
 \end_layout
 
 \begin_layout Standard
-Por ultimo se realiza la deteccion de contornos sobre la imagen filtrada
- por medio de algun algoritmo.
- Existen varios metodos utilizados para detectar los bordes, alguno de estos
+Por ultimo se realiza la detección de contornos sobre la imagen filtrada
+ por medio de algún algoritmo.
+ Existen varios métodos utilizados para detectar los bordes, alguno de estos
  se pueden ver en 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3061,7 +3061,7 @@ reference "fig:Imagen-rectificada-sin"
 \end_inset
 
  representando a la imagen de entrada de este sub-proceso (ya rectificada)
- pero sin ningun filtro aplicado, mientras que la 
+ pero sin ningún filtro aplicado, mientras que la 
 \shape italic
 \color black
 Figura
@@ -3075,9 +3075,9 @@ reference "fig:Imagen-rectificada-luego"
 \end_inset
 
  muestra la imagen de salida (de esta etapa) luego de haberla procesado
- con el algoritmo de deteccion de contornos (cabe destacar que en este caso
+ con el algoritmo de detección de contornos (cabe destacar que en este caso
  no se delimito ninguna zona analizar si no que se aplico el algoritmo de
- deteccion de contornos a toda la imagen de entrada).
+ detección de contornos a toda la imagen de entrada).
 \end_layout
 
 \begin_layout Standard
@@ -3157,7 +3157,7 @@ name "fig:Imagen-rectificada-luego"
 
 \end_inset
 
-Imagen rectificada luego de aplicar el algoritmo de deteccion de contornos
+Imagen rectificada luego de aplicar el algoritmo de detección de contornos
  (imagen de salida).
 \end_layout
 
@@ -3182,7 +3182,7 @@ name "fig:Resultado-del-proceso"
 
 \end_inset
 
-Resultado del proceso de deteccion de contornos.
+Resultado del proceso de detección de contornos.
 \end_layout
 
 \end_inset
@@ -3205,17 +3205,17 @@ Como se puede ver, dependiendo del entorno de trabajo (luz, contraste de
  y los filtros aplicados, la existencia de bordes falsos puede generar mucho
  ruido e introducir errores a la hora de medir la altura de ola.
  Por esto es necesario una etapa posterior que permita discernir los bordes
- que pertenecen a la superficie libre, la cual se menciona a continuacion.
+ que pertenecen a la superficie libre, la cual se menciona a continuación.
 \end_layout
 
 \begin_layout Subsubsection
-Analisis y procesamiento
+Análisis y procesamiento
 \end_layout
 
 \begin_layout Standard
 Una vez detectado los bordes de la imagen y en base a los algoritmos utilizados
- en la etapa anterior, se aplica cierta heuristica para diferenciar los
- bordes correspondientes a la altura de la superficie libre (llamemoslos
+ en la etapa anterior, se aplica cierta heurística para diferenciar los
+ bordes correspondientes a la altura de la superficie libre (llamémoslos
  
 \shape italic
 bordes positivos
@@ -3243,9 +3243,9 @@ reference "fig:Imagen-rectificada-luego"
 \shape italic
 bordes positivos 
 \shape default
-no es unica y esta fuertemente ligada en como fue modificada la imagen en
+no es única y esta fuertemente ligada en como fue modificada la imagen en
  la etapa anterior y/o en la forma de representar los contornos detectados.
- A modo de ejemplo podemos mencionar distintos metodos utilizados, como
+ A modo de ejemplo podemos mencionar distintos métodos utilizados, como
  el caso de 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3253,7 +3253,7 @@ key "key-8"
 
 \end_inset
 
- que utiliza una funcion de interpolacion y filtrado de contornos para eliminar
+ que utiliza una función de interpolación y filtrado de contornos para eliminar
  puntos (o bordes) falsos.
  Para este trabajo se desarrollo un algoritmo simple con tal finalidad,
  el cual se describe en el 
@@ -3275,24 +3275,24 @@ Wave height analyzer.
 \end_layout
 
 \begin_layout Standard
-Luego de lograr la deteccion de los 
+Luego de lograr la detección de los 
 \shape italic
 bordes positivos
 \shape default
  se procede a obtener la altura en metros (o alguna otra unidad de longitud)
- por medio de la transformacion de la relacion pixels/metros (o la unidad
+ por medio de la transformación de la relación píxeles/metros (o la unidad
  de longitud correspondiente).
 \end_layout
 
 \begin_layout Standard
-Podemos decir, en base a los trabajos analizados, que para esta etapa (Analisis
- y procesamiento) no existe algun lineamiento especifico de como llevarla
+Podemos decir, en base a los trabajos analizados, que para esta etapa (Análisis
+ y procesamiento) no existe algún lineamiento especifico de como llevarla
  a cabo, si no que es la que mas varia (de trabajo en trabajo) y esta sumamente
  relacionada con la forma en que fueron realizadas las etapas anteriores.
 \end_layout
 
 \begin_layout Subsection
-Tecnicas utilizadas
+Técnicas utilizadas
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Tecnicas-utilizadas"
@@ -3363,13 +3363,13 @@ Diagrama general del proceso de la técnica utilizada.
 \end_layout
 
 \begin_layout Standard
-Como se puede ver, el proceso (rectangulo azul) tiene como entrada una imagen
- que puede provenir de una camara de video o de un archivo.
+Como se puede ver, el proceso (rectángulo azul) tiene como entrada una imagen
+ que puede provenir de una cámara de vídeo o de un archivo.
  Dentro del proceso general se pueden diferenciar los cuatro subprocesos
  que trabajan de manera secuencial, donde cada uno de estos tiene como entrada
  la imagen procesada por el subproceso inmediatamente anterior.
  Antes de continuar a explicar cada uno de los subprocesos realizaremos
- las siguientes definiciones para una mayor comprension de lo que se desarrolle.
+ las siguientes definiciones para una mayor comprensión de lo que se desarrolle.
 \end_layout
 
 \begin_layout Standard
@@ -3450,7 +3450,7 @@ name "fig:Esquema-2D-del"
 
 \end_inset
 
-Esquema 2D del canal y angulo de captura.
+Esquema 2D del canal y ángulo de captura.
 \end_layout
 
 \end_inset
@@ -3479,7 +3479,7 @@ name "fig:Esquema-del-canal"
 
 \end_inset
 
-Esquema del canal y la zona de interes a analizar.
+Esquema del canal y la zona de interés a analizar.
 \begin_inset Note Note
 status open
 
@@ -3503,7 +3503,7 @@ escribir mas lindo esto
 \end_layout
 
 \begin_layout Standard
-Basandonos en el esquema presentado en la 
+Basándonos en el esquema presentado en la 
 \shape italic
 \color black
 Figura 
@@ -3540,7 +3540,7 @@ plano de captura:
 \shape italic
 zona de captura: 
 \shape default
-al rectangulo capturado por la videocamara sobre la pared del canal que
+al rectángulo capturado por la vídeo cámara sobre la pared del canal que
  es paralelo al 
 \shape italic
 plano de captura.
@@ -3549,9 +3549,9 @@ plano de captura.
 \begin_layout Itemize
 
 \shape italic
-angulo de captura:
+ángulo de captura:
 \shape default
- El angulo de rotacion de la camara con respecto al 
+ El ángulo de rotación de la cámara con respecto al 
 \shape italic
 plano de captura
 \shape default
@@ -3570,7 +3570,7 @@ reference "fig:Esquema-2D-del"
 
 
 \shape default
-, el angulo 
+, el ángulo 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -3580,18 +3580,18 @@ reference "fig:Esquema-2D-del"
 \end_layout
 
 \begin_layout Standard
-Podemos observar que no se realizo distincion del angulo de la camara sobre
+Podemos observar que no se realizo distinción del ángulo de la cámara sobre
  el eje 
 \begin_inset Formula $y$
 \end_inset
 
- con respecto a la zona de captura, el cual llamaremos angulo 
+ con respecto a la zona de captura, el cual llamaremos ángulo 
 \begin_inset Formula $\beta$
 \end_inset
 
 .
  Esto debido a que como se verá mas adelante, no tiene tiene la misma importanci
-a que el angulo de captura 
+a que el ángulo de captura 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -3599,15 +3599,15 @@ a que el angulo de captura
 \end_layout
 
 \begin_layout Standard
-Definiremos ademas a una imagen 
+Definiremos además a una imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- como una matriz de valores numericos enteros tal que 
+ como una matriz de valores numéricos enteros tal que 
 \begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
 
- es el pixel (valor numerico) que se encuentra en la i-esima fila y j-esima
+ es el píxel (valor numérico) que se encuentra en la i-ésima fila y j-ésima
  columna (
 \shape italic
 \color black
@@ -3630,11 +3630,11 @@ reference "fig:Matriz-de-pixels"
 \end_inset
 
 .
- Definiremos tambien a 
+ Definiremos también a 
 \begin_inset Formula $I_{*k}$
 \end_inset
 
- a la columna (de pixels) k-esima de la imagen 
+ a la columna (de píxeles) k-ésima de la imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
@@ -3642,7 +3642,7 @@ reference "fig:Matriz-de-pixels"
 \begin_inset Formula $0\leq k<n$
 \end_inset
 
- y analogamente para las filas de pixels 
+ y análogamente para las filas de píxeles 
 \begin_inset Formula $I_{l*}$
 \end_inset
 
@@ -3655,7 +3655,7 @@ reference "fig:Matriz-de-pixels"
 \begin_inset Formula $a_{00}\in I_{mn}$
 \end_inset
 
- corresponde al pixel superior izquierdo de la imagen mientras que el pixel
+ corresponde al píxel superior izquierdo de la imagen mientras que el píxel
  
 \begin_inset Formula $a_{mn}\in I_{mn}$
 \end_inset
@@ -3694,7 +3694,7 @@ name "fig:Matriz-de-pixels"
 
 \end_inset
 
-Matriz de pixels representando una imágen.
+Matriz de píxeles representando una imagen.
 \end_layout
 
 \end_inset
@@ -3712,7 +3712,7 @@ Matriz de pixels representando una imágen.
 \end_layout
 
 \begin_layout Standard
-A continuacion mencionaremos las caracteristicas principales y finalidad
+A continuación mencionaremos las características principales y finalidad
  de cada uno de los subprocesos (mostrados en la 
 \shape italic
 \color black
@@ -3745,11 +3745,11 @@ Rectificador
 Este subproceso se basa en 2 grupos de 4 puntos (2D) correspondientes a
  los puntos de origen y de destino (de la imagen de entrada y salida respectivam
 ente).
- Los primeros estan asociados a la 
+ Los primeros están asociados a la 
 \shape italic
 zona de trabajo
 \shape default
- que se quiere analizar (la cual debe ser un rectangulo contenido dentro
+ que se quiere analizar (la cual debe ser un rectángulo contenido dentro
  de la 
 \shape italic
 zona de captura 
@@ -3780,14 +3780,14 @@ reference "fig:Esquema-3D-del"
  capturada por el dispositivo en si (el tamaño del frame/imagen con el que
  se trabaja).
  El primer grupo de puntos necesita ser especificado por el usuario mientras
- que el segundo se asigna de manera automatica.
+ que el segundo se asigna de manera automática.
  
 \end_layout
 
 \begin_layout Standard
-Debido a que la camara se encuentra con un 
+Debido a que la cámara se encuentra con un 
 \shape italic
-angulo de captura
+ángulo de captura
 \shape default
  
 \begin_inset Formula $\theta\neq0$
@@ -3829,7 +3829,7 @@ reference "sub:Rectificacion-de-imagen"
  
 \shape italic
 \color black
-Rectificacion
+Rectificación
 \shape default
 \color inherit
 .), esto es, el sistema de coordenadas de la imagen en el dispositivo se
@@ -3842,8 +3842,8 @@ Rectificacion
 \end_inset
 
 .
- Por otro lado y como se menciono anteriormente, existe tambien el angulo
- de rotacion 
+ Por otro lado y como se menciono anteriormente, existe también el ángulo
+ de rotación 
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -3861,9 +3861,9 @@ zona de captura
 \shape italic
 plano de captura
 \shape default
-, se genera una matriz de transformacion de perspectiva por medio de los
- 8 puntos mencionados anteriormente, la cual mapea cada pixel de la imagen
- origen a su nueva posicion en la imagen destino (solventando el defasaje
+, se genera una matriz de transformación de perspectiva por medio de los
+ 8 puntos mencionados anteriormente, la cual mapea cada píxel de la imagen
+ origen a su nueva posición en la imagen destino (solventando el desfasaje
  de los distintos sistemas de coordenadas como se puede observar en la 
 \shape italic
 \color black
@@ -3882,18 +3882,18 @@ reference "fig:Diferencia-de-perspectiva"
 
 \begin_layout Standard
 De esta manera se soluciona el error de la perspectiva y al mismo tiempo
- se eliminan las zonas (a grandes rasgos) que no pertenecen al area de interes.
- Ademas de que es una metodo sencillo y facil de configurar por parte del
+ se eliminan las zonas (a grandes rasgos) que no pertenecen al área de interés.
+ Además de que es una método sencillo y fácil de configurar por parte del
  usuario.
 \end_layout
 
 \begin_layout Standard
-Por conveniencia, en este trabajo, se intenta posicionar la camara de forma
- tal que el angulo 
+Por conveniencia, en este trabajo, se intenta posicionar la cámara de forma
+ tal que el ángulo 
 \begin_inset Formula $\beta=0$
 \end_inset
 
- y el angulo 
+ y el ángulo 
 \begin_inset Formula $\theta>0$
 \end_inset
 
@@ -3926,7 +3926,7 @@ Perspective transform
 \shape default
 \color inherit
  se realiza un desarrollo mas profundo sobre el algoritmo que permite realizar
- esta rectificacion.
+ esta rectificación.
 \end_layout
 
 \begin_layout Subsubsection
@@ -3941,9 +3941,9 @@ Recortador
 
 \begin_layout Standard
 Este proceso realiza un recorte aún mayor sobre la imagen de entrada descartando
- aquellas zonas que no son de interes, con el fin de agilizar el procesamiento
+ aquellas zonas que no son de interés, con el fin de agilizar el procesamiento
  de los posteriores sub-procesos.
- Se basa en los siguientes parametros:
+ Se basa en los siguientes parámetros:
 \end_layout
 
 \begin_layout Standard
@@ -3955,7 +3955,7 @@ Este proceso realiza un recorte aún mayor sobre la imagen de entrada descartand
 \begin_inset Formula $I_{*i}$
 \end_inset
 
- (columna de pixels) de la imagen de entrada 
+ (columna de píxeles) de la imagen de entrada 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
@@ -3995,7 +3995,7 @@ Dada la imagen de entrada
 \begin_inset Formula $I'_{mc}$
 \end_inset
 
- (de salida) reduciendola su numero de columnas a 
+ (de salida) reduciéndola su numero de columnas a 
 \begin_inset Formula $c$
 \end_inset
 
@@ -4007,20 +4007,20 @@ La existencia de este simple proceso se debe a que en este trabajo necesitamos
  detectar la altura de la superficie libre (y por ende realizar todo el
  proceso) en tiempo real.
  Por otro lado, solo es necesario capturar la altura de la misma en un punto
- determinado (una columna de pixels, dada por el parametro 
+ determinado (una columna de píxeles, dada por el parámetro 
 \begin_inset Formula $i$
 \end_inset
 
-), aunque esta unica columna no alcanza debido a que podria no detectarse
- el contorno de la superficie de forma correcta dando lugar a calculos erroneos
- y un sistema muy propenso a fallas (por tal motivo se utiliza el parametro
+), aunque esta única columna no alcanza debido a que podría no detectarse
+ el contorno de la superficie de forma correcta dando lugar a cálculos erróneos
+ y un sistema muy propenso a fallas (por tal motivo se utiliza el parámetro
  
 \begin_inset Formula $c>0$
 \end_inset
 
 ).
  Como ultimo, simplifica las configuraciones de los posteriores subprocesos,
- evitando tener que configurar en cada uno de estos la zona de analisis,
+ evitando tener que configurar en cada uno de estos la zona de análisis,
  tomando directamente toda la imagen ya recortada.
 \end_layout
 
@@ -4084,7 +4084,7 @@ suavizar
 \end_inset
 
  la imagen suprimiendo la mayor cantidad posible de ruido (como puntos aislados
- debido a particulas sobre la pared del canal) para una mayor diferenciacion
+ debido a partículas sobre la pared del canal) para una mayor diferenciación
  de los bordes reales.
  El funcionamiento de este algoritmo se explicara en el 
 \shape italic
@@ -4124,8 +4124,8 @@ reference "sub:Canny-edge-detector"
 
 \end_inset
 
-) utilizado para detectar los bordes en la imagen basado en ciertos parametros
- previamente configurados por el usuario que seran mencionados posteriormente
+) utilizado para detectar los bordes en la imagen basado en ciertos parámetros
+ previamente configurados por el usuario que serán mencionados posteriormente
  junto con los detalles del funcionamiento del algoritmo.
 \end_layout
 
@@ -4162,17 +4162,17 @@ Dicho de otra manera, la imagen de salida
 \end_layout
 
 \begin_layout Standard
-Este subproceso es el que mayor tiempo de procesamiento requiere en comparacion
+Este subproceso es el que mayor tiempo de procesamiento requiere en comparación
  con todos los otros.
  
 \end_layout
 
 \begin_layout Standard
-En este trabajo se opto por la utilizacion de este algoritmo (
+En este trabajo se opto por la utilización de este algoritmo (
 \shape italic
 Canny
 \shape default
-) debido a que es uno de los mas utilizados en el area de 
+) debido a que es uno de los mas utilizados en el área de 
 \begin_inset Quotes eld
 \end_inset
 
@@ -4184,9 +4184,9 @@ computer vision
 \begin_inset Quotes erd
 \end_inset
 
- y además la libreria con la que se trabajo proveia de una implementacion
+ y además la librería con la que se trabajo proveía de una implementación
  del mismo.
- Aún asi, al ser el proceso general una secuencia de subprocesos independientes
+ Aún así, al ser el proceso general una secuencia de subprocesos independientes
  (cada uno con respecto a los otros), cambiar de algoritmo solo debería
  implicar la modificación de este único subproceso (o modulo).
 \end_layout
@@ -4200,7 +4200,7 @@ Dada la imagen
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- (de entrada) preprocesada por el algoritmo de deteccion de contornos, este
+ (de entrada) preprocesada por el algoritmo de detección de contornos, este
  proceso tiene como fin decidir cuales de éstos 
 \begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
@@ -4236,7 +4236,7 @@ Wave height analyzer
 \shape default
 \color inherit
 .
- y una serie de parametros que sirven de base como configuracion inicial
+ y una serie de parámetros que sirven de base como configuración inicial
  (suministrados por el usuario).
  
 \end_layout
@@ -4246,11 +4246,11 @@ Una vez detectado los
 \shape italic
 bordes positivos
 \shape default
-, se realiza una conversion de unidades, pasando de 
+, se realiza una conversión de unidades, pasando de 
 \begin_inset Quotes eld
 \end_inset
 
-altura de superficie libre en pixels
+altura de superficie libre en píxeles
 \begin_inset Quotes erd
 \end_inset
 
@@ -4262,12 +4262,12 @@ altura de superficie libre en metros
 \begin_inset Quotes erd
 \end_inset
 
-, por medio de uno de los parametros de configuracion que establece la relacion
- de equivalencia entre pixels y metros.
+, por medio de uno de los parámetros de configuración que establece la relación
+ de equivalencia entre píxeles y metros.
 \end_layout
 
 \begin_layout Standard
-A diferencia de las otras etapas, ésta tiene como salida un valor numerico
+A diferencia de las otras etapas, ésta tiene como salida un valor numérico
  (y no una imagen), que es la salida del proceso completo, esto es, la altura
  de la superficie libre detectada y convertida en metros.
 \end_layout
@@ -4292,7 +4292,7 @@ reference "fig:Imagenes-resultantes-en"
 
 
 \color inherit
- se muestran las imagenes resultantes de cada uno de los procesos mensionados
+ se muestran las imágenes resultantes de cada uno de los procesos mencionados
  anteriormente 
 \color black
 (diagramados en la 
@@ -4311,8 +4311,8 @@ reference "fig:Diagrama-general-del"
 \end_layout
 
 \begin_layout Standard
-En una primera instancia, tenemos la imagen de entrada sin ningun tipo de
- transformacion (obtenida directamente de la camara de video o un archivo),
+En una primera instancia, tenemos la imagen de entrada sin ningún tipo de
+ transformación (obtenida directamente de la cámara de vídeo o un archivo),
  ésta es procesada por el 
 \shape italic
 \color black
@@ -4320,7 +4320,7 @@ Rectificador
 \shape default
 \color inherit
  dando lugar a la segunda imagen, la cual solo contiene la zona seleccionada
- por el usuario (el rectangulo de trabajo mencionado en el 
+ por el usuario (el rectángulo de trabajo mencionado en el 
 \shape italic
 capitulo 
 \begin_inset CommandInset ref
@@ -4333,12 +4333,12 @@ reference "sub:Rectificador"
  Rectificador.
 \shape default
 ).
- Ésta imagen resultante es la entrada del proceso denomiado 
+ Ésta imagen resultante es la entrada del proceso denominado 
 \shape italic
 Recortador
 \shape default
 , el cual descarta fragmentos de la misma generando una con menor cantidad
- de columnas (en este caso en particular se uso el parametro 
+ de columnas (en este caso en particular se uso el parámetro 
 \begin_inset Formula $c$
 \end_inset
 
@@ -4368,7 +4368,7 @@ bordes falsos
 \shape default
 ) por encima y por debajo de la superficie libre, lo que varia mucho dependiendo
  de varios factores como la luz utilizada, suciedad en las paredes del canal,
- parametros utilizados en el algoritmo de 
+ parámetros utilizados en el algoritmo de 
 \shape italic
 Canny
 \shape default
@@ -4380,7 +4380,7 @@ sensibilidad
 \begin_inset Quotes erd
 \end_inset
 
- a la deteccion de contornos), entre otros.
+ a la detección de contornos), entre otros.
  Por ultimo se encuentra el 
 \shape italic
 Analizador
@@ -4388,7 +4388,7 @@ Analizador
 , el cual tiene como finalidad detectar la altura de ola en la imagen de
  contornos procesada anteriormente.
  Como mencionamos en el capitulo anterior, este proceso tiene como salida
- un valor numerico el cual se lo representa por medio de la ultima imagen
+ un valor numérico el cual se lo representa por medio de la ultima imagen
  en la que se resalta (en rojo) la altura de ola detectada.
 \end_layout
 
@@ -4420,7 +4420,7 @@ name "fig:Imagenes-resultantes-en"
 
 \end_inset
 
-Imagenes resultantes en cada etapa del proceso de la tecnica utilizada.
+Imágenes resultantes en cada etapa del proceso de la técnica utilizada.
 \end_layout
 
 \end_inset
@@ -4445,28 +4445,28 @@ Algoritmos involucrados
 \end_layout
 
 \begin_layout Subsection
-Introduccion
+Introducción
 \end_layout
 
 \begin_layout Standard
-En esta seccion describiremos las bases matematicas de los algoritmos utilizados
- en este trabajo a lo largo del proceso de la deteccion de la superficie
+En esta sección describiremos las bases matemáticas de los algoritmos utilizados
+ en este trabajo a lo largo del proceso de la detección de la superficie
  libre.
  Se mencionaran en el orden en el que son aplicados sobre la imagen de entrada
  
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- del proceso, proviniente ya sea del dispositivo (webcam) o de un archivo
- de video.
+ del proceso, proveniente ya sea del dispositivo (webcam) o de un archivo
+ de vídeo.
 \end_layout
 
 \begin_layout Standard
-Los algoritmos utilizados para la rectificacion de la imagen y el analisis
+Los algoritmos utilizados para la rectificación de la imagen y el análisis
  de los contornos (
 \shape italic
 \color black
-capitulos 
+capítulos 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Perspective-transform"
@@ -4490,8 +4490,8 @@ reference "sub:Wave-height-analyzer"
  Wave height analyzer
 \shape default
 \color inherit
- respectivamente) no poseen nombres concretos por lo que se decidio asignarles
- uno con el fin de facilitar su identificacion en los capitulos siguientes.
+ respectivamente) no poseen nombres concretos por lo que se decidió asignarles
+ uno con el fin de facilitar su identificación en los capítulos siguientes.
  En particular, este ultimo (
 \shape italic
 \color black
@@ -4513,13 +4513,13 @@ name "sub:Perspective-transform"
 \end_layout
 
 \begin_layout Standard
-Este algoritmo es utilizado para la rectificacion de la imagen al comienzo
+Este algoritmo es utilizado para la rectificación de la imagen al comienzo
  del proceso.
 \end_layout
 
 \begin_layout Standard
-Se basa en una transformacion de perspectiva (por medio de una matriz de
- transofrmacion 
+Se basa en una transformación de perspectiva (por medio de una matriz de
+ transformación 
 \begin_inset Formula $T$
 \end_inset
 
@@ -4538,15 +4538,15 @@ key "key-15"
 \begin_inset Formula $I'_{mn}$
 \end_inset
 
- donde cada pixel 
+ donde cada píxel 
 \begin_inset Formula $a'_{i'j'}\in I'_{mn}$
 \end_inset
 
- puede ser expresado en terminos del punto original 
+ puede ser expresado en términos del punto original 
 \begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
 
-, utilizando coordenadas homogeneas 
+, utilizando coordenadas homogéneas 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-13"
@@ -4561,7 +4561,7 @@ key "key-13"
 \begin_inset Formula $(i',j',w)$
 \end_inset
 
- para algun 
+ para algún 
 \begin_inset Formula $w$
 \end_inset
 
@@ -4596,7 +4596,7 @@ m_{20} & m_{21} & m_{22}\end{array}\right)\]
 \end_layout
 
 \begin_layout Standard
-es la matriz de transformacion y con 
+es la matriz de transformación y con 
 \begin_inset Formula $m_{22}=1$
 \end_inset
 
@@ -4629,8 +4629,8 @@ y cada uno de los
 \begin_inset Formula $m_{ab}$
 \end_inset
 
- se calculan en base a los 8 puntos bidimensionales de configuracion, 4
- de origen (llamemoslos 
+ se calculan en base a los 8 puntos bidimensionales de configuración, 4
+ de origen (llamémoslos 
 \begin_inset Formula $p_{o_{k}}:k=1,..,4$
 \end_inset
 
@@ -4681,11 +4681,11 @@ Con todo esto, el algoritmo simplemente se puede describir como sigue:
 \end_layout
 
 \begin_layout Enumerate
-Establecidos los 8 puntos de configuracion (
+Establecidos los 8 puntos de configuración (
 \begin_inset Formula $p_{o_{k}},p_{d_{k}}:k=1,..,4$
 \end_inset
 
-), se contruye la matriz de transformacion de perspectiva 
+), se construye la matriz de transformación de perspectiva 
 \begin_inset Formula $T$
 \end_inset
 
@@ -4693,11 +4693,11 @@ Establecidos los 8 puntos de configuracion (
 \end_layout
 
 \begin_layout Enumerate
-Para cada pixel 
+Para cada píxel 
 \begin_inset Formula $a_{ij}\in I_{mn}$
 \end_inset
 
- se obtiene su nueva posicion en la imagen de salida 
+ se obtiene su nueva posición en la imagen de salida 
 \begin_inset Formula $I'_{mn}$
 \end_inset
 
@@ -4707,7 +4707,7 @@ utilizando la matriz
 
  como se muestra en la 
 \shape italic
-ecuacion 
+ecuación 
 \shape default
 
 \begin_inset CommandInset ref
@@ -4716,7 +4716,7 @@ reference "eq:multiplicacion"
 
 \end_inset
 
- copiandose el valor del pixel (
+ copiándose el valor del píxel (
 \begin_inset Formula $a'_{i'j'}=a_{ij}$
 \end_inset
 
@@ -4732,7 +4732,7 @@ Notar que asumimos que los valores
 \begin_inset Formula $j'$
 \end_inset
 
- obtenidos luego de multiplicar la matriz de transformacion sobre el punto
+ obtenidos luego de multiplicar la matriz de transformación sobre el punto
  de origen (valores 
 \begin_inset Formula $i$
 \end_inset
@@ -4749,7 +4749,7 @@ Notar que asumimos que los valores
 \begin_inset Formula $0\leq j,j'<n$
 \end_inset
 
-, en caso de no cumplirse esta condicion, los pixels son automaticamente
+, en caso de no cumplirse esta condición, los píxeles son automáticamente
  descartados.
 \end_layout
 
@@ -4765,7 +4765,7 @@ name "sub:Gaussian-Blur"
 \end_layout
 
 \begin_layout Standard
-Este algoritmo, tambien conocido como 
+Este algoritmo, también conocido como 
 \shape italic
 Gaussian smoothing
 \shape default
@@ -4795,7 +4795,7 @@ Kernel
 \shape italic
 Mask
 \shape default
-: Usualmente una matriz de numeros (
+: Usualmente una matriz de números (
 \color black
 a derecha en 
 \shape italic
@@ -4829,7 +4829,7 @@ image convolution
 \shape italic
 Convolution
 \shape default
-: Es una simple operacion matematica
+: Es una simple operación matemática
 \begin_inset Foot
 status open
 
@@ -4839,15 +4839,15 @@ http://en.wikipedia.org/wiki/Convolution
 
 \end_inset
 
- que provee una forma de multiplicar entre si 2 arrays de numeros, generalmente
- de diferentes tamaños pero de igual tipo numerico produciendo un tercer
- array (resultado) de numeros del mismo tipo.
- En éste caso (procesamiento de imagenes), los arrays numericos multiplicados
+ que provee una forma de multiplicar entre si 2 arrays de números, generalmente
+ de diferentes tamaños pero de igual tipo numérico produciendo un tercer
+ array (resultado) de números del mismo tipo.
+ En éste caso (procesamiento de imágenes), los arrays numéricos multiplicados
  son por un lado la imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
- (que puede verse como un array numerico bidimensional, a izquierda en la
+ (que puede verse como un array numérico bidimensional, a izquierda en la
  
 \shape italic
 \color black
@@ -4897,12 +4897,12 @@ name "fig:Representacion-de-una"
 
 \end_inset
 
-Representacion de una imágen (a izquierda) y un 
+Representación de una imagen (a izquierda) y un 
 \shape italic
 kernel
 \shape default
  (a derecha).
- Extraida de 
+ Extraída de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-16"
@@ -4925,7 +4925,7 @@ key "key-16"
 \begin_layout Standard
 La 
 \shape italic
-convolucion 
+convolución 
 \shape default
 es realizada deslizando el 
 \shape italic
@@ -4933,7 +4933,7 @@ es realizada deslizando el
 kernel
 \shape default
 \color inherit
- (empezando generalmente por arriba a la izquierda) sobre todos los pixels
+ (empezando generalmente por arriba a la izquierda) sobre todos los píxeles
  de la imagen de forma tal que la matriz 
 \shape italic
 \color black
@@ -4941,15 +4941,15 @@ kernel
 \shape default
 \color inherit
  entre completamente dentro de los limites de la misma, devolviendo en cada
- posicion (que se desliza el 
+ posición (que se desliza el 
 \shape italic
 \color black
 kernel
 \shape default
 \color inherit
-) un unico valor correspondiente.
- A modo de ejemplo, en el caso del ultimo pixel (abajo a la derecha) el
- resultado de la operacion seria 
+) un único valor correspondiente.
+ A modo de ejemplo, en el caso del ultimo píxel (abajo a la derecha) el
+ resultado de la operación seria 
 \begin_inset Formula $O_{57}=I_{57}K_{11}+I_{58}K_{12}+I_{59}K_{13}+I_{67}K_{21}+I_{68}K_{22}+I_{69}K_{23}$
 \end_inset
 
@@ -4988,7 +4988,7 @@ kernel
 \begin_layout Standard
 
 \shape italic
-Distribucion gaussiana 1D:
+Distribución gaussiana 1D:
 \end_layout
 
 \begin_layout Standard
@@ -5003,7 +5003,7 @@ G(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{x^{2}}{2\sigma^{2}}}\label{eq:dist
 \begin_layout Standard
 
 \shape italic
-Distribucion gaussiana 2D:
+Distribución gaussiana 2D:
 \end_layout
 
 \begin_layout Standard
@@ -5020,14 +5020,14 @@ donde
 \begin_inset Formula $\sigma$
 \end_inset
 
- es la desviacion estandard de la distribucion gaussiana.
+ es la desviación estándar de la distribución gaussiana.
 \end_layout
 
 \begin_layout Standard
-La idea es usar esta distribucion 2D (
+La idea es usar esta distribución 2D (
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -5037,26 +5037,26 @@ reference "eq:dist_gaus_2d"
 
 \end_inset
 
-) como una funcion del tipo 
+) como una función del tipo 
 \begin_inset Quotes eld
 \end_inset
 
-punto de propagacion
+punto de propagación
 \begin_inset Quotes erd
 \end_inset
 
 , por medio de la 
 \shape italic
-convolucion
+convolución
 \shape default
 .
  Dicho en otras palabras, armar la matriz kernel utilizando la 
 \shape italic
-distribucion gaussiana 2D
+distribución gaussiana 2D
 \shape default
  para luego aplicar la 
 \shape italic
-convolucion
+convolución
 \shape default
  y obtener la imagen resultante
 \shape italic
@@ -5067,7 +5067,7 @@ convolucion
 Por temas de eficiencia en general, y gracias a que la 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -5085,10 +5085,10 @@ reference "eq:dist_gaus_2d"
 \begin_inset Formula $y$
 \end_inset
 
- (dandonos como resultado 
+ (dándonos como resultado 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -5100,20 +5100,20 @@ reference "eq:dist_gaus_1d"
 
 ), podemos aplicar la 
 \shape italic
-convolucion 
+convolución 
 \shape default
-primero en la direccion 
+primero en la dirección 
 \begin_inset Formula $x$
 \end_inset
 
- y luego en la direccion 
+ y luego en la dirección 
 \begin_inset Formula $y$
 \end_inset
 
  por medio de la 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -5125,12 +5125,12 @@ reference "eq:dist_gaus_1d"
 
 , obteniendo el mismo resultado que habiendo aplicado 
 \shape italic
-convolucion
+convolución
 \shape default
  con la 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -5146,11 +5146,11 @@ reference "eq:dist_gaus_2d"
 \begin_layout Standard
 Este algoritmo da como resultado (en cada corrida de la 
 \shape italic
-convolucion
+convolución
 \shape default
-) un promedio ponderado de cada pixel vecino, con la media ponderada mas
- hacia el valor de los pixeles centrales.
- Utiliza ademas ciertos parametros que determinan el tamaño de la 
+) un promedio ponderado de cada píxel vecino, con la media ponderada mas
+ hacia el valor de los píxeles centrales.
+ Utiliza además ciertos parámetros que determinan el tamaño de la 
 \shape italic
 \color black
 kernel
@@ -5164,7 +5164,7 @@ kernel
 \end_layout
 
 \begin_layout Standard
-A modo de ejemplo, se muestran dos imagenes en la 
+A modo de ejemplo, se muestran dos imágenes en la 
 \shape italic
 \color black
 Figura 
@@ -5295,7 +5295,7 @@ http://www.eecs.berkeley.edu/Faculty/Homepages/canny.html
 Smoothing
 \series default
 : Suavizar la imagen para remover el ruido utilizando el filtro gaussiano
- anteriormente mencionado con parametro 
+ anteriormente mencionado con parámetro 
 \begin_inset Formula $\sigma=1.4$
 \end_inset
 
@@ -5361,7 +5361,7 @@ http://en.wikipedia.org/wiki/Prewitt_operator
 
 \shape default
 ).
- Estos operadores devuelven el valor de la derivada primera en la direccion
+ Estos operadores devuelven el valor de la derivada primera en la dirección
  horizontal 
 \begin_inset Formula $G_{x}$
 \end_inset
@@ -5374,17 +5374,17 @@ http://en.wikipedia.org/wiki/Prewitt_operator
 \begin_inset Formula $G$
 \end_inset
 
- (o tambien conocidos como 
+ (o también conocidos como 
 \shape italic
 \color black
 edge strengths
 \shape default
 \color inherit
-) y direccion 
+) y dirección 
 \begin_inset Formula $\Theta$
 \end_inset
 
- asociados a cada uno de los pixels de la imagen, donde 
+ asociados a cada uno de los píxeles de la imagen, donde 
 \begin_inset Formula \[
 G=\sqrt{G_{x}^{2}+G_{y}^{2}}\]
 
@@ -5396,7 +5396,7 @@ G=\sqrt{G_{x}^{2}+G_{y}^{2}}\]
 
 \end_inset
 
-El angulo 
+El ángulo 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -5404,7 +5404,7 @@ El angulo
 \begin_inset Quotes eld
 \end_inset
 
-redoneado
+redondeado
 \begin_inset Quotes erd
 \end_inset
 
@@ -5416,7 +5416,7 @@ inclinaciones
 \begin_inset Quotes erd
 \end_inset
 
- dadas por los angulos 0, 45, 90 y 135 (ya que 180 se lo considerara analogo
+ dadas por los ángulos 0, 45, 90 y 135 (ya que 180 se lo considerara análogo
  a 0, 135 a 45, 270 a 90 y 315 a 135).
 \end_layout
 
@@ -5426,7 +5426,7 @@ inclinaciones
 Non-maximum suppression
 \series default
 : Dada la imagen de magnitudes de gradientes calculada en el paso anterior,
- donde cada pixel contiene el valor 
+ donde cada píxel contiene el valor 
 \begin_inset Formula $\left|G\right|$
 \end_inset
 
@@ -5435,15 +5435,15 @@ Non-maximum suppression
 \end_inset
 
  redondeado, se procede a eliminar todo borde borroso dejando solo aquellos
- bien marcados (tambien denominados como 
+ bien marcados (también denominados como 
 \shape italic
 \color black
 fuertes
 \shape default
 \color inherit
-), esto se logra por medio de la eliminacion de todo maximo que no sea local
+), esto se logra por medio de la eliminación de todo máximo que no sea local
  en la imagen de gradientes y dejando solo aquellos que si lo sean.
- Se puede describir el procedimiento realizado sobre cada pixel 
+ Se puede describir el procedimiento realizado sobre cada píxel 
 \begin_inset Formula $p$
 \end_inset
 
@@ -5460,7 +5460,7 @@ reference "fig:Non-maximum-suppression.-La"
 
 \end_inset
 
- como: a) Se obtienen los pixels vecinos (
+ como: a) Se obtienen los píxeles vecinos (
 \begin_inset Formula $p_{1}$
 \end_inset
 
@@ -5472,7 +5472,7 @@ reference "fig:Non-maximum-suppression.-La"
 \begin_inset Formula $p$
 \end_inset
 
- en base a la direccion 
+ en base a la dirección 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -5480,11 +5480,11 @@ reference "fig:Non-maximum-suppression.-La"
 \begin_inset Formula $\Theta=90$
 \end_inset
 
- por lo tanto se toman tanto el pixel vecino superior 
+ por lo tanto se toman tanto el píxel vecino superior 
 \begin_inset Formula $p_{1}$
 \end_inset
 
- y el pixel vecino inferior 
+ y el píxel vecino inferior 
 \begin_inset Formula $p_{2}$
 \end_inset
 
@@ -5545,8 +5545,8 @@ name "fig:Non-maximum-suppression.-La"
 \end_inset
 
 Non-maximum suppression.
- La magnitud del gradiente (edge strengths) se muestra como numeros (y escala
- de gris) al costado de la direccion de 
+ La magnitud del gradiente (edge strengths) se muestra como números (y escala
+ de gris) al costado de la dirección de 
 \begin_inset Formula $G$
 \end_inset
 
@@ -5555,9 +5555,9 @@ Non-maximum suppression.
 \end_inset
 
 .
- Los pixels pertenecientes a los bordes fuertes se resaltan con un borde
+ Los píxeles pertenecientes a los bordes fuertes se resaltan con un borde
  blanco.
- (extraida y modificada de 
+ (extraída y modificada de 
 \shape default
 \color inherit
 
@@ -5593,9 +5593,9 @@ key "key-17"
 Double thresholding
 \series default
 : La imagen resultante del paso anterior es procesada comparando cada uno
- de los pixels (marcados como pertenecientes a un contorno) con un umbral
+ de los píxeles (marcados como pertenecientes a un contorno) con un umbral
  alto y uno bajo.
- Aquellos pixels que esten por debajo del 
+ Aquellos píxeles que estén por debajo del 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5603,7 +5603,7 @@ umbral bajo
 \begin_inset Quotes erd
 \end_inset
 
- son descartados, aquellos que esten por encima del 
+ son descartados, aquellos que estén por encima del 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5618,7 +5618,7 @@ fuertes
 , mientras que aquellos que se encuentren por encima del bajo y por debajo
  del alto son marcados como 
 \shape italic
-debiles
+débiles
 \shape default
 .
 \end_layout
@@ -5628,17 +5628,17 @@ debiles
 \series bold
 Edge tracking by hysteresis
 \series default
-: Dada la imagen anterior, todos los pixels marcados como 
+: Dada la imagen anterior, todos los píxeles marcados como 
 \shape italic
 fuertes 
 \shape default
-son automaticamente clasificados como contornos reales (y por ende incluidos
+son automáticamente clasificados como contornos reales (y por ende incluidos
  a la imagen final resultante).
- Aquellos pixels marcados como 
+ Aquellos píxeles marcados como 
 \shape italic
-debiles
+débiles
 \shape default
- son incluidos como contornos reales si y solo si estan conectados a alguno
+ son incluidos como contornos reales si y solo si están conectados a alguno
  de los contornos 
 \shape italic
 fuertes
@@ -5672,14 +5672,14 @@ reference "fig:Imagenes-resultantes-luego"
 
 \end_inset
 
- en la que se muestran 2 imagenes luego de ser aplicado el algoritmo de
+ en la que se muestran 2 imágenes luego de ser aplicado el algoritmo de
  
 \shape italic
 \color black
 Canny
 \shape default
 \color inherit
-, utilizando distintos parametros de umbrales sobre la misma imagen de entrada
+, utilizando distintos parámetros de umbrales sobre la misma imagen de entrada
  (a izquierda en la 
 \shape italic
 \color black
@@ -5723,8 +5723,8 @@ reference "fig:Canny-Thresholds:-20"
 
 \end_inset
 
-) se puede ver que la cantidad de contornos es semejante a lo que uno esperaria
- y practicamente no se percibe ruido o bordes no deseados.
+) se puede ver que la cantidad de contornos es semejante a lo que uno esperaría
+ y prácticamente no se percibe ruido o bordes no deseados.
  Es por esto, que es de suma importancia elegir valores adecuados para ambos
  umbrales a la hora de utilizar el algoritmo de 
 \shape italic
@@ -5850,13 +5850,13 @@ name "fig:Imagenes-resultantes-luego"
 
 \end_inset
 
-Imagenes resultantes luego de aplicar el algoritmo 
+Imágenes resultantes luego de aplicar el algoritmo 
 \shape italic
 \color black
 Canny
 \shape default
 \color inherit
- con distintos parametros de umbrales (thresholds).
+ con distintos parámetros de umbrales (thresholds).
 \end_layout
 
 \end_inset
@@ -5883,7 +5883,7 @@ name "sub:Wave-height-analyzer"
 \begin_layout Standard
 Este algoritmo tiene como finalidad determinar cual de todos los contornos
  detectados en la imagen corresponde a la altura de ola que se este analizando.
- Para lograrlo requiere de la siguiente informacion.
+ Para lograrlo requiere de la siguiente información.
 \end_layout
 
 \begin_layout Standard
@@ -5915,8 +5915,8 @@ Sea
 \begin_inset Formula $h_{0}$
 \end_inset
 
- el valor de la altura de ola inicial en pixels, esto es, el numero de fila
- en la imagen 
+ el valor de la altura de ola inicial en píxeles, esto es, el numero de
+ fila en la imagen 
 \begin_inset Formula $I_{mn}$
 \end_inset
 
@@ -5933,13 +5933,13 @@ Sea
 \begin_inset Formula $V$
 \end_inset
 
- una constante numerica predefinida representando la maxima variacion de
- altura de ola aceptable en pixels (esto es la cantidad maxima de pixels
+ una constante numérica predefinida representando la máxima variación de
+ altura de ola aceptable en píxeles (esto es la cantidad máxima de píxeles
  aceptables que puede cambiar la ola de un paso al otro).
 \end_layout
 
 \begin_layout Standard
-Se asume ademas que el movimiento de la ola se realiza sobre el eje 
+Se asume además que el movimiento de la ola se realiza sobre el eje 
 \begin_inset Formula $y$
 \end_inset
 
@@ -5956,7 +5956,7 @@ reference "fig:Matriz-de-pixels"
 
 \end_inset
 
-), esto es, dada la columna k-esima (
+), esto es, dada la columna k-ésima (
 \begin_inset Formula $I_{*k}$
 \end_inset
 
@@ -5996,11 +5996,11 @@ Para cada columna
 \begin_inset Formula $\bar{w}_{k}$
 \end_inset
 
- la ultima altura calculada en la k-esima columna (donde 
+ la ultima altura calculada en la k-ésima columna (donde 
 \begin_inset Formula $\bar{w}_{k}$
 \end_inset
 
- es el indice de una fila), buscamos la nueva altura 
+ es el índice de una fila), buscamos la nueva altura 
 \begin_inset Formula $w_{k}$
 \end_inset
 
@@ -6030,8 +6030,8 @@ Para cada columna
 \end_inset
 
 .
- En palabras, esto no es mas que encontrar el pixel marcado como verdadero
- que se encuentre mas cercano (en posicion) a la ultima altura calculada
+ En palabras, esto no es mas que encontrar el píxel marcado como verdadero
+ que se encuentre mas cercano (en posición) a la ultima altura calculada
  (
 \begin_inset Formula $\bar{w}_{k}$
 \end_inset
@@ -6064,7 +6064,7 @@ Sea
 \begin_inset Formula $V$
 \end_inset
 
-, de ser asi se la devuelve, caso contrario se sigue con 3.
+, de ser así se la devuelve, caso contrario se sigue con 3.
 \end_layout
 
 \begin_layout Enumerate
@@ -6103,7 +6103,7 @@ Sea
 
 \begin_layout Standard
 Cada vez que finaliza el algoritmo se actualizan las ultimas alturas encontradas
- para evitar acumulacion de error.
+ para evitar acumulación de error.
  
 \end_layout
 
@@ -6121,12 +6121,12 @@ Las
 \end_layout
 
 \begin_layout Standard
-Puede parecer que el paso 3 agrega complejidad inecesaria, pero debido a
- que en ciertas situaciones (por problemas de luz o de entorno), la deteccion
+Puede parecer que el paso 3 agrega complejidad innecesaria, pero debido
+ a que en ciertas situaciones (por problemas de luz o de entorno), la detección
  de contornos no se realiza correctamente en ciertos puntos, es necesario
  una forma alternativa de detectar la altura de ola a los alrededores del
  punto que se esta analizando, evitando de esta forma posibles mediciones
- erroneas (hace que el algoritmo sea mas robusto y por ende menos propenso
+ erróneas (hace que el algoritmo sea mas robusto y por ende menos propenso
  a fallas).
 \end_layout
 
@@ -6138,7 +6138,7 @@ Puede parecer que el paso 3 agrega complejidad inecesaria, pero debido a
 \end_layout
 
 \begin_layout Section
-Implementacion y funcionamiento del sistema
+Implementación y funcionamiento del sistema
 \end_layout
 
 \begin_layout Subsection
@@ -6147,10 +6147,10 @@ Requerimientos principales
 
 \begin_layout Standard
 Como objetivo principal, el sistema debía capturar la altura de la superficie
- libre del fluido a medir desde una camara (web/usb) y lograrlo en tiempo
+ libre del fluido a medir desde una cámara (web/usb) y lograrlo en tiempo
  real.
- A continuacion se listan los requerimientos mas importantes que el sistema
- debia cumplir:
+ A continuación se listan los requerimientos mas importantes que el sistema
+ debía cumplir:
 \end_layout
 
 \begin_layout Itemize
@@ -6158,9 +6158,9 @@ Como objetivo principal, el sistema debía capturar la altura de la superficie
 \series bold
 REQ1:
 \series default
- Dada una camara web usb, poder capturar y procesar las imagenes a una velocidad
- no inferior a 20 fps (o 20 capturas por segundo) y una resolucion que permita
- una deteccion de altura con no mas de 0.5 cm de error.
+ Dada una cámara web usb, poder capturar y procesar las imágenes a una velocidad
+ no inferior a 20 fps (o 20 capturas por segundo) y una resolución que permita
+ una detección de altura con no mas de 0.5 cm de error.
 \end_layout
 
 \begin_layout Itemize
@@ -6168,7 +6168,7 @@ REQ1:
 \series bold
 REQ2:
 \series default
- El sistema debía funcionar en una maquina estandar (que no se requiera
+ El sistema debía funcionar en una maquina estándar (que no se requiera
  de una supercomputadora para lograr la velocidad de procesamiento), ya
  que, como se menciono anteriormente, una de las ventajas del sistema era
  su bajo costo.
@@ -6179,7 +6179,7 @@ REQ2:
 \series bold
 REQ3:
 \series default
- Ser facil de utilizar y configurar por cualquier persona (que no posea
+ Ser fácil de utilizar y configurar por cualquier persona (que no posea
  conocimientos previos) que use el sistema.
 \end_layout
 
@@ -6189,7 +6189,7 @@ REQ3:
 REQ4:
 \series default
  Tener una estructura (arquitectura) flexible que posibilite el desarrollo
- de futuras aplicaciones (que midan otras variables hidrodinamicas) o ser
+ de futuras aplicaciones (que midan otras variables hidrodinámicas) o ser
  modificado por otros investigadores en el futuro.
 \end_layout
 
@@ -6198,10 +6198,10 @@ REQ4:
 \series bold
 REQ5:
 \series default
- Contar con una interfaz grafica que permitiese mostrar los datos procesados
+ Contar con una interfaz gráfica que permitiese mostrar los datos procesados
  y además la posibilidad de compararlos con los obtenidos 
 \color black
-por el otro sistema de medicion actualmente utilizado
+por el otro sistema de medición actualmente utilizado
 \color red
  
 \color black
@@ -6211,9 +6211,9 @@ por el otro sistema de medicion actualmente utilizado
 \end_layout
 
 \begin_layout Standard
-Debido a que no existia ninguna restriccion sobre el lenguaje de programacion
- a utilizar, entorno sobre el cual desarrollar, ni tipos de librerias a
- emplear, se tomaron ciertas deciciones sobre como sería la implementacion
+Debido a que no existía ninguna restricción sobre el lenguaje de programación
+ a utilizar, entorno sobre el cual desarrollar, ni tipos de librerías a
+ emplear, se tomaron ciertas decisiones sobre como sería la implementación
  del sistema, y teniendo en cuenta los requerimientos antes mencionados,
  se opto por lo siguiente:
 \end_layout
@@ -6245,7 +6245,7 @@ www.linux.com
 \begin_layout Itemize
 
 \series bold
-Lenguaje de programacion
+Lenguaje de programación
 \series default
 : 
 \shape italic
@@ -6269,7 +6269,7 @@ www.cplusplus.com
 \begin_layout Itemize
 
 \series bold
-Librerias de procesamiento grafico
+Librerías de procesamiento gráfico
 \series default
 : 
 \shape italic
@@ -6293,7 +6293,7 @@ http://opencv.willowgarage.com/wiki/
 \begin_layout Itemize
 
 \series bold
-Librerias de interfaz grafica (Graphical User Interface o GUI)
+Librerías de interfaz gráfica (Graphical User Interface o GUI)
 \series default
 : 
 \shape italic
@@ -6317,7 +6317,7 @@ http://qt.nokia.com/
 \begin_layout Itemize
 
 \series bold
-Librerias adicionales
+Librerías adicionales
 \series default
 : 
 \shape italic
@@ -6386,25 +6386,25 @@ http://fftwpp.sourceforge.net/
 \end_layout
 
 \begin_layout Standard
-En los siguientes parrafos se dará una breve explicacion del porque de éstas
- deciciones.
+En los siguientes párrafos se dará una breve explicación del porque de éstas
+ decisiones.
 \end_layout
 
 \begin_layout Standard
-El sistema fue desarrollado en el entorno linux principalmente por comodidad
- y gusto, aún asi, las librerias utilizadas son multiplaforma por lo que
- deberia poder ser compilado en otras entornos (exceptuando la aplicacion
- externa utilizada para configurar la camara web, que en el caso de windows,
- la aplicacion proveída por el manufacturador de la camara deberia alcanzar).
+El sistema fue desarrollado en el entorno Linux principalmente por comodidad
+ y gusto, aún así, las librerías utilizadas son multiplaforma por lo que
+ debería poder ser compilado en otras entornos (exceptuando la aplicación
+ externa utilizada para configurar la cámara web, que en el caso de windows,
+ la aplicación proveída por el manufacturador de la cámara debería alcanzar).
 \end_layout
 
 \begin_layout Standard
-El lenguaje de programacion 
+El lenguaje de programación 
 \shape italic
 C++
 \shape default
- fue elegido debido a que es un lenguaje de programacion con mayor performance
- en comparacion con otros, lo que era necesario para cumplir con el procesamient
+ fue elegido debido a que es un lenguaje de programación con mayor performance
+ en comparación con otros, lo que era necesario para cumplir con el procesamient
 o en tiempo real (
 \series bold
 REQ1
@@ -6414,26 +6414,26 @@ REQ1
 REQ2
 \series default
 ).
- Por otro lado ya se poseian conocimientos previos del mismo (como asi tambien
- preferencia), lo que agilizaria el desarrollo.
+ Por otro lado ya se poseían conocimientos previos del mismo (como así también
+ preferencia), lo que agilizaría el desarrollo.
 \end_layout
 
 \begin_layout Standard
-Dentro de un gran conjunto de librerias de procesamiento grafico, se opto
+Dentro de un gran conjunto de librerías de procesamiento gráfico, se opto
  por 
 \shape italic
 OpenCV
 \shape default
  ya que ésta esta principalmente orientada a sistemas que requieren de manipulac
-ion de imagenes en tiempo real (
+ión de imágenes en tiempo real (
 \shape italic
 \color black
 real time computer vision systems
 \shape default
 \color inherit
-) como la robotica.
+) como la robótica.
  Además de que tiene un alto grado de maduración, está actualmente activa
- y existe mucha documentacion.
+ y existe mucha documentación.
 \end_layout
 
 \begin_layout Standard
@@ -6441,8 +6441,8 @@ En cuanto al
 \series bold
 REQ3
 \series default
-, para poder cumplirlo, necesariamente se requeria de una interfaz grafica
- para el usuario, por lo cual se decidio elegir 
+, para poder cumplirlo, necesariamente se requería de una interfaz gráfica
+ para el usuario, por lo cual se decidió elegir 
 \shape italic
 Qt
 \shape default
@@ -6469,16 +6469,16 @@ Application Programming Interface
 \shape italic
  C++
 \shape default
-, cubria con todas las necesidades que el sistema planteaba, era de facil
- integracion con 
+, cubría con todas las necesidades que el sistema planteaba, era de fácil
+ integración con 
 \shape italic
 OpenCV
 \shape default
- y se poseia cierto grado de conocimiento previo sobre la misma.
+ y se poseía cierto grado de conocimiento previo sobre la misma.
 \end_layout
 
 \begin_layout Standard
-Con respecto a las librerias adicionales, las de mayor impacto sobre el
+Con respecto a las librerías adicionales, las de mayor impacto sobre el
  sistema es 
 \shape italic
 Qwt
@@ -6488,8 +6488,8 @@ Qwt
 REQ5 
 \series default
 se basa en ésta.
- Fue elegida debido a que proveia la funcionalidad deseada de una manera
- muy sencilla y de facil integracion con las demas librerias (es una extencion
+ Fue elegida debido a que proveía la funcionalidad deseada de una manera
+ muy sencilla y de fácil integración con las demás librerías (es una extinción
  de 
 \shape italic
 Qt
@@ -6499,13 +6499,13 @@ Qt
 GUI
 \shape default
  del sistema -).
- Ademas 
+ Además 
 \shape italic
 \color black
 FFTW++
 \shape default
 \color inherit
- se utilizaro para el calculo y analisis de los datos obtenidos.
+ se utilizó para el calculo y análisis de los datos obtenidos.
 \end_layout
 
 \begin_layout Subsection
@@ -6554,11 +6554,11 @@ reference "fig:Arquitectura-general-del"
 \end_inset
 
 .
- Esta decision fue tomada para poder cubrir el 
+ Esta decisión fue tomada para poder cubrir el 
 \series bold
 REQ4
 \series default
- (flexibilidad para la facil integracion de posibles futuras aplicaciones).
+ (flexibilidad para la fácil integración de posibles futuras aplicaciones).
 \end_layout
 
 \begin_layout Standard
@@ -6648,7 +6648,7 @@ IPS
 Loader
 \shape default
 \color inherit
-) el cual tiene como finalidad listar y mostrar todos los modulos 
+) el cual tiene como finalidad listar y mostrar todos los módulos 
 \shape italic
 IPS
 \shape default
@@ -6658,7 +6658,7 @@ IPS
 \shape italic
 IPS
 \shape default
- tienen como objetivo encapsular una aplicacion con una finalidad especifica,
+ tienen como objetivo encapsular una aplicación con una finalidad especifica,
  que en el caso de este trabajo, es detectar la altura de la superficie
  libre de un fluido.
 \end_layout
@@ -6668,7 +6668,7 @@ Cada
 \shape italic
 IPS
 \shape default
- esta conformado por 2 partes, una grafica (
+ esta conformado por 2 partes, una gráfica (
 \shape italic
 IPS GUI
 \shape default
@@ -6677,18 +6677,18 @@ IPS GUI
 IPS Core
 \shape default
 ).
- La primera, tiene como fin brindarle al usuario una forma facil y agil
+ La primera, tiene como fin brindarle al usuario una forma fácil y ágil
  de configurar a la segunda, la cual en general, requiere de muchos pasos
- y parametros para poder ser utilizada correctamente.
+ y parámetros para poder ser utilizada correctamente.
  En esta ultima (
 \shape italic
 IPS Core
 \shape default
-) se encuentra toda la logica y algoritmos para el procesamiento de imagenes,
- que no depende en absoluto de la parte grafica para su funcionamiento,
- lo que permite, si se deseea, desarrollar nuevas aplicaciones sin la necesidad
- de implementar una interfaz grafica o aún más, modificar de manera sencilla
- el sistema para soportar otro tipo de librerias para la 
+) se encuentra toda la lógica y algoritmos para el procesamiento de imágenes,
+ que no depende en absoluto de la parte gráfica para su funcionamiento,
+ lo que permite, si se desea, desarrollar nuevas aplicaciones sin la necesidad
+ de implementar una interfaz gráfica o aún más, modificar de manera sencilla
+ el sistema para soportar otro tipo de librerías para la 
 \shape italic
 GUI
 \shape default
@@ -6697,13 +6697,13 @@ GUI
 
 \begin_layout Standard
 Debido a que las aplicaciones que pueden ser desarrolladas requieren en
- general de una interfaz grafica, y que ademas, la configuracion se realiza
- en una fase previa al procesamiento de imagenes (antes de empezar a capturar
- y procesar las imagenes el 
+ general de una interfaz gráfica, y que además, la configuración se realiza
+ en una fase previa al procesamiento de imágenes (antes de empezar a capturar
+ y procesar las imágenes el 
 \shape italic
 IPS Core
 \shape default
- debe estar configurado), se opto por ejecutar la interfaz grafica en un
+ debe estar configurado), se opto por ejecutar la interfaz gráfica en un
  principio y que esta sea la encargada de ejecutar la otra parte (
 \shape italic
 IPS Core
@@ -6722,7 +6722,7 @@ reference "fig:Arquitectura-general-del"
 
 \end_inset
 
- a travez de las flechas (
+ a través de las flechas (
 \shape italic
 IPS Loader
 \shape default
@@ -6772,7 +6772,7 @@ Image Processing System (IPS)
 \shape italic
 Core
 \shape default
-) ya que la interfaz grafica puede variar mucho de aplicacion en aplicacion.
+) ya que la interfaz gráfica puede variar mucho de aplicación en aplicación.
  
 \end_layout
 
@@ -6837,22 +6837,22 @@ reference "fig:Arquitectura-de-los"
 \shape italic
 IPS Core
 \shape default
- consta de dos modulos, por un lado el 
+ consta de dos módulos, por un lado el 
 \shape italic
 ImageGenerator
 \shape default
-, el cual, como su nombre lo indica, tiene como fin generar imagenes para
- ser procesadas, estas pueden provenir de una camara o bien de un archivo
- de video.
+, el cual, como su nombre lo indica, tiene como fin generar imágenes para
+ ser procesadas, estas pueden provenir de una cámara o bien de un archivo
+ de vídeo.
  Por otro lado se encuentra el 
 \shape italic
 ImageAnalyzer, 
 \shape default
-el cual se rige de sus unidades basicas funcionales llamadas 
+el cual se rige de sus unidades básicas funcionales llamadas 
 \shape italic
 ImageProcessor
 \shape default
-, las cuales realizan el veradero procesamiento de imagenes, cada uno con
+, las cuales realizan el verdadero procesamiento de imágenes, cada uno con
  una funcionalidad determinada.
  Dada una imagen 
 \begin_inset Formula $I$
@@ -6866,7 +6866,7 @@ ImageGenerator
 \shape italic
 ImageAnalyzer
 \shape default
- tiene como finalidad procesarla (a travez de los distintos 
+ tiene como finalidad procesarla (a través de los distintos 
 \shape italic
 ImageProcessors
 \shape default
@@ -6874,7 +6874,7 @@ ImageProcessors
 \end_layout
 
 \begin_layout Standard
-En la parte superior del diagrama se puede observar la interfaz grafica
+En la parte superior del diagrama se puede observar la interfaz gráfica
  (
 \shape italic
 IPS 
@@ -6898,12 +6898,12 @@ ImageProcessors
 
 \begin_layout Standard
 Gracias a esta arquitectura, el sistema es muy flexible en cuanto a la actividad
- que deba realizar (y por ende la aplicacion que se quiera desarrollar),
+ que deba realizar (y por ende la aplicación que se quiera desarrollar),
  ya que simplemente se basa en lo que los 
 \shape italic
 ImageProcessor
 \shape default
- esten configurados para hacer.
+ estén configurados para hacer.
 \end_layout
 
 \begin_layout Standard
@@ -6992,7 +6992,7 @@ WaveHeightIPS
 \end_layout
 
 \begin_layout Standard
-En los siguientes capitulos se explicara el funcionamiento detallado del
+En los siguientes capítulos se explicara el funcionamiento detallado del
  
 \shape italic
 WHIPS
@@ -7025,7 +7025,7 @@ IPS
 framework
 \shape default
 \color inherit
-) que permite la creacion de estos 
+) que permite la creación de estos 
 \shape italic
 IPS
 \shape default
@@ -7037,12 +7037,12 @@ Nivel estructural o de framework
 \end_layout
 
 \begin_layout Standard
-Como se menciono anteriormente, el sistema debia facilitar el desarrollo
+Como se menciono anteriormente, el sistema debía facilitar el desarrollo
  de futuras aplicaciones (
 \series bold
 REQ4
 \series default
-), para lograr esto, se modelo y encapsulo a cada posible aplicacion como
+), para lograr esto, se modelo y encapsulo a cada posible aplicación como
  un 
 \shape italic
 Image Processing System
@@ -7123,10 +7123,10 @@ IPS
 \end_layout
 
 \begin_layout Standard
-Se observa el diseño a grandes rasgos del sistema completo sin ningun detalle
- de la interfaz de cada una de las clases, como asi tambien, se obviaron
+Se observa el diseño a grandes rasgos del sistema completo sin ningún detalle
+ de la interfaz de cada una de las clases, como así también, se obviaron
  varias clases auxiliares para evitar complejidad en el esquema.
- Listaremos a continuacion, en forma general, las funcionalidades principales
+ Listaremos a continuación, en forma general, las funcionalidades principales
  de cada una de estas clases.
 \end_layout
 
@@ -7139,7 +7139,7 @@ MainProgram
 \shape italic
 IPS
 \shape default
- y ejecutarlos segun corresponda.
+ y ejecutarlos según corresponda.
 \end_layout
 
 \begin_layout Itemize
@@ -7183,7 +7183,7 @@ IPS
 \series bold
 ConfigWindowManager
 \series default
-: Manejador de ventanas, encargado de organizarlas y mostrarlas segun correspond
+: Manejador de ventanas, encargado de organizarlas y mostrarlas según correspond
 a.
 \end_layout
 
@@ -7192,7 +7192,7 @@ a.
 \series bold
 ConfigWindow
 \series default
-: Abstraccion de como debe ser toda ventana de configuracion.
+: Abstracción de como debe ser toda ventana de configuración.
 \end_layout
 
 \begin_layout Itemize
@@ -7200,8 +7200,8 @@ ConfigWindow
 \series bold
 ImageGenerator
 \series default
-: Clase encargada de abstraer la generacion de imagenes, ya sea de archivo
- o de una camara de video.
+: Clase encargada de abstraer la generación de imágenes, ya sea de archivo
+ o de una cámara de vídeo.
 \end_layout
 
 \begin_layout Itemize
@@ -7209,7 +7209,7 @@ ImageGenerator
 \series bold
 ImageProcessingSystem
 \series default
-: Abstraccion de como deben ser los 
+: Abstracción de como deben ser los 
 \shape italic
 IPS
 \shape default
@@ -7232,7 +7232,7 @@ ImageProcessor
 \shape default
 \color inherit
  que contenga.
- Representa el modulo de procesamiento de imagenes.
+ Representa el modulo de procesamiento de imágenes.
 \end_layout
 
 \begin_layout Itemize
@@ -7240,7 +7240,7 @@ ImageProcessor
 \series bold
 ImageProcessor
 \series default
-: Abstraccion de como debe ser la unidad basica de procesamiento.
+: Abstracción de como debe ser la unidad básica de procesamiento.
 \end_layout
 
 \begin_layout Standard
@@ -7279,11 +7279,11 @@ A nivel general
 \color inherit
 , se diferencian 2 partes (en la imagen anterior, separadas por la linea
  discontinua horizontal).
- En la fraccion superior se encuentra el denominado 
+ En la fracción superior se encuentra el denominado 
 \shape italic
 IPS Core
 \shape default
- (donde se realiza el procesamiento real de las imagenes), mientras que
+ (donde se realiza el procesamiento real de las imágenes), mientras que
  en la parte inferior se encuentran el programa principal (conformado por:
 \shape italic
  MainProgram
@@ -7297,8 +7297,8 @@ IPSFactory
 IPS GUI
 \shape default
 .
- El diseño en mayor detalle de cada una de estas partes seran descriptas
- a continuacion.
+ El diseño en mayor detalle de cada una de estas partes serán descriptas
+ a continuación.
 \end_layout
 
 \begin_layout Subsubsection
@@ -7306,7 +7306,7 @@ IPS Core
 \end_layout
 
 \begin_layout Standard
-El nucleo de procesamiento se encuentra en este modulo.
+El núcleo de procesamiento se encuentra en este modulo.
  A modo simplificado, el diseño de clases del 
 \shape italic
 IPS Core
@@ -7374,7 +7374,7 @@ IPS Core
 \end_layout
 
 \begin_layout Standard
-Describiremos a continuacion la funcionalidad de cada una de las clases:
+Describiremos a continuación la funcionalidad de cada una de las clases:
 \end_layout
 
 \begin_layout Itemize
@@ -7423,33 +7423,33 @@ key "key-18"
 \series bold
 ImageGenerator
 \series default
-: Clase encargada de abstraer la generacion de imagenes.
- Dependiendo del metodo llamado el 
+: Clase encargada de abstraer la generación de imágenes.
+ Dependiendo del método llamado el 
 \shape italic
 ImageGeneretor
 \shape default
- puede ser configurado para obtener imagenes desde una camara de video (
+ puede ser configurado para obtener imágenes desde una cámara de vídeo (
 \shape italic
 createDevice(cameraID)
 \shape default
-) o bien desde un archivo de video (
+) o bien desde un archivo de vídeo (
 \shape italic
 createDevice(videoFilePath)
 \shape default
 ).
- Ademas brinda 2 opciones para devolver nuevos 
+ Además brinda 2 opciones para devolver nuevos 
 \shape italic
 Frame
 \shape default
-, por un lado los puede generar automaticamente (si se llama a 
+, por un lado los puede generar automáticamente (si se llama a 
 \shape italic
 startGenerating()
 \shape default
-) y distribuyendolos/notificando a los 
+) y distribuyéndolos/notificando a los 
 \shape italic
 FrameListener
 \shape default
- asociados (asumiendo que ya fueron asociados por medio del metodo 
+ asociados (asumiendo que ya fueron asociados por medio del método 
 \shape italic
 addNewListener
 \shape default
@@ -7462,7 +7462,7 @@ captureFrame(Frame)
 Frame
 \shape default
 .
- Se penso ademas, en caso de ser necesario, la posibilidad de realizar 
+ Se pensó además, en caso de ser necesario, la posibilidad de realizar 
 \shape italic
 \color black
 buffering
@@ -7478,7 +7478,7 @@ http://es.wikipedia.org/wiki/Buffer
 
 \end_inset
 
- agilizando por medio de la paralelizacion (usando mas de un core) la captura
+ agilizando por medio de la paralelización (usando mas de un core) la captura
  de frames desde el dispositivo y su posterior procesamiento
 \begin_inset Foot
 status open
@@ -7498,8 +7498,8 @@ Actualmente no se implemento debido a que a la hora de realizar las pruebas
 \series bold
 ImageProcessor
 \series default
-: Abstraccion de la unidad base funcional, esto es, toda transformacion,
- manipulacion y analisis que se haga sobre las imagenes tomadas (
+: Abstracción de la unidad base funcional, esto es, toda transformación,
+ manipulación y análisis que se haga sobre las imágenes tomadas (
 \shape italic
 Frame
 \shape default
@@ -7508,7 +7508,7 @@ Frame
 ImageProcessor
 \shape default
 .
- Como se puede ver, existen 4 metodos principales, los cuales deben ser
+ Como se puede ver, existen 4 métodos principales, los cuales deben ser
  implementados por aquellos que hereden de éste.
  Estos son: 
 \shape italic
@@ -7518,7 +7518,7 @@ getParam
 \shape italic
 setParam
 \shape default
-, utilizados para obtener y configurar los parametros del 
+, utilizados para obtener y configurar los parámetros del 
 \shape italic
 ImageProcessor
 \shape default
@@ -7547,8 +7547,8 @@ http://en.wikipedia.org/wiki/Graphics_processing_unit
 processData(GPUImage_t)
 \shape default
 ) surgió debido a que en un principio se planteo la posibilidad de realizar
- analisis mas exaustivos sobre imagenes de mayor tamaño lo que necesariamente
- requeria un poder de procesamiento mucho mayor, pero al mismo tiempo se
+ análisis mas exhaustivos sobre imágenes de mayor tamaño lo que necesariamente
+ requería un poder de procesamiento mucho mayor, pero al mismo tiempo se
  debía mantener la velocidad, para lograrlo se considero la posibilidad
  de realizar este trabajo en la GPU.
 \end_layout
@@ -7565,7 +7565,7 @@ ImageProcessor
 \shape default
  
 \series default
-utilizados para la transformacion/analisis del 
+utilizados para la transformación/análisis del 
 \shape italic
 Frame
 \shape default
@@ -7579,7 +7579,7 @@ ImageProcessor
 \shape italic
 Frame
 \shape default
- se realiza de manera secuencial, la orden de ejecucion de cada 
+ se realiza de manera secuencial, la orden de ejecución de cada 
 \shape italic
 ImageProcessor
 \series bold
@@ -7593,11 +7593,11 @@ ImageAnalyzer
 \shape default
  
 \series default
-(por medio del metodo 
+(por medio del método 
 \shape italic
 addNewProcessor
 \shape default
-), ademas, como se puede observar, el 
+), además, como se puede observar, el 
 \shape italic
 Frame
 \series bold
@@ -7608,13 +7608,13 @@ puede ser analizado tanto en CPU como en la GPU si cada uno de los
 \shape italic
 ImageProcessor
 \shape default
- cuenta con la implementacion correspondiente.
- Se puede realizar un tracking del proceso por medio del parametro adicional
+ cuenta con la implementación correspondiente.
+ Se puede realizar un tracking del proceso por medio del parámetro adicional
  
 \shape italic
 trackProcess
 \shape default
-, el cual permite recopilar informacion sobre el tiempo invertido en procesar
+, el cual permite recopilar información sobre el tiempo invertido en procesar
  el 
 \shape italic
 Frame
@@ -7631,12 +7631,12 @@ ImageProcessor
 \series bold
 ImageProcessingSystem
 \series default
-: Abstraccion de un 
+: Abstracción de un 
 \shape italic
 IPS Core
 \shape default
 .
- Tiene asociado un nombre e informacion (sobre que hace) que lo identifican
+ Tiene asociado un nombre e información (sobre que hace) que lo identifican
  (los cuales se pueden obtener por medio de 
 \shape italic
 getName()
@@ -7646,7 +7646,7 @@ getName()
 getInfo()
 \shape default
  respectivamente).
- Los metodos a ser implementados por cada uno de los 
+ Los métodos a ser implementados por cada uno de los 
 \shape italic
 IPS Core
 \shape default
@@ -7677,8 +7677,8 @@ IPS GUI
 \end_layout
 
 \begin_layout Standard
-El conjunto de clases que conforman la interfaz grafica (GUI) utilizada
- para la configuracion del 
+El conjunto de clases que conforman la interfaz gráfica (GUI) utilizada
+ para la configuración del 
 \shape italic
 IPS Core
 \shape default
@@ -7687,7 +7687,7 @@ IPS Core
 IPS GUI
 \shape default
 .
- Un diseño de clases simplificado y a un nivel de abstraccion se lo puede
+ Un diseño de clases simplificado y a un nivel de abstracción se lo puede
  observar en el diagrama de la 
 \shape italic
 \color black
@@ -7750,7 +7750,7 @@ IPS GUI
 \end_layout
 
 \begin_layout Standard
-Este diseño es el que se usará en la implementacion (concreta) de los 
+Este diseño es el que se usará en la implementación (concreta) de los 
 \shape italic
 IPS GUI
 \shape default
@@ -7759,7 +7759,7 @@ IPS GUI
 WHIPS
 \shape default
  (descripto en el siguiente capitulo).
- Presentaremos las principales caracteristicas e interacciones que existen
+ Presentaremos las principales características e interacciones que existen
  entre las clases del 
 \shape italic
 IPS GUI
@@ -7772,7 +7772,7 @@ IPS GUI
 \series bold
 CameraConfigWindow
 \series default
-: Clase utilizada para configurar los parametros de la camara web.
+: Clase utilizada para configurar los parámetros de la cámara web.
 \end_layout
 
 \begin_layout Itemize
@@ -7780,8 +7780,8 @@ CameraConfigWindow
 \series bold
 VideoFileConfigWindow
 \series default
-: Clase utilzada para configurar y manipular el video (adelantar, retroceder,
- posicionar el video en un instante determinado).
+: Clase utilizada para configurar y manipular el vídeo (adelantar, retroceder,
+ posicionar el vídeo en un instante determinado).
 \end_layout
 
 \begin_layout Itemize
@@ -7789,7 +7789,7 @@ VideoFileConfigWindow
 \series bold
 ConfigWindow
 \series default
-: Interfaz de una ventana de configuracion (utilizada principalmente para
+: Interfaz de una ventana de configuración (utilizada principalmente para
  configurar los 
 \shape italic
 ImageProcessor
@@ -7801,13 +7801,13 @@ ImageProcessor
 getName()
 \shape default
 ).
- Cada ConfigWindow brinda la posibilidad ademas de poder cargar/descargar
- una configuracion determinada por medio de un xml, debido a que en general,
- la configuracion de cada 
+ Cada ConfigWindow brinda la posibilidad además de poder cargar/descargar
+ una configuración determinada por medio de un xml, debido a que en general,
+ la configuración de cada 
 \shape italic
 ImageProcessor
 \shape default
- requiere de una previsualizacion a travez de la interfaz grafica.
+ requiere de una previsualización a través de la interfaz gráfica.
 \end_layout
 
 \begin_layout Itemize
@@ -7820,9 +7820,9 @@ ConfigWindowManager
 \shape italic
 ConfigWindow
 \shape default
- (tamaño, posicion, orden de secuencia), como asi tambien la carga y descarga
- de la configuracion correspondiente a cada una de las ventanas por medio
- de un xml (a travez de los metodos 
+ (tamaño, posición, orden de secuencia), como así también la carga y descarga
+ de la configuración correspondiente a cada una de las ventanas por medio
+ de un xml (a través de los métodos 
 \shape italic
 loadConfig(xml)
 \shape default
@@ -7838,7 +7838,7 @@ getConfig(xml)
 \series bold
 GUIImageProcessingSystem
 \series default
-: Representacion (abstracta) del 
+: Representación (abstracta) del 
 \shape italic
 IPS GUI
 \shape default
@@ -7847,8 +7847,8 @@ IPS GUI
 \shape italic
 IPS Core
 \shape default
-, tiene asociado un nombre que lo identifica y una breve descripcion sobre
- la finalidad del mismo (los cuales son accedidos por medio de los metodos
+, tiene asociado un nombre que lo identifica y una breve descripción sobre
+ la finalidad del mismo (los cuales son accedidos por medio de los métodos
  
 \shape italic
 getName()
@@ -7861,7 +7861,7 @@ getInfo
 \shape italic
 ()
 \shape default
-), que en general, corresponden al nombre e informacion del 
+), que en general, corresponden al nombre e información del 
 \shape italic
 IPS Core
 \shape default
@@ -7882,12 +7882,12 @@ IPS GUI
 \shape italic
 execute()
 \shape default
- que ejecuta el sistemas de ventanas para comenzar la configuracion del
+ que ejecuta el sistemas de ventanas para comenzar la configuración del
  
 \shape italic
 IPS Core
 \shape default
- y su posterior ejecucion.
+ y su posterior ejecución.
 \end_layout
 
 \begin_layout Subsection
@@ -7895,11 +7895,11 @@ WHIPS
 \end_layout
 
 \begin_layout Subsubsection
-Introduccion
+Introducción
 \end_layout
 
 \begin_layout Standard
-Como se menciono en los capitulos anteriores, la funcionalidad del sistema
+Como se menciono en los capítulos anteriores, la funcionalidad del sistema
  se encuentra en las aplicaciones que pueda ejecutar, las cuales fueron
  modeladas como 
 \shape italic
@@ -7907,7 +7907,7 @@ ImageProcessingSystem.
  
 \shape default
 Éstos tienen un objetivo y funcionalidad especifica.
- Como objetivo principal de este trabajo se planteo desarrollar una aplicacion
+ Como objetivo principal de este trabajo se planteo desarrollar una aplicación
  que por medio de una webcam pudiese capturar la altura de la superficie
  libre en tiempo real.
  Es por esto, y por medio del 
@@ -7920,7 +7920,7 @@ framework
 \shape italic
 IPS
 \shape default
- con tal finalidad, el cual recibio el nombre de 
+ con tal finalidad, el cual recibió el nombre de 
 \shape italic
 WHIPS
 \shape default
@@ -7958,8 +7958,8 @@ El diseño de
 \shape italic
 WHIPS
 \shape default
- parte de la base abstracta (diseño de abstraccion) enseñado anteriormente.
- Por un lado se encuentra la interfaz grafica y por el otro la unidad de
+ parte de la base abstracta (diseño de abstracción) enseñado anteriormente.
+ Por un lado se encuentra la interfaz gráfica y por el otro la unidad de
  procesamiento.
 \end_layout
 
@@ -7993,7 +7993,7 @@ reference "fig:Diseño-de-clases-2"
 \series bold
 WaveHeightIPS
 \series default
- encargada de llevar a cabo todo el proceso de analisis de imagen para capturar
+ encargada de llevar a cabo todo el proceso de análisis de imagen para capturar
  la altura de la superficie libre.
  Depende de 4 
 \shape italic
@@ -8034,14 +8034,14 @@ reference "sub:Tecnicas-utilizadas"
 
 \shape italic
 \color black
- Tecnicas utilizadas
+ Técnicas utilizadas
 \shape default
 \color inherit
 .
  Como se puede observar en el diagrama, estos son clases abstractas que
  sirven solo para brindar una interfaz a las clases que hereden de estas.
- Esta capa de abstraccion fue agregada para facilitar (y por medio de la
- utilizacion de la 
+ Esta capa de abstracción fue agregada para facilitar (y por medio de la
+ utilización de la 
 \series bold
 WaveHeightIPFactory
 \series default
@@ -8049,7 +8049,7 @@ WaveHeightIPFactory
 \shape italic
 ImageProcessor
 \shape default
- (concretos) de forma facil sin alterar la la estructura general del modulo
+ (concretos) de forma fácil sin alterar la la estructura general del modulo
  (por si se deseaba utilizar o probar distintos algoritmos en alguna de
  las etapas del proceso completo).
  En este caso en particular se muestran las 4 implementaciones correspondientes
@@ -8122,7 +8122,7 @@ WHIPS Core
 \end_layout
 
 \begin_layout Standard
-Por otro lado se encuentra la interfaz grafica (
+Por otro lado se encuentra la interfaz gráfica (
 \shape italic
 \color black
 Figura
@@ -8149,7 +8149,7 @@ WHIPS GUI
 
 , donde se pueden diferenciar 3 partes (remarcadas con distintos colores
  en la figura) con respecto a las etapas del proceso y sus respectivas clases.
- Éstas son la etapa de configuracion o pre-procesamiento (
+ Éstas son la etapa de configuración o pre-procesamiento (
 \series bold
 GUIPerspectiveRectifier
 \series default
@@ -8165,7 +8165,7 @@ GUICannyBorderDetector
 \series bold
 GUIRealTimeDataDisplayer
 \series default
-), y la etapa de post-procesamiento o analisis de datos (
+), y la etapa de post-procesamiento o análisis de datos (
 \series bold
 DataAnalyzerWindow
 \series default
@@ -8173,8 +8173,8 @@ DataAnalyzerWindow
 \end_layout
 
 \begin_layout Standard
-Para la primera (configuracion) las clases involucradas tienen como finalidad
- la configuracion completa de los 
+Para la primera (configuración) las clases involucradas tienen como finalidad
+ la configuración completa de los 
 \shape italic
 ImageProcessor
 \shape default
@@ -8182,18 +8182,18 @@ ImageProcessor
 \shape italic
 WHIPS Core
 \shape default
- (en el capitulo siguiente se explicara la relacion que existe entre cada
+ (en el capitulo siguiente se explicara la relación que existe entre cada
  una de estas clases con los 
 \shape italic
 ImageProcessor
 \shape default
  que configuran).
- Estas clases heredan de una interfaz comun (
+ Estas clases heredan de una interfaz común (
 \series bold
 ImgProcConfigWindow
 \series default
 ) por el simple hecho de que poseen funcionalidad similar (lo que ahorra
- repetir codigo).
+ repetir código).
 \end_layout
 
 \begin_layout Standard
@@ -8206,19 +8206,19 @@ GUIRealTimeDataDisplayer
 WHIPS Core
 \shape default
 , esto es, la altura de la superficie libre obtenida luego de procesar las
- imagenes de entrada (camara de video o archivo).
+ imágenes de entrada (cámara de vídeo o archivo).
  Adicionalmente, ésta clase muestra al usuario la imagen que esta siendo
  procesada para darle una idea sobre el transcurso del ensayo.
 \end_layout
 
 \begin_layout Standard
-La ultima etapa (analisis de datos), esta conformada principalmente por
+La ultima etapa (análisis de datos), esta conformada principalmente por
  la clase 
 \series bold
 DataAnalyzeWindow
 \series default
-, la cual muestra de manera grafica los resultados de todo el analisis extrayend
-o y calculando valores de interes (
+, la cual muestra de manera gráfica los resultados de todo el análisis extrayend
+o y calculando valores de interés (
 \shape italic
 \color black
 capitulo 
@@ -8233,7 +8233,7 @@ reference "sub:Aplicaciones-en-laboratorio"
 \color inherit
 ).
  Como se puede observar, la clase fue diseñada independientemente a las
- demas (no hereda de ninguna otra clase) ya que debia funcionar independientemen
+ demás (no hereda de ninguna otra clase) ya que debía funcionar independientemen
 te del sistema de ventanas manejado por el 
 \series bold
 ConfigWindowManager
@@ -8258,7 +8258,7 @@ VideoFileConfigWindow
 \shape italic
 GUIWaveHeightIPS
 \shape default
-, ya sea para configurar la camara o el archivo de video dependiendo que
+, ya sea para configurar la cámara o el archivo de vídeo dependiendo que
  se use como sistema de entrada (osea, como este configurado el 
 \shape italic
 ImageGenerator
@@ -8267,7 +8267,7 @@ ImageGenerator
 \end_layout
 
 \begin_layout Standard
-En el siguiente capitulo se dara informacion mas detallada sobre el funcionamien
+En el siguiente capitulo se dará información mas detallada sobre el funcionamien
 to de cada una de las clases.
 \end_layout
 
@@ -8333,7 +8333,7 @@ ImageProcessingSystem
 \shape italic
 WaveHeightIPS
 \shape default
- la cual carga y coordina el procesamiento de las imagenes por medio de
+ la cual carga y coordina el procesamiento de las imágenes por medio de
  varias clases auxiliares.
 \end_layout
 
@@ -8352,8 +8352,8 @@ Obtener una imagen del
 \shape italic
 ImageGenerator
 \shape default
- asociado a la clase (ya sea que este configurado para tomar imagenes desde
- un archivo o de una videocamara).
+ asociado a la clase (ya sea que este configurado para tomar imágenes desde
+ un archivo o de una vídeo cámara).
 \end_layout
 
 \begin_layout Enumerate
@@ -8384,7 +8384,7 @@ conocido
 \end_inset
 
  alineado al plano sobre el cual se esta calculando la altura.
- En particular esta accion se realiza por medio del 
+ En particular esta acción se realiza por medio del 
 \shape italic
 PerspectiveRectifier
 \shape default
@@ -8434,13 +8434,14 @@ IClipping
 MiddlePointC
 \shape default
 lipping el cual usa el punto de reposo de la superficie seleccionado por
- el usuario y un parametro adicional 
+ el usuario y un parámetro adicional 
 \begin_inset Formula $k$
 \end_inset
 
- que indicala cantidad de columnas a analizar.
+ que indica la cantidad de columnas a analizar.
  Lo que hace es simplemente descartar de la imagen de entrada, todos las
- columnas de pixels que no esten contenidas entre el rango de columnas 
+ columnas de píxeles que no estén contenidas entre el rango de columnas
+ 
 \begin_inset Formula $\left[c.x-\frac{k}{2},c.x+\frac{k}{2}\right]$
 \end_inset
 
@@ -8465,7 +8466,7 @@ lipping el cual usa el punto de reposo de la superficie seleccionado por
 \end_inset
 
  de la imagen).
- De esta forma ahorramos procesar informacion que no es requerida (en el
+ De esta forma ahorramos procesar información que no es requerida (en el
  
 \shape italic
 capitulo 
@@ -8478,7 +8479,7 @@ reference "sub:Recortador"
  Recortador
 \shape default
 .
- se detalla en mayor prfundidad)
+ se detalla en mayor profundidad)
 \end_layout
 
 \begin_layout Itemize
@@ -8492,7 +8493,7 @@ IBorderDetector
 \shape italic
 CannyBorderDetector
 \shape default
- el cual transforma la imagen (de entrada) aplicandole en una primera instancia,
+ el cual transforma la imagen (de entrada) aplicándole en una primera instancia,
  un filtro que reduce la cantidad de colores (y por ende la cantidad de
  datos analizar o complejidad de la imagen).
  Luego aplica un segundo filtro denominado
@@ -8519,7 +8520,7 @@ reference "sub:Gaussian-Blur"
  Gaussian Blur
 \shape default
 \color inherit
-) para suavizar la imagen antes de realizar el analisis de contornos, que
+) para suavizar la imagen antes de realizar el análisis de contornos, que
  para lograrlo, aplica como ultimo paso, el algoritmo de 
 \shape italic
 Canny
@@ -8552,9 +8553,9 @@ reference "sub:Canny-edge-detector"
 \series bold
 IAnalyzer
 \series default
-: Dada una imagen de contornos y una serie de parametros, determina la altura
+: Dada una imagen de contornos y una serie de parámetros, determina la altura
  de la superficie libre.
- La implementacion de este 
+ La implementación de este 
 \shape italic
 ImageProcessor
 \shape default
@@ -8609,8 +8610,8 @@ Este procedimiento (pasos 1,2,3) se realizan dentro de un bucle hasta que
 \shape italic
 ImageGenerator
 \shape default
- no puede obtener mas imagenes (que esto sucede cuando las imagenes son
- obtenidas de un archivo de video).
+ no puede obtener mas imágenes (que esto sucede cuando las imágenes son
+ obtenidas de un archivo de vídeo).
 \end_layout
 
 \begin_layout Standard
@@ -8618,13 +8619,13 @@ Además, el
 \shape italic
 WaveHeightIPS
 \shape default
- brinda la posibilidad de realizar el analisis en el CPU o GPU si los correspond
+ brinda la posibilidad de realizar el análisis en el CPU o GPU si los correspond
 ientes 
 \shape italic
 ImageProcessor
 \shape default
  lo permiten.
- Para este caso en particular solo se implementó para procesar las imagenes
+ Para este caso en particular solo se implementó para procesar las imágenes
  en la CPU.
 \end_layout
 
@@ -8637,8 +8638,8 @@ Este modulo tiene, a grandes rasgos, 3 finalidades distintas, estas son:
 \end_layout
 
 \begin_layout Enumerate
-Brindar al usuario una interfaz grafica para poder configurar de forma facil
- y agil los parametros que requieren los 
+Brindar al usuario una interfaz gráfica para poder configurar de forma fácil
+ y ágil los parámetros que requieren los 
 \shape italic
 ImageProcessor
 \shape default
@@ -8652,7 +8653,7 @@ WHIPS Core
 
 \begin_layout Enumerate
 Mostrar el proceso de computo en tiempo real (indicar de forma interactiva
- la altura de la superficie de ola calculada en los ultimos segundos).
+ la altura de la superficie de ola calculada en los últimos segundos).
 \end_layout
 
 \begin_layout Enumerate
@@ -8669,8 +8670,8 @@ WHIPS GUI
 \shape italic
 GUIWaveHeightIPS
 \shape default
-) la cual carga y ordena el sistema de ventanas como asi tambien la inicializaci
-on y ejecucion del 
+) la cual carga y ordena el sistema de ventanas como así también la inicializaci
+ón y ejecución del 
 \shape italic
 WHIPS Core
 \shape default
@@ -8680,13 +8681,13 @@ WHIPS Core
 ImageProcessor
 \shape default
  deben ser configurados (en un orden secuencial, donde en general la configuraci
-on de uno depende de como fueron configurados los anteriores), la clase
+ón de uno depende de como fueron configurados los anteriores), la clase
  
 \shape italic
 ConfigWindowManager
 \shape default
  fue diseñada para cumplir con tal fin, permitiendo solo pasar a la siguiente
- fase de configuracion (y por ende a la siguiente 
+ fase de configuración (y por ende a la siguiente 
 \shape italic
 ConfigWindow
 \shape default
@@ -8707,20 +8708,20 @@ GUIWaveHeightIPS
 \shape italic
 ConfigWindow
 \shape default
-, que en caso de realizar multiples ensayos con la misma configuracion (como
- es usual) ahorra tiempo al usuario evitando restablecer todos los parametros
+, que en caso de realizar múltiples ensayos con la misma configuración (como
+ es usual) ahorra tiempo al usuario evitando restablecer todos los parámetros
  de nuevo.
 \end_layout
 
 \begin_layout Standard
 Por otro lado se brinda la posibilidad de manejar sesiones donde se pueda
- guardar fecha, autor, nombre, descripcion, entre otros, asociadas a un
+ guardar fecha, autor, nombre, descripción, entre otros, asociadas a un
  experimento dado.
 \end_layout
 
 \begin_layout Standard
-A manera esquematica, podemos mostrar la funcionalidad (secuencia de pasos)
- que brinda este modulo por medio del diagrama (conjuncion de diagrama de
+A manera esquemática, podemos mostrar la funcionalidad (secuencia de pasos)
+ que brinda este modulo por medio del diagrama (conjunción de diagrama de
  clases y diagrama de flujo) de la 
 \shape italic
 \color black
@@ -8785,20 +8786,20 @@ WHIPS
 
 \begin_layout Standard
 En un principio, se le brinda al usuario la posibilidad de crear o cargar
- una sesion ya existente.
- Puede ademas, ejecutar directamente la ventana de analisis de datos (
+ una sesión ya existente.
+ Puede además, ejecutar directamente la ventana de análisis de datos (
 \shape italic
 DataAnalyzeWindow
 \shape default
 ), la cual funciona como modulo aparte (puede mostrarse datos ya obtenidos
- de una sesion anterior, o de datos externos no necesariamente de una sesion
+ de una sesión anterior, o de datos externos no necesariamente de una sesión
  anterior).
  Esto esta relacionado con la funcionalidad (3) anteriormente enumerada.
 \end_layout
 
 \begin_layout Standard
-Dependiendo del tipo de entrada seleccionado (que puede ser una camara de
- video o un archivo), el sistema muestra la ventana de configuracion correspondi
+Dependiendo del tipo de entrada seleccionado (que puede ser una cámara de
+ vídeo o un archivo), el sistema muestra la ventana de configuración correspondi
 ente (en la figura, 
 \shape italic
 VideoFileConfigWindow
@@ -8808,7 +8809,7 @@ VideoFileConfigWindow
 CameraConfigWindow
 \shape default
 ).
- Luego se pasa al ciclo de configuracion de los diferentes 
+ Luego se pasa al ciclo de configuración de los diferentes 
 \shape italic
 ImageProcessor
 \shape default
@@ -8820,7 +8821,7 @@ WHIPS
 \shape italic
 Core
 \shape default
-, por medio de las ventanas de configuracion 
+, por medio de las ventanas de configuración 
 \shape italic
 GUIPerspectiveRectifier
 \shape default
@@ -8833,14 +8834,14 @@ GUIMiddlePointClipping
 GUICannyBorderDetector
 \shape default
 .
- Cabe destacar, que en el caso del tipo de entrada ser un archivo de video,
+ Cabe destacar, que en el caso del tipo de entrada ser un archivo de vídeo,
  se muestra intercaladamente (entre cada una de estas ventanas) el 
 \shape italic
 VideoFileConfigWindow
 \shape default
- para brindar la posibilidad de adelantar o retrasar el video a la posicion
+ para brindar la posibilidad de adelantar o retrasar el vídeo a la posición
  que se requiera (esto es de utilidad si las diferentes configuraciones
- necesarias estan asociadas a distintos frames en el video).
+ necesarias están asociadas a distintos frames en el vídeo).
  Este conjunto de ventanas son utilizadas para lograr (1).
 \end_layout
 
@@ -8861,7 +8862,7 @@ GUIRealTimeDataDisplayer
 
 \color black
 En el siguiente capitulo se describe una serie de ensayos realizados donde
- se muestran las interfaces graficas de cada una de las ventanas que componen
+ se muestran las interfaces gráficas de cada una de las ventanas que componen
  al 
 \shape italic
 IPS GUI.
@@ -8875,11 +8876,11 @@ IPS GUI.
 \end_layout
 
 \begin_layout Section
-Aplicacion en un canal 2D
+Aplicación en un canal 2D
 \end_layout
 
 \begin_layout Subsection
-Canal de labortatorio
+Canal de laboratorio
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Canal-de-labortatorio"
@@ -8911,7 +8912,7 @@ http://www.efn.uncor.edu/investigacion/hidraulica/
  de la 
 \shape italic
 \color black
-Facultad de Ciencias Exactas, Fisicas y Naturales (UNC)
+Facultad de Ciencias Exactas, Físicas y Naturales (UNC)
 \shape default
 .
  
@@ -8987,7 +8988,7 @@ reference "sub:Hidrodinamica-Introduccion"
 
 \shape italic
 \color black
- Introduccion
+ Introducción
 \shape default
 \color inherit
 ) en el caso del oleaje regular, mientras que el oleaje irregular se lo
@@ -9011,13 +9012,13 @@ reference "sub:Hidrodinamica-Introduccion"
 \end_layout
 
 \begin_layout Standard
-Por otro lado, el software utilizado por la pala mecanica permite extraer
+Por otro lado, el software utilizado por la pala mecánica permite extraer
  el espectro de la señal medido por los sensores y el valor de 
 \begin_inset Formula $H_{s}$
 \end_inset
 
  del oleaje simulado, que sirve como referencia comparativa para los datos
- catpurados por el sistema implementado para este trabajo.
+ capturados por el sistema implementado para este trabajo.
 \end_layout
 
 \begin_layout Standard
@@ -9119,7 +9120,7 @@ HR Wallingford
 
 \begin_layout Standard
 Para el caso del sistema implementado en este trabajo, las mediciones de
- la altura de ola se realizaron utilizando una camara Logitech C910
+ la altura de ola se realizaron utilizando una cámara Logitech C910
 \begin_inset Foot
 status open
 
@@ -9148,29 +9149,29 @@ reference "fig:Sensor-resistivo."
 \end_layout
 
 \begin_layout Subsection
-Preparacion de las mediciones
+Preparación de las mediciones
 \end_layout
 
 \begin_layout Standard
-Para poder realizar una medicion se debe preparar tanto el canal (y el entorno)
+Para poder realizar una medición se debe preparar tanto el canal (y el entorno)
  como el sistema.
  En una primera instancia se debe acondicionar el canal de forma tal que
- se pueda alcanzar una maxima diferenciacion de la superficie libre, esto
+ se pueda alcanzar una máxima diferenciación de la superficie libre, esto
  es, conseguir el mayor contraste posible entre el liquido y el aire (variando
  las posiciones e intensidades de la luz que afectan la zona a medir en
  el canal y utilizando distintos tipos de papeles o contacts sobre la cara
  opuesta a medir del canal, evitando de esta manera, capturar objetos que
- se encuentran por detras del mismo).
+ se encuentran por detrás del mismo).
 \end_layout
 
 \begin_layout Standard
 Por otro lado se debe configurar el sistema.
- Vamos a mostrar el caso en el que se realiza una medicion nueva (desde
+ Vamos a mostrar el caso en el que se realiza una medición nueva (desde
  cero), los pasos a seguir son:
 \end_layout
 
 \begin_layout Itemize
-Crear una nueva sesion (
+Crear una nueva sesión (
 \shape italic
 \color black
 Figura
@@ -9211,7 +9212,7 @@ name "fig:Ventana:-crear/cargar-una"
 
 \end_inset
 
-Ventana: crear/cargar una session.
+Ventana: crear/cargar una sesión.
 \end_layout
 
 \end_inset
@@ -9229,7 +9230,7 @@ Ventana: crear/cargar una session.
 \end_layout
 
 \begin_layout Itemize
-Configuracion de la camara utilizada (foco, zoom, brillo, etc), como se
+Configuración de la cámara utilizada (foco, zoom, brillo, etc), como se
  lo muestra en la 
 \shape italic
 \color black
@@ -9272,13 +9273,13 @@ name "fig:Ventana-de-configuracion"
 
 \end_inset
 
-Ventana de configuracion (
+Ventana de configuración (
 \shape italic
 \color black
 CameraConfigWindow
 \shape default
 \color inherit
-): Configuracion de la camara.
+): Configuración de la cámara.
 \end_layout
 
 \end_inset
@@ -9292,7 +9293,7 @@ CameraConfigWindow
 \end_layout
 
 \begin_layout Itemize
-Configurar la escala y zona de analisis (
+Configurar la escala y zona de análisis (
 \shape italic
 \color black
 Figura
@@ -9334,13 +9335,13 @@ name "fig:Ventana-de-conf_perspective"
 
 \end_inset
 
-Ventana de configuracion (
+Ventana de configuración (
 \shape italic
 \color black
 GUIPerspectiveRectifier
 \shape default
 \color inherit
-): Configuracion de zona de analisis, en este caso el rectangulo blanco.
+): Configuración de zona de análisis, en este caso el rectángulo blanco.
 \end_layout
 
 \end_inset
@@ -9399,13 +9400,13 @@ name "fig:Ventana-de-conf_midle_clip"
 
 \end_inset
 
-Ventana de configuracion (
+Ventana de configuración (
 \shape italic
 \color black
 GUIMiddlePointClipping
 \shape default
 \color inherit
-): Configuracion del punto de reposo de ola.
+): Configuración del punto de reposo de ola.
 \end_layout
 
 \end_inset
@@ -9419,7 +9420,7 @@ GUIMiddlePointClipping
 \end_layout
 
 \begin_layout Itemize
-Configuracion de los parametros del algoritmo para la deteccion de contornos
+Configuración de los parámetros del algoritmo para la detección de contornos
  (
 \shape italic
 \color black
@@ -9462,13 +9463,13 @@ name "fig:Ventana-de-conf_canny"
 
 \end_inset
 
-Ventana de configuracion (
+Ventana de configuración (
 \shape italic
 \color black
 GUICannyBorderDetector
 \shape default
 \color inherit
-): Configuracion de los parametros asociados al algoritmo de 
+): Configuración de los parámetros asociados al algoritmo de 
 \shape italic
 \color black
 Canny
@@ -9489,7 +9490,7 @@ Canny
 
 \begin_layout Standard
 Una vez configurado el sistema se prosigue a producir el oleaje que se quiere
- analizar por medio de la pala mecanica antes mencionada (introduciendo
+ analizar por medio de la pala mecánica antes mencionada (introduciendo
  por computadora los valores 
 \begin_inset Formula $H$
 \end_inset
@@ -9524,7 +9525,7 @@ reference "fig:Ventana-de-conf_realTime"
 
 \end_inset
 
-) se le brinda al usuario la posibilidad de comenzar a capturar las imagenes
+) se le brinda al usuario la posibilidad de comenzar a capturar las imágenes
  y observar en tiempo real los datos procesados.
 \end_layout
 
@@ -9563,7 +9564,7 @@ Ventana (
 GUIRealTimeDataDisplayer
 \shape default
 \color inherit
-): Muestra los datos procesados en tiempo real al igual que las imagenes
+): Muestra los datos procesados en tiempo real al igual que las imágenes
  capturadas por el dispositivo.
 \end_layout
 
@@ -9583,20 +9584,20 @@ Ensayos propuestos
 
 \begin_layout Standard
 Existen una gran cantidad de ensayos posibles para realizar, dependiendo
- tanto de variables externas como la luz del entorno, angulo y posicion
- de la camara, entre otras, como asi tambien del tipo de oleaje generado
- (regular o irregular y los parametros asociados a cada uno de éstos).
+ tanto de variables externas como la luz del entorno, ángulo y posición
+ de la cámara, entre otras, como así también del tipo de oleaje generado
+ (regular o irregular y los parámetros asociados a cada uno de éstos).
  Debido a que el oleaje irregular tiene mayor peso en el estudio ingenieril
  (ya que es mas representativo de la realidad) y en el caso del sistema
- es el mas interesante para medir (debido a su irregularidad), se decidio
- realizar la mayoria de los ensayos en base a oleajes irregulares.
+ es el mas interesante para medir (debido a su irregularidad), se decidió
+ realizar la mayoría de los ensayos en base a oleajes irregulares.
  Por otro lado se intento mantener constante los factores externos (como
- luz del entorno, intensidad, zona de captura) a excepcion de la posicion
- de la camara en donde se trabajo con 2 ubicaciones distintas.
+ luz del entorno, intensidad, zona de captura) a excepción de la posición
+ de la cámara en donde se trabajo con 2 ubicaciones distintas.
 \end_layout
 
 \begin_layout Standard
-Los ensayos propuestos para la primera ubicacion de la camara (
+Los ensayos propuestos para la primera ubicación de la cámara (
 \shape italic
 \color black
 P1
@@ -9615,7 +9616,7 @@ reference "fig:Posicion-1:-El"
 
 \end_inset
 
-) se listan a continuacion:
+) se listan a continuación:
 \end_layout
 
 \begin_layout Itemize
@@ -9623,7 +9624,7 @@ reference "fig:Posicion-1:-El"
 \series bold
 EN1
 \series default
-: Capturar la altura de ola en un oleaje regular con parametros 
+: Capturar la altura de ola en un oleaje regular con parámetros 
 \begin_inset Formula $H=6\; cm$
 \end_inset
 
@@ -9639,7 +9640,7 @@ EN1
 \series bold
 EN2
 \series default
-: Capturar la altura de ola en un oleaje irregular con parametros 
+: Capturar la altura de ola en un oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -9655,7 +9656,7 @@ EN2
 \series bold
 EN3
 \series default
-: Capturar la altura de ola en un oleaje irregular con parametros 
+: Capturar la altura de ola en un oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -9667,7 +9668,7 @@ EN3
 \end_layout
 
 \begin_layout Standard
-Para la segunda posicion de la camara (
+Para la segunda posición de la cámara (
 \shape italic
 \color black
 P2
@@ -9694,7 +9695,7 @@ reference "fig:Posicion-2:-El"
 \series bold
 EN4
 \series default
-: Capturar la altura de ola en un oleaje irregular con parametros 
+: Capturar la altura de ola en un oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -9710,7 +9711,7 @@ EN4
 \series bold
 EN5
 \series default
-: Capturar la altura de ola en un oleaje irregular con parametros 
+: Capturar la altura de ola en un oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -9756,8 +9757,8 @@ name "fig:Posicion-1:-El"
 
 \end_inset
 
-Posicion 1: El nivel de reposo de la superficie libre se encuentra aproximadamen
-te a la altura del lente de la camara.
+Posición 1: El nivel de reposo de la superficie libre se encuentra aproximadamen
+te a la altura del lente de la cámara.
  Ésta se encuentra a una distancia 
 \begin_inset Formula $c\approx0.5\; m$
 \end_inset
@@ -9809,8 +9810,8 @@ name "fig:Posicion-2:-El"
 
 \end_inset
 
-Posicion 2: El nivel de reposo de la superficie libre se encuentra por encima
- del lente de la camara.
+Posición 2: El nivel de reposo de la superficie libre se encuentra por encima
+ del lente de la cámara.
  Ésta se encuentra posicionada a 
 \begin_inset Formula $c\approx0.90\; m$
 \end_inset
@@ -9842,8 +9843,8 @@ zona de captura
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Posiciones de la camara en los distintos ensayos realizados.
- En ambias figuras se muestra la posible altura 
+Posiciones de la cámara en los distintos ensayos realizados.
+ En ambas figuras se muestra la posible altura 
 \begin_inset Formula $h$
 \end_inset
 
@@ -9878,14 +9879,14 @@ Donde recordando que
 \end_inset
 
  es la frecuencia de pico o la frecuencia en la que el espectro del oleaje
- contiene mayor energia.
+ contiene mayor energía.
 \end_layout
 
 \begin_layout Standard
 En conjunto con los ensayos propuestos anteriormente, se realizarían mediciones
  utilizando los sensores resistivos con los que cuenta el laboratorio con
  el fin de poder comparar los resultados obtenidos.
- De manera esquematica, como se lo muestra en la 
+ De manera esquemática, como se lo muestra en la 
 \shape italic
 Figura
 \shape default
@@ -9900,13 +9901,13 @@ reference "fig:Esquema-de-la"
 
 
 \color inherit
-, podemos observar la columna de pixels analizados por el sistema para detectar
- la altura de ola al costado del sensor resistivo (debido a que el sistema
- se basa en detectar contornos, la columna de pixels no puede estar sobre
- el sensor).
+, podemos observar la columna de píxeles analizados por el sistema para
+ detectar la altura de ola al costado del sensor resistivo (debido a que
+ el sistema se basa en detectar contornos, la columna de píxeles no puede
+ estar sobre el sensor).
  A causa de esto, los resultados obtenidos por el sistema implementado se
- encuentran defasados en el tiempo con respectos a los del sensor resistivo,
- por lo que, es necesario modificar (previamente a la comparacion) los datos
+ encuentran desfasados en el tiempo con respectos a los del sensor resistivo,
+ por lo que, es necesario modificar (previamente a la comparación) los datos
  de manera tal que queden sincronizados en el tiempo.
 \end_layout
 
@@ -9958,7 +9959,7 @@ Esquema de la zona de captura y analizada por el sistema implementado en
 \end_layout
 
 \begin_layout Subsection
-Mediciones y analisis de los resultados
+Mediciones y análisis de los resultados
 \end_layout
 
 \begin_layout Subsubsection
@@ -9971,7 +9972,7 @@ En cada uno de los ensayos realizados (mencionados anteriormente) el sistema
  determinado del canal.
  Este conjunto de datos (altura de ola en el tiempo) fue comparado con los
  obtenidos por los sensores resistivos utilizados en el laboratorio con
- el fin de poder determinar la precision del sistema implementado.
+ el fin de poder determinar la precisión del sistema implementado.
  En base a esto se puede realizar dos tipos de comparaciones distintas:
  a) los datos 
 \begin_inset Quotes eld
@@ -9981,8 +9982,8 @@ crudos
 \begin_inset Quotes erd
 \end_inset
 
- (altura en el tiempo); b) realizar un analisis espectral del oleaje obtenido
- por el sistema y por el sensor y comparar los parametros asociados al mismo
+ (altura en el tiempo); b) realizar un análisis espectral del oleaje obtenido
+ por el sistema y por el sensor y comparar los parámetros asociados al mismo
  (
 \begin_inset Formula $H$
 \end_inset
@@ -9999,7 +10000,7 @@ crudos
 \begin_inset Formula $f_{p}$
 \end_inset
 
- en conjunto con los graficos espectrales asociados a los oleajes irregulares).
+ en conjunto con los gráficos espectrales asociados a los oleajes irregulares).
 \end_layout
 
 \begin_layout Standard
@@ -10011,7 +10012,7 @@ modulo
 \begin_inset Quotes erd
 \end_inset
 
- de analisis desarrollado en este trabajo, el cual se muestra en la 
+ de análisis desarrollado en este trabajo, el cual se muestra en la 
 \shape italic
 \color black
 Figura
@@ -10047,11 +10048,11 @@ reference "sub:Descripcion-espectral-del"
 
 \end_inset
 
- Descripcion espectral del oleaje.
+ Descripción espectral del oleaje.
 \shape default
 \color inherit
 ).
- En la parte inferior izquierda se muestran ademas otros parametros calculados
+ En la parte inferior izquierda se muestran además otros parámetros calculados
  como 
 \begin_inset Formula $H_{s}$
 \end_inset
@@ -10065,9 +10066,9 @@ reference "sub:Descripcion-espectral-del"
 \end_inset
 
 .
- Esta ventana permite ademas cargar mas de un conjunto de datos en simultaneo
+ Esta ventana permite además cargar mas de un conjunto de datos en simultaneo
  lo que permite comparar hasta tres oleajes diferentes al mismo tiempo con
- sus respectivos espectros y parametros asociados.
+ sus respectivos espectros y parámetros asociados.
 \end_layout
 
 \begin_layout Standard
@@ -10105,7 +10106,7 @@ name "fig:DataAnalyzeWindow:-Ventana-en"
 DataAnalyzeWindow
 \shape default
 \color inherit
-: Ventana en donde se realizan los analisis espectrales y comparaciones
+: Ventana en donde se realizan los análisis espectrales y comparaciones
  de los datos obtenidos (por el sistema implementado o por el sensor resistivo).
 \end_layout
 
@@ -10120,7 +10121,7 @@ DataAnalyzeWindow
 \end_layout
 
 \begin_layout Standard
-En los siguientes subcapitulos se detalla la comparacion realizada en cada
+En los siguientes subcapitulos se detalla la comparación realizada en cada
  uno de los ensayos realizados.
 \end_layout
 
@@ -10139,7 +10140,7 @@ Se trata de un ensayo en donde se simula un oleaje con una altura de ola
 \end_inset
 
 ), esto es, se genera una ola de 6 cm de altura por segundo (por medio de
- la pala mecanica mencionada anteriormente), 
+ la pala mecánica mencionada anteriormente), 
 \color red
 este oleaje se lo puede observar en la fig x(ponemos un foto del oleaje
  sacado del canal??? a eso te referias?)
@@ -10160,7 +10161,7 @@ reference "fig:Comparacion-regular_crudo"
 \end_inset
 
  podemos ver los datos obtenidos por ambos sensores superpuestos en un mismo
- grafico, en 
+ gráfico, en 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Datos-regular_total"
@@ -10168,11 +10169,11 @@ reference "fig:Datos-regular_total"
 \end_inset
 
  se observan los resultados obtenidos a lo largo de todo el ensayo, donde
- a simple vista la altura de ola capturada por la camara difiere por encima
+ a simple vista la altura de ola capturada por la cámara difiere por encima
  (0,0047 metros aproximadamente) como por debajo (0,0074 metros aproximadamente)
  de la altura capturada por el sensor en base al punto de reposo (valor
- 0 m en el grafico).
- Podemos observar ademas en 
+ 0 m en el gráfico).
+ Podemos observar además en 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Ampliacion-regular_total"
@@ -10180,7 +10181,7 @@ reference "fig:Ampliacion-regular_total"
 \end_inset
 
  la presencia de ruido durante la captura realizada por el sistema, en donde
- la gran mayoria de las ondas (la parte inferior o 
+ la gran mayoría de las ondas (la parte inferior o 
 \shape italic
 seno
 \shape default
@@ -10232,7 +10233,7 @@ name "fig:Datos-regular_total"
 
 \end_inset
 
-Datos de los 5 minutos de captura por ambos metodos y superpuestos.
+Datos de los 5 minutos de captura por ambos métodos y superpuestos.
 \end_layout
 
 \end_inset
@@ -10273,7 +10274,7 @@ name "fig:Ampliacion-regular_total"
 
 \end_inset
 
-Ampliacion (zoom) de una fraccion de los datos capturados por ambos metodos
+Ampliación (zoom) de una fracción de los datos capturados por ambos métodos
  y superpuestos.
 \end_layout
 
@@ -10298,10 +10299,10 @@ name "fig:Comparacion-regular_crudo"
 
 \end_inset
 
-Comparacion entre los datos crudos obtenidos por ambos metodos (camara y
+Comparación entre los datos crudos obtenidos por ambos métodos (cámara y
  sensor resistivo) de un oleaje regular.
- En color rojo se muestra el obtenido por el sistema implementado (video
- camara) y en verde el capturado por el sensor resistivo.
+ En color rojo se muestra el obtenido por el sistema implementado (vídeo
+ cámara) y en verde el capturado por el sensor resistivo.
 \end_layout
 
 \end_inset
@@ -10327,7 +10328,7 @@ Por otro lado se obtuvieron los siguientes valores de
 \begin_inset Formula $f_{p}$
 \end_inset
 
- para cada uno de los sistemas de medicion:
+ para cada uno de los sistemas de medición:
 \end_layout
 
 \begin_layout Standard
@@ -10351,7 +10352,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Metodo
+Método
 \end_layout
 
 \end_inset
@@ -10450,7 +10451,7 @@ sistema implementado
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Comparacion de los valores 
+Comparación de los valores 
 \begin_inset Formula $H$
 \end_inset
 
@@ -10484,7 +10485,7 @@ EN2: Oleaje irregular de 5 minutos
 \end_layout
 
 \begin_layout Standard
-Para este ensayo se simulo un oleaje irregular con parametros 
+Para este ensayo se simulo un oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -10492,8 +10493,8 @@ Para este ensayo se simulo un oleaje irregular con parametros
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 5 minutos por medio de la pala mecanica.
- Los datos capturados de la altura de ola por ambos metodos (sistema implementad
+ durante 5 minutos por medio de la pala mecánica.
+ Los datos capturados de la altura de ola por ambos métodos (sistema implementad
 o y sensor resistivo) se muestran en la 
 \shape italic
 Figura
@@ -10615,8 +10616,8 @@ name "fig:Datos-crudos-capturados-1"
 
 \end_inset
 
-Superposicion de los datos obtenidos por el sistema implementado (en rojo)
- y el sensor resistivo (en verde) del olejae irregular con parametros 
+Superposición de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -10653,7 +10654,7 @@ reference "fig:Datos-obtenidos-por-3"
 
 \end_inset
 
-), en la gran mayoria de de los 
+), en la gran mayoría de de los 
 \shape italic
 senos
 \shape default
@@ -10661,7 +10662,7 @@ senos
  (hasta 0,0153 metros aproximadamente en los peores casos) con respecto
  al obtenido por el sensor resistivo.
  Por otro lado se puede ver la presencia de pequeños arcos a lo largo de
- la linea roja del grafico, esto es otro problema el cual se detalla en
+ la linea roja del gráfico, esto es otro problema el cual se detalla en
  el capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10685,11 +10686,11 @@ reference "fig:Comparacion-de-los"
 \end_inset
 
 ) se comparan los espectros obtenidos por el sensor resistivo y por el sistema.
- Claramente se puede observar (a travez del espectro de 
+ Claramente se puede observar (a través del espectro de 
 \shape italic
 JONSWAP
 \shape default
-) que por un lado la simetria de ambos espectros se asemeja, pero que el
+) que por un lado la simetría de ambos espectros se asemeja, pero que el
  asociado a los datos obtenidos por el sistema implementado es inferior
  al del obtenido por los del sensor resistivo (como se lo percibe en la
  
@@ -10739,8 +10740,8 @@ name "fig:Comparacion-de-los"
 
 \end_inset
 
-Espectros calculados para los datos obtenidos por ambos metodos (sistema
- implementado y sensor resistivo) para un oleaje irregular con parametros
+Espectros calculados para los datos obtenidos por ambos métodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parámetros
  
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
@@ -10777,7 +10778,7 @@ JONSWAP
 \end_layout
 
 \begin_layout Standard
-Se calcularon ademas los parametros de interes (
+Se calcularon además los parámetros de interés (
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -10789,7 +10790,7 @@ Se calcularon ademas los parametros de interes (
 \begin_inset Formula $T_{p}$
 \end_inset
 
-) asociados al oleaje capturado por ambos metodos, como se lo muestra en
+) asociados al oleaje capturado por ambos métodos, como se lo muestra en
  la siguiente tabla:
 \end_layout
 
@@ -10814,7 +10815,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Metodo
+Método
 \end_layout
 
 \end_inset
@@ -10943,7 +10944,7 @@ sistema implementado
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Comparacion de los parametros 
+Comparación de los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -10995,19 +10996,19 @@ EN3: Oleaje irregular de 30 minutos
 \end_layout
 
 \begin_layout Standard
-En general, los ensayos realizados en ingenieria (y en el laboroatorio)
- duran alrededor de los 30 minutos.
+En general, los ensayos realizados en ingeniería (y en el laboratorio) duran
+ alrededor de los 30 minutos.
  Con este ensayo se puso a prueba la factibilidad de capturar durante un
  periodo relativamente prolongado de tiempo la altura de ola, debido a que
- otras tecnicas anteriormente utilizados en el laboratorio no eran capaces
+ otras técnicas anteriormente utilizados en el laboratorio no eran capaces
  de hacerlo por falta de memoria o velocidad de computo (solo se lograba
- realizar un video de 10 minutos con su posterior procesamiento de apeoximadamen
+ realizar un vídeo de 10 minutos con su posterior procesamiento de aproximadamen
 te unos 30 minutos).
  
 \end_layout
 
 \begin_layout Standard
-Para este ensayo (oleaje irregular con parametros 
+Para este ensayo (oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -11015,7 +11016,7 @@ Para este ensayo (oleaje irregular con parametros
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- y duracion de 30 minutos) se capturaron los datos mostrados en la 
+ y duración de 30 minutos) se capturaron los datos mostrados en la 
 \shape italic
 Figura
 \shape default
@@ -11033,7 +11034,7 @@ senos
 \shape default
  (parte inferior de las olas) difieren en gran medida (los datos obtenidos
  con el sistema son menores que los del sensor resistivo).
- Ademas se puede observar (
+ Además se puede observar (
 \shape italic
 Figura
 \shape default
@@ -11052,7 +11053,7 @@ cresta
 \shape italic
 sen
 \shape default
-o cerca del segundo 17.5 causado por una erronea deteccion de la altura de
+o cerca del segundo 17.5 causado por una errónea detección de la altura de
  ola (explicado en el capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11165,8 +11166,8 @@ name "fig:Datos-crudos-capturados-1-1"
 
 \end_inset
 
-Superposicion de los datos obtenidos por el sistema implementado (en rojo)
- y el sensor resistivo (en verde) del olejae irregular con parametros 
+Superposición de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -11211,9 +11212,9 @@ reference "fig:Espectros-calculados-para"
 \end_inset
 
  se muestran los respectivos espectros, donde se observa por medio del espectro
- de JONSWAP una diferencia mayor que los ensayos anteriores en la simetria
+ de JONSWAP una diferencia mayor que los ensayos anteriores en la simetría
  y altura del mismo.
- Por medio de los parametros mostrados en la 
+ Por medio de los parámetros mostrados en la 
 \shape italic
 Tabla
 \shape default
@@ -11334,8 +11335,8 @@ name "fig:Espectros-calculados-para"
 
 \end_inset
 
-Espectros calculados para los datos obtenidos por ambos metodos (sistema
- implementado y sensor resistivo) para un oleaje irregular con parametros
+Espectros calculados para los datos obtenidos por ambos métodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parámetros
  
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
@@ -11401,7 +11402,7 @@ name "fig:Superposicion-de-los"
 
 \end_inset
 
-Superposicion de los espectros de ambos metodos.
+Superposición de los espectros de ambos métodos.
 \end_layout
 
 \end_inset
@@ -11428,8 +11429,8 @@ name "fig:Comparacion-de-los-2"
 
 \end_inset
 
-Espectros calculados para los datos obtenidos por ambos metodos (sistema
- implementado y sensor resistivo) para un oleaje irregular con parametros
+Espectros calculados para los datos obtenidos por ambos métodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parámetros
  
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
@@ -11486,7 +11487,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Metodo
+Método
 \end_layout
 
 \end_inset
@@ -11621,7 +11622,7 @@ name "tab:comp_en3"
 
 \end_inset
 
-Comparacion de los parametros 
+Comparación de los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -11664,7 +11665,7 @@ A diferencia del ensayo anterior de 5 minutos (
 \series bold
 EN2
 \series default
-), este se realizo con la camara en una posicion distinta (
+), este se realizo con la cámara en una posición distinta (
 \shape italic
 Figura 
 \shape default
@@ -11675,7 +11676,7 @@ reference "fig:Posicion-2:-El"
 
 \end_inset
 
-) logrando mejores resultados como se los muestra a continuacion (
+) logrando mejores resultados como se los muestra a continuación (
 \shape italic
 Figura
 \shape default
@@ -11779,8 +11780,8 @@ name "fig:Superposicion-en4"
 
 \end_inset
 
-Superposicion de los datos obtenidos por el sistema implementado (en rojo)
- y el sensor resistivo (en verde) del olejae irregular con parametros 
+Superposición de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -11792,7 +11793,7 @@ Superposicion de los datos obtenidos por el sistema implementado (en rojo)
 \series bold
 EN4
 \series default
-) con la camara ubicada a 
+) con la cámara ubicada a 
 \begin_inset Formula $90\; cm$
 \end_inset
 
@@ -11810,7 +11811,7 @@ EN4
 \end_layout
 
 \begin_layout Standard
-Se puede ver que los datos coinciden en su gran mayoria (donde la maxima
+Se puede ver que los datos coinciden en su gran mayoría (donde la máxima
  diferencia encontrada es de 0,0055 metros), además de que no se perciben
  a grandes rasgos cambios abruptos como en los casos anteriores.
  Si ahora observamos los espectros asociados a los datos (
@@ -11824,8 +11825,8 @@ reference "fig:Comparacion-de-los-1"
 
 \end_inset
 
-) podemos decir que se asemejan tanto en simetria como amplitud con un pequeño
- defasaje sobre el eje 
+) podemos decir que se asemejan tanto en simetría como amplitud con un pequeño
+ desfasaje sobre el eje 
 \begin_inset Formula $x$
 \end_inset
 
@@ -11870,8 +11871,8 @@ name "fig:Comparacion-de-los-1"
 
 \end_inset
 
-Espectros calculados para los datos obtenidos por ambos metodos (sistema
- implementado y sensor resistivo) para un oleaje irregular con parametros
+Espectros calculados para los datos obtenidos por ambos métodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parámetros
  
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
@@ -11919,7 +11920,7 @@ reference "tab:comp_en4"
 
 \end_inset
 
-) podemos observar nuevamente la similitud de los 3 valores de interes.
+) podemos observar nuevamente la similitud de los 3 valores de interés.
 \end_layout
 
 \begin_layout Standard
@@ -11943,7 +11944,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Metodo
+Método
 \end_layout
 
 \end_inset
@@ -12078,7 +12079,7 @@ name "tab:comp_en4"
 
 \end_inset
 
-Comparacion de los parametros 
+Comparación de los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -12113,7 +12114,7 @@ EN5: Oleaje irregular de 30 minutos
 \end_layout
 
 \begin_layout Standard
-En este ensayo se simulo un oleaje irregular con parametros 
+En este ensayo se simulo un oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -12121,7 +12122,7 @@ En este ensayo se simulo un oleaje irregular con parametros
 \begin_inset Formula $f_{p}=1\; Hz$
 \end_inset
 
- durante 30 minutos y posicionando la camara a unos 
+ durante 30 minutos y posicionando la cámara a unos 
 \begin_inset Formula $90\; cm$
 \end_inset
 
@@ -12137,8 +12138,8 @@ reference "fig:Posicion-2:-El"
 \end_inset
 
 ).
- A diferencia del ensayo anterior, se decidio modificar la configuracion
- interna del algoritmo de deteccion de contornos (
+ A diferencia del ensayo anterior, se decidió modificar la configuración
+ interna del algoritmo de detección de contornos (
 \shape italic
 Canny, capitulo
 \shape default
@@ -12154,7 +12155,7 @@ reference "sub:Canny-edge-detector"
 \shape italic
 Canny edge detector
 \shape default
-) estableciendo valores de umbrales mas bajos de forma tal que la deteccion
+) estableciendo valores de umbrales mas bajos de forma tal que la detección
  sea mas sensible.
  Los resultados obtenidos se muestran en la 
 \shape italic
@@ -12179,7 +12180,7 @@ reference "fig:Superposicion-en4-1"
 EN3 
 \series default
 (el otro ensayo de 30 minutos) se obtuvieron mejores resultados (con mayor
- presicion) pero no asi en comparación al ensayo anterior (
+ precisión) pero no así en comparación al ensayo anterior (
 \series bold
 EN4
 \series default
@@ -12276,8 +12277,8 @@ name "fig:Superposicion-en4-1"
 
 \end_inset
 
-Superposicion de los datos obtenidos por el sistema implementado (en rojo)
- y el sensor resistivo (en verde) del olejae irregular con parametros 
+Superposición de los datos obtenidos por el sistema implementado (en rojo)
+ y el sensor resistivo (en verde) del oleaje irregular con parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -12289,7 +12290,7 @@ Superposicion de los datos obtenidos por el sistema implementado (en rojo)
 \series bold
 EN5
 \series default
-) con la camara ubicada a 
+) con la cámara ubicada a 
 \begin_inset Formula $90\; cm$
 \end_inset
 
@@ -12342,7 +12343,7 @@ reference "tab:comp_en4-1"
 
 
 \shape default
- los valores de los parametros de interes.
+ los valores de los parámetros de interés.
 \end_layout
 
 \begin_layout Standard
@@ -12444,8 +12445,8 @@ name "fig:Espectros-calculados-para-1"
 
 \end_inset
 
-Espectros calculados para los datos obtenidos por ambos metodos (sistema
- implementado y sensor resistivo) para un oleaje irregular con parametros
+Espectros calculados para los datos obtenidos por ambos métodos (sistema
+ implementado y sensor resistivo) para un oleaje irregular con parámetros
  
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
@@ -12501,9 +12502,9 @@ name "fig:Comparacion-de-los-2-1"
 
 \end_inset
 
-Espectros superpuestos calculados de los datos obtenidos por ambos metodos
+Espectros superpuestos calculados de los datos obtenidos por ambos métodos
  (sistema implementado y sensor resistivo) para un oleaje irregular con
- parametros 
+ parámetros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -12559,7 +12560,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Metodo
+Método
 \end_layout
 
 \end_inset
@@ -12694,7 +12695,7 @@ name "tab:comp_en4-1"
 
 \end_inset
 
-Comparacion de los parametros 
+Comparación de los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -12735,15 +12736,15 @@ Consideraciones generales
 \end_layout
 
 \begin_layout Subsubsection
-Angulo y posicion de captura
+Ángulo y posición de captura
 \end_layout
 
 \begin_layout Standard
 Uno de los posibles errores a la hora de detectar la altura de la superficie
- libre se debe a la posicion y angulo de la camara con respecto al nivel
+ libre se debe a la posición y ángulo de la cámara con respecto al nivel
  en reposo del fluido en el canal.
  Como se señalo anteriormente, los primeros ensayos se realizaron en la
- posicion P1 (
+ posición P1 (
 \shape italic
 Figura
 \shape default
@@ -12754,13 +12755,13 @@ reference "fig:Posicion-1:-El"
 
 \end_inset
 
-), en donde la lente de la camara se encuentra casi a la altura de la superficie
+), en donde la lente de la cámara se encuentra casi a la altura de la superficie
  libre (en reposo).
- Cuando la pala mecanica comienza a producir el oleaje a medir, la superficie
+ Cuando la pala mecánica comienza a producir el oleaje a medir, la superficie
  libre se desplaza por encima y por debajo del punto de reposo (como lo
  indican las flechas de la figura).
  En el momento en el que la superficie libre se encuentra por debajo de
- la altura del lente de la camara (flecha hacia abajo o 
+ la altura del lente de la cámara (flecha hacia abajo o 
 \begin_inset Formula $-h$
 \end_inset
 
@@ -12781,9 +12782,9 @@ reference "fig:Altura-de-la"
 
 \end_inset
 
-, se muestra por encima la imagen capturada por la camara de video antes
+, se muestra por encima la imagen capturada por la cámara de vídeo antes
  de ser procesada, y por debajo luego de ser procesada y aplicado el algoritmo
- de deteccion de contornos (
+ de detección de contornos (
 \shape italic
 Canny
 \shape default
@@ -12802,8 +12803,8 @@ reference "fig:Altura-de-la-1"
 \end_inset
 
 , se puede observar el otro caso, en donde la superficie del fluido esta
- por debajo del lente de la camara y observandose el ruido introducido en
- la deteccion de contornos por medio de una doble linea con trozos de bordes
+ por debajo del lente de la cámara y observándose el ruido introducido en
+ la detección de contornos por medio de una doble linea con trozos de bordes
  entre las mismas provenientes del reflejo mencionado anteriormente.
 \end_layout
 
@@ -12837,9 +12838,9 @@ name "fig:Altura-de-la"
 
 \end_inset
 
-Errores introducidos por la posicion y angulo de la camara a la hora de
+Errores introducidos por la posición y ángulo de la cámara a la hora de
  detectar los contornos de la superficie libre.
- Altura de la superficie libre por encima del lente de la camara.
+ Altura de la superficie libre por encima del lente de la cámara.
 \end_layout
 
 \end_inset
@@ -12882,9 +12883,9 @@ name "fig:Altura-de-la-1"
 
 \end_inset
 
-Errores introducidos por la posicion y angulo de la camara a la hora de
+Errores introducidos por la posición y ángulo de la cámara a la hora de
  detectar los contornos de la superficie libre.
- Altura de la superficie libre por debajo del lente de la camara.
+ Altura de la superficie libre por debajo del lente de la cámara.
 \end_layout
 
 \end_inset
@@ -12898,7 +12899,7 @@ Errores introducidos por la posicion y angulo de la camara a la hora de
 \end_layout
 
 \begin_layout Standard
-Esta situacion (
+Esta situación (
 \shape italic
 Figura
 \shape default
@@ -12917,7 +12918,7 @@ doble superficie
 \begin_inset Quotes erd
 \end_inset
 
- puede generar una falsa deteccion de la altura de ola (mas especificamente
+ puede generar una falsa detección de la altura de ola (mas específicamente
  el 
 \shape italic
 seno
@@ -12944,9 +12945,9 @@ crestas
 senos
 \shape default
  no.
- En este caso se puede deducir que la posicion del lente de la camara se
+ En este caso se puede deducir que la posición del lente de la cámara se
  encuentra aproximadamente a la altura del borde superior de cada uno de
- los rectangulos azules, que es el punto donde los datos comienzan a diferenciar
+ los rectángulos azules, que es el punto donde los datos comienzan a diferenciar
 se (los obtenidos por el sistema -rojo- y los del sensor resistivo -verde-).
 \end_layout
 
@@ -12980,10 +12981,10 @@ name "fig:Errores-(remarcados-en-1"
 
 \end_inset
 
-Errores (remarcados en azul) introducidos por la posicion y angulo de la
- camara a la hora de detectar los contornos de la superficie libre cuando
+Errores (remarcados en azul) introducidos por la posición y ángulo de la
+ cámara a la hora de detectar los contornos de la superficie libre cuando
  la altura de la superficie libre se encuentra por debajo del lente de la
- camara.
+ cámara.
  En rojo se muestra los datos capturados por el sistema implementado mientras
  que en verde los del sensor resistivo.
 \end_layout
@@ -12999,8 +13000,8 @@ Errores (remarcados en azul) introducidos por la posicion y angulo de la
 \end_layout
 
 \begin_layout Standard
-Claramente esto fue lo que sucedio en todos los ensayos realizados con la
- camara ubicada en la posicion P1 (
+Claramente esto fue lo que sucedió en todos los ensayos realizados con la
+ cámara ubicada en la posición P1 (
 \series bold
 EN1
 \series default
@@ -13016,11 +13017,11 @@ EN3
 \end_layout
 
 \begin_layout Subsubsection
-Velocidad de captura de la camara
+Velocidad de captura de la cámara
 \end_layout
 
 \begin_layout Standard
-La velocidad de captura de la camara juega un importante papel a la hora
+La velocidad de captura de la cámara juega un importante papel a la hora
  de poder detectar la superficie libre.
  En la 
 \shape italic
@@ -13033,7 +13034,7 @@ reference "fig:Dos-capturas-realizadas"
 
 \end_inset
 
- se muestran 2 imagenes (
+ se muestran 2 imágenes (
 \shape italic
 Figuras
 \shape default
@@ -13051,13 +13052,13 @@ reference "fig:Comparacion-del-segundo"
 
 \end_inset
 
-) capturando la misma ola en dos instantes de tiempos distintos y aplicandole
+) capturando la misma ola en dos instantes de tiempos distintos y aplicándole
  el algoritmo de 
 \shape italic
 Canny 
 \shape default
-(deteccion de contornos) en ambos casos con los mismos parametros de configuraci
-on (iguales valores de umbrales en ambas figuras).
+(detección de contornos) en ambos casos con los mismos parámetros de configuraci
+ón (iguales valores de umbrales en ambas figuras).
  En el primer instante (
 \shape italic
 Figura
@@ -13088,13 +13089,13 @@ reference "fig:Comparacion-del-segundo"
 \end_inset
 
 ) se puede ver que el contorno de la ola ahora se encuentra difuso a la
- derecha del sensor como tambien lo muestra la imagen luego de aplicar el
+ derecha del sensor como también lo muestra la imagen luego de aplicar el
  algoritmo de 
 \shape italic
 Canny
 \shape default
 .
- Esta situacion se reproduce en cualquier parte (no solo a la derecha e
+ Esta situación se reproduce en cualquier parte (no solo a la derecha e
  izquierda del sensor) debido a que la ola se mueve a lo largo de todo el
  canal.
  
@@ -13136,7 +13137,7 @@ name "fig:Comparacion-del-primer"
 
 \end_inset
 
-Comparacion del primer instante de captura de la ola.
+Comparación del primer instante de captura de la ola.
 \end_layout
 
 \end_inset
@@ -13182,7 +13183,7 @@ name "fig:Comparacion-del-segundo"
 
 \end_inset
 
-Comparacion del segundo instante de captura de la ola.
+Comparación del segundo instante de captura de la ola.
 \end_layout
 
 \end_inset
@@ -13210,9 +13211,9 @@ name "fig:Dos-capturas-realizadas"
 
 \end_inset
 
-Dos capturas realizadas del movimiento de la ola antes y despues de aplicar
- el algoritmo de deteccion de contornos en donde se muestra las posibles
- fallas de deteccion de la superficie libre.
+Dos capturas realizadas del movimiento de la ola antes y después de aplicar
+ el algoritmo de detección de contornos en donde se muestra las posibles
+ fallas de detección de la superficie libre.
 \end_layout
 
 \end_inset
@@ -13245,7 +13246,7 @@ reference "fig:Posibles-puntos-detectados"
 \shape italic
 Canny
 \shape default
- y remarcando la zona de analisis en rojo (columnas de pixels utilizadas
+ y remarcando la zona de análisis en rojo (columnas de píxeles utilizadas
  por el algoritmo 
 \shape italic
 Wave height analyzer 
@@ -13261,12 +13262,12 @@ reference "sub:Wave-height-analyzer"
 
 
 \shape default
-), ésta situacion produce que el sistema, por la forma en la que fue implementad
-o el algoritmo de la deteccion de altura (
+), ésta situación produce que el sistema, por la forma en la que fue implementad
+o el algoritmo de la detección de altura (
 \shape italic
 Wave height analyzer
 \shape default
-) y teniendo en cuenta la distancia (en pixels) existente entre los dos
+) y teniendo en cuenta la distancia (en píxeles) existente entre los dos
  puntos P1 y P2 (en la imagen representada por 
 \begin_inset Formula $d$
 \end_inset
@@ -13291,9 +13292,9 @@ Si la distancia
 \begin_inset Formula $V$
 \end_inset
 
- es la constante que indica la maxima variacion de altura de ola aceptable
- en pixels, mencionada junto con el algoritmo), y asumiendo que no se encontro
- ningun contorno al rededor del punto sobre el cual se esta analizando (en
+ es la constante que indica la máxima variación de altura de ola aceptable
+ en píxeles, mencionada junto con el algoritmo), y asumiendo que no se encontró
+ ningún contorno al rededor del punto sobre el cual se esta analizando (en
  este caso alrededor de P1), el algoritmo (y por ende el sistema) da como
  resultado la ultima altura de ola detectada (P1).
 \end_layout
@@ -13361,7 +13362,7 @@ Posibles puntos detectados por el sistema (P1, P2, los cuales se encuentran
 \end_layout
 
 \begin_layout Standard
-Las consecuencias de la primera situacion (1) antes descripta se las puede
+Las consecuencias de la primera situación (1) antes descripta se las puede
  observar en la 
 \shape italic
 Figura
@@ -13373,7 +13374,7 @@ reference "fig:Errores-(remarcados-en-1"
 
 \end_inset
 
-, donde los datos devueltos por el sistema (altura de ola) estan graficados
+, donde los datos devueltos por el sistema (altura de ola) están graficados
  en rojo.
  Se puede ver que existen zonas (en azul) donde la altura permanece constante,
  esto es debido a que al no encontrar el contorno de la superficie libre,
@@ -13441,9 +13442,9 @@ fijo
 \begin_inset Quotes erd
 \end_inset
 
- que se mantiene a lo largo de todas las imagenes (por ejemplo un borde
+ que se mantiene a lo largo de todas las imágenes (por ejemplo un borde
  del canal el cual en cada imagen procesada siempre se detecta el mismo
- contorno); o b) cuando el nuevo P2 detectado pertenece algun contorno no
+ contorno); o b) cuando el nuevo P2 detectado pertenece algún contorno no
  
 \begin_inset Quotes eld
 \end_inset
@@ -13452,9 +13453,9 @@ fijo
 \begin_inset Quotes erd
 \end_inset
 
- y por ende puede aparecer y desaparecer a lo largo de las imagenes procesadas
- (como por ejemplo reflejos de luces momentaneos sobre el vidrio del canal,
- o particulas en el fluido, etc).
+ y por ende puede aparecer y desaparecer a lo largo de las imágenes procesadas
+ (como por ejemplo reflejos de luces momentáneos sobre el vidrio del canal,
+ o partículas en el fluido, etc).
  
 \end_layout
 
@@ -13463,11 +13464,11 @@ Para el primer caso (a), se puede detectar casi al comienzo del ensayo,
  ya que en estos casos, si sucede, el algoritmo es incapaz de salir de ese
  contorno (por como fue implementado), y por ende, siempre se devuelve la
  misma altura de ola (que es el contorno fijo mencionado).
- Por suerte, esta circunstancia se puede prevenir facilmente.
+ Por suerte, esta circunstancia se puede prevenir fácilmente.
 \end_layout
 
 \begin_layout Standard
-La segunda situacion (b), aunque en general no sucede, es mas dificil de
+La segunda situación (b), aunque en general no sucede, es mas difícil de
  evitar.
  En la 
 \shape italic
@@ -13486,8 +13487,8 @@ reference "fig:Error-(remarcado-en"
 
 \shape default
 \color inherit
- se obvserva como hay un salto abrupto en la continuidad de los datos obtenidos,
- debido a la falla en la deteccion de la altura de ola y en donde se detecto
+ se observa como hay un salto abrupto en la continuidad de los datos obtenidos,
+ debido a la falla en la detección de la altura de ola y en donde se detecto
  un contorno 
 \begin_inset Quotes eld
 \end_inset
@@ -13496,7 +13497,7 @@ temporal
 \begin_inset Quotes erd
 \end_inset
 
- ubicado en el vertice del arco remarcado.
+ ubicado en el vértice del arco remarcado.
  Como se puede ver además, en la siguiente ola detectada (a la derecha)
  este error no sucede nuevamente.
 \end_layout
@@ -13552,9 +13553,9 @@ Error (remarcado en azul) causado por la imposibilidad de detectar la superficie
 
 \begin_layout Standard
 Claramente ambos casos (1 y 2), generan grandes diferencias en los valores
- capturados por el sistema implementado en comparacion con los obtenidos
+ capturados por el sistema implementado en comparación con los obtenidos
  por el sensor resistivo.
- Una posible situacion que solventa estos errores es la disminucion de los
+ Una posible situación que solventa estos errores es la disminución de los
  valores umbrales utilizados en el algoritmo de 
 \shape italic
 Canny
@@ -13621,8 +13622,8 @@ name "fig:Error-(remarcado-en-1-1"
 
 \end_inset
 
-Interferencia en la deteccion de la superficie libre generada a causa de
- la utilizacion de valores bajos en los umbrales del algoritmo de 
+Interferencia en la detección de la superficie libre generada a causa de
+ la utilización de valores bajos en los umbrales del algoritmo de 
 \shape italic
 Canny
 \shape default
@@ -13640,7 +13641,7 @@ Canny
 \end_layout
 
 \begin_layout Standard
-Esta interferencia varia mucho a medida que la ola se translada generando
+Esta interferencia varia mucho a medida que la ola se traslada generando
  un cambio brusco en los valores de la altura de la superficie libre detectada
  por el sistema.
  En la 
@@ -13654,7 +13655,7 @@ reference "fig:Error-(remarcado-en-1"
 
 \end_inset
 
- se puede observar el resultado de tal situacion.
+ se puede observar el resultado de tal situación.
 \end_layout
 
 \begin_layout Standard
@@ -13686,7 +13687,7 @@ name "fig:Error-(remarcado-en-1"
 \end_inset
 
 Errores (remarcados en azul) causado por los bajos valores de los umbrales
- del algoritmo de Canny utilizados para solventar el problema de deteccion
+ del algoritmo de Canny utilizados para solventar el problema de detección
  de la superficie libre en movimiento.
  En rojo se observa los datos tomados por el sistema implementado y en verde
  los obtenidos por el sensor resistivo.
@@ -13721,15 +13722,15 @@ reference "fig:Doble-contorno-detectado"
 \end_inset
 
 .
- En la imagen superior se muestra la imagen capturada por la camara de video,
+ En la imagen superior se muestra la imagen capturada por la cámara de vídeo,
  en la inferior el resultado de aplicar sobre la primera el algoritmo de
- deteccion de contornos (
+ detección de contornos (
 \shape italic
 Canny
 \shape default
 ).
- Este tipo de situacion genera en algunos casos (cuando el movimiento de
- la ola es muy rapido/brusco) un error similar al planteado en el subcapitulo
+ Este tipo de situación genera en algunos casos (cuando el movimiento de
+ la ola es muy rápido/brusco) un error similar al planteado en el subcapitulo
  anterior, en donde los 2 bordes pueden ser no detectados de forma intercalada
  (primero se detecta uno y luego el otro) generando pequeños saltos (que
  en este caso son de aproximadamente 4 mm) en los datos capturados y por
@@ -13790,25 +13791,25 @@ Conclusiones
 
 \begin_layout Standard
 En este trabajo se propuso desarrollar un sistema capaz de capturar la altura
- de la ola en laboratorio por medio de una camara web y en tiempo real.
- Como se pudo observar en los analisis de los resultados del capitulo anterior,
- la presicion del sistema esta ligada y fuertemente afectada por factores
+ de la ola en laboratorio por medio de una cámara web y en tiempo real.
+ Como se pudo observar en los análisis de los resultados del capitulo anterior,
+ la precisión del sistema esta ligada y fuertemente afectada por factores
  externos como la luz utilizada (intentando buscar siempre aquella que genere
- mayor contraste entre el fluido y la superficite y al mismo tiempo no genere
- reflejos sobre el vidrio del canal), la cantidad de particulas tanto en
- el fluido como en las paredes del canal, la posicion y angulo de la camara
- la cual cumple un papel crucial, y ademas los valores de configuracion
- para el algoritmo de deteccion de contornos, el cual varia dependiendo
+ mayor contraste entre el fluido y la superficie y al mismo tiempo no genere
+ reflejos sobre el vidrio del canal), la cantidad de partículas tanto en
+ el fluido como en las paredes del canal, la posición y ángulo de la cámara
+ la cual cumple un papel crucial, y además los valores de configuración
+ para el algoritmo de detección de contornos, el cual varia dependiendo
  de los factores recientemente mencionados.
 \end_layout
 
 \begin_layout Standard
 Se puede decir que el sistema logra capturar y analizar la altura de ola
- en tiempo real y a una velocidad superior a la minima esperada (alcanzando
+ en tiempo real y a una velocidad superior a la mínima esperada (alcanzando
  25 Hz) mostrando al mismo tiempo el proceso del ensayo realizado y los
- datos obtenidos (lo que quiere decir que puede correrse la interfaz grafica
+ datos obtenidos (lo que quiere decir que puede correrse la interfaz gráfica
  en simultaneo con el proceso de captura).
- Aún asi no se logro alcanzar una presicion milimetrica para poder realizar
+ Aún así no se logro alcanzar una precisión milimétrica para poder realizar
  mediciones que requieran un error menor a 0.0055 metros, donde las causas
  se debieron tanto por motivos de hardware como de software.
  Por otro lado se pudieron realizar mediciones en donde los errores de los
@@ -13821,35 +13822,35 @@ Se puede decir que el sistema logra capturar y analizar la altura de ola
 \end_inset
 
  se encuentran aproximadamente en el orden de los 0.001 y 0.009 respectivamente,
- lo cual habilitaria al sistema para ser utilizado en diversas pruebas de
- ingenieria en laboratorio.
+ lo cual habilitaría al sistema para ser utilizado en diversas pruebas de
+ ingeniería en laboratorio.
 \end_layout
 
 \begin_layout Standard
 Por otro lado se considera altamente viable la posibilidad de aumentar la
- presicion del sistema por medio de distintos algoritmos en la fase final
+ precisión del sistema por medio de distintos algoritmos en la fase final
  que complementen los posibles errores introducidos por la velocidad de
- captura de la camara, como asi tambien en una etapa posterior a la deteccion
+ captura de la cámara, como así también en una etapa posterior a la detección
  de los datos (post-procesamiento) en la que se filtren y corrijan aquellos
- valores que se consideren erroneos.
+ valores que se consideren erróneos.
 \end_layout
 
 \begin_layout Standard
-Se logro ademas armar una interfaz grafica que permitiese al usuario del
- sistema una facil y rapida configuracion a la hora de realizar las mediciones,
- dandole mucha flexibilidad sobre los parametros utilizados en los algoritmos
+Se logro además armar una interfaz gráfica que permitiese al usuario del
+ sistema una fácil y rápida configuración a la hora de realizar las mediciones,
+ dándole mucha flexibilidad sobre los parámetros utilizados en los algoritmos
  de las distintas etapas.
 \end_layout
 
 \begin_layout Standard
 Fuera del sistema implementado para detectar la altura de la superficie
- libre, se logro desarrollar ademas un 
+ libre, se logro desarrollar además un 
 \shape italic
 framework
 \shape default
  el cual permitirá crear futuras aplicaciones (que brinden la oportunidad
- de medir otras variables hidrodinamicas) de una forma mas facil y rapida,
- dando tambien la opcion de utilizar el GPU como unidad de procesamiento.
+ de medir otras variables hidrodinámicas) de una forma mas fácil y rápida,
+ dando también la opción de utilizar el GPU como unidad de procesamiento.
 \end_layout
 
 \begin_layout Standard
@@ -13877,37 +13878,37 @@ IPS
 \shape italic
 Image Processing System
 \shape default
-) que implementen otras funcionalidades para medir distintas variables hydrodina
+) que implementen otras funcionalidades para medir distintas variables hidrodiná
 micas utilizando el 
 \shape italic
 framework
 \shape default
  desarrollado, como por ejemplo detectar y analizar la forma de la rotura
- de la ola, realizar tracking de particulas en el fluido, etc.
+ de la ola, realizar tracking de partículas en el fluido, etc.
 \end_layout
 
 \begin_layout Itemize
 Desarrollar un algoritmo que permita detectar la altura de la ola en cada
- columna de pixels de la imagen capturada por la video camara por medio
- de la paralelizacion y usando el GPU como unidad de procesamiento (con
+ columna de píxeles de la imagen capturada por la vídeo cámara por medio
+ de la paralelización y usando el GPU como unidad de procesamiento (con
  el objetivo de mantener la captura en tiempo real), logrando de esta forma
- determinar la altura de la superficie libre con mucho mayor presicion.
+ determinar la altura de la superficie libre con mucho mayor precisión.
 \end_layout
 
 \begin_layout Itemize
 Probar y comparar diferentes algoritmos utilizados en las distintas etapas
- con el fin de aumentar la presicion de captura de datos y disminuir la
- deteccion de ruido al maximo (intentar lograr que el sistema no sea tan
- sensible al entorno como los cambios de luces, particulas en la zona de
+ con el fin de aumentar la precisión de captura de datos y disminuir la
+ detección de ruido al máximo (intentar lograr que el sistema no sea tan
+ sensible al entorno como los cambios de luces, partículas en la zona de
  captura, etc).
- Y realizar en una segunda etapa el postprocesamiento de los datos obtenidos
- con el objetivo de eliminar por medio de distintas tecnicas (uso de splines
- por ejemplo) aquellos datos erroneos y corregir al mismo tiempo aquellos
+ Y realizar en una segunda etapa el post procesamiento de los datos obtenidos
+ con el objetivo de eliminar por medio de distintas técnicas (uso de splines
+ por ejemplo) aquellos datos erróneos y corregir al mismo tiempo aquellos
  que se consideren 
 \begin_inset Quotes eld
 \end_inset
 
-defasados
+desfasados
 \begin_inset Quotes erd
 \end_inset
 
