@@ -12792,6 +12792,14 @@ Aca vamos a poner lo relacionado con los errores que se pueden observar
  mostrarlos.
 \end_layout
 
+\begin_layout Subsubsection
+Angulo y posicion de captura
+\end_layout
+
+\begin_layout Standard
+Uno de los posibles problemas encontrados 
+\end_layout
+
 \begin_layout Standard
 
 \shape italic
@@ -12804,6 +12812,407 @@ Agregar y explicar errores de cuando se captura por encima de la superficie
  de la camara).
 \end_layout
 
+\begin_layout Subsubsection
+Velocidad de captura de la camara
+\end_layout
+
+\begin_layout Standard
+La velocidad de captura la camara juega un importante papel a la hora de
+ poder detectar la superficie libre.
+ En la 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dos-capturas-realizadas"
+
+\end_inset
+
+ se muestran 2 imagenes (
+\shape italic
+Figuras
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparacion-del-primer"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparacion-del-segundo"
+
+\end_inset
+
+) capturando la misma ola en dos instantes de tiempos distintos y aplicandole
+ el algoritmo de 
+\shape italic
+Canny 
+\shape default
+(deteccion de contornos) en ambos casos con los mismos parametros de configuraci
+on (iguales valores de umbrales en ambas figuras).
+ En el primer instante (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparacion-del-primer"
+
+\end_inset
+
+) se puede observar como a la izquierda del sensor resistivo el contorno
+ de la ola se observa de una manera difusa provocando que el algoritmo de
+ 
+\shape italic
+Canny
+\shape default
+ falle detectando el contorno de la misma (imagen inferior).
+ En el segundo instante (
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparacion-del-segundo"
+
+\end_inset
+
+) se puede ver que el contorno de la ola ahora se encuentra difuso a la
+ derecha del sensor como tambien lo muestra la imagen luego de aplicar el
+ algoritmo de 
+\shape italic
+Canny
+\shape default
+.
+ Esta situacion se reproduce en cualquier parte (no solo a la derecha e
+ izquierda del sensor) debido a que la ola se mueve a lo largo de todo el
+ canal.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_vel_captura_1.png
+	lyxscale 80
+	width 35page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparacion-del-primer"
+
+\end_inset
+
+Comparacion del primer instante de captura de la ola.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_vel_captura_2.png
+	lyxscale 80
+	width 35page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparacion-del-segundo"
+
+\end_inset
+
+Comparacion del segundo instante de captura de la ola.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dos-capturas-realizadas"
+
+\end_inset
+
+Dos capturas realizadas del movimiento de la ola antes y despues de aplicar
+ el algoritmo de deteccion de contornos en donde se muestra las posibles
+ fallas de deteccion de la superficie libre.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ahora observamos 
+\shape italic
+Figura
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Posibles-puntos-detectados"
+
+\end_inset
+
+, donde se muestra la imagen ya procesada con el algoritmo de 
+\shape italic
+Canny
+\shape default
+ y remarcando la zona de analisis en rojo (columnas de pixels utilizadas
+ por el algoritmo 
+\shape italic
+Wave height analyzer 
+\shape default
+mencionado en el 
+\shape italic
+capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Wave-height-analyzer"
+
+\end_inset
+
+
+\shape default
+), ésta situacion produce que el sistema, por la forma en la que fue implementad
+o el algoritmo de la deteccion de altura (
+\shape italic
+Wave height analyzer
+\shape default
+) y teniendo en cuenta la distancia (en pixels) existente entre los dos
+ puntos P1 y P2 (en la imagen representada por 
+\begin_inset Formula $d$
+\end_inset
+
+), de como resultado alguna de las siguientes dos situaciones:
+\end_layout
+
+\begin_layout Enumerate
+Si la distancia 
+\begin_inset Formula $d$
+\end_inset
+
+ entre P1 y P2 es mayor que 
+\begin_inset Formula $V$
+\end_inset
+
+, esto es 
+\begin_inset Formula $d>V$
+\end_inset
+
+ (recordando que 
+\begin_inset Formula $V$
+\end_inset
+
+ es la constante que indica la maxima variacion de altura de ola aceptable
+ en pixels, mencionada junto con el algoritmo), y asumiendo que no se encontro
+ ningun contorno al rededor del punto sobre el cual se esta analizando (en
+ este caso alrededor de P1), el algoritmo (y por ende el sistema) da como
+ resultado la ultima altura de ola detectada (P1).
+\end_layout
+
+\begin_layout Enumerate
+Si la distancia 
+\begin_inset Formula $d$
+\end_inset
+
+ entre P1 y P2 es menor o igual que 
+\begin_inset Formula $V$
+\end_inset
+
+ (
+\begin_inset Formula $d\leq V$
+\end_inset
+
+ ), entonces el sistema al no encontrar contornos a los costados del punto
+ P1, devuelve P2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/velocidad_cam_error.png
+	lyxscale 80
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Posibles-puntos-detectados"
+
+\end_inset
+
+Posibles puntos detectados por el sistema (P1, P2, los cuales se encuentran
+ a una distancia d) como altura de ola en caso de que el algoritmo de contornos
+ no detecte la superficie libre.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si analizamos mas de cerca estos errores podemos observar que en 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/analisis_resultados/consideraciones_finales/img_vel_captura_err1.png
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Errores (remarcados en azul) causados por la imposibilidad de detectar la
+ superficie libre, en donde el sistema devuelve durante cierto tiempo la
+ altura de ola detectada en la captura anterior.
+ En rojo se observa los datos tomados por el sistema implementado y en verde
+ se muestra los datos obtenidos por el sensor resistivo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un problema que surge en conjunto con las condiciones del entorno (luz,
+ contraste de la superficie libre, etc) 
+\end_layout
+
 \begin_layout Standard
 
 \shape italic
@@ -12811,6 +13220,14 @@ Agregar y explicar errores de cuando se captura por encima de la superficie
 Agregar el error de cuando la ola se vuelve difusa (se mueve muy rapido
  la camara no detectar bien el contorno (probarlo con canny), y explicar
  el porque de esos picos derechos...
+\end_layout
+
+\begin_layout Subsubsection
+Superficie libre
+\end_layout
+
+\begin_layout Standard
+explicamos el 2ble borde de la superficie libre
 \end_layout
 
 \begin_layout Standard
