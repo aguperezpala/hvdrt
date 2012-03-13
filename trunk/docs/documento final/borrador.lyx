@@ -6826,7 +6826,7 @@ A grandes rasgos, se puede observar (
 Figura
 \shape default
 \color inherit
-
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Arquitectura-de-los"
@@ -6866,15 +6866,11 @@ ImageGenerator
 \shape italic
 ImageAnalyzer
 \shape default
- tiene como finalidad procesar la imagen 
-\begin_inset Formula $I$
-\end_inset
-
- (a travez de los distintos 
+ tiene como finalidad procesarla (a travez de los distintos 
 \shape italic
 ImageProcessors
 \shape default
- que contiene) y devolver el resultado del procesamiento completo.
+ que contiene) y devolver como salida el resultado del procesamiento completo.
 \end_layout
 
 \begin_layout Standard
@@ -7058,7 +7054,11 @@ Image Processing System
 \shape default
 \color inherit
 .
- Esto llevo a un diseño al nivel de framework como se muestra en la 
+ Esto llevo a un diseño al nivel de 
+\shape italic
+framework
+\shape default
+ como se muestra en la 
 \shape italic
 \color black
 Figura
@@ -7257,7 +7257,7 @@ reference "fig:Diseño-de-alto"
 
 \end_inset
 
-, y como se menciono en el 
+), y como se menciono en el 
 \shape italic
 \color black
 capitulo
@@ -8034,7 +8034,7 @@ reference "sub:Tecnicas-utilizadas"
 
 \shape italic
 \color black
-Tecnicas utilizadas
+ Tecnicas utilizadas
 \shape default
 \color inherit
 .
@@ -8228,7 +8228,7 @@ reference "sub:Aplicaciones-en-laboratorio"
 
 \end_inset
 
-Aplicaciones en laboratorio
+ Aplicaciones en laboratorio
 \shape default
 \color inherit
 ).
@@ -8416,7 +8416,7 @@ reference "sub:Perspective-transform"
 
 \shape italic
 \color black
-Perspective transform
+ Perspective transform
 \shape default
 \color inherit
 .
@@ -8465,7 +8465,20 @@ lipping el cual usa el punto de reposo de la superficie seleccionado por
 \end_inset
 
  de la imagen).
- De esta forma ahorramos procesar informacion que no es requerida.
+ De esta forma ahorramos procesar informacion que no es requerida (en el
+ 
+\shape italic
+capitulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Recortador"
+
+\end_inset
+
+ Recortador
+\shape default
+.
+ se detalla en mayor prfundidad)
 \end_layout
 
 \begin_layout Itemize
@@ -8474,7 +8487,7 @@ lipping el cual usa el punto de reposo de la superficie seleccionado por
 IBorderDetector
 \series default
 : Tiene como objetivo modificar la imagen de entrada de forma tal que la
- resultante sea una imagen que contenga solo contornos.
+ resultante contenga solo contornos.
  En este caso se implemento el 
 \shape italic
 CannyBorderDetector
@@ -8490,9 +8503,10 @@ CannyBorderDetector
 \shape italic
 \color black
 ca
-\shape default
 \color inherit
-pitulo 
+pitulo
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Gaussian-Blur"
@@ -8502,7 +8516,7 @@ reference "sub:Gaussian-Blur"
 
 \shape italic
 \color black
-Gaussian Blur
+ Gaussian Blur
 \shape default
 \color inherit
 ) para suavizar la imagen antes de realizar el analisis de contornos, que
@@ -8526,7 +8540,7 @@ reference "sub:Canny-edge-detector"
 
 \shape italic
 \color black
-Canny edge detector
+ Canny edge detector
 \shape default
 \color inherit
 ).
@@ -8575,7 +8589,7 @@ reference "sub:Wave-height-analyzer"
 
 
 \shape italic
-Wave height analyzer
+ Wave height analyzer
 \shape default
 ).
 \end_layout
@@ -8686,7 +8700,7 @@ ConfigWindow
 \begin_layout Standard
 Adicionalmente, para facilitar aun mas la finalidad (1), el 
 \shape italic
-GUIWaveHeightsIPS
+GUIWaveHeightIPS
 \shape default
  brinda la posibilidad de cargar y guardar las configuraciones de las distintas
  
@@ -8752,7 +8766,7 @@ name "fig:Esquema-representativo-del"
 
 \end_inset
 
-Esquema representativo del 
+Esquema funcional y estructural representativo del 
 \shape italic
 WHIPS
 \shape default
@@ -8846,8 +8860,9 @@ GUIRealTimeDataDisplayer
 \begin_layout Standard
 
 \color black
-En el siguiente capitulo se describe un ensayo realizado donde se muestran
- las interfaces graficas de cada una de las ventanas que componen al 
+En el siguiente capitulo se describe una serie de ensayos realizados donde
+ se muestran las interfaces graficas de cada una de las ventanas que componen
+ al 
 \shape italic
 IPS GUI.
 \end_layout
@@ -8916,8 +8931,8 @@ reference "fig:Canal-del-Laboratorio"
 
 \shape default
 \color inherit
- se muestra el canal sobre el cual se realizaron los experimentos, el cual
- posee una longitud de 25 metros, 0.50 m de ancho y 0.80 m de altura.
+ se muestra el canal en donde se realizaron los experimentos, el cual posee
+ una longitud de 25 metros, 0.50 m de ancho y 0.80 m de altura.
  Cuenta con una pala mecánica 
 \shape italic
 \color black
@@ -8972,7 +8987,7 @@ reference "sub:Hidrodinamica-Introduccion"
 
 \shape italic
 \color black
-Introduccion
+ Introduccion
 \shape default
 \color inherit
 ) en el caso del oleaje regular, mientras que el oleaje irregular se lo
@@ -9340,7 +9355,7 @@ GUIPerspectiveRectifier
 
 \begin_layout Itemize
 Configurar el punto de reposo de la ola (para lograr esto el nivel del fluido
- debe estar en estado escionario).
+ debe estar en estado estacionario).
  La ventana asociada se la muestra en la 
 \shape italic
 \color black
@@ -9419,9 +9434,6 @@ reference "fig:Ventana-de-conf_canny"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Itemize
 \begin_inset Float figure
 placement H
 wide false
@@ -9580,8 +9592,7 @@ Existen una gran cantidad de ensayos posibles para realizar, dependiendo
  realizar la mayoria de los ensayos en base a oleajes irregulares.
  Por otro lado se intento mantener constante los factores externos (como
  luz del entorno, intensidad, zona de captura) a excepcion de la posicion
- de la camara (se realizaron ensayos en 2 posiciones distintas).
- 
+ de la camara en donde se trabajo con 2 ubicaciones distintas.
 \end_layout
 
 \begin_layout Standard
@@ -9879,7 +9890,6 @@ En conjunto con los ensayos propuestos anteriormente, se realizarían mediciones
 Figura
 \shape default
  
-\shape italic
 \color red
 
 \begin_inset CommandInset ref
@@ -9889,7 +9899,6 @@ reference "fig:Esquema-de-la"
 \end_inset
 
 
-\shape default
 \color inherit
 , podemos observar la columna de pixels analizados por el sistema para detectar
  la altura de ola al costado del sensor resistivo (debido a que el sistema
@@ -10038,7 +10047,7 @@ reference "sub:Descripcion-espectral-del"
 
 \end_inset
 
-Descripcion espectral del oleaje.
+ Descripcion espectral del oleaje.
 \shape default
 \color inherit
 ).
@@ -10649,8 +10658,8 @@ reference "fig:Datos-obtenidos-por-3"
 senos
 \shape default
  (parte inferior) de las olas, el sistema implementado difiere bastante
- (hasta 0,0153 metros aproximadamente en algunos casos) con respecto al
- obtenido por el sensor resistivo.
+ (hasta 0,0153 metros aproximadamente en los peores casos) con respecto
+ al obtenido por el sensor resistivo.
  Por otro lado se puede ver la presencia de pequeños arcos a lo largo de
  la linea roja del grafico, esto es otro problema el cual se detalla en
  el capitulo 
@@ -11209,7 +11218,6 @@ reference "fig:Espectros-calculados-para"
 Tabla
 \shape default
  
-\shape italic
 \color red
 
 \begin_inset CommandInset ref
@@ -11219,7 +11227,6 @@ reference "tab:comp_en3"
 \end_inset
 
 
-\shape default
 \color inherit
  se puede apreciar con mayor detalle esto.
 \end_layout
@@ -12320,20 +12327,21 @@ reference "fig:Espectros-calculados-para-1"
  y 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Superposicion-de-los-1"
+reference "fig:Comparacion-de-los-2-1"
 
 \end_inset
 
  se pueden observar los distintos espectros resultantes y en la 
 \shape italic
-Tabla
+Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:comp_en4-1"
+
+\end_inset
+
+
 \shape default
- 
-\shape italic
-\color red
-ro
-\shape default
-\color inherit
  los valores de los parametros de interes.
 \end_layout
 
@@ -12472,12 +12480,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/analisis_resultados/img_irreg30min_p2_e12.png
@@ -12495,36 +12497,13 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Superposicion-de-los-1"
-
-\end_inset
-
-Superposicion de los espectros de ambos metodos.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
 name "fig:Comparacion-de-los-2-1"
 
 \end_inset
 
-Espectros calculados para los datos obtenidos por ambos metodos (sistema
- implementado y sensor resistivo) para un oleaje irregular con parametros
- 
+Espectros superpuestos calculados de los datos obtenidos por ambos metodos
+ (sistema implementado y sensor resistivo) para un oleaje irregular con
+ parametros 
 \begin_inset Formula $H_{s}=5\; cm$
 \end_inset
 
@@ -12775,8 +12754,8 @@ reference "fig:Posicion-1:-El"
 
 \end_inset
 
-), en donde la lente de la camara se casi a la altura de la superficie libre
- (en reposo).
+), en donde la lente de la camara se encuentra casi a la altura de la superficie
+ libre (en reposo).
  Cuando la pala mecanica comienza a producir el oleaje a medir, la superficie
  libre se desplaza por encima y por debajo del punto de reposo (como lo
  indican las flechas de la figura).
@@ -12823,9 +12802,9 @@ reference "fig:Altura-de-la-1"
 \end_inset
 
 , se puede observar el otro caso, en donde la superficie del fluido esta
- por debajo y donde se puede observar el ruido introducido en la deteccion
- de contornos, donde se ve una doble linea con trozos de bordes entre las
- mismas provenientes del reflejo mencionado anteriormente.
+ por debajo del lente de la camara y observandose el ruido introducido en
+ la deteccion de contornos por medio de una doble linea con trozos de bordes
+ entre las mismas provenientes del reflejo mencionado anteriormente.
 \end_layout
 
 \begin_layout Standard
@@ -12968,7 +12947,7 @@ senos
  En este caso se puede deducir que la posicion del lente de la camara se
  encuentra aproximadamente a la altura del borde superior de cada uno de
  los rectangulos azules, que es el punto donde los datos comienzan a diferenciar
-se.
+se (los obtenidos por el sistema -rojo- y los del sensor resistivo -verde-).
 \end_layout
 
 \begin_layout Standard
@@ -13021,7 +13000,7 @@ Errores (remarcados en azul) introducidos por la posicion y angulo de la
 
 \begin_layout Standard
 Claramente esto fue lo que sucedio en todos los ensayos realizados con la
- camara ubicada en la posicion P1 (estos fueron 
+ camara ubicada en la posicion P1 (
 \series bold
 EN1
 \series default
@@ -13041,8 +13020,8 @@ Velocidad de captura de la camara
 \end_layout
 
 \begin_layout Standard
-La velocidad de captura la camara juega un importante papel a la hora de
- poder detectar la superficie libre.
+La velocidad de captura de la camara juega un importante papel a la hora
+ de poder detectar la superficie libre.
  En la 
 \shape italic
 Figura
@@ -13507,9 +13486,9 @@ reference "fig:Error-(remarcado-en"
 
 \shape default
 \color inherit
- se obvserva como hay un cambio un salto abrupto en la continuidad de los
- datos obtenidos, debido a la falla en la deteccion de la altura de ola
- y en donde se detecto un contorno 
+ se obvserva como hay un salto abrupto en la continuidad de los datos obtenidos,
+ debido a la falla en la deteccion de la altura de ola y en donde se detecto
+ un contorno 
 \begin_inset Quotes eld
 \end_inset
 
@@ -13608,9 +13587,9 @@ reference "fig:Comparacion-del-segundo"
 Canny
 \shape default
 ) se puede ver que la zona (remarcada en rojo) que anteriormente no se detectaba
- la superficie libre en este caso si lo hace, pero como con una especie
- de interferencia (no es una linea continua como se lo observa a la izquierda
- del sensor en la imagen).
+ la superficie libre en este caso si lo hace, pero con una especie de interferen
+cia (no es una linea continua como se lo observa a la izquierda del sensor
+ en la imagen).
  
 \end_layout
 
@@ -13661,7 +13640,7 @@ Canny
 \end_layout
 
 \begin_layout Standard
-Esta interferencia varia mucho a lo largo que la ola se translada generando
+Esta interferencia varia mucho a medida que la ola se translada generando
  un cambio brusco en los valores de la altura de la superficie libre detectada
  por el sistema.
  En la 
@@ -13924,7 +13903,7 @@ Probar y comparar diferentes algoritmos utilizados en las distintas etapas
  Y realizar en una segunda etapa el postprocesamiento de los datos obtenidos
  con el objetivo de eliminar por medio de distintas tecnicas (uso de splines
  por ejemplo) aquellos datos erroneos y corregir al mismo tiempo aquellos
- datos que se consideren 
+ que se consideren 
 \begin_inset Quotes eld
 \end_inset
 
