@@ -3,6 +3,9 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage[font=small,labelfont={bf,sf},tableposition=top]{caption}
+\end_preamble
 \use_default_options true
 \language spanish
 \inputencoding auto
@@ -278,11 +281,11 @@ http://en.wikipedia.org/wiki/Acoustic_Doppler_velocimetry
  que se sumergen directamente en el fluido; asimismo, tales instrumentos
  se estropean con el uso.
  Además, todos los sensores son específicos para la medición de las variables
- en un cierto rango de escala espacio-temporal, en algunos casos se los
- utilizan solamente en ensayos bidimensionales, determinan un parámetro
- en un cierto volumen de fluido, no pueden describir los procesos cerca
- de los contornos, dependen de la siembra de partículas en el fluido, se
- corroen si el agua es salada, etc.
+ en un cierto rango de escala espacio-temporal, en algunos casos se utilizan
+ solamente en ensayos bidimensionales, determinan un parámetro en un cierto
+ volumen de fluido, no pueden describir los procesos cerca de los contornos,
+ dependen de la siembra de partículas en el fluido, se corroen si el agua
+ es salada, etc.
  
 \end_layout
 
@@ -324,12 +327,6 @@ key "key-2"
 \end_inset
 
 ).
- En laboratorio, aunque en los últimos años ya se están empleando estas
- técnicas en el estudio de variables hidrodinámicas, no se ha alcanzado
- un nivel de optimización en el procesado de las imágenes para que el instrument
-o sea comparable con la alta definición en la adquisición de datos de los
- muestreos con instrumentos tradicionales.
- 
 \end_layout
 
 \begin_layout Standard
@@ -357,8 +354,18 @@ altura de la superficie libre
 \begin_inset Quotes erd
 \end_inset
 
- (altura de ola) mediante vídeo cámaras de alta definición, durante la realizaci
-ón de ensayos de laboratorio con un canal bidimensional de oleaje.
+ (altura de ola) mediante cámaras de alta definición
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://es.wikipedia.org/wiki/Alta_definición
+\end_layout
+
+\end_inset
+
+, durante la realización de ensayos de laboratorio con un canal bidimensional
+ de oleaje.
  La adquisición de datos de altura de ola en tiempo real se realiza en la
  actualidad mediante el empleo de sensores de niveles intrusivos (se sumergen
  en el fluido) de tipo resistivos que brindan una frecuencia de muestreo
@@ -372,8 +379,8 @@ altura de la superficie libre
 \begin_layout Standard
 Las técnicas de vídeo a implementar deberán en primer lugar rectificar las
  imágenes a procesar y realizar muestreos de las variables a medir con tomas
- de imágenes de alta definición de frecuencias igual o superiores a los
- 20 Hz.
+ de imágenes de alta definiciónde frecuencias igual o superiores a los 20
+ Hz.
  
 \end_layout
 
@@ -489,10 +496,9 @@ Distribución energética de las ondas de superficie.
 \begin_layout Standard
 Matemáticamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periódicas de la superficie del agua, distinguiendo dos tipos:
- ondas progresivas (se propagan en una profundidad constante manteniendo
- su forma) y ondas estacionarias (aquellas que no se propagan, como por
- ejemplo las oscilaciones de niveles en cuerpos de agua cerrados o en puertos);
- en este trabajo se analizan las primeras.
+ ondas progresivas (se propagan) y ondas estacionarias (aquellas que no
+ se propagan, como por ejemplo las oscilaciones de niveles en cuerpos de
+ agua cerrados o en puertos); en este trabajo se analizan las primeras.
  Existen distintas magnitudes que caracterizan a las ondas y algunas definicione
 s útiles para representarlas, estas son (
 \shape italic
@@ -715,7 +721,7 @@ numero de onda
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\kappa=\frac{2\pi}{L}\;[1/m]\end{equation}
+\kappa=\frac{2\pi}{L}\;[rad/m]\end{equation}
 
 \end_inset
 
@@ -740,7 +746,7 @@ definida como
 
 \begin_layout Standard
 \begin_inset Formula \begin{equation}
-\omega=\frac{2\pi}{T}\;[1/s]\end{equation}
+\omega=\frac{2\pi}{T}\;[rad/s]\end{equation}
 
 \end_inset
 
@@ -808,11 +814,6 @@ La teoría lineal de ondas es una simplificación matemática al problema de
 \end_layout
 
 \begin_layout Standard
-Se consideran además olas de forma permanente sobre un fondo horizontal
- e impermeable sobre un plano bidimensional.
-\end_layout
-
-\begin_layout Standard
 En esta teoría existe un eje horizontal de simetría que es el nivel de reposo
  donde se cumple que 
 \begin_inset Formula $A_{c}=A_{s}$
@@ -830,11 +831,7 @@ En esta teoría existe un eje horizontal de simetría que es el nivel de reposo
 \begin_inset Formula $H=2A$
 \end_inset
 
-, donde 
-\begin_inset Formula $A$
-\end_inset
-
- se define simplemente como magnitud.
+.
 \end_layout
 
 \begin_layout Standard
@@ -859,8 +856,9 @@ El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
 \end_inset
 
 .
- Bajo ciertas hipótesis simplificativas las ecuaciones llegan a tener la
- siguiente forma 
+ Bajo ciertas hipótesis simplificativas (fluido incomprimible, gravedad
+ como unica fuerza externa, fluido no viscoso) las ecuaciones llegan a tener
+ la siguiente forma 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-4"
@@ -1137,8 +1135,8 @@ reference "fig:Señal-de-un"
 
 ).
  El oleaje irregular puede ser considerado como la superposición de un gran
- numero (o infinito) de componentes correspondientes a ondas con diferentes
- periodos, alturas y direcciones (
+ numero de componentes correspondientes a ondas con diferentes periodos,
+ alturas y direcciones (
 \shape italic
 \color black
 Figura
@@ -1652,8 +1650,7 @@ Coeficientes de Fourier
 Transformadas de Fourier
 \shape default
 \color inherit
- (es por medio de estas donde se pasa del dominio del tiempo al dominio
- de la frecuencia).
+.
  En el analisis del oleaje 
 \begin_inset Formula $a_{0}=valor\; medio$
 \end_inset
@@ -2124,7 +2121,7 @@ name "sub:Aplicaciones-en-laboratorio"
 \begin_layout Standard
 Todo el marco teórico anteriormente mencionado se aplicó en este trabajo
  para la detección de la altura de ola en laboratorio y su posterior análisis
- espectral de la siguiente manera:
+ espectral de la siguiente manera.
 \end_layout
 
 \begin_layout Standard
@@ -2219,7 +2216,7 @@ teórico
 
  debido a varios factores como el caso del desnivel, fricción de la ola
  con los laterales del canal, etc.
- Una vez calculado el espectro, se pueden deducir los parámetros 
+ Una vez calculado el espectro, se pueden obtener los parámetros 
 \begin_inset Formula $H_{s}$
 \end_inset
 
@@ -2689,18 +2686,134 @@ es de los procesos) y en general, su precisión es limitada por la definición
 
 \begin_layout Standard
 El conjunto de técnicas investigadas en este trabajo como así también el
- trabajo desarrollado se basan en la utilización de cámaras 
+ trabajo desarrollado se basan en la utilización de cámaras que siguen el
+ modelo 
 \shape italic
 pinhole
 \shape default
- (
+ o 
+\shape italic
+pinhole model
+\shape default
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-7"
 
 \end_inset
 
-).
+, el cual supone que cada punto en el espacio y su correspondiente proyeccion
+ en la imagen estan sobre una linea recta que pasa por el centro optico
+ de la imagen (figura 
+\shape italic
+\color red
+x
+\shape default
+\color inherit
+), en donde 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ son las coordenadas de un punto en el espacio, medidas en el sistema de
+ referencia 
+\begin_inset Formula $XYZ$
+\end_inset
+
+, 
+\begin_inset Formula $(u,v)$
+\end_inset
+
+ son las coordenadas del punto 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ en la imagen, medidas en en el sistema de referencia 
+\begin_inset Formula $UV$
+\end_inset
+
+ en pixeles, 
+\begin_inset Formula $f$
+\end_inset
+
+ la referencia del centro optico en el plano de la imagen (medido en unidades
+ metricas), 
+\begin_inset Formula $(x_{c},y_{c},z_{c})$
+\end_inset
+
+ coordenadas del centro optico 
+\begin_inset Formula $C$
+\end_inset
+
+ (medidas en el sistema de referencias 
+\begin_inset Formula $XYZ$
+\end_inset
+
+), 
+\begin_inset Formula $(u_{0},v_{0})$
+\end_inset
+
+ las coordenadas del punto principal de la imagen en el sistema de referencias
+ 
+\begin_inset Formula $UV$
+\end_inset
+
+ (pixeles).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img_pinhole_model.png
+	lyxscale 50
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Representacion esquematica del modelo 
+\shape italic
+\color black
+pinhole 
+\shape default
+\color inherit
+(extraida de 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-7"
+
+\end_inset
+
+)
+\shape italic
+\color black
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3029,7 +3142,9 @@ http://en.wikipedia.org/wiki/Canny_edge_detector
 Canny
 \shape default
 \color inherit
-), el cual se explicara en mayor detalle en el 
+), el cual es uno de los algoritmos mas utilizados y que da mejores resultados
+ a la hora de encontrar bordes en una imaegn, éste se explicara en mayor
+ detalle en el 
 \shape italic
 \color black
 capitulo 
@@ -3215,16 +3330,21 @@ Análisis y procesamiento
 \begin_layout Standard
 Una vez detectado los bordes de la imagen y en base a los algoritmos utilizados
  en la etapa anterior, se aplica cierta heurística para diferenciar los
- bordes correspondientes a la altura de la superficie libre (llamémoslos
- 
+ bordes correspondientes a la altura de la superficie libre (
 \shape italic
-bordes positivos
+bordes 
+\color black
+activos
 \shape default
+\color inherit
 ), de aquellos que no corresponden a la variable que se quiere analizar
  (lo que se denomina ruido o 
 \shape italic
-bordes negativos
+bordes 
+\color black
+pasivos
 \shape default
+\color inherit
 ) como claramente se puede observar en la 
 \shape italic
 \color black
@@ -3241,7 +3361,11 @@ reference "fig:Imagen-rectificada-luego"
  anterior.
  La forma en la que se detectan estos 
 \shape italic
-bordes positivos 
+bordes 
+\color black
+activos
+\color inherit
+ 
 \shape default
 no es única y esta fuertemente ligada en como fue modificada la imagen en
  la etapa anterior y/o en la forma de representar los contornos detectados.
@@ -3277,8 +3401,11 @@ Wave height analyzer.
 \begin_layout Standard
 Luego de lograr la detección de los 
 \shape italic
-bordes positivos
+bordes 
+\color black
+activos
 \shape default
+\color inherit
  se procede a obtener la altura en metros (o alguna otra unidad de longitud)
  por medio de la transformación de la relación píxeles/metros (o la unidad
  de longitud correspondiente).
@@ -3694,7 +3821,8 @@ name "fig:Matriz-de-pixels"
 
 \end_inset
 
-Matriz de píxeles representando una imagen.
+Matriz de píxeles representando una imagen donde cada pixel contiene un
+ valor numerico indicando su color (o escala de grises).
 \end_layout
 
 \end_inset
@@ -3742,9 +3870,9 @@ Rectificador
 \end_layout
 
 \begin_layout Standard
-Este subproceso se basa en 2 grupos de 4 puntos (2D) correspondientes a
- los puntos de origen y de destino (de la imagen de entrada y salida respectivam
-ente).
+Este subproceso se basa en 2 grupos de 4 puntos (bidimensional) correspondientes
+ a los puntos de origen y de destino (de la imagen de entrada y salida respectiv
+amente).
  Los primeros están asociados a la 
 \shape italic
 zona de trabajo
@@ -3888,8 +4016,7 @@ De esta manera se soluciona el error de la perspectiva y al mismo tiempo
 \end_layout
 
 \begin_layout Standard
-Por conveniencia, en este trabajo, se intenta posicionar la cámara de forma
- tal que el ángulo 
+Es conveniente posicionar la cámara de forma tal que el ángulo 
 \begin_inset Formula $\beta=0$
 \end_inset
 
@@ -4034,12 +4161,15 @@ Detector de bordes
 Su objetivo es detectar los bordes, eliminando en lo posible la mayor cantidad
  de ruido, pero no de discernir entre 
 \shape italic
-bordes positivos
+bordes activos
 \shape default
  y 
 \shape italic
-bordes negativos
+bordes 
+\color black
+pasivos
 \shape default
+\color inherit
 .
  Podemos distinguir una secuencia de acciones realizadas por este proceso.
  Estas son:
@@ -4208,12 +4338,19 @@ Dada la imagen
  marcados como verdaderos (recordando que son verdaderos si y solo si pertenecen
  a un contorno detectado) son 
 \shape italic
-bordes positivos 
+bordes 
+\color black
+activos
+\color inherit
+ 
 \shape default
 y cuales son 
 \shape italic
-bordes negativos
+bordes 
+\color black
+pasivos
 \shape default
+\color inherit
 .
  Para lograrlo se basa en un simple algoritmo implementado en este trabajo
  el cual se explica en el 
@@ -4244,8 +4381,11 @@ Wave height analyzer
 \begin_layout Standard
 Una vez detectado los 
 \shape italic
-bordes positivos
+bordes 
+\color black
+activos
 \shape default
+\color inherit
 , se realiza una conversión de unidades, pasando de 
 \begin_inset Quotes eld
 \end_inset
@@ -4777,8 +4917,8 @@ key "key-16"
 \end_inset
 
 , tiene como finalidad disminuir la amplitud de las variaciones de la imagen
- (ruido), especialmente utilizado en la fase previa a los algoritmos que
- detectan bordes o contornos.
+ (osea ruido), especialmente utilizado en la fase previa a los algoritmos
+ que detectan bordes o contornos.
 \end_layout
 
 \begin_layout Standard
@@ -5933,9 +6073,9 @@ Sea
 \begin_inset Formula $V$
 \end_inset
 
- una constante numérica predefinida representando la máxima variación de
- altura de ola aceptable en píxeles (esto es la cantidad máxima de píxeles
- aceptables que puede cambiar la ola de un paso al otro).
+ una constante numérica predefinida por el usuario representando la máxima
+ variación de altura de ola aceptable en píxeles (esto es la cantidad máxima
+ de píxeles aceptables que puede cambiar la ola de un paso al otro).
 \end_layout
 
 \begin_layout Standard
@@ -6013,10 +6153,12 @@ Para cada columna
 \end_inset
 
  tal que se cumpla 
-\begin_inset Formula $a_{ik}=1\wedge\left|i-\bar{w}_{k}\right|\leq\left|j-\bar{w}_{k}\right|\forall j=0..m\;:\; a_{jk}=1$
+\begin_inset Formula \[
+a_{ik}=1\wedge\left|i-\bar{w}_{k}\right|\leq\left|j-\bar{w}_{k}\right|\forall j=0..m\;:\; a_{jk}=1\]
+
 \end_inset
 
-, asignando entonces 
+asignando entonces 
 \begin_inset Formula $w_{k}=i$
 \end_inset
 
@@ -6123,11 +6265,14 @@ Las
 \begin_layout Standard
 Puede parecer que el paso 3 agrega complejidad innecesaria, pero debido
  a que en ciertas situaciones (por problemas de luz o de entorno), la detección
- de contornos no se realiza correctamente en ciertos puntos, es necesario
- una forma alternativa de detectar la altura de ola a los alrededores del
- punto que se esta analizando, evitando de esta forma posibles mediciones
- erróneas (hace que el algoritmo sea mas robusto y por ende menos propenso
- a fallas).
+ de contornos no se realiza correctamente en ciertos puntos (y por ende
+ la altura de ola no es detectada), es necesario una forma alternativa de
+ encontrar la altura de la superficie libre a los alrededores del punto
+ que se esta analizando, evitando de esta forma posibles mediciones erróneas
+ como tomar un contorno marcado no perteneciente a la altura de ola y asumiendo
+ que lo és.
+ De esta forma se logra que el algoritmo sea mas robusto y por ende un sistema
+ menos propenso a fallas.
 \end_layout
 
 \begin_layout Standard
@@ -9244,7 +9389,7 @@ reference "fig:Ventana-de-configuracion"
 
 \end_inset
 
-.
+.eje
 \begin_inset Float figure
 placement H
 wide false
