@@ -1,4 +1,4 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -291,8 +291,8 @@ http://en.wikipedia.org/wiki/Acoustic_Doppler_velocimetry
 
 \begin_layout Standard
 En este trabajo se desarrolla un sistema de medición y análisis de variables
- hidrodinámicas en laboratorio mediante técnicas de vídeo con cámaras de
- alta definición.
+ hidrodinámicas en laboratorio mediante técnicas de vídeo con cámaras web
+ de alta definición.
  Estas técnicas tienen diferentes ventajas con respecto a los métodos e
  instrumentos tradicionales: son técnicas no intrusivas, económicas, son
  fácilmente utilizables por usuarios con poca experiencia en trabajos de
@@ -421,7 +421,8 @@ Las olas del océano son movimientos ondulatorios que ponen de manifiesto
  Éstas son generadas por distintos factores naturales (viento, perturbaciones
  meteorológicas, terremotos, etc).
  Las olas son perturbaciones que se propagan en la superficie del mar y
- cuyo movimiento viene amortiguado principalmente por la gravedad.
+ cuyo movimiento en mar abierto viene amortiguado principalmente por la
+ gravedad.
 \end_layout
 
 \begin_layout Standard
@@ -496,9 +497,10 @@ Distribución energética de las ondas de superficie.
 \begin_layout Standard
 Matemáticamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periódicas de la superficie del agua, distinguiendo dos tipos:
- ondas progresivas (se propagan) y ondas estacionarias (aquellas que no
- se propagan, como por ejemplo las oscilaciones de niveles en cuerpos de
- agua cerrados o en puertos); en este trabajo se analizan las primeras.
+ ondas progresivas (se propagan en una direccion) y ondas estacionarias
+ (aquellas que no se propagan, como por ejemplo las oscilaciones de niveles
+ en cuerpos de agua cerrados o en puertos); en este trabajo se analizan
+ las primeras.
  Existen distintas magnitudes que caracterizan a las ondas y algunas definicione
 s útiles para representarlas, estas son (
 \shape italic
@@ -754,8 +756,8 @@ definida como
 \end_layout
 
 \begin_layout Standard
-Utilizando estos parámetros se puede caracterizar la superficie libre de
- las ondas de tipo estacionarias como
+Utilizando estos parámetros se puede caracterizar (usando la teoria lineal)
+ la superficie libre de las ondas de tipo estacionarias como
 \end_layout
 
 \begin_layout Standard
@@ -831,7 +833,11 @@ En esta teoría existe un eje horizontal de simetría que es el nivel de reposo
 \begin_inset Formula $H=2A$
 \end_inset
 
-.
+, donde 
+\begin_inset Formula $A$
+\end_inset
+
+ se define como amplitud.
 \end_layout
 
 \begin_layout Standard
@@ -1668,7 +1674,7 @@ reference "eq:a0"
 
 \end_inset
 
- pasa a ser 
+ pasa a ser valida por 
 \begin_inset Formula $k\geq1$
 \end_inset
 
@@ -2121,7 +2127,7 @@ name "sub:Aplicaciones-en-laboratorio"
 \begin_layout Standard
 Todo el marco teórico anteriormente mencionado se aplicó en este trabajo
  para la detección de la altura de ola en laboratorio y su posterior análisis
- espectral de la siguiente manera.
+ espectral.
 \end_layout
 
 \begin_layout Standard
@@ -2557,10 +2563,6 @@ Instrumentos intrusivos.
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -2624,10 +2626,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img_sensor_PIV.jpeg
@@ -2653,10 +2651,6 @@ PIV (Particle Image Velocimeter).
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -2704,60 +2698,18 @@ key "key-7"
 
 , el cual supone que cada punto en el espacio y su correspondiente proyeccion
  en la imagen estan sobre una linea recta que pasa por el centro optico
- de la imagen (figura 
+ de la imagen (
 \shape italic
-\color red
-x
+Figura
 \shape default
-\color inherit
-), en donde 
-\begin_inset Formula $(x,y,z)$
-\end_inset
-
- son las coordenadas de un punto en el espacio, medidas en el sistema de
- referencia 
-\begin_inset Formula $XYZ$
-\end_inset
-
-, 
-\begin_inset Formula $(u,v)$
-\end_inset
-
- son las coordenadas del punto 
-\begin_inset Formula $(x,y,z)$
-\end_inset
-
- en la imagen, medidas en en el sistema de referencia 
-\begin_inset Formula $UV$
-\end_inset
-
- en pixeles, 
-\begin_inset Formula $f$
-\end_inset
-
- la referencia del centro optico en el plano de la imagen (medido en unidades
- metricas), 
-\begin_inset Formula $(x_{c},y_{c},z_{c})$
-\end_inset
-
- coordenadas del centro optico 
-\begin_inset Formula $C$
-\end_inset
-
- (medidas en el sistema de referencias 
-\begin_inset Formula $XYZ$
-\end_inset
-
-), 
-\begin_inset Formula $(u_{0},v_{0})$
-\end_inset
-
- las coordenadas del punto principal de la imagen en el sistema de referencias
  
-\begin_inset Formula $UV$
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Representacion-pinhole"
+
 \end_inset
 
- (pixeles).
+).
 \end_layout
 
 \begin_layout Standard
@@ -2783,6 +2735,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Representacion-pinhole"
+
+\end_inset
+
 Representacion esquematica del modelo 
 \shape italic
 \color black
@@ -2804,10 +2762,6 @@ key "key-7"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3143,7 +3097,7 @@ Canny
 \shape default
 \color inherit
 ), el cual es uno de los algoritmos mas utilizados y que da mejores resultados
- a la hora de encontrar bordes en una imaegn, éste se explicara en mayor
+ da a la hora de encontrar bordes en una imagen, éste se explicara en mayor
  detalle en el 
 \shape italic
 \color black
@@ -3302,10 +3256,6 @@ Resultado del proceso de detección de contornos.
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3592,11 +3542,6 @@ Esquema 2D del canal y ángulo de captura.
 
 \begin_layout Plain Layout
 \align center
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -3870,9 +3815,9 @@ Rectificador
 \end_layout
 
 \begin_layout Standard
-Este subproceso se basa en 2 grupos de 4 puntos (bidimensional) correspondientes
- a los puntos de origen y de destino (de la imagen de entrada y salida respectiv
-amente).
+Este subproceso se basa en 2 grupos de 4 puntos (bidimensionales) correspondient
+es a los puntos de origen y de destino (de la imagen de entrada y salida
+ respectivamente).
  Los primeros están asociados a la 
 \shape italic
 zona de trabajo
@@ -4013,23 +3958,6 @@ De esta manera se soluciona el error de la perspectiva y al mismo tiempo
  se eliminan las zonas (a grandes rasgos) que no pertenecen al área de interés.
  Además de que es una método sencillo y fácil de configurar por parte del
  usuario.
-\end_layout
-
-\begin_layout Standard
-Es conveniente posicionar la cámara de forma tal que el ángulo 
-\begin_inset Formula $\beta=0$
-\end_inset
-
- y el ángulo 
-\begin_inset Formula $\theta>0$
-\end_inset
-
- para evitar capturar la superficie del fluido a lo largo del eje 
-\begin_inset Formula $z$
-\end_inset
-
-, la cual genera errores (como se explicara posteriormente) a la hora de
- determinar el contorno de la ola.
 \end_layout
 
 \begin_layout Standard
@@ -4292,8 +4220,8 @@ Dicho de otra manera, la imagen de salida
 \end_layout
 
 \begin_layout Standard
-Este subproceso es el que mayor tiempo de procesamiento requiere en comparación
- con todos los otros.
+Este subproceso junto con la captura de imagenes desde el dispositivo son
+ los que ocupan casi la totalidad del tiempo de procesamiento.
  
 \end_layout
 
@@ -4917,8 +4845,8 @@ key "key-16"
 \end_inset
 
 , tiene como finalidad disminuir la amplitud de las variaciones de la imagen
- (osea ruido), especialmente utilizado en la fase previa a los algoritmos
- que detectan bordes o contornos.
+ (ruidos), especialmente utilizado en la fase previa a los algoritmos que
+ detectan bordes o contornos.
 \end_layout
 
 \begin_layout Standard
@@ -5718,10 +5646,6 @@ key "key-17"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -5936,10 +5860,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img_canny_1.png
@@ -6073,9 +5993,10 @@ Sea
 \begin_inset Formula $V$
 \end_inset
 
- una constante numérica predefinida por el usuario representando la máxima
- variación de altura de ola aceptable en píxeles (esto es la cantidad máxima
- de píxeles aceptables que puede cambiar la ola de un paso al otro).
+ una constante numérica predefinida (previamente calculada) por el usuario
+ representando la máxima variación de altura de ola aceptable en píxeles
+ (esto es la cantidad máxima de píxeles aceptables que puede cambiar la
+ ola de un paso al otro).
 \end_layout
 
 \begin_layout Standard
@@ -6241,6 +6162,11 @@ Sea
 \end_inset
 
  como altura.
+ 
+\shape italic
+\color red
+AGREGAR EN PALABRAS EN GENERAL, no entrar en lo tecnico.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -9315,6 +9241,13 @@ Por otro lado se debe configurar el sistema.
  cero), los pasos a seguir son:
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 Crear una nueva sesión (
 \shape italic
@@ -9365,10 +9298,13 @@ Ventana: crear/cargar una sesión.
 
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
+
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -9432,6 +9368,13 @@ CameraConfigWindow
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -9501,6 +9444,13 @@ GUIPerspectiveRectifier
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 Configurar el punto de reposo de la ola (para lograr esto el nivel del fluido
  debe estar en estado estacionario).
@@ -9562,6 +9512,13 @@ GUIMiddlePointClipping
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -9731,10 +9688,8 @@ Ensayos propuestos
 \end_layout
 
 \begin_layout Standard
-Existen una gran cantidad de ensayos posibles para realizar, dependiendo
- tanto de variables externas como la luz del entorno, ángulo y posición
- de la cámara, entre otras, como así también del tipo de oleaje generado
- (regular o irregular y los parámetros asociados a cada uno de éstos).
+En hidraulica maritima normalmente se realizan ensayos con oleajes regulares
+ (monocromaticos) o irregulares (con muchas frecuencias asociadas).
  Debido a que el oleaje irregular tiene mayor peso en el estudio ingenieril
  (ya que es mas representativo de la realidad) y en el caso del sistema
  es el mas interesante para medir (debido a su irregularidad), se decidió
@@ -9981,10 +9936,6 @@ zona de captura
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -10004,10 +9955,6 @@ Posiciones de la cámara en los distintos ensayos realizados.
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -10465,10 +10412,6 @@ Comparación entre los datos crudos obtenidos por ambos métodos (cámara y
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -10480,7 +10423,7 @@ Por otro lado se obtuvieron los siguientes valores de
 \end_inset
 
  y 
-\begin_inset Formula $f_{p}$
+\begin_inset Formula $f$
 \end_inset
 
  para cada uno de los sistemas de medición:
@@ -10528,7 +10471,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $f\;(s)$
+\begin_inset Formula $f\;(Hz)$
 \end_inset
 
 
@@ -10611,7 +10554,7 @@ Comparación de los valores
 \end_inset
 
  y 
-\begin_inset Formula $f_{p}$
+\begin_inset Formula $f$
 \end_inset
 
  del oleaje regular realizado en 
@@ -10623,10 +10566,6 @@ EN1
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -10816,7 +10755,7 @@ senos
  (parte inferior) de las olas, el sistema implementado difiere bastante
  (hasta 0,0153 metros aproximadamente en los peores casos) con respecto
  al obtenido por el sensor resistivo.
- Por otro lado se puede ver la presencia de pequeños arcos a lo largo de
+ Por otro lado se puede ver la presencia de pequeños saltos a lo largo de
  la linea roja del gráfico, esto es otro problema relacionado con la velocidad
  de captura de la camara el cual se detalla en el capitulo 
 \begin_inset CommandInset ref
@@ -11209,8 +11148,7 @@ cresta
 sen
 \shape default
 o cerca del segundo 17.5 causado por una errónea detección de la altura de
- ola debido a que no se encontro el contorno asociado a la superficie libre
- (explicado en el 
+ ola (explicado en el 
 \shape italic
 capitulo
 \shape default
@@ -11379,7 +11317,7 @@ reference "fig:Espectros-calculados-para"
 Tabla
 \shape default
  
-\color red
+\color black
 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11387,9 +11325,9 @@ reference "tab:comp_en3"
 
 \end_inset
 
-
+ 
 \color inherit
- se puede apreciar con mayor detalle esto.
+se puede apreciar con mayor detalle esto.
 \end_layout
 
 \begin_layout Standard
@@ -13638,7 +13576,6 @@ Para el primer caso (a), se puede detectar casi al comienzo del ensayo,
  ya que en estos casos, si sucede, el algoritmo es incapaz de salir de ese
  contorno (por como fue implementado), y por ende, siempre se devuelve la
  misma altura de ola (que es el contorno fijo mencionado).
- Por suerte, esta circunstancia se puede prevenir fácilmente.
 \end_layout
 
 \begin_layout Standard
@@ -13716,10 +13653,6 @@ Error (remarcado en azul) causado por la imposibilidad de detectar la superficie
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -13729,9 +13662,8 @@ Error (remarcado en azul) causado por la imposibilidad de detectar la superficie
 Claramente ambos casos (1 y 2), generan grandes diferencias en los valores
  capturados por el sistema implementado en comparación con los obtenidos
  por el sensor resistivo.
- Una posible situación que solventa estos errores (pero genera otros, los
- cuales se explican a continuacion) es la disminución de los valores umbrales
- utilizados en el algoritmo de 
+ Una posible situación que solventa estos errores es la disminución de los
+ valores umbrales utilizados en el algoritmo de 
 \shape italic
 Canny
 \shape default
@@ -13991,10 +13923,10 @@ Se puede decir que el sistema logra capturar y analizar la altura de ola
  datos obtenidos (lo que quiere decir que puede correrse la interfaz gráfica
  en simultaneo con el proceso de captura).
  Aún así no se logro alcanzar una precisión milimétrica para poder realizar
- mediciones que requieran un error menor a 0.0055 metros, donde las causas
- se debieron tanto por motivos de hardware (velocidad de captura), software
- (postprocesamiento de datos, utilizacion de otros algoritmos) como de factores
- externos (luminosidad, particulas en el fluido y paredes del canal, etc).
+ mediciones que requieran un error menor a 0.55 cm, donde las causas se debieron
+ tanto por motivos de hardware (velocidad de captura), software (postprocesamien
+to de datos, utilizacion de otros algoritmos) como de factores externos
+ (luminosidad, particulas en el fluido y en las paredes del canal, etc).
  Por otro lado se pudieron realizar mediciones en donde los errores de los
  valores de importancia como 
 \begin_inset Formula $H_{s}$
@@ -14004,13 +13936,13 @@ Se puede decir que el sistema logra capturar y analizar la altura de ola
 \begin_inset Formula $T_{p}$
 \end_inset
 
- se encuentran aproximadamente en el orden de los 0.001 metros y 0.009 metros
+ se encuentran aproximadamente en el orden de los 0.1 cm y 0.009 segundos
  respectivamente, lo cual habilitaría al sistema para ser utilizado en diversas
  pruebas de ingeniería en laboratorio.
 \end_layout
 
 \begin_layout Standard
-Se considera además que los algoritmos utilizados para la implementacion
+Se considera además que los algoritmos seleccionados para la implementacion
  del sistema cumplieron con su finalidad de una manera satisfactoria tanto
  en calidad como velocidad, brindando asimismo al sistema una forma facil
  de configurarlo.
