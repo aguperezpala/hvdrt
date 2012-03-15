@@ -9486,7 +9486,9 @@ Ventana de configuración (
 GUIPerspectiveRectifier
 \shape default
 \color inherit
-): Configuración de zona de análisis, en este caso el rectángulo blanco.
+): Configuración de zona de análisis, en este caso el rectángulo blanco
+ (donde los 4 puntos rojos en cada uno de los vertices fueron seleccionados
+ por el usuario).
 \end_layout
 
 \end_inset
@@ -9551,7 +9553,8 @@ Ventana de configuración (
 GUIMiddlePointClipping
 \shape default
 \color inherit
-): Configuración del punto de reposo de ola.
+): Configuración del punto de reposo de ola (indicado por el pequeño punto
+ rojo seleccionado por el usuario).
 \end_layout
 
 \end_inset
@@ -9738,7 +9741,10 @@ Existen una gran cantidad de ensayos posibles para realizar, dependiendo
  realizar la mayoría de los ensayos en base a oleajes irregulares.
  Por otro lado se intento mantener constante los factores externos (como
  luz del entorno, intensidad, zona de captura) a excepción de la posición
- de la cámara en donde se trabajo con 2 ubicaciones distintas.
+ de la cámara en donde se trabajo con 2 ubicaciones distintas con el fin
+ de verificar como reaccionaba el sistema (en cuanto a presicion y calidad
+ de los datos obtenidos en base a los capturados por el sensor resistivo)
+ para cada una de éstas.
 \end_layout
 
 \begin_layout Standard
@@ -9774,7 +9780,7 @@ EN1
 \end_inset
 
  y 
-\begin_inset Formula $f_{p}=1\; Hz$
+\begin_inset Formula $f=1\; Hz$
 \end_inset
 
 .
@@ -10134,7 +10140,7 @@ crudos
 \end_inset
 
  y 
-\begin_inset Formula $f_{p}$
+\begin_inset Formula $f$
 \end_inset
 
  en el caso del oleaje regular, o 
@@ -10145,7 +10151,15 @@ crudos
 \begin_inset Formula $f_{p}$
 \end_inset
 
- en conjunto con los gráficos espectrales asociados a los oleajes irregulares).
+ en conjunto con los gráficos espectrales asociados -
+\begin_inset Formula $S(f)$
+\end_inset
+
+ y 
+\shape italic
+JONSWAP
+\shape default
+- a los oleajes irregulares).
 \end_layout
 
 \begin_layout Standard
@@ -10285,12 +10299,7 @@ Se trata de un ensayo en donde se simula un oleaje con una altura de ola
 \end_inset
 
 ), esto es, se genera una ola de 6 cm de altura por segundo (por medio de
- la pala mecánica mencionada anteriormente), 
-\color red
-este oleaje se lo puede observar en la fig x(ponemos un foto del oleaje
- sacado del canal??? a eso te referias?)
-\color inherit
-.
+ la pala mecánica mencionada anteriormente).
 \end_layout
 
 \begin_layout Standard
@@ -10330,10 +10339,11 @@ reference "fig:Ampliacion-regular_total"
 \shape italic
 seno
 \shape default
- de la ola), esta cortada abruptamente (por ejemplo las primeras 4 olas
- muestran un corte abrupto en su parte inferior, mientras que la 5ta y 6ta
- no).
- La causa de esto será explicado en el apartado 
+ de la ola -color rojo-), esta cortada abruptamente (por ejemplo las primeras
+ 4 olas muestran un corte abrupto en su parte inferior, mientras que la
+ 5ta y 6ta no).
+ La causa de esto es el incorrecto posicionamiento de la camara como será
+ explicado en el apartado 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Consideraciones-generales"
@@ -10506,7 +10516,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H$
+\begin_inset Formula $H\;(m)$
 \end_inset
 
 
@@ -10518,7 +10528,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $f_{p}$
+\begin_inset Formula $f\;(s)$
 \end_inset
 
 
@@ -10807,8 +10817,8 @@ senos
  (hasta 0,0153 metros aproximadamente en los peores casos) con respecto
  al obtenido por el sensor resistivo.
  Por otro lado se puede ver la presencia de pequeños arcos a lo largo de
- la linea roja del gráfico, esto es otro problema el cual se detalla en
- el capitulo 
+ la linea roja del gráfico, esto es otro problema relacionado con la velocidad
+ de captura de la camara el cual se detalla en el capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Consideraciones-generales"
@@ -10969,7 +10979,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H_{s}$
+\begin_inset Formula $H_{s}\;(m)$
 \end_inset
 
 
@@ -10981,7 +10991,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H$
+\begin_inset Formula $H\;(m)$
 \end_inset
 
 
@@ -10993,7 +11003,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $T_{p}$
+\begin_inset Formula $T_{p}\;(s)$
 \end_inset
 
 
@@ -11199,7 +11209,12 @@ cresta
 sen
 \shape default
 o cerca del segundo 17.5 causado por una errónea detección de la altura de
- ola (explicado en el capitulo 
+ ola debido a que no se encontro el contorno asociado a la superficie libre
+ (explicado en el 
+\shape italic
+capitulo
+\shape default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Consideraciones-generales"
@@ -11641,7 +11656,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H_{s}$
+\begin_inset Formula $H_{s}\;(m)$
 \end_inset
 
 
@@ -11653,7 +11668,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H$
+\begin_inset Formula $H\;(m)$
 \end_inset
 
 
@@ -11665,7 +11680,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $T_{p}$
+\begin_inset Formula $T_{p\;(s)}$
 \end_inset
 
 
@@ -11821,7 +11836,21 @@ reference "fig:Posicion-2:-El"
 
 \end_inset
 
-) logrando mejores resultados como se los muestra a continuación (
+) logrando mejores resultados debido a que al estar la camara mas alejada
+ la interferencia detectada (junto con la velocidad de captura de la camara)
+ es menor (en el 
+\shape italic
+capitulo
+\shape default
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Consideraciones-generales"
+
+\end_inset
+
+ se detallan las causas).
+ En la 
 \shape italic
 Figura
 \shape default
@@ -11832,7 +11861,7 @@ reference "fig:Superposicion-en4"
 
 \end_inset
 
-).
+ se pueden observar los resultados obtenidos por ambos metodos.
 \end_layout
 
 \begin_layout Standard
@@ -12098,7 +12127,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H_{s}$
+\begin_inset Formula $H_{s}\;(m)$
 \end_inset
 
 
@@ -12110,7 +12139,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H$
+\begin_inset Formula $H\;(m)$
 \end_inset
 
 
@@ -12122,7 +12151,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $T_{p}$
+\begin_inset Formula $T_{p}\;(s)$
 \end_inset
 
 
@@ -12714,7 +12743,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H_{s}$
+\begin_inset Formula $H_{s}\;(m)$
 \end_inset
 
 
@@ -12726,7 +12755,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $H$
+\begin_inset Formula $H\;(m)$
 \end_inset
 
 
@@ -12738,7 +12767,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $T_{p}$
+\begin_inset Formula $T_{p}\;(s)$
 \end_inset
 
 
@@ -13515,7 +13544,7 @@ Figura
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Errores-(remarcados-en-1"
+reference "fig:Errores-(remarcados-en"
 
 \end_inset
 
@@ -13577,9 +13606,9 @@ Errores (remarcados en azul) causados por la imposibilidad de detectar la
 \end_layout
 
 \begin_layout Standard
-Por otro lado podemos analizar (2), la cual a su vez se puede dividir en
- dos situaciones mas: a) Cuando la nueva altura de ola detectada (el P2
- mencionado anteriormente) es un contorno 
+Por otro lado podemos analizar la segunda situacion (2), la cual a su vez
+ se puede dividir en dos situaciones mas: a) Cuando la nueva altura de ola
+ detectada (el P2 mencionado anteriormente) es un contorno 
 \begin_inset Quotes eld
 \end_inset
 
@@ -13700,8 +13729,9 @@ Error (remarcado en azul) causado por la imposibilidad de detectar la superficie
 Claramente ambos casos (1 y 2), generan grandes diferencias en los valores
  capturados por el sistema implementado en comparación con los obtenidos
  por el sensor resistivo.
- Una posible situación que solventa estos errores es la disminución de los
- valores umbrales utilizados en el algoritmo de 
+ Una posible situación que solventa estos errores (pero genera otros, los
+ cuales se explican a continuacion) es la disminución de los valores umbrales
+ utilizados en el algoritmo de 
 \shape italic
 Canny
 \shape default
@@ -13880,6 +13910,11 @@ Canny
  (primero se detecta uno y luego el otro) generando pequeños saltos (que
  en este caso son de aproximadamente 4 mm) en los datos capturados y por
  ende en la altura de ola resultado.
+ Probablemente esto pueda ser resuelto utilizando distintos tipos de luces
+ que eviten resaltar el borde de la superficie de esa forma.
+ Otra posible solucion (a invetigar) podria ser colorear todo el liqudo
+ del canal con un tono opaco de forma tal que no se alcance apreciar la
+ linea divisoria entre el agua y el aire.
 \end_layout
 
 \begin_layout Standard
@@ -13936,7 +13971,8 @@ Conclusiones
 
 \begin_layout Standard
 En este trabajo se propuso desarrollar un sistema capaz de capturar la altura
- de la ola en laboratorio por medio de una cámara web y en tiempo real.
+ de la ola en un canal 2D de laboratorio por medio de una cámara web y en
+ tiempo real.
  Como se pudo observar en los análisis de los resultados del capitulo anterior,
  la precisión del sistema esta ligada y fuertemente afectada por factores
  externos como la luz utilizada (intentando buscar siempre aquella que genere
@@ -13956,7 +13992,9 @@ Se puede decir que el sistema logra capturar y analizar la altura de ola
  en simultaneo con el proceso de captura).
  Aún así no se logro alcanzar una precisión milimétrica para poder realizar
  mediciones que requieran un error menor a 0.0055 metros, donde las causas
- se debieron tanto por motivos de hardware como de software.
+ se debieron tanto por motivos de hardware (velocidad de captura), software
+ (postprocesamiento de datos, utilizacion de otros algoritmos) como de factores
+ externos (luminosidad, particulas en el fluido y paredes del canal, etc).
  Por otro lado se pudieron realizar mediciones en donde los errores de los
  valores de importancia como 
 \begin_inset Formula $H_{s}$
@@ -13966,9 +14004,16 @@ Se puede decir que el sistema logra capturar y analizar la altura de ola
 \begin_inset Formula $T_{p}$
 \end_inset
 
- se encuentran aproximadamente en el orden de los 0.001 y 0.009 respectivamente,
- lo cual habilitaría al sistema para ser utilizado en diversas pruebas de
- ingeniería en laboratorio.
+ se encuentran aproximadamente en el orden de los 0.001 metros y 0.009 metros
+ respectivamente, lo cual habilitaría al sistema para ser utilizado en diversas
+ pruebas de ingeniería en laboratorio.
+\end_layout
+
+\begin_layout Standard
+Se considera además que los algoritmos utilizados para la implementacion
+ del sistema cumplieron con su finalidad de una manera satisfactoria tanto
+ en calidad como velocidad, brindando asimismo al sistema una forma facil
+ de configurarlo.
 \end_layout
 
 \begin_layout Standard
@@ -14141,11 +14186,11 @@ Documento de referencia, Volumen 1: Dinámicas
 \begin_inset Quotes erd
 \end_inset
 
-, 
-\color red
-www.smc.unican.es
+,
+\color black
+ www.smc.unican.es,
 \color inherit
-, Universidad de Cantabria, 2000.
+ Universidad de Cantabria, 2000.
 \end_layout
 
 \begin_layout Bibliography
