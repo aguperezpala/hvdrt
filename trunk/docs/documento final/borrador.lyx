@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -19,7 +19,7 @@
 \font_tt_scale 100
 
 \graphics default
-\paperfontsize default
+\paperfontsize 11
 \spacing single
 \use_hyperref false
 \papersize default
@@ -29,7 +29,8 @@
 \cite_engine basic
 \use_bibtopic false
 \paperorientation portrait
-\leftmargin 4ex
+\leftmargin 10page%
+\rightmargin 10page%
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -47,27 +48,64 @@
 \begin_body
 
 \begin_layout Address
+\paragraph_spacing single
 \align center
+\begin_inset ERT
+status open
 
-\size huge
-\noun on
-Facultad de Matemática, Astronomía y Física
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+HRule}{
+\backslash
+rule{
+\backslash
+linewidth}{0.5mm}}
 \end_layout
 
-\begin_layout Standard
-\align center
+\begin_layout Plain Layout
 
-\size huge
-\noun on
-Universidad Nacional de Córdoba
+
+\backslash
+begin{center} 	{
+\backslash
+Large UNIVERSIDAD NACIONAL DE C
+\backslash
+'ORDOBA}
+\backslash
+
+\backslash
+[2ex] 	
+\backslash
+textsc{
+\backslash
+LARGE Facultad de Matem
+\backslash
+'atica,
+\backslash
+
+\backslash
+[0.5ex] 			Astronom
+\backslash
+'ia y F
+\backslash
+'isica}
+\backslash
+
+\backslash
+[2ex] 	
+\backslash
+HRule 
+\backslash
+end{center}
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename imagenes/escudo.jpg
-	lyxscale 30
-	width 20page%
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -75,16 +113,9 @@ Universidad Nacional de Córdoba
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \align center
 
-\size largest
+\size large
 \noun on
 \color black
 Trabajo final de grado
@@ -102,62 +133,114 @@ Trabajo final de grado
 
 \series bold
 \shape italic
-\size larger
+\size large
 Software para la detección de variables hidrodinámicas en laboratorio mediante
  técnicas de vídeo de alta definición.
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset VSpace bigskip
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3.6cm}
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace smallskip
+
+\series bold
+\begin_inset space \qquad{}
 \end_inset
 
 
-\end_layout
+\begin_inset space \qquad{}
+\end_inset
 
-\begin_layout Itemize
 
-\series bold
-\size large
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
 Autor:
 \series default
-\size default
  Pérez Paladini, Agustín Daniel.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
-\size large
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
 Director:
 \series default
-\size default
  Ing.
  Mg.
  Paolo Gyssels.
- Profesor Asistente del Laboratorio de Hidráulica de la UNC.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
-\size large
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset space \qquad{}
+\end_inset
+
 Profesor Representante:
 \series default
-\size default
  Dr.
  Oscar Bustos.
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace medskip
+\begin_inset VSpace vfill
 \end_inset
 
 
@@ -165,9 +248,7 @@ Profesor Representante:
 
 \begin_layout Standard
 \align center
-
-\color red
-25/02/12
+30 de Marzo de 2012
 \end_layout
 
 \begin_layout Standard
@@ -205,10 +286,63 @@ vo y de bajo costo con respecto a los utilizados actualmente en laboratorio.
 \size large
 \color black
 Agradecimientos
+\series default
+\size default
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Acá ponemos los agradecimientos..
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quisiera agradecer en primer lugar a mi queridísima madre por su apoyo y
+ afecto incondicional a lo largo de toda la carrera y la vida.
+ Este trabajo y lo que simboliza va dedicado a ella.
+\end_layout
+
+\begin_layout Standard
+A mi hermana Julieta y mi cuñado Sebastián por las largas charlas y buenos
+ consejos en esta ultima etapa.
+\end_layout
+
+\begin_layout Standard
+A mi novia Cony, por soportar mis quejas y a mi ser en general, por sus
+ aportes gráficos y anímicos a este trabajo.
+\end_layout
+
+\begin_layout Standard
+A mis hermanos de amistad: Gornete, Fedelo, Gringo, ElHacha, Wil que siempre
+ estuvieron al lado mio durante toda mi vida en los buenos y malos momentos.
+\end_layout
+
+\begin_layout Standard
+A mis amigos Liber, Fabio, Oso, Carlox, Adrian, Ruleman y demás, por tantas
+ horas y buenos momentos compartidos.
+\end_layout
+
+\begin_layout Standard
+A mi director de tesis Paolo Gyssels por la paciencia y la confianza en
+ mi.
+ Por estar siempre ahí en todo momento cuando lo necesite.
+\end_layout
+
+\begin_layout Standard
+A Oscar Bustos por su continuo positivismo, y su ayuda constante, a Nicolás
+ Wolovick por su apoyo a lo largo de toda la carrera y a Daniel Fridlender
+ por su contribución en este trabajo.
+\end_layout
+
+\begin_layout Standard
+A toda la gente de la facu por su buena predisposicion y ayuda.
 \end_layout
 
 \begin_layout Standard
@@ -379,8 +513,8 @@ http://es.wikipedia.org/wiki/Alta_definición
 \begin_layout Standard
 Las técnicas de vídeo a implementar deberán en primer lugar rectificar las
  imágenes a procesar y realizar muestreos de las variables a medir con tomas
- de imágenes de alta definiciónde frecuencias igual o superiores a los 20
- Hz.
+ de imágenes de alta definición con frecuencias igual o superiores a los
+ 20 Hz.
  
 \end_layout
 
@@ -497,7 +631,7 @@ Distribución energética de las ondas de superficie.
 \begin_layout Standard
 Matemáticamente se puede describir a las olas, en forma general, como oscilacion
 es uniformes y periódicas de la superficie del agua, distinguiendo dos tipos:
- ondas progresivas (se propagan en una direccion) y ondas estacionarias
+ ondas progresivas (se propagan en una dirección) y ondas estacionarias
  (aquellas que no se propagan, como por ejemplo las oscilaciones de niveles
  en cuerpos de agua cerrados o en puertos); en este trabajo se analizan
  las primeras.
@@ -756,7 +890,7 @@ definida como
 \end_layout
 
 \begin_layout Standard
-Utilizando estos parámetros se puede caracterizar (usando la teoria lineal)
+Utilizando estos parámetros se puede caracterizar (usando la teoría lineal)
  la superficie libre de las ondas de tipo estacionarias como
 \end_layout
 
@@ -863,7 +997,7 @@ El problema se plantea definiendo las ecuaciones que gobiernan el movimiento
 
 .
  Bajo ciertas hipótesis simplificativas (fluido incomprimible, gravedad
- como unica fuerza externa, fluido no viscoso) las ecuaciones llegan a tener
+ como única fuerza externa, fluido no viscoso) las ecuaciones llegan a tener
  la siguiente forma 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1622,7 +1756,7 @@ donde
 \begin_inset Formula $k=1...\infty$
 \end_inset
 
- es el numero de armonico considerado, y
+ es el numero de armónico considerado, y
 \end_layout
 
 \begin_layout Standard
@@ -1657,14 +1791,14 @@ Transformadas de Fourier
 \shape default
 \color inherit
 .
- En el analisis del oleaje 
+ En el análisis del oleaje 
 \begin_inset Formula $a_{0}=valor\; medio$
 \end_inset
 
  se lo considera nulo por comodidad, con lo que la 
 \shape italic
 \color black
-ecuacion
+ecuación
 \shape default
 \color inherit
  
@@ -1682,7 +1816,7 @@ reference "eq:a0"
 \begin_inset Formula $T$
 \end_inset
 
- corresponde a la duracion del registro entero debiendo ser el 
+ corresponde a la duración del registro entero debiendo ser el 
 \begin_inset Formula $m.c.m$
 \end_inset
 
@@ -1690,7 +1824,7 @@ reference "eq:a0"
 \end_layout
 
 \begin_layout Standard
-Para realizar un analisis espectral del oleaje se debe realizar el calculo
+Para realizar un análisis espectral del oleaje se debe realizar el calculo
  de la 
 \shape italic
 \color black
@@ -2696,8 +2830,8 @@ key "key-7"
 
 \end_inset
 
-, el cual supone que cada punto en el espacio y su correspondiente proyeccion
- en la imagen estan sobre una linea recta que pasa por el centro optico
+, el cual supone que cada punto en el espacio y su correspondiente proyección
+ en la imagen están sobre una linea recta que pasa por el centro óptico
  de la imagen (
 \shape italic
 Figura
@@ -2741,13 +2875,13 @@ name "fig:Representacion-pinhole"
 
 \end_inset
 
-Representacion esquematica del modelo 
+Representación esquemática del modelo 
 \shape italic
 \color black
 pinhole 
 \shape default
 \color inherit
-(extraida de 
+(extraída de 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-7"
@@ -3766,8 +3900,8 @@ name "fig:Matriz-de-pixels"
 
 \end_inset
 
-Matriz de píxeles representando una imagen donde cada pixel contiene un
- valor numerico indicando su color (o escala de grises).
+Matriz de píxeles representando una imagen donde cada píxel contiene un
+ valor numérico indicando su color (o escala de grises).
 \end_layout
 
 \end_inset
@@ -4220,7 +4354,7 @@ Dicho de otra manera, la imagen de salida
 \end_layout
 
 \begin_layout Standard
-Este subproceso junto con la captura de imagenes desde el dispositivo son
+Este subproceso junto con la captura de imágenes desde el dispositivo son
  los que ocupan casi la totalidad del tiempo de procesamiento.
  
 \end_layout
@@ -6162,11 +6296,9 @@ Sea
 \end_inset
 
  como altura.
- 
-\shape italic
-\color red
-AGREGAR EN PALABRAS EN GENERAL, no entrar en lo tecnico.
- 
+ En palabras, esto no es mas que buscar la altura correspondientes a los
+ bordes del punto que se esta analizando (que son las columnas de píxeles
+ a los alrededores de la que se analiza) que presente la menor variación.
 \end_layout
 
 \begin_layout Standard
@@ -6196,7 +6328,7 @@ Puede parecer que el paso 3 agrega complejidad innecesaria, pero debido
  encontrar la altura de la superficie libre a los alrededores del punto
  que se esta analizando, evitando de esta forma posibles mediciones erróneas
  como tomar un contorno marcado no perteneciente a la altura de ola y asumiendo
- que lo és.
+ que lo es.
  De esta forma se logra que el algoritmo sea mas robusto y por ende un sistema
  menos propenso a fallas.
 \end_layout
@@ -6577,6 +6709,17 @@ FFTW++
 \shape default
 \color inherit
  se utilizó para el calculo y análisis de los datos obtenidos.
+\end_layout
+
+\begin_layout Standard
+El código fuente del sistema implementado se lo puede encontrar en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -9430,7 +9573,7 @@ GUIPerspectiveRectifier
 \shape default
 \color inherit
 ): Configuración de zona de análisis, en este caso el rectángulo blanco
- (donde los 4 puntos rojos en cada uno de los vertices fueron seleccionados
+ (donde los 4 puntos rojos en cada uno de los vértices fueron seleccionados
  por el usuario).
 \end_layout
 
@@ -9688,8 +9831,8 @@ Ensayos propuestos
 \end_layout
 
 \begin_layout Standard
-En hidraulica maritima normalmente se realizan ensayos con oleajes regulares
- (monocromaticos) o irregulares (con muchas frecuencias asociadas).
+En hidráulica marítima normalmente se realizan ensayos con oleajes regulares
+ (monocromáticos) o irregulares (con muchas frecuencias asociadas).
  Debido a que el oleaje irregular tiene mayor peso en el estudio ingenieril
  (ya que es mas representativo de la realidad) y en el caso del sistema
  es el mas interesante para medir (debido a su irregularidad), se decidió
@@ -9697,7 +9840,7 @@ En hidraulica maritima normalmente se realizan ensayos con oleajes regulares
  Por otro lado se intento mantener constante los factores externos (como
  luz del entorno, intensidad, zona de captura) a excepción de la posición
  de la cámara en donde se trabajo con 2 ubicaciones distintas con el fin
- de verificar como reaccionaba el sistema (en cuanto a presicion y calidad
+ de verificar como reaccionaba el sistema (en cuanto a precisión y calidad
  de los datos obtenidos en base a los capturados por el sensor resistivo)
  para cada una de éstas.
 \end_layout
@@ -9988,9 +10131,8 @@ En conjunto con los ensayos propuestos anteriormente, se realizarían mediciones
 \shape italic
 Figura
 \shape default
+\color black
  
-\color red
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-la"
@@ -10227,7 +10369,7 @@ DataAnalyzeWindow
 \end_layout
 
 \begin_layout Standard
-En los siguientes subcapitulos se detalla la comparación realizada en cada
+En los siguientes subcapítulos se detalla la comparación realizada en cada
  uno de los ensayos realizados.
 \end_layout
 
@@ -10289,7 +10431,7 @@ seno
  de la ola -color rojo-), esta cortada abruptamente (por ejemplo las primeras
  4 olas muestran un corte abrupto en su parte inferior, mientras que la
  5ta y 6ta no).
- La causa de esto es el incorrecto posicionamiento de la camara como será
+ La causa de esto es el incorrecto posicionamiento de la cámara como será
  explicado en el apartado 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10757,7 +10899,7 @@ senos
  al obtenido por el sensor resistivo.
  Por otro lado se puede ver la presencia de pequeños saltos a lo largo de
  la linea roja del gráfico, esto es otro problema relacionado con la velocidad
- de captura de la camara el cual se detalla en el capitulo 
+ de captura de la cámara el cual se detalla en el capitulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Consideraciones-generales"
@@ -11774,8 +11916,8 @@ reference "fig:Posicion-2:-El"
 
 \end_inset
 
-) logrando mejores resultados debido a que al estar la camara mas alejada
- la interferencia detectada (junto con la velocidad de captura de la camara)
+) logrando mejores resultados debido a que al estar la cámara mas alejada
+ la interferencia detectada (junto con la velocidad de captura de la cámara)
  es menor (en el 
 \shape italic
 capitulo
@@ -11799,7 +11941,7 @@ reference "fig:Superposicion-en4"
 
 \end_inset
 
- se pueden observar los resultados obtenidos por ambos metodos.
+ se pueden observar los resultados obtenidos por ambos métodos.
 \end_layout
 
 \begin_layout Standard
@@ -12275,7 +12417,7 @@ Figura
 \shape default
  
 \shape italic
-\color red
+\color black
 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -12426,7 +12568,7 @@ Figuras
 \shape default
  
 \shape italic
-\color red
+\color black
 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13544,7 +13686,7 @@ Errores (remarcados en azul) causados por la imposibilidad de detectar la
 \end_layout
 
 \begin_layout Standard
-Por otro lado podemos analizar la segunda situacion (2), la cual a su vez
+Por otro lado podemos analizar la segunda situación (2), la cual a su vez
  se puede dividir en dos situaciones mas: a) Cuando la nueva altura de ola
  detectada (el P2 mencionado anteriormente) es un contorno 
 \begin_inset Quotes eld
@@ -13587,7 +13729,7 @@ Figura
 \shape default
  
 \shape italic
-\color red
+\color black
 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13597,8 +13739,9 @@ reference "fig:Error-(remarcado-en"
 
 
 \shape default
+ 
 \color inherit
- se observa como hay un salto abrupto en la continuidad de los datos obtenidos,
+se observa como hay un salto abrupto en la continuidad de los datos obtenidos,
  debido a la falla en la detección de la altura de ola y en donde se detecto
  un contorno 
 \begin_inset Quotes eld
@@ -13837,14 +13980,14 @@ Canny
 \shape default
 ).
  Este tipo de situación genera en algunos casos (cuando el movimiento de
- la ola es muy rápido/brusco) un error similar al planteado en el subcapitulo
+ la ola es muy rápido/brusco) un error similar al planteado en el subcapítulo
  anterior, en donde los 2 bordes pueden ser no detectados de forma intercalada
  (primero se detecta uno y luego el otro) generando pequeños saltos (que
  en este caso son de aproximadamente 4 mm) en los datos capturados y por
  ende en la altura de ola resultado.
  Probablemente esto pueda ser resuelto utilizando distintos tipos de luces
  que eviten resaltar el borde de la superficie de esa forma.
- Otra posible solucion (a invetigar) podria ser colorear todo el liqudo
+ Otra posible solución (a investigar) podría ser colorear todo el liquido
  del canal con un tono opaco de forma tal que no se alcance apreciar la
  linea divisoria entre el agua y el aire.
 \end_layout
@@ -13924,9 +14067,9 @@ Se puede decir que el sistema logra capturar y analizar la altura de ola
  en simultaneo con el proceso de captura).
  Aún así no se logro alcanzar una precisión milimétrica para poder realizar
  mediciones que requieran un error menor a 0.55 cm, donde las causas se debieron
- tanto por motivos de hardware (velocidad de captura), software (postprocesamien
-to de datos, utilizacion de otros algoritmos) como de factores externos
- (luminosidad, particulas en el fluido y en las paredes del canal, etc).
+ tanto por motivos de hardware (velocidad de captura), software (post-procesamie
+nto de datos, utilización de otros algoritmos) como de factores externos
+ (luminosidad, partículas en el fluido y en las paredes del canal, etc).
  Por otro lado se pudieron realizar mediciones en donde los errores de los
  valores de importancia como 
 \begin_inset Formula $H_{s}$
@@ -13942,9 +14085,9 @@ to de datos, utilizacion de otros algoritmos) como de factores externos
 \end_layout
 
 \begin_layout Standard
-Se considera además que los algoritmos seleccionados para la implementacion
+Se considera además que los algoritmos seleccionados para la implementación
  del sistema cumplieron con su finalidad de una manera satisfactoria tanto
- en calidad como velocidad, brindando asimismo al sistema una forma facil
+ en calidad como velocidad, brindando asimismo al sistema una forma fácil
  de configurarlo.
 \end_layout
 
@@ -14373,6 +14516,16 @@ key "key-19"
 \end_inset
 
 http://www.seafriends.org.nz/oceano/waves.htm
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+http://code.google.com/p/hvdrt/
 \end_layout
 
 \end_body
