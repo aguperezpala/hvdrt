@@ -1,4 +1,4 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -258,6 +258,13 @@ Profesor Representante:
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Abstract
 En laboratorio se utilizan distintos tipos de instrumentos para medir la
  altura de ola (y otras variables hidrodinámicas), los cuales en general
@@ -316,7 +323,7 @@ A mi hermana Julieta y mi cuñado Sebastián por las largas charlas y buenos
 
 \begin_layout Standard
 A mi novia Cony, por soportar mis quejas y a mi ser en general, por sus
- aportes gráficos y anímicos a este trabajo.
+ aportes anímicos y gráficos a este trabajo.
 \end_layout
 
 \begin_layout Standard
@@ -342,7 +349,17 @@ A Oscar Bustos por su continuo positivismo, y su ayuda constante, a Nicolás
 \end_layout
 
 \begin_layout Standard
+A todos los profesores de la carrera que hicieron de la misma una exelente
+ experiencia.
+\end_layout
+
+\begin_layout Standard
 A toda la gente de la facu por su buena predisposicion y ayuda.
+\end_layout
+
+\begin_layout Standard
+Y a toda la gente del laboratorio de hidráulica por su buena onda y por
+ darme la posibilidad de desarrollar el trabajo ahí.
 \end_layout
 
 \begin_layout Standard
@@ -6296,7 +6313,7 @@ Sea
 \end_inset
 
  como altura.
- En palabras, esto no es mas que buscar la altura correspondientes a los
+ En palabras, esto no es mas que buscar las alturas correspondientes a los
  bordes del punto que se esta analizando (que son las columnas de píxeles
  a los alrededores de la que se analiza) que presente la menor variación.
 \end_layout
@@ -7534,7 +7551,7 @@ Figura
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Diseño-de-clases-1"
+reference "fig:Diseño-de-clases"
 
 \end_inset
 
@@ -9468,7 +9485,7 @@ reference "fig:Ventana-de-configuracion"
 
 \end_inset
 
-.eje
+.
 \begin_inset Float figure
 placement H
 wide false
@@ -11440,14 +11457,14 @@ Figuras
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Comparacion-de-los-2"
+reference "fig:Espectros-calculados-para"
 
 \end_inset
 
  y 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Espectros-calculados-para"
+reference "fig:Comparacion-de-los-2"
 
 \end_inset
 
