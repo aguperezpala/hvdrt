@@ -356,24 +356,30 @@ static void perspective(void)
 {
 
 	// 254
-	cv::Mat img = cv::imread("../src/Tests/CameraCalibration/cheesboard.jpg");
+	cv::Mat img = cv::imread("img_pala_mecanica.png");
 	cv::Point2f	c1[4];
 	cv::Point2f	c2[4];
 
-	c1[0].x = 253;	c1[0].y = 288;
-	c1[1].x = 466;	c1[1].y = 152;
-	c1[2].x = 31;	c1[2].y = 158;
-	c1[3].x = 247;	c1[3].y = 67;
+	//  p1.png
+//	c1[0].x = 777;	c1[0].y = 175;
+//	c1[1].x = 1140;	c1[1].y = 131;
+//	c1[2].x = 694;	c1[2].y = 646;
+//	c1[3].x = 1094;	c1[3].y = 484;
+	//  pala mecanica.png
+	c1[0].x = 261;	c1[0].y = 228;
+	c1[1].x = 486;	c1[1].y = 269;
+	c1[2].x = 254;	c1[2].y = 550;
+	c1[3].x = 492;	c1[3].y = 540;
 
 
 //	c2[2].x = 0;	c2[2].y = 0;
 //	c2[3].x = img.cols;	c2[3].y = 0;
 //	c2[0].x = 0;	c2[0].y = img.rows;
 //	c2[1].x = img.cols;	c2[1].y = img.rows;
-	c2[2].x = 0;	c2[2].y = 0;
-	c2[3].x = 600;	c2[3].y = 0;
-	c2[0].x = 0;	c2[0].y = 600;
-	c2[1].x = 600;	c2[1].y = 600;
+	c2[0].x = 0;	c2[0].y = 0;
+	c2[1].x = 778;	c2[1].y = 0;
+	c2[2].x = 0;	c2[2].y = 749;
+	c2[3].x = 778;	c2[3].y = 749;
 
 
 	cv::Mat tm = cv::getPerspectiveTransform(c1,c2);
@@ -387,15 +393,15 @@ static void perspective(void)
 	cv::namedWindow("Normalafter", 0);
 	cv::imshow("Normalafter", m);
 
-	cv::Mat edges;
-	cv::cvtColor(m, edges, CV_BGR2GRAY);
-	cv::GaussianBlur(edges, edges, cv::Size(7,7), 1.5, 1.5);
-	cv::Canny(edges, edges, 1, 50, 3);
-
-
-//	m = cc.remap(img);
-	cv::namedWindow("after", 0);
-	cv::imshow("after", edges);
+//	cv::Mat edges;
+//	cv::cvtColor(m, edges, CV_BGR2GRAY);
+//	cv::GaussianBlur(edges, edges, cv::Size(7,7), 1.5, 1.5);
+//	cv::Canny(edges, edges, 1, 50, 3);
+//
+//
+////	m = cc.remap(img);
+//	cv::namedWindow("after", 0);
+//	cv::imshow("after", edges);
 
 
 
@@ -415,7 +421,7 @@ static void sample(void)
 	Mat src, warp_dst, warp_rotate_dst;
 
 	/// Load the image
-	src = imread("../src/Tests/CameraCalibration/Test.png", 1 );
+	src = imread("cheesboard.jpg");
 
 	/// Set the dst image the same type and size as src
 	warp_dst = Mat::zeros( src.rows, src.cols, src.type() );
