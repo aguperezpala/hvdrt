@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -332,8 +332,8 @@ A mis hermanos de amistad: Gornete, Fedelo, Gringo, ElHacha, Wil que siempre
 \end_layout
 
 \begin_layout Standard
-A mis amigos Liber, Fabio, Oso, Carlox, Adrian, Ruleman y demás, por tantas
- horas y buenos momentos compartidos.
+A mis amigos Mingo, Liber, Fabio, Oso, Hae, Chino, Carlox, Adrian, Ruleman
+ y demás, por tantas horas y buenos momentos compartidos.
 \end_layout
 
 \begin_layout Standard
@@ -5952,6 +5952,7 @@ Canny
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6313,9 +6314,27 @@ Sea
 \end_inset
 
  como altura.
+ En caso de 
+\begin_inset Formula $h>V$
+\end_inset
+
+ se devuelve 
+\begin_inset Formula $\bar{w}_{k}$
+\end_inset
+
+.
  En palabras, esto no es mas que buscar las alturas correspondientes a los
  bordes del punto que se esta analizando (que son las columnas de píxeles
- a los alrededores de la que se analiza) que presente la menor variación.
+ a los alrededores de la que se analiza) que presente la menor variación,
+ si estas variaciones son mayores que 
+\begin_inset Formula $V$
+\end_inset
+
+ se devuelve la ultima altura detectada en la columna 
+\begin_inset Formula $k$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
