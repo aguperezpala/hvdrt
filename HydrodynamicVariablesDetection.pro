@@ -11,7 +11,7 @@ LIBS += -L/usr/local/lib \
     -lopencv_features2d \
     -lopencv_flann \
     -lopencv_gpu \
-    opencv_ml \
+    -lopencv_ml \
     -lopencv_objdetect \
     -lopencv_video \
     -lopencv_ts \
