@@ -280,6 +280,34 @@ vo y de bajo costo con respecto a los utilizados actualmente en laboratorio.
  
 \end_layout
 
+\begin_layout Abstract
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Clasificación: 
+\series default
+I.4.0 - Image processing and computer vision.
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\series bold
+Palabras claves: 
+\series default
+Algoritmos de procesamiento de imágenes, 
+\shape italic
+real time processing
+\shape default
+, GPU, CPU, altura superficie libre.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -333,7 +361,7 @@ A mis hermanos de amistad: Gornete, Fedelo, Gringo, ElHacha, Wil que siempre
 
 \begin_layout Standard
 A mis amigos Mingo, Liber, Fabio, Oso, Hae, Chino, Carlox, Adrian, Ruleman,
- Mariano y demás, por tantas horas y buenos momentos compartidos.
+ Mariano, Ramox y demás, por tantas horas y buenos momentos compartidos.
 \end_layout
 
 \begin_layout Standard
