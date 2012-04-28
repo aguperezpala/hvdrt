@@ -49,7 +49,7 @@ int main(int argc, char **args)
 		return -1;
 	}
 
-	double th1 = 15, th2 = 30;
+	double th1 = 2, th2 = 20;
 	// check canny param
 	if(argc == 4){
 		std::stringstream s1;
@@ -63,18 +63,28 @@ int main(int argc, char **args)
 	}
 
 	cv::namedWindow("Real Image");
-	cv::namedWindow("Canny Image");
+//	cv::namedWindow("Canny Image");
 
 	// port to gpu
-	cv::gpu::GpuMat gm;
+	cv::gpu::GpuMat gm, gm2, gm3, gm4;
+//	cv::cvtColor(img,img,CV_BGR2GRAY);
+//	gm = img;
 
 	gm.upload(img);
-//	cv::gpu::cvtColor(gm, gm2, CV_BGR2GRAY);
-//	cv::gpu::Canny(gm, gm, th1, th2);
+//	gm.convertTo(gm2, CV_MAKE_TYPE(CV_32SC1, gm.channels()));
+
+	cv::gpu::cvtColor(gm, gm2, CV_BGR2GRAY);
+	cv::gpu::GaussianBlur(gm2,gm, cv::Size(7,7),1.5);
+//	cv::gpu::cvtColor(gm, gm, CV_BGR2GRAY);
+	cv::gpu::Canny(gm, gm2, th1, th2);
+//	cv::gpu::add(gm2, gm2, gm2);
 
 	// download again to the memory
 //	gm.download(img);
-	cv::imshow("Real Image", img);
+	cv::Mat auxMat;
+//	gm.download(auxMat);
+	auxMat = gm2;
+	cv::imshow("Real Image", auxMat);
 
 
 //	cv::cvtColor(img, img, CV_BGR2GRAY);
