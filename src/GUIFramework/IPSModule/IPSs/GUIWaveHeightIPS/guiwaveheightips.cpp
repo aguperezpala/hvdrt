@@ -681,9 +681,13 @@ errCode GUIWaveHeightIPS::execute(void)
 	// here we have to show the main window where we have to create the
 	// session (info, etc) and where we will choose the input source (camera
 	// or video file).
+	debug("Executing again\n");
+
+	// clear all first
+	clearFields();
+	clearWindowSystem();
 	show();
 	exec();
-
 
 	debug("Going back!\n");
 	return mLastError;
