@@ -450,6 +450,10 @@ void GUIWaveHeightIPS::onNewSessionClicked(void)
 	if(filename.isEmpty()){
 		return;
 	}
+	// check that is a xml file
+	if(!filename.contains(".xml")){
+		filename.append(".xml");
+	}
 
 	ui.fileLabel->setText(filename);
 
@@ -579,6 +583,9 @@ void GUIWaveHeightIPS::onOutClicked(void)
 	QString filename = QFileDialog::getSaveFileName(0, "Archivo salida", ".", "*.agu");
 	if(filename.isEmpty()){
 		return;
+	}
+	if(!filename.contains(".agu")){
+		filename.append(".agu");
 	}
 
 	ui.outText->setText(filename);
