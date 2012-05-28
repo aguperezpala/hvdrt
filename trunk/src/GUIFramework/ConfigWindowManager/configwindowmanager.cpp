@@ -13,6 +13,7 @@ void ConfigWindowManager::disconnectSignals(ConfigWindow *w, bool autoSave)
 	ASSERT(w);
 
 	// disconnect the signals and connect it to this one
+	debug("Removing %s signals\n", w->getName().c_str());
 	QObject::disconnect(w, SIGNAL(doneSignal(int, QString)),
 			this, SLOT(configWindowFinished(int, QString)));
 
@@ -41,7 +42,7 @@ bool ConfigWindowManager::showNewWindow(ConfigWindow *w)
 
 	// connect the new ones
 	QObject::connect(w, SIGNAL(doneSignal(int, QString)),
-			this, SLOT(configWindowFinished(int, QString)));
+			this, SLOT(configWindowFinished(int, QString)), Qt::UniqueConnection);
 
 	// get the info of the window
 	if(!w->getInfo().isEmpty()){
@@ -246,11 +247,18 @@ void ConfigWindowManager::removeWindow(ConfigWindow *cw)
 		debug("Trying to remove an inexistent ConfigWindow: %s\n", cw->getName().c_str());
 		return;
 	}
+	disconnectSignals(cw,false);
+	mConfigWindows.erase(it);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 void ConfigWindowManager::removeAllWindows(void)
 {
+	CFList aux = mConfigWindows;
+	debug("ConfigWindows size %d\n", mConfigWindows.size());
+	for(CFList::iterator it = aux.begin(); it != aux.end(); ++it){
+		removeWindow(*it);
+	}
 	mConfigWindows.clear();
 }
 
@@ -290,7 +298,7 @@ void ConfigWindowManager::restart(void)
 
 	// disconnect the actual signals
 	if(mConfigWinIt != mConfigWindows.end()){
-		disconnectSignals(*mConfigWinIt);
+//		disconnectSignals(*mConfigWinIt);
 	}
 
 	mConfigWinIt = mConfigWindows.begin();
