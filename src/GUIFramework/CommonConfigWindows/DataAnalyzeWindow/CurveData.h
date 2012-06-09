@@ -67,6 +67,10 @@ public:
 	double getMaxHeight(void) const {return mMaxHeight;}
 	double getMinHeight(void) const {return mMinHeight;}
 
+	/**
+	 * Clear the colors
+	 */
+	static void clearColors(void);
 
 private:
 

@@ -17,6 +17,15 @@ using namespace fftwpp;
 int CurveData::colorId = 0;
 
 
+/**
+ * Clear the colors
+ */
+void CurveData::clearColors(void)
+{
+	colorId = 0;
+}
+
+
 
 // Auxiliar class that will simulate a function given an array of xs and ys values
 
