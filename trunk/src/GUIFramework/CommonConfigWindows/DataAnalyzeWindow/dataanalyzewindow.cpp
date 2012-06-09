@@ -456,9 +456,13 @@ void DataAnalyzeWindow::clear(void)
 	ui.datos2CheckBox->setText("Datos 2");
 	ui.datos3CheckBox->setText("Datos 3");
 
-	for(int i = mCurves.size()-1; i >= 0; --i) delete mCurves[i];
+
+	for(int i = mCurves.size()-1; i >= 0; --i){
+		delete mCurves[i];
+	}
 	mCurves.clear();
 	showCorrectCheckboxs();
+	CurveData::clearColors();
 
 	QwtPlot *mainPlot = ui.mainqwtPlot;
 	QwtPlot *spectralPlot = ui.secondqwtPlot;
