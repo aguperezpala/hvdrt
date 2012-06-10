@@ -12,11 +12,18 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+// TODO: for windows we have to install this library
+#include <pthread.h>
+
+
 #include "DebugUtil.h"
 #include "GlobalDefines.h"
 #include "Frame.h"
 #include "FrameEmitter.h"
+#include "FrameBuffer.h"
 
+#define IG_VIDEO_OUT_FNAME		"out.avi"
+#define IG_VIDEO_OUT_FPS		25.0
 
 class ImageGenerator : public FrameEmitter
 {
@@ -30,6 +37,23 @@ public:
 public:
 	ImageGenerator();
 	virtual ~ImageGenerator();
+
+	/**
+	 * Configure the image generator to use buffering.
+	 * @param	nf		The number of frames to use in the buffering
+	 */
+	void configureBuffering(int nf = 5);
+
+	/**
+	 * Configure the image generator to write the images into a video file
+	 * @param	fn		The filename to output
+	 * @param	fps		The frame rate to save the video
+	 *
+	 * @note	The video will be saved with the format
+	 * CV_FOURCC('M','J','P','G')
+	 */
+	void setVideoOut(const std::string &fname = IG_VIDEO_OUT_FNAME,
+			double fps = IG_VIDEO_OUT_FPS);
 
 	/* Creates a device from a camera and automatically sets the device to
 	 * this object
@@ -88,6 +112,32 @@ public:
 	/* Stops generating frames */
 	virtual void stopGenerating(void);
 
+	/**
+	 * This is a new "capturing mode", the buffering mode, this is a blocking
+	 * function that will start to capture frames and will put all the frames
+	 * into the FrameBuffer, and the can be retrieved from "getBufferedFrame"
+	 * @returns		errCode
+	 */
+	virtual errCode startBuffering(void);
+	virtual void stopBuffering(void);
+
+	/**
+	 * Returns some frame captured using "bufferingMode".
+	 * If there are no frame available, then this function blocks until some
+	 * new frame are available.
+	 * @return	frame		If some error occurs, 0 is returned
+	 * @note	Once the frame is already processed it must be returned to the
+	 * 			buffer again (calling frameRady(Frame)).
+	 */
+	virtual Frame *getBufferedFrame(void);
+
+	/**
+	 * Enqueues the frame again in the buffer to be used again in the buffering
+	 * cycle
+	 * @param	f		The frame already processed
+	 */
+	virtual void frameReady(Frame *f);
+
 
 private:
 	cv::VideoCapture		*mCapturer;
@@ -95,6 +145,15 @@ private:
 	bool					mStop;
 	DeviceType				mDevType;
 
+	// Save the video into hard disc
+	cv::VideoWriter			mWriter;
+	std::string				mOutVideo;
+	double					mOutFrameRate;
+
+	// sincronization system
+	bool					mBuffering;
+	FrameBuffer				mBuffer;
+	FrameBuffer				mProcessedFrames;
 };
 
 #endif /* IMAGEGENERATOR_H_ */

@@ -59,6 +59,8 @@ INCLUDEPATH += ../Common/Debug \
     ../ImageGenerator
 HEADERS += ../Common/Debug/DebugUtil.h \
     ../Common/GlobalDefines.h \
+    ../Common/ScopeLocker.h \
+    ../Common/MultiValueMutex.h \
     ../Common/tinyxml/tinyxml.h \
     ../Common/ExternalLibs/fftw++-1.09/fftw++.h \
     ../Common/ExternalLibs/fftw++-1.09/Array.h \
@@ -95,10 +97,13 @@ HEADERS += ../Common/Debug/DebugUtil.h \
     ../ImageGenerator/Frame.h \
     ../ImageGenerator/FrameEmitter.h \
     ../ImageGenerator/FrameListener.h \
-    ../ImageGenerator/ImageGenerator.h
+    ../ImageGenerator/ImageGenerator.h \
+      ../ImageGenerator/FrameBuffer.h
 SOURCES += ../DeviceCalibrator/DeviceCalibrator.cpp \
     ../Common/ExternalLibs/fftw++-1.09/fftw++.cc \
-    ../Common/XmlHelper/XmlHelper.cpp \ # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
+    ../Common/XmlHelper/XmlHelper.cpp \ 
+    ../Common/MultiValueMutex.cpp \ 
+# ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/CoordsInterpreter.cpp \
 # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/CoordsInterpreter/DataProcessor.cpp \
 # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/ImageAnalyzer/BorderDetector/BorderDetector.cpp \
 # ../IPSModule/ImageProcessingSystem/WaveHeightIPS/DeviceCalibrator/PerspectiveTransformator.cpp \

@@ -14,9 +14,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 ImageGenerator::ImageGenerator() :
 	mCapturer(0),
-	mDevType(NONE)
+	mDevType(NONE),
+	mOutFrameRate(0)
 {
-	// TODO Auto-generated constructor stub
 
 }
 
@@ -26,6 +26,23 @@ ImageGenerator::~ImageGenerator()
 	if(mCapturer){
 		delete mCapturer;
 	}
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+void ImageGenerator::configureBuffering(int nf)
+{
+	ASSERT(nf > 0);
+	mBuffer.freeAll();
+	mBuffer.createFrames(nf);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void ImageGenerator::setVideoOut(const std::string &fname, double fps)
+{
+	mOutVideo = fname;
+	mOutFrameRate = fps;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -226,4 +243,73 @@ errCode ImageGenerator::startGenerating(void)
 void ImageGenerator::stopGenerating(void)
 {
 	mStop = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+errCode ImageGenerator::startBuffering(void)
+{
+	mBuffering = true;
+
+
+	if(mBuffer.size() <= 0){
+		debugRED("Error: No buffering mode was configured\n");
+		return INCOMPLETE_CONFIGURATION;
+	}
+
+	// try to open the video writer
+	cv::Size frameSize;
+	if(mFrameData.empty()){
+		Frame frame;
+		errCode r = captureFrame(frame);
+		if(r != NO_ERROR){
+			return r;
+		}
+		ASSERT(!frame.data.empty());
+		// get the frame size
+		frameSize = frame.data.size();
+	}
+	if(!mWriter.open(mOutVideo, CV_FOURCC('M','J','P','G'),
+			mOutFrameRate,frameSize)){
+		debugRED("We cannot open the file %s to write it\n", mOutVideo.c_str());
+		return INTERNAL_ERROR;
+	}
+
+
+	errCode err = INTERNAL_ERROR;
+	while(mBuffering){
+		// get new buffer
+		Frame *f = mBuffer.getFrame();
+		ASSERT(f);
+		err = captureFrame(*f);
+		if(err != NO_ERROR){
+			debugRED("Some error occur: %d\n", err);
+			return err;
+		}
+		// save into the video file
+		mWriter.write(f->data);
+
+		// put the frame into available frames
+		mProcessedFrames.addNewAvailable(f);
+	}
+
+	return NO_ERROR;
+}
+////////////////////////////////////////////////////////////////////////////////
+void ImageGenerator::stopBuffering(void)
+{
+	mBuffering = false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+Frame *ImageGenerator::getBufferedFrame(void)
+{
+	return mProcessedFrames.getFrame();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void ImageGenerator::frameReady(Frame *f)
+{
+	ASSERT(f);
+	mBuffer.addNewAvailable(f);
 }
