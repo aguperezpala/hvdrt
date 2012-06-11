@@ -30,6 +30,7 @@
 #include <map>
 #include <auto_ptr.h>
 #include <fstream>
+#include <pthread.h>
 
 #include "DebugUtil.h"
 #include "ImageProcessingSystem.h"
@@ -58,6 +59,14 @@ public:
 public:
 	WaveHeightIPS();
 	virtual ~WaveHeightIPS();
+
+	/**
+	 * Configure the IPS to use buffering or not and save video file or not
+	 * @param	useBuffering		If we want to use buffering
+	 * @param	saveVideo			If we want to save the capture data into
+	 * 								a video file
+	 */
+	void configure(bool useBuffering, bool saveVideo);
 
 	/* Initialize the Image Processing System.
 	 * Returns errorCode
@@ -122,6 +131,19 @@ private:
 	/* Save data to file */
 	void saveDataToFile(void);
 
+	/**
+	 * Process frames like always (without buffering)/Using buffering
+	 */
+	errCode normalProcess(void);
+	errCode bufferingProcess(void);
+
+	/**
+	 * Thread were we will capture the buffering system
+	 */
+	static void *bufferingThread(void *);
+
+
+
 #ifdef DEBUG
 	// this function will save the frame and pixel choosed as the "wave height"
 	void savePixelDetected(void);
@@ -152,7 +174,7 @@ private:
 	AnalyzedData			mAnalyzedData;
 
 	bool					mRunning;
-
+	pthread_t				mThread;
 
 
 

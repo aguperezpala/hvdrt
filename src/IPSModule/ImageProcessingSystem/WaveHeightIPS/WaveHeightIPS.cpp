@@ -111,8 +111,118 @@ void WaveHeightIPS::saveDataToFile(void)
 	if(mOutFile.is_open()){
 		mOutFile << mAnalyzedData.time << "," << mAnalyzedData.height << std::endl;
 	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+errCode WaveHeightIPS::normalProcess(void)
+{
+	errCode result = NO_ERROR;
+	Frame frame;
+	debugGREEN("Starting main loop\n");
+	while(mRunning && (result == NO_ERROR)){
+		result = mImageGenerator.captureFrame(frame);
+		if(result != NO_ERROR){
+			debug("Error while getting the frame\n");
+			break;
+		}
+		switch(mProcType){
+		case CPU_PROCESS:
+			result = mImgAnalyzer->processImageOnCPU(frame, mTrack);
+			break;
+
+		case GPU_PROCESS:
+			result = mImgAnalyzer->processImageOnGPU(frame, mTrack);
+			break;
+
+		default:
+			ASSERT(false);
+		}
+
+		// get the analyzed data
+		getAnalyzedData();
+
+		// save the data to the file
+		saveDataToFile();
+
+		// we have finish processing the frame, advice by the callback
+		if(mCallback){
+			(*mCallback)(mAnalyzedData);
+		}
+
+#ifdef DEBUG
+		savePixelDetected();
+#endif
+
+	}
+	return NO_ERROR;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+errCode WaveHeightIPS::bufferingProcess(void)
+{
+	errCode result = NO_ERROR;
+	debugGREEN("Starting main loop\n");
 
 
+	pthread_create(&mThread, 0, bufferingThread, &mImageGenerator);
+
+
+	if(result != NO_ERROR){
+		debugRED("Error when trying to start the buffering system\n");
+		return result;
+	}
+
+	// start the process
+	Frame *frame = 0;
+	while(mRunning && (result == NO_ERROR)){
+		frame = mImageGenerator.getBufferedFrame();
+		if(!frame) break;
+
+		switch(mProcType){
+		case CPU_PROCESS:
+			result = mImgAnalyzer->processImageOnCPU(*frame, mTrack);
+			break;
+
+		case GPU_PROCESS:
+			result = mImgAnalyzer->processImageOnGPU(*frame, mTrack);
+			break;
+
+		default:
+			ASSERT(false);
+		}
+
+		// get the analyzed data
+		getAnalyzedData();
+
+		// save the data to the file
+		saveDataToFile();
+
+		// we have finish processing the frame, advice by the callback
+		if(mCallback){
+			(*mCallback)(mAnalyzedData);
+		}
+
+#ifdef DEBUG
+		savePixelDetected();
+#endif
+
+	}
+
+	mImageGenerator.stopBuffering();
+	pthread_join(mThread,0);
+
+	return result;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void *WaveHeightIPS::bufferingThread(void *imgGen)
+{
+	ASSERT(imgGen);
+	ImageGenerator *ig = static_cast<ImageGenerator *>(imgGen);
+
+	errCode result = ig->startBuffering();
+
+	return 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -192,7 +302,20 @@ WaveHeightIPS::~WaveHeightIPS()
 
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
+void WaveHeightIPS::configure(bool useBuffering, bool saveVideo)
+{
+	if(useBuffering){
+		mImageGenerator.configureBuffering();
+	} else {
+		debugRED("TODO: we have to reset the imageGenerator\n");
+	}
+	if(saveVideo){
+		mImageGenerator.setVideoOut();
+	} else {
+		debugRED("TODO: we have to reset the imageGenerator\n");
+	}
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 errCode WaveHeightIPS::initialize(void)
@@ -230,51 +353,22 @@ errCode WaveHeightIPS::execute(void)
 	}
 
 	mRunning = true;
-
-	errCode result = NO_ERROR;
-	Frame frame;
-	debug("Starting main loop\n");
-	while(mRunning && (result == NO_ERROR)){
-		result = mImageGenerator.captureFrame(frame);
-		if(result != NO_ERROR){
-			debug("Error while getting the frame\n");
-			break;
-		}
-		switch(mProcType){
-		case CPU_PROCESS:
-			result = mImgAnalyzer->processImageOnCPU(frame, mTrack);
-			break;
-
-		case GPU_PROCESS:
-			result = mImgAnalyzer->processImageOnGPU(frame, mTrack);
-			break;
-
-		default:
-			ASSERT(false);
-		}
-
-		// get the analyzed data
-		getAnalyzedData();
-
-		// save the data to the file
-		saveDataToFile();
-
-		// we have finish processing the frame, advice by the callback
-		if(mCallback){
-			(*mCallback)(mAnalyzedData);
-		}
-
-#ifdef DEBUG
-		savePixelDetected();
-#endif
-
+	errCode err = INTERNAL_ERROR;
+	if(mImageGenerator.isUsingBuffering()){
+		debugBLUE("Buffering process\n");
+		err = bufferingProcess();
+	} else {
+		debugBLUE("Normal process\n");
+		err = normalProcess();
 	}
+
+
 
 	// close the file
 	mOutFile.close();
 
 	mRunning = false;
-	return result;
+	return err;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -43,6 +43,7 @@ public:
 	 * @param	nf		The number of frames to use in the buffering
 	 */
 	void configureBuffering(int nf = 5);
+	bool isUsingBuffering(void) const;
 
 	/**
 	 * Configure the image generator to write the images into a video file
