@@ -39,6 +39,12 @@ void ImageGenerator::configureBuffering(int nf)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+bool ImageGenerator::isUsingBuffering(void) const
+{
+	return (mBuffer.size() != 0) || (mProcessedFrames.size() != 0);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 void ImageGenerator::setVideoOut(const std::string &fname, double fps)
 {
 	mOutVideo = fname;
@@ -251,28 +257,31 @@ errCode ImageGenerator::startBuffering(void)
 {
 	mBuffering = true;
 
-
 	if(mBuffer.size() <= 0){
 		debugRED("Error: No buffering mode was configured\n");
 		return INCOMPLETE_CONFIGURATION;
 	}
 
 	// try to open the video writer
-	cv::Size frameSize;
-	if(mFrameData.empty()){
-		Frame frame;
-		errCode r = captureFrame(frame);
-		if(r != NO_ERROR){
-			return r;
+	bool useWriter = false;
+	if(!mOutVideo.empty()){
+		cv::Size frameSize;
+		if(mFrameData.empty()){
+			Frame frame;
+			errCode r = captureFrame(frame);
+			if(r != NO_ERROR){
+				return r;
+			}
+			ASSERT(!frame.data.empty());
+			// get the frame size
+			frameSize = frame.data.size();
 		}
-		ASSERT(!frame.data.empty());
-		// get the frame size
-		frameSize = frame.data.size();
-	}
-	if(!mWriter.open(mOutVideo, CV_FOURCC('M','J','P','G'),
-			mOutFrameRate,frameSize)){
-		debugRED("We cannot open the file %s to write it\n", mOutVideo.c_str());
-		return INTERNAL_ERROR;
+		if(!mWriter.open(mOutVideo, CV_FOURCC('M','J','P','G'),
+				mOutFrameRate,frameSize)){
+			debugRED("We cannot open the file %s to write it\n", mOutVideo.c_str());
+			return INTERNAL_ERROR;
+		}
+		useWriter = true;
 	}
 
 
@@ -280,6 +289,12 @@ errCode ImageGenerator::startBuffering(void)
 	while(mBuffering){
 		// get new buffer
 		Frame *f = mBuffer.getFrame();
+		if(!f) {
+			// we have finish, unlock the thread that is waiting for, in a very
+			// ugly way
+			mProcessedFrames.addNewAvailable(0);
+			return CAPTURER_ERROR;
+		}
 		ASSERT(f);
 		err = captureFrame(*f);
 		if(err != NO_ERROR){
@@ -287,7 +302,7 @@ errCode ImageGenerator::startBuffering(void)
 			return err;
 		}
 		// save into the video file
-		mWriter.write(f->data);
+		if(useWriter) mWriter.write(f->data);
 
 		// put the frame into available frames
 		mProcessedFrames.addNewAvailable(f);
