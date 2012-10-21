@@ -27,6 +27,11 @@ public:
      */
     errCode setImageGenerator(ImageGenerator *);
 
+    /**
+     * Set the Device ID to be used
+     */
+    inline void setDeviceID(int di);
+
     /* Function used to load the configurations from a xml file
 	 * Returns:
 	 * 	errCode
@@ -72,6 +77,14 @@ private:
     FrameLabelDisplayer			mFrameDisplayer;
     int							mTimerId;
     Frame						mFrame;
+    int                         mDeviceID;
 };
+
+
+
+inline void CameraConfigWindow::setDeviceID(int di)
+{
+    mDeviceID = di;
+}
 
 #endif // CAMERACONFIGWINDOW_H

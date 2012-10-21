@@ -6,7 +6,8 @@ CameraConfigWindow::CameraConfigWindow(QWidget *parent)
     : ConfigWindow(parent, "CameraConfigWindow"),
       mImgGenerator(0),
       mFrameDisplayer(this),
-      mTimerId(-1)
+      mTimerId(-1),
+      mDeviceID(0)
 {
 	ui.setupUi(this);
 
@@ -95,7 +96,7 @@ void CameraConfigWindow::onqv4lClicked(void)
 	killTimer(mTimerId);
 	mImgGenerator->destroyDevice();
 	std::system(QV4L_COMMAND_PATH);
-	mImgGenerator->createDevice(0);
+	mImgGenerator->createDevice(mDeviceID);
 	mTimerId = startTimer(FRAME_TIME_UPDATE);
 }
 
