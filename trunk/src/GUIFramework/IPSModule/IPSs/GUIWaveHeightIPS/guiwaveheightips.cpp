@@ -219,6 +219,12 @@ void GUIWaveHeightIPS::addXmlSessionInfo(TiXmlElement *root)
 	input->SetAttribute("value", strInput.toAscii().data());
 	si->LinkEndChild(input);
 
+	// Input camera addr
+	TiXmlElement *inputCamAddr = new TiXmlElement("InputCamAddr");
+    QString strInputCamAddr = QString::number(ui.cameraOption->currentIndex());
+    inputCamAddr->SetAttribute("value", strInputCamAddr.toAscii().data());
+    si->LinkEndChild(inputCamAddr);
+
 	// Input Path
 	TiXmlElement *inputPath = new TiXmlElement("InputPath");
 	inputPath->SetAttribute("value", mInputPath.toAscii().data());
@@ -264,6 +270,7 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	const TiXmlElement *desc = root->FirstChildElement("Description");
 	const TiXmlElement *date = root->FirstChildElement("Date");
 	const TiXmlElement *input = root->FirstChildElement("InputType");
+	const TiXmlElement *inputCamAddr = root->FirstChildElement("InputCamAddr");
 	const TiXmlElement *inputPath = root->FirstChildElement("InputPath");
 	const TiXmlElement *autor = root->FirstChildElement("Autor");
 	const TiXmlElement *dataOut = root->FirstChildElement("OutFile");
@@ -281,6 +288,11 @@ errCode GUIWaveHeightIPS::fillGuiFromXml(const TiXmlElement *elem)
 	ui.comboBox->setCurrentIndex(QString(input->Attribute("value")).toInt(&ok));
 	ui.inputLabel->setText(inputPath->Attribute("value"));
 	mInputPath = inputPath->Attribute("value");
+
+	if (inputCamAddr != 0) {
+	    ui.cameraOption->setCurrentIndex(
+	            QString(inputCamAddr->Attribute("value")).toInt(&ok));
+	}
 
 	ui.autorText->setText(autor->Attribute("value"));
 	ui.outText->setText(dataOut->Attribute("value"));
@@ -324,6 +336,7 @@ void GUIWaveHeightIPS::enableOptions(bool enable)
 	ui.descriptionTextEdit->setEnabled(enable);
 	ui.dateTimeEdit->setEnabled(enable);
 	ui.comboBox->setEnabled(enable);
+	ui.cameraOption->setEnabled(enable);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -473,6 +486,7 @@ void GUIWaveHeightIPS::onStartClicked(void)
 	// 2) Get the xml associated an save it to the file.
 	// 3) Show and start the mConfigWinManager
 
+    bool isCamera = false;
 	if(mInputPath == "none"){
 		if(ui.comboBox->currentIndex() == 0){
 			// video file
@@ -484,7 +498,10 @@ void GUIWaveHeightIPS::onStartClicked(void)
 			mInputPath = filename;
 		} else {
 			// from webcam
-			mInputPath = "Camera0";
+		    std::stringstream ss;
+		    ss << "Camera" << ui.cameraOption->currentIndex();
+			mInputPath = ss.str().c_str();
+			isCamera = true;
 		}
 	}
 
@@ -494,10 +511,10 @@ void GUIWaveHeightIPS::onStartClicked(void)
 	ImageGenerator *ig = mWaveHeightIPS.getImageGenerator();
 	ig->destroyDevice();
 	bool isVideo = false;
-	if(mInputPath == "Camera0"){
-		if(!ig->createDevice(0)){
+	if(isCamera){
+		if(!ig->createDevice(ui.cameraOption->currentIndex())){
 			GUIUtils::showMessageBox("Error al crear el ImageGenerator en"
-					" el dispositivo 0");
+					" el dispositivo "+ mInputPath);
 			mInputPath = "none";
 			return;
 		}
