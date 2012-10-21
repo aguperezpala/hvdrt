@@ -189,6 +189,7 @@ void GUIWaveHeightIPS::configureCameraConfigWin(void) throw (WaveHeightException
 	if(err != NO_ERROR){
 		throw WaveHeightException(err, "Error al configurar la CameraConfigWindow");
 	}
+	mCameraConfWin.setDeviceID(ui.cameraOption->currentIndex());
 }
 
 ////////////////////////////////////////////////////////////////////////////////
